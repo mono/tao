@@ -431,6 +431,7 @@
     <target name="build.sdlexamples" depends="build.sdl" description="Builds SdlExamples.">
         <nant buildfile="${examples.projects.directory}/SdlExamples.Rectangles/SdlExamples.Rectangles.build" target="build" />
         <nant buildfile="${examples.projects.directory}/SdlExamples.GfxPrimitives/SdlExamples.GfxPrimitives.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/SdlExamples.SmpegPlayer/SdlExamples.SmpegPlayer.build" target="build" />
     </target>
 
     <!-- clean example targets -->
@@ -587,6 +588,7 @@
     <target name="clean.sdlexamples" description="Cleans SdlExamples.">
         <nant buildfile="${examples.projects.directory}/SdlExamples.Rectangles/SdlExamples.Rectangles.build" target="clean" />
         <nant buildfile="${examples.projects.directory}/SdlExamples.GfxPrimitives/SdlExamples.GfxPrimitives.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/SdlExamples.SmpegPlayer/SdlExamples.SmpegPlayer.build" target="clean" />
     </target>
 
     <target name="documentation" description="Creates documentation.">
