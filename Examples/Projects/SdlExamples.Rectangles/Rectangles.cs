@@ -159,6 +159,12 @@ namespace SdlExamples
 				Console.WriteLine(videoInfo.blit_hw_A);
 				Console.WriteLine(videoInfo.blit_fill);
 				Console.WriteLine(videoInfo.video_mem);
+				Console.WriteLine(pixelFormat.BitsPerPixel);
+				Console.WriteLine(pixelFormat.Rmask);
+				Console.WriteLine(pixelFormat.Gmask);
+				Console.WriteLine(pixelFormat.Bmask);
+				Console.WriteLine(pixelFormat.Amask);
+
 
 				while (quitFlag == false) 
 				{

@@ -8384,7 +8384,7 @@ namespace Tao.Sdl {
 		/// then swap
 		/// video buffers before the next video surface blit or lock will
 		///  return.
-		/// On hardware that doesn not support double-buffering, this is 
+		/// On hardware that does not support double-buffering, this is 
 		/// equivalent
 		/// to calling <see cref="SDL_UpdateRect"/>(screen, 0, 0, 0, 0)
 		/// <p>
