@@ -313,6 +313,15 @@ public class GlPostProcess {
                           CallingConvention.Winapi,
                           mi.ReturnType, methodSig);
 #else
+
+	    // We're too smart for our own good.  We don't tell win32 how to do stack
+	    // cleanup, so it leaves things littering the stack.  So, we can't do this.
+	    // GRRRrrr.
+#if true
+	    ilg.EmitCalli(OpCodes.Calli,
+			  CallingConvention.StdCall,
+			  mi.ReturnType, methodSig);
+#else
 	    // Win32?  Let the fun begin.
 	    if (win32SigField == null)
 	      win32SigField = typeof(SignatureHelper).GetField("m_signature", BindingFlags.Instance | BindingFlags.NonPublic);
@@ -329,6 +338,7 @@ public class GlPostProcess {
 	      sh.AddArgument(t);
 
             ilg.Emit(OpCodes.Calli, sh);
+#endif
 #endif
 
           }

@@ -309,6 +309,7 @@
         <nant buildfile="${examples.projects.directory}/GlfwExamples.KeyTest/GlfwExamples.KeyTest.build" target="build" />
         <nant buildfile="${examples.projects.directory}/GlfwExamples.ListModes/GlfwExamples.ListModes.build" target="build" />
         <nant buildfile="${examples.projects.directory}/GlfwExamples.Triangle/GlfwExamples.Triangle.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.Triangle2/GlfwExamples.Triangle2.build" target="build" />
     </target>
 
     <target name="build.naterobins" depends="build.glut" description="Builds NateRobins.">
