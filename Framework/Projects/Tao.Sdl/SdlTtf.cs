@@ -60,6 +60,20 @@ namespace Tao.Sdl {
     public sealed class SdlTtf {
 		// --- Fields ---
         #region Private Constants
+        #region string SDL_TTF_NATIVE_LIBRARY
+        /// <summary>
+        ///     Specifies SdlTtf's native library archive.
+        /// </summary>
+        /// <remarks>
+        ///     Specifies SDL_ttf.dll for Windows and libSDL_ttf.so for Linux.
+        /// </remarks>
+#if WIN32
+		private const string SDL_TTF_NATIVE_LIBRARY = "SDL_ttf.dll";
+#elif LINUX
+		private const string SDL_TTF_NATIVE_LIBRARY = "libSDL_ttf.so";
+#endif	
+        #endregion string SDL_TTF_NATIVE_LIBRARY
+
         #region CallingConvention CALLING_CONVENTION
         /// <summary>
         ///     Specifies the calling convention.
@@ -135,19 +149,10 @@ namespace Tao.Sdl {
         private SdlTtf() 
 		{
         }
-
-        /// <summary>
-		/// Static SdlTtf constructor. All the functionality of 
-		/// the SDLTtf library is available through this class 
-		/// and its properties.
-		/// Explicit static constructor tells the C# compiler
-		/// not to mark type as beforefieldinit.     
-        /// </summary>
-        static SdlTtf() 
-		{
-        }
         #endregion SdlTtf()
-
+		
+		// --- Public Externs ---
+		#region SdlTtf Methods
         /// <summary>
         /// Using this you can compare the runtime version to the 
         /// version that you compiled with. 
@@ -157,7 +162,7 @@ namespace Tao.Sdl {
         /// linked SDL_ttf library.
         /// </remarks>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr TTF_Linked_Version();
@@ -182,7 +187,7 @@ namespace Tao.Sdl {
         /// use the CPU's native endianess.
         /// </param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int TTF_ByteSwappedUNICODE(int swapped);
@@ -199,7 +204,7 @@ namespace Tao.Sdl {
         /// <returns>
         /// 0 on success, -1 on errors 
         /// </returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int TTF_Init();
@@ -222,7 +227,7 @@ namespace Tao.Sdl {
         /// <returns>
         /// a pointer to the font as a TTF_Font. NULL is returned on errors.
         /// </returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr TTF_OpenFont(string file, int ptsize);
@@ -252,7 +257,7 @@ namespace Tao.Sdl {
         /// <returns>
         /// a pointer to the font as a TTF_Font. NULL is returned on errors.
         /// </returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr TTF_OpenFontIndex(
@@ -286,7 +291,7 @@ namespace Tao.Sdl {
         /// <returns>
         /// a pointer to the font as a TTF_Font. NULL is returned on errors.
         /// </returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr TTF_OpenFontRW(
@@ -326,7 +331,7 @@ namespace Tao.Sdl {
         /// <returns>
         /// a pointer to the font as a TTF_Font. NULL is returned on errors.
         /// </returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr TTF_OpenFontIndexRW(
@@ -355,7 +360,7 @@ namespace Tao.Sdl {
         /// can cause a segfault, other combinations may also do this. 
         /// Some brave soul may find the cause of this and fix it... 
         /// </remarks>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void TTF_SetFontStyle(IntPtr font, int style);
@@ -378,7 +383,7 @@ namespace Tao.Sdl {
         /// TTF_STYLE_UNDERLINE
         /// If no style is set then TTF_STYLE_NORMAL is returned.
         /// </returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int TTF_GetFontStyle(IntPtr font);
@@ -402,7 +407,7 @@ namespace Tao.Sdl {
         /// <returns>
         /// The maximum pixel height of all glyphs in the font.
         /// </returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int TTF_FontHeight(IntPtr font);
@@ -430,7 +435,7 @@ namespace Tao.Sdl {
         /// <returns>
         /// The maximum pixel ascent of all glyphs in the font.
         /// </returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int TTF_FontAscent(IntPtr font);
@@ -459,7 +464,7 @@ namespace Tao.Sdl {
         /// <returns>
         /// The maximum pixel height of all glyphs in the font.
         /// </returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int TTF_FontDescent(IntPtr font);
@@ -480,7 +485,7 @@ namespace Tao.Sdl {
         /// <returns>
         /// The maximum pixel height of all glyphs in the font.
         /// </returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int TTF_FontLineSkip(IntPtr font);
@@ -490,7 +495,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="font"></param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern long TTF_FontFaces(IntPtr font);
@@ -500,7 +505,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="font"></param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int TTF_FontFaceIsFixedWidth(IntPtr font);
@@ -510,7 +515,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="font"></param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern string TTF_FontFaceFamilyName(IntPtr font);
@@ -520,7 +525,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="font"></param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern string TTF_FontFaceStyleName(IntPtr font);
@@ -536,7 +541,7 @@ namespace Tao.Sdl {
         /// <param name="maxy"></param>
         /// <param name="advance"></param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int TTF_GlyphMetrics(
@@ -556,7 +561,7 @@ namespace Tao.Sdl {
         /// <param name="w"></param>
         /// <param name="h"></param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int TTF_SizeText(
@@ -572,7 +577,7 @@ namespace Tao.Sdl {
         /// <param name="w"></param>
         /// <param name="h"></param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int TTF_SizeUTF8(
@@ -588,7 +593,7 @@ namespace Tao.Sdl {
         /// <param name="w"></param>
         /// <param name="h"></param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int TTF_SizeUNICODE(
@@ -659,7 +664,7 @@ namespace Tao.Sdl {
         ///		or Shaded. Use this when you want high quality,
         ///		 and the text isn't changing too fast.
         /// </remarks>
-        [DllImport("SDL_ttf.dll",
+        [DllImport(SDL_TTF_NATIVE_LIBRARY,
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr TTF_RenderText_Solid(
@@ -679,7 +684,7 @@ namespace Tao.Sdl {
         /// This function returns the new surface, 
         /// or NULL if there was an error.
         /// </returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr TTF_RenderUTF8_Solid(
@@ -700,7 +705,7 @@ namespace Tao.Sdl {
         /// This function returns the new surface, 
         /// or NULL if there was an error.
         /// </returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr TTF_RenderUNICODE_Solid(
@@ -724,7 +729,7 @@ namespace Tao.Sdl {
         /// <param name="ch"></param>
         /// <param name="fg"></param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr TTF_RenderGlyph_Solid(
@@ -746,7 +751,7 @@ namespace Tao.Sdl {
         /// <param name="fg"></param>
         /// <param name="bg"></param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr TTF_RenderText_Shaded(
@@ -767,7 +772,7 @@ namespace Tao.Sdl {
         /// <param name="fg"></param>
         /// <param name="bg"></param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr TTF_RenderUTF8_Shaded(
@@ -788,7 +793,7 @@ namespace Tao.Sdl {
         /// <param name="fg"></param>
         /// <param name="bg"></param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr TTF_RenderUNICODE_Shaded(
@@ -814,7 +819,7 @@ namespace Tao.Sdl {
         /// <param name="fg"></param>
         /// <param name="bg"></param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr TTF_RenderGlyph_Shaded(
@@ -833,7 +838,7 @@ namespace Tao.Sdl {
         /// <param name="text"></param>
         /// <param name="fg"></param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr TTF_RenderText_Blended(
@@ -851,7 +856,7 @@ namespace Tao.Sdl {
         /// <param name="text"></param>
         /// <param name="fg"></param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr TTF_RenderUTF8_Blended(
@@ -869,7 +874,7 @@ namespace Tao.Sdl {
         /// <param name="text"></param>
         /// <param name="fg"></param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr TTF_RenderUNICODE_Blended(
@@ -891,7 +896,7 @@ namespace Tao.Sdl {
         /// <param name="ch"></param>
         /// <param name="fg"></param>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr TTF_RenderGlyph_Blended(
@@ -909,7 +914,7 @@ namespace Tao.Sdl {
         /// <param name="font">
         /// Pointer to the TTF_Font to free.
         /// </param>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void TTF_CloseFont(IntPtr font);
@@ -923,7 +928,7 @@ namespace Tao.Sdl {
         /// excepting TTF_WasInit. You may, of course, 
         /// use TTF_Init to use the functionality again. 
         /// </remarks>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void TTF_Quit();
@@ -938,9 +943,10 @@ namespace Tao.Sdl {
         /// if you need to call TTF_Quit. 
         /// </remarks>
         /// <returns></returns>
-        [DllImport("SDL_ttf.dll", 
+        [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int TTF_WasInit();
+		#endregion SdlTtfMethods
     }
 }
