@@ -269,12 +269,12 @@ public class GlTypeMap {
               }
             } else {
               // an in array
-              param.nativetypes.Add("ref " + target);
-              param.nativetypes.Add(target + " []");
-              if (nonclstarget != null) {
-                param.nonclstypes.Add("ref " + nonclstarget);
-                param.nonclstypes.Add(nonclstarget + " []");
-              }
+	      param.nativetypes.Add("ref " + target);
+	      param.nativetypes.Add(target + " []");
+	      if (nonclstarget != null) {
+		param.nonclstypes.Add("ref " + nonclstarget);
+		param.nonclstypes.Add(nonclstarget + " []");
+	      }
             }
           } else {
             if (want_out == 1) {

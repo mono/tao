@@ -34,8 +34,8 @@
 #    AreTexturesResidentEXT BindTextureEXT DeleteTexturesEXT GenTexturesEXT IsTextureEXT
 
 #
-# $Date: 2004/08/24 17:22:27 $ $Revision: 1.1 $
-# $Header: /home/miguel/third-conversion/public/tao/Framework/Projects/Tao.OpenGl/gen/gl.spec,v 1.1 2004/08/24 17:22:27 vlad Exp $
+# $Date: 2004/09/07 07:27:56 $ $Revision: 1.2 $
+# $Header: /home/miguel/third-conversion/public/tao/Framework/Projects/Tao.OpenGl/gen/gl.spec,v 1.2 2004/09/07 07:27:56 vlad Exp $
 #
 
 required-props:
@@ -14624,7 +14624,7 @@ LoadProgramNV(target, id, len, program)
 	param		target		VertexAttribEnumNV in value
 	param		id		UInt32 in value
 	param		len		SizeI in value
-	param		program		UInt8 in array [len]
+	param		program		String in value
 	category	NV_vertex_program
 	version		1.2
 	extension	soft WINSOFT NV10
@@ -17665,7 +17665,7 @@ ProgramNamedParameter4fNV(id, len, name, x, y, z, w)
 	return		void
 	param		id		UInt32 in value
 	param		len		SizeI in value
-	param		name		UInt8 in array [1]
+	param		name		String in value
 	param		x		Float32 in value
 	param		y		Float32 in value
 	param		z		Float32 in value
@@ -17682,7 +17682,7 @@ ProgramNamedParameter4dNV(id, len, name, x, y, z, w)
 	return		void
 	param		id		UInt32 in value
 	param		len		SizeI in value
-	param		name		UInt8 in array [1]
+	param		name		String in value
 	param		x		Float64 in value
 	param		y		Float64 in value
 	param		z		Float64 in value
@@ -17699,7 +17699,7 @@ ProgramNamedParameter4fvNV(id, len, name, v)
 	return		void
 	param		id		UInt32 in value
 	param		len		SizeI in value
-	param		name		UInt8 in array [1]
+	param		name		String in value
 	param		v		Float32 in array [4]
 	category	NV_fragment_program
 	version		1.2
@@ -17713,7 +17713,7 @@ ProgramNamedParameter4dvNV(id, len, name, v)
 	return		void
 	param		id		UInt32 in value
 	param		len		SizeI in value
-	param		name		UInt8 in array [1]
+	param		name		String in value
 	param		v		Float64 in array [4]
 	category	NV_fragment_program
 	version		1.2
@@ -17727,7 +17727,7 @@ GetProgramNamedParameterfvNV(id, len, name, params)
 	return		void
 	param		id		UInt32 in value
 	param		len		SizeI in value
-	param		name		UInt8 in array [1]
+	param		name		String in value
 	param		params		Float32 out array [4]
 	category	NV_fragment_program
 	dlflags		notlistable
@@ -17743,7 +17743,7 @@ GetProgramNamedParameterdvNV(id, len, name, params)
 	return		void
 	param		id		UInt32 in value
 	param		len		SizeI in value
-	param		name		UInt8 in array [1]
+	param		name		String in value
 	param		params		Float64 out array [4]
 	category	NV_fragment_program
 	dlflags		notlistable

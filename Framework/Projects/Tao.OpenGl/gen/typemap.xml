@@ -128,9 +128,10 @@
   <typealias name="Int8" mapto="GLbyte" />
 
   <!-- GLubyte -->
+  <!-- Fixme! This should be some kind of string type, it's used as an out -->
+  <typealias name="ProgramCharacterNV" mapto="GLubyte" />
   <typealias name="ColorIndexValueUB" mapto="GLubyte" />
   <typealias name="ColorUB" mapto="GLubyte" />
-  <typealias name="ProgramCharacterNV" mapto="GLubyte" />
   <typealias name="UInt8" mapto="GLubyte" />
 
   <!-- GLdouble -->

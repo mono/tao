@@ -1,0 +1,7 @@
+gl.spec:
+	LoadProgramNV
+		program -> charPointerARB
+	ProgramNamedParameter4[fd][v]NV
+		name -> charPointerARB
+	GetProgramNamedParameter*
+		name -> charPointerARB
