@@ -859,6 +859,8 @@ namespace Tao.Sdl {
         /// Get individual font glyph metrics 
         /// </summary>
         /// <remarks>
+		/// To understand what these metrics mean, here is a useful link:
+		/// http://freetype.sourceforge.net/freetype2/docs/tutorial/step2.html
 		/// <p>Binds to C-function in SDL_ttf.h
 		///  <code>
 		///  int TTF_GlyphMetrics(TTF_Font *font, Uint16 ch, int *minx, int *maxx, int *miny, int *maxy, int *advance)
