@@ -6,6 +6,7 @@
             <sources failonempty="true">
                 <include name="${framework.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
                 <include name="${framework.projects.directory}/${nant.project.name}/Cg.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/CgGl.cs" />
             </sources>
         </csc>
         <copy file="${framework.solutions.directory}/${nant.project.name}/Solution Items/${nant.project.name}.License.txt" todir="${framework.build.directory}" />
