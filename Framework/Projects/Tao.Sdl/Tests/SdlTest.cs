@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using NUnit.Framework;
 using Tao.Sdl;
+using System.Runtime.InteropServices;
 
 namespace Tao.Sdl
 {
@@ -335,7 +336,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
-		public void SDL_HasMMX()
+		public void HasMMX()
 		{
 
 			Sdl.SDL_Quit();
@@ -347,7 +348,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
-		public void SDL_HasMMXExt()
+		public void HasMMXExt()
 		{
 
 			Sdl.SDL_Quit();
@@ -359,7 +360,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
-		public void SDL_Has3DNow()
+		public void Has3DNow()
 		{
 
 			Sdl.SDL_Quit();
@@ -371,7 +372,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
-		public void SDL_HasAltiVec()
+		public void HasAltiVec()
 		{
 
 			Sdl.SDL_Quit();
@@ -383,7 +384,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
-		public void SDL_HasRDTSC()
+		public void HasRDTSC()
 		{
 
 			Sdl.SDL_Quit();
@@ -395,7 +396,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
-		public void SDL_HasSSE()
+		public void HasSSE()
 		{
 
 			Sdl.SDL_Quit();
@@ -407,7 +408,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
-		public void SDL_HasSSE2()
+		public void HasSSE2()
 		{
 
 			Sdl.SDL_Quit();
@@ -556,7 +557,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
-		public void SdlLinkedVersion()
+		public void LinkedVersion()
 		{
 			Sdl.SDL_version version = Sdl.SDL_Linked_Version();
 			Assert.AreEqual(version.major.ToString() 
@@ -568,7 +569,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
-		public void SdlCompiledVersion()
+		public void CompiledVersion()
 		{
 			Assert.AreEqual(Sdl.SDL_COMPILEDVERSION, 1207);
 		}
@@ -577,7 +578,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
-		public void SdlVersionAtLeast127()
+		public void VersionAtLeast127()
 		{
 			Assert.IsTrue(Sdl.SDL_VERSION_ATLEAST(1,2,7));
 		}
@@ -586,7 +587,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
-		public void SdlVersionAtLeast128()
+		public void VersionAtLeast128()
 		{
 			Assert.IsFalse(Sdl.SDL_VERSION_ATLEAST(1,2,8));
 		}
