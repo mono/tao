@@ -32,7 +32,7 @@ using System.Security;
 namespace Tao.DevIl {
     #region Class Documentation
     /// <summary>
-    ///     Core DevIL library binding for .NET.
+    ///     DevIL IL binding for .NET.
     /// </summary>
     #endregion Class Documentation
     public sealed class Il {
@@ -43,8 +43,7 @@ namespace Tao.DevIl {
         ///     Specifies the calling convention.
         /// </summary>
         /// <remarks>
-        ///     Specifies <see cref="CallingConvention.Winapi" /> for Windows and
-        ///     Linux, to indicate the usage of the default platform convention.
+        ///     Specifies <see cref="CallingConvention.Winapi" />.
         /// </remarks>
         private const CallingConvention CALLING_CONVENTION = CallingConvention.Winapi;
         #endregion CallingConvention CALLING_CONVENTION
@@ -222,20 +221,20 @@ namespace Tao.DevIl {
         #endregion  Core constants
 
         #region  IL-specific #define's
-        #region IL_VERSION_1_6_1
+        #region IL_VERSION_1_6_7
         /// <summary>
         /// 
         /// </summary>
-        // #define IL_VERSION_1_6_1 = 1
-        public const int IL_VERSION_1_6_1 = 1;
-        #endregion IL_VERSION_1_6_1
+        // #define IL_VERSION_1_6_7 = 1
+        public const int IL_VERSION_1_6_7 = 1;
+        #endregion IL_VERSION_1_6_7
 
         #region IL_VERSION
         /// <summary>
         /// 
         /// </summary>
-        // #define IL_VERSION = 161
-        public const int IL_VERSION = 161;
+        // #define IL_VERSION = 167
+        public const int IL_VERSION = 167;
         #endregion IL_VERSION
         #endregion  IL-specific #define's
 
@@ -1029,6 +1028,14 @@ namespace Tao.DevIl {
         // #define IL_NEU_QUANT_SAMPLE = 0x0643
         public const int IL_NEU_QUANT_SAMPLE = 0x0643;
         #endregion IL_NEU_QUANT_SAMPLE
+
+        #region IL_MAX_QUANT_INDEXS
+        /// <summary>
+        /// 
+        /// </summary>
+        // #define IL_MAX_QUANT_INDEXS 0x0644
+        public const int IL_MAX_QUANT_INDEX = 0x0644;
+        #endregion IL_MAX_QUANT_INDEXS
         #endregion  Quantization definitions
 
         #region  Hints
@@ -1309,6 +1316,14 @@ namespace Tao.DevIl {
         // #define IL_PCD_PICNUM = 0x0723
         public const int IL_PCD_PICNUM = 0x0723;
         #endregion IL_PCD_PICNUM
+
+        #region IL_PNG_ALPHA_INDEX
+        /// <summary>
+        /// 
+        /// </summary>
+        // #define IL_PNG_ALPHA_INDEX 0x0724
+        public const int IL_PNG_ALPHA_INDEX = 0x0724;
+        #endregion IL_PNG_ALPHA_INDEX
         #endregion  File format-specific values
 
         #region  DXTC definitions
@@ -1660,6 +1675,16 @@ namespace Tao.DevIl {
         public const int IL_IMAGE_CUBEFLAGS = 0x0DFD;
         #endregion IL_IMAGE_CUBEFLAGS
 
+        #region IL_IMAGE_ORIGIN
+        /// <summary>
+        /// 
+        /// </summary>
+        // #define IL_IMAGE_ORIGIN 0x0DFE
+        public const int IL_IMAGE_ORIGIN = 0x0DFE;
+        #endregion IL_IMAGE_ORIGIN
+        #endregion  Values
+
+        #region Position
         #region IL_SEEK_SET
         /// <summary>
         /// 
@@ -1691,27 +1716,34 @@ namespace Tao.DevIl {
         // #define IL_EOF = -1
         public const int IL_EOF = -1;
         #endregion IL_EOF
-        #endregion  Values
+        #endregion Position
         #endregion Public Constants
 
         // --- Externs ---
         #region Externs
-        #region ilGetIntegerv(int Mode, ref int Param);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Mode"></param>
-        /// <param name="Param"></param>
-        // ILAPI ILvoid ILAPIENTRY ilGetIntegerv(ILenum Mode, ILint* Param);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-        public static extern void ilGetIntegerv(int Mode, ref int Param);
-        #endregion ilGetIntegerv(int Mode, ref int Param);
-
         #region bool ilActiveImage(int Number);
         /// <summary>
-        ///
+        ///     Sets the current image in an animation chain.
         /// </summary>
-        /// <param name="Number"></param>
+        /// <param name="Number">
+        ///     Animation number to select as current.
+        /// </param>
+        /// <remarks>
+        ///     <para>
+        ///         <b>ERRORS</b>
+        ///     </para>
+        ///     <para>
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
+        ///         and <see cref="ilBindImage" /> before calling this function.  Number could have also been too high.
+        ///     </para>
+        ///     <para>
+        ///         <see cref="IL_INTERNAL_ERROR " /> is set if there's an internal DevIL error.
+        ///     </para>
+        /// </remarks>
+        /// <seealso cref="ilGenImages" />
+        /// <seealso cref="ilBindImage" />
+        /// <seealso cref="ilActiveMipmap" />
+        /// <seealso cref="ilActiveLayer" />
         // ILAPI ILboolean ILAPIENTRY ilActiveImage(ILuint Number);
         [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern bool ilActiveImage(int Number);
@@ -1719,9 +1751,30 @@ namespace Tao.DevIl {
 
         #region bool ilActiveLayer(int Number);
         /// <summary>
-        ///
+        ///     Sets the current image layer.
         /// </summary>
-        /// <param name="Number"></param>
+        /// <param name="Number">
+        ///     Layer number to select as current.
+        /// </param>
+        /// <remarks>
+        ///     <para>
+        ///         <b>ilActiveLayer</b> is not yet used.
+        ///     </para>
+        ///     <para>
+        ///         <b>ERRORS</b>
+        ///     </para>
+        ///     <para>
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
+        ///         and <see cref="ilBindImage" /> before calling this function.  Number could have also been too high.
+        ///     </para>
+        ///     <para>
+        ///         <see cref="IL_INTERNAL_ERROR " /> is set if there's an internal DevIL error.
+        ///     </para>
+        /// </remarks>
+        /// <seealso cref="ilGenImages" />
+        /// <seealso cref="ilBindImage" />
+        /// <seealso cref="ilActiveImage" />
+        /// <seealso cref="ilActiveMipmap" />
         // ILAPI ILboolean ILAPIENTRY ilActiveLayer(ILuint Number);
         [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern bool ilActiveLayer(int Number);
@@ -1729,9 +1782,33 @@ namespace Tao.DevIl {
 
         #region bool ilActiveMipmap(int Number);
         /// <summary>
-        ///
+        ///     Sets the active mipmap level.
         /// </summary>
-        /// <param name="Number"></param>
+        /// <param name="Number">
+        ///     Mipmap level to select as current.
+        /// </param>
+        /// <remarks>
+        ///     <para>
+        ///         Currently, the only way to generate mipmaps is by calling <see cref="Ilu.iluBuildMipmaps" />. If neither
+        ///         function has been called for the current image, no mipmaps exist for it. If <paramref name="Number" /> is 0,
+        ///         then the current base image is set.
+        ///     </para>
+        ///     <para>
+        ///         <b>ERRORS</b>
+        ///     </para>
+        ///     <para>
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
+        ///         and <see cref="ilBindImage" /> before calling this function.  Number could have also been too high.
+        ///     </para>
+        ///     <para>
+        ///         <see cref="IL_INTERNAL_ERROR " /> is set if there's an internal DevIL error.
+        ///     </para>
+        /// </remarks>
+        /// <seealso cref="ilGenImages" />
+        /// <seealso cref="ilBindImage" />
+        /// <seealso cref="ilActiveImage" />
+        /// <seealso cref="ilActiveLayer" />
+        /// <seealso cref="Ilu.iluBuildMipmaps" />
         // ILAPI ILboolean ILAPIENTRY ilActiveMipmap(ILuint Number);
         [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern bool ilActiveMipmap(int Number);
@@ -1749,10 +1826,38 @@ namespace Tao.DevIl {
 
         #region bool ilApplyProfile(string InProfile, string OutProfile);
         /// <summary>
-        ///
+        ///     Applies a color profile to the currently bound image.
         /// </summary>
-        /// <param name="InProfile"></param>
-        /// <param name="OutProfile"></param>
+        /// <param name="InProfile">
+        ///     Profile file describing the color space the image is in.
+        /// </param>
+        /// <param name="OutProfile">
+        ///     Profile file describing the color space to convert the image to.
+        /// </param>
+        /// <remarks>
+        ///     <para>
+        ///         Applies a color profile (files with extension .icm) to the currently bound image. <paramref name="InProfile" />
+        ///         describes the current image's color space, and <paramref name="OutProfile" /> describes the color space to
+        ///         convert the currently bound image to. If <paramref name="InProfile" /> is <c>null</c>, DevIL attempts to use
+        ///         the color profile present in the image, if one is present, else it returns <see cref="IL_FALSE" />.
+        ///     </para>
+        ///     <para>
+        ///         <b>ERRORS</b>
+        ///     </para>
+        ///     <para>
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
+        ///         and <see cref="ilBindImage" /> before calling this function.  Number could have also been too high.
+        ///     </para>
+        ///     <para>
+        ///         <see cref="IL_OUT_OF_MEMORY" /> is set if DevIL could not allocate memory for the new image data.
+        ///     </para>
+        ///     <para>
+        ///         <see cref="IL_INVALID_PARAM" /> is set if <paramref name="InProfile" /> and/or <paramref name="OutProfile" />
+        ///         was <c>null</c>.
+        ///     </para>
+        /// </remarks>
+        /// <seealso cref="ilGenImages" />
+        /// <seealso cref="ilBindImage" />
         // ILAPI ILboolean ILAPIENTRY ilApplyProfile(ILstring InProfile, ILstring OutProfile);
         [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern bool ilApplyProfile(string InProfile, string OutProfile);
@@ -1760,9 +1865,32 @@ namespace Tao.DevIl {
 
         #region ilBindImage(int Image);
         /// <summary>
-        ///
+        ///     Selects the current image.
         /// </summary>
-        /// <param name="Image"></param>
+        /// <param name="Image">
+        ///     The name of an image.
+        /// </param>
+        /// <remarks>
+        ///     <para>
+        ///         Creates a named image. Image names are <see cref="int" />'s, with zero being reserved as the default image.
+        ///         The default image is generated by <see cref="ilDefaultImage" />. The only reason the default image would be
+        ///         <c>null</c> is if OpenIL could not create the default image, due to memory constraints of the system, so
+        ///         always heed the <see cref="IL_OUT_OF_MEMORY" /> error. Any dimension image may be bound with <b>ilBindImage</b>.
+        ///         When <b>ilBindImage</b> is called, the bound image remains bound until <b>ilBindImage</b> is called again with
+        ///         a different value in <paramref name="Image" />.
+        ///     </para>
+        ///     <para>
+        ///         <b>ERRORS</b>
+        ///     </para>
+        ///     <para>
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if <see cref="ilGenImages" /> was never called beforehand,
+        ///         <paramref name="Image" /> is out of bounds or the image name has been deleted via <see cref="ilDeleteImages" />.
+        ///     </para>
+        /// </remarks>
+        /// <seealso cref="ilGenImages" />
+        /// <seealso cref="ilDeleteImages" />
+        /// <seealso cref="ilDefaultImage" />
+        /// <seealso cref="ilGetError" />
         // ILAPI ILvoid ILAPIENTRY ilBindImage(ILuint Image);
         [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void ilBindImage(int Image);
@@ -1789,21 +1917,81 @@ namespace Tao.DevIl {
 
         #region ilClearColour(float Red, float Green, float Blue, float Alpha);
         /// <summary>
-        ///
+        ///     Sets the current clearing color.
         /// </summary>
-        /// <param name="Red"></param>
-        /// <param name="Green"></param>
-        /// <param name="Blue"></param>
-        /// <param name="Alpha"></param>
+        /// <param name="Red">
+        ///     Amount of red to clear to.
+        /// </param>
+        /// <param name="Green">
+        ///     Amount of green to clear to.
+        /// </param>
+        /// <param name="Blue">
+        ///     Amount of blue to clear to.
+        /// </param>
+        /// <param name="Alpha">
+        ///     Amount of alpha to clear to.
+        /// </param>
+        /// <remarks>
+        ///     Sets the current clearing color to be used by future calls to <see cref="ilClearImage" />. <see cref="Ilu.iluRotate" />
+        ///     and <see cref="Ilu.iluEnlargeCanvas" /> both use these values to clear blank space in images, too.
+        /// </remarks>
+        /// <seealso cref="ilClearImage" />
+        /// <seealso cref="Ilu.iluRotate" />
+        /// <seealso cref="Ilu.iluEnlargeCanvas" />
         // ILAPI ILvoid ILAPIENTRY ilClearColour(ILclampf Red, ILclampf Green, ILclampf Blue, ILclampf Alpha);
         [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void ilClearColour(float Red, float Green, float Blue, float Alpha);
         #endregion ilClearColour(float Red, float Green, float Blue, float Alpha);
 
+        #region ilClearColor(float Red, float Green, float Blue, float Alpha);
+        /// <summary>
+        ///     Sets the current clearing color.
+        /// </summary>
+        /// <param name="Red">
+        ///     Amount of red to clear to.
+        /// </param>
+        /// <param name="Green">
+        ///     Amount of green to clear to.
+        /// </param>
+        /// <param name="Blue">
+        ///     Amount of blue to clear to.
+        /// </param>
+        /// <param name="Alpha">
+        ///     Amount of alpha to clear to.
+        /// </param>
+        /// <remarks>
+        ///     Sets the current clearing color to be used by future calls to <see cref="ilClearImage" />. <see cref="Ilu.iluRotate" />
+        ///     and <see cref="Ilu.iluEnlargeCanvas" /> both use these values to clear blank space in images, too.
+        /// </remarks>
+        /// <seealso cref="ilClearImage" />
+        /// <seealso cref="Ilu.iluRotate" />
+        /// <seealso cref="Ilu.iluEnlargeCanvas" />
+        // ILAPI ILvoid ILAPIENTRY ilClearColour(ILclampf Red, ILclampf Green, ILclampf Blue, ILclampf Alpha);
+        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="ilClearColour"), SuppressUnmanagedCodeSecurity]
+        public static extern void ilClearColor(float Red, float Green, float Blue, float Alpha);
+        #endregion ilClearColor(float Red, float Green, float Blue, float Alpha);
+
         #region bool ilClearImage();
         /// <summary>
-        ///
+        ///     Clears the current image.
         /// </summary>
+        /// <remarks>
+        ///     <para>
+        ///         Simply clears the image to the colors specified in <see cref="ilClearColour" />. If the current image is of format
+        ///         <see cref="IL_COLOR_INDEX" />, the image is cleared to all zeros, and the palette is changed to one entry of all
+        ///         zeros. If the current image is of format <see cref="IL_LUMINANCE" />, the image is cleared to all zeros.
+        ///     </para>
+        ///     <para>
+        ///         <b>ERRORS</b>
+        ///     </para>
+        ///     <para>
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
+        ///         and <see cref="ilBindImage" /> before calling this function.
+        ///     </para>
+        /// </remarks>
+        /// <seealso cref="ilGenImages" />
+        /// <seealso cref="ilBindImage" />
+        /// <seealso cref="ilClearColor" />
         // ILAPI ILboolean ILAPIENTRY ilClearImage(ILvoid);
         [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern bool ilClearImage();
@@ -1811,8 +1999,28 @@ namespace Tao.DevIl {
 
         #region int ilCloneCurImage();
         /// <summary>
-        ///
+        ///     Creates a copy of the current image.
         /// </summary>
+        /// <remarks>
+        ///     <para>
+        ///         Creates a copy of the current image and returns the id of the new image. If a subimage of the current image is
+        ///         currently selected via <see cref="ilActiveImage" />, <see cref="ilActiveLayer" /> or <see cref="ilActiveMipmap" />,
+        ///         the subimage is copied, not the base image.
+        ///     </para>
+        ///     <para>
+        ///         <b>ERRORS</b>
+        ///     </para>
+        ///     <para>
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
+        ///         and <see cref="ilBindImage" /> before calling this function.
+        ///     </para>
+        /// </remarks>
+        /// <seealso cref="ilGenImages" />
+        /// <seealso cref="ilBindImage" />
+        /// <seealso cref="ilCopyImage" />
+        /// <seealso cref="ilActiveImage" />
+        /// <seealso cref="ilActiveLayer" />
+        /// <seealso cref="ilActiveMipmap" />
         // ILAPI ILuint ILAPIENTRY ilCloneCurImage(ILvoid);
         [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int ilCloneCurImage();
@@ -1830,14 +2038,64 @@ namespace Tao.DevIl {
 
         #region bool ilConvertImage(int DestFormat, int DestType);
         /// <summary>
-        ///
+        ///     Converts an image from one format to another.
         /// </summary>
-        /// <param name="DestFormat"></param>
-        /// <param name="DestType"></param>
+        /// <param name="DestFormat">
+        ///     The format the current image should be converted to. Values accepted for <paramref name="DestFormat" /> include
+        ///     <see cref="IL_RGB" />, <see cref="IL_RGBA" />, <see cref="IL_BGR" />, <see cref="IL_BGRA" />, <see cref="IL_LUMINANCE" />,
+        ///     and <see cref="IL_COLOUR_INDEX" />.
+        /// </param>
+        /// <param name="DestType">
+        ///     The type the current image should be converted to. Values accepted for <paramref name="DestType" /> include
+        ///     <see cref="IL_BYTE" />, <see cref="IL_UNSIGNED_BYTE" />, <see cref="IL_SHORT" />, <see cref="IL_UNSIGNED_SHORT" />,
+        ///     <see cref="IL_INT" />, <see cref="IL_UNSIGNED_INT" />, <see cref="IL_FLOAT" />, and <see cref="IL_DOUBLE" />.
+        /// </param>
+        /// <remarks>
+        ///     <para>
+        ///         Converts the current bound image from its format/type to <paramref name="DestFormat" /> and
+        ///         <paramref name="DestType" />. Almost all conversions are allowable.
+        ///     </para>
+        ///     <para>
+        ///         <b>ERRORS</b>
+        ///     </para>
+        ///     <para>
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
+        ///         and <see cref="ilBindImage" /> before calling this function.
+        ///     </para>
+        ///     <para>
+        ///         <see cref="IL_INVALID_CONVERSION" /> is set if <paramref name="DestFormat" /> and/or <paramref name="DestType" />
+        ///         was an invalid identifier.
+        ///     </para>
+        ///     <para>
+        ///         <see cref="IL_OUT_OF_MEMORY" /> is set if DevIL could not allocate memory for the converted image data.
+        ///     </para>
+        /// </remarks>
+        /// <seealso cref="ilGenImages" />
+        /// <seealso cref="ilBindImage" />
+        /// <seealso cref="ilGetBoolean" />
+        /// <seealso cref="ilGetBooleanv" />
+        /// <seealso cref="ilGetInteger" />
+        /// <seealso cref="ilGetIntegerv" />
+        /// <seealso cref="ilConvertPal" />
         // ILAPI ILboolean ILAPIENTRY ilConvertImage(ILenum DestFormat, ILenum DestType);
         [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern bool ilConvertImage(int DestFormat, int DestType);
         #endregion bool ilConvertImage(int DestFormat, int DestType);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         #region bool ilConvertPal(int DestFormat);
         /// <summary>
@@ -1978,6 +2236,17 @@ namespace Tao.DevIl {
         public static extern void ilGenImages(int Num, out int Images);
         #endregion ilGenImages(int Num, out int Images);
 
+        #region ilGenImages(int Num, [Out] int[] Images);
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="Num"></param>
+        /// <param name="Images"></param>
+        // ILAPI ILvoid ILAPIENTRY ilGenImages(ILsizei Num, ILuint* Images);
+        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void ilGenImages(int Num, [Out] int[] Images);
+        #endregion ilGenImages(int Num, [Out] int[] Images);
+
         #region IntPtr ilGetAlpha(int Type);
         /// <summary>
         ///
@@ -1998,7 +2267,7 @@ namespace Tao.DevIl {
         public static extern bool ilGetBoolean(int Mode);
         #endregion bool ilGetBoolean(int Mode);
 
-        #region ilGetBooleanv(int Mode, out bool[] Param);
+        #region ilGetBooleanv(int Mode, out bool Param);
         /// <summary>
         ///
         /// </summary>
@@ -2006,8 +2275,19 @@ namespace Tao.DevIl {
         /// <param name="Param"></param>
         // ILAPI ILvoid ILAPIENTRY ilGetBooleanv(ILenum Mode, ILboolean* Param);
         [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-        public static extern void ilGetBooleanv(int Mode, out bool[] Param);
-        #endregion ilGetBooleanv(int Mode, out bool[] Param);
+        public static extern void ilGetBooleanv(int Mode, out bool Param);
+        #endregion ilGetBooleanv(int Mode, out bool Param);
+
+        #region ilGetBooleanv(int Mode, [Out] bool[] Param);
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="Mode"></param>
+        /// <param name="Param"></param>
+        // ILAPI ILvoid ILAPIENTRY ilGetBooleanv(ILenum Mode, ILboolean* Param);
+        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void ilGetBooleanv(int Mode, [Out] bool[] Param);
+        #endregion ilGetBooleanv(int Mode, [Out] bool[] Param);
 
         #region IntPtr ilGetData();
         /// <summary>
@@ -2060,6 +2340,28 @@ namespace Tao.DevIl {
         [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int ilGetInteger(int Mode);
         #endregion int ilGetInteger(int Mode);
+
+        #region ilGetIntegerv(int Mode, out int Param);
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="Mode"></param>
+        /// <param name="Param"></param>
+        // ILAPI ILvoid ILAPIENTRY ilGetIntegerv(ILenum Mode, ILint* Param);
+        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void ilGetIntegerv(int Mode, out int Param);
+        #endregion ilGetIntegerv(int Mode, out int Param);
+
+        #region ilGetIntegerv(int Mode, [Out] int Param);
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="Mode"></param>
+        /// <param name="Param"></param>
+        // ILAPI ILvoid ILAPIENTRY ilGetIntegerv(ILenum Mode, ILint* Param);
+        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void ilGetIntegerv(int Mode, [Out] int Param);
+        #endregion ilGetIntegerv(int Mode, [Out] int Param);
 
         #region int ilGetLumpPos();
         /// <summary>
@@ -2162,6 +2464,18 @@ namespace Tao.DevIl {
         public static extern bool ilIsValidL(int Type, IntPtr Lump, int Size);
         #endregion bool ilIsValidL(int Type, IntPtr Lump, int Size);
 
+        #region bool ilIsValidL(int Type, byte[] Lump, int Size);
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Lump"></param>
+        /// <param name="Size"></param>
+        // ILAPI ILboolean ILAPIENTRY ilIsValidL(ILenum Type, ILvoid* Lump, ILuint Size);
+        [DllImport("devil.dll", CallingConvention = CALLING_CONVENTION, ExactSpelling = true), SuppressUnmanagedCodeSecurity]
+        public static extern bool ilIsValidL(int Type, byte[] Lump, int Size);
+        #endregion bool ilIsValidL(int Type, byte[] Lump, int Size);
+
         #region ilKeyColour(float Red, float Green, float Blue, float Alpha);
         /// <summary>
         ///
@@ -2185,6 +2499,17 @@ namespace Tao.DevIl {
         [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern bool ilLoad(int Type, string FileName);
         #endregion bool ilLoad(int Type, string FileName);
+
+        #region bool ilLoadF(int Type, string FileName);
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="FileName"></param>
+        // ILAPI ILboolean ILAPIENTRY ilLoad(ILenum Type, ILstring FileName);
+        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern bool ilLoadF(int Type, string FileName);
+        #endregion bool ilLoadF(int Type, string FileName);
 
         #region bool ilLoadImage(string FileName);
         /// <summary>
@@ -2229,6 +2554,15 @@ namespace Tao.DevIl {
         [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern bool ilLoadPal(string FileName);
         #endregion bool ilLoadPal(string FileName);
+
+        #region ilModAlpha(int AlphaValue)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="AlphaValue"></param>
+        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void ilModAlpha(int AlphaValue);
+        #endregion ilModAlpha(int AlphaValue)
 
         #region bool ilOriginFunc(int Mode);
         /// <summary>
@@ -2281,6 +2615,25 @@ namespace Tao.DevIl {
         [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void ilRegisterFormat(int Format);
         #endregion ilRegisterFormat(int Format);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         #region bool ilRegisterMipNum(int Num);
         /// <summary>
@@ -2423,6 +2776,15 @@ namespace Tao.DevIl {
         [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern bool ilSavePal(string FileName);
         #endregion bool ilSavePal(string FileName);
+
+        #region ilSetAlpha(int AlphaValue)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="AlphaValue"></param>
+        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void ilSetAlpha(int AlphaValue);
+        #endregion ilSetAlpha(int AlphaValue)
 
         #region bool ilSetData(IntPtr Data);
         /// <summary>

@@ -2,7 +2,7 @@
 <project name="Tao.DevIl">
     <target name="build">
         <echo message="Build Directory is ${framework.build.directory}" />
-        <csc target="library" warnaserror="false" unsafe="true" debug="${build.debug}" optimize="${build.optimize}" output="${framework.build.directory}/${nant.project.name}.dll" define="${build.debug.define};${build.platform.define};${build.strong.define}" doc="${framework.build.directory}/${nant.project.name}.xml">
+        <csc target="library" warnaserror="false" unsafe="true" debug="${build.debug}" optimize="${build.optimize}" output="${framework.build.directory}/${nant.project.name}.dll" define="${build.debug.define};${build.strong.define}" doc="${framework.build.directory}/${nant.project.name}.xml">
             <sources failonempty="true">
                 <include name="${framework.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
                 <include name="${framework.projects.directory}/${nant.project.name}/Il.cs" />

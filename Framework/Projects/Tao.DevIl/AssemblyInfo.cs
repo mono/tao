@@ -42,13 +42,9 @@ using System.Security.Permissions;
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.DevIl")]
 [assembly: AssemblyDelaySign(false)]
-#if WIN32
-[assembly: AssemblyDescription("Tao Framework DevIL Binding For .NET (Windows)")]
-#elif LINUX
-[assembly: AssemblyDescription("Tao Framework DevIL Binding For .NET (Linux)")]
-#endif
-[assembly: AssemblyFileVersion("1.6.6.2")]
-[assembly: AssemblyInformationalVersion("1.6.6.2")]
+[assembly: AssemblyDescription("Tao Framework DevIL Binding For .NET")]
+[assembly: AssemblyFileVersion("1.6.7.0")]
+[assembly: AssemblyInformationalVersion("1.6.7.0")]
 #if STRONG
 [assembly: AssemblyKeyFile(@"..\..\Solutions\Tao.DevIl\Solution Items\Tao.DevIl.snk")]
 #else
@@ -60,13 +56,9 @@ using System.Security.Permissions;
 #else
 [assembly: AssemblyProduct("Tao.DevIl.dll")]
 #endif
-#if WIN32
-[assembly: AssemblyTitle("Tao Framework DevIL Binding For .NET (Windows)")]
-#elif LINUX
-[assembly: AssemblyTitle("Tao Framework DevIL Binding For .NET (Linux)")]
-#endif
+[assembly: AssemblyTitle("Tao Framework DevIL Binding For .NET")]
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
-[assembly: AssemblyVersion("1.6.6.2")]
+[assembly: AssemblyVersion("1.6.7.0")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]
