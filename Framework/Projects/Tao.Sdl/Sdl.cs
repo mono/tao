@@ -288,14 +288,237 @@ namespace Tao.Sdl {
 
 		// SDL_copying.h -- none
 		// SDL_cpuinfo.h -- none
+		// SDL_endian.h - skipped for now
 		// SDL_error.h -- none
+
+		#region SDL_events.h
+		//The nameless enum from SDL_events.h was moved into a set of const
+		//instead of a C# enum. This makes it work more like the C Code.
+		/// <summary>
+		/// Unused (do not remove)
+		/// </summary>
+		public const int SDL_NOEVENT = 0;		
+		/// <summary>
+		/// Application loses/gains visibility
+		/// </summary>
+		[CLSCompliant(false)]
+		public const int SDL_ACTIVEEVENT = 1;			
+		/// <summary>
+		/// Keys pressed
+		/// </summary>
+		public const int SDL_KEYDOWN = 2;			
+		/// <summary>
+		/// Keys released
+		/// </summary>
+		public const int SDL_KEYUP = 3;		
+		/// <summary>
+		/// Mouse moved
+		/// </summary>
+		public const int SDL_MOUSEMOTION = 4;			
+		/// <summary>
+		/// Mouse button pressed
+		/// </summary>
+		public const int SDL_MOUSEBUTTONDOWN = 5;		
+		/// <summary>
+		/// Mouse button released
+		/// </summary>
+		public const int SDL_MOUSEBUTTONUP = 6;		
+		/// <summary>
+		/// Joystick axis motion
+		/// </summary>
+		public const int SDL_JOYAXISMOTION = 7;	
+		/// <summary>
+		/// Joystick trackball motion
+		/// </summary>
+		public const int SDL_JOYBALLMOTION = 8;	
+		/// <summary>
+		/// Joystick hat position change
+		/// </summary>
+		public const int SDL_JOYHATMOTION = 9;	
+		/// <summary>
+		/// Joystick button pressed
+		/// </summary>
+		public const int SDL_JOYBUTTONDOWN = 10;	
+		/// <summary>
+		/// Joystick button released
+		/// </summary>
+		public const int SDL_JOYBUTTONUP = 11;			
+		/// <summary>
+		/// User-requested quit
+		/// </summary>
+		[CLSCompliant(false)]
+		public const int SDL_QUIT = 12;		
+		// /// <summary>
+		// /// System specific event
+		// /// </summary>
+		// public const int SDL_SYSWMEVENT = 13;			
+		/// <summary>
+		/// Reserved for future use..
+		/// </summary>
+		public const int SDL_EVENT_RESERVEDA = 14;		
+		/// <summary>
+		/// Reserved for future use..
+		/// </summary>
+		public const int SDL_EVENT_RESERVEDB = 15;	
+		/// <summary>
+		/// User resized video mode
+		/// </summary>
+		public const int SDL_VIDEORESIZE = 16;			
+		/// <summary>
+		/// Screen needs to be redrawn
+		/// </summary>
+		public const int SDL_VIDEOEXPOSE = 17;			
+		/// <summary>
+		/// Reserved for future use..
+		/// </summary>
+		public const int SDL_EVENT_RESERVED2 = 18;		
+		/// <summary>
+		/// Reserved for future use..
+		/// </summary>
+		public const int SDL_EVENT_RESERVED3 = 19;		
+		/// <summary>
+		/// Reserved for future use..
+		/// </summary>
+		public const int SDL_EVENT_RESERVED4 = 20;		
+		/// <summary>
+		/// Reserved for future use..
+		/// </summary>
+		public const int SDL_EVENT_RESERVED5 = 21;		
+		/// <summary>
+		/// Reserved for future use..
+		/// </summary>
+		public const int SDL_EVENT_RESERVED6 = 22;		
+		/// <summary>
+		/// Reserved for future use..
+		/// </summary>
+		public const int SDL_EVENT_RESERVED7 = 23;		
+
+		// /// <summary>
+		// /// Events SDL_USEREVENT through SDL_MAXEVENTS-1 are 
+		// /// for your use.
+		// /// </summary>
+		// public const int SDL_USEREVENT = 24;
+
+		/// <summary>
+		/// This last event is only for bounding internal arrays
+		/// It is the number of bits in the event mask datatype -- Uint32
+		/// </summary>
+		public const int SDL_NUMEVENTS = 32;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_ACTIVEEVENTMASK = 1 << SDL_ACTIVEEVENT;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_KEYDOWNMASK = 1 << SDL_KEYDOWN;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_KEYUPMASK = 1 << SDL_KEYUP;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_MOUSEMOTIONMASK = 1 << SDL_MOUSEMOTION;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_MOUSEBUTTONDOWNMASK = 1 << SDL_MOUSEBUTTONDOWN;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_MOUSEBUTTONUPMASK = 1 << SDL_MOUSEBUTTONUP;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_MOUSEEVENTMASK	= (1 << SDL_MOUSEMOTION)| (1 << SDL_MOUSEBUTTONDOWN)| (1 << SDL_MOUSEBUTTONUP);
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_JOYAXISMOTIONMASK = 1 << SDL_JOYAXISMOTION;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_JOYBALLMOTIONMASK = 1 << SDL_JOYBALLMOTION;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_JOYHATMOTIONMASK = 1 << SDL_JOYHATMOTION;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_JOYBUTTONDOWNMASK = 1 << SDL_JOYBUTTONDOWN;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_JOYBUTTONUPMASK = 1 << SDL_JOYBUTTONUP;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_JOYEVENTMASK = (1 << SDL_JOYAXISMOTION) | (1 << SDL_JOYBALLMOTION) | (1 << SDL_JOYHATMOTION) | (1 << SDL_JOYBUTTONDOWN) | (1 << SDL_JOYBUTTONUP);
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_VIDEORESIZEMASK = 1 << SDL_VIDEORESIZE;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_VIDEOEXPOSEMASK = 1 << SDL_VIDEOEXPOSE;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_QUITMASK = 1 << SDL_QUIT;
+		// TODO:
+		//public const int SDL_SYSWMEVENTMASK = 1 << SDL_SYSWMEVENT;
+
+		/// <summary>
+		/// This is the mask which refers to all hotkey bindings.
+		/// </summary>
+		public const int SDL_ALLEVENTS = unchecked((int) 0xFFFFFFFF);
+
+		/// <summary>
+		/// If 'state' is set to SDL_QUERY, SDL_EventState() 
+		/// will return the 
+		/// current processing state of the specified event.
+		/// </summary>
+		public const int SDL_QUERY = -1;
+		/// <summary>
+		/// If 'state' is set to SDL_IGNORE, that event will be 
+		/// automatically dropped
+		/// from the event queue and will not event be filtered.
+		/// </summary>
+		public const int SDL_IGNORE = 0;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_DISABLE = 0;
+		/// <summary>
+		/// If 'state' is set to SDL_ENABLE, that event will 
+		/// be processed normally.
+		/// </summary>
+		public const int SDL_ENABLE = 1;
+		#endregion SDL_events.h
+
 		// SDL_getenv.h -- none
+
+		// SDL_joystick.h -- TODO
+		// SDL_keyboard.h -- TODO
+		// SDL_keysym.h -- TODO
+		// SDL_loadso.h -- TODO
+
 		// SDL_main.h -- none
+
+		// SDL_mouse.h --TODO
+		// SDL_mutex.h -- TODO
+
 		// SDL_name.h -- none
 		// SDL_opengl.h -- superceded by Tao.OpenGL
 		// SDL_quit.h -- none
-
 		// TODO: SDL_rwops -- skipped for now, might be useful.
+
+		// SDL_syswm.h -- TODO
+		// SDL_thread.h -- TODO?
 
 		#region SDL_timer.h
 		#region SDL_TIMESLICE
@@ -317,6 +540,7 @@ namespace Tao.Sdl {
 		#endregion SDL_timer.h
 
 		// SDL_types -- none
+		// SDL_version -- none
 
 		#region SDL_video.h
 		#region SDL_ALPHA_OPAQUE
@@ -534,7 +758,7 @@ namespace Tao.Sdl {
 		/// Flag for SDL_SetPalette() which represents a logical palette, which controls how blits 
 		/// are mapped to/from the surface.
 		/// </summary>
-		public const Byte SDL_LOGPAL = 0x01;
+		public const byte SDL_LOGPAL = 0x01;
 		#endregion SDL_LOGPAL
 
 		#region SDL_PHYSPAL
@@ -542,7 +766,7 @@ namespace Tao.Sdl {
 		/// Flag for SDL_SetPalette() which represents a physical palette, which controls how pixels 
 		/// look on the screen.
 		/// </summary>
-		public const Byte SDL_PHYSPAL = 0x02;
+		public const byte SDL_PHYSPAL = 0x02;
 		#endregion SDL_PHYSPAL
 
 		//Where did this come from?? SDL_GL_DOUBLEBUFFER is in SDL_GLattr
@@ -571,43 +795,43 @@ namespace Tao.Sdl {
 		/// <summary>
 		/// Indicates which position a joystick hat is pressed in
 		/// </summary>
-		public const Byte SDL_HAT_CENTERED = 0x00;
+		public const byte SDL_HAT_CENTERED = 0x00;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public const Byte SDL_HAT_UP = 0x01;
+		public const byte SDL_HAT_UP = 0x01;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public const Byte SDL_HAT_RIGHT = 0x02;
+		public const byte SDL_HAT_RIGHT = 0x02;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public const Byte SDL_HAT_DOWN = 0x04;
+		public const byte SDL_HAT_DOWN = 0x04;
 
 		/// <summary>
 		/// 
 		/// </summary>
-		public const Byte SDL_HAT_LEFT = 0x08;
+		public const byte SDL_HAT_LEFT = 0x08;
 		/// <summary>
 		/// 
 		/// </summary>
-		public const Byte SDL_HAT_RIGHTUP = (SDL_HAT_RIGHT|SDL_HAT_UP);
+		public const byte SDL_HAT_RIGHTUP = (SDL_HAT_RIGHT|SDL_HAT_UP);
 		/// <summary>
 		/// 
 		/// </summary>
-		public const Byte SDL_HAT_RIGHTDOWN = (SDL_HAT_RIGHT|SDL_HAT_DOWN);
+		public const byte SDL_HAT_RIGHTDOWN = (SDL_HAT_RIGHT|SDL_HAT_DOWN);
 		/// <summary>
 		/// 
 		/// </summary>
-		public const Byte SDL_HAT_LEFTUP = (SDL_HAT_LEFT|SDL_HAT_UP);
+		public const byte SDL_HAT_LEFTUP = (SDL_HAT_LEFT|SDL_HAT_UP);
 		/// <summary>
 		/// 
 		/// </summary>
-		public const Byte SDL_HAT_LEFTDOWN = (SDL_HAT_LEFT|SDL_HAT_DOWN);
+		public const byte SDL_HAT_LEFTDOWN = (SDL_HAT_LEFT|SDL_HAT_DOWN);
 
 		/// <summary>
 		/// Used as a mask when testing buttons in buttonstate
@@ -642,72 +866,7 @@ namespace Tao.Sdl {
 		/// 
 		/// </summary>
 		public const int SDL_BUTTON_RMASK = SDL_PRESSED << ((int)SDL_BUTTON_RIGHT - 1);
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_ACTIVEEVENTMASK		= 1 << SDL_ACTIVEEVENT;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_KEYDOWNMASK			= 1 << SDL_KEYDOWN;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_KEYUPMASK				= 1 << SDL_KEYUP;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_MOUSEMOTIONMASK		= 1 << SDL_MOUSEMOTION;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_MOUSEBUTTONDOWNMASK	= 1 << SDL_MOUSEBUTTONDOWN;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_MOUSEBUTTONUPMASK		= 1 << SDL_MOUSEBUTTONUP;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_MOUSEEVENTMASK			= (1 << SDL_MOUSEMOTION)| (1 << SDL_MOUSEBUTTONDOWN)| (1 << SDL_MOUSEBUTTONUP);
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_JOYAXISMOTIONMASK		= 1 << SDL_JOYAXISMOTION;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_JOYBALLMOTIONMASK		= 1 << SDL_JOYBALLMOTION;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_JOYHATMOTIONMASK		= 1 << SDL_JOYHATMOTION;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_JOYBUTTONDOWNMASK		= 1 << SDL_JOYBUTTONDOWN;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_JOYBUTTONUPMASK		= 1 << SDL_JOYBUTTONUP;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_JOYEVENTMASK			= (1 << SDL_JOYAXISMOTION) | (1 << SDL_JOYBALLMOTION) | (1 << SDL_JOYHATMOTION) | (1 << SDL_JOYBUTTONDOWN) | (1 << SDL_JOYBUTTONUP);
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_VIDEORESIZEMASK		= 1 << SDL_VIDEORESIZE;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_VIDEOEXPOSEMASK		= 1 << SDL_VIDEOEXPOSE;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_QUITMASK				= 1 << SDL_QUIT;
-		// TODO:
-		//public const int SDL_SYSWMEVENTMASK			= 1 << SDL_SYSWMEVENT;
+		
 
 		/// <summary>
 		///		Button in pressed state.
@@ -759,140 +918,9 @@ namespace Tao.Sdl {
 		/// </summary>
 		public const int SDL_ALL_HOTKEYS = unchecked((int) 0xFFFFFFFF);
 
-		/// <summary>
-		/// This is the mask which refers to all hotkey bindings.
-		/// </summary>
-		public const int SDL_ALLEVENTS = unchecked((int) 0xFFFFFFFF);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_QUERY = -1;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_IGNORE = 0;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_DISABLE = 0;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_ENABLE = 1;
 		
-		//The nameless enum from SDL_events.h was moved into a set of const
-		//instead of a C# enum. This makes it work more like the C Code.
-		/// <summary>
-		/// Unused (do not remove)
-		/// </summary>
-		public const int SDL_NOEVENT = 0;		
-		/// <summary>
-		/// Application loses/gains visibility
-		/// </summary>
-		[CLSCompliant(false)]
-		public const int SDL_ACTIVEEVENT = 1;			
-		/// <summary>
-		/// Keys pressed
-		/// </summary>
-		public const int SDL_KEYDOWN = 2;			
-		/// <summary>
-		/// Keys released
-		/// </summary>
-		public const int SDL_KEYUP = 3;		
-		/// <summary>
-		/// Mouse moved
-		/// </summary>
-		public const int SDL_MOUSEMOTION = 4;			
-		/// <summary>
-		/// Mouse button pressed
-		/// </summary>
-		public const int SDL_MOUSEBUTTONDOWN = 5;		
-		/// <summary>
-		/// Mouse button released
-		/// </summary>
-		public const int SDL_MOUSEBUTTONUP = 6;		
-		/// <summary>
-		/// Joystick axis motion
-		/// </summary>
-		public const int SDL_JOYAXISMOTION = 7;	
-		/// <summary>
-		/// Joystick trackball motion
-		/// </summary>
-		public const int SDL_JOYBALLMOTION = 8;	
-		/// <summary>
-		/// Joystick hat position change
-		/// </summary>
-		public const int SDL_JOYHATMOTION = 9;	
-		/// <summary>
-		/// Joystick button pressed
-		/// </summary>
-		public const int SDL_JOYBUTTONDOWN = 10;	
-		/// <summary>
-		/// Joystick button released
-		/// </summary>
-		public const int SDL_JOYBUTTONUP = 11;			
-		/// <summary>
-		/// User-requested quit
-		/// </summary>
-		[CLSCompliant(false)]
-		public const int SDL_QUIT = 12;		
-		// /// <summary>
-		// /// System specific event
-		// /// </summary>
-		// public const int SDL_SYSWMEVENT = 13;			
-		/// <summary>
-		/// Reserved for future use..
-		/// </summary>
-		public const int SDL_EVENT_RESERVEDA = 14;		
-		/// <summary>
-		/// Reserved for future use..
-		/// </summary>
-		public const int SDL_EVENT_RESERVEDB = 15;	
-		/// <summary>
-		/// User resized video mode
-		/// </summary>
-		public const int SDL_VIDEORESIZE = 16;			
-		/// <summary>
-		/// Screen needs to be redrawn
-		/// </summary>
-		public const int SDL_VIDEOEXPOSE = 17;			
-		/// <summary>
-		/// Reserved for future use..
-		/// </summary>
-		public const int SDL_EVENT_RESERVED2 = 18;		
-		/// <summary>
-		/// Reserved for future use..
-		/// </summary>
-		public const int SDL_EVENT_RESERVED3 = 19;		
-		/// <summary>
-		/// Reserved for future use..
-		/// </summary>
-		public const int SDL_EVENT_RESERVED4 = 20;		
-		/// <summary>
-		/// Reserved for future use..
-		/// </summary>
-		public const int SDL_EVENT_RESERVED5 = 21;		
-		/// <summary>
-		/// Reserved for future use..
-		/// </summary>
-		public const int SDL_EVENT_RESERVED6 = 22;		
-		/// <summary>
-		/// Reserved for future use..
-		/// </summary>
-		public const int SDL_EVENT_RESERVED7 = 23;		
-
-		// /// <summary>
-		// /// Events SDL_USEREVENT through SDL_MAXEVENTS-1 are 
-		// /// for your use.
-		// /// </summary>
-		// public const int SDL_USEREVENT = 24;
-
-		/// <summary>
-		/// This last event is only for bounding internal arrays
-		/// It is the number of bits in the event mask datatype -- Uint32
-		/// </summary>
-		public const int SDL_NUMEVENTS = 32;
+		
+		
 		#endregion NOT_DONE
 		
 		#endregion Public Constants
@@ -960,12 +988,58 @@ namespace Tao.Sdl {
 
 		// SDL_copying.h -- none
 		// SDL_cpuinfo.h -- none
+		// SDL_endian.h - skipped for now
 		// SDL_error.h -- none
+
+		#region SDL_events.h
+		#region SDL_eventaction
+		/// <summary>
+		/// Various event types.
+		/// </summary>
+		/// <seealso cref="SDL_PeepEvents"/>
+		public enum SDL_eventaction 
+		{
+			/// <summary>
+			/// If 'action' is SDL_ADDEVENT, up to 'numevents' events will 
+			/// be added to the back of the event queue.
+			/// </summary>
+			SDL_ADDEVENT,
+			/// <summary>
+			/// If 'action' is SDL_PEEKEVENT, up to 'numevents' events at 
+			/// the front of the event queue, matching 'mask', will be 
+			/// returned and will not be removed from the queue.
+			/// </summary>
+			SDL_PEEKEVENT,
+			/// <summary>
+			/// If 'action' is SDL_GETEVENT, up to 'numevents' events at 
+			/// the front of the event queue, matching 'mask', will be 
+			/// returned and will be removed from the queue.
+			/// </summary>
+			SDL_GETEVENT
+		}
+		#endregion SDL_eventaction
+		#endregion SDL_events.h
+
 		// SDL_getenv.h -- none
+
+		// SDL_joystick.h -- TODO
+		// SDL_keyboard.h -- TODO
+		// SDL_keysym.h -- TODO
+		// SDL_loadso.h -- TODO
+
 		// SDL_main.h -- none
+
+		// SDL_mouse.h --TODO
+		// SDL_mutex.h -- TODO
+
 		// SDL_name.h -- none
 		// SDL_opengl.h -- superceded by Tao.OpenGL
 		// SDL_quit.h -- none
+		// TODO: SDL_rwops -- skipped for now, might be useful.
+
+		// SDL_syswm.h -- TODO
+		// SDL_thread.h -- TODO?
+
 		// SDL_timer.h -- none
 
 		#region SDL_types.h
@@ -986,6 +1060,8 @@ namespace Tao.Sdl {
 		}
 		#endregion SDL_bool
 		#endregion SDL_types.h
+
+		// SDL_version -- none
 
 		#region SDL_video.h
 		#region SDL_GLattr
@@ -2134,23 +2210,7 @@ namespace Tao.Sdl {
 			SDL_RELEASED = 0x00
 		}
 
-		/// <summary>
-		/// Various event types.
-		/// </summary>
-		public enum SDL_eventaction {
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_ADDEVENT,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_PEEKEVENT,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_GETEVENT
-		}
+		
 		#endregion NOT_DONE
 		#endregion Public Enums
 
@@ -2523,7 +2583,7 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// Array of track descriptions. (see <see cref="SDL_CDtrack"/>)
 			/// </summary>
-			[ MarshalAs( UnmanagedType.ByValArray, SizeConst=100 )]
+			[MarshalAs(UnmanagedType.ByValArray,ArraySubType=UnmanagedType.LPStruct, SizeConst=100)] 
 			public SDL_CDtrack[] track;
 		}
 		#endregion SDL_CD
@@ -2531,12 +2591,924 @@ namespace Tao.Sdl {
 
 		// SDL_copying.h -- none
 		// SDL_cpuinfo.h -- none
+		// SDL_endian.h - skipped for now
 		// SDL_error.h -- none
+
+		#region SDL_events.h
+		#region SDL_ActiveEvent
+		/// <summary>
+		/// Application visibility event structure.
+		/// </summary>
+		/// <remarks>
+		/// SDL_ActiveEvent is a member of the <see cref="SDL_Event"/>
+		///  union and is used when an event of type SDL_ACTIVEEVENT 
+		///  is reported.
+		/// <p>When the mouse leaves or enters the window area a 
+		/// SDL_APPMOUSEFOCUS type activation event occurs, if the 
+		/// mouse entered the window then gain will be 1, otherwise
+		///  gain will be 0. A SDL_APPINPUTFOCUS type activation event
+		///   occurs when the application loses or gains keyboard focus. 
+		///   This usually occurs when another application is made active.
+		///    Finally, a SDL_APPACTIVE type event occurs when the application
+		///     is either minimised/iconified (gain=0) or restored.</p>
+		/// <p>Note: This event does not occur when an application window is
+		///  first created.</p>
+		/// <p>Struct in SDL_events.h
+		/// <code>
+		/// typedef struct{
+		/// Uint8 type;
+		/// Uint8 gain;
+		/// Uint8 state;
+		/// } SDL_ActiveEvent;
+		/// </code></p>
+		/// </remarks>
+		/// <seealso cref="SDL_Event"/>
+		/// <seealso cref="SDL_GetAppState"/>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_ActiveEvent 
+		{
+			/// <summary>
+			/// SDL_ACTIVEEVENT
+			/// </summary>
+			public byte type;
+			/// <summary>
+			/// 0 if the event is a loss or 1 if it is a gain.
+			/// </summary>
+			public byte gain;
+			/// <summary>
+			/// SDL_APPMOUSEFOCUS if mouse focus was gained or lost, 
+			/// SDL_APPINPUTFOCUS if input focus was gained or lost, 
+			/// or SDL_APPACTIVE if the application was iconified 
+			/// (gain=0) or restored(gain=1).
+			/// </summary>
+			public byte state;
+		}
+		#endregion SDL_ActiveEvent
+	
+		#region SDL_KeyboardEvent
+		/// <summary>
+		/// Keyboard event structure
+		/// </summary>
+		/// <remarks>
+		/// SDL_KeyboardEvent is a member of the <see cref="SDL_Event"/> union 
+		/// and is used when an event of type SDL_KEYDOWN or SDL_KEYUP is 
+		/// reported.
+		/// <p>The type and state actually report the same information, 
+		/// they just use different values to do it! A keyboard event occurs
+		///  when a key is released (type=SDK_KEYUP or state=SDL_RELEASED) 
+		///  and when a key is pressed (type=SDL_KEYDOWN or state=SDL_PRESSED).
+		///   The information on what key was pressed or released is in the 
+		///   <see cref="SDL_keysym"/> structure.</p>
+		/// <p>Note: Repeating SDL_KEYDOWN events will occur if key repeat 
+		/// is enabled (see <see cref="SDL_EnableKeyRepeat"/>).</p>
+		/// <p>Struct in SDL_events.h
+		/// <code>
+		/// typedef struct{
+		///		Uint8 type;
+		///		Uint8 state;
+		///		SDL_keysym keysym;
+		///	} SDL_KeyboardEvent;
+		/// </code></p>
+		/// </remarks>
+		/// <seealso cref="SDL_Event"/>
+		/// <seealso cref="SDL_keysym"/>
+		/// <seealso cref="SDL_EnableKeyRepeat"/>
+		/// <seealso cref="SDL_EnableUNICODE"/>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+		public struct SDL_KeyboardEvent 
+		{
+			/// <summary>
+			/// SDL_KEYDOWN or SDL_KEYUP
+			/// </summary>
+			public byte type;
+			/// <summary>
+			/// The keyboard device index
+			/// </summary>
+			public byte which;
+			/// <summary>
+			/// SDL_PRESSED or SDL_RELEASED
+			/// </summary>
+			public byte state;
+			/// <summary>
+			/// Contains key press information
+			/// </summary>
+			public SDL_keysym keysym;
+		}
+		#endregion SDL_KeyboardEvent
+		
+		#region SDL_MouseMotionEvent
+		/// <summary>
+		/// Mouse motion event structure
+		/// </summary>
+		/// <remarks>
+		/// SDL_MouseMotionEvent is a member of the <see cref="SDL_Event"/>
+		///  union and is 
+		/// used when an event of type SDL_MOUSEMOTION is reported.
+		/// <p>Simply put, a SDL_MOUSEMOTION type event occurs when a user
+		/// moves the mouse within the application window or when 
+		/// <see cref="SDL_WarpMouse"/>
+		///  is called. Both the absolute (x and y) and relative (xrel and yrel
+		///  ) coordinates are reported along with the current button states 
+		///  (state). The button state can be interpreted using the SDL_BUTTON 
+		///  macro (see <see cref="SDL_GetMouseState"/>).</p>
+		/// <p>If the cursor is hidden (<see cref="SDL_ShowCursor"/>(0))
+		///  and the input is 
+		/// grabbed (<see cref="SDL_WM_GrabInput"/>(SDL_GRAB_ON)), 
+		/// then the mouse will give
+		///  relative motion events even when the cursor reaches the edge fo 
+		///  the screen. This is currently only implemented on Windows and 
+		///  Linux/Unix-a-likes.</p>
+		/// <p>Struct in SDL_events.h
+		/// <code>
+		/// typedef struct{
+		///		Uint8 type;
+		///		Uint8 state;
+		///		Uint16 x, y;
+		///		Sint16 xrel, yrel;
+		///	} SDL_MouseMotionEvent;
+		/// </code></p>
+		/// </remarks>
+		/// <seealso cref="SDL_Event"/>
+		/// <seealso cref="SDL_MouseButtonEvent"/>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_MouseMotionEvent 
+		{
+			/// <summary>
+			/// SDL_MOUSEMOTION
+			/// </summary>
+			public byte type;
+			/// <summary>
+			/// The mouse device index
+			/// </summary>
+			public byte which;
+			/// <summary>
+			/// The current button state
+			/// </summary>
+			public byte state;
+			/// <summary>
+			/// The X coordinate of the mouse
+			/// </summary>
+			public short x;
+			/// <summary>
+			/// The Y coordinate of the mouse
+			/// </summary>
+			public short y;
+			/// <summary>
+			/// The relative motion in the X direction
+			/// </summary>
+			public short xrel;
+			/// <summary>
+			/// The relative motion in the Y direction
+			/// </summary>
+			public short yrel;
+		}
+		#endregion SDL_MouseMotionEvent
+		
+		#region SDL_MouseButtonEvent
+		/// <summary>
+		/// Mouse button event structure
+		/// </summary>
+		/// <remarks>
+		/// SDL_MouseButtonEvent is a member of the <see cref="SDL_Event"/>
+		///  union and is used when an event of type SDL_MOUSEBUTTONDOWN or
+		///   SDL_MOUSEBUTTONUP is reported.
+		/// <p>When a mouse button press or release is detected then number
+		///  of the button pressed (from 1 to 255, with 1 usually being the
+		///   left button and 2 the right) is placed into button, the position
+		///    of the mouse when this event occured is stored in the x and the
+		///     y fields. Like <see cref="SDL_KeyboardEvent"/>, information on
+		///      whether the event was a press or a release event is stored in
+		///       both the type and state fields, but this should be obvious.
+		///       </p>
+		///       <p>Struct in SDL_events.h
+		/// <code>
+		/// typedef struct{
+		///		Uint8 type;
+		///		Uint8 button;
+		///		Uint8 state;
+		///		Uint16 x, y;
+		///	} SDL_MouseButtonEvent;
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <seealso cref="SDL_Event"/>
+		/// <seealso cref="SDL_MouseMotionEvent"/>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_MouseButtonEvent 
+		{
+			/// <summary>
+			/// SDL_MOUSEBUTTONDOWN or SDL_MOUSEBUTTONUP
+			/// </summary>
+			public byte type;
+			/// <summary>
+			/// The mouse device index 
+			/// </summary>
+			public byte which;
+			/// <summary>
+			/// The mouse button index (SDL_BUTTON_LEFT, 
+			/// SDL_BUTTON_MIDDLE, SDL_BUTTON_RIGHT)
+			/// </summary>
+			public byte button;
+			/// <summary>
+			/// SDL_PRESSED or SDL_RELEASED 
+			/// </summary>
+			public byte state;
+			/// <summary>
+			/// The X coordinate of the mouse at press/release time
+			/// </summary>
+			public short x;
+			/// <summary>
+			/// The Y coordinate of the mouse at press/release time
+			/// </summary>
+			public short y;
+		}
+		#endregion SDL_MouseButtonEvent
+		
+		#region SDL_JoyAxisEvent
+		/// <summary>
+		/// Joystick axis motion event structure
+		/// </summary>
+		/// <remarks>
+		/// SDL_JoyAxisEvent is a member of the <see cref="SDL_Event"/> union
+		///  and is used when an event of type SDL_JOYAXISMOTION is reported.
+		/// <p>A SDL_JOYAXISMOTION event occurs when ever a user moves an 
+		/// axis on the joystick. The field which is the index of the 
+		/// joystick that reported the event and axis is the index of the 
+		/// axis (for a more detailed explaination see the Joystick section).
+		///  value is the current position of the axis.</p>
+		/// <p>
+		/// <code>Struct in SDL_cdrom.h
+		/// typedef struct{
+		///		Uint8 type;
+		///		Uint8 which;
+		///		Uint8 axis;
+		///		Sint16 value;
+		///	} SDL_JoyAxisEvent;
+		/// </code></p>
+		/// </remarks>
+		/// <seealso cref="SDL_Event"/>
+		/// <seealso cref="SDL_JoystickEventState"/>
+		/// <seealso cref="SDL_JoystickGetAxis"/>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_JoyAxisEvent 
+		{
+			/// <summary>
+			/// SDL_JOYAXISMOTION
+			/// </summary>
+			public byte type;
+			/// <summary>
+			/// The joystick device index
+			/// </summary>
+			public byte which;
+			/// <summary>
+			/// Joystick axis index
+			/// </summary>
+			public byte axis;
+			/// <summary>
+			/// Axis value (range: -32768 to 32767)
+			/// </summary>
+			public short value;
+		}
+		#endregion SDL_JoyAxisEvent
+		
+		#region SDL_JoyBallEvent
+		/// <summary>
+		/// Joystick trackball motion event structure
+		/// </summary>
+		/// <remarks>
+		/// SDL_JoyBallEvent is a member of the <see cref="SDL_Event"/> union 
+		/// and is used when an event of type SDL_JOYBALLMOTION is reported.
+		/// <p>A SDL_JOYBALLMOTION event occurs when a user moves a trackball
+		///  on the joystick. The field which is the index of the joystick 
+		///  that reported the event and ball is the index of the trackball
+		///   (for a more detailed explaination see the Joystick section). 
+		///   Trackballs only return relative motion, this is the change 
+		///   in position on the ball since it was last polled (last cycle 
+		///   of the event loop) and it is stored in xrel and yrel.</p>
+		/// <p>Struct in SDL_events.h
+		/// <code>
+		/// typedef struct{
+		///		Uint8 type;
+		///		Uint8 which;
+		///		Uint8 ball;
+		///		Sint16 xrel, yrel;
+		///	} SDL_JoyBallEvent;
+		/// </code></p></remarks>
+		/// <seealso cref="SDL_Event"/>
+		/// <seealso cref="SDL_JoystickEventState"/>
+		/// <seealso cref="SDL_JoystickGetBall"/>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+		public struct SDL_JoyBallEvent 
+		{
+			/// <summary>
+			/// SDL_JOYBALLMOTION
+			/// </summary>
+			public byte type;
+			/// <summary>
+			/// The joystick device index
+			/// </summary>
+			public byte which;
+			/// <summary>
+			/// The joystick trackball index
+			/// </summary>
+			public byte ball;
+			/// <summary>
+			/// The relative motion in the X direction
+			/// </summary>
+			public short xrel;
+			/// <summary>
+			/// The relative motion in the Y direction
+			/// </summary>
+			public short yrel;
+		}
+		#endregion SDL_JoyBallEvent
+		
+		#region SDL_JoyHatEvent
+		/// <summary>
+		/// Joystick hat position change event structure
+		/// </summary>
+		/// <remarks>
+		/// SDL_JoyHatEvent is a member of the <see cref="SDL_Event"/> union 
+		/// and is used when an event of type SDL_JOYHATMOTION is reported.
+		/// <p>A SDL_JOYHATMOTION event occurs when ever a user moves a hat 
+		/// on the joystick. The field which is the index of the joystick that
+		///  reported the event and hat is the index of the hat (for a more 
+		///  detailed exlaination see the Joystick section). value is the 
+		///  current position of the hat. It is a logically OR'd combination 
+		///  of the following values (whose meanings should be pretty 
+		///  obvious:) :</p>
+		/// <p>SDL_HAT_CENTERED</p> 
+		/// <p>SDL_HAT_UP</p> 
+		///	<p>SDL_HAT_RIGHT</p>
+		///	<p>SDL_HAT_DOWN</p> 
+		///	<p>SDL_HAT_LEFT</p> 
+		///	<p>The following defines are also provided:</p>
+		///	<p>SDL_HAT_RIGHTUP</p>
+		///	<p>SDL_HAT_RIGHTDOWN</p>
+		///	<p>SDL_HAT_LEFTUP</p> 
+		///	<p>SDL_HAT_LEFTDOWN</p>
+		/// <p>Struct from SDL_events.h
+		/// <code>
+		/// typedef struct{
+		///		Uint8 type;
+		///		Uint8 which;
+		///		Uint8 hat;
+		///		Uint8 value;
+		///	} SDL_JoyHatEvent;
+		/// </code></p></remarks>
+		/// <seealso cref="SDL_Event"/>
+		/// <seealso cref="SDL_JoystickEventState"/>
+		/// <seealso cref="SDL_JoystickGetHat"/>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_JoyHatEvent 
+		{
+			/// <summary>
+			/// SDL_JOYHATMOTION
+			/// </summary>
+			public byte type;
+			/// <summary>
+			/// The joystick device index
+			/// </summary>
+			public byte which;
+			/// <summary>
+			/// The joystick hat index
+			/// </summary>
+			public byte hat;
+			/// <summary>
+			/// The hat position value:
+			///  <p><code>SDL_HAT_LEFTUP   SDL_HAT_UP       SDL_HAT_RIGHTUP
+			///  SDL_HAT_LEFT     SDL_HAT_CENTERED SDL_HAT_RIGHT
+			///  SDL_HAT_LEFTDOWN SDL_HAT_DOWN     SDL_HAT_RIGHTDOWN</code></p>
+			/// Note that zero means the POV is centered.
+			/// </summary>
+			public byte val;
+		}
+		#endregion SDL_JoyHatEvent
+		
+		#region SDL_JoyButtonEvent
+		/// <summary>
+		/// Joystick button event structure
+		/// </summary>
+		/// <remarks>
+		/// SDL_JoyButtonEvent is a member of the <see cref="SDL_Event"/> 
+		/// union and is used when an event of type SDL_JOYBUTTONDOWN or 
+		/// SDL_JOYBUTTONUP is reported.
+		/// <p>A SDL_JOYBUTTONDOWN or SDL_JOYBUTTONUP event occurs when ever 
+		/// a user presses or releases a button on a joystick. The field which
+		///  is the index of the joystick that reported the event and button 
+		///  is the index of the button (for a more detailed explaination see
+		///   the Joystick section). state is the current state or the button
+		///    which is either SDL_PRESSED or SDL_RELEASED.</p>
+		/// <p>Struct from SDL_events.h
+		/// <code>
+		/// typedef struct{
+		///		Uint8 type;
+		///		Uint8 which;
+		///		Uint8 button;
+		///		Uint8 state;
+		///	} SDL_JoyButtonEvent;
+		/// </code></p></remarks>
+		/// <seealso cref="SDL_Event"/>
+		/// <seealso cref="SDL_JoystickEventState"/>
+		/// <seealso cref="SDL_JoystickGetButton"/>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_JoyButtonEvent 
+		{
+			/// <summary>
+			/// SDL_JOYBUTTONDOWN or SDL_JOYBUTTONUP
+			/// </summary>
+			public byte type;
+			/// <summary>
+			/// The joystick device index 
+			/// </summary>
+			public byte which;
+			/// <summary>
+			/// The joystick button index
+			/// </summary>
+			public byte button;
+			/// <summary>
+			/// SDL_PRESSED or SDL_RELEASED
+			/// </summary>
+			public byte state;
+		}
+		#endregion SDL_JoyButtonEvent
+		
+		#region SDL_ResizeEvent
+		/// <summary>
+		/// Window resized event
+		/// </summary>
+		/// <remarks>
+		/// SDL_ResizeEvent is a member of the <see cref="SDL_Event"/> union 
+		/// and is used when an event of type SDL_VIDEORESIZE is reported.
+		/// <p>When SDL_RESIZABLE is passed as a flag to 
+		/// <see cref="SDL_SetVideoMode"/> the user is allowed to resize the
+		///  applications window. When the window is resized an 
+		///  SDL_VIDEORESIZE is report, with the new window width and height
+		///   values stored in w and h, respectively. When an SDL_VIDEORESIZE
+		///    is recieved the window should be resized to the new dimensions
+		///     using <see cref="SDL_SetVideoMode"/>.</p>
+		/// <p>Struct in SDL_events.h
+		/// <code>
+		/// typedef struct{
+		///		Uint8 type;
+		///		int w, h;
+		///	} SDL_ResizeEvent;
+		/// </code></p></remarks>
+		/// <seealso cref="SDL_Event"/>
+		/// <seealso cref="SDL_SetVideoMode"/>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_ResizeEvent 
+		{
+			/// <summary>
+			/// SDL_VIDEORESIZE
+			/// </summary>
+			public byte type;
+			/// <summary>
+			/// New width of the window
+			/// </summary>
+			public int w;
+			/// <summary>
+			/// New height of the window
+			/// </summary>
+			public int h;
+		}
+		#endregion SDL_ResizeEvent
+		
+		#region SDL_ExposeEvent
+		/// <summary>
+		/// Screen redraw event
+		/// </summary>
+		/// <remarks>
+		/// SDL_ExposeEvent is a member of the <see cref="SDL_Event"/> union 
+		/// and is used whan an event of type SDL_VIDEOEXPOSE is reported.
+		/// <p>A VIDEOEXPOSE event is triggered when the screen has been 
+		/// modified outside of the application, usually by the window 
+		/// manager and needs to be redrawn.</p>
+		/// <p>Struct in SDL_events.h
+		/// <code>
+		/// typedef struct{
+		///		Uint8 type
+		///		} SDL_ExposeEvent;
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <seealso cref="SDL_Event"/>
+		/// <seealso cref="SDL_SetEventFilter"/>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_ExposeEvent 
+		{
+			/// <summary>
+			/// SDL_VIDEOEXPOSE
+			/// </summary>
+			public byte type;
+		}
+		#endregion SDL_ExposeEvent
+		
+		#region SDL_QuitEvent
+		/// <summary>
+		/// Quit requested event
+		/// </summary>
+		/// <remarks>
+		/// SDL_QuitEvent is a member of the <see cref="SDL_Event"/> union 
+		/// and is used whan an event of type SDL_QUIT is reported.
+		/// <p>As can be seen, the SDL_QuitEvent structure serves no useful 
+		/// purpose. The event itself, on the other hand, is very important.
+		///  If you filter out or ignore a quit event then it is impossible 
+		///  for the user to close the window. On the other hand, if you do 
+		///  accept a quit event then the application window will be closed,
+		///   and screen updates will still report success event though the 
+		///   application will no longer be visible.</p>
+		/// <p>Note: The macro SDL_QuitRequested will return non-zero if a 
+		/// quit event is pending</p>
+		/// <p>Struct in SDL_events.h
+		/// <code>
+		/// typedef struct{
+		///		Uint8 type
+		///		} SDL_QuitEvent;
+		/// </code></p></remarks>
+		/// <seealso cref="SDL_Event"/>
+		/// <seealso cref="SDL_SetEventFilter"/>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_QuitEvent 
+		{
+			/// <summary>
+			/// SDL_QUIT
+			/// </summary>
+			public byte type;
+		}
+		#endregion SDL_QuitEvent
+		
+		#region SDL_UserEvent
+		/// <summary>
+		/// A user-defined event type
+		/// </summary>
+		/// <remarks>
+		/// SDL_UserEvent is in the user member of the structure 
+		/// <see cref="SDL_Event"/>. This event is unique, it is never created
+		///  by SDL but only by the user. The event can be pushed onto the 
+		///  event queue using <see cref="SDL_PushEvent"/>. 
+		///  The contents of the structure 
+		///  members or completely up to the programmer, the only requirement
+		///   is that type is a value from SDL_USEREVENT to SDL_NUMEVENTS-1 
+		///   (inclusive).
+		/// <p>Struct in SDL_events.h
+		/// <code>
+		/// typedef struct{
+		///		Uint8 type;
+		///		int code;
+		///		void *data1;
+		///		void *data2;
+		///	} SDL_UserEvent;
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// SDL_Event event;
+		///
+		///		event.type = SDL_USEREVENT;
+		///		event.user.code = my_event_code;
+		///		event.user.data1 = significant_data;
+		///		event.user.data2 = 0;
+		///		SDL_PushEvent(&amp;event);
+		/// </code>
+		/// 
+		/// </example>
+		/// <seealso cref="SDL_Event"/>
+		/// <seealso cref="SDL_PushEvent"/>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_UserEvent 
+		{
+			/// <summary>
+			/// SDL_USEREVENT through SDL_NUMEVENTS-1
+			/// </summary>
+			public byte type;
+			/// <summary>
+			/// User defined event code
+			/// </summary>
+			public int code;
+			/// <summary>
+			/// User defined data pointer
+			/// </summary>
+			public IntPtr data1;
+			/// <summary>
+			/// User defined data pointer
+			/// </summary>
+			public IntPtr data2;
+		}
+		#endregion SDL_UserEvent
+
+		#region SDL_SysWMEvent
+		/// <summary>
+		/// Platform-dependent window manager event.
+		/// </summary>
+		/// <remarks>
+		/// The system window manager event contains a pointer to 
+		/// system-specific information about unknown window manager events.
+		///  If you enable this event using <see cref="SDL_EventState"/>, 
+		///  it will be generated whenever unhandled events are received from
+		///   the window manager. This can be used, for example, to implement
+		///    cut-and-paste in your application.
+		///    <p>
+		///    If you want to obtain system-specific information about the 
+		///    window manager, you can fill the version member of a 
+		///    SDL_SysWMinfo structure (details can be found in SDL_syswm.h,
+		///     which must be included) using the SDL_VERSION() macro found
+		///      in SDL_version.h, and pass it to the function:
+		///    </p>
+		///    <p><code>int SDL_GetWMInfo(SDL_SysWMinfo *info);</code></p>
+		/// <p>Struct from SDL_events.h
+		/// <code>
+		/// typedef struct {
+		///		Uint8 type;   /* Always SDL_SYSWMEVENT */
+		///		SDL_SysWMmsg *msg;
+		/// } SDL_SysWMEvent;
+		/// </code>
+		/// </p></remarks>
+		/// <seealso cref="SDL_EventState"/>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_SysWMEvent 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			public byte type;
+			/// <summary>
+			/// IntPtr to SDL_SysWMmsg
+			/// </summary>
+			public IntPtr msg;
+		}
+		#endregion SDL_SysWMEvent
+
+		#region SDL_Event
+		/// <summary>
+		/// General event structure
+		/// </summary>
+		/// <remarks>
+		/// The SDL_Event union is the core to all event handling is SDL,
+		///  its probably the most important structure after SDL_Surface.
+		///   SDL_Event is a union of all event structures used in SDL, 
+		///   using it is a simple matter of knowing which union member
+		///    relates to which event type.
+		/// <list type="table">
+		///             <listheader>
+		///                 <term>Event type</term>
+		///                 <description>Event Structure</description>
+		///             </listheader>
+		///             <item>
+		///                 <term>SDL_ACTIVEEVENT</term>
+		///                 <description><see cref="SDL_ActiveEvent"/></description>
+		///             </item>
+		///             <item>
+		///                 <term>SDL_KEYDOWN</term>
+		///                 <description><see cref="SDL_KeyboardEvent"/></description>
+		///             </item>
+		///             <item>
+		///                 <term>SDL_KEYUP</term>
+		///                 <description><see cref="SDL_KeyboardEvent"/></description>
+		///             </item>
+		///             <item>
+		///                 <term>SDL_MOUSEMOTION</term>
+		///                 <description><see cref="SDL_MouseMotionEvent"/></description>
+		///             </item>
+		///             <item>
+		///                 <term>SDL_MOUSEBUTTONDOWN</term>
+		///                 <description><see cref="SDL_MouseButtonEvent"/></description>
+		///             </item>
+		///             <item>
+		///                 <term>SDL_MOUSEBUTTONUP</term>
+		///                 <description><see cref="SDL_MouseButtonEvent"/></description>
+		///             </item>
+		///             <item>
+		///                 <term>SDL_JOYAXISMOTION</term>
+		///                 <description><see cref="SDL_JoyAxisEvent"/></description>
+		///             </item>
+		///             <item>
+		///                 <term>SDL_JOYBALLMOTION</term>
+		///                 <description><see cref="SDL_JoyBallEvent"/></description>
+		///             </item>
+		///             <item>
+		///                 <term>SDL_JOYHATMOTION</term>
+		///                 <description><see cref="SDL_JoyHatEvent"/></description>
+		///             </item>
+		///             <item>
+		///                 <term>SDL_JOYBUTTONDOWN</term>
+		///                 <description><see cref="SDL_JoyButtonEvent"/></description>
+		///             </item>
+		///             <item>
+		///                 <term>SDL_JOYBUTTONUP</term>
+		///                 <description><see cref="SDL_JoyButtonEvent"/></description>
+		///             </item>
+		///             <item>
+		///                 <term>SDL_QUIT</term>
+		///                 <description><see cref="SDL_QuitEvent"/></description>
+		///             </item>
+		///             <item>
+		///                 <term>SDL_SYSWMEVENT</term>
+		///                 <description><see cref="SDL_SysWMEvent"/></description>
+		///             </item> 
+		///             <item>
+		///                 <term>SDL_VIDEORESIZE</term>
+		///                 <description><see cref="SDL_ResizeEvent"/></description>
+		///             </item>
+		///             <item>
+		///                 <term>SDL_VIDEOEXPOSE</term>
+		///                 <description><see cref="SDL_ExposeEvent"/></description>
+		///             </item>
+		///             <item>
+		///                 <term>SDL_USEREVENT</term>
+		///                 <description><see cref="SDL_UserEvent"/></description>
+		///             </item>
+		///         </list>	
+		/// <p>
+		/// The SDL_Event structure has two uses
+		/// <p>Reading events on the event queue</p>
+		/// <p>Placing events on the event queue</p>
+		/// <p>Reading events from the event queue is done with either
+		///  <see cref="SDL_PollEvent"/> or <see cref="SDL_PeepEvents"/>.
+		///   We'll use SDL_PollEvent and step through an example.</p>
+		/// <p>First off, we create an empty SDL_Event structure.</p> 
+		/// <p><code>SDL_Event test_event;</code></p>
+		/// <p>SDL_PollEvent removes the next event from the event queue, if 
+		/// there are no events on the queue it returns 0 otherwise it returns 
+		/// 1. We use a while loop to process each event in turn.</p>
+		/// <p><code>while(SDL_PollEvent(&amp;test_event)) { </code></p>
+		/// <p>The SDL_PollEvent function take a pointer to an SDL_Event 
+		/// structure that is to be filled with event information. We know
+		///  that if SDL_PollEvent removes an event from the queue then the
+		///   event information will be placed in our test_event structure, 
+		///   but we also know that the type of event will be placed in the 
+		///   type member of test_event. So to handle each event type 
+		///   seperately we use a switch statement.</p>
+		/// <p><code> switch(test_event.type) { </code></p>
+		/// <p>We need to know what kind of events we're looking for and the
+		///  event type's of those events. So lets assume we want to detect 
+		///  where the user is moving the mouse pointer within our application.
+		///   We look through our event types and notice that SDL_MOUSEMOTION 
+		///   is, more than likely, the event we're looking for. A little more
+		///    research tells use that SDL_MOUSEMOTION events are handled 
+		///    within the <see cref="SDL_MouseMotionEvent"/> 
+		///    structure which is the motion
+		///     member of SDL_Event. We can check for the SDL_MOUSEMOTION 
+		///     event type within our switch statement like so: </p>
+		/// <p><code>case SDL_MOUSEMOTION:</code></p>
+		/// <p>All we need do now is read the information out of the 
+		/// motion member of test_event.</p> 
+		/// <code>
+		///		printf("We got a motion event.\n");
+		///		printf("Current mouse position is: (%d, %d)\n", test_event.motion.x, test_event.motion.y);
+		///		break;
+		///		default:
+		///		printf("Unhandled Event!\n");
+		///		break;
+		///	}
+		/// }
+		/// printf("Event queue empty.\n");</code>
+		/// <p>It is also possible to push events onto the event queue 
+		/// and so use it as a two-way communication path. Both 
+		/// <see cref="SDL_PushEvent"/> and <see cref="SDL_PeepEvents"/>
+		///  allow you to place events onto the event queue. This is 
+		///  usually used to place a SDL_USEREVENT on the event queue,
+		///   however you could use it to post fake input events if you 
+		///   wished. Creating your own events is a simple matter of 
+		///   choosing the event type you want, setting the type member 
+		///   and filling the appropriate member structure with information.
+		///   </p><p>
+		/// <code>
+		///SDL_Event user_event;
+		///
+		///user_event.type=SDL_USEREVENT;
+		///user_event.user.code=2;
+		///user_event.user.data1=NULL;
+		///user_event.user.data2=NULL;
+		///SDL_PushEvent(&amp;user_event);
+		///</code>
+		/// </p>	   
+		/// <p>Union from SDL_events.h
+		/// <code>
+		/// typedef union{
+		///		Uint8 type;
+		///		SDL_ActiveEvent active;
+		///		SDL_KeyboardEvent key;
+		///		SDL_MouseMotionEvent motion;
+		///		SDL_MouseButtonEvent button;
+		///		SDL_JoyAxisEvent jaxis;
+		///		SDL_JoyBallEvent jball;
+		///		SDL_JoyHatEvent jhat;
+		///		SDL_JoyButtonEvent jbutton;
+		///		SDL_ResizeEvent resize;
+		///		SDL_ExposeEvent expose;
+		///		SDL_QuitEvent quit;
+		///		SDL_UserEvent user;
+		///		SDL_SywWMEvent syswm;
+		///	} SDL_Event;
+		/// </code></p></p></remarks>
+		/// <seealso cref="SDL_PollEvent"/>
+		/// <seealso cref="SDL_PushEvent"/>
+		/// <seealso cref="SDL_PeepEvents"/>
+		[StructLayout(LayoutKind.Explicit)]
+			public struct SDL_Event 
+		{
+			//The Tao version is much different from the old SDL.NET version
+			/// <summary>
+			/// 
+			/// </summary>
+			[FieldOffset(0)]
+			public byte type;
+			/// <summary>
+			/// Activation event
+			/// </summary>
+			[FieldOffset(0)]
+			public SDL_ActiveEvent active;
+			/// <summary>
+			/// Keyboard event
+			/// </summary>
+			[FieldOffset(0)]
+			public SDL_KeyboardEvent key;
+			/// <summary>
+			/// Mouse motion event
+			/// </summary>
+			[FieldOffset(0)]
+			public SDL_MouseMotionEvent motion;
+			/// <summary>
+			/// Mouse button event
+			/// </summary>
+			[FieldOffset(0)]
+			public SDL_MouseButtonEvent button;
+			/// <summary>
+			/// Joystick axis event
+			/// </summary>
+			[FieldOffset(0)]
+			public SDL_JoyAxisEvent jaxis;
+			/// <summary>
+			/// Joystick trackbell event
+			/// </summary>
+			[FieldOffset(0)]
+			public SDL_JoyBallEvent jball;
+			/// <summary>
+			/// Joystick hat motion event
+			/// </summary>
+			[FieldOffset(0)]
+			public SDL_JoyHatEvent jhat;
+			/// <summary>
+			/// Joystick button event
+			/// </summary>
+			[FieldOffset(0)]
+			public SDL_JoyButtonEvent jbutton;
+			/// <summary>
+			/// Application window resize event
+			/// </summary>
+			[FieldOffset(0)]
+			public SDL_ResizeEvent resize;
+			/// <summary>
+			/// Application window expose event
+			/// </summary>
+			[FieldOffset(0)]
+			public SDL_ExposeEvent expose;
+			/// <summary>
+			/// Quit request event
+			/// </summary>
+			[FieldOffset(0)]
+			public SDL_QuitEvent quit;
+			/// <summary>
+			/// User defined event
+			/// </summary>
+			[FieldOffset(0)]
+			public SDL_UserEvent user;
+			/// <summary>
+			/// Undefined window manager event
+			/// </summary>
+			[FieldOffset(0)]
+			public SDL_SysWMEvent syswm;
+		}
+		#endregion SDL_Event
+		
+		#endregion SDL_events.h
+
 		// SDL_getenv.h -- none
 		// SDL_main.h -- none
 		// SDL_name.h -- none
 		// SDL_opengl.h -- superceded by Tao.OpenGL
 		// SDL_quit.h -- none
+
+		//not done
+		#region SDL_syswm.h
+		/// <summary>
+		/// From SDL_sysmwm.h
+		/// </summary>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_SysWMmsg 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			public byte type;
+			/// <summary>
+			///
+			/// </summary>
+			public IntPtr msg;
+		}
+		#endregion SDL_syswm.h
 		
 		#region SDL_timer.h
 		#region SDL_TimerID
@@ -2562,15 +3534,15 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// Major version
 			/// </summary>
-			public Byte major;
+			public byte major;
 			/// <summary>
 			/// Minor version
 			/// </summary>
-			public Byte minor;
+			public byte minor;
 			/// <summary>
 			/// Patch version
 			/// </summary>
-			public Byte patch;
+			public byte patch;
 		}
 		#endregion SDL_version
 		#endregion SDL_version.h
@@ -3211,7 +4183,7 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// Hardware specific scancode.
 			/// </summary>
-			public Byte scancode;
+			public byte scancode;
 			/// <summary>
 			/// SDL virtual keysym.
 			/// </summary>
@@ -3225,390 +4197,11 @@ namespace Tao.Sdl {
 			/// </summary>
 			public short unicode;
 		}
-		/// <summary>
-		/// 
-		/// </summary>
-		[StructLayout(LayoutKind.Explicit)]
-			public struct SDL_Event {
-			//The Tao version is much different from the old SDL.NET version
-			/// <summary>
-			/// 
-			/// </summary>
-			[FieldOffset(0)]
-			public Byte type;
-			/// <summary>
-			/// 
-			/// </summary>
-			[FieldOffset(0)]
-			public SDL_ActiveEvent active;
-			/// <summary>
-			/// 
-			/// </summary>
-			[FieldOffset(0)]
-			public SDL_KeyboardEvent key;
-			/// <summary>
-			/// 
-			/// </summary>
-			[FieldOffset(0)]
-			public SDL_MouseMotionEvent motion;
-			/// <summary>
-			/// 
-			/// </summary>
-			[FieldOffset(0)]
-			public SDL_MouseButtonEvent button;
-			/// <summary>
-			/// 
-			/// </summary>
-			[FieldOffset(0)]
-			public SDL_JoyAxisEvent jaxis;
-			/// <summary>
-			/// 
-			/// </summary>
-			[FieldOffset(0)]
-			public SDL_JoyBallEvent jball;
-			/// <summary>
-			/// 
-			/// </summary>
-			[FieldOffset(0)]
-			public SDL_JoyHatEvent jhat;
-			/// <summary>
-			/// 
-			/// </summary>
-			[FieldOffset(0)]
-			public SDL_JoyButtonEvent jbutton;
-			/// <summary>
-			/// 
-			/// </summary>
-			[FieldOffset(0)]
-			public SDL_ResizeEvent resize;
-			/// <summary>
-			/// 
-			/// </summary>
-			[FieldOffset(0)]
-			public SDL_ExposeEvent expose;
-			/// <summary>
-			/// 
-			/// </summary>
-			[FieldOffset(0)]
-			public SDL_QuitEvent quit;
-			/// <summary>
-			/// 
-			/// </summary>
-			[FieldOffset(0)]
-			public SDL_UserEvent user;
-			/// <summary>
-			/// 
-			/// </summary>
-			[FieldOffset(0)]
-			public SDL_SysWMEvent syswm;
-		}
-		
-		/// <summary>
-		/// Application visibility event structure.
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_ActiveEvent {
-			/// <summary>
-			/// SDL_ACTIVEEVENT
-			/// </summary>
-			public Byte type;
-			/// <summary>
-			/// Whether given states were gained or lost (1/0)
-			/// </summary>
-			public Byte gain;
-			/// <summary>
-			/// A mask of the focus states
-			/// </summary>
-			public Byte state;
-		}
 	
-
-		/// <summary>
-		/// Keyboard event structure
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_KeyboardEvent {
-			/// <summary>
-			/// SDL_KEYDOWN or SDL_KEYUP
-			/// </summary>
-			public Byte type;
-			/// <summary>
-			/// The keyboard device index
-			/// </summary>
-			public Byte which;
-			/// <summary>
-			/// SDL_PRESSED or SDL_RELEASED
-			/// </summary>
-			public Byte state;
-			/// <summary>
-			/// 
-			/// </summary>
-			public SDL_keysym keysym;
-		}
-		
-		/// <summary>
-		/// Mouse motion event structure
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_MouseMotionEvent {
-			/// <summary>
-			/// SDL_MOUSEMOTION
-			/// </summary>
-			public Byte type;
-			/// <summary>
-			/// The mouse device index
-			/// </summary>
-			public Byte which;
-			/// <summary>
-			/// The current button state
-			/// </summary>
-			public Byte state;
-			/// <summary>
-			/// The X coordinate of the mouse
-			/// </summary>
-			public short x;
-			/// <summary>
-			/// The Y coordinate of the mouse
-			/// </summary>
-			public short y;
-			/// <summary>
-			/// The relative motion in the X direction
-			/// </summary>
-			public short xrel;
-			/// <summary>
-			/// The relative motion in the Y direction
-			/// </summary>
-			public short yrel;
-		}
-		
-		/// <summary>
-		/// Mouse button event structure
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_MouseButtonEvent {
-			/// <summary>
-			/// SDL_MOUSEBUTTONDOWN or SDL_MOUSEBUTTONUP
-			/// </summary>
-			public Byte type;
-			/// <summary>
-			/// The mouse device index 
-			/// </summary>
-			public Byte which;
-			/// <summary>
-			/// The mouse button index
-			/// </summary>
-			public Byte button;
-			/// <summary>
-			/// SDL_PRESSED or SDL_RELEASED 
-			/// </summary>
-			public Byte state;
-			/// <summary>
-			/// The X coordinate of the mouse at press time
-			/// </summary>
-			public short x;
-			/// <summary>
-			/// The Y coordinate of the mouse at press time
-			/// </summary>
-			public short y;
-		}
-		
-		/// <summary>
-		/// Joystick axis motion event structure
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_JoyAxisEvent {
-			/// <summary>
-			/// SDL_JOYBALLMOTION
-			/// </summary>
-			public Byte type;
-			/// <summary>
-			/// The joystick device index
-			/// </summary>
-			public Byte which;
-			/// <summary>
-			/// The joystick trackball index
-			/// </summary>
-			public Byte axis;
-			/// <summary>
-			/// The axis value (range: -32768 to 32767)
-			/// </summary>
-			public short value;
-		}
-		
-		/// <summary>
-		/// Joystick trackball motion event structure
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_JoyBallEvent {
-			/// <summary>
-			/// SDL_JOYBALLMOTION
-			/// </summary>
-			public Byte type;
-			/// <summary>
-			/// The joystick device index
-			/// </summary>
-			public Byte which;
-			/// <summary>
-			/// The joystick trackball index
-			/// </summary>
-			public Byte ball;
-			/// <summary>
-			/// The relative motion in the X direction
-			/// </summary>
-			public short xrel;
-			/// <summary>
-			/// The relative motion in the Y direction
-			/// </summary>
-			public short yrel;
-		}
-		
-		/// <summary>
-		/// Joystick hat position change event structure
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_JoyHatEvent {
-			/// <summary>
-			/// SDL_JOYHATMOTION
-			/// </summary>
-			public Byte type;
-			/// <summary>
-			/// The joystick device index
-			/// </summary>
-			public Byte which;
-			/// <summary>
-			/// The joystick hat index
-			/// </summary>
-			public Byte hat;
-			/// <summary>
-			/// The hat position value:
-			///  SDL_HAT_LEFTUP   SDL_HAT_UP       SDL_HAT_RIGHTUP
-			///  SDL_HAT_LEFT     SDL_HAT_CENTERED SDL_HAT_RIGHT
-			///  SDL_HAT_LEFTDOWN SDL_HAT_DOWN     SDL_HAT_RIGHTDOWN
-			/// Note that zero means the POV is centered.
-			/// </summary>
-			public Byte value;
-		}
-		
-		/// <summary>
-		/// Joystick button event structure
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_JoyButtonEvent {
-			/// <summary>
-			/// SDL_JOYBUTTONDOWN or SDL_JOYBUTTONUP
-			/// </summary>
-			public Byte type;
-			/// <summary>
-			/// The joystick device index 
-			/// </summary>
-			public Byte which;
-			/// <summary>
-			/// The joystick button index
-			/// </summary>
-			public Byte button;
-			/// <summary>
-			/// SDL_PRESSED or SDL_RELEASED
-			/// </summary>
-			public Byte state;
-		}
-		
-		/// <summary>
-		/// The "window resized" event
-		/// When you get this event, you are responsible for 
-		/// setting a new video
-		/// mode with the new width and height.
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_ResizeEvent {
-			/// <summary>
-			/// SDL_VIDEORESIZE
-			/// </summary>
-			public Byte type;
-			/// <summary>
-			/// New width
-			/// </summary>
-			public int w;
-			/// <summary>
-			/// New height
-			/// </summary>
-			public int h;
-		}
-		
-		/// <summary>
-		/// The "screen redraw" event
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_ExposeEvent {
-			/// <summary>
-			/// SDL_VIDEOEXPOSE
-			/// </summary>
-			public Byte type;
-		}
-		
-		/// <summary>
-		/// The "quit requested" event
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_QuitEvent {
-			/// <summary>
-			/// SDL_QUIT
-			/// </summary>
-			public Byte type;
-		}
-		
-		/// <summary>
-		/// A user-defined event type
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_UserEvent {
-			/// <summary>
-			/// SDL_USEREVENT through SDL_NUMEVENTS-1
-			/// </summary>
-			public Byte type;
-			/// <summary>
-			/// User defined event code
-			/// </summary>
-			public int code;
-			/// <summary>
-			/// User defined data pointer
-			/// </summary>
-			public IntPtr data1;
-			/// <summary>
-			/// User defined data pointer
-			/// </summary>
-			public IntPtr data2;
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_SysWMmsg {
-			/// <summary>
-			/// 
-			/// </summary>
-			public Byte type;
-			/// <summary>
-			///
-			/// </summary>
-			public IntPtr msg;
-		}
 		
 
-		/// <summary>
-		/// 
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_SysWMEvent {
-			/// <summary>
-			/// 
-			/// </summary>
-			public Byte type;
-			/// <summary>
-			/// 
-			/// </summary>
-			public IntPtr msg;
-		}
+
+		
 
 		/// <summary>
 		/// Structure to hold cursor
@@ -3682,6 +4275,33 @@ namespace Tao.Sdl {
 		#endregion Constructors & Destructors
 
 		#region Public Delegates
+		#region SDL_events.h
+		#region int SDL_EventFilter([Out] SDL_Event evt)
+		/// <summary>
+		/// This function sets up a filter to process all events before they
+		/// change internal state and are posted to the internal event queue.
+		/// </summary>
+		/// <param name="evt">
+		///     Event.
+		/// </param>
+		/// <returns>
+		///     If the filter returns 1, then the event will be added 
+		///     to the internal queue. If it returns 0, then the event
+		///      will be dropped from the queue. This allows selective
+		///       filtering of dynamically.
+		/// </returns>
+		/// <remarks>
+		/// <p>
+		///     Binds to C callback in SDL_events.h:
+		///     <code>typedef Uint32 (SDLCALL *SDL_EventFilter)(const SDL_Event *event)</code>
+		///     </p>
+		/// </remarks>
+		/// <seealso cref="SDL_SetEventFilter" />
+		/// <seealso cref="SDL_GetEventFilter" />
+		public delegate int SDL_EventFilter([Out] SDL_Event evt);
+		#endregion int SDL_EventFilter([Out] SDL_Event evt)
+		#endregion SDL_events.h
+
 		#region SDL_timer.h
 		#region int SDL_TimerCallback(int interval)
 		/// <summary>
@@ -3731,8 +4351,7 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_RemoveTimer" />
 		public delegate int SDL_NewTimerCallback(int interval);
 		#endregion int SDL_NewTimerCallback(int interval)
-		#endregion SDL_timer.h
-		
+		#endregion SDL_timer.h		
 		#endregion Public Delegates
 
 		#region Sdl Methods
@@ -4517,8 +5136,8 @@ namespace Tao.Sdl {
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_BuildAudioCVT(IntPtr cvt,
-			short src_format, Byte src_channels, int src_rate,
-			Byte dst_format, Byte dst_channels, int dst_rate);
+			short src_format, byte src_channels, int src_rate,
+			byte dst_format, byte dst_channels, int dst_rate);
 		#endregion int SDL_BuildAudioCVT(...)
 
 		#region int SDL_ConvertAudio(IntPtr cvt)
@@ -5320,6 +5939,277 @@ namespace Tao.Sdl {
 		public static extern void SDL_ClearError();
 		#endregion SDL_ClearError()
 		#endregion SDL_error.h
+
+		#region SDL_events.h
+		#region void SDL_PumpEvents()
+		/// <summary>
+		/// Pumps the event loop, gathering events from the input devices.
+		/// </summary>
+		/// <remarks>
+		/// Pumps the event loop, gathering events from the input devices.
+		/// <p>SDL_PumpEvents gathers all the pending input information from
+		///  devices and places it on the event queue. Without calls to 
+		///  SDL_PumpEvents no events would ever be placed on the queue. 
+		///  Often calls the need for SDL_PumpEvents is hidden from the user 
+		///  since <see cref="SDL_PollEvent"/> and <see cref="SDL_WaitEvent"/> 
+		///  implicitly call SDL_PumpEvents. However, if you are not polling or
+		///   waiting for events (e.g. you are filtering them), then you must 
+		///   call SDL_PumpEvents to force an event queue update.
+		/// </p>
+		/// <p>Note: You can only call this function in the thread that set the video mode.</p>
+		/// <p>Binds to C-function in SDL_events.h
+		/// <code>
+		/// void SDL_PumpEvents(void);
+		/// </code></p>
+		/// </remarks>
+		/// <seealso cref="SDL_PollEvent"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_PumpEvents();		
+		#endregion void SDL_PumpEvents()
+
+		#region int SDL_PeepEvents(...)
+		/// <summary>
+		/// Checks the event queue for messages and optionally returns them.
+		/// </summary>
+		/// <remarks>
+		/// Checks the event queue for messages and optionally returns them.
+		/// <p>If action is SDL_ADDEVENT, up to numevents events will be added
+		///  to the back of the event queue.</p>
+		/// <p>If action is SDL_PEEKEVENT, up to numevents events at the front
+		///  of the event queue, matching mask, will be returned and 			
+		/// will not be removed from the queue.</p>
+		/// <p>If action is SDL_GETEVENT, up to numevents events at the front
+		///  of the event queue, matching mask, will be returned and 			
+		/// will be removed from the queue.</p>
+		/// <p>
+		/// The mask parameter is an bitwise OR of SDL_EVENTMASK(event_type),
+		///  for all event types you are interested in.
+		/// </p>
+		/// <p>This function is thread-safe.</p>
+		/// <p>Binds to C-function in SDL_events.h
+		/// <code>
+		/// int SDL_PeepEvents(SDL_Event *events, int numevents, SDL_eventaction action, Uint32 mask);
+		/// </code></p>
+		/// </remarks>
+		/// <param name="events"></param>
+		/// <param name="numEvents"></param>
+		/// <param name="action"></param>
+		/// <param name="mask"></param>
+		/// <returns>
+		/// This function returns the number of events actually stored,
+		///  or -1 if there was an error.
+		///  </returns>
+		///  <seealso cref="SDL_PollEvent"/>
+		///  <seealso cref="SDL_Event"/>
+		///  <seealso cref="SDL_PushEvent"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_PeepEvents([Out]SDL_Event[] events, int numEvents, 
+			SDL_eventaction action, int mask);	
+		#endregion int SDL_PeepEvents(...)
+
+		#region int SDL_PollEvent(out SDL_Event sdlEvent)
+		/// <summary>
+		/// Polls for currently pending events.
+		/// </summary>
+		/// <remarks>
+		/// Polls for currently pending events, 
+		/// and returns 1 if there are any pending events, or 0 if there 
+		/// are none available. 
+		/// <p>If event is not NULL, the next event is removed from the 
+		/// queue and stored in that area.</p>
+		/// <p>Binds to C-function in SDL_events.h
+		/// <code>int SDL_PollEvent(SDL_Event *event);
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// SDL_Event event; /* Event structure */
+		///
+		///		.
+		///		.
+		///		.
+		///		/* Check for events */
+		///		while(SDL_PollEvent(&amp;event))
+		///	{  /* Loop until there are no events left on the queue */
+		///		switch(event.type)
+		///					 {  /* Process the appropiate event type */
+		///		case SDL_KEYDOWN:  /* Handle a KEYDOWN event */         
+		///		printf("Oh! Key press\n");
+		///		break;
+		///		case SDL_MOUSEMOTION:
+		///		.
+		///		.
+		///		.
+		///		default: /* Report an unhandled event */
+		///		printf("I don't know what this event is!\n");
+		///	}
+		///}
+		/// </code>
+		/// </example>
+		/// <param name="sdlEvent"></param>
+		/// <returns>Returns 1 if there are any pending events, 
+		/// or 0 if there 
+		/// are none available</returns>
+		/// <seealso cref="SDL_WaitEvent"/>
+		///  <seealso cref="SDL_Event"/>
+		///  <seealso cref="SDL_PeepEvents"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_PollEvent(out SDL_Event sdlEvent);
+		#endregion int SDL_PollEvent(out SDL_Event sdlEvent)
+
+		#region int SDL_WaitEvent(out SDL_Event evt)
+		/// <summary>
+		/// Waits indefinitely for the next available event.
+		/// </summary>
+		/// <remarks>
+		/// Waits indefinitely for the next available event, returning 1,
+		///  or 0 if there
+		/// was an error while waiting for events.  
+		/// <p>If 'event' is not NULL, 
+		/// the next
+		/// event is removed from the queue and stored in that area.</p>
+		/// <p>Binds to C-function in SDL_events.h
+		/// <code>int SDL_WaitEvent(SDL_Event *event);
+		/// </code></p>
+		/// </remarks>
+		/// <param name="evt"></param>
+		/// <returns>Returns 1, or 0 if there was an 
+		/// error while waiting for events</returns>
+		/// <seealso cref="SDL_Event"/>
+		///  <seealso cref="SDL_PollEvent"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_WaitEvent(out SDL_Event evt);
+		#endregion int SDL_WaitEvent(out SDL_Event evt)
+
+		#region int SDL_PushEvent(out SDL_Event evt)
+		/// <summary>
+		/// Pushes an event onto the event queue.
+		/// </summary>
+		/// <remarks>
+		/// The event queue can actually be used as a two way communication 
+		/// channel. Not only can events be read from the queue, but the user
+		///  can also push their own events onto it. event is a pointer to the
+		///   event structure you wish to push onto the queue.
+		/// <p>Note: Pushing device input events onto the queue doesn't modify
+		///  the state of the device within SDL.</p>
+		/// <p>Binds to C-function in SDL_events.h
+		/// <code>int SDL_PushEvent(SDL_Event *event)
+		/// </code></p></remarks>
+		/// <param name="evt"></param>
+		/// <returns>
+		/// Returns 0 on success or -1 if the event couldn't be pushed.
+		/// </returns>
+		/// <seealso cref="SDL_Event"/>
+		///  <seealso cref="SDL_PollEvent"/>
+		///  <seealso cref="SDL_PeepEvents"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_PushEvent(out SDL_Event evt);
+		#endregion int SDL_PushEvent(out SDL_Event evt)
+
+		#region void SDL_SetEventFilter(SDL_EventFilter filter)
+		/// <summary>
+		/// Sets up a filter to process all events before 
+		/// they are posted to the event queue.
+		/// </summary>
+		/// <remarks>
+		/// This function sets up a filter to process all events 
+		/// before they are posted to the event queue. This is a very powerful
+		///  and flexible feature. The filter is prototyped as: 
+		/// <p><code>typedef int (*SDL_EventFilter)(const SDL_Event *event);
+		/// </code></p>
+		/// <p>If the filter returns 1, then the event will be added to the 
+		/// internal queue. If it returns 0, then the event will be dropped 
+		/// from the queue. This allows selective filtering of dynamically.
+		/// </p>
+		/// <p>There is one caveat when dealing with the SDL_QUITEVENT event 
+		/// type. The event filter is only called when the window manager 
+		/// desires to close the application window. If the event filter returns
+		///  1, then the window will be closed, otherwise the window will remain
+		///   open if possible. If the quit event is generated by an interrupt 
+		///   signal, it will bypass the internal queue and be delivered to the
+		///    application at the next event poll.</p>
+		/// <p>Note: Events pushed onto the queue with 
+		/// <see cref="SDL_PushEvent"/> or <see cref="SDL_PeepEvents"/> 
+		/// do not get passed through the event filter.</p>
+		/// <p>Note: Be Careful! The event filter function may run in a 
+		/// different thread so be careful what you do within it.</p>
+		/// <p>Binds to C-function in SDL_events.h
+		/// <code>void SDL_SetEventFilter(SDL_EventFilter filter);
+		/// </code></p>
+		/// </remarks>
+		/// <param name="filter"></param>
+		/// <seealso cref="SDL_Event"/>
+		///  <seealso cref="SDL_GetEventFilter"/>
+		///  <seealso cref="SDL_PushEvent"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_SetEventFilter(SDL_EventFilter filter);
+		#endregion void SDL_SetEventFilter(SDL_EventFilter filter)
+
+		#region SDL_EventFilter SDL_GetEventFilter()
+		/// <summary>
+		/// Retrieves a pointer to the event filter
+		/// </summary>
+		/// <remarks>
+		/// This function retrieces a pointer to the event filter that was 
+		/// previously set using <see cref="SDL_SetEventFilter"/>.
+		///  An SDL_EventFilter function is defined as:
+		///  <p>
+		///  <code>
+		///  typedef int (*SDL_EventFilter)(const SDL_Event *event);
+		///  </code></p>
+		/// <p>Binds to C-function in SDL_events.h
+		/// <code>SDL_EventFilter SDL_GetEventFilter(void);
+		/// </code></p></remarks>
+		/// <returns>
+		/// Returns a pointer to the event filter or 
+		/// NULL if no filter has been set.
+		/// </returns>
+		/// <seealso cref="SDL_Event"/>
+		///  <seealso cref="SDL_SetEventFilter"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern SDL_EventFilter SDL_GetEventFilter();
+		#endregion SDL_EventFilter SDL_GetEventFilter()
+		
+		#region int SDL_EventState(byte type, int state)
+		/// <summary>
+		/// This function allows you to set the state of processing certain 
+		/// events.
+		/// </summary>
+		/// <remarks>
+		/// This function allows you to set the state of 
+		/// processing certain event type's.
+		/// <p>If 'state' is set to SDL_IGNORE, that event will be 
+		/// automatically
+		///  dropped
+		/// from the event queue and will not be filtered.</p>
+		/// <p>
+		/// If 'state' is set to SDL_ENABLE, that event will be processed 
+		/// normally.</p>
+		/// <p>If 'state' is set to SDL_QUERY, SDL_EventState will return the 
+		/// current processing state of the specified event type.</p>
+		/// <p>A list of event type's can be found in the 
+		/// <see cref="SDL_Event"/>
+		///  section.</p>
+		/// </remarks>
+		/// <param name="type"></param>
+		/// <param name="state"></param>
+		/// <returns>
+		/// Returns 0 on success or -1 if the event couldn't be pushed.
+		/// </returns>
+		/// <seealso cref="SDL_Event"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_EventState(byte type, int state);
+		#endregion int SDL_EventState(byte type, int state)
+		#endregion SDL_events.h
 
 		#region SDL_getenv.h
 		#region int SDL_putenv(string variable)
@@ -7807,7 +8697,7 @@ namespace Tao.Sdl {
 		/// <returns></returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern Byte SDL_GetMouseState(out int x, out int y);
+		public static extern byte SDL_GetMouseState(out int x, out int y);
 
 		/// <summary>
 		/// Retrieve the current state of the mouse.
@@ -7822,7 +8712,7 @@ namespace Tao.Sdl {
 		/// <returns></returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern Byte SDL_GetRelativeMouseState(out int x, out int y);
+		public static extern byte SDL_GetRelativeMouseState(out int x, out int y);
 		
 		/// <summary>
 		/// Create a cursor using the specified data and mask (in MSB format).
@@ -7910,94 +8800,6 @@ namespace Tao.Sdl {
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_WarpMouse(short x, short y);
-		
-		//Events
-
-		/// <summary>
-		/// Checks the event queue for messages and optionally returns them.
-		/// </summary>
-		/// <remarks>
-		/// Checks the event queue for messages and optionally returns them.
-		/// If action is SDL_ADDEVENT, up to numevents events will be added to the back of the event queue.
-		/// If action is SDL_PEEKEVENT, up to numevents events at the front of the event queue, matching mask, will be returned and 			/// will not be removed from the queue.
-		/// If action is SDL_GETEVENT, up to numevents events at the front of the event queue, matching mask, will be returned and 			/// will be removed from the queue.
-		/// </remarks>
-		/// <param name="events"></param>
-		/// <param name="numEvents"></param>
-		/// <param name="action"></param>
-		/// <param name="mask"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_PeepEvents([Out]SDL_Event[] events, int numEvents, SDL_eventaction action, int mask);	
-
-		/// <summary>
-		/// Polls for currently pending events, and returns 1 if there are 
-		/// any pending
-		/// events, or 0 if there are none available.  If 'event' is not 
-		/// NULL, the next
-		/// event is removed from the queue and stored in that area. 
-		/// </summary>
-		/// <param name="sdlEvent"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_PollEvent(out SDL_Event sdlEvent);
-		
-		/// <summary>
-		/// This function allows you to set the state of processing certain 
-		/// events.
-		/// If 'state' is set to SDL_IGNORE, that event will be automatically
-		///  dropped
-		/// from the event queue and will not event be filtered.
-		/// If 'state' is set to SDL_ENABLE, that event will be processed 
-		/// normally.
-		/// If 'state' is set to SDL_QUERY, SDL_EventState() will return the 
-		/// current processing state of the specified event.
-		/// </summary>
-		/// <param name="type"></param>
-		/// <param name="state"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_EventState(Byte type, int state);
-
-		/// <summary>
-		/// Waits indefinitely for the next available event, returning 1,
-		///  or 0 if there
-		/// was an error while waiting for events.  If 'event' is not NULL, 
-		/// the next
-		/// event is removed from the queue and stored in that area.
-		/// </summary>
-		/// <param name="evt"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_WaitEvent(out SDL_Event evt);
-
-		/// <summary>
-		/// Pumps the event loop, gathering events from the input devices.
-		/// </summary>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_PumpEvents();		
-
-		/// <summary>
-		/// Add an event to the event queue.
-		/// This function returns 0 if the event queue was full, or -1
-		/// if there was some other error.  Returns 1 on success.
-		/// </summary>
-		/// <param name="evt"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_PushEvent(out SDL_Event evt);
-		
-		// WM
-
-		
-
 
 		// Joystick
 		/// <summary>
