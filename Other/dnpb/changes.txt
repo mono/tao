@@ -3,6 +3,24 @@
 + = Addition
 ! = Bug Fix
 
+[ September 27, 2004 - 0.12.2a ]
+    ! Fixed a nasty bug when trying to delete our temp file for pre-processing.
+
+[ September 15, 2004 - 0.12.2 ]
+    + Expanded platform identification, thanks to the NAnt guys for shedding some
+      light on how to properly check for UNIX platforms! Thanks guys!
+    * POSIX OS identifier changed to UNIX. Valid OS names are now "Win32", "UNIX",
+      and "Unknown".
+    ! Fixed SharpDevelop target to properly use the 'rootNamespace' attribute of
+      the Project tag.
+    + New command-line switch, /ppo, forces DNPB to pre-process the file and write
+      the pre-processed file. This allows you to test/debug your pre-processor
+      macros. No other processing will be done. You can specify a target file as
+      a paramter for the /ppo switch, or DNPB will write the file 'preprocessed.xml'
+      if you do not specify a file.
+    + The Match tag now has a 'buildAction' attribute which functions exactly like
+      the attribute of the same name for the File tag.
+
 [ August 5, 2004 - 0.12.1 ]
     + Added environment variable expansion for all values. Environment variables
       should be listed in the form ${VAR}.

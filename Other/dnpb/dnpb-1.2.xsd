@@ -159,20 +159,20 @@
 			</xs:sequence>
 		</xs:complexType>
 	</xs:element>
-	
+
 	<xs:element name="File">
 		<xs:complexType>
 			<xs:simpleContent>
 				<xs:extension base="xs:string">
-					<xs:attribute name="buildAction" default="Compile">
-						<xs:simpleType>
-							<xs:restriction base="xs:string">
-								<xs:enumeration value="Compile" />
-								<xs:enumeration value="Content" />
-								<xs:enumeration value="EmbeddedResource" />
-							</xs:restriction>
-						</xs:simpleType>
-					</xs:attribute>
+	                <xs:attribute name="buildAction" default="Compile">
+		                <xs:simpleType>
+			                <xs:restriction base="xs:string">
+				                <xs:enumeration value="Compile" />
+				                <xs:enumeration value="Content" />
+				                <xs:enumeration value="EmbeddedResource" />
+			                </xs:restriction>
+		                </xs:simpleType>
+	                </xs:attribute>
 				</xs:extension>
 			</xs:simpleContent>
 		</xs:complexType>
@@ -184,6 +184,15 @@
 			<xs:attribute name="pattern" type="xs:string" use="required" />
 			<xs:attribute name="recurse" type="xs:boolean" default="false" />
 			<xs:attribute name="useRegex" type="xs:boolean" default="false" />
+	        <xs:attribute name="buildAction" default="Compile">
+		        <xs:simpleType>
+			        <xs:restriction base="xs:string">
+				        <xs:enumeration value="Compile" />
+				        <xs:enumeration value="Content" />
+				        <xs:enumeration value="EmbeddedResource" />
+			        </xs:restriction>
+		        </xs:simpleType>
+	        </xs:attribute>
 		</xs:complexType>
 	</xs:element>
 </xs:schema>
