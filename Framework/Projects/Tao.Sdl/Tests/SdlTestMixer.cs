@@ -38,7 +38,7 @@ namespace Tao.Sdl
 		/// </summary>
 		private void InitAudio()
 		{
-			Sdl.SDL_Quit();
+			QuitAudio();
 			Sdl.SDL_Init(Sdl.SDL_INIT_AUDIO);
 			int results = SdlMixer.Mix_OpenAudio(
 				SdlMixer.MIX_DEFAULT_FREQUENCY, 
@@ -69,6 +69,7 @@ namespace Tao.Sdl
 				2, 
 				1024);
 			Assert.AreEqual(results,0);
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
