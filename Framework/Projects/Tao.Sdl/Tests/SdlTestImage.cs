@@ -21,12 +21,18 @@ namespace Tao.Sdl
 		//IntPtr surfacePtr;
 		int sleepTime;
 
+		private void Quit()
+		{
+			Tao.Sdl.Sdl.SDL_Quit();
+		}
+
 		/// <summary>
 		/// 
 		/// </summary>
 		[SetUp]
 		public void Init()
 		{
+			Sdl.SDL_Quit();
 			init = Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
 			flags = (Sdl.SDL_HWSURFACE|Sdl.SDL_DOUBLEBUF|Sdl.SDL_ANYFORMAT);
 			bpp = 16;
@@ -41,8 +47,7 @@ namespace Tao.Sdl
 		/// </summary>
 		private IntPtr VideoSetup()
 		{
-			Sdl.SDL_Quit();
-			init = Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
+			this.Init();
 			IntPtr surfacePtr;
 			//Assert.IsNotNull(surfacePtr);
 			//Sdl.SDL_FreeSurface(surfacePtr);
@@ -63,6 +68,7 @@ namespace Tao.Sdl
 			string file = "test.bmp";
 			Assert.IsFalse(SdlImage.IMG_isBMP(Sdl.SDL_RWFromFile(file, "rb")) == IntPtr.Zero);
 			Assert.AreEqual(SdlImage.IMG_isBMP(Sdl.SDL_RWFromFile("test.jpg", "rb")), IntPtr.Zero);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -73,6 +79,7 @@ namespace Tao.Sdl
 			string file = "test.jpg";
 			Assert.IsFalse(SdlImage.IMG_isJPG(Sdl.SDL_RWFromFile(file, "rb")) == IntPtr.Zero);
 			Assert.AreEqual(SdlImage.IMG_isJPG(Sdl.SDL_RWFromFile("test.bmp", "rb")), IntPtr.Zero);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -83,6 +90,7 @@ namespace Tao.Sdl
 			string file = "test.gif";
 			Assert.IsFalse(SdlImage.IMG_isGIF(Sdl.SDL_RWFromFile(file, "rb")) == IntPtr.Zero);
 			Assert.AreEqual(SdlImage.IMG_isGIF(Sdl.SDL_RWFromFile("test.bmp", "rb")), IntPtr.Zero);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -93,6 +101,7 @@ namespace Tao.Sdl
 			string file = "test.png";
 			Assert.IsFalse(SdlImage.IMG_isPNG(Sdl.SDL_RWFromFile(file, "rb")) == IntPtr.Zero);
 			Assert.AreEqual(SdlImage.IMG_isPNG(Sdl.SDL_RWFromFile("test.bmp", "rb")), IntPtr.Zero);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -103,6 +112,7 @@ namespace Tao.Sdl
 			string file = "test.pnm";
 			Assert.IsFalse(SdlImage.IMG_isPNM(Sdl.SDL_RWFromFile(file, "rb")) == IntPtr.Zero);
 			Assert.AreEqual(SdlImage.IMG_isPNM(Sdl.SDL_RWFromFile("test.bmp", "rb")), IntPtr.Zero);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -113,6 +123,7 @@ namespace Tao.Sdl
 			string file = "test.pcx";
 			Assert.IsFalse(SdlImage.IMG_isPCX(Sdl.SDL_RWFromFile(file, "rb")) == IntPtr.Zero);
 			Assert.AreEqual(SdlImage.IMG_isPCX(Sdl.SDL_RWFromFile("test.bmp", "rb")), IntPtr.Zero);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -123,6 +134,7 @@ namespace Tao.Sdl
 			string file = "test.xpm";
 			Assert.IsFalse(SdlImage.IMG_isXPM(Sdl.SDL_RWFromFile(file, "rb")) == IntPtr.Zero);
 			Assert.AreEqual(SdlImage.IMG_isXPM(Sdl.SDL_RWFromFile("test.bmp", "rb")), IntPtr.Zero);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -134,6 +146,7 @@ namespace Tao.Sdl
 			string file = "test.xcf";
 			Assert.IsFalse(SdlImage.IMG_isXCF(Sdl.SDL_RWFromFile(file, "rb")) == IntPtr.Zero);
 			Assert.AreEqual(SdlImage.IMG_isXCF(Sdl.SDL_RWFromFile("test.bmp", "rb")), IntPtr.Zero);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -144,6 +157,7 @@ namespace Tao.Sdl
 			string file = "test.tif";
 			Assert.IsFalse(SdlImage.IMG_isTIF(Sdl.SDL_RWFromFile(file, "rb")) == IntPtr.Zero);
 			Assert.AreEqual(SdlImage.IMG_isTIF(Sdl.SDL_RWFromFile("test.bmp", "rb")), IntPtr.Zero);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -161,6 +175,7 @@ namespace Tao.Sdl
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
 			Thread.Sleep(sleepTime);
 			Assert.AreEqual(result, 0);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -178,6 +193,7 @@ namespace Tao.Sdl
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
 			Thread.Sleep(sleepTime);
 			Assert.AreEqual(result, 0);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -195,6 +211,7 @@ namespace Tao.Sdl
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
 			Thread.Sleep(sleepTime);
 			Assert.AreEqual(result, 0);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -212,6 +229,7 @@ namespace Tao.Sdl
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
 			Thread.Sleep(sleepTime);
 			Assert.AreEqual(result, 0);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -229,6 +247,7 @@ namespace Tao.Sdl
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
 			Thread.Sleep(sleepTime);
 			Assert.AreEqual(result, 0);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -246,6 +265,7 @@ namespace Tao.Sdl
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
 			Thread.Sleep(sleepTime);
 			Assert.AreEqual(result, 0);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -263,6 +283,7 @@ namespace Tao.Sdl
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
 			Thread.Sleep(sleepTime);
 			Assert.AreEqual(result, 0);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -280,6 +301,7 @@ namespace Tao.Sdl
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
 			Thread.Sleep(sleepTime);
 			Assert.AreEqual(result, 0);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -298,6 +320,7 @@ namespace Tao.Sdl
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
 			Thread.Sleep(sleepTime);
 			Assert.AreEqual(result, 0);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -315,6 +338,7 @@ namespace Tao.Sdl
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
 			Thread.Sleep(sleepTime);
 			Assert.AreEqual(result, 0);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -354,6 +378,7 @@ namespace Tao.Sdl
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
 			Thread.Sleep(sleepTime);
 			Assert.AreEqual(result, 0);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -379,6 +404,7 @@ namespace Tao.Sdl
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
 			Thread.Sleep(sleepTime);
 			Assert.AreEqual(result, 0);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -404,6 +430,7 @@ namespace Tao.Sdl
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
 			Thread.Sleep(sleepTime);
 			Assert.AreEqual(result, 0);
+			this.Quit();
 		}
 	}
 	#endregion SDL_image.h

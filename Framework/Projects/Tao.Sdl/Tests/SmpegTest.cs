@@ -18,7 +18,7 @@ namespace Tao.Sdl
 		int width = 640;
 		int height = 480;
 		IntPtr surfacePtr;
-		Sdl.SDL_Rect rect2;
+		//Sdl.SDL_Rect rect2;
 		int sleepTime = 1000;
 		short[] vx = {40, 80, 130, 80, 40};
 		short[] vy = {80, 40, 80, 130, 130};

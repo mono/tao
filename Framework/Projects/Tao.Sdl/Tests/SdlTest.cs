@@ -13,6 +13,14 @@ namespace Tao.Sdl
 	public class SdlTest
 	{
 		#region SDL.h
+		private void InitSdl()
+		{
+			Tao.Sdl.Sdl.SDL_Quit();
+		}
+		private void Quit()
+		{
+			Tao.Sdl.Sdl.SDL_Quit();
+		}
 		/// <summary>
 		/// 
 		/// </summary>
@@ -22,6 +30,7 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Assert.AreEqual( 0, Tao.Sdl.Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO));
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_VIDEO)!= 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -33,6 +42,7 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Assert.AreEqual( 0, Tao.Sdl.Sdl.SDL_Init(Sdl.SDL_INIT_AUDIO));
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_AUDIO)!= 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -44,6 +54,7 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Assert.AreEqual( 0, Tao.Sdl.Sdl.SDL_Init(Sdl.SDL_INIT_TIMER));
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_TIMER)!= 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -55,6 +66,7 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Assert.AreEqual( 0, Tao.Sdl.Sdl.SDL_Init(Sdl.SDL_INIT_CDROM));
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_CDROM)!= 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -66,6 +78,7 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Assert.AreEqual( 0, Tao.Sdl.Sdl.SDL_Init(Sdl.SDL_INIT_JOYSTICK));
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_JOYSTICK)!= 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -77,6 +90,7 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Assert.AreEqual( 0, Tao.Sdl.Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING));
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_EVERYTHING)!= 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -87,6 +101,7 @@ namespace Tao.Sdl
 		{
 			Assert.AreEqual( 0, Tao.Sdl.Sdl.SDL_InitSubSystem(Sdl.SDL_INIT_VIDEO));
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_VIDEO)!= 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -98,6 +113,7 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Assert.AreEqual( 0, Tao.Sdl.Sdl.SDL_InitSubSystem(Sdl.SDL_INIT_AUDIO));
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_AUDIO)!= 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -109,6 +125,7 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Assert.AreEqual( 0, Tao.Sdl.Sdl.SDL_InitSubSystem(Sdl.SDL_INIT_TIMER));
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_TIMER)!= 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -120,6 +137,7 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Assert.AreEqual( 0, Tao.Sdl.Sdl.SDL_InitSubSystem(Sdl.SDL_INIT_CDROM));
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_CDROM)!= 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -131,6 +149,7 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Assert.AreEqual( 0, Tao.Sdl.Sdl.SDL_InitSubSystem(Sdl.SDL_INIT_JOYSTICK));
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_JOYSTICK)!= 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -142,16 +161,18 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Assert.AreEqual( 0, Tao.Sdl.Sdl.SDL_InitSubSystem(Sdl.SDL_INIT_EVERYTHING));
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_EVERYTHING)!= 0);
+			this.Quit();
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		[Test]
-		public void Quit()
+		public void SdlQuit()
 		{
 			Tao.Sdl.Sdl.SDL_Quit();
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_EVERYTHING)== 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -165,6 +186,7 @@ namespace Tao.Sdl
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_VIDEO)!= 0);
 			Tao.Sdl.Sdl.SDL_QuitSubSystem(Sdl.SDL_INIT_VIDEO);
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_VIDEO)== 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -178,6 +200,7 @@ namespace Tao.Sdl
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_AUDIO)!= 0);
 			Tao.Sdl.Sdl.SDL_QuitSubSystem(Sdl.SDL_INIT_AUDIO);
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_AUDIO)== 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -191,6 +214,7 @@ namespace Tao.Sdl
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_TIMER)!= 0);
 			Tao.Sdl.Sdl.SDL_QuitSubSystem(Sdl.SDL_INIT_TIMER);
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_TIMER)== 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -204,6 +228,7 @@ namespace Tao.Sdl
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_CDROM)!= 0);
 			Tao.Sdl.Sdl.SDL_QuitSubSystem(Sdl.SDL_INIT_CDROM);
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_CDROM)== 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -217,6 +242,7 @@ namespace Tao.Sdl
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_JOYSTICK)!= 0);
 			Tao.Sdl.Sdl.SDL_QuitSubSystem(Sdl.SDL_INIT_JOYSTICK);
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_JOYSTICK)== 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -230,6 +256,7 @@ namespace Tao.Sdl
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_EVERYTHING)!= 0);
 			Tao.Sdl.Sdl.SDL_QuitSubSystem(Sdl.SDL_INIT_EVERYTHING);
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_EVERYTHING)== 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -241,6 +268,7 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Tao.Sdl.Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_EVERYTHING)!= 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -252,6 +280,7 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Tao.Sdl.Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_VIDEO)!= 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -263,6 +292,7 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Tao.Sdl.Sdl.SDL_Init(Sdl.SDL_INIT_AUDIO);
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_AUDIO)!= 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -274,6 +304,7 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Tao.Sdl.Sdl.SDL_Init(Sdl.SDL_INIT_CDROM);
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_CDROM)!= 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -285,6 +316,7 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Tao.Sdl.Sdl.SDL_Init(Sdl.SDL_INIT_JOYSTICK);
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_JOYSTICK)!= 0);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -296,6 +328,7 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Tao.Sdl.Sdl.SDL_Init(Sdl.SDL_INIT_TIMER);
 			Assert.IsTrue(Tao.Sdl.Sdl.SDL_WasInit(Sdl.SDL_INIT_TIMER)!= 0);
+			this.Quit();
 		}
 		#endregion SDL.h
 
@@ -311,6 +344,7 @@ namespace Tao.Sdl
 			byte state = Sdl.SDL_GetAppState();
 			Console.WriteLine("SDL_GetAppState(): " + state.ToString());
 			Assert.IsTrue(state == 7);
+			this.Quit();
 		}
 		#endregion SDL_active.h
 
@@ -326,7 +360,9 @@ namespace Tao.Sdl
 			string driver= "";
 			string result = Sdl.SDL_AudioDriverName(driver,20);
 			Assert.IsNotNull(result);
+			
 			//Console.WriteLine("audio driver: " + result);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -337,6 +373,7 @@ namespace Tao.Sdl
 		{
 			Sdl.SDL_Init(Sdl.SDL_INIT_AUDIO);
 			//Console.WriteLine("audio driver: " + result);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -355,6 +392,7 @@ namespace Tao.Sdl
 			
 			IntPtr pointer = Sdl.SDL_LoadWAV("test.wav", out spec, out audio_buf, out audio_len);
 				Console.WriteLine("Error: " + Sdl.SDL_GetError());
+			this.Quit();
 		}
 
 		/// <summary>
@@ -373,6 +411,7 @@ namespace Tao.Sdl
 			
 			IntPtr result = Sdl.SDL_LoadWAV_RW(Sdl.SDL_RWFromFile("test.wav", "rb"), 1,  out spec,  out audio_buf, out audio_len);
 			Console.WriteLine("Error: " + Sdl.SDL_GetError());
+			this.Quit();
 		}
 		#endregion SDL_audio.h
 
@@ -390,6 +429,7 @@ namespace Tao.Sdl
 			Assert.IsTrue(Sdl.SDL_BYTEORDER == Sdl.SDL_LIL_ENDIAN);
 #endif
 
+			this.Quit();
 		}
 		#endregion SDL_byteorder.h
 
@@ -411,6 +451,7 @@ namespace Tao.Sdl
 			Assert.AreEqual(M, 2);
 			Assert.AreEqual(S, 13);
 			Assert.AreEqual(F, 25);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -426,6 +467,7 @@ namespace Tao.Sdl
 
 			int result = Sdl.MSF_TO_FRAMES(M, S, F);
 			Assert.AreEqual(result, frames);
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -438,7 +480,7 @@ namespace Tao.Sdl
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 			//Console.WriteLine("CDNumDrives: " + Sdl.SDL_CDNumDrives());
 			Assert.AreEqual(Sdl.SDL_CDNumDrives(), 1);
-			Sdl.SDL_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -450,7 +492,7 @@ namespace Tao.Sdl
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 			Assert.AreEqual(Sdl.SDL_CDName(0), "D:\\");
-			Sdl.SDL_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -467,7 +509,7 @@ namespace Tao.Sdl
 			//Console.WriteLine("CDName: " + Sdl.SDL_CDName(0));
 			Assert.AreEqual(cd.id, 0 );
 			Sdl.SDL_CDClose(resultPtr);
-			Sdl.SDL_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -482,7 +524,7 @@ namespace Tao.Sdl
 			Console.WriteLine("CDStatus: " + Sdl.SDL_CDStatus(cd));
 			//Assert.AreEqual(Sdl.SDL_CDName(0), "D:\\");
 			Sdl.SDL_CDClose(cd);
-			Sdl.SDL_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// There is a problem with the SDL C-function. 
@@ -508,7 +550,7 @@ namespace Tao.Sdl
 				Assert.AreEqual(0, result);
 			}
 			Sdl.SDL_CDClose(cd);
-			Sdl.SDL_Quit();
+		this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -532,7 +574,7 @@ namespace Tao.Sdl
 				Assert.AreEqual(0, result);
 			}
 			Sdl.SDL_CDClose(cd);
-			Sdl.SDL_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -557,7 +599,7 @@ namespace Tao.Sdl
 				Assert.AreEqual(0, result);
 			}
 			Sdl.SDL_CDClose(cd);
-			Sdl.SDL_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -584,7 +626,7 @@ namespace Tao.Sdl
 				Assert.AreEqual(result, 0);
 			}
 			Sdl.SDL_CDClose(cd);
-			Sdl.SDL_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -609,7 +651,7 @@ namespace Tao.Sdl
 				Assert.AreEqual(result, 0);
 			}
 			Sdl.SDL_CDClose(cd);
-			Sdl.SDL_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -639,7 +681,7 @@ namespace Tao.Sdl
 			IntPtr cd = Sdl.SDL_CDOpen(0);
 			int result = Sdl.SDL_CDEject(cd);
 			Sdl.SDL_CDClose(cd);
-			Sdl.SDL_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -652,8 +694,8 @@ namespace Tao.Sdl
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 			IntPtr cd = Sdl.SDL_CDOpen(0);
 			Sdl.SDL_CDClose(cd);
-			Sdl.SDL_Quit();
-			Sdl.SDL_Quit();
+
+			this.Quit();
 		}
 		#endregion SDL_cdrom.h
 		
@@ -669,6 +711,7 @@ namespace Tao.Sdl
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 			Assert.IsTrue(Sdl.SDL_HasMMX() == Sdl.SDL_TRUE);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -682,6 +725,7 @@ namespace Tao.Sdl
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 			Assert.IsFalse(Sdl.SDL_HasMMXExt() == Sdl.SDL_TRUE);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -695,6 +739,7 @@ namespace Tao.Sdl
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 			Assert.IsFalse(Sdl.SDL_Has3DNow() == Sdl.SDL_TRUE);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -708,6 +753,7 @@ namespace Tao.Sdl
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 			Assert.IsFalse(Sdl.SDL_HasAltiVec() == Sdl.SDL_TRUE);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -721,6 +767,7 @@ namespace Tao.Sdl
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 			Assert.IsTrue(Sdl.SDL_HasRDTSC() == Sdl.SDL_TRUE);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -734,6 +781,7 @@ namespace Tao.Sdl
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 			Assert.IsTrue(Sdl.SDL_HasSSE() == Sdl.SDL_TRUE);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -741,13 +789,13 @@ namespace Tao.Sdl
 		/// </summary>
 		[Test]
 		[Category("CPUInfo")]
-		[Category("CPUInfo")]
 		public void HasSSE2()
 		{
 
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 			Assert.IsTrue(Sdl.SDL_HasSSE2() == Sdl.SDL_TRUE);
+			this.Quit();
 		}
 		#endregion SDL_cpuinfo.h
 		
@@ -761,6 +809,7 @@ namespace Tao.Sdl
 			Tao.Sdl.Sdl.SDL_Quit();
 			Tao.Sdl.Sdl.SDL_SetError("Nunit test");
 			Assert.AreEqual("Nunit test", Tao.Sdl.Sdl.SDL_GetError());
+			this.Quit();
 		}
 
 		/// <summary>
@@ -774,6 +823,7 @@ namespace Tao.Sdl
 			Assert.AreEqual("Nunit test", Tao.Sdl.Sdl.SDL_GetError());
 			Tao.Sdl.Sdl.SDL_ClearError();
 			Assert.AreEqual("", Tao.Sdl.Sdl.SDL_GetError());
+			this.Quit();
 		}
 
 		#endregion SDL_error.h
@@ -791,6 +841,7 @@ namespace Tao.Sdl
 		public void PutEnv()
 		{
 			Assert.AreEqual(0, Tao.Sdl.Sdl.SDL_putenv("SDLTest"));
+			this.Quit();
 		}
 
 		/// <summary>
@@ -803,6 +854,7 @@ namespace Tao.Sdl
 		public void GetEnv()
 		{
 			Tao.Sdl.Sdl.SDL_getenv("HOME");
+			this.Quit();
 		}
 		#endregion SDL_getenv.h
 
@@ -825,6 +877,7 @@ namespace Tao.Sdl
 			int afterGetTicks = Tao.Sdl.Sdl.SDL_GetTicks();
 			//Console.WriteLine("GetTicks(): " + Tao.Sdl.Sdl.SDL_GetTicks().ToString());
 			Assert.IsTrue(afterGetTicks - beforeGetTicks >= 100);
+			this.Quit();
 		}
 
 		/// <summary>
@@ -850,6 +903,7 @@ namespace Tao.Sdl
 			return interval;
 		}
 
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -874,6 +928,8 @@ namespace Tao.Sdl
 			{
 				afterSetTimer = Tao.Sdl.Sdl.SDL_GetTicks();
 			}
+			this.Quit();
+
 		}
 
 		/// <summary>
@@ -890,6 +946,8 @@ namespace Tao.Sdl
 			int interval = 10;
 			Sdl.SDL_SetTimer(interval, testDelegate);
 			Sdl.SDL_SetTimer(0, null);
+			this.Quit();
+
 		}
 		#endregion SDL_timer.h
 

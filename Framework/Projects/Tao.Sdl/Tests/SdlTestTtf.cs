@@ -21,12 +21,20 @@ namespace Tao.Sdl
 		//IntPtr surfacePtr;
 		int sleepTime;
 
+		private void Quit()
+		{
+			SdlTtf.TTF_Quit();
+			Tao.Sdl.Sdl.SDL_Quit();
+		}
+
 		/// <summary>
 		/// 
 		/// </summary>
 		[SetUp]
 		public void Init()
 		{
+			this.Quit();
+			SdlTtf.TTF_Init();
 			init = Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 			flags = (Sdl.SDL_HWSURFACE|Sdl.SDL_DOUBLEBUF|Sdl.SDL_ANYFORMAT);
 			bpp = 16;
@@ -41,7 +49,7 @@ namespace Tao.Sdl
 		/// </summary>
 		private IntPtr VideoSetup()
 		{
-			Sdl.SDL_Quit();
+			this.Quit();
 			init = Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
 			IntPtr surfacePtr;
 			//Assert.IsNotNull(surfacePtr);
@@ -65,7 +73,7 @@ namespace Tao.Sdl
 			Assert.AreEqual(version.major.ToString() 
 				+ "." + version.minor.ToString() 
 				+ "." + version.patch.ToString(), "2.0.6");
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -73,10 +81,10 @@ namespace Tao.Sdl
 		[Test]
 		public void TTF_Init()
 		{
-			Tao.Sdl.SdlTtf.TTF_Quit();
+			this.Quit();
 			Assert.AreEqual( 0, Tao.Sdl.SdlTtf.TTF_Init());
 			Assert.IsTrue(Tao.Sdl.SdlTtf.TTF_WasInit()!= 0);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -84,9 +92,9 @@ namespace Tao.Sdl
 		[Test]
 		public void TTF_Quit()
 		{
-			SdlTtf.TTF_Quit();
+			this.Quit();
 			Assert.AreEqual(SdlTtf.TTF_WasInit(), 0);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -94,11 +102,11 @@ namespace Tao.Sdl
 		[Test]
 		public void OpenFont()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
 			Assert.IsFalse(fontPtr == IntPtr.Zero);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -106,11 +114,11 @@ namespace Tao.Sdl
 		[Test]
 		public void OpenFontIndex()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFontIndex("Vera.ttf", 10, 0);
 			Assert.IsFalse(fontPtr == IntPtr.Zero);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -118,11 +126,11 @@ namespace Tao.Sdl
 		[Test]
 		public void OpenFontRW()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFontRW(Sdl.SDL_RWFromFile("Vera.ttf", "rb"), 1, 12);
 			Assert.IsFalse(fontPtr == IntPtr.Zero);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -130,11 +138,11 @@ namespace Tao.Sdl
 		[Test]
 		public void OpenFontIndexRW()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFontIndexRW(Sdl.SDL_RWFromFile("Vera.ttf", "rb"), 1, 12, 0);
 			Assert.IsFalse(fontPtr == IntPtr.Zero);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -142,11 +150,11 @@ namespace Tao.Sdl
 		[Test]
 		public void CloseFont()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFontIndexRW(Sdl.SDL_RWFromFile("Vera.ttf", "rb"), 1, 12, 0);
 			SdlTtf.TTF_CloseFont(fontPtr);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -154,12 +162,12 @@ namespace Tao.Sdl
 		[Test]
 		public void SetGetFontStyle()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
 			SdlTtf.TTF_SetFontStyle(fontPtr, SdlTtf.TTF_STYLE_BOLD|SdlTtf.TTF_STYLE_ITALIC);
 			Assert.AreEqual(SdlTtf.TTF_STYLE_BOLD|SdlTtf.TTF_STYLE_ITALIC, SdlTtf.TTF_GetFontStyle(fontPtr));
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -168,11 +176,11 @@ namespace Tao.Sdl
 		[Ignore("For some reason, the FontHeight returns back 3pt higher that what was pased by OpenFont")]
 		public void FontHeight()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 9);
 			Assert.AreEqual(SdlTtf.TTF_FontHeight(fontPtr), 12);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -180,12 +188,12 @@ namespace Tao.Sdl
 		[Test]
 		public void FontAscent()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
 			Assert.AreEqual(SdlTtf.TTF_FontAscent(fontPtr), 10);
 			//Console.WriteLine("FontAscent:" + result.ToString());
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -193,12 +201,12 @@ namespace Tao.Sdl
 		[Test]
 		public void FontDescent()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
 			Assert.AreEqual(SdlTtf.TTF_FontDescent(fontPtr), -2);
 			//Console.WriteLine("FontDescent:" + SdlTtf.TTF_FontDescent(fontPtr).ToString());
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -206,12 +214,12 @@ namespace Tao.Sdl
 		[Test]
 		public void FontLineSkip()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
 			Assert.AreEqual(SdlTtf.TTF_FontLineSkip(fontPtr), 14);
 			//Console.WriteLine("FontLineSkip:" + SdlTtf.TTF_FontLineSkip(fontPtr).ToString());
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -219,12 +227,12 @@ namespace Tao.Sdl
 		[Test]
 		public void FontFaces()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
 			Assert.AreEqual(SdlTtf.TTF_FontFaces(fontPtr), 4294967297);
 			//Console.WriteLine("FontFaces:" + SdlTtf.TTF_FontFaces(fontPtr).ToString());
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -232,15 +240,15 @@ namespace Tao.Sdl
 		[Test]
 		public void FontFaceIsFixedWidth()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
 			Assert.AreEqual(SdlTtf.TTF_FontFaceIsFixedWidth(fontPtr), 0);
 			IntPtr fontPtrMono = SdlTtf.TTF_OpenFont("VeraMono.ttf", 10);
 			Assert.IsTrue(SdlTtf.TTF_FontFaceIsFixedWidth(fontPtrMono) != 0);
 			//Console.WriteLine("FontFaceIsFixedWidth:" + 
 			//	SdlTtf.TTF_FontFaceIsFixedWidth(fontPtrMono).ToString());
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -249,12 +257,12 @@ namespace Tao.Sdl
 		[Ignore("Works fine when run alone. When run as part of the suite is messes up several other tests.")]
 		public void FontFaceFamilyName()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
 			//Console.WriteLine("FontFaceFamily:" + SdlTtf.TTF_FontFaceFamilyName(fontPtr).ToString());
 			Assert.AreEqual(SdlTtf.TTF_FontFaceFamilyName(fontPtr).ToString(), "Bitstream Vera Sans");
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -263,12 +271,12 @@ namespace Tao.Sdl
 		[Ignore("Works fine when run alone. When run as part of the suite is messes up several other tests.")]
 		public void FontFaceStyleName()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
 			//Console.WriteLine("FontFaceStyleName:" + SdlTtf.TTF_FontFaceStyleName(fontPtr).ToString());
 			Assert.AreEqual(SdlTtf.TTF_FontFaceStyleName(fontPtr).ToString(), "Roman");
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -276,8 +284,8 @@ namespace Tao.Sdl
 		[Test]
 		public void GlyphMetrics()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 12);
 			int minx;
 			int miny;
@@ -297,7 +305,7 @@ namespace Tao.Sdl
 //			Console.WriteLine("miny: " + miny.ToString());
 //			Console.WriteLine("maxy: " + maxy.ToString());
 //			Console.WriteLine("advance: " + advance.ToString());
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -305,8 +313,8 @@ namespace Tao.Sdl
 		[Test]
 		public void SizeText()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
 			int w; 
 			int h;
@@ -315,7 +323,7 @@ namespace Tao.Sdl
 //			Console.WriteLine("h: " + h.ToString());
 			Assert.AreEqual(w, 6);
 			Assert.AreEqual(h, 13);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -323,8 +331,8 @@ namespace Tao.Sdl
 		[Test]
 		public void SizeUTF8()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
 			int w; 
 			int h;
@@ -333,7 +341,7 @@ namespace Tao.Sdl
 						Console.WriteLine("h: " + h.ToString());
 			Assert.AreEqual(w, 6);
 			Assert.AreEqual(h, 13);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -341,8 +349,8 @@ namespace Tao.Sdl
 		[Test]
 		public void SizeUNICODE()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
 			int w; 
 			int h;
@@ -351,7 +359,7 @@ namespace Tao.Sdl
 						Console.WriteLine("h: " + h.ToString());
 			Assert.AreEqual(w, 22);
 			Assert.AreEqual(h, 13);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -359,8 +367,8 @@ namespace Tao.Sdl
 		[Test]
 		public void RenderText_Solid()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
@@ -372,7 +380,7 @@ namespace Tao.Sdl
 			Assert.AreEqual(result, 0);
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,400,400);
 			Thread.Sleep(sleepTime);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -380,8 +388,8 @@ namespace Tao.Sdl
 		[Test]
 		public void RenderUTF8_Solid()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
@@ -393,7 +401,7 @@ namespace Tao.Sdl
 			Assert.AreEqual(result, 0);
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,400,400);
 			Thread.Sleep(sleepTime);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -401,8 +409,8 @@ namespace Tao.Sdl
 		[Test]
 		public void RenderUNICODE_Solid()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
@@ -414,7 +422,7 @@ namespace Tao.Sdl
 			Assert.AreEqual(result, 0);
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,400,400);
 			Thread.Sleep(sleepTime);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -422,8 +430,8 @@ namespace Tao.Sdl
 		[Test]
 		public void RenderGlyph_Solid()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
@@ -435,7 +443,7 @@ namespace Tao.Sdl
 			Assert.AreEqual(result, 0);
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,400,400);
 			Thread.Sleep(sleepTime);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -443,8 +451,8 @@ namespace Tao.Sdl
 		[Test]
 		public void RenderText_Shaded()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
@@ -457,7 +465,7 @@ namespace Tao.Sdl
 			Assert.AreEqual(result, 0);
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,400,400);
 			Thread.Sleep(sleepTime);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -465,8 +473,8 @@ namespace Tao.Sdl
 		[Test]
 		public void RenderUTF8_Shaded()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
@@ -479,7 +487,7 @@ namespace Tao.Sdl
 			Assert.AreEqual(result, 0);
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,400,400);
 			Thread.Sleep(sleepTime);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -487,8 +495,8 @@ namespace Tao.Sdl
 		[Test]
 		public void RenderUNICODE_Shaded()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
@@ -501,7 +509,7 @@ namespace Tao.Sdl
 			Assert.AreEqual(result, 0);
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,400,400);
 			Thread.Sleep(sleepTime);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -509,8 +517,8 @@ namespace Tao.Sdl
 		[Test]
 		public void RenderGlyph_Shaded()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
@@ -523,7 +531,7 @@ namespace Tao.Sdl
 			Assert.AreEqual(result, 0);
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,400,400);
 			Thread.Sleep(sleepTime);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -531,8 +539,8 @@ namespace Tao.Sdl
 		[Test]
 		public void RenderText_Blended()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
@@ -544,7 +552,7 @@ namespace Tao.Sdl
 			Assert.AreEqual(result, 0);
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,400,400);
 			Thread.Sleep(sleepTime);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -552,8 +560,8 @@ namespace Tao.Sdl
 		[Test]
 		public void RenderUTF8_Blended()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
@@ -565,7 +573,7 @@ namespace Tao.Sdl
 			Assert.AreEqual(result, 0);
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,400,400);
 			Thread.Sleep(sleepTime);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -573,8 +581,8 @@ namespace Tao.Sdl
 		[Test]
 		public void RenderUNICODE_Blended()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
@@ -586,7 +594,7 @@ namespace Tao.Sdl
 			Assert.AreEqual(result, 0);
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,400,400);
 			Thread.Sleep(sleepTime);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 		/// <summary>
 		/// 
@@ -594,8 +602,8 @@ namespace Tao.Sdl
 		[Test]
 		public void RenderGlyph_Blended()
 		{
-			SdlTtf.TTF_Quit();
-			SdlTtf.TTF_Init();
+			this.Quit();
+			this.Init();
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
@@ -607,7 +615,7 @@ namespace Tao.Sdl
 			Assert.AreEqual(result, 0);
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,400,400);
 			Thread.Sleep(sleepTime);
-			SdlTtf.TTF_Quit();
+			this.Quit();
 		}
 	}
 	#endregion SDL_ttf.h
