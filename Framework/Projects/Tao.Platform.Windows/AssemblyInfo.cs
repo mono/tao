@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright ©2003-2004 Tao Framework Team
+Copyright ©2003-2005 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -32,13 +32,13 @@ using System.Security;
 using System.Security.Permissions;
 
 [assembly: AllowPartiallyTrustedCallers]
-[assembly: AssemblyCompany("http://www.taoframework.com")]
+[assembly: AssemblyCompany("Tao Framework -- http://www.taoframework.com")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
 #else
 [assembly: AssemblyConfiguration("Retail")]
 #endif
-[assembly: AssemblyCopyright("©2003-2004 Tao Framework Team.  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright ©2003-2005 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.Platform.Windows")]
 [assembly: AssemblyDelaySign(false)]
@@ -57,7 +57,7 @@ using System.Security.Permissions;
 [assembly: AssemblyProduct("Tao.Platform.Windows.dll")]
 #endif
 [assembly: AssemblyTitle("Tao Framework Windows Platform API Binding For .NET (Windows)")]
-[assembly: AssemblyTrademark("http://www.taoframework.com")]
+[assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
 [assembly: AssemblyVersion("1.0.0.3")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]

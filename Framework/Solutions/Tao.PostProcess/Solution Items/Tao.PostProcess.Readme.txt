@@ -1,6 +1,7 @@
 Tao.PostProcess 1.0.0.2
+Copyright ©2003-2005 Tao Framework Team
 http://www.taoframework.com
-Copyright ©2003-2004 Tao Framework Team. All rights reserved.
+All rights reserved.
 
 Tao.PostProcess does various post-processing on Tao Framework libraries.
 

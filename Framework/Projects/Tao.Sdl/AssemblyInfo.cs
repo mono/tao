@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright ©2003-2004 Tao Framework Team
+Copyright ©2003-2005 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -32,13 +32,13 @@ using System.Security;
 using System.Security.Permissions;
 
 [assembly: AllowPartiallyTrustedCallers]
-[assembly: AssemblyCompany("http://www.taoframework.com")]
+[assembly: AssemblyCompany("Tao Framework -- http://www.taoframework.com")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
 #else
 [assembly: AssemblyConfiguration("Retail")]
 #endif
-[assembly: AssemblyCopyright("©2003-2004 Tao Framework Team.  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright ©2003-2005 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.Sdl")]
 [assembly: AssemblyDelaySign(false)]
@@ -65,7 +65,7 @@ using System.Security.Permissions;
 #elif LINUX
 [assembly: AssemblyTitle("Tao Framework SDL Binding For .NET (Linux)")]
 #endif
-[assembly: AssemblyTrademark("http://www.taoframework.com")]
+[assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
 [assembly: AssemblyVersion("1.2.7.3")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]

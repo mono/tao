@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright ©2003-2004 Randy Ridge
+Copyright ©2003-2005 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -31,13 +31,13 @@ using System.Security;
 using System.Security.Permissions;
 
 [assembly: AllowPartiallyTrustedCallers]
-[assembly: AssemblyCompany("Randy Ridge http://www.taoframework.com")]
+[assembly: AssemblyCompany("Tao Framework - http://www.taoframework.com")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
 #else
 [assembly: AssemblyConfiguration("Retail")]
 #endif
-[assembly: AssemblyCopyright("©2003-2004 Randy Ridge.  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright ©2003-2005 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("GeWang.Mirror")]
 [assembly: AssemblyDelaySign(false)]
@@ -52,7 +52,7 @@ using System.Security.Permissions;
 [assembly: AssemblyProduct("GeWang.Mirror.exe")]
 #endif
 [assembly: AssemblyTitle("Ge Wang's Mirror example.")]
-[assembly: AssemblyTrademark("Randy Ridge")]
+[assembly: AssemblyTrademark("Tao Framework - http://www.taoframework.com")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: CLSCompliant(true)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]

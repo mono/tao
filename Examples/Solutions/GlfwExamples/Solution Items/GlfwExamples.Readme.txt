@@ -1,6 +1,7 @@
 GlfwExamples
+Copyright ©2003-2005 Tao Framework Team
 http://www.taoframework.com
-Copyright ©2003-2004 Randy Ridge, All rights reserved.
+All rights reserved.
 
 These are C# ports of some OpenGL examples developed for GLFW, the originals
 are available from http://glfw.sourceforge.net.

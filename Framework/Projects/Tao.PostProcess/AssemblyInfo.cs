@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright ©2003-2004 Tao Framework Team
+Copyright ©2003-2005 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -31,13 +31,13 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Permissions;
 
-[assembly: AssemblyCompany("http://www.taoframework.com")]
+[assembly: AssemblyCompany("Tao Framework -- http://www.taoframework.com")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
 #else
 [assembly: AssemblyConfiguration("Retail")]
 #endif
-[assembly: AssemblyCopyright("©2003-2004 Tao Framework Team.  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright ©2003-2005 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.PostProcess")]
 [assembly: AssemblyDelaySign(false)]
@@ -56,7 +56,7 @@ using System.Security.Permissions;
 [assembly: AssemblyProduct("Tao.PostProcess.exe")]
 #endif
 [assembly: AssemblyTitle("Tao.PostProcess")]
-[assembly: AssemblyTrademark("http://www.taoframework.com")]
+[assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
 [assembly: AssemblyVersion("1.0.0.2")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]

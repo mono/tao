@@ -1,6 +1,7 @@
 OpenAlExamples
+Copyright ©2003-2005 Tao Framework Team
 http://www.taoframework.com
-Copyright ©2003-2004 Randy Ridge, All rights reserved.
+All rights reserved.
 
 These are C# ports of various OpenAL examples, most of which can be
 found at http://www.devmaster.net/articles.php?catID=6.  They make use of
