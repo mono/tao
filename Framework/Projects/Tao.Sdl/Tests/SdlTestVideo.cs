@@ -33,7 +33,7 @@ namespace Tao.Sdl
 			bpp = 16;
 			width = 640;
 			height = 480;
-			sleepTime = 100;
+			sleepTime = 500;
 			//surfacePtr = IntPtr.Zero;
 			//Sdl.SDL_FreeSurfaceInternal(surfacePtr);
 		}
@@ -483,16 +483,16 @@ namespace Tao.Sdl
 		{
 			IntPtr surfacePtr = VideoSetup();
 			Assert.IsNotNull(surfacePtr);
-			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(10,10,400,400);
-			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(10,10,400,400);
-			IntPtr bmpImagePtr = Sdl.SDL_LoadBMP("TaoButton.bmp");
+			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
+			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
+			IntPtr bmpImagePtr = Sdl.SDL_LoadBMP("test.bmp");
 			Assert.IsNotNull(bmpImagePtr);
 			Assert.IsFalse(bmpImagePtr==IntPtr.Zero);
 			int result = Sdl.SDL_BlitSurface(bmpImagePtr, ref rect1, surfacePtr, ref rect2);
 			Assert.AreEqual(result, 0);
-			Sdl.SDL_UpdateRect(surfacePtr, 10,10,400,400);
+			Sdl.SDL_UpdateRect(surfacePtr, 0,0,400,400);
 			Thread.Sleep(sleepTime);
-			result = Sdl.SDL_SaveBMP(surfacePtr, "TaoButtonScreen.bmp");
+			result = Sdl.SDL_SaveBMP(surfacePtr, "testScreen.bmp");
 			Assert.AreEqual(result, 0);
 			Sdl.SDL_FreeSurface(ref surfacePtr);
 		}
