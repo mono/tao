@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<project name="GlfwExamples.Gears">
+    <target name="build">
+        <echo message="Build Directory is ${examples.build.directory}" />
+        <csc target="exe" warnaserror="false" unsafe="false" debug="${build.debug}" optimize="${build.optimize}" output="${examples.build.directory}/${nant.project.name}.exe" define="${build.debug.define};">
+            <references basedir="${framework.build.directory}">
+                <includes name="Tao.Glfw.dll" />
+                <includes name="Tao.OpenGl.dll" />
+            </references>
+            <sources failonempty="true">
+                <includes name="${examples.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
+                <includes name="${examples.projects.directory}/${nant.project.name}/Gears.cs" />
+            </sources>
+        </csc>
+        <copy file="${examples.solutions.directory}/GlfwExamples/Solution Items/GlfwExamples.License.txt" todir="${examples.build.directory}" />
+        <copy file="${examples.solutions.directory}/GlfwExamples/Solution Items/GlfwExamples.Readme.txt" todir="${examples.build.directory}" />
+    </target>
+
+    <target name="clean">
+        <delete file="${examples.build.directory}/${nant.project.name}.exe" failonerror="false" />
+        <delete file="${examples.build.directory}/${nant.project.name}.pdb" failonerror="false" />
+        <delete file="${examples.build.directory}/GlfwExamples.License.txt" failonerror="false" />
+        <delete file="${examples.build.directory}/GlfwExamples.Readme.txt" failonerror="false" />
+    </target>
+</project>

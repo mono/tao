@@ -1,0 +1,11 @@
+Tao.Glfw 2.4.2.0
+http://www.taoframework.com
+Copyright ©2003-2004 Randy Ridge, All rights reserved.
+
+Tao.Glfw is a GLFW API binding for .NET, implementing GLFW 2.4.2.
+
+
+Change Log:
+
+2.4.2.0 - April 20, 2004:
+    Initial release.
