@@ -180,42 +180,52 @@
     </target>
 
     <target name="build.cg" description="Builds Tao.Cg.">
+        <mkdir dir="${framework.build.directory}" />
         <nant buildfile="${framework.projects.directory}/Tao.Cg/Tao.Cg.build" target="build" />
     </target>
 
     <target name="build.devil" description="Builds Tao.DevIl.">
+        <mkdir dir="${framework.build.directory}" />
         <nant buildfile="${framework.projects.directory}/Tao.DevIl/Tao.DevIl.build" target="build" />
     </target>
 
     <target name="build.freeglut" depends="build.opengl" description="Builds Tao.FreeGlut.">
+        <mkdir dir="${framework.build.directory}" />
         <nant buildfile="${framework.projects.directory}/Tao.FreeGlut/Tao.FreeGlut.build" target="build" />
     </target>
 
     <target name="build.glcore" description="Builds GlCore.">
+        <mkdir dir="${framework.build.directory}" />
         <nant buildfile="${framework.projects.directory}/Tao.OpenGl/Tao.OpenGl.build" target="glcore" />
     </target>
 
     <target name="build.glpostprocess" depends="build.glcore" description="Builds Tao.GlPostProcess.">
+        <mkdir dir="${framework.build.directory}" />
         <nant buildfile="${framework.projects.directory}/Tao.GlPostProcess/Tao.GlPostProcess.build" target="build" />
     </target>
 
     <target name="build.ode" description="Builds Tao.Ode.">
+        <mkdir dir="${framework.build.directory}" />
         <nant buildfile="${framework.projects.directory}/Tao.Ode/Tao.Ode.build" target="build" />
     </target>
 
     <target name="build.openal" description="Builds Tao.OpenAl.">
+        <mkdir dir="${framework.build.directory}" />
         <nant buildfile="${framework.projects.directory}/Tao.OpenAl/Tao.OpenAl.build" target="build" />
     </target>
 
     <target name="build.opengl" depends="build.glpostprocess" description="Builds Tao.OpenGl.">
+        <mkdir dir="${framework.build.directory}" />
         <nant buildfile="${framework.projects.directory}/Tao.OpenGl/Tao.OpenGl.build" target="build" />
     </target>
 
     <target name="build.platform.windows" depends="build.opengl,build.postprocess" description="Builds Tao.Platform.Windows.">
+        <mkdir dir="${framework.build.directory}" />
         <nant buildfile="${framework.projects.directory}/Tao.Platform.Windows/Tao.Platform.Windows.build" target="build" />
     </target>
 
     <target name="build.postprocess" description="Builds Tao.PostProcess.">
+        <mkdir dir="${framework.build.directory}" />
         <nant buildfile="${framework.projects.directory}/Tao.PostProcess/Tao.PostProcess.build" target="build" />
     </target>
 
