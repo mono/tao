@@ -322,15 +322,92 @@ namespace Tao.Sdl {
 		#endregion Constructors & Destructors
 
 		#region Public Delegates
+		#region void MusicFinishedDelegate()
 		/// <summary>
 		/// 
 		/// </summary>
 		public delegate void MusicFinishedDelegate();
+		#endregion void MusicFinishedDelegate()
 
+		#region void MixFunctionDelegate(IntPtr udata, IntPtr stream, int len)
+		/// <summary>
+		/// 
+		/// </summary>
+		public delegate void MixFunctionDelegate(IntPtr udata, IntPtr stream, int len);
+		#endregion void MixFunctionDelegate(IntPtr udata, IntPtr stream, int len)
+
+		#region void ChannelFinishedDelegate(int channel)
 		/// <summary>
 		/// 
 		/// </summary>
 		public delegate void ChannelFinishedDelegate(int channel);
+		#endregion void ChannelFinishedDelegate(int channel)
+
+		#region void MixEffectFunctionDelegate(...)
+		/// <summary>
+		/// Special effect callback function pointer
+		/// </summary>
+		/// <remarks>
+		/// This is the prototype for effect processing functions. 
+		/// These functions are used to apply effects processing on 
+		/// a sample chunk. As a channel plays a sample, the registered 
+		/// effect functions are called. Each effect would then read and
+		///  perhaps alter the len bytes of stream. It may also be 
+		///  advantageous to keep the effect state in the udata, with would 
+		///  be setup when registering the effect function on a channel.
+		/// <p>
+		/// <code>
+		/// void (*Mix_EffectFunc_t)(int chan, void *stream, int len, void *udata)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="chan">
+		/// The channel number that this effect is effecting now.
+		/// MIX_CHANNEL_POST is passed in for post processing effects over the 
+		/// final mix.
+		/// </param>
+		/// <param name="stream">
+		/// The buffer containing the current sample to process.
+		/// </param>
+		/// <param name="len">
+		/// The length of stream in bytes.
+		/// </param>
+		/// <param name="udata">
+		/// User data pointer that was passed in to Mix_RegisterEffect 
+		/// when registering this effect processor function.
+		/// </param>
+		/// <seealso cref="Mix_RegisterEffect"/>
+		/// <seealso cref="Mix_UnregisterEffect"/>
+		public delegate void MixEffectFunctionDelegate(int chan, IntPtr stream, int len, IntPtr udata);
+		#endregion void MixEffectFunctionDelegate(...)
+
+		#region void MixEffectDoneDelegate(int chan, IntPtr udata)
+		/// <summary>
+		/// Special effect done callback function pointer
+		/// </summary>
+		/// <remarks>
+		/// This is the prototype for effect processing functions. 
+		/// This is called when a channel has finished playing, or 
+		/// halted, or is deallocated. This is also called when a processor
+		/// is unregistered while processing is active. At that time the effects
+		///  processing function may want to reset some internal variables or 
+		///  free some memory. It should free memory at least, because the 
+		///  processor could be freed after this call.
+		/// <p>
+		/// <code>void (*Mix_EffectDone_t)(int chan, void *udata)
+		/// </code></p></remarks>
+		/// <param name="chan">
+		/// The channel number that this effect is effecting now.
+		/// MIX_CHANNEL_POST is passed in for post processing effects over the 
+		/// final mix.
+		/// </param>
+		/// <param name="udata">
+		/// User data pointer that was passed in to Mix_RegisterEffect 
+		/// when registering this effect processor function.
+		/// </param>
+		/// <seealso cref="Mix_RegisterEffect"/>
+		/// <seealso cref="Mix_UnregisterEffect"/>
+		public delegate void MixEffectDoneDelegate(int chan, IntPtr udata);
+		#endregion void MixEffectDoneDelegate(int chan, IntPtr udata)
 		#endregion Public Delegates
 		
 		#region SdlMixer Methods
@@ -672,6 +749,7 @@ namespace Tao.Sdl {
         }
 		#endregion IntPtr Mix_LoadWAV(string file)
 
+		#region IntPtr Mix_LoadMUS(string file)
         /// <summary>
         /// Load a music file into a Mix_Music
         /// </summary>
@@ -704,7 +782,6 @@ namespace Tao.Sdl {
 		///		// this might be a critical error...
 		///	}
         /// </code></example>
-        /// <seealso cref="Mix_Music"/>
         /// <seealso cref="Mix_SetMusicCMD"/>
         /// <seealso cref="Mix_PlayMusic"/>
         /// <seealso cref="Mix_FadeInMusic"/>
@@ -713,8 +790,13 @@ namespace Tao.Sdl {
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr Mix_LoadMUS(string file);
+		#endregion IntPtr Mix_LoadMUS(string file)
 
-        /// <summary>
+		// Mix_Music * Mix_LoadMUS_RW(SDL_RWOps *rw); is not part of the public api 
+		// and will not be implemented
+
+		#region IntPtr Mix_QuickLoad_WAV(IntPtr mem)
+		/// <summary>
         /// Load a wave file of the mixer format from a memory buffer
         /// </summary>
         /// <remarks>
@@ -725,6 +807,10 @@ namespace Tao.Sdl {
         /// If the format mismatches the output format, or 
         /// if the buffer is not a WAVE, it will not return an error.
         ///  This is probably a dangerous function to use.
+		///  <p>Binds to C-function in SDL_mixer.h
+		/// <code>Mix_Chunk *Mix_QuickLoad_WAV(Uint8 *mem)
+		/// </code>
+		/// </p>
         /// </remarks>
         /// <param name="mem">
         /// Memory buffer containing a WAVE file in output format. 
@@ -733,20 +819,44 @@ namespace Tao.Sdl {
         /// a pointer to the sample as a Mix_Chunk. 
         /// NULL is returned on errors.
         /// </returns>
+        /// <example>
+        /// <code>
+		/// // quick-load a wave from memory
+		///		// Uint8 *wave; // I assume you have the wave loaded raw,
+		///		// or compiled in the program...
+		///		Mix_Chunk *wave_chunk;
+		///		if(!(wave_chunk=Mix_QuickLoad_WAV(wave))) 
+		///	{
+		///		printf("Mix_QuickLoad_WAV: %s\n", Mix_GetError());
+		///		// handle error
+		///	}
+		///	</code></example>
+		///	<seealso cref="Mix_LoadWAV"/>
+		/// <seealso cref="Mix_QuickLoad_RAW"/>
+		/// <seealso cref="Mix_FreeChunk"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY,
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr Mix_QuickLoad_WAV(
             IntPtr mem);
+		#endregion IntPtr Mix_QuickLoad_WAV(IntPtr mem)
 
+		#region IntPtr Mix_QuickLoad_RAW(IntPtr mem, int len)
         /// <summary>
         /// Load raw audio data of the mixer format from a memory buffer 
         /// </summary>
         /// <remarks>
-        /// Note: This function does very little checking. 
+		/// Load mem as a raw sample. The data in mem must be already in 
+		/// the output format. If you aren't sure what you are doing, 
+		/// this is not a good function for you!
+        /// <p>Note: This function does very little checking. 
         /// If the format mismatches the output format it 
         /// will not return an error. This is probably a 
-        /// dangerous function to use. 
+        /// dangerous function to use.</p>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>Mix_Chunk *Mix_QuickLoad_RAW(Uint8 *mem)
+		/// </code>
+		/// </p> 
         /// </remarks>
         /// <param name="len"></param>
         /// <param name="mem">
@@ -760,12 +870,29 @@ namespace Tao.Sdl {
         /// a pointer to the sample as a Mix_Chunk. 
         /// NULL is returned on errors, such as when out of memory.
         /// </returns>
+        /// <example>
+        /// <code>
+		/// // quick-load a raw sample from memory
+		///		// Uint8 *raw; // I assume you have the raw data here,
+		///		// or compiled in the program...
+		///		Mix_Chunk *raw_chunk;
+		///		if(!(raw_chunk=Mix_QuickLoad_RAW(raw))) 
+		///	{
+		///		printf("Mix_QuickLoad_RAW: %s\n", Mix_GetError());
+		///		// handle error
+		///	}
+        /// </code></example>
+		/// <seealso cref="Mix_LoadWAV"/>
+		/// <seealso cref="Mix_QuickLoad_WAV"/>
+		/// <seealso cref="Mix_FreeChunk"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr Mix_QuickLoad_RAW(
             IntPtr mem, int len);
+		#endregion IntPtr Mix_QuickLoad_RAW(IntPtr mem, int len)
 
+		#region void Mix_FreeChunk(IntPtr chunk)
         /// <summary>
         /// Free an audio chunk previously loaded
         /// </summary>
@@ -774,404 +901,969 @@ namespace Tao.Sdl {
         /// Do not use chunk after this without loading a new sample to 
         /// it. Note: It's a bad idea to free a chunk that is still 
         /// being played...
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>void Mix_FreeChunk(Mix_Chunk *chunk)
+		/// </code>
+		/// </p>
         /// </remarks>
         /// <param name="chunk">
         /// Pointer to the Mix_Chunk to free.
         /// </param>
+        /// <example>
+        /// <code>
+		/// // free the sample
+		///		// Mix_Chunk *sample;
+		///		Mix_FreeChunk(sample);
+		///		sample=NULL; // to be safe...
+		///		</code></example>
+		///	<seealso cref="Mix_LoadWAV"/>
+		/// <seealso cref="Mix_QuickLoad_WAV"/>
+		/// <seealso cref="Mix_LoadWAV_RW"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_FreeChunk(IntPtr chunk);
+		#endregion void Mix_FreeChunk(IntPtr chunk)
 
+		#region Mix_FreeMusic(IntPtr music)
         /// <summary>
-        /// 
+        /// Free a Mix_Music
         /// </summary>
-        /// <param name="music"></param>
+        /// <remarks>
+        /// Free the loaded music. If music is playing it will be halted. 
+        /// If music is fading out, then this function will wait (blocking)
+        ///  until the fade out is complete.
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>void Mix_FreeMusic(Mix_Music *music)
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// // free music
+		///		Mix_Music *music;
+		///		Mix_FreeMusic(music);
+		///		music=NULL; // so we know we freed it...
+		/// </code>
+		/// </example>
+        /// <param name="music">Pointer to Mix_Music to free.</param>
+        /// <seealso cref="Mix_LoadMUS"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_FreeMusic(IntPtr music);
+		#endregion Mix_FreeMusic(IntPtr music)
 
+		#region Mix_MusicType Mix_GetMusicType(IntPtr music)
         /// <summary>
         /// Find out the music format of a mixer music, 
         /// or the currently playing music, if 'music' is NULL.
         /// </summary>
-        /// <param name="music"></param>
-        /// <returns></returns>
+        /// <remarks>
+        /// Tells you the file format encoding of the music. 
+        /// This may be handy when used with Mix_SetMusicPosition,
+        /// and other music functions that vary based on the type 
+        /// of music being played. If you want to know the type of 
+        /// music currently being played, pass in NULL to music.
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>Mix_MusicType Mix_GetMusicType(const Mix_Music *music)
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="music">The music to get the type of.
+		/// NULL will get the currently playing music type.
+		/// </param>
+        /// <returns>The type of music or if music is NULL then 
+        /// the currently playing music type, otherwise MUS_NONE
+        ///  if no music is playing.</returns>
+        ///  <seealso cref="Mix_MusicType"/>
+        ///  <seealso cref="Mix_SetPosition"/>
+        ///  <example>
+        ///  <code>
+		///  // print the type of music currently playing
+		///		switch(Mix_GetMusicType(NULL))
+		///	{
+		///		case MUS_NONE:
+		///		MUS_CMD:
+		///		printf("Command based music is playing.\n");
+		///		break;
+		///		MUS_WAV:
+		///		printf("WAVE/RIFF music is playing.\n");
+		///		break;
+		///		MUS_MOD:
+		///		printf("MOD music is playing.\n");
+		///		break;
+		///		MUS_MID:
+		///		printf("MIDI music is playing.\n");
+		///		break;
+		///		MUS_OGG:
+		///		printf("OGG music is playing.\n");
+		///		break;
+		///		MUS_MP3:
+		///		printf("MP3 music is playing.\n");
+		///		break;
+		///		default:
+		///		printf("Unknown music is playing.\n");
+		///		break;
+		///	}
+        ///  </code></example>
+        ///  <seealso cref="Mix_MusicType"/>
+        ///  <seealso cref="Mix_SetPosition"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern Mix_MusicType Mix_GetMusicType(IntPtr music);
+		#endregion Mix_MusicType Mix_GetMusicType(IntPtr music)
 
-        //Set a function that is called after all mixing is performed.
-        //This can be used to provide real-time visual display of 
-        //the audio stream
-        //or add a custom mixer filter for the stream data.	
-        //[DllImport(SDL_MIXER_NATIVE_LIBRARY, 				
-        //CallingConvention=CALLING_CONVENTION),
-        //SuppressUnmanagedCodeSecurity]
-        //public static extern void Mix_SetPostMix(void (*mix_func)
-        //(IntPtr udata, IntPtr stream, int len), IntPtr arg);
+		#region void Mix_SetPostMix(MixFunctionDelegate mix_func, IntPtr arg)
+		/// <summary>
+		/// Hook in a postmix processor
+		/// </summary>
+		/// <remarks>
+		/// Hook a processor function mix_func to the postmix stream for post
+		///  processing effects. You may just be reading the data and 
+		///  displaying it, or you may be altering the stream to add an
+		///  echo. Most processors also have state data that they allocate 
+		///  as they are in use, this would be stored in the arg pointer
+		///   data space. This processor is never really finished, until
+		///    the audio device is closed, or you pass NULL as the mix_func.
+		/// <p>There can only be one postmix function used at a time through 
+		/// this method. Use 
+		/// Mix_RegisterEffect(MIX_CHANNEL_POST, mix_func, NULL, arg) to 
+		/// use multiple postmix processors.</p>
+		/// <p>This postmix processor is run AFTER all the registered 
+		/// postmixers set up by Mix_RegisterEffect.</p>
+		/// <p>
+		/// <code>void Mix_SetPostMix(void (*mix_func)(void *udata, Uint8 *stream, int len), void *arg)
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// // make a passthru processor function that does nothing...
+		///		void noEffect(void *udata, Uint8 *stream, int len)
+		///		{
+		///			// you could work with stream here...
+		///		}
+		///		...
+		///		// register noEffect as a postmix processor
+		///		Mix_SetPostMix(noEffect, NULL);
+		/// </code>
+		/// </example>
+		/// <param name="mix_func">The function pointer for the postmix processor.
+		/// NULL unregisters the current postmixer.</param>
+		/// <param name="arg">A pointer to data to pass into the mix_func's 
+		/// udata parameter. It is a good place to keep the state data for 
+		/// the processor, especially if the processor is made to handle 
+		/// multiple channels at the same time.
+		/// This may be NULL, depending on the processor.</param>
+		/// <seealso cref="Mix_RegisterEffect"/>
+		[DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void Mix_SetPostMix(MixFunctionDelegate mix_func, IntPtr arg);
+		#endregion void Mix_SetPostMix(MixFunctionDelegate mix_func, IntPtr arg)
 
-        /* Add your own music player or additional mixer function.
-   If 'mix_func' is NULL, the default music player is re-enabled.
- */
-        //		extern DECLSPEC void SDLCALL Mix_HookMusic(void (*mix_func)
-        //		(void *udata, Uint8 *stream, int len), void *arg);
+		#region void Mix_HookMusic(MixFunctionDelegate mix_func, IntPtr arg)
+		/// <summary>
+		/// Hook for a custom music player
+		/// </summary>
+		/// <remarks>
+		/// This sets up a custom music player function. The function will 
+		/// be called with arg passed into the udata parameter when the 
+		/// mix_func is called. The stream parameter passes in the audio 
+		/// stream buffer to be filled with len bytes of music. The music 
+		/// player will then be called automatically when the mixer needs 
+		/// it. Music playing will start as soon as this is called. All the 
+		/// music playing and stopping functions have no effect on music 
+		/// after this. Pause and resume will work. Using a custom music 
+		/// player and the internal music player is not possible, the custom 
+		/// music player takes priority. To stop the custom music player call
+		///  Mix_HookMusic(NULL, NULL).
+		/// <p>NOTE: NEVER call SDL_Mixer functions, nor SDL_LockAudio, 
+		/// from a callback function.</p>
+		/// <p>
+		/// <code>void Mix_HookMusic(void (*mix_func)(void *udata, Uint8 *stream, int len), void *arg)
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// // make a music play function
+		///		// it expects udata to be a pointer to an int
+		///		void myMusicPlayer(void *udata, Uint8 *stream, int len)
+		///		{
+		///			int i, pos=*(int*)udata;
+		///
+		///			// fill buffer with...uh...music...
+		///			for(i=0; i&lt;len; i++)
+		///				stream[i]=(i+pos)&amp;ff;
+		///
+		///			// set udata for next time
+		///			pos+=len;
+		///			*(int*)udata=pos;
+		///		}
+		///		...
+		///		// use myMusicPlayer for playing...uh...music
+		///		int music_pos=0;
+		///		Mix_HookMusic(myMusicPlayer, &amp;music_pos);
+		/// </code>
+		/// </example>
+		/// <param name="mix_func">Function pointer to a music player mixer function.
+		/// NULL will stop the use of the music player, 
+		/// returning the mixer to using the internal music players 
+		/// like usual.</param>
+		/// <param name="arg">
+		/// This is passed to the mix_func's udata parameter when it is called.
+		/// </param>
+		/// <seealso cref="Mix_SetMusicCMD"/>
+		/// <seealso cref="Mix_GetMusicHookData"/>
+		[DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void Mix_HookMusic(MixFunctionDelegate mix_func, IntPtr arg);
+		#endregion void Mix_HookMusic(MixFunctionDelegate mix_func, IntPtr arg)
 
-        //		extern DECLSPEC void SDLCALL Mix_HookMusicFinished(
-        //		void (*music_finished)(void));
-
+		#region void Mix_HookMusicFinished(MusicFinishedDelegate music_finished)
         /// <summary>
         /// Add your own callback when the music has finished playing.
         /// This callback is only called if the music finishes naturally.
         /// </summary>
-        /// <param name="music_finished"></param>
+        /// <remarks>
+		/// This sets up a function to be called when music playback is halted. 
+		/// Any time music stops, the music_finished function will be called. 
+		/// Call with NULL to remove the callback.
+		/// <p>NOTE: NEVER call SDL_Mixer functions, nor SDL_LockAudio, 
+		/// from a callback function.</p>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>void Mix_HookMusicFinished(void (*music_finished)())
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="music_finished">
+		/// Function pointer to a void function(). 
+		/// NULL will remove the hook.
+		/// </param>
+		/// <example>
+		/// <code>
+		/// // make a music finished function
+		///		void musicFinished()
+		///		{
+		///			printf("Music stopped.\n");
+		///		}
+		///		...
+		///		// use musicFinished for when music stops
+		///		Mix_HookMusicFinished(musicFinished);
+		/// </code></example>
+		/// <seealso cref="Mix_HaltMusic"/>
+		/// <seealso cref="Mix_FadeOutMusic"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_HookMusicFinished(
             MusicFinishedDelegate music_finished);
+		#endregion void Mix_HookMusicFinished(MusicFinishedDelegate music_finished)
 
+		#region IntPtr Mix_GetMusicHookData()
         /// <summary>
         /// Get a pointer to the user data for the current music hook
         /// </summary>
-        /// <returns></returns>
+        /// <remarks>
+        /// Get the arg passed into Mix_HookMusic.
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>void *Mix_GetMusicHookData()
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// // retrieve the music hook data pointer
+		/// void *data;
+		/// data=Mix_GetMusicHookData();
+		/// </code></example>
+        /// <returns>the arg pointer.</returns>
+        /// <seealso cref="Mix_HookMusic"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr Mix_GetMusicHookData();
+		#endregion IntPtr Mix_GetMusicHookData()
 
+		#region void Mix_ChannelFinished(ChannelFinishedDelegate channel_finished)
         /// <summary>
-        /// Add your own callback when a channel has finished playing. NULL
-        ///  to disable callback. The callback may be called from the 
-        ///  mixer's audio 
-        ///  callback or it could be called as a result of 
-        ///  Mix_HaltChannel(), etc.
-        ///  do not call SDL_LockAudio() from this callback; 
-        ///  you will either be 
-        ///  inside the audio callback, or SDL_mixer will 
-        ///  explicitly lock the audio
-        ///  before calling your callback.
+        /// Set callback for when channel finishes playing
         /// </summary>
-        /// <param name="channel_finished"></param>
+        /// <remarks>
+		/// When channel playback is halted, then the specified 
+		/// channel_finished function is called. The channel parameter 
+		/// will contain the channel number that has finished.
+		/// <p>NOTE: NEVER call SDL_Mixer functions, 
+		/// nor SDL_LockAudio, from a callback function.</p>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>void Mix_ChannelFinished(void (*channel_finished)(int channel))
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// // a simple channel_finished function
+		///		void channelDone(int channel) 
+		///		{
+		///			printf("channel %d finished playback.\n",channel);
+		///		}
+		///
+		///		// make a channelDone function
+		///		void channelDone(int channel)
+		///		{
+		///			printf("channel %d finished playing.\n", channel);
+		///		}
+		///		...
+		///		// set the callback for when a channel stops playing
+		///		Mix_ChannelFinished(channelDone);
+		/// </code></example>
+        /// <param name="channel_finished">
+        /// Function to call when any channel finishes playback. 
+        /// </param>
+        /// <seealso cref="Mix_HaltChannel"/>
+        /// <seealso cref="Mix_ExpireChannel"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_ChannelFinished(
             ChannelFinishedDelegate channel_finished);
+		#endregion void Mix_ChannelFinished(ChannelFinishedDelegate channel_finished)
 
+		#region int Mix_RegisterEffect(...)
+		/// <summary>
+		/// Hook a processor to a channel
+		/// </summary>
+		/// <remarks>
+		/// Hook a processor function f into a channel for post processing
+		///  effects. You may just be reading the data and displaying it, 
+		///  or you may be altering the stream to add an echo. Most 
+		///  processors also have state data that they allocate as they 
+		///  are in use, this would be stored in the arg pointer data space.
+		///   When a processor is finished being used, any function passed 
+		///   into d will be called, which is when your processor should clean
+		///    up the data in the arg data space.
+		/// <p>The effects are put into a linked list, and always appended to 
+		/// the end, meaning they always work on previously registered effects
+		///  output. Effects may be added multiple times in a row. Effects are
+		///   cumulative this way.</p>
+		/// <p>
+		/// <code>int Mix_RegisterEffect(int chan, Mix_EffectFunc_t f, Mix_EffectDone_t d, void *arg)
+		/// </code></p></remarks>
+		/// <param name="f">
+		/// The function pointer for the effects processor.
+		/// </param>
+		/// <param name="arg"></param>
+		/// <param name="chan">channel number to register f and d on.
+		/// Use MIX_CHANNEL_POST to process the postmix stream.</param>
+		/// <param name="d">
+		/// The function pointer for any cleanup routine to be called 
+		/// when the channel is done playing a sample.
+		/// This may be NULL for any processors that don't need to 
+		/// clean up any memory or other dynamic data.
+		/// </param>
+		/// <returns>
+		/// Zero on errors, such as a nonexisting channel
+		/// </returns>
+		/// <example>
+		/// <code>
+		/// // make a passthru processor function that does nothing...
+		///		void noEffect(int chan, void *stream, int len, void *udata)
+		///		{
+		///			// you could work with stream here...
+		///		}
+		///		...
+		///		// register noEffect as a postmix processor
+		///		if(!Mix_RegisterEffect(MIX_CHANNEL_POST, noEffect, NULL, NULL)) 
+		///	{
+		///		printf("Mix_RegisterEffect: %s\n", Mix_GetError());
+		///	}
+		/// </code></example>
+		/// <seealso cref="Mix_UnregisterEffect"/>
+		/// <seealso cref="Mix_UnregisterAllEffects"/>
+		[DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int Mix_RegisterEffect(int chan, 
+			MixEffectFunctionDelegate f, 
+			MixEffectDoneDelegate d,
+			IntPtr arg);
+		#endregion int Mix_RegisterEffect(...)
+
+		#region int Mix_UnregisterEffect(...)
+		/// <summary>
+		/// Unhook a processor from a channel
+		/// </summary>
+		/// <remarks>
+		/// Remove the oldest (first found) registered effect function 
+		/// f from the effect list for channel. This only removes the 
+		/// first found occurance of that function, so it may need to 
+		/// be called multiple times if you added the same function multiple
+		///  times, just stop removing when Mix_UnregisterEffect returns an
+		///   error, to remove all occurances of f from a channel.
+		/// <p>If the channel is active the registered effect will have its 
+		/// Mix_EffectDone_t function called, if it was specified in 
+		/// Mix_RegisterEffect.</p>
+		/// <p>
+		/// <code>int Mix_UnregisterEffect(int channel, Mix_EffectFunc_t f)
+		/// </code></p></remarks>
+		/// <param name="f">The function to remove from channel.</param>
+		/// <param name="chan">Channel number to remove f from as a post processor.
+		/// <p>Use MIX_CHANNEL_POST for the postmix stream.</p></param>
+		/// <returns>
+		/// Zero on errors, such as invalid channel, 
+		/// or effect function not registered on channel.
+		/// </returns>
+		/// <example>
+		/// <code>
+		/// // unregister the noEffect from the postmix effects
+		/// // this removes all occurances of noEffect registered to the postmix
+		/// while(Mix_UnregisterEffect(MIX_CHANNEL_POST, noEffect));
+		/// // you may print Mix_GetError() if you want to check it.
+		/// // it should say "No such effect registered" after this loop.
+		/// </code></example>
+		/// <seealso cref="Mix_RegisterEffect"/>
+		/// <seealso cref="Mix_UnregisterAllEffects"/>
+		[DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int Mix_UnregisterEffect(int chan, 
+			MixEffectFunctionDelegate f);
+		#endregion int Mix_UnregisterEffect(...)
+
+		#region int Mix_UnregisterAllEffects(int channel)
+		/// <summary>
+		/// Unhook all processors from a channel
+		/// </summary>
+		/// <remarks>
+		/// This removes all effects registered to channel. 
+		/// If the channel is active all the registered effects will 
+		/// have their Mix_EffectDone_t functions called, if they 
+		/// were specified in Mix_RegisterEffect.
+		/// <p>
+		/// <code>int Mix_UnregisterAllEffects(int channel)
+		/// </code></p></remarks>
+		/// <param name="channel">
+		/// Channel to remove all effects from.
+		/// Use MIX_CHANNEL_POST for the postmix stream.
+		/// </param>
+		/// <returns>
+		/// Zero on errors, such as channel not existing.
+		/// </returns>
+		/// <example>
+		/// <code>
+		/// // remove all effects from channel 0
+		///		if(!Mix_UnregisterAllEffects(0)) 
+		///	{
+		///		printf("Mix_UnregisterAllEffects: %s\n", Mix_GetError());
+		///	}
+		/// </code></example>
+		/// <seealso cref="Mix_UnregisterEffect"/>
+		/// <seealso cref="Mix_RegisterEffect"/>
+		[DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int Mix_UnregisterAllEffects(int channel);
+		#endregion int Mix_UnregisterAllEffects(int channel)
+
+		#region int Mix_SetPanning(int channel, byte left, byte right)
         /// <summary>
-        /// Set the panning of a channel. 
-        /// The left and right channels are specified
-        ///  as integers between 0 and 255, quietest to loudest, 
-        ///  respectively.
-        ///
-        /// Technically, this is just individual volume control 
-        /// for a sample with
-        ///  two (stereo) channels, so it can be used for more 
-        ///  than just panning.
-        ///  If you want real panning, call it like this:
-        ///
-        ///   Mix_SetPanning(channel, left, 255 - left);
-        ///
-        /// ...which isn't so hard.
-        ///
-        /// Setting (channel) to MIX_CHANNEL_POST registers this 
-        /// as a posteffect, and
-        ///  the panning will be done to the final mixed stream 
-        ///  before passing it on
-        ///  to the audio device.
-        ///
-        /// This uses the Mix_RegisterEffect() API internally, 
-        /// and returns without
-        ///  registering the effect function if the audio device 
-        ///  is not configured
-        ///  for stereo output. Setting both (left) and (right) 
-        ///  to 255 causes this
-        ///  effect to be unregistered, since that is the data's 
-        ///  normal state.
-        ///
-        /// returns zero if error (no such channel or 
-        /// Mix_RegisterEffect() fails),
-        ///  nonzero if panning effect enabled. 
-        ///  Note that an audio device in mono
-        ///  mode is a no-op, but this call will return 
-        ///  successful in that case.
-        ///  Error messages can be retrieved from Mix_GetError().
+        /// Stereo panning
         /// </summary>
-        /// <param name="channel"></param>
-        /// <param name="left"></param>
-        /// <param name="right"></param>
-        /// <returns></returns>
+        /// <remarks>
+		/// This effect will only work on stereo audio. Meaning you called 
+		/// Mix_OpenAudio with 2 channels (MIX_DEFAULT_CHANNELS). The easiest
+		///  way to do true panning is to call 
+		///  Mix_SetPanning(channel, left, 254 - left); so that the total 
+		///  volume is correct, if you consider the maximum volume to be 127
+		///   per channel for center, or 254 max for left, this works, but 
+		///   about halves the effective volume.
+		/// <p>This Function registers the effect for you, so don't try to 
+		/// Mix_RegisterEffect it yourself.</p>
+		/// <p>NOTE: Setting both left and right to 255 will unregister the 
+		/// effect from channel. You cannot unregister it any other way, 
+		/// unless you use Mix_UnregisterAllEffects on the channel.</p>
+		/// <p>NOTE: Using this function on a mono audio device will not
+		/// register the effect, nor will it return an error status.</p>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>int Mix_SetPanning(int channel, Uint8 left, Uint8 right)
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="channel">
+		/// Channel number to register this effect on.
+		/// Use MIX_CHANNEL_POST to process the postmix stream.
+		/// </param>
+        /// <param name="left">
+        /// Volume for the left channel, range is 0(silence) to 255(loud) 
+        /// </param>
+        /// <param name="right">
+        /// Volume for the left channel, range is 0(silence) to 255(loud)
+        /// </param>
+        /// <returns>
+        /// Zero on errors, such as bad channel, or if Mix_RegisterEffect failed.
+        /// </returns>
+        /// <example>
+        /// <code>
+		/// // pan channel 1 halfway to the left
+		///		if(!Mix_SetPanning(1, 255, 127)) 
+		///	{
+		///		printf("Mix_SetPanning: %s\n", Mix_GetError());
+		///		// no panning, is it ok?
+		///	}
+		///	</code>
+        /// </example>
+		/// <seealso cref="Mix_SetPosition"/>
+		/// <seealso cref="Mix_UnregisterAllEffects"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_SetPanning(
-            int channel, Byte left, Byte right);
+            int channel, byte left, byte right);
+		#endregion int Mix_SetPanning(int channel, byte left, byte right)
 
+		#region int Mix_SetPosition(int channel, short angle, byte distance)
         /// <summary>
-        /// Set the position of a channel. 
-        /// (angle) is an integer from 0 to 360, that
-        ///  specifies the location of the sound in relation 
-        ///  to the listener. (angle)
-        ///  will be reduced as neccesary 
-        ///  (540 becomes 180 degrees, -100 becomes 260).
-        ///  Angle 0 is due north, and rotates 
-        ///  clockwise as the value increases.
-        ///  For efficiency, the precision of this 
-        ///  effect may be limited (angles 1
-        ///  through 7 might all produce the same effect, 
-        ///  8 through 15 are equal, etc).
-        ///  (distance) is an integer between 0 and 255 
-        ///  that specifies the space
-        ///  between the sound and the listener. 
-        ///  The larger the number, the further
-        ///  away the sound is. Using 255 does not guarantee 
-        ///  that the channel will be
-        ///  culled from the mixing process or be completely silent. 
-        ///  For efficiency,
-        ///  the precision of this effect may be limited 
-        ///  (distance 0 through 5 might
-        ///  all produce the same effect, 6 through 10 are equal, etc).
-        ///   Setting (angle)
-        ///  and (distance) to 0 unregisters this effect, since the data
-        ///   would be
-        ///  unchanged.
-        ///
-        /// If you need more precise positional audio, 
-        /// consider using OpenAL for
-        ///  spatialized effects instead of SDL_mixer. 
-        ///  This is only meant to be a
-        ///  basic effect for simple "3D" games.
-        ///
-        /// If the audio device is configured for mono output, 
-        /// then you won't get
-        ///  any effectiveness from the angle; however, 
-        ///  distance attenuation on the
-        ///  channel will still occur. While this effect 
-        ///  will function with stereo
-        ///  voices, it makes more sense to use voices with 
-        ///  only one channel of sound,
-        ///  so when they are mixed through this effect, 
-        ///  the positioning will sound
-        ///  correct. You can convert them to mono through 
-        ///  SDL before giving them to
-        ///  the mixer in the first place if you like.
-        ///
-        /// Setting (channel) to MIX_CHANNEL_POST registers this 
-        /// as a posteffect, and
-        ///  the positioning will be done to the final mixed stream
-        ///   before passing it
-        ///  on to the audio device.
-        ///
-        /// This is a convenience wrapper over Mix_SetDistance()
-        ///  and Mix_SetPanning().
-        ///
-        /// returns zero if error (no such channel or 
-        /// Mix_RegisterEffect() fails),
-        ///  nonzero if position effect is enabled.
-        ///  Error messages can be retrieved from Mix_GetError().
-        /// 
+        /// Panning(angular) and distance
         /// </summary>
-        /// <param name="channel"></param>
-        /// <param name="angle"></param>
-        /// <param name="distance"></param>
-        /// <returns></returns>
+        /// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>int Mix_SetPosition(int channel, Sint16 angle, Uint8 distance)
+		/// </code>
+		/// </p>
+		/// </remarks>
+        /// <param name="channel">
+		/// Channel number to register this effect on.
+		/// Use MIX_CHANNEL_POST to process the postmix stream.
+		/// </param>
+        /// <param name="angle">
+		/// Direction in relation to forward from 0 to 360 degrees. 
+		/// Larger angles will be reduced to this range using angles % 360.
+		/// 0 = directly in front.
+		/// 90 = directly to the right.
+		/// 180 = directly behind.
+		/// 270 = directly to the left.
+		/// So you can see it goes clockwise starting at directly in front.
+		/// This ends up being similar in effect to Mix_SetPanning.
+		/// </param>
+        /// <param name="distance">
+		/// The distance from the listener, from 0(near/loud) to 255(far/quiet).
+		/// This is the same as the Mix_SetDistance effect.
+		///	</param>
+        /// <returns>
+        /// Zero on errors, such as an invalid channel, 
+        /// or if Mix_RegisterEffect failed.
+        /// </returns>
+        /// <example>
+        /// <code>
+		/// // set channel 2 to be behind and right, and 100 units away
+		///		if(!Mix_SetPosition(2, 135, 100)) 
+		///	{
+		///		printf("Mix_SetPosition: %s\n", Mix_GetError());
+		///		// no position effect, is it ok?
+		///	}
+        /// </code></example>
+		/// <seealso cref="Mix_SetPanning"/>
+		/// <seealso cref="Mix_SetDistance"/>
+		/// <seealso cref="Mix_UnregisterAllEffects"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_SetPosition(
-            int channel, short angle, Byte distance);
+            int channel, short angle, byte distance);
+		#endregion int Mix_SetPosition(int channel, short angle, byte distance)
 
+		#region int Mix_SetDistance(int channel, byte distance)
         /// <summary>
-        /// Set the "distance" of a channel. (distance) is an integer 
-        /// from 0 to 255
-        ///  that specifies the location of the sound in relation to 
-        ///  the listener.
-        ///  Distance 0 is overlapping the listener, and 255 is as far 
-        ///  away as possible
-        ///  A distance of 255 does not guarantee silence; in such a case, 
-        ///  you might
-        ///  want to try changing the chunk's volume, or just cull the 
-        ///  sample from the
-        ///  mixing process with Mix_HaltChannel().
-        /// For efficiency, the precision of this effect may be 
-        /// limited (distances 1
-        ///  through 7 might all produce the same effect, 8 through 
-        ///  15 are equal, etc).
-        ///  (distance) is an integer between 0 and 255 that specifies 
-        ///  the space
-        ///  between the sound and the listener. The larger the number, 
-        ///  the further
-        ///  away the sound is.
-        /// Setting (distance) to 0 unregisters this effect, since the 
-        /// data would be
-        ///  unchanged.
-        /// If you need more precise positional audio, consider using 
-        /// OpenAL for
-        ///  spatialized effects instead of SDL_mixer. This is only 
-        ///  meant to be a
-        ///  basic effect for simple "3D" games.
-        ///
-        /// Setting (channel) to MIX_CHANNEL_POST registers this as 
-        /// a posteffect, and
-        ///  the distance attenuation will be done to the final mixed 
-        ///  stream before
-        ///  passing it on to the audio device.
-        ///
-        /// This uses the Mix_RegisterEffect() API internally.
-        ///
-        /// returns zero if error (no such channel or 
-        /// Mix_RegisterEffect() fails),
-        ///  nonzero if position effect is enabled.
-        ///  Error messages can be retrieved from Mix_GetError().
+        /// Distance attenuation (volume)
         /// </summary>
-        /// <param name="channel"></param>
-        /// <param name="distance"></param>
-        /// <returns></returns>
+        /// <remarks>
+		/// This effect simulates a simple attenuation of volume due to distance. 
+		/// The volume never quite reaches silence, even at max distance.
+		/// NOTE: Using a distance of 0 will cause the effect to unregister 
+		/// itself from channel. You cannot unregister it any other way, 
+		/// unless you use Mix_UnregisterAllEffects on the channel.
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>int Mix_SetDistance(int channel, Uint8 distance)
+		/// </code>
+		/// </p>
+		/// </remarks>
+        /// <param name="channel">
+		/// Channel number to register this effect on.
+		/// Use MIX_CHANNEL_POST to process the postmix stream.
+		/// </param>
+        /// <param name="distance">
+        /// Specify the distance from the listener, 
+        /// from 0(close/loud) to 255(far/quiet). 
+        /// </param>
+        /// <returns>
+        /// Zero on errors, such as an invalid channel, 
+        /// or if Mix_RegisterEffect failed.
+        /// </returns>
+        /// <example>
+        /// <code>
+		/// // distance channel 1 to be farthest away
+		///		if(!Mix_SetDistance(1, 255)) 
+		///	{
+		///		printf("Mix_SetDistance: %s\n", Mix_GetError());
+		///		// no distance, is it ok?
+		///	}
+        /// </code></example>
+		/// <seealso cref="Mix_SetPosition"/>
+		/// <seealso cref="Mix_UnregisterAllEffects"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_SetDistance(
-            int channel, Byte distance);
+            int channel, byte distance);
+		#endregion int Mix_SetDistance(int channel, byte distance)
 
+		// int Mix_SetReverb(int channel, Uint8 echo) is not part of the public API
+
+		#region int Mix_SetReverseStereo(int channel, int flip)
         /// <summary>
-        /// Causes a channel to reverse its stereo. 
-        /// This is handy if the user has his
-        ///  speakers hooked up backwards, or you would like to 
-        ///  have a minor bit of
-        ///  psychedelia in your sound code.  :)  
-        ///  Calling this function with (flip)
-        ///  set to non-zero reverses the chunks's usual channels. 
-        ///  If (flip) is zero,
-        ///  the effect is unregistered.
-        ///
-        /// This uses the Mix_RegisterEffect() API internally, 
-        /// and thus is probably
-        ///  more CPU intensive than having the user just plug in 
-        ///  his speakers
-        ///  correctly. Mix_SetReverseStereo() returns without registering 
-        ///  the effect
-        ///  function if the audio device is not configured for stereo
-        ///   output.
-        ///
-        /// If you specify MIX_CHANNEL_POST for (channel), 
-        /// then this the effect is used
-        ///  on the final mixed stream before sending it on to 
-        ///  the audio device (a
-        ///  posteffect).
-        ///
-        /// returns zero if error (no such channel or 
-        /// Mix_RegisterEffect() fails),
-        ///  nonzero if reversing effect is enabled. 
-        ///  Note that an audio device in mono
-        ///  mode is a no-op, but this call will return 
-        ///  successful in that case.
-        ///  Error messages can be retrieved from Mix_GetError().
+        /// Swap stereo left and right
         /// </summary>
-        /// <param name="channel"></param>
-        /// <param name="flip"></param>
-        /// <returns></returns>
+        /// <remarks>
+		/// Simple reverse stereo, swaps left and right channel sound.
+		/// <p>NOTE: Using a flip of 0, will cause the effect to unregister 
+		/// itself from channel. You cannot unregister it any other way, 
+		/// unless you use Mix_UnregisterAllEffects on the channel.</p>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>int Mix_SetReverseStereo(int channel, int flip)
+		/// </code>
+		/// </p>
+		/// </remarks>
+        /// <param name="channel">
+		/// Channel number to register this effect on.
+		/// Use MIX_CHANNEL_POST to process the postmix stream.
+		/// </param>
+        /// <param name="flip">
+		/// Must be non-zero to work, means nothing to the effect processor itself.
+		/// set to zero to unregister the effect from channel.
+		/// </param>
+        /// <returns>
+        /// Zero on errors, such as an invalid channel, or if Mix_RegisterEffect failed.
+        /// </returns>
+        /// <example>
+        /// <code>
+		/// // set the total mixer output to be reverse stereo
+		///		if(!Mix_SetReverseStereo(MIX_CHANNEL_POST, 1)) 
+		///	{
+		///		printf("Mix_SetReverseStereo: %s\n", Mix_GetError());
+		///		// no reverse stereo, is it ok?
+		///	}
+        /// </code>
+        /// </example>
+        /// <seealso cref="Mix_UnregisterAllEffects"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_SetReverseStereo(
             int channel, int flip);
+		#endregion int Mix_SetReverseStereo(int channel, int flip)
 
+		#region int Mix_ReserveChannels(int num)
         /// <summary>
-        /// Reserve the first channels (0 -> n-1) for the application, 
-        /// i.e. don't allocate
-        /// them dynamically to the next sample if requested with 
-        /// a -1 value below.
+        /// Prevent channels from being used in default group
         /// </summary>
-        /// <param name="num"></param>
-        /// <returns>Returns the number of reserved channels.</returns>
+        /// <remarks>
+        /// Reserve num channels from being used when playing samples when 
+        /// passing in -1 as a channel number to playback functions. The 
+        /// channels are reserved starting from channel 0 to num-1. Passing
+        ///  in zero will unreserve all channels. Normally SDL_mixer starts 
+        ///  without any channels reserved.
+        ///  <p>
+		///  The following functions are affected by this setting:
+		///  <br><see cref="Mix_PlayChannel"/></br>
+		///  <br><see cref="Mix_PlayChannelTimed"/></br>
+		///  <br><see cref="Mix_FadeInChannel"/></br>
+		///  <br><see cref="Mix_FadeInChannelTimed"/></br>
+        ///  </p>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>int Mix_ReserveChannels(int num)
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="num">
+		/// Number of channels to reserve from default mixing.
+		/// Zero removes all reservations.
+		/// </param>
+        /// <returns>The number of channels reserved. 
+        /// Never fails, but may return less channels than you ask for,
+        ///  depending on the number of channels previously allocated.
+        ///  </returns>
+        ///  <example>
+        ///  <code>
+		///  // reserve the first 8 mixing channels
+		///		int reserved_count;
+		///		reserved_count=Mix_ReserveChannels(8);
+		///		if(reserved_count!=8) 
+		///	{
+		///		printf("reserved %d channels from default mixing.\n",reserved_count);
+		///		printf("8 channels were not reserved!\n");
+		///		// this might be a critical error...
+		///	}
+        ///  </code></example>
+        ///  <seealso cref="Mix_AllocateChannels"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_ReserveChannels(int num);
+		#endregion int Mix_ReserveChannels(int num)
 
+		#region int Mix_GroupChannel(int which, int tag)
         /// <summary>
-        /// Attach a tag to a channel. A tag can be assigned to several mixer
-        /// channels, to form groups of channels.
-        /// If 'tag' is -1, the tag is removed (actually -1 is the tag used to
-        /// represent the group of all the channels).
+        /// Add/remove channel to/from group
         /// </summary>
-        /// <param name="which"></param>
-        /// <param name="tag"></param>
-        /// <returns>Returns true if everything was OK.</returns>
+        /// <remarks>
+        /// Add which channel to group tag, or reset 
+        /// it's group to the default group tag (-1).
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>int Mix_GroupChannel(int which, int tag)
+		/// </code>
+		/// </p>
+		/// </remarks>
+        /// <param name="which">
+        /// Channel number of channels to assign tag to.
+        /// </param>
+        /// <param name="tag">
+		/// A group number Any positive numbers (including zero).
+		/// -1 is the default group. Use -1 to remove a group tag essentially.
+        /// </param>
+        /// <returns>
+        /// True(1) on success. False(0) is returned when 
+        /// the channel specified is invalid.
+        /// </returns>
+        /// <example>
+        /// <code>
+		/// // add channel 0 to group 1
+		///		if(!Mix_GroupChannel(0,1)) 
+		///	{
+		///		// bad channel, apparently channel 1 isn't allocated
+		///	}
+        /// </code></example>
+        /// <seealso cref="Mix_GroupChannels"/>
+        /// <seealso cref="Mix_AllocateChannels"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_GroupChannel(int which, int tag);
+		#endregion int Mix_GroupChannel(int which, int tag)
 
+		#region int Mix_GroupChannels(int from, int to, int tag)
         /// <summary>
         /// Assign several consecutive channels to a group
         /// </summary>
-        /// <param name="from"></param>
-        /// <param name="to"></param>
-        /// <param name="tag"></param>
-        /// <returns></returns>
+        /// <remarks>
+        /// Add channels starting at from up through to to group tag, 
+        /// or reset it's group to the default group tag (-1). 
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>int Mix_GroupChannels(int from, int to, int tag)
+		/// </code>
+		/// </p>
+		/// </remarks>
+        /// <param name="from">
+        /// First Channel number of channels to assign tag to. 
+        /// Must be less or equal to to.
+        /// </param>
+        /// <param name="to">
+        /// Last Channel number of channels to assign tag to. Must be greater or equal to from.
+        /// </param>
+        /// <param name="tag">
+		/// A group number. Any positive numbers (including zero).
+		/// -1 is the default group. Use -1 to remove a group tag essentially.
+		/// </param>
+        /// <returns>
+        /// The number of tagged channels on success. If that number is less 
+        /// than to-from+1 then some channels were no tagged because they didn't 
+        /// exist.
+        /// </returns>
+        /// <example>
+        /// <code>
+		/// // add channels 0 through 7 to group 1
+		///		if(Mix_GroupChannels(0,7,1)!=8) 
+		///	{
+		///		// some bad channels, apparently some channels aren't allocated
+		///	}
+        /// </code></example>
+		/// <seealso cref="Mix_GroupChannel"/>
+		/// <seealso cref="Mix_AllocateChannels"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_GroupChannels(
             int from, int to, int tag);
+		#endregion int Mix_GroupChannels(int from, int to, int tag)
 
+		#region int Mix_GroupAvailable(int tag)
         /// <summary>
-        /// Finds the first available channel in a group of channels,
-        /// returning -1 if none are available.
+        /// Get first inactive channel in group.
         /// </summary>
-        /// <param name="tag"></param>
-        /// <returns></returns>
+        /// <remarks>
+        /// Find the first available (not playing) channel in group tag.
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>int Mix_GroupAvailable(int tag)
+		/// </code>
+		/// </p>
+		/// </remarks>
+        /// <param name="tag">
+		/// A group number Any positive numbers (including zero).
+		/// -1 will search ALL channels.
+		/// </param>
+        /// <returns>
+        /// The channel found on success. -1 is returned when no 
+        /// channels in the group are available.
+        /// </returns>
+        /// <example>
+        /// <code>
+		/// // find the first available channel in group 1
+		///		int channel;
+		///		channel=Mix_GroupAvailable(1);
+		///		if (channel==-1) 
+		///	{
+		///		// no channel available...
+		///		// perhaps search for oldest or newest channel in use...
+		///	}
+        /// </code></example>
+		/// <seealso cref="Mix_GroupOldest"/>
+		/// <seealso cref="Mix_GroupNewer"/>
+		/// <seealso cref="Mix_GroupChannel"/>
+		/// <seealso cref="Mix_GroupChannels"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_GroupAvailable(int tag);
+		#endregion int Mix_GroupAvailable(int tag)
 
+		#region int Mix_GroupCount(int tag)
         /// <summary>
-        /// Returns the number of channels in a group. This is also a subtle
-        /// way to get the total number of channels when 'tag' is -1
+        /// Get number of channels in group.
         /// </summary>
-        /// <param name="tag"></param>
-        /// <returns></returns>
+        /// <remarks>
+        /// Count the number of channels in group tag.
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>int Mix_GroupCount(int tag)
+		/// </code>
+		/// </p>
+		/// </remarks>
+        /// <param name="tag">
+		/// A group number Any positive numbers (including zero).
+		/// -1 will count ALL channels.
+        /// </param>
+        /// <returns>
+        /// The number of channels found in the group. This function never fails.
+		/// </returns>
+		/// <example>
+		/// <code>
+		/// // count the number of channels in group 1
+		/// printf("There are %d channels in group 1\n", Mix_GroupCount(1));
+		/// </code></example>
+		/// <seealso cref="Mix_GroupChannel"/>
+		/// <seealso cref="Mix_GroupChannels"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_GroupCount(int tag);
+		#endregion int Mix_GroupCount(int tag)
 
+		#region int Mix_GroupOldest(int tag)
         /// <summary>
-        /// Finds the "oldest" sample playing in a group of channels
+        /// Get oldest busy channel in group
         /// </summary>
-        /// <param name="tag"></param>
-        /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        /// <remarks>
+        /// Find the oldest actively playing channel in group tag.
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>int Mix_GroupOldest(int tag)
+		/// </code>
+		/// </p>
+		/// </remarks>
+        /// <param name="tag">
+		/// A group number Any positive numbers (including zero).
+		/// -1 will search ALL channels.
+        /// </param>
+        /// <returns>
+        /// The channel found on success. -1 is returned when no channels in
+        ///  the group are playing or the group is empty.
+		/// </returns>
+		/// <example>
+		/// <code>
+		/// // find the oldest playing channel in group 1
+		///		int channel;
+		///		channel=Mix_GroupOldest(1);
+		///		if (channel==-1) 
+		///	{
+		///		// no channel playing or allocated...
+		///		// perhaps just search for an available channel...
+		///	}
+		/// </code></example>
+		/// <seealso cref="Mix_GroupNewer"/>
+		/// <seealso cref="Mix_GroupAvailable"/>
+		/// <seealso cref="Mix_GroupChannel"/>
+		/// <seealso cref="Mix_GroupChannels"/>
+		[DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_GroupOldest(int tag);
+		#endregion int Mix_GroupOldest(int tag)
 
+		#region int Mix_GroupNewer(int tag)
         /// <summary>
-        /// Finds the "most recent" (i.e. last) 
-        /// sample playing in a group of channels
+        /// Get youngest busy channel in group
         /// </summary>
-        /// <param name="tag"></param>
-        /// <returns></returns>
+        /// <remarks>
+        /// Find the newest, most recently started, actively playing 
+        /// channel in group tag.
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>int Mix_GroupNewer(int tag)
+		/// </code>
+		/// </p>
+		/// </remarks>
+        /// <param name="tag">
+		/// A group number Any positive numbers (including zero).
+		/// -1 will search ALL channels.
+		/// </param>
+        /// <returns>
+        /// The channel found on success. -1 is returned when no channels in 
+        /// the group are playing or the group is empty.
+		/// </returns>
+		/// <example>
+        /// <code>
+		/// // find the newest playing channel in group 1
+		///		int channel;
+		///		channel=Mix_GroupNewer(1);
+		///		if (channel==-1) 
+		///	{
+		///		// no channel playing or allocated...
+		///		// perhaps just search for an available channel...
+		///	}
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_GroupOldest"/>
+		/// <seealso cref="Mix_GroupAvailable"/>
+		/// <seealso cref="Mix_GroupChannel"/>
+		/// <seealso cref="Mix_GroupChannels"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_GroupNewer(int tag);
+		#endregion int Mix_GroupNewer(int tag)
 
+		#region int Mix_PlayChannelTimed(...)
         /// <summary>
-        /// Play an audio chunk on a specific channel.
-        /// If the specified channel is -1, play on the first free channel.
-        /// If 'loops' is greater than zero, loop the sound that many times.
-        /// If 'loops' is -1, loop inifinitely (~65000 times).
+        /// Play loop and limit by time.
         /// </summary>
         /// <remarks>
         /// If the sample is long enough and has enough 
         /// loops then the sample will stop after ticks milliseconds. 
-        /// Otherwise this function is the same as 4.3.3 Mix_PlayChannel.
+        /// Otherwise this function is the same as <see cref="Mix_PlayChannel"/>.
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>int Mix_PlayChannelTimed(int channel, Mix_Chunk *chunk, int loops, int ticks)
+		/// </code>
+		/// </p>
         /// </remarks>
         /// <param name="channel">
         /// Channel to play on, or -1 for the first free unreserved channel.
@@ -1184,23 +1876,40 @@ namespace Tao.Sdl {
         /// Passing one here plays the sample twice (1 loop).
         /// </param>
         /// <param name="ticks">
-        /// the sound is played at most 'ticks' milliseconds.
         /// Millisecond limit to play sample, at most.
         /// If not enough loops or the sample chunk is not long enough,
         /// then the sample may stop before this timeout occurs.
         /// -1 means play forever.
         /// </param>
         /// <returns>
-        /// Returns which channel was used to play the sound.
         /// the channel the sample is played on. 
         /// On any errors, -1 is returned.
         /// </returns>
+		/// <example>
+		/// <code>
+		/// // play sample on first free unreserved channel
+		///		// play it for half a second
+		///		// Mix_Chunk *sample; //previously loaded
+		///		if(Mix_PlayChannelTimed(-1, sample, -1 , 500)==-1) 
+		///	{
+		///		printf("Mix_PlayChannel: %s\n",Mix_GetError());
+		///		// may be critical error, or maybe just no channels were free.
+		///		// you could allocated another channel in that case...
+		///	}
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_PlayChannel"/>
+		/// <seealso cref="Mix_FadeInChannelTimed"/>
+		/// <seealso cref="Mix_FadeOutChannel"/>
+		/// <seealso cref="Mix_ReserveChannels"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_PlayChannelTimed(
             int channel, IntPtr chunk, int loops, int ticks);
+		#endregion int Mix_PlayChannelTimed(...)
 
+		#region 
         /// <summary>
         /// Play an audio chunk on a specific channel.
         /// If the specified channel is -1, play on the first free channel.
@@ -1216,6 +1925,10 @@ namespace Tao.Sdl {
         /// originally taken to play the loops, or closing the mixer.
         /// Note: this just calls Mix_PlayChannelTimed() 
         /// with ticks set to -1. 
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
         /// </remarks>
         /// <param name="channel">
         /// Channel to play on, or -1 for the first free unreserved channel. 
@@ -1231,65 +1944,134 @@ namespace Tao.Sdl {
         /// the channel the sample is played on. On any errors,
         ///  -1 is returned.
         /// </returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         public static int Mix_PlayChannel(
             int channel, IntPtr chunk, int loops) {
             return Mix_PlayChannelTimed(channel, chunk, loops, -1);
         }
+		#endregion 
 
+		#region 
         /// <summary>
         /// 
         /// </summary>
+        /// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="music"></param>
         /// <param name="loops"></param>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_PlayMusic(IntPtr music, int loops);
+		#endregion 
 
+		#region 
         /// <summary>
         /// Fade in music or a channel over "ms" milliseconds, 
         /// same semantics as the "Play" functions
         /// </summary>
+        /// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="music"></param>
         /// <param name="loops"></param>
         /// <param name="ms"></param>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_FadeInMusic(
             IntPtr music, int loops, int ms);
+		#endregion 
 
+		#region 
         /// <summary>
         /// 
         /// </summary>
+        /// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="music"></param>
         /// <param name="loops"></param>
         /// <param name="ms"></param>
         /// <param name="position"></param>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_FadeInMusicPos(
             IntPtr music, int loops, int ms, double position);
+		#endregion 
 
+		#region 
         /// <summary>
         /// 
         /// </summary>
+        /// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="channel"></param>
         /// <param name="chunk"></param>
         /// <param name="loops"></param>
         /// <param name="ms"></param>
         /// <param name="ticks"></param>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_FadeInChannelTimed(
             int channel, IntPtr chunk, int loops, int ms, int ticks);
+		#endregion 
 
+		#region 
         /// <summary>
         /// Play loop with fade in
         /// </summary>
@@ -1306,6 +2088,10 @@ namespace Tao.Sdl {
         /// have originally taken to play the loops, or closing the mixer.
         /// Note: this just calls Mix_FadeInChannelTimed() 
         /// with ticks set to -1.
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
         /// </remarks>
         /// <param name="channel">
         /// Channel to play on, or -1 for the first free unreserved channel.
@@ -1323,11 +2109,20 @@ namespace Tao.Sdl {
         /// the channel the sample is played on. 
         /// On any errors, -1 is returned.
         /// </returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         public static int Mix_FadeInChannel(
             int channel, IntPtr chunk, int loops, int ms) {
             return Mix_FadeInChannelTimed(channel, chunk, loops, ms, -1);
         }
+		#endregion 
 
+		#region 
         /// <summary>
         /// Set the volume in the range of 0-128 of a specific 
         /// channel or chunk.
@@ -1346,6 +2141,10 @@ namespace Tao.Sdl {
         /// channels will have the max volume set, so setting 
         /// all channels volumes does not affect subsequent 
         /// channel allocations.
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
         /// </remarks>
         /// <param name="channel">
         /// Channel to set mix volume for.
@@ -1361,11 +2160,20 @@ namespace Tao.Sdl {
         /// current volume of the channel. 
         /// If channel is -1, the average volume is returned.
         /// </returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_Volume(int channel, int volume);
+		#endregion 
 
+		#region 
         /// <summary>
         /// Set mix volume
         /// </summary>
@@ -1374,6 +2182,10 @@ namespace Tao.Sdl {
         /// The volume setting will take effect 
         /// when the chunk is used on a channel, 
         /// being mixed into the output.
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
         /// </remarks>
         /// <param name="chunk">
         /// Pointer to the Mix_Chunk to set the volume in.
@@ -1389,180 +2201,437 @@ namespace Tao.Sdl {
         /// if you passed a negative value for volume then this 
         /// volume is still the current volume for the chunk.
         /// </returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_VolumeChunk(
             IntPtr chunk, int volume);
+		#endregion 
 
+		#region 
         /// <summary>
         /// 
         /// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="volume"></param>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_VolumeMusic(int volume);
+		#endregion 
 
+		#region 
         /// <summary>
         /// Halt playing of a particular channel
         /// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="channel"></param>
         /// <returns></returns>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_HaltChannel(int channel);
+		#endregion 
 
+		#region 
         /// <summary>
         /// 
         /// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="tag"></param>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_HaltGroup(int tag);
+		#endregion 
 
+		#region 
         /// <summary>
         /// 
         /// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_HaltMusic();
+		#endregion 
 
+		#region 
         /// <summary>
         /// Change the expiration delay for a particular channel.
         /// The sample will stop playing after the 'ticks' 
         /// milliseconds have elapsed,
         /// or remove the expiration if 'ticks' is -1
         /// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="channel"></param>
         /// <param name="ticks"></param>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_ExpireChannel(
             int channel, int ticks);
+		#endregion 
 
+		#region 
         /// <summary>
         /// Halt a channel, fading it out progressively till it's silent
         /// The ms parameter indicates the number of milliseconds the fading
         /// will take.
         /// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="which"></param>
         /// <param name="ms"></param>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_FadeOutChannel(int which, int ms);
+		#endregion 
 
+		#region 
         /// <summary>
         /// 
         /// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="tag"></param>
         /// <param name="ms"></param>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_FadeOutGroup(int tag, int ms);
+		#endregion 
 
+		#region 
         /// <summary>
         /// 
         /// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="ms"></param>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_FadeOutMusic(int ms);
+		#endregion 
 
+		#region 
         /// <summary>
         /// Query the fading status of a channel
         /// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern Mix_Fading Mix_FadingMusic();
+		#endregion 
 
+		#region 
         /// <summary>
         /// 
         /// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="which"></param>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern Mix_Fading Mix_FadingChannel(int which);
+		#endregion 
 
+		#region 
         /// <summary>
         /// Pause a particular channel
         /// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="channel"></param>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_Pause(int channel);
+		#endregion 
 
+		#region 
         /// <summary>
         /// Resume a particular channel
         /// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="channel"></param>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_Resume(int channel);
+		#endregion 
 
+		#region 
         /// <summary>
         /// 
         /// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="channel"></param>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_Paused(int channel);
+		#endregion 
 
+		#region 
         /// <summary>
         /// Pause the music stream
         /// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_PauseMusic();
+		#endregion 
 
+		#region 
         /// <summary>
         /// Resume the music stream
         /// </summary>
+        /// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+        /// </remarks>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_ResumeMusic();
+		#endregion 
 
+		#region 
         /// <summary>
         /// 
         /// </summary>
+        /// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_RewindMusic();
+		#endregion 
 
+		#region 
         /// <summary>
         /// 
         /// </summary>
+        /// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_PausedMusic();
+		#endregion 
 
+		#region 
         /// <summary>
         /// Set the current position in the music stream.
         /// This returns 0 if successful, or -1 if it failed or 
@@ -1571,74 +2640,179 @@ namespace Tao.Sdl {
         /// (set pattern order number) and for OGG music 
         /// (set position in seconds), at the moment.
         /// </summary>
+        /// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="position"></param>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_SetMusicPosition(double position);
+		#endregion 
 
+		#region 
         /// <summary>
         /// Check the status of a specific channel.
         /// If the specified channel is -1, check all channels.
         /// </summary>
+        /// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="channel"></param>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_Playing(int channel);
+		#endregion 
 
+		#region 
         /// <summary>
         /// 
         /// </summary>
+        /// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_PlayingMusic();
+		#endregion 
 
+		#region 
         /// <summary>
         /// Stop music and set external music playback command
         /// </summary>
+        /// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="command"></param>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_SetMusicCMD(String command);
+		#endregion 
 
+		#region 
         /// <summary>
         /// Synchro value is set by MikMod from modules while playing
         /// </summary>
+        /// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+		/// </remarks>
         /// <param name="value"></param>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_SetSynchroValue(int value);
+		#endregion 
 
+		#region 
         /// <summary>
         /// 
         /// </summary>
+        /// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+        /// </remarks>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_GetSynchroValue();
+		#endregion 
 
+		#region 
         /// <summary>
         /// Get the Mix_Chunk currently associated with a mixer channel
         /// Returns NULL if it's an invalid channel, 
         /// or there's no chunk associated.
         /// </summary>
+        /// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
+        /// </remarks>
         /// <param name="channel"></param>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr Mix_GetChunk(int channel);
+		#endregion 
 
+		#region 
         /// <summary>
         /// Close the mixer, halting all playing audio
         /// </summary>
@@ -1654,12 +2828,24 @@ namespace Tao.Sdl {
         ///  Mix_OpenAudio. You may use Mix_QuerySpec to find out how many
         ///   times Mix_CloseAudio needs to be called before the device is
         ///    actually closed.
+		///    <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// </code>
+		/// </p>
         /// </remarks>
         /// <returns></returns>
+		/// <example>
+		/// <code>
+		/// 
+		/// </code>
+		/// </example>
+		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_CloseAudio();
+		#endregion 
 
 		#region void Mix_SetError(string message)
 		/// <summary>
