@@ -1,0 +1,4 @@
+Changes since April 20, 2004 release:
+
+Changed field names in T.P.W.'s Gdi.PIXELFORMATDESCRIPTOR (BREAKING CHANGE).
+Added ChangeDisplaySettings overload to T.P.W.'s User class.

@@ -1,0 +1,636 @@
+﻿<?xml version="1.0" ?>
+<project name="Tao">
+    <!-- global project settings -->
+    <property name="project.name" value="Tao" />
+
+    <!-- global directories -->
+    <property name="root.directory" value="${nant.project.basedir}" />
+    <property name="platform.directory" value="Windows" />
+    <property name="runtime.directory" value="net-1.1" />
+
+    <!-- global framework directories -->
+    <property name="examples.projects.directory" value="${root.directory}/Examples/Projects" />
+    <property name="examples.solutions.directory" value="${root.directory}/Examples/Solutions" />
+    <property name="examples.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Examples" />
+    <property name="examples.release.directory" value="${root.directory}/Releases/Examples" />
+    <property name="framework.projects.directory" value="${root.directory}/Framework/Projects" />
+    <property name="framework.solutions.directory" value="${root.directory}/Framework/Solutions" />
+    <property name="framework.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework" />
+    <property name="framework.docs.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework.Documentation" />
+    <property name="framework.release.directory" value="${root.directory}/Releases/Framework" />
+    <tstamp verbose="true">
+        <formatter property="timestamp.date" pattern="yyyy.MM.dd"/>
+        <formatter property="timestamp.hour" pattern="HH" />
+    </tstamp>
+
+    <!-- default configuration -->
+    <property name="build.debug" value="false" />
+    <property name="build.debug.define" value="RELEASE;TRACE" />
+    <property name="build.optimize" value="true" />
+    <property name="build.platform.define" value="WIN32" />
+    <property name="build.strong" value="false" />
+    <property name="build.strong.define" value="STRONG" />
+
+    <!-- configuration targets -->
+    <target name="set-debug">
+        <echo message="Configuring for a 'debug' build." />
+        <property name="build.debug" value="true" />
+        <property name="build.debug.define" value="DEBUG;TRACE" />
+        <property name="build.optimize" value="false" />
+        <property name="build.strong" value="false" />
+        <property name="build.strong.define" value="" />
+    </target>
+
+    <target name="set-release">
+        <echo message="Configuring for a 'release' build." />
+        <property name="build.debug" value="false" />
+        <property name="build.debug.define" value="RELEASE;TRACE" />
+        <property name="build.optimize" value="true" />
+        <property name="build.strong" value="false" />
+        <property name="build.strong.define" value="" />
+    </target>
+
+    <target name="set-strong">
+        <echo message="Configuring for a 'strong' build." />
+        <property name="build.strong" value="true" />
+        <property name="build.strong.define" value="STRONG" />
+    </target>
+
+    <!-- runtime configuration targets -->
+    <target name="set-runtime-configuration-flags">
+        <echo message="Initializing default runtime configuration flags." />
+        <property name="current.runtime.config.net" value="false" />
+        <property name="current.runtime.config.netcf" value="false" />
+        <property name="current.runtime.config.mono" value="false" />
+        <property name="current.runtime.config.sscli" value="false" />
+        <property name="current.runtime.config.${current.runtime.config}" value="true" />
+        <property name="current.runtime.net-1.0" value="false" />
+        <property name="current.runtime.net-1.1" value="false" />
+        <property name="current.runtime.net-1.2" value="false" />
+        <property name="current.runtime.netcf-1.0" value="false" />
+        <property name="current.runtime.mono-1.0" value="false" />
+        <property name="current.runtime.sscli-1.0" value="false" />
+        <property name="current.runtime.${current.runtime.config}-${current.runtime.version}" value="true" />
+    </target>
+
+    <target name="set-runtime-configuration">
+        <echo message="Initializing runtime configuration." />
+        <if test="${not(property::exists('current.runtime.config'))}">
+            <if test="${not(property::exists('nant.settings.currentframework'))}">
+                <fail message="No runtime configuration was specified and the default NAnt runtime is not available." />
+            </if>
+            <if test="${not(target::exists('set-'+nant.settings.currentframework+'-runtime-configuration'))}">
+                <fail message="No runtime configuration was specified and the current runtime (${nant.settings.currentframework}) is not supported by NAnt." />
+            </if>
+            <call target="set-${nant.settings.currentframework}-runtime-configuration" />
+        </if>
+        <if test="${not(property::exists('current.runtime.version'))}">
+            <if test="${not(property::exists('nant.settings.currentframework'))}">
+                <fail message="No runtime configuration was specified and the default NAnt runtime is not available." />
+            </if>
+            <if test="${not(target::exists('set-'+nant.settings.currentframework+'-runtime-configuration'))}">
+                <fail message="No runtime configuration was specified and the current runtime (${nant.settings.currentframework}) is not supported by NDoc." />
+            </if>
+            <call target="set-${nant.settings.currentframework}-runtime-configuration" />
+        </if>
+        <if test="${not(target::exists('set-'+current.runtime.config+'-'+current.runtime.version+'-runtime-configuration'))}">
+            <fail message="The ${current.runtime.config}-${current.runtime.version} runtime is not supported by NDoc." />
+        </if>
+        <call target="set-${current.runtime.config}-${current.runtime.version}-runtime-configuration" />
+    </target>
+
+    <target name="set-net-1.0-runtime-configuration">
+        <echo message="Initializing .NET 1.0 runtime configuration." />
+        <property name="current.runtime.config" value="net" />
+        <property name="current.runtime.version" value="1.0" />
+        <property name="current.runtime.description" value="Microsoft .NET Framework 1.0" />
+        <property name="nant.settings.currentframework" value="${current.runtime.config}-${current.runtime.version}" />
+        <property name="runtime.directory" value="net-1.0" />
+        <property name="framework.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework" />
+        <property name="framework.docs.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework.Documentation" />
+        <call target="set-runtime-configuration-flags" />
+    </target>
+
+    <target name="set-net-1.1-runtime-configuration">
+        <echo message="Initializing .NET 1.1 runtime configuration." />
+        <property name="current.runtime.config" value="net" />
+        <property name="current.runtime.version" value="1.1" />
+        <property name="current.runtime.description" value="Microsoft .NET Framework 1.1" />
+        <property name="nant.settings.currentframework" value="${current.runtime.config}-${current.runtime.version}" />
+        <property name="runtime.directory" value="net-1.1" />
+        <property name="framework.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework" />
+        <property name="framework.docs.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework.Documentation" />
+        <call target="set-runtime-configuration-flags" />
+    </target>
+
+    <target name="set-mono-1.0-runtime-configuration">
+        <echo message="Initializing Mono 1.0 runtime configuration." />
+        <property name="current.runtime.config" value="mono" />
+        <property name="current.runtime.version" value="1.0" />
+        <property name="current.runtime.description" value="Mono 1.0" />
+        <property name="nant.settings.currentframework" value="${current.runtime.config}-${current.runtime.version}" />
+        <property name="runtime.directory" value="mono-1.0" />
+        <property name="framework.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework" />
+        <property name="framework.docs.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework.Documentation" />
+        <call target="set-runtime-configuration-flags" />
+    </target>
+
+    <target name="set-platform-win32">
+        <echo message="Initializing WIN32 platform." />
+        <property name="build.platform.define" value="WIN32" />
+        <property name="platform.directory" value="Windows" />
+        <property name="framework.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework" />
+        <property name="framework.docs.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework.Documentation" />
+    </target>
+
+    <target name="set-platform-linux">
+        <echo message="Initializing Linux platform." />
+        <property name="build.platform.define" value="LINUX" />
+        <property name="platform.directory" value="Linux" />
+        <property name="framework.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework" />
+        <property name="framework.docs.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework.Documentation" />
+    </target>
+
+    <target name="initialize">
+        <echo message="Initializing build properties." />
+        <call target="set-framework-configuration" />
+    </target>
+
+    <!-- build framework targets -->
+    <target name="build.framework.all" description="Builds all of the Tao Framework assemblies.">
+        <call target="build.postprocess" />
+        <call target="build.opengl" />
+        <call target="build.platform.windows" />
+        <call target="build.glut" />
+        <call target="build.glfw" />
+        <call target="build.cg" />
+        <call target="build.devil" />
+        <call target="build.openal" />
+        <call target="build.sdl" />
+    </target>
+
+    <target name="build.cg" description="Builds Tao.Cg.">
+        <nant buildfile="${framework.projects.directory}/Tao.Cg/Tao.Cg.build" target="build" />
+    </target>
+
+    <target name="build.devil" description="Builds Tao.DevIl.">
+        <nant buildfile="${framework.projects.directory}/Tao.DevIl/Tao.DevIl.build" target="build" />
+    </target>
+
+    <target name="build.glfw" depends="build.opengl" description="Builds Tao.Glfw.">
+        <nant buildfile="${framework.projects.directory}/Tao.Glfw/Tao.Glfw.build" target="build" />
+    </target>
+
+    <target name="build.glut" depends="build.opengl" description="Builds Tao.Glut.">
+        <nant buildfile="${framework.projects.directory}/Tao.Glut/Tao.Glut.build" target="build" />
+    </target>
+
+    <target name="build.openal" description="Builds Tao.OpenAl.">
+        <nant buildfile="${framework.projects.directory}/Tao.OpenAl/Tao.OpenAl.build" target="build" />
+    </target>
+
+    <target name="build.opengl" depends="build.postprocess" description="Builds Tao.OpenGl.">
+        <nant buildfile="${framework.projects.directory}/Tao.OpenGl/Tao.OpenGl.build" target="build" />
+    </target>
+
+    <target name="build.platform.windows" depends="build.opengl" description="Builds Tao.Platform.Windows.">
+        <nant buildfile="${framework.projects.directory}/Tao.Platform.Windows/Tao.Platform.Windows.build" target="build" />
+    </target>
+
+    <target name="build.postprocess" description="Builds Tao.PostProcess.">
+        <nant buildfile="${framework.projects.directory}/Tao.PostProcess/Tao.PostProcess.build" target="build" />
+    </target>
+
+    <target name="build.sdl" description="Builds Tao.Sdl.">
+        <nant buildfile="${framework.projects.directory}/Tao.Sdl/Tao.Sdl.build" target="build" />
+    </target>
+
+    <!-- clean framework targets -->
+    <target name="clean.framework.all" description="Cleans all of the Tao Framework assemblies.">
+        <call target="clean.postprocess" />
+        <call target="clean.opengl" />
+        <call target="clean.platform.windows" />
+        <call target="clean.glut" />
+        <call target="clean.glfw" />
+        <call target="clean.cg" />
+        <call target="clean.devil" />
+        <call target="clean.openal" />
+        <call target="clean.sdl" />
+    </target>
+
+    <target name="clean.cg" description="Cleans Tao.Cg.">
+        <nant buildfile="${framework.projects.directory}/Tao.Cg/Tao.Cg.build" target="clean" />
+    </target>
+
+    <target name="clean.devil" description="Cleans Tao.DevIl.">
+        <nant buildfile="${framework.projects.directory}/Tao.DevIl/Tao.DevIl.build" target="clean" />
+    </target>
+
+    <target name="clean.glfw" description="Cleans Tao.Glfw.">
+        <nant buildfile="${framework.projects.directory}/Tao.Glfw/Tao.Glfw.build" target="clean" />
+    </target>
+
+    <target name="clean.glut" description="Cleans Tao.Glut.">
+        <nant buildfile="${framework.projects.directory}/Tao.Glut/Tao.Glut.build" target="clean" />
+    </target>
+
+    <target name="clean.openal" description="Cleans Tao.OpenAl.">
+        <nant buildfile="${framework.projects.directory}/Tao.OpenAl/Tao.OpenAl.build" target="clean" />
+    </target>
+
+    <target name="clean.opengl" description="Cleans Tao.OpenGl.">
+        <nant buildfile="${framework.projects.directory}/Tao.OpenGl/Tao.OpenGl.build" target="clean" />
+    </target>
+
+    <target name="clean.platform.windows" description="Cleans Tao.Platform.Windows.">
+        <nant buildfile="${framework.projects.directory}/Tao.Platform.Windows/Tao.Platform.Windows.build" target="clean" />
+    </target>
+
+    <target name="clean.postprocess" description="Cleans Tao.PostProcess.">
+        <nant buildfile="${framework.projects.directory}/Tao.PostProcess/Tao.PostProcess.build" target="clean" />
+    </target>
+
+    <target name="clean.sdl" description="Cleans Tao.Sdl.">
+        <nant buildfile="${framework.projects.directory}/Tao.Sdl/Tao.Sdl.build" target="clean" />
+    </target>
+
+    <!-- build example targets -->
+    <target name="build.examples.all" description="Builds all of the Tao example assemblies.">
+        <call target="build.gewang" />
+        <call target="build.glfwexamples" />
+        <call target="build.naterobins" />
+        <call target="build.nehe" />
+        <call target="build.openalexamples" />
+        <call target="build.redbook" />
+    </target>
+
+    <target name="build.gewang" depends="build.glut" description="Builds GeWang.">
+        <nant buildfile="${examples.projects.directory}/GeWang.ClippingPlanes/GeWang.ClippingPlanes.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/GeWang.Lorenz3d/GeWang.Lorenz3d.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/GeWang.Mirror/GeWang.Mirror.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/GeWang.Shadow/GeWang.Shadow.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/GeWang.Starfield/GeWang.Starfield.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/GeWang.Xform/GeWang.Xform.build" target="build" />
+    </target>
+
+    <target name="build.glfwexamples" depends="build.glfw" description="Builds GlfwExamples.">
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.Boing/GlfwExamples.Boing.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.Gears/GlfwExamples.Gears.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.KeyTest/GlfwExamples.KeyTest.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.ListModes/GlfwExamples.ListModes.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.Triangle/GlfwExamples.Triangle.build" target="build" />
+    </target>
+
+    <target name="build.naterobins" depends="build.glut" description="Builds NateRobins.">
+        <nant buildfile="${examples.projects.directory}/NateRobins.Area/NateRobins.Area.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Maiden/NateRobins.Maiden.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.MultiView/NateRobins.MultiView.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Nii/NateRobins.Nii.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Null/NateRobins.Null.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Qix/NateRobins.Qix.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Rotate/NateRobins.Rotate.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Starfield/NateRobins.Starfield.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Strip/NateRobins.Strip.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Texture/NateRobins.Texture.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Voronoi/NateRobins.Voronoi.build" target="build" />
+    </target>
+
+    <target name="build.nehe" depends="build.platform.windows" description="Builds NeHe.">
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson01/NeHe.Lesson01.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson02/NeHe.Lesson02.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson03/NeHe.Lesson03.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson04/NeHe.Lesson04.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson05/NeHe.Lesson05.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson06/NeHe.Lesson06.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson07/NeHe.Lesson07.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson08/NeHe.Lesson08.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson09/NeHe.Lesson09.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson10/NeHe.Lesson10.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson11/NeHe.Lesson11.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson12/NeHe.Lesson12.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson13/NeHe.Lesson13.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson14/NeHe.Lesson14.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson15/NeHe.Lesson15.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson16/NeHe.Lesson16.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson17/NeHe.Lesson17.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson18/NeHe.Lesson18.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson19/NeHe.Lesson19.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson20/NeHe.Lesson20.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson23/NeHe.Lesson23.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson26/NeHe.Lesson26.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson34/NeHe.Lesson34.build" target="build" />
+    </target>
+
+    <target name="build.openalexamples" depends="build.glut,build.openal" description="Builds OpenAlExamples.">
+        <nant buildfile="${examples.projects.directory}/OpenAlExamples.Boxes/OpenAlExamples.Boxes.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/OpenAlExamples.Lesson01/OpenAlExamples.Lesson01.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/OpenAlExamples.Lesson02/OpenAlExamples.Lesson02.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/OpenAlExamples.Lesson03/OpenAlExamples.Lesson03.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/OpenAlExamples.Lesson05/OpenAlExamples.Lesson05.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/OpenAlExamples.Waterfall/OpenAlExamples.Waterfall.build" target="build" />
+    </target>
+
+    <target name="build.redbook" depends="build.glut" description="Builds Redbook.">
+        <nant buildfile="${examples.projects.directory}/Redbook.Aaindex/Redbook.Aaindex.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Aapoly/Redbook.Aapoly.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Aargb/Redbook.Aargb.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Accanti/Redbook.Accanti.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Accpersp/Redbook.Accpersp.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Alpha/Redbook.Alpha.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Alpha3d/Redbook.Alpha3d.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Anti/Redbook.Anti.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Bezcurve/Redbook.Bezcurve.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Bezmesh/Redbook.Bezmesh.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Bezsurf/Redbook.Bezsurf.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Checker/Redbook.Checker.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.CheckerOld/Redbook.CheckerOld.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Clip/Redbook.Clip.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Colormat/Redbook.Colormat.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Cube/Redbook.Cube.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.DepthCue/Redbook.DepthCue.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Dof/Redbook.Dof.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Double/Redbook.Double.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Drawf/Redbook.Drawf.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Feedback/Redbook.Feedback.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Fog/Redbook.Fog.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.FogIndex/Redbook.FogIndex.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.FogIndexOld/Redbook.FogIndexOld.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.FogOld/Redbook.FogOld.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Font/Redbook.Font.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Hello/Redbook.Hello.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Image/Redbook.Image.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Light/Redbook.Light.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Lines/Redbook.Lines.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.List/Redbook.List.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Material/Redbook.Material.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Mipmap/Redbook.Mipmap.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Model/Redbook.Model.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.MoveLight/Redbook.MoveLight.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Nurbs/Redbook.Nurbs.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.PickDepth/Redbook.PickDepth.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.PickSquare/Redbook.PickSquare.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Plane/Redbook.Plane.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Planet/Redbook.Planet.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.PolyOff/Redbook.PolyOff.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Polys/Redbook.Polys.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Quadric/Redbook.Quadric.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Robot/Redbook.Robot.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Scene/Redbook.Scene.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.SceneBlueAmbient/Redbook.SceneBlueAmbient.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.SceneColorLight/Redbook.SceneColorLight.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.SceneFlat/Redbook.SceneFlat.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Select/Redbook.Select.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Smooth/Redbook.Smooth.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Stencil/Redbook.Stencil.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Stroke/Redbook.Stroke.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Surface/Redbook.Surface.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.SurfaceOld/Redbook.SurfaceOld.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.TeaAmbient/Redbook.TeaAmbient.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Teapots/Redbook.Teapots.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Tess/Redbook.Tess.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.TessWind/Redbook.TessWind.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.TexBind/Redbook.TexBind.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.TexGen/Redbook.TexGen.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.TexProx/Redbook.TexProx.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.TexSub/Redbook.TexSub.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.TextureSurf/Redbook.TextureSurf.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Torus/Redbook.Torus.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Trim/Redbook.Trim.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.UnProject/Redbook.UnProject.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Varray/Redbook.Varray.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Wrap/Redbook.Wrap.build" target="build" />
+    </target>
+
+    <!-- clean example targets -->
+    <target name="clean.examples.all" description="Cleans all of the Tao example assemblies.">
+        <call target="clean.gewang" />
+        <call target="clean.glfwexamples" />
+        <call target="clean.naterobins" />
+        <call target="clean.nehe" />
+        <call target="clean.openalexamples" />
+        <call target="clean.redbook" />
+        <delete dir="${examples.build.directory}/Data" failonerror="false" />
+    </target>
+
+    <target name="clean.gewang" description="Cleans GeWang.">
+        <nant buildfile="${examples.projects.directory}/GeWang.ClippingPlanes/GeWang.ClippingPlanes.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/GeWang.Lorenz3d/GeWang.Lorenz3d.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/GeWang.Mirror/GeWang.Mirror.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/GeWang.Shadow/GeWang.Shadow.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/GeWang.Starfield/GeWang.Starfield.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/GeWang.Xform/GeWang.Xform.build" target="clean" />
+    </target>
+
+    <target name="clean.glfwexamples" description="Cleans GlfwExamples.">
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.Boing/GlfwExamples.Boing.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.Gears/GlfwExamples.Gears.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.KeyTest/GlfwExamples.KeyTest.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.ListModes/GlfwExamples.ListModes.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.Triangle/GlfwExamples.Triangle.build" target="clean" />
+    </target>
+
+    <target name="clean.naterobins" description="Cleans NateRobins.">
+        <nant buildfile="${examples.projects.directory}/NateRobins.Area/NateRobins.Area.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Maiden/NateRobins.Maiden.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.MultiView/NateRobins.MultiView.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Nii/NateRobins.Nii.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Null/NateRobins.Null.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Qix/NateRobins.Qix.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Rotate/NateRobins.Rotate.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Starfield/NateRobins.Starfield.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Strip/NateRobins.Strip.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Texture/NateRobins.Texture.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NateRobins.Voronoi/NateRobins.Voronoi.build" target="clean" />
+    </target>
+
+    <target name="clean.nehe" description="Cleans NeHe.">
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson01/NeHe.Lesson01.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson02/NeHe.Lesson02.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson03/NeHe.Lesson03.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson04/NeHe.Lesson04.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson05/NeHe.Lesson05.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson06/NeHe.Lesson06.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson07/NeHe.Lesson07.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson08/NeHe.Lesson08.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson09/NeHe.Lesson09.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson10/NeHe.Lesson10.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson11/NeHe.Lesson11.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson12/NeHe.Lesson12.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson13/NeHe.Lesson13.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson14/NeHe.Lesson14.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson15/NeHe.Lesson15.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson16/NeHe.Lesson16.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson17/NeHe.Lesson17.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson18/NeHe.Lesson18.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson19/NeHe.Lesson19.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson20/NeHe.Lesson20.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson23/NeHe.Lesson23.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson26/NeHe.Lesson26.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson34/NeHe.Lesson34.build" target="clean" />
+    </target>
+
+    <target name="clean.openalexamples" description="Cleans OpenAlExamples.">
+        <nant buildfile="${examples.projects.directory}/OpenAlExamples.Boxes/OpenAlExamples.Boxes.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/OpenAlExamples.Lesson01/OpenAlExamples.Lesson01.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/OpenAlExamples.Lesson02/OpenAlExamples.Lesson02.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/OpenAlExamples.Lesson03/OpenAlExamples.Lesson03.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/OpenAlExamples.Lesson05/OpenAlExamples.Lesson05.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/OpenAlExamples.Waterfall/OpenAlExamples.Waterfall.build" target="clean" />
+    </target>
+
+    <target name="clean.redbook" description="Cleans Redbook.">
+        <nant buildfile="${examples.projects.directory}/Redbook.Aaindex/Redbook.Aaindex.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Aapoly/Redbook.Aapoly.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Aargb/Redbook.Aargb.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Accanti/Redbook.Accanti.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Accpersp/Redbook.Accpersp.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Alpha/Redbook.Alpha.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Alpha3d/Redbook.Alpha3d.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Anti/Redbook.Anti.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Bezcurve/Redbook.Bezcurve.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Bezmesh/Redbook.Bezmesh.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Bezsurf/Redbook.Bezsurf.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Checker/Redbook.Checker.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.CheckerOld/Redbook.CheckerOld.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Clip/Redbook.Clip.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Colormat/Redbook.Colormat.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Cube/Redbook.Cube.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.DepthCue/Redbook.DepthCue.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Dof/Redbook.Dof.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Double/Redbook.Double.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Drawf/Redbook.Drawf.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Feedback/Redbook.Feedback.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Fog/Redbook.Fog.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.FogIndex/Redbook.FogIndex.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.FogIndexOld/Redbook.FogIndexOld.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.FogOld/Redbook.FogOld.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Font/Redbook.Font.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Hello/Redbook.Hello.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Image/Redbook.Image.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Light/Redbook.Light.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Lines/Redbook.Lines.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.List/Redbook.List.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Material/Redbook.Material.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Mipmap/Redbook.Mipmap.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Model/Redbook.Model.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.MoveLight/Redbook.MoveLight.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Nurbs/Redbook.Nurbs.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.PickDepth/Redbook.PickDepth.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.PickSquare/Redbook.PickSquare.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Plane/Redbook.Plane.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Planet/Redbook.Planet.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.PolyOff/Redbook.PolyOff.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Polys/Redbook.Polys.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Quadric/Redbook.Quadric.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Robot/Redbook.Robot.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Scene/Redbook.Scene.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.SceneBlueAmbient/Redbook.SceneBlueAmbient.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.SceneColorLight/Redbook.SceneColorLight.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.SceneFlat/Redbook.SceneFlat.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Select/Redbook.Select.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Smooth/Redbook.Smooth.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Stencil/Redbook.Stencil.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Stroke/Redbook.Stroke.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Surface/Redbook.Surface.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.SurfaceOld/Redbook.SurfaceOld.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.TeaAmbient/Redbook.TeaAmbient.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Teapots/Redbook.Teapots.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Tess/Redbook.Tess.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.TessWind/Redbook.TessWind.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.TexBind/Redbook.TexBind.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.TexGen/Redbook.TexGen.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.TexProx/Redbook.TexProx.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.TexSub/Redbook.TexSub.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.TextureSurf/Redbook.TextureSurf.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Torus/Redbook.Torus.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Trim/Redbook.Trim.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.UnProject/Redbook.UnProject.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Varray/Redbook.Varray.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/Redbook.Wrap/Redbook.Wrap.build" target="clean" />
+    </target>
+
+    <target name="documentation" description="Creates documentation.">
+        <echo message="Start documentation creation in ${framework.docs.directory}" />
+        <ndoc failonerror="false">
+            <assemblies basedir="${framework.build.directory}">
+                <includes name="Tao.Cg.dll" />
+                <includes name="Tao.DevIl.dll" />
+                <includes name="Tao.Glfw.dll" />
+                <includes name="Tao.Glut.dll" />
+                <includes name="Tao.OpenAl.dll" />
+                <includes name="Tao.OpenGl.dll" />
+                <includes name="Tao.Platform.Linux.dll" />
+                <includes name="Tao.Platform.Windows.dll" />
+                <includes name="Tao.Sdl.dll" />
+            </assemblies>
+            <documenters>
+                <documenter name="MSDN">
+                    <property name="OutputDirectory" value="${framework.docs.directory}" />
+                    <property name="HtmlHelpName" value="${nant.project.name}" />
+                    <property name="IncludeFavorites" value="False" />
+                    <property name="Title" value="${nant.project.name} SDK Documentation" />
+                    <property name="SplitTOCs" value="False" />
+                    <property name="DefaulTOC" value="" />
+                    <property name="ShowVisualBasic" value="True" />
+                    <property name="AutoDocumentConstructors" value="True" />
+                    <property name="ShowMissingSummaries" value="${build.debug}" />
+                    <property name="ShowMissingRemarks" value="${build.debug}" />
+                    <property name="ShowMissingParams" value="${build.debug}" />
+                    <property name="ShowMissingReturns" value="${build.debug}" />
+                    <property name="ShowMissingValues" value="${build.debug}" />
+                    <property name="DocumentInternals" value="False" />
+                    <property name="DocumentPrivates" value="False" />
+                    <property name="DocumentProtected" value="True" />
+                    <property name="DocumentEmptyNamespaces" value="${build.debug}" />
+                    <property name="IncludeAssemblyVersion" value="True" />
+                    <property name="CopyrightText" value="Copyright ©2003-2004 Randy Ridge.  All rights reserved." />
+                    <property name="CopyrightHref" value="http://www.randyridge.com/Tao/Default.aspx" />
+                </documenter>
+            </documenters>
+        </ndoc>
+    </target>
+
+    <target name="zip.binaries" description="Create .ZIP file of binary files.">
+        <zip zipfile="${framework.release.directory}/Tao.Framework.${timestamp.date}.${timestamp.hour}.${platform.directory}.${runtime.directory}.zip">
+            <fileset basedir="${framework.build.directory}">
+                <includes name="${framework.build.directory}/*.dll" />
+                <includes name="${framework.build.directory}/*.txt" />
+                <excludes name="${framework.build.directory}/Tao.PostProcess.*" />
+            </fileset>
+        </zip>
+    </target>
+
+    <target name="zip.source" description="Create .ZIP file of the sources.">
+        <zip zipfile="${framework.release.directory}/Tao.Framework.${timestamp.date}.${timestamp.hour}.${platform.directory}.${runtime.directory}.src.zip">
+            <fileset basedir="${root.directory}">
+                <includes name="${root.directory}/*.build" />
+                <includes name="${root.directory}/*.txt" />
+                <includes name="${framework.projects.directory}/**" />
+                <excludes name="${framework.projects.directory}/**/bin/*" />
+                <excludes name="${framework.projects.directory}/**/obj/*" />
+                <excludes name="${framework.projects.directory}/**/*.dll" />
+                <excludes name="${framework.projects.directory}/**/*.exe" />
+                <excludes name="${framework.projects.directory}/**/*.pdb" />
+                <excludes name="${framework.projects.directory}/**/*.xml" />
+                <excludes name="${framework.projects.directory}/**/_sgbak/*" />
+            </fileset>
+        </zip>
+    </target>
+
+    <target name="zip.documentation.chm" description="Create .ZIP file of CHM Documentation files.">
+        <zip zipfile="${framework.release.directory}/Tao.Framework.${timestamp.date}.${timestamp.hour}.${platform.directory}.${runtime.directory}.Chm.Docs.zip">
+            <fileset basedir="${framework.docs.directory}">
+                <includes name="${framework.docs.directory}/*.chm" />
+            </fileset>
+        </zip>
+    </target>
+
+    <target name="zip.documentation.html" description="Create .ZIP file of HTML Documentation files.">
+        <zip zipfile="${framework.release.directory}/Tao.Framework.${timestamp.date}.${timestamp.hour}.${platform.directory}.${runtime.directory}.Html.Docs.zip">
+            <fileset basedir="${framework.docs.directory}">
+                <includes name="${framework.docs.directory}/*.*" />
+                <excludes name="${framework.docs.directory}/*.chm" />
+            </fileset>
+        </zip>
+    </target>
+</project>

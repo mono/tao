@@ -1,0 +1,57 @@
+[ Key ]
+* = Change or information
++ = Addition
+! = Bug Fix
+
+[ April 22, 2004 - 0.11.2 ]
+	! Fixed a bug with the /file command-line operator. Was using the unresolved
+	  file path rather then the resolved one, was making the attempt to open the
+	  dnpb file fail.
+	! Fixed a bug in the schema that required at least 1 solution and 1 reference
+	  path. We can do just fine with 0 of either of these. Some files may be all
+	  <Process> statements and not have any <Solution> tags.
+	! Fixed a bug that caused the project references not to be written with the
+	  SharpDevelop target.
+	* Changed the schema to version 1.2, allowing for Configuration nodes to exist
+	  under project nodes. The inheritance of values is hierarchical. Meaning, if
+	  you define a configuration named Debug at the Soltion level, and one by the
+	  same name at the Project level, the one at the Project level will first
+	  inherit the options of the Solution level configuration, then set it's own
+	  options. If you define a configuration at the Project level and it does not
+	  exist at the Solution level, it will be created at the Solution level.
+	* Project references should now work correctly across the board. Note that due
+	  to a restriction in Visual Studio, you can only reference projects in the same
+	  solution.
+
+[ April 21, 2004 - 0.11.1 ]
+    ! Fixed a problem with resolving paths in various targets. Was not properly
+      setting the CWD.
+    * Schema updated to 1.1, moving the ReferencePath element from the Options
+      element to the Project element. This makes more logical sense, given that
+      reference paths are resolved relative to the project path. Any prebuild.xml
+      file referecning verison 1.0 will fail! Please update to the 1.1 schema.
+
+[ April 19, 2004 - 0.11.0 ]
+	* Added several attributes across the code to make FxCop happy
+	! Fixed bugs in reference paths being written in the VS targets.
+	! Fixed a bug in ProjectNode which was doing two CWDStack.Push() calls instead of
+	  a Push/Pop pair. Was wreaking havoc with <Process> tags.	
+	! Fixed some bugs in the path tracking, both the Project and Solution nodes now
+	  have a FullPath property, which is the full path to the file resolved at load
+	  time. This should fix all path relativity problems.
+	+ Added new /clean switch, allowing the target to clean up any files it generated.
+	  in accordance, the ITarget interface has been updated to support a new Clean()
+	  method.
+	+ Completed addition of the <Process> tag, to allow the referencing of external
+	  prebuild.xml files.
+	+ Added the runtime attribute to the Project element. This allows the developer
+	  to specify which runtime a project should target (Mono or Microsoft). This is
+	  of course ignored in certain targets like the Visual Studio targets.
+	+ Added the SharpDevelop target.
+
+[ April 13, 2004 - 0.10.1a ]
+    + Added the buildAction attribute to the File node. This is needed for dnpb
+    to even be able to bootstrap itself (dnpb-1.0.xsd must be an embedded resource)
+
+[ April 13, 2004 - 0.10.1 ]
+    * First Release

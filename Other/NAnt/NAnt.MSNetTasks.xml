@@ -1,0 +1,278 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NAnt.MSNetTasks</name>
+    </assembly>
+    <members>
+        <member name="T:NAnt.Core.Tasks.ScriptTask">
+            <summary>
+            Executes the code contained within the task. This code can include custom extension function definitions. 
+            Once the script task has executed those custom functions will be available for use in the buildfile.
+            </summary>
+            <remarks>
+                <para>
+                The <see cref="T:NAnt.Core.Tasks.ScriptTask"/> must contain a single <c>code</c> 
+                element, which in turn contains the script code.
+                </para>
+                <para>
+                A static entry point named <c>ScriptMain</c> is required if no custom functions have been defined. It must 
+                have a single <see cref="T:NAnt.Core.Project"/> parameter.
+                </para>
+                <para>
+                The following namespaces are loaded by default:
+                </para>
+                <list type="bullet">
+                    <item>
+                        <description>System</description>
+                    </item>
+                    <item>
+                        <description>System.Collections</description>
+                    </item>
+                    <item>
+                        <description>System.Collections.Specialized</description>
+                    </item>
+                    <item>
+                        <description>System.IO</description>
+                    </item>
+                    <item>
+                        <description>System.Text</description>
+                    </item>
+                    <item>
+                        <description>System.Text.RegularExpressions</description>
+                    </item>
+                    <item>
+                        <description>NAnt.Core</description>
+                    </item>
+                </list>
+            </remarks>
+            <example>
+              <para>Run C# code that writes a message to the build log.</para>
+              <code>
+                    &lt;script language="C#"&gt;
+                        &lt;code&gt;&lt;![CDATA[
+                            public static void ScriptMain(Project project) {
+                                project.Log(Level.Info, "Hello World from a script task using C#"); 
+                            }
+                        ]]&gt;&lt;/code&gt;
+                    &lt;/script&gt;
+              </code>
+            </example>
+            <example>
+              <para>Define a custom function and call it using C#.</para>
+              <code>
+                    &lt;script language="C#" prefix="test" &gt;
+                        &lt;code&gt;&lt;![CDATA[                 
+            
+                            [Function("test-func")]
+                            public static string Testfunc(  ) {
+                                    return "some result !!!!!!!!";
+                            }
+                    ]]&gt;&lt;/code&gt;
+                    &lt;/script&gt;
+                    &lt;echo message='${test::test-func()}'/&gt;
+            
+              </code>
+            </example>
+            <example>
+              <para>Run Visual Basic.NET code that writes a message to the build log.</para>
+              <code>
+                    &lt;script language="VB"&gt;
+                        &lt;code&gt;&lt;![CDATA[
+                            Public Shared Sub ScriptMain(project As Project)
+                                project.Log(Level.Info, "Hello World from a script task using Visual Basic.NET")
+                            End Sub
+                        ]]&gt;&lt;/code&gt;
+                    &lt;/script&gt;
+              </code>
+            </example>
+        </member>
+        <member name="M:NAnt.Core.Tasks.ScriptTask.InitializeTask(System.Xml.XmlNode)">
+            <summary>
+            Initializes the task using the specified xml node.
+            </summary>
+        </member>
+        <member name="M:NAnt.Core.Tasks.ScriptTask.ExecuteTask">
+            <summary>
+            Executes the script block.
+            </summary>
+        </member>
+        <member name="P:NAnt.Core.Tasks.ScriptTask.Language">
+            <summary>
+            The language of the script block (VB, C# or JS).
+            </summary>
+        </member>
+        <member name="P:NAnt.Core.Tasks.ScriptTask.References">
+            <summary>
+            Any required references.
+            </summary>
+        </member>
+        <member name="P:NAnt.Core.Tasks.ScriptTask.MainClass">
+            <summary>
+            The name of the main class containing the static <c>ScriptMain</c> entry point. 
+            </summary>
+        </member>
+        <member name="P:NAnt.Core.Tasks.ScriptTask.Prefix">
+            <summary>
+            The namespace prefix for any custom functions defined in the script. If ommitted the prefix will default to 'script'
+            </summary>
+        </member>
+        <member name="P:NAnt.Core.Tasks.ScriptTask.Imports">
+            <summary>
+            The namespaces to import.
+            </summary>
+        </member>
+        <member name="T:NAnt.MSNet.Tasks.ServiceControllerTask">
+            <summary>
+            Allows a Windows service to be controlled.
+            </summary>
+            <example>
+              <para>Starts the World Wide Web Publishing Service on the local computer.</para>
+              <code>
+                <![CDATA[
+            <servicecontroller action="Start" service="w3svc" />
+                ]]>
+              </code>
+            </example>
+            <example>
+              <para>Stops the Alerter service on computer 'MOTHER'.</para>
+              <code>
+                <![CDATA[
+            <servicecontroller action="Stop" service="Alerter" machine="MOTHER" />
+                ]]>
+              </code>
+            </example>
+        </member>
+        <member name="M:NAnt.MSNet.Tasks.ServiceControllerTask.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:NAnt.MSNet.Tasks.ServiceControllerTask"/>
+            class.
+            </summary>
+        </member>
+        <member name="M:NAnt.MSNet.Tasks.ServiceControllerTask.ExecuteTask">
+            <summary>
+            Peforms actions on the service in order to reach the desired status.
+            </summary>
+        </member>
+        <member name="M:NAnt.MSNet.Tasks.ServiceControllerTask.DetermineDesiredStatus">
+            <summary>
+            Determines the desired status of the service based on the action
+            that should be performed on it.
+            </summary>
+            <returns>
+            The <see cref="T:System.ServiceProcess.ServiceControllerStatus"/> that should be reached
+            in order for the <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.Action"/> to be considered successful.
+            </returns>
+        </member>
+        <member name="M:NAnt.MSNet.Tasks.ServiceControllerTask.StartService(System.ServiceProcess.ServiceController)">
+            <summary>
+            Starts the service identified by <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.ServiceName"/> and
+            <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.MachineName"/>.
+            </summary>
+            <param name="serviceController"><see cref="T:System.ServiceProcess.ServiceController"/> instance for controlling the service identified by <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.ServiceName"/> and <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.MachineName"/>.</param>
+        </member>
+        <member name="M:NAnt.MSNet.Tasks.ServiceControllerTask.StopService(System.ServiceProcess.ServiceController)">
+            <summary>
+            Stops the service identified by <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.ServiceName"/> and
+            <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.MachineName"/>.
+            </summary>
+            <param name="serviceController"><see cref="T:System.ServiceProcess.ServiceController"/> instance for controlling the service identified by <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.ServiceName"/> and <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.MachineName"/>.</param>
+        </member>
+        <member name="M:NAnt.MSNet.Tasks.ServiceControllerTask.RestartService(System.ServiceProcess.ServiceController)">
+            <summary>
+            Restarts the service identified by <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.ServiceName"/> and
+            <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.MachineName"/>.
+            </summary>
+            <param name="serviceController"><see cref="T:System.ServiceProcess.ServiceController"/> instance for controlling the service identified by <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.ServiceName"/> and <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.MachineName"/>.</param>
+        </member>
+        <member name="M:NAnt.MSNet.Tasks.ServiceControllerTask.PauseService(System.ServiceProcess.ServiceController)">
+            <summary>
+            Pauses the service identified by <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.ServiceName"/> and
+            <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.MachineName"/>.
+            </summary>
+            <param name="serviceController"><see cref="T:System.ServiceProcess.ServiceController"/> instance for controlling the service identified by <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.ServiceName"/> and <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.MachineName"/>.</param>
+        </member>
+        <member name="M:NAnt.MSNet.Tasks.ServiceControllerTask.ContinueService(System.ServiceProcess.ServiceController)">
+            <summary>
+            Continues the service identified by <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.ServiceName"/> and
+            <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.MachineName"/>.
+            </summary>
+            <param name="serviceController"><see cref="T:System.ServiceProcess.ServiceController"/> instance for controlling the service identified by <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.ServiceName"/> and <see cref="P:NAnt.MSNet.Tasks.ServiceControllerTask.MachineName"/>.</param>
+        </member>
+        <member name="F:NAnt.MSNet.Tasks.ServiceControllerTask._serviceName">
+            <summary>
+            Holds the name of the service that should be controlled.
+            </summary>
+        </member>
+        <member name="F:NAnt.MSNet.Tasks.ServiceControllerTask._machineName">
+            <summary>
+            Holds the name of the computer on which the service resides.
+            </summary>
+        </member>
+        <member name="F:NAnt.MSNet.Tasks.ServiceControllerTask._action">
+            <summary>
+            Holds the action that should be performed on the service.
+            </summary>
+        </member>
+        <member name="F:NAnt.MSNet.Tasks.ServiceControllerTask._timeout">
+            <summary>
+            Holds the time, in milliseconds, the task will wait for a service
+            to reach the desired status.
+            </summary>
+        </member>
+        <member name="P:NAnt.MSNet.Tasks.ServiceControllerTask.ServiceName">
+            <summary>
+            The name of the service that should be controlled.
+            </summary>
+        </member>
+        <member name="P:NAnt.MSNet.Tasks.ServiceControllerTask.MachineName">
+            <summary>
+            The name of the computer on which the service resides. The default
+            is the local computer.
+            </summary>
+        </member>
+        <member name="P:NAnt.MSNet.Tasks.ServiceControllerTask.Action">
+            <summary>
+            The action that should be performed on the service - either 
+            <see cref="F:NAnt.MSNet.Tasks.ServiceControllerTask.ActionType.Start"/>, <see cref="F:NAnt.MSNet.Tasks.ServiceControllerTask.ActionType.Stop"/>,
+            <see cref="F:NAnt.MSNet.Tasks.ServiceControllerTask.ActionType.Restart"/>, <see cref="F:NAnt.MSNet.Tasks.ServiceControllerTask.ActionType.Pause"/> 
+            or <see cref="F:NAnt.MSNet.Tasks.ServiceControllerTask.ActionType.Continue"/>.
+            </summary>
+        </member>
+        <member name="P:NAnt.MSNet.Tasks.ServiceControllerTask.Timeout">
+            <summary>
+            The time, in milliseconds, the task will wait for the service to
+            reach the desired status. The default is 5000 milliseconds.
+            </summary>
+        </member>
+        <member name="T:NAnt.MSNet.Tasks.ServiceControllerTask.ActionType">
+            <summary>
+            Defines the actions that can be performed on a service.
+            </summary>
+        </member>
+        <member name="F:NAnt.MSNet.Tasks.ServiceControllerTask.ActionType.Start">
+            <summary>
+            Starts a service.
+            </summary>
+        </member>
+        <member name="F:NAnt.MSNet.Tasks.ServiceControllerTask.ActionType.Stop">
+            <summary>
+            Stops a service.
+            </summary>
+        </member>
+        <member name="F:NAnt.MSNet.Tasks.ServiceControllerTask.ActionType.Restart">
+            <summary>
+            Restarts a service.
+            </summary>
+        </member>
+        <member name="F:NAnt.MSNet.Tasks.ServiceControllerTask.ActionType.Pause">
+            <summary>
+            Pauses a running service.
+            </summary>
+        </member>
+        <member name="F:NAnt.MSNet.Tasks.ServiceControllerTask.ActionType.Continue">
+            <summary>
+            Continues a paused service.
+            </summary>
+        </member>
+    </members>
+</doc>

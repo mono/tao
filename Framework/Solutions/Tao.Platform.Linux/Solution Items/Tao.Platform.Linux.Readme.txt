@@ -1,0 +1,11 @@
+Tao.Platform.Linux 1.0.0.0
+http://www.randyridge.com/Tao/Default.aspx
+Copyright ©2003-2004 Randy Ridge, All rights reserved.
+
+Tao.Platform.Linux is a Linux API binding for .NET.
+
+
+Change Log:
+
+1.0.0.0 - April 22, 2004:
+    Initial release.
