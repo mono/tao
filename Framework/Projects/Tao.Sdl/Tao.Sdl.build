@@ -17,10 +17,10 @@
 	</csc>
 <exec program="ildasm" commandline="${framework.build.directory}/${nant.project.name}.dll /OUT=${framework.build.directory}/${nant.project.name}.il /TEXT" />
         <exec program="${framework.build.directory}/Tao.PostProcess.exe" commandline="${framework.build.directory}/${nant.project.name}.il ${framework.build.directory}/${nant.project.name}.pp.il /R /Y" />
-        <if propertytrue="build.strong">
+	<if test ="${build.strong}">
             <exec program="ilasm" commandline="/DLL /RESOURCE=${framework.build.directory}/${nant.project.name}.res /OUTPUT=${framework.build.directory}/${nant.project.name}.dll ${framework.build.directory}/${nant.project.name}.pp.il /KEY=${framework.solutions.directory}/${nant.project.name}/Soluti~1/${nant.project.name}.snk" />
         </if>
-        <ifnot propertytrue="build.strong">
+	<ifnot test="${build.strong}">
             <exec program="ilasm" commandline="/DLL /RESOURCE=${framework.build.directory}/${nant.project.name}.res /OUTPUT=${framework.build.directory}/${nant.project.name}.dll ${framework.build.directory}/${nant.project.name}.pp.il" />
         </ifnot>
         <delete file="${framework.build.directory}/${nant.project.name}.il" />
