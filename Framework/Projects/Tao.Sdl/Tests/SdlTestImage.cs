@@ -128,7 +128,17 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
-		[Ignore("Very strange. The TIF files I create in GIMP do not work in this test.")]
+		[Ignore("Have not created XCF test file.")]
+		public void isXCF()
+		{
+			string file = "test.xcf";
+			Assert.IsFalse(SdlImage.IMG_isXCF(Sdl.SDL_RWFromFile(file, "rb")) == IntPtr.Zero);
+			Assert.AreEqual(SdlImage.IMG_isXCF(Sdl.SDL_RWFromFile("test.bmp", "rb")), IntPtr.Zero);
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
 		public void isTIF()
 		{
 			string file = "test.tif";
@@ -144,6 +154,7 @@ namespace Tao.Sdl
 			string file = "test.gif";
 			IntPtr surfacePtr = VideoSetup();
 			IntPtr imagePtr = SdlImage.IMG_LoadGIF_RW(Sdl.SDL_RWFromFile(file, "rb"));
+			Assert.IsFalse(imagePtr == IntPtr.Zero);
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,200,200);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,200,200);
 			int result = Sdl.SDL_BlitSurface(imagePtr, ref rect1, surfacePtr, ref rect2);
@@ -160,6 +171,7 @@ namespace Tao.Sdl
 			string file = "test.jpg";
 			IntPtr surfacePtr = VideoSetup();
 			IntPtr imagePtr = SdlImage.IMG_LoadJPG_RW(Sdl.SDL_RWFromFile(file, "rb"));
+			Assert.IsFalse(imagePtr == IntPtr.Zero);
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,200,200);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,200,200);
 			int result = Sdl.SDL_BlitSurface(imagePtr, ref rect1, surfacePtr, ref rect2);
@@ -176,6 +188,7 @@ namespace Tao.Sdl
 			string file = "test.png";
 			IntPtr surfacePtr = VideoSetup();
 			IntPtr imagePtr = SdlImage.IMG_LoadPNG_RW(Sdl.SDL_RWFromFile(file, "rb"));
+			Assert.IsFalse(imagePtr == IntPtr.Zero);
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,200,200);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,200,200);
 			int result = Sdl.SDL_BlitSurface(imagePtr, ref rect1, surfacePtr, ref rect2);
@@ -192,6 +205,7 @@ namespace Tao.Sdl
 			string file = "test.pcx";
 			IntPtr surfacePtr = VideoSetup();
 			IntPtr imagePtr = SdlImage.IMG_LoadPCX_RW(Sdl.SDL_RWFromFile(file, "rb"));
+			Assert.IsFalse(imagePtr == IntPtr.Zero);
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,200,200);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,200,200);
 			int result = Sdl.SDL_BlitSurface(imagePtr, ref rect1, surfacePtr, ref rect2);
@@ -208,6 +222,7 @@ namespace Tao.Sdl
 			string file = "test.tga";
 			IntPtr surfacePtr = VideoSetup();
 			IntPtr imagePtr = SdlImage.IMG_LoadTGA_RW(Sdl.SDL_RWFromFile(file, "rb"));
+			Assert.IsFalse(imagePtr == IntPtr.Zero);
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,200,200);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,200,200);
 			int result = Sdl.SDL_BlitSurface(imagePtr, ref rect1, surfacePtr, ref rect2);
@@ -224,6 +239,7 @@ namespace Tao.Sdl
 			string file = "test.pnm";
 			IntPtr surfacePtr = VideoSetup();
 			IntPtr imagePtr = SdlImage.IMG_LoadPNM_RW(Sdl.SDL_RWFromFile(file, "rb"));
+			Assert.IsFalse(imagePtr == IntPtr.Zero);
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,200,200);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,200,200);
 			int result = Sdl.SDL_BlitSurface(imagePtr, ref rect1, surfacePtr, ref rect2);
@@ -240,6 +256,7 @@ namespace Tao.Sdl
 			string file = "test.bmp";
 			IntPtr surfacePtr = VideoSetup();
 			IntPtr imagePtr = SdlImage.IMG_LoadBMP_RW(Sdl.SDL_RWFromFile(file, "rb"));
+			Assert.IsFalse(imagePtr == IntPtr.Zero);
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,200,200);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,200,200);
 			int result = Sdl.SDL_BlitSurface(imagePtr, ref rect1, surfacePtr, ref rect2);
@@ -256,6 +273,25 @@ namespace Tao.Sdl
 			string file = "test.xpm";
 			IntPtr surfacePtr = VideoSetup();
 			IntPtr imagePtr = SdlImage.IMG_LoadXPM_RW(Sdl.SDL_RWFromFile(file, "rb"));
+			Assert.IsFalse(imagePtr == IntPtr.Zero);
+			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,200,200);
+			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,200,200);
+			int result = Sdl.SDL_BlitSurface(imagePtr, ref rect1, surfacePtr, ref rect2);
+			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
+			Thread.Sleep(sleepTime);
+			Assert.AreEqual(result, 0);
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Have not created XCF test file.")]
+		public void LoadXCF()
+		{
+			string file = "test.xcf";
+			IntPtr surfacePtr = VideoSetup();
+			IntPtr imagePtr = SdlImage.IMG_LoadXCF_RW(Sdl.SDL_RWFromFile(file, "rb"));
+			Assert.IsFalse(imagePtr == IntPtr.Zero);
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,200,200);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,200,200);
 			int result = Sdl.SDL_BlitSurface(imagePtr, ref rect1, surfacePtr, ref rect2);
@@ -272,9 +308,99 @@ namespace Tao.Sdl
 			string file = "test.tif";
 			IntPtr surfacePtr = VideoSetup();
 			IntPtr imagePtr = SdlImage.IMG_LoadTIF_RW(Sdl.SDL_RWFromFile(file, "rb"));
+			Assert.IsFalse(imagePtr == IntPtr.Zero);
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,200,200);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,200,200);
 			int result = Sdl.SDL_BlitSurface(imagePtr, ref rect1, surfacePtr, ref rect2);
+			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
+			Thread.Sleep(sleepTime);
+			Assert.AreEqual(result, 0);
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("TODO.")]
+		public void ReadXPMFromArray()
+		{
+			//string file = "test.xpm";
+			IntPtr surfacePtr = VideoSetup();
+			//IntPtr imagePtr = SdlImage.IMG_ReadXPMFromArray();
+			//Assert.IsFalse(imagePtr == IntPtr.Zero);
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void SetGetError()
+		{
+			string error = "Hi there";
+			SdlImage.IMG_SetError(error);
+			Assert.AreEqual(SdlImage.IMG_GetError(), error);
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void Load()
+		{
+			string file = "test.bmp";
+			IntPtr surfacePtr = VideoSetup();
+			IntPtr imagePtr = SdlImage.IMG_Load(file);
+			Assert.IsFalse(imagePtr == IntPtr.Zero);
+			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,200,200);
+			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,200,200);
+			int result = Sdl.SDL_BlitSurface(imagePtr, ref rect1, surfacePtr, ref rect2);
+			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
+			Thread.Sleep(sleepTime);
+			Assert.AreEqual(result, 0);
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void Load_RW()
+		{
+			string file = "test.bmp";
+			IntPtr surfacePtr = VideoSetup();
+			IntPtr imagePtr = SdlImage.IMG_Load_RW(Sdl.SDL_RWFromFile(file, "rb"),1 );
+			Assert.IsFalse(imagePtr == IntPtr.Zero);
+			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,200,200);
+			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,200,200);
+			int result = Sdl.SDL_BlitSurface(imagePtr, ref rect1, surfacePtr, ref rect2);
+			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
+			Thread.Sleep(sleepTime);
+			Assert.AreEqual(result, 0);
+			file = "test.jpg";
+			surfacePtr = VideoSetup();
+			imagePtr = SdlImage.IMG_Load_RW(Sdl.SDL_RWFromFile(file, "rb"), 1);
+			Assert.IsFalse(imagePtr == IntPtr.Zero);
+			result = Sdl.SDL_BlitSurface(imagePtr, ref rect1, surfacePtr, ref rect2);
+			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
+			Thread.Sleep(sleepTime);
+			Assert.AreEqual(result, 0);
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void LoadTyped_RW()
+		{
+			string file = "test.gif";
+			IntPtr surfacePtr = VideoSetup();
+			IntPtr imagePtr = SdlImage.IMG_LoadTyped_RW(Sdl.SDL_RWFromFile(file, "rb"),1, "gif" );
+			Assert.IsFalse(imagePtr == IntPtr.Zero);
+			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,200,200);
+			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,200,200);
+			int result = Sdl.SDL_BlitSurface(imagePtr, ref rect1, surfacePtr, ref rect2);
+			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
+			Thread.Sleep(sleepTime);
+			Assert.AreEqual(result, 0);
+			file = "test.png";
+			surfacePtr = VideoSetup();
+			imagePtr = SdlImage.IMG_LoadTyped_RW(Sdl.SDL_RWFromFile(file, "rb"), 1, "png");
+			Assert.IsFalse(imagePtr == IntPtr.Zero);
+			result = Sdl.SDL_BlitSurface(imagePtr, ref rect1, surfacePtr, ref rect2);
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,200,200);
 			Thread.Sleep(sleepTime);
 			Assert.AreEqual(result, 0);
