@@ -6470,7 +6470,7 @@ namespace Tao.Sdl {
 		/// </code></p>
 		/// </remarks>
 		/// <param name="events"></param>
-		/// <param name="numEvents"></param>
+		/// <param name="numevents"></param>
 		/// <param name="action">SDL_eventaction enum</param>
 		/// <param name="mask"></param>
 		/// <returns>
@@ -6482,7 +6482,7 @@ namespace Tao.Sdl {
 		///  <seealso cref="SDL_PushEvent"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_PeepEvents([Out]SDL_Event[] events, int numEvents, 
+		public static extern int SDL_PeepEvents([Out]SDL_Event[] events, int numevents, 
 			int action, int mask);	
 		#endregion int SDL_PeepEvents(...)
 
