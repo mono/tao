@@ -174,6 +174,7 @@
         <call target="build.cg" />
         <call target="build.devil" />
         <call target="build.freeglut" />
+        <call target="build.glfw" />
         <call target="build.ode" />
         <call target="build.openal" />
         <call target="build.sdl" />
@@ -197,6 +198,11 @@
     <target name="build.glcore" description="Builds GlCore.">
         <mkdir dir="${framework.build.directory}" />
         <nant buildfile="${framework.projects.directory}/Tao.OpenGl/Tao.OpenGl.build" target="glcore" />
+    </target>
+
+    <target name="build.glfw" depends="build.glfw" description="Builds Tao.Glfw.">
+        <mkdir dir="${framework.build.directory}" />
+        <nant buildfile="${framework.projects.directory}/Tao.Glfw/Tao.Glfw.build" target="build" />
     </target>
 
     <target name="build.glpostprocess" depends="build.glcore" description="Builds Tao.GlPostProcess.">
@@ -239,6 +245,7 @@
         <call target="clean.cg" />
         <call target="clean.devil" />
         <call target="clean.freeglut" />
+        <call target="clean.glfw" />
         <call target="clean.ode" />
         <call target="clean.openal" />
         <call target="clean.opengl" />
@@ -249,7 +256,7 @@
 
 
     <target name="clean.framework.builddir" description="Cleans build directory.">
-	<delete dir="${project.build.directory}" failonerror="false" />
+        <delete dir="${project.build.directory}" failonerror="false" />
     </target>
 
     <target name="clean.cg" description="Cleans Tao.Cg.">
@@ -262,6 +269,10 @@
 
     <target name="clean.freeglut" description="Cleans Tao.FreeGlut.">
         <nant buildfile="${framework.projects.directory}/Tao.FreeGlut/Tao.FreeGlut.build" target="clean" />
+    </target>
+
+    <target name="clean.glfw" description="Cleans Tao.Glfw.">
+        <nant buildfile="${framework.projects.directory}/Tao.Glfw/Tao.Glfw.build" target="clean" />
     </target>
 
     <target name="clean.glpostprocess" description="Cleans Tao.GlPostProcess.">
@@ -298,6 +309,7 @@
 
         <call target="build.devilexamples" />
         <call target="build.gewang" />
+        <call target="build.glfwexamples" />
         <call target="build.naterobins" />
         <!-- <call target="build.nehe" /> -->
         <call target="build.odeexamples" />
@@ -317,6 +329,14 @@
         <nant buildfile="${examples.projects.directory}/GeWang.Shadow/GeWang.Shadow.build" target="build" />
         <nant buildfile="${examples.projects.directory}/GeWang.Starfield/GeWang.Starfield.build" target="build" />
         <nant buildfile="${examples.projects.directory}/GeWang.Xform/GeWang.Xform.build" target="build" />
+    </target>
+
+    <target name="build.glfwexamples" depends="build.glfw" description="Builds GlfwExamples.">
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.Boing/GlfwExamples.Boing.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.Gears/GlfwExamples.Gears.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.KeyTest/GlfwExamples.KeyTest.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.ListModes/GlfwExamples.ListModes.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.Triangle/GlfwExamples.Triangle.build" target="build" />
     </target>
 
     <target name="build.naterobins" depends="build.freeglut" description="Builds NateRobins.">
@@ -454,6 +474,7 @@
     <target name="clean.examples.all" description="Cleans all of the Tao example assemblies.">
         <call target="clean.devilexamples" />
         <call target="clean.gewang" />
+        <call target="clean.glfw" />
         <call target="clean.naterobins" />
         <call target="clean.nehe" />
         <call target="clean.odeexamples" />
@@ -474,6 +495,14 @@
         <nant buildfile="${examples.projects.directory}/GeWang.Shadow/GeWang.Shadow.build" target="clean" />
         <nant buildfile="${examples.projects.directory}/GeWang.Starfield/GeWang.Starfield.build" target="clean" />
         <nant buildfile="${examples.projects.directory}/GeWang.Xform/GeWang.Xform.build" target="clean" />
+    </target>
+
+    <target name="clean.glfwexamples" description="Cleans GlfwExamples.">
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.Boing/GlfwExamples.Boing.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.Gears/GlfwExamples.Gears.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.KeyTest/GlfwExamples.KeyTest.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.ListModes/GlfwExamples.ListModes.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/GlfwExamples.Triangle/GlfwExamples.Triangle.build" target="clean" />
     </target>
 
     <target name="clean.naterobins" description="Cleans NateRobins.">
@@ -614,6 +643,7 @@
                 <include name="Tao.Cg.dll" />
                 <include name="Tao.DevIl.dll" />
                 <include name="Tao.FreeGlut.dll" />
+                <includes name="Tao.Glfw.dll" />
                 <include name="Tao.Ode.dll" />
                 <include name="Tao.OpenAl.dll" />
                 <include name="Tao.OpenGl.dll" />
