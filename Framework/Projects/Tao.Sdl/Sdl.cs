@@ -2851,7 +2851,7 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// Axis value (range: -32768 to 32767)
 			/// </summary>
-			public short value;
+			public short val;
 		}
 		#endregion SDL_JoyAxisEvent
 		
