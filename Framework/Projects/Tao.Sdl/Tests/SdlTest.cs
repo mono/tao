@@ -668,7 +668,7 @@ namespace Tao.Sdl
 
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
-			Assert.IsTrue(Sdl.SDL_HasMMX() == Sdl.SDL_bool.SDL_TRUE);
+			Assert.IsTrue(Sdl.SDL_HasMMX() == Sdl.SDL_TRUE);
 		}
 
 		/// <summary>
@@ -681,7 +681,7 @@ namespace Tao.Sdl
 
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
-			Assert.IsFalse(Sdl.SDL_HasMMXExt() == Sdl.SDL_bool.SDL_TRUE);
+			Assert.IsFalse(Sdl.SDL_HasMMXExt() == Sdl.SDL_TRUE);
 		}
 
 		/// <summary>
@@ -694,7 +694,7 @@ namespace Tao.Sdl
 
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
-			Assert.IsFalse(Sdl.SDL_Has3DNow() == Sdl.SDL_bool.SDL_TRUE);
+			Assert.IsFalse(Sdl.SDL_Has3DNow() == Sdl.SDL_TRUE);
 		}
 
 		/// <summary>
@@ -707,7 +707,7 @@ namespace Tao.Sdl
 
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
-			Assert.IsFalse(Sdl.SDL_HasAltiVec() == Sdl.SDL_bool.SDL_TRUE);
+			Assert.IsFalse(Sdl.SDL_HasAltiVec() == Sdl.SDL_TRUE);
 		}
 
 		/// <summary>
@@ -720,7 +720,7 @@ namespace Tao.Sdl
 
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
-			Assert.IsTrue(Sdl.SDL_HasRDTSC() == Sdl.SDL_bool.SDL_TRUE);
+			Assert.IsTrue(Sdl.SDL_HasRDTSC() == Sdl.SDL_TRUE);
 		}
 
 		/// <summary>
@@ -733,7 +733,7 @@ namespace Tao.Sdl
 
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
-			Assert.IsTrue(Sdl.SDL_HasSSE() == Sdl.SDL_bool.SDL_TRUE);
+			Assert.IsTrue(Sdl.SDL_HasSSE() == Sdl.SDL_TRUE);
 		}
 
 		/// <summary>
@@ -747,7 +747,7 @@ namespace Tao.Sdl
 
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
-			Assert.IsTrue(Sdl.SDL_HasSSE2() == Sdl.SDL_bool.SDL_TRUE);
+			Assert.IsTrue(Sdl.SDL_HasSSE2() == Sdl.SDL_TRUE);
 		}
 		#endregion SDL_cpuinfo.h
 		

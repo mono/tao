@@ -95,7 +95,8 @@ namespace Tao.Sdl {
     ///	functions and other SDL_mixer audio hooks. </code>
     /// </remarks>
     #endregion Class Documentation
-    public sealed class SdlMixer {
+    public sealed class SdlMixer 
+	{
         #region Private Constants
         #region string SDL_MIXER_NATIVE_LIBRARY
         /// <summary>
@@ -185,75 +186,75 @@ namespace Tao.Sdl {
 
         #region Public Enums
 		#region Mix_Fading
-        /// <summary>
-        /// Fader effect type enumerations
-        /// </summary>
-        /// <remarks>
-        /// Return values from Mix_FadingMusic and Mix_FadingChannel
-        ///  are of these enumerated values. If no fading is taking 
-        ///  place on the queried channel or music, then MIX_NO_FADING
-        ///   is returned. Otherwise they are self explanatory.
-        /// </remarks>
-        /// <seealso cref="Mix_FadingChannel"/>
-        /// <seealso cref="Mix_FadingMusic"/>
-        public enum Mix_Fading {
+//        /// <summary>
+//        /// Fader effect type enumerations
+//        /// </summary>
+//        /// <remarks>
+//        /// Return values from Mix_FadingMusic and Mix_FadingChannel
+//        ///  are of these enumerated values. If no fading is taking 
+//        ///  place on the queried channel or music, then MIX_NO_FADING
+//        ///   is returned. Otherwise they are self explanatory.
+//        /// </remarks>
+//        /// <seealso cref="Mix_FadingChannel"/>
+//        /// <seealso cref="Mix_FadingMusic"/>
+ //       public enum Mix_Fading {
             /// <summary>
             /// 
             /// </summary>
-            MIX_NO_FADING,
+            public const int MIX_NO_FADING = 0;
             /// <summary>
             /// 
             /// </summary>
-            MIX_FADING_OUT,
+            public const int MIX_FADING_OUT = 1;
             /// <summary>
             /// 
             /// </summary>
-            MIX_FADING_IN
-        }
+            public const int MIX_FADING_IN = 2;
+       // }
 		#endregion Mix_Fading
 
 		#region Mix_MusicType
-        /// <summary>
-        /// Music type enumerations
-        /// </summary>
-        /// <remarks>
-		/// Return values from Mix_GetMusicType are of these enumerated values.
-		/// If no music is playing then MUS_NONE is returned.
-		/// If music is playing via an external command then MUS_CMD is returned.
-		/// Otherwise they are self explanatory.
-		/// </remarks>
-		/// <seealso cref="Mix_GetMusicType"/>
-        public enum Mix_MusicType 
-		{
+//        /// <summary>
+//        /// Music type enumerations
+//        /// </summary>
+//        /// <remarks>
+//		/// Return values from Mix_GetMusicType are of these enumerated values.
+//		/// If no music is playing then MUS_NONE is returned.
+//		/// If music is playing via an external command then MUS_CMD is returned.
+//		/// Otherwise they are self explanatory.
+//		/// </remarks>
+//		/// <seealso cref="Mix_GetMusicType"/>
+ //       public enum Mix_MusicType 
+//		{
             /// <summary>
             /// 
             /// </summary>
-            MUS_NONE,
+            public const int MUS_NONE = 0;
             /// <summary>
             /// 
             /// </summary>
-            MUS_CMD,
+            public const int MUS_CMD = 1;
             /// <summary>
             /// 
             /// </summary>
-            MUS_WAV,
+            public const int MUS_WAV = 2;
             /// <summary>
             /// 
             /// </summary>
-            MUS_MOD,
+            public const int MUS_MOD = 3;
             /// <summary>
             /// 
             /// </summary>
-            MUS_MID,
+            public const int MUS_MID = 4;
             /// <summary>
             /// 
             /// </summary>
-            MUS_OGG,
+            public const int MUS_OGG = 5;
             /// <summary>
             /// 
             /// </summary>
-            MUS_MP3
-        } 
+            public const int MUS_MP3 = 6;
+ //       } 
 		#endregion Mix_MusicType
         #endregion Public Enums
 
@@ -976,7 +977,6 @@ namespace Tao.Sdl {
         /// <returns>The type of music or if music is NULL then 
         /// the currently playing music type, otherwise MUS_NONE
         ///  if no music is playing.</returns>
-        ///  <seealso cref="Mix_MusicType"/>
         ///  <seealso cref="Mix_SetPosition"/>
         ///  <example>
         ///  <code>
@@ -1007,12 +1007,11 @@ namespace Tao.Sdl {
 		///		break;
 		///	}
         ///  </code></example>
-        ///  <seealso cref="Mix_MusicType"/>
         ///  <seealso cref="Mix_SetPosition"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
-        public static extern Mix_MusicType Mix_GetMusicType(IntPtr music);
+        public static extern int Mix_GetMusicType(IntPtr music);
 		#endregion Mix_MusicType Mix_GetMusicType(IntPtr music)
 
 		#region void Mix_SetPostMix(MixFunctionDelegate mix_func, IntPtr arg)
@@ -2670,7 +2669,6 @@ namespace Tao.Sdl {
 		///	}
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_Fading"/>
 		/// <seealso cref="Mix_PausedMusic"/>
 		/// <seealso cref="Mix_PlayingMusic"/>
 		/// <seealso cref="Mix_FadeInMusicPos"/>
@@ -2678,7 +2676,7 @@ namespace Tao.Sdl {
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
-        public static extern Mix_Fading Mix_FadingMusic();
+        public static extern int Mix_FadingMusic();
 		#endregion Mix_Fading Mix_FadingMusic()
 
 		#region Mix_Fading Mix_FadingChannel(int which)
@@ -2717,7 +2715,6 @@ namespace Tao.Sdl {
 		///	}
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_Fading"/>
 		/// <seealso cref="Mix_Paused"/>
 		/// <seealso cref="Mix_Playing"/>
 		/// <seealso cref="Mix_FadeInChannel"/>
@@ -2726,7 +2723,7 @@ namespace Tao.Sdl {
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
-        public static extern Mix_Fading Mix_FadingChannel(int which);
+        public static extern int Mix_FadingChannel(int which);
 		#endregion Mix_Fading Mix_FadingChannel(int which)
 
 		#region void Mix_Pause(int channel)
@@ -3012,7 +3009,6 @@ namespace Tao.Sdl {
 		/// </code>
 		/// </example>
 		/// <seealso cref="Mix_Paused"/>
-		/// <seealso cref="Mix_Fading"/>
 		/// <seealso cref="Mix_PlayChannel"/>
 		/// <seealso cref="Mix_Pause"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 

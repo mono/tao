@@ -581,25 +581,25 @@ namespace Tao.Sdl {
 		/// Both CTRL keys.
 		/// </summary>
 		public const short KMOD_CTRL = 
-			(short) (SDLMod.KMOD_LCTRL|SDLMod.KMOD_RCTRL);
+			(short) (KMOD_LCTRL|KMOD_RCTRL);
 
 		/// <summary>
 		/// Both SHIFT keys.
 		/// </summary>
 		public const short KMOD_SHIFT = 
-			(short) (SDLMod.KMOD_LSHIFT|SDLMod.KMOD_RSHIFT);
+			(short) (KMOD_LSHIFT|KMOD_RSHIFT);
 
 		/// <summary>
 		/// Both ALT keys.
 		/// </summary>
 		public const short KMOD_ALT = 
-			(short) (SDLMod.KMOD_LALT|SDLMod.KMOD_RALT);
+			(short) (KMOD_LALT|KMOD_RALT);
 
 		/// <summary>
 		/// Both META keys.
 		/// </summary>
 		public const short KMOD_META = (
-			short) (SDLMod.KMOD_LMETA|SDLMod.KMOD_RMETA);
+			short) (KMOD_LMETA|KMOD_RMETA);
 		#endregion SDL_keysym.h
 
 		// SDL_loadso.h -- skipped
@@ -936,24 +936,17 @@ namespace Tao.Sdl {
 		#region SDL_audio.h
 		#region SDL_audiostatus
 		/// <summary>
-		/// Get the current audio state
+		/// SDL_audiostatus. Get the current audio state
 		/// </summary>
-		/// <seealso cref="SDL_GetAudioStatus"/>
-		public enum SDL_audiostatus 
-		{
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_AUDIO_STOPPED = 0,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_AUDIO_PLAYING,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_AUDIO_PAUSED
-		}
+		public const int SDL_AUDIO_STOPPED = 0;
+		/// <summary>
+		/// SDL_audiostatus. Get the current audio state
+		/// </summary>
+		public const int SDL_AUDIO_PLAYING = 1;
+		/// <summary>
+		/// SDL_audiostatus. Get the current audio state
+		/// </summary>
+		public const int SDL_AUDIO_PAUSED = 2;
 		#endregion SDL_audiostatus
 		#endregion SDL_audio.h
 
@@ -962,31 +955,45 @@ namespace Tao.Sdl {
 		#region SDL_cdrom.h
 		#region CDstatus
 		/// <summary>
-		/// The possible states which a CD-ROM drive can be in.
+		/// The CD tray is empty.
 		/// </summary>
-		public enum CDstatus 
-		{
-			/// <summary>
-			/// The CD tray is empty.
-			/// </summary>
-			CD_TRAYEMPTY,
-			/// <summary>
-			/// The CD has stopped playing.
-			/// </summary>
-			CD_STOPPED,
-			/// <summary>
-			/// The CD is playing.
-			/// </summary>
-			CD_PLAYING,
-			/// <summary>
-			/// The CD has been paused.
-			/// </summary>
-			CD_PAUSED,
-			/// <summary>
-			/// An error occured while getting the status.
-			/// </summary>
-			CD_ERROR = -1
-		}
+		/// <remarks>
+		/// CDstatus enum.
+		/// The possible states which a CD-ROM drive can be in.
+		/// </remarks>
+		public const int CD_TRAYEMPTY = 0;
+		/// <summary>
+		/// The CD has stopped playing.
+		/// </summary>
+		/// <remarks>
+		/// CDstatus enum.
+		/// The possible states which a CD-ROM drive can be in.
+		/// </remarks>
+		public const int CD_STOPPED = 1;
+		/// <summary>
+		/// The CD is playing.
+		/// </summary>
+		/// <remarks>
+		/// CDstatus enum.
+		/// The possible states which a CD-ROM drive can be in.
+		/// </remarks>
+		public const int CD_PLAYING = 2;
+		/// <summary>
+		/// The CD has been paused.
+		/// </summary>
+		/// <remarks>
+		/// CDstatus enum.
+		/// The possible states which a CD-ROM drive can be in.
+		/// </remarks>
+		public const int CD_PAUSED = 3;
+		/// <summary>
+		/// An error occured while getting the status.
+		/// </summary>
+		/// <remarks>
+		/// CDstatus enum.
+		/// The possible states which a CD-ROM drive can be in.
+		/// </remarks>
+		public const int CD_ERROR = -1;
 		#endregion CDstatus
 		#endregion SDL_cdrom.h
 
@@ -998,29 +1005,37 @@ namespace Tao.Sdl {
 		#region SDL_events.h
 		#region SDL_eventaction
 		/// <summary>
-		/// Various event types.
+		/// If 'action' is SDL_ADDEVENT, up to 'numevents' events will 
+		/// be added to the back of the event queue.
 		/// </summary>
+		/// <remarks>
+		/// enum SDL_eventaction. 
+		/// Various event types.
+		/// </remarks>
 		/// <seealso cref="SDL_PeepEvents"/>
-		public enum SDL_eventaction 
-		{
-			/// <summary>
-			/// If 'action' is SDL_ADDEVENT, up to 'numevents' events will 
-			/// be added to the back of the event queue.
-			/// </summary>
-			SDL_ADDEVENT,
-			/// <summary>
-			/// If 'action' is SDL_PEEKEVENT, up to 'numevents' events at 
-			/// the front of the event queue, matching 'mask', will be 
-			/// returned and will not be removed from the queue.
-			/// </summary>
-			SDL_PEEKEVENT,
-			/// <summary>
-			/// If 'action' is SDL_GETEVENT, up to 'numevents' events at 
-			/// the front of the event queue, matching 'mask', will be 
-			/// returned and will be removed from the queue.
-			/// </summary>
-			SDL_GETEVENT
-		}
+		public const int SDL_ADDEVENT = 0;
+		/// <summary>
+		/// If 'action' is SDL_PEEKEVENT, up to 'numevents' events at 
+		/// the front of the event queue, matching 'mask', will be 
+		/// returned and will not be removed from the queue.
+		/// </summary>
+		/// <remarks>
+		/// enum SDL_eventaction. 
+		/// Various event types.
+		/// </remarks>
+		/// <seealso cref="SDL_PeepEvents"/>
+		public const int SDL_PEEKEVENT = 1;
+		/// <summary>
+		/// If 'action' is SDL_GETEVENT, up to 'numevents' events at 
+		/// the front of the event queue, matching 'mask', will be 
+		/// returned and will be removed from the queue.
+		/// </summary>
+		/// <remarks>
+		/// enum SDL_eventaction. 
+		/// Various event types.
+		/// </remarks>
+		/// <seealso cref="SDL_PeepEvents"/>
+		public const int SDL_GETEVENT = 2;
 		#endregion SDL_eventaction
 		#endregion SDL_events.h
 
@@ -1030,1031 +1045,1064 @@ namespace Tao.Sdl {
 
 		#region SDL_keysym.h
 		#region SDLKey
+//		/// <summary>
+//		/// What we really want is a mapping of every raw key on the keyboard.
+//		/// To support international keyboards, we use the range 0xA1 - 0xFF
+//		/// as international virtual keycodes.  
+//		/// We'll follow in the footsteps of X11...
+//		/// The keyboard syms have been cleverly chosen to map to ASCII
+//		/// </summary>
+//		//public enum SDLKey 
+//		//{
 		/// <summary>
-		/// What we really want is a mapping of every raw key on the keyboard.
-		/// To support international keyboards, we use the range 0xA1 - 0xFF
-		/// as international virtual keycodes.  
-		/// We'll follow in the footsteps of X11...
-		/// The keyboard syms have been cleverly chosen to map to ASCII
+		/// 
 		/// </summary>
-		public enum SDLKey 
-		{
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_UNKNOWN		= 0,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_FIRST		= 0,
-			/// <summary>
-			/// backspace. '\b'
-			/// </summary>
-			SDLK_BACKSPACE		= 8,
-			/// <summary>
-			/// tab. '\t'
-			/// </summary>
-			SDLK_TAB		= 9,
-			/// <summary>
-			/// clear
-			/// </summary>
-			SDLK_CLEAR		= 12,
-			/// <summary>
-			/// return. '\r' 
-			/// </summary>
-			SDLK_RETURN		= 13,
-			/// <summary>
-			/// pause
-			/// </summary>
-			SDLK_PAUSE		= 19,
-			/// <summary>
-			/// escape. '^['
-			/// </summary>
-			SDLK_ESCAPE		= 27,
-			/// <summary>
-			/// space. ' '
-			/// </summary>
-			SDLK_SPACE		= 32,
-			/// <summary>
-			/// exclaim. '!'
-			/// </summary>
-			SDLK_EXCLAIM		= 33,
-			/// <summary>
-			/// quotedbl. '"'
-			/// </summary>
-			SDLK_QUOTEDBL		= 34,
-			/// <summary>
-			/// hash. '#'
-			/// </summary>
-			SDLK_HASH		= 35,
-			/// <summary>
-			/// dollar. '$'
-			/// </summary>
-			SDLK_DOLLAR		= 36,
-			/// <summary>
-			/// ampersand. '&amp;'
-			/// </summary>
-			SDLK_AMPERSAND		= 38,
-			/// <summary>
-			/// quote. '''
-			/// </summary>
-			SDLK_QUOTE		= 39,
-			/// <summary>
-			/// left parenthesis. '('
-			/// </summary>
-			SDLK_LEFTPAREN		= 40,
-			/// <summary>
-			/// right parenthesis. ')'
-			/// </summary>
-			SDLK_RIGHTPAREN		= 41,
-			/// <summary>
-			/// asterisk. '*'
-			/// </summary>
-			SDLK_ASTERISK		= 42,
-			/// <summary>
-			/// plus sign. '+'
-			/// </summary>
-			SDLK_PLUS		= 43,
-			/// <summary>
-			/// comma. ','
-			/// </summary>
-			SDLK_COMMA		= 44,
-			/// <summary>
-			/// minus sign. '-'
-			/// </summary>
-			SDLK_MINUS		= 45,
-			/// <summary>
-			/// period. '.'
-			/// </summary>
-			SDLK_PERIOD		= 46,
-			/// <summary>
-			/// forward slash. '/'
-			/// </summary>
-			SDLK_SLASH		= 47,
-			/// <summary>
-			/// 0
-			/// </summary>
-			SDLK_0			= 48,
-			/// <summary>
-			/// 1
-			/// </summary>
-			SDLK_1			= 49,
-			/// <summary>
-			/// 2
-			/// </summary>
-			SDLK_2			= 50,
-			/// <summary>
-			/// 3
-			/// </summary>
-			SDLK_3			= 51,
-			/// <summary>
-			/// 4
-			/// </summary>
-			SDLK_4			= 52,
-			/// <summary>
-			/// 5
-			/// </summary>
-			SDLK_5			= 53,
-			/// <summary>
-			/// 6
-			/// </summary>
-			SDLK_6			= 54,
-			/// <summary>
-			/// 7
-			/// </summary>
-			SDLK_7			= 55,
-			/// <summary>
-			/// 8
-			/// </summary>
-			SDLK_8			= 56,
-			/// <summary>
-			/// 9
-			/// </summary>
-			SDLK_9			= 57,
-			/// <summary>
-			/// colon. ':'
-			/// </summary>
-			SDLK_COLON		= 58,
-			/// <summary>
-			/// semicolon. ';'
-			/// </summary>
-			SDLK_SEMICOLON		= 59,
-			/// <summary>
-			/// less-than sign. '&lt;'
-			/// </summary>
-			SDLK_LESS		= 60,
-			/// <summary>
-			/// equals sign. '='
-			/// </summary>
-			SDLK_EQUALS		= 61,
-			/// <summary>
-			/// greater-than sign. '&gt;'
-			/// </summary>
-			SDLK_GREATER		= 62,
-			/// <summary>
-			/// question mark. '?'
-			/// </summary>
-			SDLK_QUESTION		= 63,
-			/// <summary>
-			/// at. '@'
-			/// </summary>
-			SDLK_AT			= 64,
-			/* 
+		public const int SDLK_UNKNOWN		= 0;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_FIRST		= 0;
+		/// <summary>
+		/// backspace. '\b'
+		/// </summary>
+		public const int SDLK_BACKSPACE		= 8;
+		/// <summary>
+		/// tab. '\t'
+		/// </summary>
+		public const int SDLK_TAB		= 9;
+		/// <summary>
+		/// clear
+		/// </summary>
+		public const int SDLK_CLEAR		= 12;
+		/// <summary>
+		/// return. '\r' 
+		/// </summary>
+		public const int SDLK_RETURN		= 13;
+		/// <summary>
+		/// pause
+		/// </summary>
+		public const int SDLK_PAUSE		= 19;
+		/// <summary>
+		/// escape. '^['
+		/// </summary>
+		public const int SDLK_ESCAPE		= 27;
+		/// <summary>
+		/// space. ' '
+		/// </summary>
+		public const int SDLK_SPACE		= 32;
+		/// <summary>
+		/// exclaim. '!'
+		/// </summary>
+		public const int SDLK_EXCLAIM		= 33;
+		/// <summary>
+		/// quotedbl. '"'
+		/// </summary>
+		public const int SDLK_QUOTEDBL		= 34;
+		/// <summary>
+		/// hash. '#'
+		/// </summary>
+		public const int SDLK_HASH		= 35;
+		/// <summary>
+		/// dollar. '$'
+		/// </summary>
+		public const int SDLK_DOLLAR		= 36;
+		/// <summary>
+		/// ampersand. '&amp;'
+		/// </summary>
+		public const int SDLK_AMPERSAND		= 38;
+		/// <summary>
+		/// quote. '''
+		/// </summary>
+		public const int SDLK_QUOTE		= 39;
+		/// <summary>
+		/// left parenthesis. '('
+		/// </summary>
+		public const int SDLK_LEFTPAREN		= 40;
+		/// <summary>
+		/// right parenthesis. ')'
+		/// </summary>
+		public const int SDLK_RIGHTPAREN		= 41;
+		/// <summary>
+		/// asterisk. '*'
+		/// </summary>
+		public const int SDLK_ASTERISK		= 42;
+		/// <summary>
+		/// plus sign. '+'
+		/// </summary>
+		public const int SDLK_PLUS		= 43;
+		/// <summary>
+		/// comma. ';'
+		/// </summary>
+		public const int SDLK_COMMA		= 44;
+		/// <summary>
+		/// minus sign. '-'
+		/// </summary>
+		public const int SDLK_MINUS		= 45;
+		/// <summary>
+		/// period. '.'
+		/// </summary>
+		public const int SDLK_PERIOD		= 46;
+		/// <summary>
+		/// forward slash. '/'
+		/// </summary>
+		public const int SDLK_SLASH		= 47;
+		/// <summary>
+		/// 0
+		/// </summary>
+		public const int SDLK_0			= 48;
+		/// <summary>
+		/// 1
+		/// </summary>
+		public const int SDLK_1			= 49;
+		/// <summary>
+		/// 2
+		/// </summary>
+		public const int SDLK_2			= 50;
+		/// <summary>
+		/// 3
+		/// </summary>
+		public const int SDLK_3			= 51;
+		/// <summary>
+		/// 4
+		/// </summary>
+		public const int SDLK_4			= 52;
+		/// <summary>
+		/// 5
+		/// </summary>
+		public const int SDLK_5			= 53;
+		/// <summary>
+		/// 6
+		/// </summary>
+		public const int SDLK_6			= 54;
+		/// <summary>
+		/// 7
+		/// </summary>
+		public const int SDLK_7			= 55;
+		/// <summary>
+		/// 8
+		/// </summary>
+		public const int SDLK_8			= 56;
+		/// <summary>
+		/// 9
+		/// </summary>
+		public const int SDLK_9			= 57;
+		/// <summary>
+		/// colon. ':'
+		/// </summary>
+		public const int SDLK_COLON		= 58;
+		/// <summary>
+		/// semicolon. ';'
+		/// </summary>
+		public const int SDLK_SEMICOLON		= 59;
+		/// <summary>
+		/// less-than sign. '&lt;'
+		/// </summary>
+		public const int SDLK_LESS		= 60;
+		/// <summary>
+		/// equals sign. '='
+		/// </summary>
+		public const int SDLK_EQUALS		= 61;
+		/// <summary>
+		/// greater-than sign. '&gt;'
+		/// </summary>
+		public const int SDLK_GREATER		= 62;
+		/// <summary>
+		/// question mark. '?'
+		/// </summary>
+		public const int SDLK_QUESTION		= 63;
+		/// <summary>
+		/// at. '@'
+		/// </summary>
+		public const int SDLK_AT			= 64;
+		/* 
 			   Skip uppercase letters
 			 */
-			/// <summary>
-			/// left bracket. '['
-			/// </summary>
-			SDLK_LEFTBRACKET	= 91,
-			/// <summary>
-			/// backslash. '\'
-			/// </summary>
-			SDLK_BACKSLASH		= 92,
-			/// <summary>
-			/// right bracket. ']'
-			/// </summary>
-			SDLK_RIGHTBRACKET	= 93,
-			/// <summary>
-			/// caret. '^'
-			/// </summary>
-			SDLK_CARET		= 94,
-			/// <summary>
-			/// underscore.'_'
-			/// </summary>
-			SDLK_UNDERSCORE		= 95,
-			/// <summary>
-			/// grave. '`'
-			/// </summary>
-			SDLK_BACKQUOTE		= 96,
-			/// <summary>
-			/// a
-			/// </summary>
-			SDLK_a			= 97,
-			/// <summary>
-			/// b
-			/// </summary>
-			SDLK_b			= 98,
-			/// <summary>
-			/// c
-			/// </summary>
-			SDLK_c			= 99,
-			/// <summary>
-			/// d
-			/// </summary>
-			SDLK_d			= 100,
-			/// <summary>
-			/// e
-			/// </summary>
-			SDLK_e			= 101,
-			/// <summary>
-			/// f
-			/// </summary>
-			SDLK_f			= 102,
-			/// <summary>
-			/// g
-			/// </summary>
-			SDLK_g			= 103,
-			/// <summary>
-			/// h
-			/// </summary>
-			SDLK_h			= 104,
-			/// <summary>
-			/// i
-			/// </summary>
-			SDLK_i			= 105,
-			/// <summary>
-			/// j
-			/// </summary>
-			SDLK_j			= 106,
-			/// <summary>
-			/// k
-			/// </summary>
-			SDLK_k			= 107,
-			/// <summary>
-			/// l
-			/// </summary>
-			SDLK_l			= 108,
-			/// <summary>
-			/// m
-			/// </summary>
-			SDLK_m			= 109,
-			/// <summary>
-			/// n
-			/// </summary>
-			SDLK_n			= 110,
-			/// <summary>
-			/// o
-			/// </summary>
-			SDLK_o			= 111,
-			/// <summary>
-			/// p
-			/// </summary>
-			SDLK_p			= 112,
-			/// <summary>
-			/// q
-			/// </summary>
-			SDLK_q			= 113,
-			/// <summary>
-			/// r
-			/// </summary>
-			SDLK_r			= 114,
-			/// <summary>
-			/// s
-			/// </summary>
-			SDLK_s			= 115,
-			/// <summary>
-			/// t
-			/// </summary>
-			SDLK_t			= 116,
-			/// <summary>
-			/// u
-			/// </summary>
-			SDLK_u			= 117,
-			/// <summary>
-			/// v
-			/// </summary>
-			SDLK_v			= 118,
-			/// <summary>
-			/// w
-			/// </summary>
-			SDLK_w			= 119,
-			/// <summary>
-			/// x
-			/// </summary>
-			SDLK_x			= 120,
-			/// <summary>
-			/// y
-			/// </summary>
-			SDLK_y			= 121,
-			/// <summary>
-			/// z
-			/// </summary>
-			SDLK_z			= 122,
-			/// <summary>
-			/// delete. '^?'
-			/// </summary>
-			SDLK_DELETE		= 127,
-			/* End of ASCII mapped keysyms */
+		/// <summary>
+		/// left bracket. '['
+		/// </summary>
+		public const int SDLK_LEFTBRACKET	= 91;
+		/// <summary>
+		/// backslash. '\'
+		/// </summary>
+		public const int SDLK_BACKSLASH		= 92;
+		/// <summary>
+		/// right bracket. ']'
+		/// </summary>
+		public const int SDLK_RIGHTBRACKET	= 93;
+		/// <summary>
+		/// caret. '^'
+		/// </summary>
+		public const int SDLK_CARET		= 94;
+		/// <summary>
+		/// underscore.'_'
+		/// </summary>
+		public const int SDLK_UNDERSCORE		= 95;
+		/// <summary>
+		/// grave. '`'
+		/// </summary>
+		public const int SDLK_BACKQUOTE		= 96;
+		/// <summary>
+		/// a
+		/// </summary>
+		public const int SDLK_a			= 97;
+		/// <summary>
+		/// b
+		/// </summary>
+		public const int SDLK_b			= 98;
+		/// <summary>
+		/// c
+		/// </summary>
+		public const int SDLK_c			= 99;
+		/// <summary>
+		/// d
+		/// </summary>
+		public const int SDLK_d			= 100;
+		/// <summary>
+		/// e
+		/// </summary>
+		public const int SDLK_e			= 101;
+		/// <summary>
+		/// f
+		/// </summary>
+		public const int SDLK_f			= 102;
+		/// <summary>
+		/// g
+		/// </summary>
+		public const int SDLK_g			= 103;
+		/// <summary>
+		/// h
+		/// </summary>
+		public const int SDLK_h			= 104;
+		/// <summary>
+		/// i
+		/// </summary>
+		public const int SDLK_i			= 105;
+		/// <summary>
+		/// j
+		/// </summary>
+		public const int SDLK_j			= 106;
+		/// <summary>
+		/// k
+		/// </summary>
+		public const int SDLK_k			= 107;
+		/// <summary>
+		/// l
+		/// </summary>
+		public const int SDLK_l			= 108;
+		/// <summary>
+		/// m
+		/// </summary>
+		public const int SDLK_m			= 109;
+		/// <summary>
+		/// n
+		/// </summary>
+		public const int SDLK_n			= 110;
+		/// <summary>
+		/// o
+		/// </summary>
+		public const int SDLK_o			= 111;
+		/// <summary>
+		/// p
+		/// </summary>
+		public const int SDLK_p			= 112;
+		/// <summary>
+		/// q
+		/// </summary>
+		public const int SDLK_q			= 113;
+		/// <summary>
+		/// r
+		/// </summary>
+		public const int SDLK_r			= 114;
+		/// <summary>
+		/// s
+		/// </summary>
+		public const int SDLK_s			= 115;
+		/// <summary>
+		/// t
+		/// </summary>
+		public const int SDLK_t			= 116;
+		/// <summary>
+		/// u
+		/// </summary>
+		public const int SDLK_u			= 117;
+		/// <summary>
+		/// v
+		/// </summary>
+		public const int SDLK_v			= 118;
+		/// <summary>
+		/// w
+		/// </summary>
+		public const int SDLK_w			= 119;
+		/// <summary>
+		/// x
+		/// </summary>
+		public const int SDLK_x			= 120;
+		/// <summary>
+		/// y
+		/// </summary>
+		public const int SDLK_y			= 121;
+		/// <summary>
+		/// z
+		/// </summary>
+		public const int SDLK_z			= 122;
+		/// <summary>
+		/// delete. '^?'
+		/// </summary>
+		public const int SDLK_DELETE		= 127;
+		/* End of ASCII mapped keysyms */
 
-			/* International keyboard syms */
-			/// <summary>
-			/// 0xA0
-			/// </summary>
-			SDLK_WORLD_0		= 160,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_1		= 161,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_2		= 162,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_3		= 163,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_4		= 164,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_5		= 165,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_6		= 166,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_7		= 167,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_8		= 168,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_9		= 169,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_10		= 170,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_11		= 171,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_12		= 172,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_13		= 173,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_14		= 174,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_15		= 175,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_16		= 176,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_17		= 177,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_18		= 178,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_19		= 179,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_20		= 180,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_21		= 181,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_22		= 182,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_23		= 183,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_24		= 184,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_25		= 185,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_26		= 186,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_27		= 187,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_28		= 188,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_29		= 189,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_30		= 190,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_31		= 191,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_32		= 192,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_33		= 193,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_34		= 194,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_35		= 195,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_36		= 196,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_37		= 197,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_38		= 198,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_39		= 199,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_40		= 200,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_41		= 201,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_42		= 202,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_43		= 203,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_44		= 204,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_45		= 205,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_46		= 206,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_47		= 207,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_48		= 208,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_49		= 209,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_50		= 210,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_51		= 211,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_52		= 212,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_53		= 213,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_54		= 214,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_55		= 215,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_56		= 216,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_57		= 217,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_58		= 218,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_59		= 219,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_60		= 220,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_61		= 221,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_62		= 222,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_63		= 223,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_64		= 224,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_65		= 225,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_66		= 226,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_67		= 227,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_68		= 228,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_69		= 229,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_70		= 230,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_71		= 231,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_72		= 232,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_73		= 233,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_74		= 234,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_75		= 235,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_76		= 236,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_77		= 237,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_78		= 238,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_79		= 239,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_80		= 240,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_81		= 241,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_82		= 242,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_83		= 243,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_84		= 244,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_85		= 245,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_86		= 246,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_87		= 247,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_88		= 248,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_89		= 249,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_90		= 250,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_91		= 251,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_92		= 252,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_93		= 253,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_WORLD_94		= 254,
-			/// <summary>
-			/// 0xFF
-			/// </summary>
-			SDLK_WORLD_95		= 255,
+		/* International keyboard syms */
+		/// <summary>
+		/// 0xA0
+		/// </summary>
+		public const int SDLK_WORLD_0		= 160;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_1		= 161;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_2		= 162;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_3		= 163;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_4		= 164;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_5		= 165;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_6		= 166;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_7		= 167;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_8		= 168;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_9		= 169;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_10		= 170;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_11		= 171;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_12		= 172;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_13		= 173;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_14		= 174;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_15		= 175;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_16		= 176;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_17		= 177;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_18		= 178;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_19		= 179;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_20		= 180;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_21		= 181;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_22		= 182;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_23		= 183;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_24		= 184;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_25		= 185;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_26		= 186;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_27		= 187;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_28		= 188;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_29		= 189;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_30		= 190;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_31		= 191;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_32		= 192;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_33		= 193;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_34		= 194;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_35		= 195;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_36		= 196;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_37		= 197;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_38		= 198;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_39		= 199;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_40		= 200;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_41		= 201;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_42		= 202;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_43		= 203;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_44		= 204;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_45		= 205;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_46		= 206;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_47		= 207;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_48		= 208;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_49		= 209;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_50		= 210;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_51		= 211;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_52		= 212;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_53		= 213;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_54		= 214;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_55		= 215;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_56		= 216;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_57		= 217;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_58		= 218;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_59		= 219;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_60		= 220;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_61		= 221;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_62		= 222;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_63		= 223;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_64		= 224;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_65		= 225;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_66		= 226;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_67		= 227;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_68		= 228;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_69		= 229;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_70		= 230;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_71		= 231;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_72		= 232;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_73		= 233;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_74		= 234;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_75		= 235;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_76		= 236;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_77		= 237;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_78		= 238;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_79		= 239;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_80		= 240;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_81		= 241;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_82		= 242;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_83		= 243;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_84		= 244;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_85		= 245;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_86		= 246;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_87		= 247;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_88		= 248;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_89		= 249;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_90		= 250;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_91		= 251;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_92		= 252;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_93		= 253;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_WORLD_94		= 254;
+		/// <summary>
+		/// 0xFF
+		/// </summary>
+		public const int SDLK_WORLD_95		= 255;
 
-			/* Numeric keypad */
-			/// <summary>
-			/// keypad 0
-			/// </summary>
-			SDLK_KP0		= 256,
-			/// <summary>
-			/// keypad 1
-			/// </summary>
-			SDLK_KP1		= 257,
-			/// <summary>
-			/// keypad 2
-			/// </summary>
-			SDLK_KP2		= 258,
-			/// <summary>
-			/// keypad 3
-			/// </summary>
-			SDLK_KP3		= 259,
-			/// <summary>
-			/// keypad 4
-			/// </summary>
-			SDLK_KP4		= 260,
-			/// <summary>
-			/// keypad 5
-			/// </summary>
-			SDLK_KP5		= 261,
-			/// <summary>
-			/// keypad 6
-			/// </summary>
-			SDLK_KP6		= 262,
-			/// <summary>
-			/// keypad 7
-			/// </summary>
-			SDLK_KP7		= 263,
-			/// <summary>
-			/// keypad 8
-			/// </summary>
-			SDLK_KP8		= 264,
-			/// <summary>
-			/// keypad 9
-			/// </summary>
-			SDLK_KP9		= 265,
-			/// <summary>
-			/// keypad period. '.'
-			/// </summary>
-			SDLK_KP_PERIOD		= 266,
-			/// <summary>
-			/// keypad divide. '/'
-			/// </summary>
-			SDLK_KP_DIVIDE		= 267,
-			/// <summary>
-			/// keypad multiply. '*'
-			/// </summary>
-			SDLK_KP_MULTIPLY	= 268,
-			/// <summary>
-			/// keypad minus. '-'
-			/// </summary>
-			SDLK_KP_MINUS		= 269,
-			/// <summary>
-			/// keypad plus. '+'
-			/// </summary>
-			SDLK_KP_PLUS		= 270,
-			/// <summary>
-			/// keypad enter. '\r'
-			/// </summary>
-			SDLK_KP_ENTER		= 271,
-			/// <summary>
-			/// keypad equals. '='
-			/// </summary>
-			SDLK_KP_EQUALS		= 272,
+		/* Numeric keypad */
+		/// <summary>
+		/// keypad 0
+		/// </summary>
+		public const int SDLK_KP0		= 256;
+		/// <summary>
+		/// keypad 1
+		/// </summary>
+		public const int SDLK_KP1		= 257;
+		/// <summary>
+		/// keypad 2
+		/// </summary>
+		public const int SDLK_KP2		= 258;
+		/// <summary>
+		/// keypad 3
+		/// </summary>
+		public const int SDLK_KP3		= 259;
+		/// <summary>
+		/// keypad 4
+		/// </summary>
+		public const int SDLK_KP4		= 260;
+		/// <summary>
+		/// keypad 5
+		/// </summary>
+		public const int SDLK_KP5		= 261;
+		/// <summary>
+		/// keypad 6
+		/// </summary>
+		public const int SDLK_KP6		= 262;
+		/// <summary>
+		/// keypad 7
+		/// </summary>
+		public const int SDLK_KP7		= 263;
+		/// <summary>
+		/// keypad 8
+		/// </summary>
+		public const int SDLK_KP8		= 264;
+		/// <summary>
+		/// keypad 9
+		/// </summary>
+		public const int SDLK_KP9		= 265;
+		/// <summary>
+		/// keypad period. '.'
+		/// </summary>
+		public const int SDLK_KP_PERIOD		= 266;
+		/// <summary>
+		/// keypad divide. '/'
+		/// </summary>
+		public const int SDLK_KP_DIVIDE		= 267;
+		/// <summary>
+		/// keypad multiply. '*'
+		/// </summary>
+		public const int SDLK_KP_MULTIPLY	= 268;
+		/// <summary>
+		/// keypad minus. '-'
+		/// </summary>
+		public const int SDLK_KP_MINUS		= 269;
+		/// <summary>
+		/// keypad plus. '+'
+		/// </summary>
+		public const int SDLK_KP_PLUS		= 270;
+		/// <summary>
+		/// keypad enter. '\r'
+		/// </summary>
+		public const int SDLK_KP_ENTER		= 271;
+		/// <summary>
+		/// keypad equals. '='
+		/// </summary>
+		public const int SDLK_KP_EQUALS		= 272;
 
-			/* Arrows + Home/End pad */
-			/// <summary>
-			/// up arrow
-			/// </summary>
-			SDLK_UP			= 273,
-			/// <summary>
-			/// down arrow
-			/// </summary>
-			SDLK_DOWN		= 274,
-			/// <summary>
-			/// right arrow
-			/// </summary>
-			SDLK_RIGHT		= 275,
-			/// <summary>
-			/// left arrow
-			/// </summary>
-			SDLK_LEFT		= 276,
-			/// <summary>
-			/// insert
-			/// </summary>
-			SDLK_INSERT		= 277,
-			/// <summary>
-			/// home
-			/// </summary>
-			SDLK_HOME		= 278,
-			/// <summary>
-			/// end
-			/// </summary>
-			SDLK_END		= 279,
-			/// <summary>
-			/// page up
-			/// </summary>
-			SDLK_PAGEUP		= 280,
-			/// <summary>
-			/// page down
-			/// </summary>
-			SDLK_PAGEDOWN	= 281,
+		/* Arrows + Home/End pad */
+		/// <summary>
+		/// up arrow
+		/// </summary>
+		public const int SDLK_UP			= 273;
+		/// <summary>
+		/// down arrow
+		/// </summary>
+		public const int SDLK_DOWN		= 274;
+		/// <summary>
+		/// right arrow
+		/// </summary>
+		public const int SDLK_RIGHT		= 275;
+		/// <summary>
+		/// left arrow
+		/// </summary>
+		public const int SDLK_LEFT		= 276;
+		/// <summary>
+		/// insert
+		/// </summary>
+		public const int SDLK_INSERT		= 277;
+		/// <summary>
+		/// home
+		/// </summary>
+		public const int SDLK_HOME		= 278;
+		/// <summary>
+		/// end
+		/// </summary>
+		public const int SDLK_END		= 279;
+		/// <summary>
+		/// page up
+		/// </summary>
+		public const int SDLK_PAGEUP		= 280;
+		/// <summary>
+		/// page down
+		/// </summary>
+		public const int SDLK_PAGEDOWN	= 281;
 
-			/* Function keys */
-			/// <summary>
-			/// F1
-			/// </summary>
-			SDLK_F1			= 282,
-			/// <summary>
-			/// F2
-			/// </summary>
-			SDLK_F2			= 283,
-			/// <summary>
-			/// F3
-			/// </summary>
-			SDLK_F3			= 284,
-			/// <summary>
-			/// F4
-			/// </summary>
-			SDLK_F4			= 285,
-			/// <summary>
-			/// F5
-			/// </summary>
-			SDLK_F5			= 286,
-			/// <summary>
-			/// F6
-			/// </summary>
-			SDLK_F6			= 287,
-			/// <summary>
-			/// F7
-			/// </summary>
-			SDLK_F7			= 288,
-			/// <summary>
-			/// F8
-			/// </summary>
-			SDLK_F8			= 289,
-			/// <summary>
-			/// F9
-			/// </summary>
-			SDLK_F9			= 290,
-			/// <summary>
-			/// F10
-			/// </summary>
-			SDLK_F10		= 291,
-			/// <summary>
-			/// F11
-			/// </summary>
-			SDLK_F11		= 292,
-			/// <summary>
-			/// F12
-			/// </summary>
-			SDLK_F12		= 293,
-			/// <summary>
-			/// F13
-			/// </summary>
-			SDLK_F13		= 294,
-			/// <summary>
-			/// F14
-			/// </summary>
-			SDLK_F14		= 295,
-			/// <summary>
-			/// F15
-			/// </summary>
-			SDLK_F15		= 296,
+		/* Function keys */
+		/// <summary>
+		/// F1
+		/// </summary>
+		public const int SDLK_F1			= 282;
+		/// <summary>
+		/// F2
+		/// </summary>
+		public const int SDLK_F2			= 283;
+		/// <summary>
+		/// F3
+		/// </summary>
+		public const int SDLK_F3			= 284;
+		/// <summary>
+		/// F4
+		/// </summary>
+		public const int SDLK_F4			= 285;
+		/// <summary>
+		/// F5
+		/// </summary>
+		public const int SDLK_F5			= 286;
+		/// <summary>
+		/// F6
+		/// </summary>
+		public const int SDLK_F6			= 287;
+		/// <summary>
+		/// F7
+		/// </summary>
+		public const int SDLK_F7			= 288;
+		/// <summary>
+		/// F8
+		/// </summary>
+		public const int SDLK_F8			= 289;
+		/// <summary>
+		/// F9
+		/// </summary>
+		public const int SDLK_F9			= 290;
+		/// <summary>
+		/// F10
+		/// </summary>
+		public const int SDLK_F10		= 291;
+		/// <summary>
+		/// F11
+		/// </summary>
+		public const int SDLK_F11		= 292;
+		/// <summary>
+		/// F12
+		/// </summary>
+		public const int SDLK_F12		= 293;
+		/// <summary>
+		/// F13
+		/// </summary>
+		public const int SDLK_F13		= 294;
+		/// <summary>
+		/// F14
+		/// </summary>
+		public const int SDLK_F14		= 295;
+		/// <summary>
+		/// F15
+		/// </summary>
+		public const int SDLK_F15		= 296;
 
-			/* Key state modifier keys */
-			/// <summary>
-			/// numlock
-			/// </summary>
-			SDLK_NUMLOCK		= 300,
-			/// <summary>
-			/// capslock
-			/// </summary>
-			SDLK_CAPSLOCK		= 301,
-			/// <summary>
-			/// scrollock
-			/// </summary>
-			SDLK_SCROLLOCK		= 302,
-			/// <summary>
-			/// right shift
-			/// </summary>
-			SDLK_RSHIFT		= 303,
-			/// <summary>
-			/// left shift
-			/// </summary>
-			SDLK_LSHIFT		= 304,
-			/// <summary>
-			/// right ctrl
-			/// </summary>
-			SDLK_RCTRL		= 305,
-			/// <summary>
-			/// left ctrl
-			/// </summary>
-			SDLK_LCTRL		= 306,
-			/// <summary>
-			/// right alt
-			/// </summary>
-			SDLK_RALT		= 307,
-			/// <summary>
-			/// left alt
-			/// </summary>
-			SDLK_LALT		= 308,
-			/// <summary>
-			/// right meta
-			/// </summary>
-			SDLK_RMETA		= 309,
-			/// <summary>
-			/// left meta
-			/// </summary>
-			SDLK_LMETA		= 310,
-			/// <summary>
-			/// Left "Windows" key
-			/// </summary>
-			SDLK_LSUPER		= 311,
-			/// <summary>
-			/// Right "Windows" key
-			/// </summary>
-			SDLK_RSUPER		= 312,
-			/// <summary>
-			/// "Alt Gr" key. Mode key
-			/// </summary>
-			SDLK_MODE		= 313,
-			/// <summary>
-			/// Multi-key compose key
-			/// </summary>
-			SDLK_COMPOSE		= 314,
+		/* Key state modifier keys */
+		/// <summary>
+		/// numlock
+		/// </summary>
+		public const int SDLK_NUMLOCK		= 300;
+		/// <summary>
+		/// capslock
+		/// </summary>
+		public const int SDLK_CAPSLOCK		= 301;
+		/// <summary>
+		/// scrollock
+		/// </summary>
+		public const int SDLK_SCROLLOCK		= 302;
+		/// <summary>
+		/// right shift
+		/// </summary>
+		public const int SDLK_RSHIFT		= 303;
+		/// <summary>
+		/// left shift
+		/// </summary>
+		public const int SDLK_LSHIFT		= 304;
+		/// <summary>
+		/// right ctrl
+		/// </summary>
+		public const int SDLK_RCTRL		= 305;
+		/// <summary>
+		/// left ctrl
+		/// </summary>
+		public const int SDLK_LCTRL		= 306;
+		/// <summary>
+		/// right alt
+		/// </summary>
+		public const int SDLK_RALT		= 307;
+		/// <summary>
+		/// left alt
+		/// </summary>
+		public const int SDLK_LALT		= 308;
+		/// <summary>
+		/// right meta
+		/// </summary>
+		public const int SDLK_RMETA		= 309;
+		/// <summary>
+		/// left meta
+		/// </summary>
+		public const int SDLK_LMETA		= 310;
+		/// <summary>
+		/// Left "Windows" key
+		/// </summary>
+		public const int SDLK_LSUPER		= 311;
+		/// <summary>
+		/// Right "Windows" key
+		/// </summary>
+		public const int SDLK_RSUPER		= 312;
+		/// <summary>
+		/// "Alt Gr" key. Mode key
+		/// </summary>
+		public const int SDLK_MODE		= 313;
+		/// <summary>
+		/// Multi-key compose key
+		/// </summary>
+		public const int SDLK_COMPOSE		= 314;
 
-			// Miscellaneous function keys
-			/// <summary>
-			/// help
-			/// </summary>
-			SDLK_HELP		= 315,
-			/// <summary>
-			/// print-screen
-			/// </summary>
-			SDLK_PRINT		= 316,
-			/// <summary>
-			/// SysRq
-			/// </summary>
-			SDLK_SYSREQ		= 317,
-			/// <summary>
-			/// break
-			/// </summary>
-			SDLK_BREAK		= 318,
-			/// <summary>
-			/// menu
-			/// </summary>
-			SDLK_MENU		= 319,
-			/// <summary>
-			/// Power Macintosh power key
-			/// </summary>
-			SDLK_POWER		= 320,		
-			/// <summary>
-			/// Some european keyboards
-			/// </summary>
-			SDLK_EURO		= 321,		
-			/// <summary>
-			/// Atari keyboard has Undo
-			/// </summary>
-			SDLK_UNDO		= 322,
+		// Miscellaneous function keys
+		/// <summary>
+		/// help
+		/// </summary>
+		public const int SDLK_HELP		= 315;
+		/// <summary>
+		/// print-screen
+		/// </summary>
+		public const int SDLK_PRINT		= 316;
+		/// <summary>
+		/// SysRq
+		/// </summary>
+		public const int SDLK_SYSREQ		= 317;
+		/// <summary>
+		/// break
+		/// </summary>
+		public const int SDLK_BREAK		= 318;
+		/// <summary>
+		/// menu
+		/// </summary>
+		public const int SDLK_MENU		= 319;
+		/// <summary>
+		/// Power Macintosh power key
+		/// </summary>
+		public const int SDLK_POWER		= 320;		
+		/// <summary>
+		/// Some european keyboards
+		/// </summary>
+		public const int SDLK_EURO		= 321;		
+		/// <summary>
+		/// Atari keyboard has Undo
+		/// </summary>
+		public const int SDLK_UNDO		= 322;
 
-			// Add any other keys here
-			/// <summary>
-			/// 
-			/// </summary>
-			SDLK_LAST
-		}
+		// Add any other keys here
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDLK_LAST		= 323;
+		//	}
 		#endregion SDLKey
 
 		#region SDLMod
 		/// <summary>
-		/// Enumeration of valid key mods (possibly OR'd together) 
+		/// No modifiers applicable
 		/// </summary>
-		public enum SDLMod 
-		{
-			/// <summary>
-			/// No modifiers applicable
-			/// </summary>
-			KMOD_NONE  = 0x0000,
-			/// <summary>
-			/// Left Shift is down
-			/// </summary>
-			KMOD_LSHIFT= 0x0001,
-			/// <summary>
-			/// Right Shift is down
-			/// </summary>
-			KMOD_RSHIFT= 0x0002,
-			/// <summary>
-			/// Left Control is down
-			/// </summary>
-			KMOD_LCTRL = 0x0040,
-			/// <summary>
-			/// Right Control is down
-			/// </summary>
-			KMOD_RCTRL = 0x0080,
-			/// <summary>
-			/// Left Alt is down
-			/// </summary>
-			KMOD_LALT  = 0x0100,
-			/// <summary>
-			/// Right Alt is down
-			/// </summary>
-			KMOD_RALT  = 0x0200,
-			/// <summary>
-			/// Left Meta is down
-			/// </summary>
-			KMOD_LMETA = 0x0400,
-			/// <summary>
-			/// Right Meta is down
-			/// </summary>
-			KMOD_RMETA = 0x0800,
-			/// <summary>
-			/// Numlock is down
-			/// </summary>
-			KMOD_NUM   = 0x1000,
-			/// <summary>
-			/// Capslock is down
-			/// </summary>
-			KMOD_CAPS  = 0x2000,
-			/// <summary>
-			/// 
-			/// </summary>
-			KMOD_MODE  = 0x4000,
-			/// <summary>
-			/// 
-			/// </summary>
-			KMOD_RESERVED = 0x8000
-		}
+		/// <remarks>
+		/// Enumeration of valid key mods (possibly OR'd together) 
+		/// </remarks>
+		public const int KMOD_NONE  = 0x0000;
+		/// <summary>
+		/// Left Shift is down
+		/// </summary>
+		/// <remarks>
+		/// Enumeration of valid key mods (possibly OR'd together) 
+		/// </remarks>
+		public const int KMOD_LSHIFT= 0x0001;
+		/// <summary>
+		/// Right Shift is down
+		/// </summary>
+		/// <remarks>
+		/// Enumeration of valid key mods (possibly OR'd together) 
+		/// </remarks>
+		public const int KMOD_RSHIFT= 0x0002;
+		/// <summary>
+		/// Left Control is down
+		/// </summary>
+		/// <remarks>
+		/// Enumeration of valid key mods (possibly OR'd together) 
+		/// </remarks>
+		public const int KMOD_LCTRL = 0x0040;
+		/// <summary>
+		/// Right Control is down
+		/// </summary>
+		/// <remarks>
+		/// Enumeration of valid key mods (possibly OR'd together) 
+		/// </remarks>
+		public const int KMOD_RCTRL = 0x0080;
+		/// <summary>
+		/// Left Alt is down
+		/// </summary>
+		/// <remarks>
+		/// Enumeration of valid key mods (possibly OR'd together) 
+		/// </remarks>
+		public const int KMOD_LALT  = 0x0100;
+		/// <summary>
+		/// Right Alt is down
+		/// </summary>
+		/// <remarks>
+		/// Enumeration of valid key mods (possibly OR'd together) 
+		/// </remarks>
+		public const int KMOD_RALT  = 0x0200;
+		/// <summary>
+		/// Left Meta is down
+		/// </summary>
+		/// <remarks>
+		/// Enumeration of valid key mods (possibly OR'd together) 
+		/// </remarks>
+		public const int KMOD_LMETA = 0x0400;
+		/// <summary>
+		/// Right Meta is down
+		/// </summary>
+		/// <remarks>
+		/// Enumeration of valid key mods (possibly OR'd together) 
+		/// </remarks>
+		public const int KMOD_RMETA = 0x0800;
+		/// <summary>
+		/// Numlock is down
+		/// </summary>
+		/// <remarks>
+		/// Enumeration of valid key mods (possibly OR'd together) 
+		/// </remarks>
+		public const int KMOD_NUM   = 0x1000;
+		/// <summary>
+		/// Capslock is down
+		/// </summary>
+		/// <remarks>
+		/// Enumeration of valid key mods (possibly OR'd together) 
+		/// </remarks>
+		public const int KMOD_CAPS  = 0x2000;
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <remarks>
+		/// Enumeration of valid key mods (possibly OR'd together) 
+		/// </remarks>
+		public const int KMOD_MODE  = 0x4000;
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <remarks>
+		/// Enumeration of valid key mods (possibly OR'd together) 
+		/// </remarks>
+		public const int KMOD_RESERVED = 0x8000;
 		#endregion SDLMod
 		#endregion SDL_keysym.h
 
@@ -2073,19 +2121,13 @@ namespace Tao.Sdl {
 		#region SDL_types.h
 		#region SDL_bool
 		/// <summary>
-		///     
+		/// 
 		/// </summary>
-		public enum SDL_bool 
-		{
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_FALSE = 0,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_TRUE  = 1
-		}
+		public const int SDL_FALSE = 0;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_TRUE  = 1;
 		#endregion SDL_bool
 		#endregion SDL_types.h
 
@@ -2094,106 +2136,251 @@ namespace Tao.Sdl {
 		#region SDL_video.h
 		#region SDL_GLattr
 		/// <summary>
+		/// Size of the framebuffer red component, in bits
 		/// Public enumeration for setting the OpenGL window Attributes
 		/// </summary>
 		/// <remarks>
 		/// While you can set most OpenGL attributes normally, 
 		/// the attributes list above must be known before SDL 
 		/// sets the video mode. These attributes a set and read 
-		/// with <see cref="SDL_GL_SetAttribute"/> and <see cref="SDL_GL_GetAttribute"/>.
+		/// with <see cref="SDL_GL_SetAttribute"/> and 
+		/// <see cref="SDL_GL_GetAttribute"/>.
 		/// </remarks>
-		/// <see cref="SDL_GL_SetAttribute"/>
-		/// <see cref="SDL_GL_GetAttribute"/>
-		public enum SDL_GLattr 
-		{
-			/// <summary>
-			/// Size of the framebuffer red component, in bits
-			/// </summary>
-			SDL_GL_RED_SIZE,
-			/// <summary>
-			/// Size of the framebuffer green component, in bits
-			/// </summary>
-			SDL_GL_GREEN_SIZE,
-			/// <summary>
-			/// Size of the framebuffer blue component, in bits
-			/// </summary>
-			SDL_GL_BLUE_SIZE,
-			/// <summary>
-			/// Size of the framebuffer alpha component, in bits
-			/// </summary>
-			SDL_GL_ALPHA_SIZE,
-			/// <summary>
-			/// Size of the framebuffer, in bits
-			/// </summary>
-			SDL_GL_BUFFER_SIZE,
-			/// <summary>
-			/// 0 or 1, enable or disable double buffering
-			/// </summary>
-			SDL_GL_DOUBLEBUFFER,
-			/// <summary>
-			/// Size of the depth buffer, in bits
-			/// </summary>
-			SDL_GL_DEPTH_SIZE,
-			/// <summary>
-			/// Size of the stencil buffer, in bits.
-			/// </summary>
-			SDL_GL_STENCIL_SIZE,
-			/// <summary>
-			/// Size of the accumulation buffer red component, in bits.
-			/// </summary>
-			SDL_GL_ACCUM_RED_SIZE,
-			/// <summary>
-			/// Size of the accumulation buffer green component, in bits.
-			/// </summary>
-			SDL_GL_ACCUM_GREEN_SIZE,
-			/// <summary>
-			/// Size of the accumulation buffer blue component, in bits.
-			/// </summary>
-			SDL_GL_ACCUM_BLUE_SIZE,
-			/// <summary>
-			/// Size of the accumulation buffer alpha component, in bits.
-			/// </summary>
-			SDL_GL_ACCUM_ALPHA_SIZE,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_GL_STEREO,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_GL_MULTISAMPLEBUFFERS,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_GL_MULTISAMPLESAMPLES
-		}
+		/// <seealso cref="SDL_GL_SetAttribute"/>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+		public const int SDL_GL_RED_SIZE = 0;
+		/// <summary>
+		/// Size of the framebuffer green component, in bits
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// </summary>
+		/// <remarks>
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode. These attributes a set and read 
+		/// with <see cref="SDL_GL_SetAttribute"/> and 
+		/// <see cref="SDL_GL_GetAttribute"/>.
+		/// </remarks>
+		/// <seealso cref="SDL_GL_SetAttribute"/>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+		public const int SDL_GL_GREEN_SIZE = 1;
+		/// <summary>
+		/// Size of the framebuffer blue component, in bits
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// </summary>
+		/// <remarks>
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode. These attributes a set and read 
+		/// with <see cref="SDL_GL_SetAttribute"/> and 
+		/// <see cref="SDL_GL_GetAttribute"/>.
+		/// </remarks>
+		/// <seealso cref="SDL_GL_SetAttribute"/>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+		public const int SDL_GL_BLUE_SIZE = 2;
+		/// <summary>
+		/// Size of the framebuffer alpha component, in bits
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// </summary>
+		/// <remarks>
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode. These attributes a set and read 
+		/// with <see cref="SDL_GL_SetAttribute"/> and 
+		/// <see cref="SDL_GL_GetAttribute"/>.
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode.
+		/// </remarks>
+		/// <seealso cref="SDL_GL_SetAttribute"/>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+		public const int SDL_GL_ALPHA_SIZE = 3;
+		/// <summary>
+		/// Size of the framebuffer, in bits
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// </summary>
+		/// <remarks>
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode. These attributes a set and read 
+		/// with <see cref="SDL_GL_SetAttribute"/> and 
+		/// <see cref="SDL_GL_GetAttribute"/>.
+		/// </remarks>
+		/// <seealso cref="SDL_GL_SetAttribute"/>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+		public const int SDL_GL_BUFFER_SIZE = 4;
+		/// <summary>
+		/// 0 or 1, enable or disable double buffering
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// </summary>
+		/// <remarks>
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode. These attributes a set and read 
+		/// with <see cref="SDL_GL_SetAttribute"/> and 
+		/// <see cref="SDL_GL_GetAttribute"/>.
+		/// </remarks>
+		/// <seealso cref="SDL_GL_SetAttribute"/>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+		public const int SDL_GL_DOUBLEBUFFER = 5;
+		/// <summary>
+		/// Size of the depth buffer, in bits
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// </summary>
+		/// <remarks>
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode. These attributes a set and read 
+		/// with <see cref="SDL_GL_SetAttribute"/> and 
+		/// <see cref="SDL_GL_GetAttribute"/>.
+		/// </remarks>
+		/// <seealso cref="SDL_GL_SetAttribute"/>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+		public const int SDL_GL_DEPTH_SIZE = 6;
+		/// <summary>
+		/// Size of the stencil buffer, in bits.
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// </summary>
+		/// <remarks>
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode. These attributes a set and read 
+		/// with <see cref="SDL_GL_SetAttribute"/> and 
+		/// <see cref="SDL_GL_GetAttribute"/>.
+		/// </remarks>
+		/// <seealso cref="SDL_GL_SetAttribute"/>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+		public const int SDL_GL_STENCIL_SIZE = 7;
+		/// <summary>
+		/// Size of the accumulation buffer red component, in bits.
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// </summary>
+		/// <remarks>
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode. These attributes a set and read 
+		/// with <see cref="SDL_GL_SetAttribute"/> and 
+		/// <see cref="SDL_GL_GetAttribute"/>.
+		/// </remarks>
+		/// <seealso cref="SDL_GL_SetAttribute"/>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+		public const int SDL_GL_ACCUM_RED_SIZE = 8;
+		/// <summary>
+		/// Size of the accumulation buffer green component, in bits.
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// </summary>
+		/// <remarks>
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode. These attributes a set and read 
+		/// with <see cref="SDL_GL_SetAttribute"/> and 
+		/// <see cref="SDL_GL_GetAttribute"/>.
+		/// </remarks>
+		/// <seealso cref="SDL_GL_SetAttribute"/>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+		public const int SDL_GL_ACCUM_GREEN_SIZE = 9;
+		/// <summary>
+		/// Size of the accumulation buffer blue component, in bits.
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// </summary>
+		/// <remarks>
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode. These attributes a set and read 
+		/// with <see cref="SDL_GL_SetAttribute"/> and 
+		/// <see cref="SDL_GL_GetAttribute"/>.
+		/// </remarks>
+		/// <seealso cref="SDL_GL_SetAttribute"/>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+		public const int SDL_GL_ACCUM_BLUE_SIZE = 10;
+		/// <summary>
+		/// Size of the accumulation buffer alpha component, in bits.
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// </summary>
+		/// <remarks>
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode. These attributes a set and read 
+		/// with <see cref="SDL_GL_SetAttribute"/> and 
+		/// <see cref="SDL_GL_GetAttribute"/>.
+		/// </remarks>
+		/// <seealso cref="SDL_GL_SetAttribute"/>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+		public const int SDL_GL_ACCUM_ALPHA_SIZE = 11;
+		/// <summary>
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// </summary>
+		/// <remarks>
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode. These attributes a set and read 
+		/// with <see cref="SDL_GL_SetAttribute"/> and 
+		/// <see cref="SDL_GL_GetAttribute"/>.
+		/// </remarks>
+		/// <seealso cref="SDL_GL_SetAttribute"/>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+		public const int SDL_GL_STEREO = 12;
+		/// <summary>
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// </summary>
+		/// <remarks>
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode. These attributes a set and read 
+		/// with <see cref="SDL_GL_SetAttribute"/> and 
+		/// <see cref="SDL_GL_GetAttribute"/>.
+		/// </remarks>
+		/// <seealso cref="SDL_GL_SetAttribute"/>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+		public const int SDL_GL_MULTISAMPLEBUFFERS = 13;
+		/// <summary>
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// </summary>
+		/// <remarks>
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode. These attributes a set and read 
+		/// with <see cref="SDL_GL_SetAttribute"/> and 
+		/// <see cref="SDL_GL_GetAttribute"/>.
+		/// </remarks>
+		/// <seealso cref="SDL_GL_SetAttribute"/>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+		public const int SDL_GL_MULTISAMPLESAMPLES = 14;
 		#endregion SDL_GLattr
 
 		#region SDL_GrabMode
 		/// <summary>
-		/// This function allows you to set and query the input grab state of
-		/// the application.  It returns the new input grab state.
+		/// Input grab state.
 		/// </summary>
+		/// <remarks>
+		/// enum SDL_GrabMode. 
+		/// </remarks>
 		/// <see cref="SDL_WM_GrabInput"/>
-		public enum SDL_GrabMode 
-		{
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_GRAB_QUERY = -1,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_GRAB_OFF = 0,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_GRAB_ON = 1,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_GRAB_FULLSCREEN
-		}
+		public const int SDL_GRAB_QUERY = -1;
+		/// <summary>
+		/// Input grab state.
+		/// </summary>
+		/// <remarks>
+		/// enum SDL_GrabMode. 
+		/// </remarks>
+		/// <see cref="SDL_WM_GrabInput"/>
+		public const int SDL_GRAB_OFF = 0;
+		/// <summary>
+		/// Input grab state.
+		/// </summary>
+		/// <remarks>
+		/// enum SDL_GrabMode. 
+		/// </remarks>
+		/// <see cref="SDL_WM_GrabInput"/>
+		public const int SDL_GRAB_ON = 1;
+		/// <summary>
+		/// Input grab state.
+		/// </summary>
+		/// <remarks>
+		/// enum SDL_GrabMode. 
+		/// </remarks>
+		/// <see cref="SDL_WM_GrabInput"/>
+		public const int SDL_GRAB_FULLSCREEN =2;
 		#endregion SDL_GrabMode
 		#endregion SDL_video.h
 		#endregion Public Enums
@@ -2549,9 +2736,12 @@ namespace Tao.Sdl {
 			/// </summary>
 			public int id;
 			/// <summary>
-			/// Current drive <see cref="SDL_CDStatus">status</see>
+			/// Current drive status
 			/// </summary>
-			public CDstatus status;
+			/// <remarks>
+			/// SDL_CDStatus enum
+			/// </remarks>
+			public int status;
 			/// <summary>
 			/// Number of tracks on the CD
 			/// </summary>
@@ -4487,7 +4677,7 @@ namespace Tao.Sdl {
 		///		Used for <see cref="SDL_GetKeyState"/>.
 		///		Array is sized to fit all the known Key enums.
 		/// </remarks>
-		private static byte[] keyboardState = new byte[(int)Sdl.SDLKey.SDLK_LAST];
+		private static byte[] keyboardState = new byte[(int)Sdl.SDLK_LAST];
 
 		#endregion Private Static Fields
 
@@ -5174,13 +5364,12 @@ namespace Tao.Sdl {
 		/// </code></p>
 		/// </remarks>
 		/// <returns>Returns either SDL_AUDIO_STOPPED, 
-		/// SDL_AUDIO_PAUSED or SDL_AUDIO_PLAYING 
+		/// SDL_AUDIO_PAUSED or SDL_AUDIO_PLAYING (SDLaudiostatus enum)
 		/// depending on the current audio state.</returns>
 		/// <seealso cref="SDL_PauseAudio"/>
-		/// <seealso cref="SDL_audiostatus"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern SDL_audiostatus SDL_GetAudioStatus();
+		public static extern int SDL_GetAudioStatus();
 		#endregion SDL_audiostatus SDL_GetAudioStatus()
 
 		#region void SDL_PauseAudio(int pause_on)
@@ -5609,10 +5798,9 @@ namespace Tao.Sdl {
 		/// <code>#define CD_INDRIVE(status)	((int)status > 0)
 		/// </code></p>
 		/// </remarks>
-		/// <param name="status"></param>
+		/// <param name="status">CDstatus enum</param>
 		/// <returns>Returns 1 if true and 0 if false</returns>
-		/// <seealso cref="CDstatus"/>
-		public static int CD_INDRIVE(CDstatus status)
+		public static int CD_INDRIVE(int status)
 		{
 			if ((int) status > 0)
 			{
@@ -5841,11 +6029,11 @@ namespace Tao.Sdl {
 		///</code>
 		/// </example>
 		/// <param name="cdrom"></param>
-		/// <returns></returns>
+		/// <returns>CDstatus enum</returns>
 		/// <seealso cref="SDL_CD"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), 
 		SuppressUnmanagedCodeSecurity]
-		public static extern CDstatus SDL_CDStatus(IntPtr cdrom);
+		public static extern int SDL_CDStatus(IntPtr cdrom);
 		#endregion CDstatus SDL_CDStatus(IntPtr cdrom)
 
 		#region int SDL_CDPlay(IntPtr cdrom, int start, int length)
@@ -6026,9 +6214,9 @@ namespace Tao.Sdl {
 		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_HasRDTSC()</code>
 		///     </p>
 		/// </remarks>
-		/// <returns>Returns true if the CPU has the RDTSC instruction.</returns>
+		/// <returns>Returns SDL_TRUE if the CPU has the RDTSC instruction.</returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-		public static extern SDL_bool SDL_HasRDTSC();
+		public static extern int SDL_HasRDTSC();
 		#endregion SDL_bool SDL_HasRDTSC()
 
 		#region SDL_bool SDL_HasMMX()
@@ -6040,9 +6228,9 @@ namespace Tao.Sdl {
 		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_HasMMX()</code>
 		///     </p>
 		/// </remarks>
-		/// <returns>Returns true if the CPU has MMX features.</returns>
+		/// <returns>Returns SDL_TRUE if the CPU has MMX features.</returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-		public static extern SDL_bool SDL_HasMMX();
+		public static extern int SDL_HasMMX();
 		#endregion SDL_bool SDL_HasMMX()
 
 		#region SDL_bool SDL_HasMMXExt()
@@ -6054,9 +6242,9 @@ namespace Tao.Sdl {
 		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_HasMMXExt()</code>
 		///     </p>
 		/// </remarks>
-		/// <returns>Returns true if the CPU has MMX Ext. features.</returns>
+		/// <returns>Returns SDL_TRUE if the CPU has MMX Ext. features.</returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-		public static extern SDL_bool SDL_HasMMXExt();
+		public static extern int SDL_HasMMXExt();
 		#endregion SDL_bool SDL_HasMMXExt()
 
 		#region SDL_bool SDL_Has3DNow()
@@ -6068,9 +6256,9 @@ namespace Tao.Sdl {
 		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_SDL_Has3DNow()</code>
 		///     </p>
 		/// </remarks>
-		/// <returns>Returns true if the CPU has 3DNow features.</returns>
+		/// <returns>Returns SDL_TRUE if the CPU has 3DNow features.</returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-		public static extern SDL_bool SDL_Has3DNow();
+		public static extern int SDL_Has3DNow();
 		#endregion SDL_bool SDL_Has3DNow()
 
 		#region SDL_bool SDL_HasSSE()
@@ -6082,9 +6270,9 @@ namespace Tao.Sdl {
 		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_SDL_HasSSE()</code>
 		///     </p>
 		/// </remarks>
-		/// <returns>Returns true if the CPU has SSE features.</returns>
+		/// <returns>Returns SDL_TRUE if the CPU has SSE features.</returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-		public static extern SDL_bool SDL_HasSSE();
+		public static extern int SDL_HasSSE();
 		#endregion SDL_bool SDL_HasSSE()
 
 		#region SDL_bool SDL_HasSSE2()
@@ -6096,9 +6284,9 @@ namespace Tao.Sdl {
 		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_SDL_HasSSE2()</code>
 		///     </p>
 		/// </remarks>
-		/// <returns>Returns true if the CPU has SSE2 features.</returns>
+		/// <returns>Returns SDL_TRUE if the CPU has SSE2 features.</returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-		public static extern SDL_bool SDL_HasSSE2();
+		public static extern int SDL_HasSSE2();
 		#endregion SDL_bool SDL_HasSSE2()
 
 		#region SDL_bool SDL_HasAltiVec()
@@ -6110,9 +6298,9 @@ namespace Tao.Sdl {
 		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_SDL_HasAltiVec()</code>
 		///     </p>
 		/// </remarks>
-		/// <returns>Returns true if the CPU has AltiVec features.</returns>
+		/// <returns>Returns SDL_TRUE if the CPU has AltiVec features.</returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-		public static extern SDL_bool SDL_HasAltiVec();
+		public static extern int SDL_HasAltiVec();
 		#endregion SDL_bool SDL_HasAltiVec()
 
 		#endregion SDL_cpuinfo.h
@@ -6222,7 +6410,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="events"></param>
 		/// <param name="numEvents"></param>
-		/// <param name="action"></param>
+		/// <param name="action">SDL_eventaction enum</param>
 		/// <param name="mask"></param>
 		/// <returns>
 		/// This function returns the number of events actually stored,
@@ -6234,7 +6422,7 @@ namespace Tao.Sdl {
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_PeepEvents([Out]SDL_Event[] events, int numEvents, 
-			SDL_eventaction action, int mask);	
+			int action, int mask);	
 		#endregion int SDL_PeepEvents(...)
 
 		#region int SDL_PollEvent(out SDL_Event sdlEvent)
@@ -7030,7 +7218,6 @@ namespace Tao.Sdl {
 		/// </code>
 		/// </example>
 		/// <param name="numkeys"></param>
-		/// <seealso cref="SDLKey"/>
 		/// <seealso cref="SDL_PumpEvents"/> 
 		public static byte[] SDL_GetKeyState(out int numkeys) 
 		{
@@ -7043,7 +7230,7 @@ namespace Tao.Sdl {
 		}
 		#endregion byte[] SDL_GetKeyState(out int numkeys)
 
-		#region SDLMod SDL_GetModState()
+		#region int SDL_GetModState()
 		/// <summary>
 		/// Get the state of modifier keys. 
 		/// </summary>
@@ -7054,15 +7241,15 @@ namespace Tao.Sdl {
 		/// </code></p>
 		/// </remarks>
 		/// <returns>The return value can be an OR'd combination of the 
-		/// <see cref="SDLMod"/> enum.
+		/// SDLMod enum.
 		/// </returns>
 		/// <seealso cref="SDL_GetKeyState"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern SDLMod SDL_GetModState();
-		#endregion SDLMod SDL_GetModState()
+		public static extern int SDL_GetModState();
+		#endregion int SDL_GetModState()
 		
-		#region void SDL_SetModState(SDLMod modstate)
+		#region void SDL_SetModState(int modstate)
 		/// <summary>
 		/// Set the current key modifier state. 
 		/// </summary>
@@ -7071,7 +7258,7 @@ namespace Tao.Sdl {
 		/// impose modifier key states on your application.
 		/// <p>Simply pass your desired modifier states into modstate. 
 		/// This value my be a logical OR'd combination of 
-		/// <see cref="SDLMod"/>.</p>
+		/// SDLMod.</p>
 		///  <p>Binds to C-function in SDL_keyboard.h
 		///  <code>void SDL_SetModState(SDLMod modstate)
 		///  </code></p>
@@ -7080,8 +7267,8 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_GetModState"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_SetModState(SDLMod modstate);
-		#endregion void SDL_SetModState(SDLMod modstate)
+		public static extern void SDL_SetModState(int modstate);
+		#endregion void SDL_SetModState(int modstate)
 
 		#region string SDL_GetKeyName(SDLKey key)
 		/// <summary>
@@ -7096,11 +7283,10 @@ namespace Tao.Sdl {
 		/// <returns>
 		/// Returns the SDL-defined name of the SDLKey key.
 		/// </returns>
-		/// <seealso cref="SDLKey"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern string SDL_GetKeyName(SDLKey key);
-		#endregion string SDL_GetKeyName(SDLKey key)
+		public static extern string SDL_GetKeyName(int key);
+		#endregion string SDL_GetKeyName(int key)
 		#endregion SDL_keyboard.h
 
 		// SDL_keysym.h -- none
@@ -7612,7 +7798,7 @@ namespace Tao.Sdl {
 		///     The timer ID to remove.
 		/// </param>
 		/// <returns>
-		///     A boolean value indicating success.
+		///     A boolean value indicating success. SDL_TRUE or SDL_FALSE.
 		/// </returns>
 		/// <remarks>
 		/// <p>
@@ -7623,7 +7809,7 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_AddTimer" />
 		// 
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-		public static extern SDL_bool SDL_RemoveTimer(SDL_TimerID t);
+		public static extern int SDL_RemoveTimer(SDL_TimerID t);
 		#endregion SDL_bool SDL_RemoveTimer(SDL_TimerID t)
 		#endregion SDL_timer.h
 
@@ -9555,7 +9741,7 @@ namespace Tao.Sdl {
 		/// Set a special SDL/OpenGL attribute.
 		/// </summary>
 		/// <remarks>
-		/// Sets the OpenGL <see cref="SDL_GLattr">attribute</see> attr to value. 
+		/// Sets the OpenGL attribute attr to value. 
 		/// The attributes you set don't 
 		/// take effect until after a call to <see cref="SDL_SetVideoMode"/>.
 		///  You should use 
@@ -9564,14 +9750,13 @@ namespace Tao.Sdl {
 		/// <p>Binds to C-function call in SDL_video.h:
 		/// <code>int SDL_GL_SetAttribute(SDL_GLattr attr, int value);
 		/// </code></p></remarks>
-		/// <param name="attr"></param>
+		/// <param name="attr">SDL_GLattr enum</param>
 		/// <param name="val"></param>
 		/// <returns>Returns 0 on success, or -1 on error.</returns>
 		/// <seealso cref="SDL_GL_GetAttribute"/>
-		/// <seealso cref="SDL_GLattr"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_GL_SetAttribute(SDL_GLattr attr, 
+		public static extern int SDL_GL_SetAttribute(int attr, 
 			int val);
 		#endregion int SDL_GL_SetAttribute(SDL_GLattr attr, int val)
 		
@@ -9581,7 +9766,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <remarks>
 		/// Places the value of the SDL/OpenGL 
-		/// <see cref="SDL_GLattr">attribute</see> attr into value. This is 
+		/// attribute attr into value. This is 
 		/// useful after a call to <see cref="SDL_SetVideoMode"/> to check 
 		/// whether your attributes have been 
 		/// <see cref="SDL_GL_SetAttribute">set</see> as you expected.
@@ -9589,12 +9774,12 @@ namespace Tao.Sdl {
 		/// <code>int SDL_GL_GetAttribute(SDLGLattr attr, int *value)
 		/// </code></p>
 		/// </remarks>
-		/// <param name="attr"></param>
+		/// <param name="attr">SDL_GLattr enum</param>
 		/// <param name="val"></param>
 		/// <returns>Returns 0 on success, or -1 on an error.</returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_GL_GetAttribute(SDL_GLattr attr, 
+		public static extern int SDL_GL_GetAttribute(int attr, 
 			out int val);
 		#endregion int SDL_GL_GetAttribute(SDL_GLattr attr, out int val);
 	
@@ -9728,13 +9913,12 @@ namespace Tao.Sdl {
 		/// <p>Binds to C-function call in SDL_video.h:
 		/// <code>SDL_GrabMode SDL_WM_GrabInput(SDL_GrabMode mode)</code></p>
 		/// </remarks>
-		/// <param name="mode"></param>
+		/// <param name="mode">SDL_GrabMode</param>
 		/// <returns>The current/new SDL_GrabMode.
 		/// </returns>
-		/// <seealso cref="SDL_GrabMode"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_WM_GrabInput(SDL_GrabMode mode);
+		public static extern int SDL_WM_GrabInput(int mode);
 		#endregion int SDL_WM_GrabInput(SDL_GrabMode mode);
 		#endregion SDL_video.h
 		#endregion Sdl Methods

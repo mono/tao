@@ -100,7 +100,8 @@ namespace Tao.Sdl {
     ///	</code>
     /// </remarks>
     #endregion Class Documentation
-    public sealed class SdlImage {
+    public sealed class SdlImage 
+	{
         #region Private Constants
         #region string SDL_IMAGE_NATIVE_LIBRARY
         /// <summary>

@@ -61,7 +61,8 @@ namespace Tao.Sdl {
     /// font before you use and redistribute
     /// </remarks>
     #endregion Class Documentation
-    public sealed class SdlTtf {
+    public sealed class SdlTtf 
+	{
         #region Private Constants
         #region string SDL_TTF_NATIVE_LIBRARY
         /// <summary>

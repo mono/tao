@@ -219,7 +219,7 @@ namespace Tao.Sdl
 		{
 			InitAudio();	
 			IntPtr resultPtr = SdlMixer.Mix_LoadMUS("test.wav");
-			SdlMixer.Mix_MusicType musicType = SdlMixer.Mix_GetMusicType(resultPtr);
+			int musicType = SdlMixer.Mix_GetMusicType(resultPtr);
 			Console.WriteLine("musictype:" + musicType);
 			//Assert.IsFalse(resultPtr == IntPtr.Zero);
 			QuitAudio();
@@ -689,19 +689,19 @@ namespace Tao.Sdl
 		{
 			InitAudio();	
 			int result;
-			SdlMixer.Mix_Fading resultFading;
+			int resultFading;
 			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
 			result = SdlMixer.Mix_PlayMusic( chunkPtr, -1);
 			resultFading = SdlMixer.Mix_FadingMusic();
 			//Console.WriteLine("FadingMusic1: " + resultFading.ToString());
-			Assert.AreEqual(resultFading, SdlMixer.Mix_Fading.MIX_NO_FADING);
+			Assert.AreEqual(resultFading, SdlMixer.MIX_NO_FADING);
 			result = SdlMixer.Mix_FadeOutMusic(1000);
 			resultFading = SdlMixer.Mix_FadingMusic();
-			Assert.AreEqual(resultFading, SdlMixer.Mix_Fading.MIX_FADING_OUT);
+			Assert.AreEqual(resultFading, SdlMixer.MIX_FADING_OUT);
 			//Console.WriteLine("FadingMusic2: " + resultFading.ToString());
 			Thread.Sleep(2000);
 			resultFading = SdlMixer.Mix_FadingMusic();
-			Assert.AreEqual(resultFading, SdlMixer.Mix_Fading.MIX_NO_FADING);
+			Assert.AreEqual(resultFading, SdlMixer.MIX_NO_FADING);
 			//Console.WriteLine("FadingMusic: " + resultFading.ToString());
 			Assert.IsTrue(result == 1);
 			QuitAudio();
@@ -715,19 +715,19 @@ namespace Tao.Sdl
 		{
 			InitAudio();	
 			int result;
-			SdlMixer.Mix_Fading resultFading;
+			int resultFading;
 			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
 			result = SdlMixer.Mix_PlayChannel(1, chunkPtr, -1);
 			resultFading = SdlMixer.Mix_FadingChannel(1);
 			//Console.WriteLine("FadingMusic1: " + resultFading.ToString());
-			Assert.AreEqual(resultFading, SdlMixer.Mix_Fading.MIX_NO_FADING);
+			Assert.AreEqual(resultFading, SdlMixer.MIX_NO_FADING);
 			result = SdlMixer.Mix_FadeOutChannel(1, 1000);
 			resultFading = SdlMixer.Mix_FadingChannel(1);
-			Assert.AreEqual(resultFading, SdlMixer.Mix_Fading.MIX_FADING_OUT);
+			Assert.AreEqual(resultFading, SdlMixer.MIX_FADING_OUT);
 			//Console.WriteLine("FadingMusic2: " + resultFading.ToString());
 			Thread.Sleep(2000);
 			resultFading = SdlMixer.Mix_FadingChannel(1);
-			Assert.AreEqual(resultFading, SdlMixer.Mix_Fading.MIX_NO_FADING);
+			Assert.AreEqual(resultFading, SdlMixer.MIX_NO_FADING);
 			//Console.WriteLine("FadingMusic: " + resultFading.ToString());
 			Assert.IsTrue(result == 1);
 			QuitAudio();

@@ -449,14 +449,14 @@ namespace Tao.Sdl
 		public void SDL_GrabInput()
 		{
 			IntPtr surfacePtr = VideoSetup();
-			int result = Sdl.SDL_WM_GrabInput(Sdl.SDL_GrabMode.SDL_GRAB_ON);
-			Assert.AreEqual(result, (int)Sdl.SDL_GrabMode.SDL_GRAB_ON);
-			result = Sdl.SDL_WM_GrabInput(Sdl.SDL_GrabMode.SDL_GRAB_QUERY);
-			Assert.AreEqual(result, (int)Sdl.SDL_GrabMode.SDL_GRAB_ON);
-			result = Sdl.SDL_WM_GrabInput(Sdl.SDL_GrabMode.SDL_GRAB_OFF);
-			Assert.AreEqual(result, (int)Sdl.SDL_GrabMode.SDL_GRAB_OFF);
-			result = Sdl.SDL_WM_GrabInput(Sdl.SDL_GrabMode.SDL_GRAB_QUERY);
-			Assert.AreEqual(result, (int)Sdl.SDL_GrabMode.SDL_GRAB_OFF);
+			int result = Sdl.SDL_WM_GrabInput(Sdl.SDL_GRAB_ON);
+			Assert.AreEqual(result, (int)Sdl.SDL_GRAB_ON);
+			result = Sdl.SDL_WM_GrabInput(Sdl.SDL_GRAB_QUERY);
+			Assert.AreEqual(result, (int)Sdl.SDL_GRAB_ON);
+			result = Sdl.SDL_WM_GrabInput(Sdl.SDL_GRAB_OFF);
+			Assert.AreEqual(result, (int)Sdl.SDL_GRAB_OFF);
+			result = Sdl.SDL_WM_GrabInput(Sdl.SDL_GRAB_QUERY);
+			Assert.AreEqual(result, (int)Sdl.SDL_GRAB_OFF);
 			Sdl.SDL_FreeSurface(ref surfacePtr);
 		}
 		/// <summary>

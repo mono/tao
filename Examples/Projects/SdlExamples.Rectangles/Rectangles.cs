@@ -134,8 +134,8 @@ namespace SdlExamples
 					}
 					else if (evt.type == Sdl.SDL_KEYDOWN)
 					{
-						if ((evt.key.keysym.sym == (int)Sdl.SDLKey.SDLK_ESCAPE) ||
-							(evt.key.keysym.sym == (int)Sdl.SDLKey.SDLK_q))
+						if ((evt.key.keysym.sym == (int)Sdl.SDLK_ESCAPE) ||
+							(evt.key.keysym.sym == (int)Sdl.SDLK_q))
 						{
 							quitFlag = true;
 						}
