@@ -398,27 +398,65 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
+		[Category("CDROM")]
+		public void FRAMES_TO_MSF()
+		{
+
+			int frames = 10000;
+			int M;
+			int S;
+			int F;
+
+			Sdl.FRAMES_TO_MSF(frames, out M, out S, out F);
+			Assert.AreEqual(M, 2);
+			Assert.AreEqual(S, 13);
+			Assert.AreEqual(F, 25);
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Category("CDROM")]
+		public void MSF_TO_FRAMES()
+		{
+			int frames = 10000;
+			int M = 2;
+			int S = 13;
+			int F = 25;
+
+			int result = Sdl.MSF_TO_FRAMES(M, S, F);
+			Assert.AreEqual(result, frames);
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Category("CDROM")]
 		public void CDNumDrives()
 		{
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+			//Console.WriteLine("CDNumDrives: " + Sdl.SDL_CDNumDrives());
 			Assert.AreEqual(Sdl.SDL_CDNumDrives(), 1);
+			Sdl.SDL_Quit();
 		}
 		/// <summary>
 		/// 
 		/// </summary>
 		[Test]
+		[Category("CDROM")]
 		public void CDName()
 		{
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
-			//Console.WriteLine("CDName: " + Sdl.SDL_CDName(0));
 			Assert.AreEqual(Sdl.SDL_CDName(0), "D:\\");
+			Sdl.SDL_Quit();
 		}
 		/// <summary>
 		/// 
 		/// </summary>
 		[Test]
+		[Category("CDROM")]
 		public void CDOpen()
 		{
 			Sdl.SDL_Quit();
@@ -428,46 +466,194 @@ namespace Tao.Sdl
 				(Sdl.SDL_CD)Marshal.PtrToStructure(resultPtr, typeof(Sdl.SDL_CD));
 			//Console.WriteLine("CDName: " + Sdl.SDL_CDName(0));
 			Assert.AreEqual(cd.id, 0 );
+			Sdl.SDL_CDClose(resultPtr);
+			Sdl.SDL_Quit();
 		}
 		/// <summary>
 		/// 
 		/// </summary>
 		[Test]
+		[Category("CDROM")]
 		public void CDStatus()
 		{
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
-			Sdl.SDL_CD cd = new Sdl.SDL_CD();
-			cd.id = 0;
-			Console.WriteLine("CDStatus: " + Sdl.SDL_CDStatus(ref cd));
+			IntPtr cd = Sdl.SDL_CDOpen(0);
+			Console.WriteLine("CDStatus: " + Sdl.SDL_CDStatus(cd));
 			//Assert.AreEqual(Sdl.SDL_CDName(0), "D:\\");
+			Sdl.SDL_CDClose(cd);
+			Sdl.SDL_Quit();
+		}
+		/// <summary>
+		/// There is a problem with the SDL C-function. 
+		/// Many cds will not start with a low 'start' setting. 
+		/// I will only use SDL_CDPlayTracks.
+		/// </summary>
+		[Test]
+		[Category("CDROM")]
+		public void CDPlay()
+		{
+			Sdl.SDL_Quit();
+			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+			IntPtr cd = Sdl.SDL_CDOpen(0);
+			Assert.IsFalse(cd == IntPtr.Zero);
+			if ( Sdl.CD_INDRIVE(Sdl.SDL_CDStatus(cd)) == 1 )
+			{
+				Console.WriteLine("CDStatus: " + Sdl.SDL_CDStatus(cd));
+				int result = Sdl.SDL_CDPlay(cd, 300, 1000);
+				if (result == -1)
+				{
+					Console.WriteLine("Error: " + Sdl.SDL_GetError());
+				}
+				Assert.AreEqual(0, result);
+			}
+			Sdl.SDL_CDClose(cd);
+			Sdl.SDL_Quit();
 		}
 		/// <summary>
 		/// 
 		/// </summary>
 		[Test]
+		[Category("CDROM")]
+		public void CDPlayTracks()
+		{
+			Sdl.SDL_Quit();
+			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+			IntPtr cd = Sdl.SDL_CDOpen(0);
+			Assert.IsFalse(cd == IntPtr.Zero);
+			//Console.WriteLine("CDStatus: " + Sdl.SDL_CDStatus(cd));
+			if ( Sdl.CD_INDRIVE(Sdl.SDL_CDStatus(cd)) == 1 )
+			{
+				int result = Sdl.SDL_CDPlayTracks(cd, 0, 0, 0, Sdl.CD_FPS*20);
+				if (result == -1)
+				{
+					Console.WriteLine("Error: " + Sdl.SDL_GetError());
+				}
+				Assert.AreEqual(0, result);
+			}
+			Sdl.SDL_CDClose(cd);
+			Sdl.SDL_Quit();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Category("CDROM")]
+		public void CDPause()
+		{
+			Sdl.SDL_Quit();
+			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+			IntPtr cd = Sdl.SDL_CDOpen(0);
+			//Console.WriteLine("CDStatus: " + Sdl.SDL_CDStatus(cd));
+			if ( Sdl.CD_INDRIVE(Sdl.SDL_CDStatus(cd)) == 1 )
+			{
+				int result = Sdl.SDL_CDPlayTracks(cd, 0, 0, 0, Sdl.CD_FPS*20);
+				Assert.AreEqual(result, 0);
+				if (result == -1)
+				{
+					Console.WriteLine("Error: " + Sdl.SDL_GetError());
+				}
+				result = Sdl.SDL_CDPause(cd);
+				Assert.AreEqual(0, result);
+			}
+			Sdl.SDL_CDClose(cd);
+			Sdl.SDL_Quit();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Category("CDROM")]
+		public void CDResume()
+		{
+			Sdl.SDL_Quit();
+			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+			IntPtr cd = Sdl.SDL_CDOpen(0);
+			//Console.WriteLine("CDStatus: " + Sdl.SDL_CDStatus(cd));
+			if ( Sdl.CD_INDRIVE(Sdl.SDL_CDStatus(cd)) == 1 )
+			{
+				int result = Sdl.SDL_CDPlayTracks(cd, 0, 0, 0, Sdl.CD_FPS*20);
+				Assert.AreEqual(result, 0);
+				if (result == -1)
+				{
+					Console.WriteLine("Error: " + Sdl.SDL_GetError());
+				}
+				result = Sdl.SDL_CDPause(cd);
+				Assert.AreEqual(0, result);
+				result = Sdl.SDL_CDResume(cd);
+				Assert.AreEqual(result, 0);
+			}
+			Sdl.SDL_CDClose(cd);
+			Sdl.SDL_Quit();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Category("CDROM")]
+		public void CDStop()
+		{
+			Sdl.SDL_Quit();
+			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+			IntPtr cd = Sdl.SDL_CDOpen(0);
+			//Console.WriteLine("CDStatus: " + Sdl.SDL_CDStatus(cd));
+			if ( Sdl.CD_INDRIVE(Sdl.SDL_CDStatus(cd)) == 1 )
+			{
+				int result = Sdl.SDL_CDPlayTracks(cd, 0, 0, 0, Sdl.CD_FPS*20);
+				Assert.AreEqual(result, 0);
+				if (result == -1)
+				{
+					Console.WriteLine("Error: " + Sdl.SDL_GetError());
+				}
+				result = Sdl.SDL_CDStop(cd);
+				Assert.AreEqual(result, 0);
+			}
+			Sdl.SDL_CDClose(cd);
+			Sdl.SDL_Quit();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Category("CDROM")]
 		public void CD_INDRIVE()
 		{
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
-			Sdl.SDL_CD cd = new Sdl.SDL_CD();
-			cd.id = 0;
-			Console.WriteLine("CD_INDRIVE: " + Sdl.CD_INDRIVE(Sdl.SDL_CDStatus(ref cd)).ToString());
-			//Assert.AreEqual(Sdl.SDL_CDName(0), "D:\\");
+			IntPtr cd = Sdl.SDL_CDOpen(0);
+			//Console.WriteLine("CD_INDRIVE: " + Sdl.CD_INDRIVE(Sdl.SDL_CDStatus(cd)));
+			//Make sure there is a CD in the drive
+			Assert.AreEqual(Sdl.CD_INDRIVE(Sdl.SDL_CDStatus(cd)), 1);
+			Sdl.SDL_CDClose(cd);
+			Sdl.SDL_Quit();
 		}
 		/// <summary>
 		/// 
 		/// </summary>
 		[Test]
+		[Category("CDROM")]
 		public void CDEject()
 		{
 			Sdl.SDL_Quit();
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
-			Sdl.SDL_CD cd = new Sdl.SDL_CD();
-			cd.id = 0;
-			int result = Sdl.SDL_CDEject(ref cd);
-			//Console.WriteLine("CDStatus: " + Sdl.SDL_CDStatus(ref cd));
-			//Assert.AreEqual(Sdl.SDL_CDName(0), "D:\\");
+			IntPtr cd = Sdl.SDL_CDOpen(0);
+			int result = Sdl.SDL_CDEject(cd);
+			Sdl.SDL_CDClose(cd);
+			Sdl.SDL_Quit();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Category("CDROM")]
+		public void CDClose()
+		{
+			Sdl.SDL_Quit();
+			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+			IntPtr cd = Sdl.SDL_CDOpen(0);
+			Sdl.SDL_CDClose(cd);
+			Sdl.SDL_Quit();
+			Sdl.SDL_Quit();
 		}
 		#endregion SDL_cdrom.h
 		

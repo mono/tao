@@ -2566,7 +2566,7 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// Array of track descriptions. (see <see cref="SDL_CDtrack"/>)
 			/// </summary>
-			[MarshalAs(UnmanagedType.ByValArray,ArraySubType=UnmanagedType.LPStruct, SizeConst=100)] 
+			//[MarshalAs(UnmanagedType.ByValArray,ArraySubType=UnmanagedType.LPStruct, SizeConst=100)] 
 			public SDL_CDtrack[] track;
 		}
 		#endregion SDL_CD
@@ -5797,7 +5797,7 @@ namespace Tao.Sdl {
 		public static extern IntPtr SDL_CDOpen(int drive);
 		#endregion IntPtr SDL_CDOpen(int drive)
 
-		#region CDstatus SDL_CDStatus(ref SDL_CD cdrom)
+		#region CDstatus SDL_CDStatus(IntPtr cdrom)
 		/// <summary>
 		/// This function returns the current status of the given drive.
 		/// </summary>
@@ -5843,10 +5843,10 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_CD"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), 
 		SuppressUnmanagedCodeSecurity]
-		public static extern CDstatus SDL_CDStatus(ref SDL_CD cdrom);
-		#endregion CDstatus SDL_CDStatus(ref SDL_CD cdrom)
+		public static extern CDstatus SDL_CDStatus(IntPtr cdrom);
+		#endregion CDstatus SDL_CDStatus(IntPtr cdrom)
 
-		#region int SDL_CDPlay(ref SDL_CD cdrom, int start, int length)
+		#region int SDL_CDPlay(IntPtr cdrom, int start, int length)
 		/// <summary>
 		/// Play a CD. 
 		/// </summary>
@@ -5864,9 +5864,9 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_CDStop"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_CDPlay(ref SDL_CD cdrom, int start, 
+		public static extern int SDL_CDPlay(IntPtr cdrom, int start, 
 			int length);
-		#endregion int SDL_CDPlay(ref SDL_CD cdrom, int start, int length)
+		#endregion int SDL_CDPlay(IntPtr cdrom, int start, int length)
 
 		#region int SDL_CDPlayTracks(...)
 		/// <summary>
@@ -5914,12 +5914,12 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_CD"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_CDPlayTracks(ref SDL_CD cdrom, 
+		public static extern int SDL_CDPlayTracks(IntPtr cdrom, 
 			int start_track, int start_frame, int ntracks, 
 			int nframes);
 		#endregion int SDL_CDPlayTracks(...)
 
-		#region int SDL_CDPause(ref SDL_CD cdrom)
+		#region int SDL_CDPause(IntPtr cdrom)
 		/// <summary>
 		/// Pauses a CDROM.
 		/// </summary>
@@ -5935,10 +5935,10 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_CDResume"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_CDPause(ref SDL_CD cdrom);
-		#endregion int SDL_CDPause(ref SDL_CD cdrom)
+		public static extern int SDL_CDPause(IntPtr cdrom);
+		#endregion int SDL_CDPause(IntPtr cdrom)
 
-		#region int SDL_CDResume(ref SDL_CD cdrom)
+		#region int SDL_CDResume(IntPtr cdrom)
 		/// <summary>
 		/// Resumes a CDROM.
 		/// </summary>
@@ -5954,10 +5954,10 @@ namespace Tao.Sdl {
 		/// <returns>Returns 0, or -1 on error.</returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_CDResume(ref SDL_CD cdrom);
-		#endregion int SDL_CDResume(ref SDL_CD cdrom)
+		public static extern int SDL_CDResume(IntPtr cdrom);
+		#endregion int SDL_CDResume(IntPtr cdrom)
 
-		#region int SDL_CDStop(ref SDL_CD cdrom)
+		#region int SDL_CDStop(IntPtr cdrom)
 		/// <summary>
 		/// Stops a CDROM.
 		/// </summary>
@@ -5972,10 +5972,10 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_CDPlay"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_CDStop(ref SDL_CD cdrom);
-		#endregion int SDL_CDStop(ref SDL_CD cdrom)
+		public static extern int SDL_CDStop(IntPtr cdrom);
+		#endregion int SDL_CDStop(IntPtr cdrom)
 
-		#region int SDL_CDEject(ref SDL_CD cdrom)
+		#region int SDL_CDEject(IntPtr cdrom)
 		/// <summary>
 		/// Ejects a CDROM.
 		/// </summary>
@@ -5990,10 +5990,10 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_CD"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_CDEject(ref SDL_CD cdrom);
-		#endregion int SDL_CDEject(ref SDL_CD cdrom)
+		public static extern int SDL_CDEject(IntPtr cdrom);
+		#endregion int SDL_CDEject(IntPtr cdrom)
 
-		#region int SDL_CDClose(ref SDL_CD cdrom)
+		#region void SDL_CDClose(IntPtr cdrom)
 		/// <summary>
 		/// Closes a SDL_CD handle.
 		/// </summary>
@@ -6008,8 +6008,8 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_CD"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_CDClose(ref SDL_CD cdrom);
-		#endregion int SDL_CDClose(ref SDL_CD cdrom)
+		public static extern void SDL_CDClose(IntPtr cdrom);
+		#endregion void SDL_CDClose(IntPtr cdrom)
 		#endregion SDL_cdrom.h
 
 		// SDL_copying.h -- none
