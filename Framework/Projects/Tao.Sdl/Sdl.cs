@@ -4011,7 +4011,44 @@ namespace Tao.Sdl {
 		// SDL_main.h -- none
 		// SDL_name.h -- none
 		// SDL_quit.h -- none
-		// TODO: SDL_rwops -- skipped for now, might be useful
+
+		#region SDL_rwops.h
+		// This a is bare-minimum implementation. 
+		// More bindings may be needed in the future
+		#region IntPtr SDL_RWFromFile(String file, String mode)
+		/// <summary>
+		/// Create SDL_RWops structures from file.
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function call in SDL_rwops.h:
+		/// <code>
+		/// SDL_RWops * SDLCALL SDL_RWFromFile(const char *file, const char *mode)
+		/// </code></p></remarks>
+		/// <param name="file"></param>
+		/// <param name="mode">"rb"</param>
+		/// <returns>IntPtr to SDL_RWops</returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_RWFromFile(String file, String mode);
+		#endregion IntPtr SDL_RWFromFile(String file, String mode)
+
+		#region IntPtr SDL_RWFromMem(byte[] mem, int size)
+		/// <summary>
+		/// Create SDL_RWops structures from memory.
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function call in SDL_rwops.h:
+		/// <code>
+		/// SDL_RWops * SDLCALL SDL_RWFromMem(void *mem, int size)
+		/// </code></p></remarks>
+		/// <param name="mem"></param>
+		/// <param name="size"></param>
+		/// <returns>IntPtr to SDL_RWops</returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_RWFromMem(byte[] mem, int size);
+		#endregion IntPtr SDL_RWFromMem(byte[] mem, int size)
+		#endregion SDL_rwops.h
 
 		#region SDL_timer.h
 		#region int SDL_GetTicks()
@@ -4756,7 +4793,7 @@ namespace Tao.Sdl {
 			float blue);
 		#endregion int SDL_SetGamma(float red, float green, float blue)
 		
-		#region int SDL_SetGammaRamp([In,Out] short[] red, [In,Out] short[] green, [In,Out] short[] blue)
+		#region int SDL_SetGammaRamp(...)
 		/// <summary>
 		/// Set the gamma translation table for the red, green, and blue
 		///  channels
@@ -4783,11 +4820,12 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_GetGammaRamp">SDL_GetGammaRamp</seealso>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_SetGammaRamp([In,Out] short[] red, [In,Out] short[] green,
+		public static extern int SDL_SetGammaRamp([In,Out] short[] red, 
+			[In,Out] short[] green,
 			[In,Out] short[] blue);
-		#endregion int SDL_SetGammaRamp([In,Out] short[] red, [In,Out] short[] green, [In,Out] short[] blue)
+		#endregion int SDL_SetGammaRamp(...)
 
-		#region int SDL_GetGammaRamp([In,Out] short[] red, [In,Out] short[] green, [In,Out] short[] blue)
+		#region int SDL_GetGammaRamp(...)
 		/// <summary>
 		/// Gets the color gamma lookup tables for the display.
 		/// </summary>
@@ -4813,11 +4851,12 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_SetGammaRamp">SDL_SetGammaRamp</seealso>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_GetGammaRamp([In,Out] short[] red, [In,Out] short[] green,
+		public static extern int SDL_GetGammaRamp([In,Out] short[] red, 
+			[In,Out] short[] green,
 			 [In,Out] short[] blue);
-		#endregion int SDL_GetGammaRamp([In,Out] short[] red, [In,Out] short[] green, [In,Out] short[] blue)
+		#endregion int SDL_GetGammaRamp(...)
 
-		#region int SDL_SetColors(IntPtr surface, [In, Out] SDL_Color[] colors, int firstcolor, int ncolors)
+		#region int SDL_SetColors(...)
 		/// <summary>
 		/// Sets a portion of the colormap for the given 8-bit surface.  		
 		/// </summary>
@@ -4902,9 +4941,9 @@ namespace Tao.Sdl {
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_SetColors(IntPtr surface, [In, Out] SDL_Color[] colors,
 			int firstcolor, int ncolors);
-		#endregion int SDL_SetColors(IntPtr surface, [In, Out] SDL_Color[] colors, int firstcolor, int ncolors)
+		#endregion int SDL_SetColors(...)
 	
-		#region int SDL_SetPalette(IntPtr surface, int flags,[In, Out] SDL_Color[] colors, int firstcolor, int ncolors)
+		#region int SDL_SetPalette(...)
 		/// <summary>
 		/// Sets the colors in the palette of an 8-bit surface.
 		/// </summary>
@@ -4991,7 +5030,7 @@ namespace Tao.Sdl {
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_SetPalette(IntPtr surface, int flags,
 			[In, Out] SDL_Color[] colors, int firstcolor, int ncolors);
-		#endregion int SDL_SetPalette(IntPtr surface, int flags,[In, Out] SDL_Color[] colors, int firstcolor, int ncolors)
+		#endregion int SDL_SetPalette(...)
 
 		#region int SDL_MapRGB(IntPtr format, byte r, byte g, byte b)
 		/// <summary>
@@ -5093,7 +5132,7 @@ namespace Tao.Sdl {
 			out byte r, out byte g, out byte b);
 		#endregion void SDL_GetRGB(int pixel, IntPtr fmt, out byte r, out byte g, out byte b)
 		
-		#region void SDL_GetRGBA(int pixel, IntPtr fmt, out byte r, out byte g, out byte b, out byte a)
+		#region void SDL_GetRGBA(...)
 		/// <summary>
 		/// Get RGBA values from a pixel in the specified pixel format.
 		/// </summary>
@@ -5124,7 +5163,7 @@ namespace Tao.Sdl {
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_GetRGBA(int pixel, IntPtr fmt, 
 			out byte r, out byte g, out byte b, out byte a);
-		#endregion void SDL_GetRGBA(int pixel, IntPtr fmt, out byte r, out byte g, out byte b, out byte a)
+		#endregion void SDL_GetRGBA(...)
 
 		#region IntPtr SDL_CreateRGBSurface(...)
 		/// <summary>
@@ -5328,356 +5367,550 @@ namespace Tao.Sdl {
 		}
 		#endregion void SDL_FreeSurface(ref IntPtr surface)
 
+		#region int SDL_LockSurface(IntPtr surface)
 		/// <summary>
-		/// SDL_LockSurface() sets up a surface for directly accessing 
-		/// the pixels.
-		/// Between calls to SDL_LockSurface()/SDL_UnlockSurface(),
-		///  you can write
-		/// to and read from 'surface->pixels', using the pixel format 
-		/// stored in 
-		/// 'surface->format'.  Once you are done accessing the surface, 
-		/// you should 
-		/// use SDL_UnlockSurface() to release it.
-		///
-		/// Not all surfaces require locking.  If SDL_MUSTLOCK(surface)
-		///  evaluates
-		/// to 0, then you can read and write to the surface at any time,
-		///  and the
-		/// pixel format of the surface will not change.  In particular, if the
-		/// SDL_HWSURFACE flag is not given when calling SDL_SetVideoMode(),
-		///  you
-		/// will not need to lock the display surface before accessing it.
-		/// 
-		/// No operating system or library calls should be made between 
-		/// lock/unlock
-		/// pairs, as critical system locks may be held during this time. 
+		/// Lock a surface for directly access.
 		/// </summary>
 		/// <remarks>
-		/// SDL_LockSurface() returns 0, or -1 if the surface couldn't be 
-		///locked.
+		/// SDL_LockSurface sets up a surface for directly accessing the pixels. 
+		/// Between calls to SDL_LockSurface and SDL_UnlockSurface, you can write
+		///  to and read from <i>surface.pixels</i>, using the pixel format stored in 
+		///  <i>surface.format</i>. Once you are done accessing the surface, 
+		///  you should use SDL_UnlockSurface to release it.
+		/// <p>Not all surfaces require locking. If SDL_MUSTLOCK(surface) evaluates
+		///  to 0, then you can read and write to the surface at any time, and the 
+		///  pixel format of the surface will not change. </p>
+		/// <p>No operating system or library calls should be made between 
+		/// lock/unlock pairs, as critical system locks may be held during this time.
+		/// </p>
+		/// <p>It should be noted, that since SDL 1.1.8 surface locks are recursive.
+		///  This means that you can lock a surface multiple times, but each lock
+		///   must have a match unlock. </p>
+		///<code>
+		///		.
+		///		SDL_LockSurface( surface );
+		///		.
+		///		/* Surface is locked */
+		///		/* Direct pixel access on surface here */
+		///		.
+		///		SDL_LockSurface( surface );
+		///		.
+		///		/* More direct pixel access on surface */
+		///		.
+		///		SDL_UnlockSurface( surface );
+		///		/* Surface is still locked */
+		///		/* Note: Is versions &lt; 1.1.8, the surface would have been */
+		///		/* no longer locked at this stage                         */
+		///		.
+		///		SDL_UnlockSurface( surface );
+		///		/* Surface is now unlocked */
+		///		.
+		///		</code>
+		///		<p>Binds to C-function call in SDL_video.h:
+		/// <code>int SDL_LockSurface(SDL_Surface *surface)</code>
+		/// </p>
 		/// </remarks>
 		/// <param name="surface"></param>
-		/// <returns></returns>
+		/// <returns>SDL_LockSurface returns 0, or -1 if the surface couldn't be locked.
+		/// </returns>
+		/// <seealso cref="SDL_UnlockSurface">SDL_UnlockSurface</seealso>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), 
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_LockSurface(IntPtr surface);
+		#endregion int SDL_LockSurface(IntPtr surface)
 		
+		#region int SDL_UnlockSurface(IntPtr surface)
 		/// <summary>
-		/// SDL_LockSurface() sets up a surface for directly accessing the 
-		/// pixels.
-		/// Between calls to SDL_LockSurface()/SDL_UnlockSurface(), 
-		/// you can write
-		/// to and read from 'surface->pixels', using the pixel format
-		/// stored in 
-		/// 'surface->format'.  Once you are done accessing the surface, 
-		/// you should 
-		/// use SDL_UnlockSurface() to release it.
-		///
-		/// Not all surfaces require locking.  If SDL_MUSTLOCK(surface)
-		///  evaluates
-		/// to 0, then you can read and write to the surface at any time,
-		///  and the
-		/// pixel format of the surface will not change.  In particular, 
-		/// if the
-		/// SDL_HWSURFACE flag is not given when calling SDL_SetVideoMode(),
-		///  you
-		/// will not need to lock the display surface before accessing it.
-		/// 
-		/// No operating system or library calls should be made between 
-		/// lock/unlock
-		/// pairs, as critical system locks may be held during this time. 
+		/// Unlocks a previously locked surface.
 		/// </summary>
+		/// <remarks>
+		/// Surfaces that were previously locked using <see cref="SDL_LockSurface"/> 
+		/// must be unlocked with SDL_UnlockSurface. Surfaces should be 
+		/// unlocked as soon as possible.
+		/// <p>It should be noted that since 1.1.8, surface 
+		/// locks are recursive. See <see cref="SDL_LockSurface"/>.</p>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>void SDL_UnlockSurface(SDL_Surface *surface)</code>
+		/// </p>
+		/// </remarks>
 		/// <param name="surface"></param>
 		/// <returns></returns>
+		/// <seealso cref="SDL_LockSurface">SDL_LockSurface</seealso>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), 
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_UnlockSurface(IntPtr surface);
+		#endregion int SDL_UnlockSurface(IntPtr surface)
 		
+		#region IntPtr SDL_LoadBMP_RW(IntPtr src, int freesrc)
 		/// <summary>
 		/// Load a surface from a seekable SDL data source (memory or file.)
-		/// If 'freesrc' is non-zero, the source will be closed 
-		/// after being read.
-		/// Returns the new surface, or NULL if there was an error. 
 		/// </summary>
 		/// <remarks>
+		/// If 'freesrc' is non-zero, the source will be closed after being read.
+		/// Returns the new surface, or NULL if there was an error.
 		/// The new surface should be freed with SDL_FreeSurface().
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>SDL_Surface * SDLCALL SDL_LoadBMP_RW(SDL_RWops *src, int freesrc)
+		/// </code></p>
 		/// </remarks>
-		/// <param name="src"></param>
+		/// <param name="src">IntPtr to SDL_Surface</param>
 		/// <param name="freesrc"></param>
 		/// <returns></returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern IntPtr SDL_LoadBMP_RW(IntPtr src, int freesrc);
+		private static extern IntPtr SDL_LoadBMP_RW(IntPtr src, int freesrc);
+		#endregion IntPtr SDL_LoadBMP_RW(IntPtr src, int freesrc)
 
-		/* Convenience macro -- load a surface from a file */
-//#define SDL_LoadBMP(file)	SDL_LoadBMP_RW(SDL_RWFromFile(file, "rb"), 1)
-		
+		#region IntPtr SDL_LoadBMP(string file)
+		/// <summary>
+		/// Load a Windows BMP file into an SDL_Surface.
+		/// </summary>
+		/// <remarks>
+		/// Loads a surface from a named Windows BMP file.
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>
+		/// SDL_Surface * SDL_LoadBMP(const char *file)
+		/// #define SDL_LoadBMP(file)	SDL_LoadBMP_RW(SDL_RWFromFile(file, "rb"), 1)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="file"></param>
+		/// <returns>Returns the new surface, or NULL if there was an error.</returns>
+		/// <seealso cref="SDL_SaveBMP">SDL_SaveBMP</seealso>
+		public static IntPtr SDL_LoadBMP(string file)
+		{
+			return SDL_LoadBMP_RW(SDL_RWFromFile(file, "rb"), 1);
+		}
+		#endregion IntPtr SDL_LoadBMP(string file)
+
+		#region int SDL_SaveBMP_RW(IntPtr surface, IntPtr dst, int freedst)
 		/// <summary>
 		/// Save a surface to a seekable SDL data source (memory or file.)
-		/// If 'freedst' is non-zero, the source will be closed after 
-		/// being written.
-		/// Returns 0 if successful or -1 if there was an error.
 		/// </summary>
+		/// <remarks>If 'freedst' is non-zero, the source will be closed after 
+		/// being written.
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>
+		/// int SDLCALL SDL_SaveBMP_RW (SDL_Surface *surface, SDL_RWops *dst, int freedst)
+		/// </code>
+		/// </p>
+		/// </remarks>
 		/// <param name="surface"></param>
 		/// <param name="dst"></param>
 		/// <param name="freedst"></param>
-		/// <returns></returns>
+		/// <returns>Returns 0 if successful or -1 if there was an error.</returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_SaveBMP_RW(IntPtr surface, IntPtr dst,
+		private static extern int SDL_SaveBMP_RW(IntPtr surface, IntPtr dst,
 			int freedst);
+		#endregion int SDL_SaveBMP_RW(IntPtr surface, IntPtr dst, int freedst)
 
-		/* Convenience macro -- save a surface to a file */
-//#define SDL_SaveBMP(surface, file) SDL_SaveBMP_RW(surface, SDL_RWFromFile(file, "wb"), 1)
-	
+		#region int SDL_SaveBMP(IntPtr surface, string file)
 		/// <summary>
-		/// Sets the color key (transparent pixel) in a blittable surface.
-		/// If 'flag' is SDL_SRCCOLORKEY (optionally OR'd with SDL_RLEACCEL), 
-		/// 'key' will be the transparent pixel in the source image of a blit.
-		/// SDL_RLEACCEL requests RLE acceleration for the surface if present,
-		/// and removes RLE acceleration if absent.
+		/// Save an SDL_Surface as a Windows BMP file.
 		/// </summary>
 		/// <remarks>
-		/// If 'flag' is 0, this function clears any current color key.
-		/// This function returns 0, or -1 if there was an error.
+		/// Saves the SDL_Surface surface as a Windows BMP file named file.
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>
+		/// int SDL_SaveBMP(SDL_Surface *surface, const char *file);
+		/// #define SDL_SaveBMP(surface, file) SDL_SaveBMP_RW(surface, SDL_RWFromFile(file, "wb"), 1)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="file"></param>
+		/// <param name="surface"></param>
+		/// <returns>Returns 0 if successful or -1 if there was an error.</returns>
+		/// <seealso cref="SDL_SaveBMP">SDL_LoadBMP</seealso>
+		public static int SDL_SaveBMP(IntPtr surface, string file)
+		{
+			return SDL_SaveBMP_RW(surface, SDL_RWFromFile(file, "wb"), 1);
+		}
+		#endregion int SDL_SaveBMP(IntPtr surface, string file)
+	
+		#region int SDL_SetColorKey(IntPtr surface, int flag, int key)
+		/// <summary>
+		/// Sets the color key (transparent pixel) in a blittable surface and RLE acceleration.
+		/// </summary>
+		/// <remarks>
+		/// Sets the color key (transparent pixel) in a blittable surface and 
+		/// enables or disables RLE blit acceleration.
+		/// <p>RLE acceleration can substantially speed up blitting of images 
+		/// with large horizontal runs of transparent pixels (i.e., pixels that
+		///  match the key value). The key must be of the same pixel format as 
+		///  the surface, <see cref="SDL_MapRGB"/> is often useful for obtaining an acceptable 
+		///  value.</p>
+		/// <p>If flag is SDL_SRCCOLORKEY then key is the transparent pixel value 
+		/// in the source image of a blit.</p>		
+		/// <p>If flag is OR'd with SDL_RLEACCEL then the surface will be draw 
+		/// using RLE acceleration when drawn with <see cref="SDL_BlitSurface"/>. The surface 
+		/// will actually be encoded for RLE acceleration the first time 
+		/// <see cref="SDL_BlitSurface"/> or <see cref="SDL_DisplayFormat"/> is called on the surface.</p>
+		/// <p>If flag is 0, this function clears any current color key.</p>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>int SDL_SetColorKey(SDL_Surface *surface, Uint32 flag, Uint32 key);
+		/// </code></p>
 		/// </remarks>
 		/// <param name="surface"></param>
 		/// <param name="flag"></param>
 		/// <param name="key"></param>
-		/// <returns></returns>
+		/// <returns>
+		/// This function returns 0, or -1 if there was an error.
+		/// </returns>
+		/// <seealso cref="SDL_BlitSurface">SDL_BlitSurface</seealso>
+		/// <seealso cref="SDL_DisplayFormat">SDL_DisplayFormat</seealso>
+		/// <seealso cref="SDL_MapRGB">SDL_MapRGB</seealso>
+		/// <seealso cref="SDL_SetAlpha">SDL_SetAlpha</seealso>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_SetColorKey(IntPtr surface, int flag,
 			int key);
+		#endregion int SDL_SetColorKey(IntPtr surface, int flag, int key)
 
+		#region int SDL_SetAlpha(IntPtr surface, int flag, byte alpha);
 		/// <summary>
-		/// This function sets the alpha value for the entire surface, 
-		/// as opposed to
-		/// using the alpha component of each pixel. This value measures 
-		/// the range
-		/// of transparency of the surface, 0 being completely transparent to
-		///  255
-		/// being completely opaque. An 'alpha' value of 255 causes blits to be
-		/// opaque, the source pixels copied to the destination 
-		/// (the default). Note
-		/// that per-surface alpha can be combined with colorkey transparency.
-		///
-		/// If 'flag' is 0, alpha blending is disabled for the surface.
-		/// If 'flag' is SDL_SRCALPHA, alpha blending is enabled for the 
-		/// surface.
-		/// OR:ing the flag with SDL_RLEACCEL requests RLE acceleration for the
-		/// surface; if SDL_RLEACCEL is not specified, the RLE accel will 
-		/// be removed.
+		/// Adjust the alpha properties of a surface.
 		/// </summary>
 		/// <remarks>
-		/// The 'alpha' parameter is ignored for surfaces that have an alpha
-		///  channel.
+		/// SDL_SetAlpha is used for setting the per-surface alpha value and/or
+		/// enabling and disabling alpha blending.
+		/// <p>The surface parameter specifies which surface whose alpha 
+		/// attributes you wish to adjust. flags is used to specify whether
+		///  alpha blending should be used (SDL_SRCALPHA) and whether the 
+		///  surface should use RLE acceleration for blitting (SDL_RLEACCEL).
+		///   flags can be an OR'd combination of these two options, one of 
+		///   these options or 0. If SDL_SRCALPHA is not passed as a flag then 
+		///   all alpha information is ignored when blitting the surface. The
+		///    alpha parameter is the per-surface alpha value; a surface 
+		///    need not have an alpha channel to use per-surface alpha and 
+		///    blitting can still be accelerated with SDL_RLEACCEL.</p>
+		/// <p>Note: The per-surface alpha value of 128 is considered a 
+		/// special case and is optimised, so it's much faster than other 
+		/// per-surface values.</p>
+		/// Alpha effects surface blitting in the following ways:
+		/// <list type="table">
+		///             <item>
+		///                 <term>RGBA-&gt;RGB with SDL_SRCALPHA</term>
+		///                 <description>The source is alpha-blended with 
+		///                 the destination, using the alpha channel. 
+		///                 SDL_SRCCOLORKEY and the per-surface alpha 
+		///                 are ignored.</description>
+		///             </item>
+		///             <item>
+		///                 <term>RGBA-&gt;RGB without SDL_SRCALPHA</term>
+		///                 <description>The RGB data is copied from the source.
+		///                  The source alpha channel and the per-surface
+		///                   alpha value are ignored.</description>
+		///             </item>
+		///             <item>
+		///                 <term>RGB-&gt;RGBA with SDL_SRCALPHA</term>
+		///                 <description>The source is alpha-blended with the 
+		///                 destination using the per-surface alpha value. 
+		///                 If SDL_SRCCOLORKEY is set, only the pixels not 
+		///                 matching the colorkey value are copied. The alpha 
+		///                 channel of the copied pixels is set to opaque.
+		///                 </description>
+		///             </item>
+		///             <item>
+		///                 <term>RGB-&gt;RGBA without SDL_SRCALPHA</term>
+		///                 <description>The RGB data is copied from the 
+		///                 source and the alpha value of the copied pixels
+		///                  is set to opaque. If SDL_SRCCOLORKEY is set, 
+		///                  only the pixels not matching the colorkey value
+		///                   are copied.</description>
+		///             </item>
+		///             <item>
+		///                 <term>RGBA-&gt;RGBA with SDL_SRCALPHA</term>
+		///                 <description>The source is alpha-blended with
+		///                  the destination using the source alpha channel.
+		///                   The alpha channel in the destination surface 
+		///                   is left untouched. SDL_SRCCOLORKEY is ignored.
+		///                   </description>
+		///             </item>
+		///             <item>
+		///                 <term>RGBA-&gt;RGBA without SDL_SRCALPHA</term>
+		///                 <description>The RGBA data is copied to the destination
+		///                  surface. If SDL_SRCCOLORKEY is set, only the pixels 
+		///                  not matching the colorkey value are copied.
+		///                  </description>
+		///             </item>
+		///             <item>
+		///                 <term>RGB-&gt;RGB with SDL_SRCALPHA</term>
+		///                 <description>The source is alpha-blended with the 
+		///                 destination using the per-surface alpha value. 
+		///                 If SDL_SRCCOLORKEY is set, only the pixels not 
+		///                 matching the colorkey value are copied.
+		///                 </description>
+		///             </item>
+		///             <item>
+		///                 <term>RGB-&gt;RGB without SDL_SRCALPHA</term>
+		///                 <description>The RGB data is copied from the source.
+		///                  If SDL_SRCCOLORKEY is set, only the pixels not 
+		///                  matching the colorkey value are copied.
+		///                  </description>
+		///             </item>
+		///         </list>
+		/// <p>Note: Note that RGBA-&gt;RGBA blits (with SDL_SRCALPHA set) keep 
+		/// the alpha of the destination surface. This means that you cannot 
+		/// compose two arbitrary RGBA surfaces this way and get the result 
+		/// you would expect from "overlaying" them; the destination alpha 
+		/// will work as a mask.</p>
+		/// <p>Also note that per-pixel and per-surface alpha cannot be
+		///  combined; the per-pixel alpha is always used if available.</p>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>int SDL_SetAlpha(SDL_Surface *surface, Uint32 flag, Uint8 alpha);
+		/// </code></p>
 		/// </remarks>
 		/// <param name="surface"></param>
 		/// <param name="flag"></param>
 		/// <param name="alpha"></param>
-		/// <returns></returns>
+		/// <returns>This function returns 0, or -1 if there was an error.
+		/// </returns>
+		/// <seealso cref="SDL_MapRGBA">SDL_MapRGBA</seealso>
+		/// <seealso cref="SDL_GetRGBA">SDL_GetRGBA</seealso>
+		/// <seealso cref="SDL_DisplayFormatAlpha">SDL_DisplayFormatAlpha</seealso>
+		/// <seealso cref="SDL_BlitSurface">SDL_BlitSurface</seealso>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_SetAlpha(IntPtr surface, int flag, 
-			Byte alpha);
+			byte alpha);
+		#endregion int SDL_SetAlpha(IntPtr surface, int flag, byte alpha);
 
+		#region void SDL_SetClipRect(IntPtr surface, IntPtr rect)
 		/// <summary>
-		/// Sets the clipping rectangle for the destination surface in a blit.
-		///
-		/// If the clip rectangle is NULL, clipping will be disabled.
-		/// If the clip rectangle doesn't intersect the surface, 
-		/// the function will
-		/// return SDL_FALSE and blits will be completely clipped.  
-		/// Otherwise the
-		/// function returns SDL_TRUE and blits to the surface will be 
-		/// clipped to
-		/// the intersection of the surface area and the clipping rectangle. 
+		/// Sets the clipping rectangle for a surface.
 		/// </summary>
 		/// <remarks>
-		/// Note that blits are automatically clipped to the edges of the 
-		/// source
-		/// and destination surfaces.
+		/// Sets the clipping rectangle for a surface. When this surface 
+		/// is the destination of a blit, only the area within the clip 
+		/// rectangle will be drawn into.
+		/// <p>The rectangle pointed to by rect will be clipped to the 
+		/// edges of the surface so that the clip rectangle for a surface 
+		/// can never fall outside the edges of the surface.</p>
+		/// <p>If rect is NULL the clipping rectangle will be set to the 
+		/// full size of the surface.</p>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>
+		/// void SDL_SetClipRect(SDL_Surface *surface, SDL_Rect *rect)
+		/// </code></p>
 		/// </remarks>
-		/// <param name="surface"></param>
-		/// <param name="rect"></param>
+		/// <param name="surface">IntPtr to SDL_Surface</param>
+		/// <param name="rect">IntPtr to SDL_Rect</param>
+		/// <seealso cref="SDL_GetClipRect">SDL_GetClipRect</seealso>
+		/// <seealso cref="SDL_BlitSurface">SDL_BlitSurface</seealso>
+		/// <seealso cref="SDL_Surface">SDL_Surface</seealso>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_SetClipRect(IntPtr surface, IntPtr rect);
+		#endregion void SDL_SetClipRect(IntPtr surface, IntPtr rect)
 		
+		#region void SDL_GetClipRect(IntPtr surface, IntPtr rect)
 		/// <summary>
-		/// Gets the clipping rectangle for the destination surface in a blit.
-		/// 'rect' must be a pointer to a valid rectangle which will be filled
-		/// with the correct values.
+		/// Gets the clipping rectangle for a surface.
 		/// </summary>
-		/// <param name="surface"></param>
-		/// <param name="rect"></param>
+		/// <remarks>
+		/// Gets the clipping rectangle for a surface. 
+		/// When this surface is the destination of a blit, 
+		/// only the area within the clip rectangle is drawn into.
+		/// <p>The rectangle pointed to by rect will be filled with the 
+		/// clipping rectangle of the surface.</p>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>
+		/// void SDL_GetClipRect(SDL_Surface *surface, SDL_Rect *rect)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="surface">IntPtr to SDL_Surface</param>
+		/// <param name="rect">IntPtr to SDL_Rect</param>
+		/// <seealso cref="SDL_SetClipRect">SDL_SetClipRect</seealso>
+		/// <seealso cref="SDL_BlitSurface">SDL_BlitSurface</seealso>
+		/// <seealso cref="SDL_Surface">SDL_Surface</seealso>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_GetClipRect(IntPtr surface, IntPtr rect);
+		#endregion void SDL_GetClipRect(IntPtr surface, IntPtr rect)
 		
+		#region IntPtr SDL_ConvertSurface(IntPtr src, IntPtr fmt, int flags)
 		/// <summary>
-		/// Creates a new surface of the specified format, and then copies 
-		/// and maps 
-		/// the given surface to it so the blit of the converted surface 
-		/// will be as 
-		/// fast as possible.  If this function fails, it returns NULL.
-		///
-		/// The 'flags' parameter is passed to SDL_CreateRGBSurface() 
-		/// and has those 
-		/// semantics.  You can also pass SDL_RLEACCEL in the flags parameter
-		///  and
-		/// SDL will try to RLE accelerate colorkey and alpha blits 
-		/// in the resulting
-		/// surface.
-		///
-		/// This function is used internally by SDL_DisplayFormat().
+		/// Converts a surface to the same format as another surface.
 		/// </summary>
-		/// <param name="src"></param>
-		/// <param name="fmt"></param>
+		/// <remarks>
+		/// Creates a new surface of the specified format, 
+		/// and then copies and maps the given surface to it. 
+		/// If this function fails, it returns NULL.
+		/// <p>The flags parameter is passed to 
+		/// <see cref="SDL_CreateRGBSurface"/> and has those semantics.</p>
+		/// <p>This function is used internally by <see cref="SDL_DisplayFormat"/>.</p>
+		/// <p>This function can only be called after SDL_Init.</p>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>
+		/// SDL_Surface *SDL_ConvertSurface(SDL_Surface *src, SDL_PixelFormat *fmt, Uint32 flags)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="src">IntPtr to SDL_Surface</param>
+		/// <param name="fmt">IntPTr to SDL_PixelFormat</param>
 		/// <param name="flags"></param>
-		/// <returns></returns>
+		/// <returns>
+		/// Returns either a pointer to the new surface, or NULL on error.
+		/// </returns>
+		/// <seealso cref="SDL_CreateRGBSurface">SDL_CreateRGBSurface</seealso>
+		/// <seealso cref="SDL_DisplayFormat">SDL_DisplayFormat</seealso>
+		/// <seealso cref="SDL_PixelFormat">SDL_PixelFormat</seealso>
+		/// <seealso cref="SDL_Surface">SDL_Surface</seealso>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_ConvertSurface(IntPtr src, IntPtr fmt,
 			int flags);
+		#endregion IntPtr SDL_ConvertSurface(IntPtr src, IntPtr fmt, int flags)
 
 		#region int SDL_BlitSurface(IntPtr src, IntPtr srcrect, IntPtr dst, IntPtr dstrect)
 		/// <summary>
 		/// This performs a fast blit from the source surface to the 
-		/// destination
-		/// surface.  It assumes that the source and destination rectangles are
-		/// the same size.  If either 'srcrect' or 'dstrect' are NULL, 
-		/// the entire
-		/// surface (src or dst) is copied.  The final blit rectangles 
-		/// are saved
-		/// in 'srcrect' and 'dstrect' after all clipping is performed.
-		/// If the blit is successful, it returns 0, otherwise it returns -1.
-		///
-		/// The blit function should not be called on a locked surface.
-		///
-		/// The blit semantics for surfaces with and without alpha and 
-		/// colorkey
-		/// are defined as follows:
-		///
-		/// RGBA->RGB:
-		///     SDL_SRCALPHA set:
-		/// 	alpha-blend (using alpha-channel).
-		/// 	SDL_SRCCOLORKEY ignored.
-		///     SDL_SRCALPHA not set:
-		/// 	copy RGB.
-		/// 	if SDL_SRCCOLORKEY set, only copy the pixels matching the
-		/// 	RGB values of the source colour key, ignoring alpha in the
-		/// 	comparison.
-		/// 
-		/// RGB->RGBA:
-		///     SDL_SRCALPHA set:
-		/// 	alpha-blend (using the source per-surface alpha value);
-		/// 	set destination alpha to opaque.
-		///     SDL_SRCALPHA not set:
-		/// 	copy RGB, set destination alpha to source per-surface alpha 
-		/// 	value.
-		///     both:
-		/// 	if SDL_SRCCOLORKEY set, only copy the pixels matching the
-		/// 	source colour key.
-		/// 
-		/// RGBA->RGBA:
-		///     SDL_SRCALPHA set:
-		/// 	alpha-blend (using the source alpha channel) the RGB values;
-		/// 	leave destination alpha untouched. [Note: is this correct?]
-		/// 	SDL_SRCCOLORKEY ignored.
-		///     SDL_SRCALPHA not set:
-		/// 	copy all of RGBA to the destination.
-		/// 	if SDL_SRCCOLORKEY set, only copy the pixels matching the
-		/// 	RGB values of the source colour key, ignoring alpha in the
-		/// 	comparison.
-		/// 
-		/// RGB->RGB: 
-		///     SDL_SRCALPHA set:
-		/// 	alpha-blend (using the source per-surface alpha value).
-		///     SDL_SRCALPHA not set:
-		/// 	copy RGB.
-		///     both:
-		/// 	if SDL_SRCCOLORKEY set, only copy the pixels matching the
-		/// 	source colour key.
-		///
-		/// If either of the surfaces were in video memory, and the blit 
-		/// returns -2,
-		/// the video memory was lost, so it should be reloaded with 
-		/// artwork and 
-		/// re-blitted:
-		/// while ( SDL_BlitSurface(image, imgrect, screen, dstrect) == -2 ) 
-		/// {
-		///	while ( SDL_LockSurface(image) 0 )
-		///	Sleep(10);
-		///	-- Write image pixels to image-pixels --
-		///	SDL_UnlockSurface(image);
-		/// }
-		/// This happens under DirectX 5.0 when the system switches away 
-		/// from your
-		/// fullscreen application.  The lock will also fail until you 
-		/// have access
-		/// to the video memory again.
+		/// destination surface.
 		/// </summary>
-		/// <param name="src"></param>
-		/// <param name="srcrect"></param>
-		/// <param name="dst"></param>
-		/// <param name="dstrect"></param>
-		/// <returns></returns>	
+		/// <remarks>
+		/// This performs a fast blit from the source surface 
+		/// to the destination surface.
+		/// <p>The width and height in srcrect determine the 
+		/// size of the copied rectangle. Only the position is used 
+		/// in the dstrect (the width and height are ignored).</p>
+		/// <p>If srcrect is NULL, the entire surface is copied. 
+		/// If dstrect is NULL, then the destination position 
+		/// (upper left corner) is (0, 0).</p>
+		/// <p>The final blit rectangle is saved in dstrect after all 
+		/// clipping is performed (srcrect is not modified).</p>
+		/// <p>The blit function should not be called on a locked surface.</p>
+		/// <p> The results of blitting operations vary greatly depending 
+		/// on whether SDL_SRCAPLHA is set or not. See SDL_SetAlpha for an
+		///  explaination of how this affects your results. Colorkeying and 
+		///  alpha attributes also interact with surface blitting, as the
+		///  following pseudo-code should hopefully explain. </p>
+		/// <code>if (source surface has SDL_SRCALPHA set) 
+		///	{
+		///		if (source surface has alpha channel (that is, format->Amask != 0))
+		///		blit using per-pixel alpha, ignoring any colour key
+		///		else {
+		///		if (source surface has SDL_SRCCOLORKEY set)
+		///			blit using the colour key AND the per-surface alpha value
+		///		else
+		///			blit using the per-surface alpha value
+		///		}
+		///} 
+		///else 
+		///{
+		///if (source surface has SDL_SRCCOLORKEY set)
+		///blit using the colour key
+		///else
+		///ordinary opaque rectangular blit
+		///}</code>
+		///<p>Binds to C-function call in SDL_video.h:
+		///<code>int SDL_BlitSurface(SDL_Surface *src, SDL_Rect *srcrect, SDL_Surface *dst, SDL_Rect *dstrect);
+		///</code></p>
+		/// </remarks>
+		/// <param name="src">IntPtr to SDL_Surface</param>
+		/// <param name="srcrect">IntPtr to SDL_Rect</param>
+		/// <param name="dst">IntPtr to SDL_Surface</param>
+		/// <param name="dstrect">IntPtr to SDL_Rect</param>
+		/// <returns>If the blit is successful, it returns 0, otherwise it 
+		/// returns -1.
+		/// <p>If either of the surfaces were in video memory, 
+		/// and the blit returns -2, the video memory was lost, 
+		/// so it should be reloaded with artwork and re-blitted: </p>
+		///
+		/// <code>while ( SDL_BlitSurface(image, imgrect, screen, dstrect) == -2 ) 
+		///	{
+		///		while ( SDL_LockSurface(image)) &lt; 0 )
+		///		SDL_Delay(10);
+		///		-- Write image pixels to image-&gt;pixels --
+		///		SDL_UnlockSurface(image);
+		///	}
+		///	</code>
+		/// <p>This happens under DirectX 5.0 when the system switches away from your 
+		/// fullscreen application. Locking the surface will also fail until you 
+		/// have access to the video memory again.</p>	
+		/// </returns>	
+		/// <seealso cref="SDL_LockSurface"/>
+		/// <seealso cref="SDL_FillRect"/>
+		/// <seealso cref="SDL_Surface"/>
+		/// <seealso cref="SDL_Rect"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, 
 			 EntryPoint="SDL_UpperBlit"), SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_BlitSurface(IntPtr src, ref SDL_Rect srcrect,
 			IntPtr dst, ref SDL_Rect dstrect);
 		#endregion int SDL_BlitSurface(IntPtr src, IntPtr srcrect, IntPtr dst, IntPtr dstrect)
 
-		//semi-private -- should not be used and will not be implemented.
-//		extern DECLSPEC int SDLCALL SDL_UpperBlit
-//										(SDL_Surface *src, SDL_Rect *srcrect,
-//										SDL_Surface *dst, SDL_Rect *dstrect);
-//		/* This is a semi-private blit function and it performs low-level surface
-//		   blitting only.
-//		*/
-//		extern DECLSPEC int SDLCALL SDL_LowerBlit
-//										(SDL_Surface *src, SDL_Rect *srcrect,
-//										SDL_Surface *dst, SDL_Rect *dstrect);
+		//	semi-private --	should not be used and will	not	be implemented.
+		//	extern DECLSPEC	int	SDLCALL	SDL_UpperBlit
+		//										(SDL_Surface *src, SDL_Rect	*srcrect,
+		//										SDL_Surface	*dst, SDL_Rect *dstrect);
+		//	extern DECLSPEC	int	SDLCALL	SDL_LowerBlit
+		//										(SDL_Surface *src, SDL_Rect	*srcrect,
+		//										SDL_Surface	*dst, SDL_Rect *dstrect);
 
 		#region int SDL_FillRect(IntPtr surface, ref SDL_Rect rect, int color)
 		/// <summary>
-		/// This function performs a fast fill of the given rectangle with 
-		/// 'color'
-		/// The given rectangle is clipped to the destination surface clip area
-		/// and the final fill rectangle is saved in the passed in pointer.
-		/// If 'dstrect' is NULL, the whole surface will be filled with 'color'
-		/// The color should be a pixel of the format used by the surface, and 
-		/// can be generated by the SDL_MapRGB() function.
-		/// This function returns 0 on success, or -1 on error.
+		/// This function performs a fast fill of the given rectangle with some color.
 		/// </summary>
-		/// <param name="surface"></param>
-		/// <param name="rect"></param>
+		/// <remarks>
+		/// This function performs a fast fill of the given rectangle with color. 
+		/// If dstrect is NULL, the whole surface will be filled with color.
+		/// <p>The color should be a pixel of the format used by the surface,
+		///  and can be generated by the <see cref="SDL_MapRGB"/> or 
+		///  <see cref="SDL_MapRGBA"/> functions.
+		///   If the color value contains an alpha value then the destination
+		///    is simply "filled" with that alpha information, no blending 
+		///    takes place.</p>
+		/// <p>If there is a clip rectangle set on the destination (set via
+		///  <see cref="SDL_SetClipRect"/>) then this function will clip based on the 
+		///  intersection of the clip rectangle and the dstrect rectangle 
+		///  and the dstrect rectangle will be modified to represent the 
+		///  area actually filled.</p>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>
+		/// int SDL_FillRect(SDL_Surface *dst, SDL_Rect *dstrect, Uint32 color);
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="surface">IntPtr to SDL_Surface</param>
+		/// <param name="rect">IntPtr to SDL_Rect</param>
 		/// <param name="color"></param>
-		/// <returns></returns>
+		/// <returns>
+		/// This function returns 0 on success, or -1 on error.
+		/// </returns>
+		/// <seealso cref="SDL_MapRGB"/>
+		/// <seealso cref="SDL_MapRGBA"/>
+		/// <seealso cref="SDL_BlitSurface"/>
+		/// <seealso cref="SDL_Rect"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_FillRect(IntPtr surface, ref SDL_Rect rect,
 			int color);
 		#endregion int SDL_FillRect(IntPtr surface, ref SDL_Rect rect, int color)
 
+		#region IntPtr SDL_DisplayFormat(IntPtr surface)
 		/// <summary>
-		/// This function takes a surface and copies it to a new surface of the
-		/// pixel format and colors of the video framebuffer, suitable for fast
-		/// blitting onto the display surface.  It calls SDL_ConvertSurface()
-		///
-		/// If you want to take advantage of hardware colorkey or alpha blit
-		/// acceleration, you should set the colorkey and alpha value before
-		/// calling this function.
-		///
-		/// If the conversion fails or runs out of memory, it returns NULL
+		/// Convert a surface to the display format.
 		/// </summary>
-		/// <param name="surface"></param>
-		/// <returns></returns>
+		/// <remarks>
+		/// This function takes a surface and copies it to a new surface of the 
+		/// pixel format and colors of the video framebuffer, suitable for fast
+		///  blitting onto the display surface. It calls 
+		///  <see cref="SDL_ConvertSurface"/>.
+		/// <p>If you want to take advantage of hardware colorkey or alpha blit
+		///  acceleration, you should set the colorkey and alpha value before 
+		///  calling this function.</p>
+		/// <p>If you want an alpha channel, see 
+		/// <see cref="SDL_DisplayFormatAlpha"/>.</p>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>SDL_Surface *SDL_DisplayFormat(SDL_Surface *surface)
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="surface">IntPtr to SDL_Surface</param>
+		/// <returns>IntPtr to SDL_Surface. 
+		/// If the conversion fails or runs out of memory, 
+		/// it returns NULL</returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_DisplayFormat(IntPtr surface);
+		#endregion IntPtr SDL_DisplayFormat(IntPtr surface)
 
 		/// <summary>
 		/// This function takes a surface and copies it to a new surface of the
@@ -5800,13 +6033,48 @@ namespace Tao.Sdl {
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_GL_GetProcAddress(string proc);
+
+//		 Swap the OpenGL buffers, if double-buffering is supported.
+//		 
+		//		extern DECLSPEC void SDLCALL SDL_GL_SwapBuffers(void);
+		/// <summary>
+		/// Swap the OpenGL buffers, if double-buffering is supported.
+		/// </summary>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_GL_SwapBuffers();
+
+		/// <summary>
+		/// Set an attribute of the OpenGL subsystem before intialization.
+		/// int SDLCALL SDL_GL_SetAttribute(SDL_GLattr attr, int value)
+		/// </summary>
+		/// <param name="attr"></param>
+		/// <param name="val"></param>
+		/// <returns></returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_GL_SetAttribute(SDL_GLattr attr, 
+			int val);
 		
-//
-//		/*
-//		 * Swap the OpenGL buffers, if double-buffering is supported.
-//		 */
-//		extern DECLSPEC void SDLCALL SDL_GL_SwapBuffers(void);
-//
+		/// <summary>
+		/// Get an attribute of the OpenGL subsystem from the windowing
+		/// interface, such as glX. This is of course different from getting
+		/// the values from SDL's internal OpenGL subsystem, which only
+		/// stores the values you request before initialization.
+		///
+		/// Developers should track the values they pass into
+		///  SDL_GL_SetAttribute
+		/// themselves if they want to retrieve these values.
+		/// extern DECLSPEC int SDLCALL SDL_GL_GetAttribute(SDL_GLattr attr, int* value);
+		/// </summary>
+		/// <param name="attr"></param>
+		/// <param name="val"></param>
+		/// <returns></returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_GL_GetAttribute(SDL_GLattr attr, 
+			out int val);
+
 //		/*
 //		 * Internal functions that should not be called unless you have read
 //		 * and understood the source code for these functions.
@@ -6146,27 +6414,6 @@ namespace Tao.Sdl {
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_WarpMouse(short x, short y);
-
-		// RWops
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="file"></param>
-		/// <param name="mode"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern IntPtr SDL_RWFromFile(String file, String mode);
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="mem"></param>
-		/// <param name="size"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern IntPtr SDL_RWFromMem(Byte[] mem, int size);
 		
 		//Events
 
@@ -6417,44 +6664,7 @@ namespace Tao.Sdl {
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_JoystickClose(IntPtr joystick);
 		
-		// OpenGL
-		/// <summary>
-		/// Swap the OpenGL buffers, if double-buffering is supported.
-		/// </summary>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_GL_SwapBuffers();
-
-		/// <summary>
-		/// Set an attribute of the OpenGL subsystem before intialization.
-		/// int SDLCALL SDL_GL_SetAttribute(SDL_GLattr attr, int value)
-		/// </summary>
-		/// <param name="attr"></param>
-		/// <param name="value"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_GL_SetAttribute(SDL_GLattr attr, 
-			int value);
 		
-		/// <summary>
-		/// Get an attribute of the OpenGL subsystem from the windowing
-		/// interface, such as glX. This is of course different from getting
-		/// the values from SDL's internal OpenGL subsystem, which only
-		/// stores the values you request before initialization.
-		///
-		/// Developers should track the values they pass into
-		///  SDL_GL_SetAttribute
-		/// themselves if they want to retrieve these values.
-		/// extern DECLSPEC int SDLCALL SDL_GL_GetAttribute(SDL_GLattr attr, int* value);
-		/// </summary>
-		/// <param name="attr"></param>
-		/// <param name="val"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_GL_GetAttribute(SDL_GLattr attr, 
-			out int val);
 		
  
 		// CD-Rom

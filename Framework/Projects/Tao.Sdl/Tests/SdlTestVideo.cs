@@ -458,6 +458,83 @@ namespace Tao.Sdl
 			Assert.AreEqual(result, (int)Sdl.SDL_GrabMode.SDL_GRAB_OFF);
 			Sdl.SDL_FreeSurface(ref surfacePtr);
 		}
-		#endregion SDL_video.h
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void CreateRGBSurfaceFrom()
+		{
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void LockUnlockSurface()
+		{
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void LoadBMPSaveBMPBlit()
+		{
+			IntPtr surfacePtr = VideoSetup();
+			Assert.IsNotNull(surfacePtr);
+			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(10,10,400,400);
+			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(10,10,400,400);
+			IntPtr bmpImagePtr = Sdl.SDL_LoadBMP("TaoButton.bmp");
+			Assert.IsNotNull(bmpImagePtr);
+			Assert.IsFalse(bmpImagePtr==IntPtr.Zero);
+			int result = Sdl.SDL_BlitSurface(bmpImagePtr, ref rect1, surfacePtr, ref rect2);
+			Assert.AreEqual(result, 0);
+			Sdl.SDL_UpdateRect(surfacePtr, 10,10,400,400);
+			Thread.Sleep(sleepTime);
+			result = Sdl.SDL_SaveBMP(surfacePtr, "TaoButtonScreen.bmp");
+			Assert.AreEqual(result, 0);
+			Sdl.SDL_FreeSurface(ref surfacePtr);
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void SetColorKey()
+		{
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void SetAlpha()
+		{
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void SetClipRect()
+		{
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void ConvertSurface()
+		{
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void DisplayFormat()
+		{
+		}
 	}
+	#endregion SDL_video.h
 }
