@@ -138,12 +138,12 @@ typedef dReal dQuaternion[4];
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="dBodyGetPosition"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern IntPtr __dBodyGetPosition(IntPtr body);
 
-        public static float[] dBodyGetPosition(IntPtr body) {
-            float[] positionArray = new float[3];
+        public static real[] dBodyGetPosition(IntPtr body) {
+            real[] positionArray = new real[3];
 
             unsafe {
                 IntPtr position = __dBodyGetPosition(body);
-                float* positionPointer = (float*) position.ToPointer();
+                real* positionPointer = (real*) position.ToPointer();
 
                 for(int i = 0; i < positionArray.Length; i++) {
                     positionArray[i] = positionPointer[i];
@@ -157,12 +157,12 @@ typedef dReal dQuaternion[4];
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="dBodyGetLinearVel"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern IntPtr __dBodyGetLinearVel(IntPtr body);
 
-        public static float[] dBodyGetLinearVel(IntPtr body) {
-            float[] velocityArray = new float[3];
+        public static real[] dBodyGetLinearVel(IntPtr body) {
+            real[] velocityArray = new real[3];
 
             unsafe {
                 IntPtr velocity = __dBodyGetLinearVel(body);
-                float* velocityPointer = (float*) velocity.ToPointer();
+                real* velocityPointer = (real*) velocity.ToPointer();
 
                 for(int i = 0; i < velocityArray.Length; i++) {
                     velocityArray[i] = velocityPointer[i];
@@ -175,5 +175,21 @@ typedef dReal dQuaternion[4];
         // void dWorldStep (dWorldID, dReal stepsize);
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void dWorldStep(IntPtr world, real stepsize);
+
+        // void dWorldSetCFM (dWorldID, dReal cfm);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void dWorldSetCFM(IntPtr world, real crm);
+
+        // dGeomID dCreateBox (dSpaceID space, dReal lx, dReal ly, dReal lz);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr dCreateBox(IntPtr space, real x, real y, real z);
+
+        // void dGeomSetBody (dGeomID, dBodyID);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomSetBody(IntPtr geom, IntPtr body);
+
+        // void dJointGroupEmpty (dJointGroupID);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void dJointGroupEmpty(IntPtr jointGroup);
     }
 }
