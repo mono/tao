@@ -1,5 +1,5 @@
 BSD License
-Copyright ©2004 Matthew Holmes
+Copyright ©2004-2005 Matthew Holmes, Dan Moorehead
 http://dnpb.sourceforge.net
 All rights reserved.
 
