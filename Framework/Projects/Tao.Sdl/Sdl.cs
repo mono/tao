@@ -42,6 +42,20 @@ namespace Tao.Sdl {
 	public sealed class Sdl {
 		// --- Fields ---
 		#region Private Constants
+		#region string SDL_NATIVE_LIBRARY
+		/// <summary>
+		///     Specifies SDL's native library archive.
+		/// </summary>
+		/// <remarks>
+		///     Specifies SDL.dll for Windows and libSDL.so for Linux.
+		/// </remarks>
+#if WIN32
+        private const string SDL_NATIVE_LIBRARY = "SDL.dll";
+#elif LINUX
+		private const string SDL_NATIVE_LIBRARY = "libSDL.so";
+#endif
+		#endregion string SDL_NATIVE_LIBRARY
+
 		#region CallingConvention CALLING_CONVENTION
 		/// <summary>
 		///     Specifies the calling convention.
@@ -56,7 +70,7 @@ namespace Tao.Sdl {
 		#endregion Private Constants
 
 		#region Public Constants
-		// SDL
+		#region SDL.h
 		#region SDL_INIT_TIMER
 		/// <summary>
 		///     The timer subsystem.
@@ -123,18 +137,57 @@ namespace Tao.Sdl {
 		// #define SDL_INIT_EVERYTHING 0x0000FFFF
 		public const int SDL_INIT_EVERYTHING = 0x0000FFFF;
 		#endregion SDL_INIT_EVERYTHING
+		#endregion SDL.h
 
-		// SDL_main -- none
+		#region SDL_active.h
+		/// <summary>
+		/// The app has mouse coverage
+		/// </summary>
+		/// <remarks>
+		/// The available application states
+		/// </remarks>
+		public const Byte SDL_APPMOUSEFOCUS = 0x01;
 
-		// SDL_types -- none
+		/// <summary>
+		/// The app has input focus
+		/// </summary>
+		/// <remarks>
+		/// The available application states
+		/// </remarks>
+		public const Byte SDL_APPINPUTFOCUS = 0x02;
 
-		// SDL_getenv -- none
+		/// <summary>
+		/// The application is active
+		/// </summary>
+		/// <remarks>
+		/// The available application states
+		/// </remarks>
+		public const Byte SDL_APPACTIVE = 0x04;
+		#endregion SDL_active.h
 
-		// SDL_error -- none
+		#region SDL_byteorder.h
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_LIL_ENDIAN = 1234;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_BIG_ENDIAN = 4321;
+		#endregion SDL_byteorder.h
+		
+		// SDL_copying.h -- none
+		// SDL_cpuinfo.h -- none
+		// SDL_error.h -- none
+		// SDL_getenv.h -- none
+		// SDL_main.h -- none
+		// SDL_name.h -- none
+		// SDL_quit.h -- none
 
 		// TODO: SDL_rwops -- skipped for now, might be useful.
 
-		// SDL_timer
+		#region SDL_timer.h
 		#region SDL_TIMESLICE
 		/// <summary>
 		///     The OS scheduler timeslice, in milliseconds.
@@ -151,6 +204,11 @@ namespace Tao.Sdl {
 		/// </remarks>
 		public const int TIMER_RESOLUTION = 10;
 		#endregion TIMER_RESOLUTION
+		#endregion SDL_timer.h
+
+		// SDL_types -- none
+
+		#region NOT_DONE
 
 		/// <summary>
 		/// Surface is in system memory
@@ -197,30 +255,6 @@ namespace Tao.Sdl {
 		/// Blit uses source alpha blending
 		/// </summary>
 		public const int SDL_SRCALPHA = 0x00010000;
-
-		/// <summary>
-		/// The app has mouse coverage
-		/// </summary>
-		/// <remarks>
-		/// The available application states
-		/// </remarks>
-		public const Byte SDL_APPMOUSEFOCUS = 0x01;
-
-		/// <summary>
-		/// The app has input focus
-		/// </summary>
-		/// <remarks>
-		/// The available application states
-		/// </remarks>
-		public const Byte SDL_APPINPUTFOCUS = 0x02;
-
-		/// <summary>
-		/// The application is active
-		/// </summary>
-		/// <remarks>
-		/// The available application states
-		/// </remarks>
-		public const Byte SDL_APPACTIVE = 0x04;
 
 		/// <summary>
 		/// Unsigned 8-bit samples
@@ -593,16 +627,6 @@ namespace Tao.Sdl {
 		public const int SDL_ENABLE = 1;
 
 		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_LIL_ENDIAN = 1234;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_BIG_ENDIAN = 4321;
-
-		/// <summary>
 		/// Full audio volume
 		/// </summary>
 		public const int SDL_MIX_MAXVOLUME = 128;
@@ -719,14 +743,48 @@ namespace Tao.Sdl {
 		/// It is the number of bits in the event mask datatype -- Uint32
 		/// </summary>
 		public const int SDL_NUMEVENTS = 32;
+		#endregion NOT_DONE
 		
 		#endregion Public Constants
 
 		#region Public Enums
+		// SDL.h -- none
+		// SDL_active.h -- none
+		// SDL_byteorder.h -- none
+		// SDL_copying.h -- none
+		// SDL_cpuinfo.h -- none
+		// SDL_error.h -- none
+		// SDL_getenv.h -- none
+		// SDL_main.h -- none
+		// SDL_name.h -- none
+		// SDL_quit.h -- none
+		// SDL_timer.h -- none
+
+		#region SDL_types.h
+		#region SDL_bool
+		/// <summary>
+		///     
+		/// </summary>
+		public enum SDL_bool 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			SDL_FALSE = 0,
+			/// <summary>
+			/// 
+			/// </summary>
+			SDL_TRUE  = 1
+		}
+		#endregion SDL_bool
+		#endregion SDL_types.h
+
+		#region NOT_DONE
 		/// <summary>
 		/// The possible states which a CD-ROM drive can be in.
 		/// </summary>
-		public enum CDStatus {
+		public enum CDStatus 
+		{
 			/// <summary>
 			/// The CD tray is empty.
 			/// </summary>
@@ -1907,14 +1965,47 @@ namespace Tao.Sdl {
 			/// </summary>
 			SDL_GETEVENT
 		}
-
+		#endregion NOT_DONE
 		#endregion Public Enums
 
 		#region Public Structs
-		// structs
+		// SDL.h -- none
+		// SDL_active.h -- none
+		// SDL_byteorder.h -- none
+		// SDL_copying.h -- none
+		// SDL_cpuinfo.h -- none
+		// SDL_error.h -- none
+		// SDL_getenv.h -- none
+		// SDL_main.h -- none
+		// SDL_name.h -- none
+		// SDL_quit.h -- none
+		
+		#region SDL_timer.h
+		#region SDL_TimerID
+		//typedef struct _SDL_TimerID *SDL_TimerID;
+		//TODO: write test
 		/// <summary>
-		/// 
+		///     
 		/// </summary>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_TimerID 
+		{
+		}
+		#endregion SDL_TimerID
+		#endregion SDL_timer.h
+
+		#region SDL_video.h
+		/// <summary>
+		/// Format independent color description
+		/// </summary>
+		/// <remarks>
+		/// SDL_Color describes a color in a format independent way. 
+		/// You can convert a SDL_Color to a pixel value for a certain 
+		/// pixel format using <see cref="SDL_MapRGB"/>.
+		/// </remarks>
+		/// <seealso cref="SDL_PixelFormat" />
+		/// <seealso cref="SDL_SetColors" />
+		/// <seealso cref="SDL_Palette" />
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
 			public struct SDL_Color {
 			/// <summary>
@@ -1970,7 +2061,7 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// 
 			/// </summary>
-			public SDL_Color colors;
+			public SDL_Color[] colors;
 		}
 		/// <summary>
 		/// 
@@ -2109,6 +2200,9 @@ namespace Tao.Sdl {
 			/// </summary>
 			public int refcount;
 		}
+		#endregion SDL_video.h
+
+		#region NOT_DONE
 		/// <summary>
 		/// - The scancode is hardware dependent, 
 		/// and should not be used by general
@@ -2246,7 +2340,8 @@ namespace Tao.Sdl {
 			/// </summary>
 			public Byte state;
 		}
-		
+	
+
 		/// <summary>
 		/// Keyboard event structure
 		/// </summary>
@@ -2608,6 +2703,8 @@ namespace Tao.Sdl {
 			/// </summary>
 			public IntPtr msg;
 		}
+
+		#region SDL_version.h
 		/// <summary>
 		/// Structure to hold version number of the SDL library
 		/// </summary>
@@ -2627,6 +2724,7 @@ namespace Tao.Sdl {
 			public Byte patch;
 
 		}
+		#endregion SDL_version.h
 
 		/// <summary>
 		/// Useful for determining the video hardware capabilities
@@ -2832,6 +2930,7 @@ namespace Tao.Sdl {
 			/// </summary>
 			public int filter_index;
 		}
+		#endregion NOT_DONE
 		#endregion Public Structs
 
 		#region Private Static Fields
@@ -2855,21 +2954,11 @@ namespace Tao.Sdl {
 		private Sdl() 
 		{
 		}
-
-		/// <summary>
-		/// Static Sdl constructor. All the functionality of 
-		/// the SDL library is available through this class 
-		/// and its properties.
-		/// Explicit static constructor tells the C# compiler
-		/// not to mark type as beforefieldinit.
-		/// </summary>
-		static Sdl() 
-		{
-		}
 		#endregion Sdl()
 
 		// --- Public Delegates ---
-		// SDL_timer
+		#region Public Delegates
+		#region SDL_timer.h
 		#region int SDL_TimerCallback(int interval)
 		/// <summary>
 		///     Prototype for the timer callback.
@@ -2880,19 +2969,51 @@ namespace Tao.Sdl {
 		/// <returns>
 		///     The next timer interval.
 		/// </returns>
+		/// <remarks>
+		/// <p>
+		///     Binds to C callback in SDL_timer.h:
+		///     <code>typedef Uint32 (SDLCALL *SDL_TimerCallback)(Uint32 interval, void *param)</code>
+		///     </p>
+		/// </remarks>
 		/// <seealso cref="SDL_SetTimer" />
-		// typedef Uint32 (SDLCALL *SDL_TimerCallback)(Uint32 interval);
 		public delegate int SDL_TimerCallback(int interval);
 		#endregion int SDL_TimerCallback(int interval)
 
+		#region int SDL_NewTimerCallback(int interval)
 		// TODO: Goddamn void* double whammy since it's a delegate
 		/// <summary>
-		///
+		///     Prototype for the new timer callback.
 		/// </summary>
+		/// <param name="interval">
+		///     The current timer interval.
+		/// </param>
+		/// <returns>
+		///     The next timer interval.
+		/// </returns>
+		/// <remarks>
+		/// <para>
+		/// The callback function is passed the current timer interval 
+		/// and returns the next timer interval.  If the returned 
+		/// value is the same as the one passed in, the periodic alarm
+		///  continues, otherwise a new alarm is scheduled.  
+		///  If the callback returns 0, the periodic alarm is cancelled.
+		/// </para>
+		/// <p>
+		///     Binds to C callback in SDL_timer.h:
+		///     <code>typedef Uint32 (SDLCALL *SDL_NewTimerCallback)(Uint32 interval, void *param)</code>
+		///     </p>
+		/// </remarks>
+		/// <seealso cref="SDL_AddTimer" />
+		/// <seealso cref="SDL_RemoveTimer" />
 		public delegate int SDL_NewTimerCallback(int interval);
+		#endregion int SDL_NewTimerCallback(int interval)
+		#endregion SDL_timer.h
+		#endregion Public Delegates
 
 		// --- Public Externs ---
-		// SDL
+		#region Sdl Methods
+
+		#region SDL.h
 		#region int SDL_Init(int flags)
 		/// <summary>
 		///     Initializes SDL and the specified subsystems.
@@ -2951,11 +3072,14 @@ namespace Tao.Sdl {
 		///         cleanup signal handlers for some commonly ignored fatal signals (like
 		///         SIGSEGV).
 		///     </para>
+		///     <p>
+		///			Binds to C-function call in SDL.h:
+		///     <code>extern DECLSPEC int SDLCALL SDL_Init(Uint32 flags)</code>
+		///     </p>
 		/// </remarks>
 		/// <seealso cref="SDL_InitSubSystem" />
 		/// <seealso cref="SDL_Quit" />
-		// extern DECLSPEC int SDLCALL SDL_Init(Uint32 flags);
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_Init(int flags);
 		#endregion int SDL_Init(int flags)
 
@@ -3014,12 +3138,16 @@ namespace Tao.Sdl {
 		/// <remarks>
 		///     After SDL has been initialized with <see cref="SDL_Init" /> you may initialize
 		///     any uninitialized subsystems with <b>SDL_InitSubSystem</b>.
+		///      <p>
+		///     Binds to C-function call in SDL.h:
+		///     <code>extern DECLSPEC int SDLCALL SDL_InitSubSystem(Uint32 flags)</code>
+		///     </p>
 		/// </remarks>
 		/// <seealso cref="SDL_Init" />
 		/// <seealso cref="SDL_Quit" />
 		/// <seealso cref="SDL_QuitSubSystem" />
-		// extern DECLSPEC int SDLCALL SDL_InitSubSystem(Uint32 flags);
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		/// 
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_InitSubSystem(int flags);
 		#endregion int SDL_InitSubSystem(int flags)
 
@@ -3076,12 +3204,15 @@ namespace Tao.Sdl {
 		///     <b>SDL_QuitSubSystem</b> allows you to shut down a subsystem that has been
 		///     previously initialized by <see cref="SDL_Init" /> or
 		///     <see cref="SDL_InitSubSystem" />.
+		///     <p>
+		///     Binds to C-function call in SDL.h:
+		///     <code>extern DECLSPEC void SDLCALL SDL_QuitSubSystem(Uint32 flags)</code>
+		///     </p>
 		/// </remarks>
 		/// <seealso cref="SDL_Init" />
 		/// <seealso cref="SDL_InitSubSystem" />
 		/// <seealso cref="SDL_Quit" />
-		// extern DECLSPEC void SDLCALL SDL_QuitSubSystem(Uint32 flags);
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_QuitSubSystem(int flags);
 		#endregion SDL_QuitSubSystem(int flags)
 
@@ -3139,11 +3270,14 @@ namespace Tao.Sdl {
 		/// </returns>
 		/// <remarks>
 		///     <b>SDL_WasInit</b> allows you to see which SDL subsytems have been initialized.
+		///     <p>
+		///     Binds to C-function call in SDL.h:
+		///     <code>extern DECLSPEC Uint32 SDLCALL SDL_WasInit(Uint32 flags)</code>
+		///     </p>
 		/// </remarks>
 		/// <seealso cref="SDL_Init" />
 		/// <seealso cref="SDL_InitSubSystem" />
-		// extern DECLSPEC Uint32 SDLCALL SDL_WasInit(Uint32 flags);
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_WasInit(int flags);
 		#endregion int SDL_WasInit(int flags)
 
@@ -3154,19 +3288,211 @@ namespace Tao.Sdl {
 		/// <remarks>
 		///     <b>SDL_Quit</b> shuts down all SDL subsystems and frees the resources allocated
 		///     to them.  This should always be called before you exit.
+		///     <p>
+		///     Binds to C-function call in SDL.h:
+		///     <code>extern DECLSPEC void SDLCALL SDL_Quit(void)</code>
+		///     </p>
 		/// </remarks>
 		/// <seealso cref="SDL_Init" />
 		/// <seealso cref="SDL_QuitSubSystem" />
-		// extern DECLSPEC void SDLCALL SDL_Quit(void);
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_Quit();
 		#endregion SDL_Quit()
+		#endregion SDL.h
 
-		// SDL_main -- none
+		#region SDL_active.h
+		#region byte SDL_GetAppState
+		/// <summary>
+		/// This function returns the current state of the application, 
+		/// which is a bitwise combination of SDL_APPMOUSEFOCUS, 
+		/// SDL_APPINPUTFOCUS, and SDL_APPACTIVE.  
+		/// </summary>
+		/// <remarks>
+		/// If SDL_APPACTIVE is set, then the user is able to see 
+		/// your application, 
+		/// otherwise it has been iconified or disabled.
+		/// </remarks>
+		/// <returns></returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern byte SDL_GetAppState();
+		#endregion byte SDL_GetAppState
+		#endregion SDL_active.h
 
-		// SDL_types -- none
+		// SDL_audio.h -- Reorg
 
-		// SDL_getenv
+		#region SDL_byteorder.h
+		#region int SDL_BYTEORDER
+		/// <summary>
+		/// Returns the endianness of the host system. 
+		/// </summary>
+		public static int SDL_BYTEORDER 
+		{
+			get 
+			{
+				if (BitConverter.IsLittleEndian) 
+				{
+					return SDL_LIL_ENDIAN;
+				}
+				else 
+				{
+					return SDL_BIG_ENDIAN;
+				}
+			}
+		}
+		#endregion int SDL_BYTEORDER
+		#endregion SDL_byteorder.h
+
+		// SDL_cdrom.h -- reorg
+
+		// SDL_copying.h -- none
+
+		#region SDL_cpuinfo.h
+		#region SDL_bool SDL_HasRDTSC()
+		/// <summary>
+		///     This function returns true if the CPU has the RDTSC instruction.
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function call in SDL_cpuinfo.h:
+		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_HasRDTSC()</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		public static extern SDL_bool SDL_HasRDTSC();
+		#endregion SDL_bool SDL_HasRDTSC()
+
+		#region SDL_bool SDL_HasMMX()
+		/// <summary>
+		///     This function returns true if the CPU has MMX features.
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function call in SDL_cpuinfo.h:
+		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_HasMMX()</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		public static extern SDL_bool SDL_HasMMX();
+		#endregion SDL_bool SDL_HasMMX()
+
+		#region SDL_bool SDL_HasMMXExt()
+		/// <summary>
+		///     This function returns true if the CPU has MMX Ext. features.
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function call in SDL_cpuinfo.h:
+		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_HasMMXExt()</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		public static extern SDL_bool SDL_HasMMXExt();
+		#endregion SDL_bool SDL_HasMMXExt()
+
+		#region SDL_bool SDL_Has3DNow()
+		/// <summary>
+		///     This function returns true if the CPU has 3DNow features
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function call in SDL_cpuinfo.h:
+		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_SDL_Has3DNow()</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		public static extern SDL_bool SDL_Has3DNow();
+		#endregion SDL_bool SDL_Has3DNow()
+
+		#region SDL_bool SDL_HasSSE()
+		/// <summary>
+		///     This function returns true if the CPU has SSE features
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function call in SDL_cpuinfo.h:
+		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_SDL_HasSSE()</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		public static extern SDL_bool SDL_HasSSE();
+		#endregion SDL_bool SDL_HasSSE()
+
+		#region SDL_bool SDL_HasSSE2()
+		/// <summary>
+		///     This function returns true if the CPU has SSE2 features
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function call in SDL_cpuinfo.h:
+		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_SDL_HasSSE2()</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		public static extern SDL_bool SDL_HasSSE2();
+		#endregion SDL_bool SDL_HasSSE2()
+
+		#region SDL_bool SDL_HasAltiVec()
+		/// <summary>
+		///     This function returns true if the CPU has AltiVec features
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function call in SDL_cpuinfo.h:
+		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_SDL_HasAltiVec()</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		public static extern SDL_bool SDL_HasAltiVec();
+		#endregion SDL_bool SDL_HasAltiVec()
+
+		#endregion SDL_cpuinfo.h
+
+		// SDL_endian.h -- skipped for now, might be useful after SDL_rwops has
+		// been implemented.
+
+		#region SDL_error.h
+		#region SDL_SetError(string message)
+		/// <summary>
+		///     Sets an SDL error string.
+		/// </summary>
+		/// <param name="message">
+		///     The error message to set.
+		/// </param>
+		/// <remarks>
+		/// <p>Binds to C-function call in SDL_error.h:
+		///     <code>extern DECLSPEC void SDLCALL SDL_SetError(const char *fmt, ...)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_SetError(string message);
+		#endregion SDL_SetError(string message)
+
+		#region string SDL_GetError()
+		/// <summary>
+		///     Gets an SDL error string.
+		/// </summary>
+		/// <returns>
+		///     A string containing information about the last internal SDL error.
+		/// </returns>
+		/// <remarks>
+		/// <p>Binds to C-function call in SDL_error.h:
+		///     <code>extern DECLSPEC char * SDLCALL SDL_GetError(void)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		public static extern string SDL_GetError();
+		#endregion string SDL_GetError()
+
+		#region SDL_ClearError()
+		/// <summary>
+		///     Clears the SDL error.
+		/// </summary>
+		/// <remarks>
+		/// <p>
+		/// Binds to C-function call in SDL_error.h:
+		/// <code>extern DECLSPEC void SDLCALL SDL_ClearError(void)</code>
+		/// </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_ClearError();
+		#endregion SDL_ClearError()
+		#endregion SDL_error.h
+
+		#region SDL_getenv.h
 		#region int SDL_putenv(string variable)
 		/// <summary>
 		///     Puts a variable of the form "name=value" into the environment.
@@ -3178,11 +3504,14 @@ namespace Tao.Sdl {
 		///     Returns -1 on an error or 0 on success.
 		/// </returns>
 		/// <remarks>
-		///     Not all environments have a working putenv() 
+		///     Not all environments have a working putenv(). SDL_putenv() is not available on Windows.
+		///     <p>
+		///     Binds to C-function call in SDL_getenv.h:
+		///     <code>extern DECLSPEC int SDLCALL SDL_putenv(const char *variable)</code>
+		///     </p>
 		/// </remarks>
 		/// <seealso cref="SDL_getenv" />
-		// extern DECLSPEC int SDLCALL SDL_putenv(const char *variable);
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_putenv(string variable);
 		#endregion int SDL_putenv(string variable)
 
@@ -3197,51 +3526,24 @@ namespace Tao.Sdl {
 		///     The value of the specified environmental variable.
 		/// </returns>
 		/// <remarks>
-		///     Not all environments have a working getenv() 
+		///     Not all environments have a working getenv(). SDL_getenv() is not available on Windows.
+		///     <p>Binds to C-function call in SDL_getenv.h:
+		///     <code>extern DECLSPEC char * SDLCALL SDL_getenv(const char *name)</code>
+		///     </p>
 		/// </remarks>
 		/// <seealso cref="SDL_putenv" />
-		// extern DECLSPEC char * SDLCALL SDL_getenv(const char *name);
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 		public static extern string SDL_getenv(string name);
 		#endregion string SDL_getenv(string name)
+		#endregion SDL_getenv.h
 
-		// SDL_error
-		#region SDL_SetError(string message)
-		/// <summary>
-		///     Sets an SDL error string.
-		/// </summary>
-		/// <param name="message">
-		///     The error message to set.
-		/// </param>
-		// extern DECLSPEC void SDLCALL SDL_SetError(const char *fmt, ...);
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_SetError(string message);
-		#endregion SDL_SetError(string message)
-
-		#region string SDL_GetError()
-		/// <summary>
-		///     Gets an SDL error string.
-		/// </summary>
-		/// <returns>
-		///     A string containing information about the last internal SDL error.
-		/// </returns>
-		// extern DECLSPEC char * SDLCALL SDL_GetError(void);
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-		public static extern string SDL_GetError();
-		#endregion string SDL_GetError()
-
-		#region SDL_ClearError()
-		/// <summary>
-		///     Clears the SDL error.
-		/// </summary>
-		// extern DECLSPEC void SDLCALL SDL_ClearError(void);
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_ClearError();
-		#endregion SDL_ClearError()
+		// SDL_main.h -- none
+		// SDL_name.h -- none
+		// SDL_quit.h -- none
 
 		// TODO: SDL_rwops -- skipped for now, might be useful
 
-		// SDL_timer
+		#region SDL_timer.h
 		#region int SDL_GetTicks()
 		/// <summary>
 		///     Get the number of milliseconds since the SDL library initialization.
@@ -3251,10 +3553,13 @@ namespace Tao.Sdl {
 		/// </returns>
 		/// <remarks>
 		///     Note that this value wraps if the program runs for more than ~49 days.
+		///     <p>
+		///     Binds to C-function call in SDL_timer.h:
+		///     <code>extern DECLSPEC Uint32 SDLCALL SDL_GetTicks(void)</code>
+		///     </p>
 		/// </remarks>
 		/// <seealso cref="SDL_Delay" />
-		// extern DECLSPEC Uint32 SDLCALL SDL_GetTicks(void);
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_GetTicks();
 		#endregion int SDL_GetTicks()
 
@@ -3268,11 +3573,14 @@ namespace Tao.Sdl {
 		/// <remarks>
 		///     <b>SDL_Delay</b> will wait at least the specified time, but possible longer due
 		///     to OS scheduling.  Count on a delay granularity of at least 10 ms.  Some
-		///     platforms have shorter clock ticks but this is the most common
+		///     platforms have shorter clock ticks but this is the most common.
+		///     <p>
+		///     Binds to C-function call in SDL_timer.h:
+		///     <code>extern DECLSPEC void SDLCALL SDL_Delay(Uint32 ms)</code>
+		///     </p>
 		/// </remarks>
 		/// <seealso cref="SDL_AddTimer" />
-		// extern DECLSPEC void SDLCALL SDL_Delay(Uint32 ms);
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_Delay(int ms);
 		#endregion SDL_Delay(int ms)
 
@@ -3317,32 +3625,77 @@ namespace Tao.Sdl {
 		///         timer functions <see cref="SDL_AddTimer" /> and
 		///         <see cref="SDL_RemoveTimer" /> which support multiple timers.
 		///     </para>
+		///     <p>
+		///     Binds to C-function call in SDL_timer.h:
+		///     <code>extern DECLSPEC int SDLCALL SDL_SetTimer(Uint32 interval, 
+		///     SDL_TimerCallback callback)</code>
+		///     </p>
 		/// </remarks>
 		/// <seealso cref="SDL_AddTimer" />
 		/// <seealso cref="SDL_TimerCallback" />
-		// extern DECLSPEC int SDLCALL SDL_SetTimer(Uint32 interval, SDL_TimerCallback callback);
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_SetTimer(int interval, SDL_TimerCallback callback);
 		#endregion int SDL_SetTimer(int interval, SDL_TimerCallback callback)
-		/// <summary>
-		///     
-		/// </summary>
-		public struct SDL_TimerID {
-		}
+
+		#region SDL_TimerID SDL_AddTimer(int interval, SDL_NewTimerCallback callback)
 		// TODO: Goddamn void* double whammy since it's a delegate
+		// TODO write test
 		// extern DECLSPEC SDL_TimerID SDLCALL SDL_AddTimer(Uint32 interval, SDL_NewTimerCallback callback, void *param);
 		/// <summary>
-		///     
+		///     Add a timer which will call a callback after the 
+		///     specified number of milliseconds has elapsed.
 		/// </summary>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-		public static extern SDL_TimerID SDL_AddTimer(int interval, SDL_NewTimerCallback callback, IntPtr param);
+		/// <param name="callback">
+		/// The callback to run.
+		/// </param>
+		/// <param name="interval">
+		/// The timer interval.
+		/// </param>
+		/// <returns>
+		/// Returns an ID value for the added timer or NULL if 
+		/// there was an error.
+		/// </returns>
+		/// <remarks>
+		/// <para>
+		/// Adds a callback function to be run after the specified number of 
+		/// milliseconds has elapsed. The callback function is passed the current 
+		/// timer interval and the user supplied parameter from the SDL_AddTimer 
+		/// call and returns the next timer interval. If the returned value from 
+		/// the callback is the same as the one passed in, the periodic alarm 
+		/// continues, otherwise a new alarm is scheduled.
+		/// </para>
+		/// <para>
+		/// To cancel a currently running timer call <see cref="SDL_RemoveTimer" /> 
+		/// with the timer ID returned from SDL_AddTimer.
+		/// </para>
+		/// <para>
+		/// The timer callback function may run in a different thread than your main 
+		/// program, and so shouldn't call any functions from within itself.
+		/// You may always call SDL_PushEvent, however.
+		/// </para>
+		/// <para>
+		/// The granularity of the timer is platform-dependent, 
+		/// but you should count on it being at least 10 ms as this is the 
+		/// most common number. This means that if you request a 16 ms timer,
+		///  your callback will run approximately 20 ms later on an unloaded 
+		///  system. If you wanted to set a flag signaling a frame update at 
+		///  30 frames per second (every 33 ms), you might set a timer for 
+		///  30 ms (see example below). If you use this function, you need 
+		///  to pass <see cref="SDL_INIT_TIMER" /> to <see cref="SDL_Init" />.
+		/// </para>
+		/// <p>
+		///     Binds to C-function call in SDL_timer.h:
+		///     <code>extern DECLSPEC SDL_TimerID SDLCALL 
+		///     SDL_AddTimer(Uint32 interval, 
+		///     SDL_NewTimerCallback callback, void *param)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		public static extern SDL_TimerID SDL_AddTimer(int interval, SDL_NewTimerCallback callback);
+		#endregion SDL_TimerID SDL_AddTimer(int interval, SDL_NewTimerCallback callback)
 
-		/// <summary>
-		///     
-		/// </summary>
-		public struct SDL_bool {
-		}
 		#region SDL_bool SDL_RemoveTimer(SDL_TimerID t)
+		//TODO Write Test
 		/// <summary>
 		///     Remove a timer which was added with <see cref="SDL_AddTimer" />.
 		/// </summary>
@@ -3352,14 +3705,24 @@ namespace Tao.Sdl {
 		/// <returns>
 		///     A boolean value indicating success.
 		/// </returns>
+		/// <remarks>
+		/// <p>
+		///     Binds to C-function call in SDL_timer.h:
+		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_RemoveTimer(SDL_TimerID t)</code>
+		///     </p>
+		/// </remarks>
 		/// <seealso cref="SDL_AddTimer" />
-		// extern DECLSPEC SDL_bool SDLCALL SDL_RemoveTimer(SDL_TimerID t);
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+		// 
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 		public static extern SDL_bool SDL_RemoveTimer(SDL_TimerID t);
 		#endregion SDL_bool SDL_RemoveTimer(SDL_TimerID t)
+		#endregion SDL_timer.h
 
+		// SDL_types -- none
+
+		#region SDL_video.h
 		// extern DECLSPEC SDL_Rect ** SDLCALL SDL_ListModes(SDL_PixelFormat *format, Uint32 flags); 
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, 
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, 
 			 EntryPoint="SDL_ListModes"), SuppressUnmanagedCodeSecurity] 
 		private static extern IntPtr SDL_ListModesInternal( 
 			IntPtr format, int flags); 
@@ -3401,21 +3764,6 @@ namespace Tao.Sdl {
 		} 
 
 		/// <summary>
-		/// This function returns the current state of the application, 
-		/// which is a bitwise combination of SDL_APPMOUSEFOCUS, 
-		/// SDL_APPINPUTFOCUS, and SDL_APPACTIVE.  
-		/// </summary>
-		/// <remarks>
-		/// If SDL_APPACTIVE is set, then the user is able to see 
-		/// your application, 
-		/// otherwise it has been iconified or disabled.
-		/// </remarks>
-		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern Byte SDL_GetAppState();
-
-		/// <summary>
 		/// This function fills the given character buffer with the name of the
 		/// video driver, and returns a pointer to it if the video driver has
 		/// been initialized.
@@ -3424,7 +3772,7 @@ namespace Tao.Sdl {
 		/// It returns NULL if no driver has been initialized.
 		/// </remarks>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION), 
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), 
 		SuppressUnmanagedCodeSecurity]
 		public static extern String SDL_VideoDriverName(String namebuf, 
 			int maxlen);
@@ -3440,9 +3788,74 @@ namespace Tao.Sdl {
 		/// "best" video mode.
 		/// </remarks>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern SDL_VideoInfo SDL_GetVideoInfo();
+		#endregion SDL_video.h
+
+		#region SDL_version.h
+		//     extern DECLSPEC const SDL_version * SDLCALL SDL_Linked_Version(void)
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDL_Linked_Version"), SuppressUnmanagedCodeSecurity]
+		private static extern IntPtr SDL_Linked_VersionInternal();
+
+		/// <summary>
+		///     This function gets the version of the dynamically linked SDL library.
+		/// </summary>
+		/// <returns>
+		///     SDL_version struct
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_timer.h:
+		///     <code>extern DECLSPEC const SDL_version * SDLCALL SDL_Linked_Version(void)</code>
+		///     </p>
+		/// </remarks>
+		public static SDL_version SDL_Linked_Version() 
+		{ 
+			return (Sdl.SDL_version)Marshal.PtrToStructure(
+				Sdl.SDL_Linked_VersionInternal(), 
+				typeof(Sdl.SDL_version)); 
+		} 
+
+		// This method turns the version numbers into a numeric value: (1,2,3) -> (1203)
+		// This assumes that there will never be more than 100 patchlevels
+		private static int SDL_VERSIONNUM( byte major, byte minor, byte patch )
+		{
+			return (int)(major*1000 + minor*100 + patch);
+		}
+
+		/// <summary>
+		/// This returns the current SDL version
+		/// </summary>
+		/// <returns>
+		/// Returns the version number as a numeric value: (1.2.7 -> 1207)
+		/// </returns>
+		public static int SDL_COMPILEDVERSION
+		{
+			get
+			{
+				SDL_version version = Sdl.SDL_Linked_Version();
+				return Sdl.SDL_VERSIONNUM(version.major, version.minor, version.patch);
+			}
+		}
+
+		/// <summary>
+		/// Will evaluate to true if SDL version is at least X.Y.Z
+		/// </summary>
+		/// <param name="major">Major version number</param>
+		/// <param name="minor">Minor version number</param>
+		/// <param name="patch">Patch version number</param>
+		/// <returns></returns>
+		public static bool SDL_VERSION_ATLEAST( byte major, byte minor, byte patch )
+		{
+			return (Sdl.SDL_COMPILEDVERSION >= Sdl.SDL_VERSIONNUM(
+				major, 
+				minor, 
+				patch));
+		}
+		#endregion SDL_version.h
+
+		#region NOT_DONE
 
 		//Keyboard
 		/// <summary>
@@ -3454,7 +3867,7 @@ namespace Tao.Sdl {
 		/// <param name="rate"></param>
 		/// <param name="delay"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_EnableKeyRepeat(int rate, 
 			int delay);
@@ -3469,7 +3882,7 @@ namespace Tao.Sdl {
 		///	if ( keystate[SDLK_RETURN] ) ...  _RETURN_ is pressed.
 		/// </remarks>
 		/// <param name="numkeys"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="SDL_GetKeyState"),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDL_GetKeyState"),
 		SuppressUnmanagedCodeSecurity]
 		private static extern IntPtr SDL_GetKeyStateInternal(out int numkeys);
 
@@ -3497,7 +3910,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <remarks>
 		/// </remarks>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern SDLMod SDL_GetModState();
 		
@@ -3509,7 +3922,7 @@ namespace Tao.Sdl {
 		///  flags.
 		/// </remarks>
 		/// <param name="modstate"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_SetModState(SDLMod modstate);
 
@@ -3518,7 +3931,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <remarks>
 		/// </remarks>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern String SDL_GetKeyName(SDLKey key);
 		
@@ -3534,7 +3947,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="enable"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_EnableUNICODE(int enable);
 		
@@ -3627,7 +4040,7 @@ namespace Tao.Sdl {
 		/// <param name="bpp"></param>
 		/// <param name="flags"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_SetVideoMode(int width, int height,
 			int bpp, int flags);
@@ -3655,7 +4068,7 @@ namespace Tao.Sdl {
 		/// <param name="bpp"></param>
 		/// <param name="flags"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_VideoModeOK(int width, 
 			int height, int bpp, int flags);
@@ -3674,7 +4087,7 @@ namespace Tao.Sdl {
 		/// <param name="numrects"></param>
 		/// <param name="rects"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_UpdateRects(IntPtr screen, 
 			int numrects, IntPtr rects);
@@ -3695,7 +4108,7 @@ namespace Tao.Sdl {
 		/// <param name="x"></param>
 		/// <param name="y"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_UpdateRect(IntPtr screen, int x, 
 			int y, int w, int h);
@@ -3704,7 +4117,7 @@ namespace Tao.Sdl {
 		/// 
 		/// </summary>
 		/// <param name="surface"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_FreeSurface(IntPtr surface);
 
@@ -3727,7 +4140,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="screen"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_Flip(IntPtr screen);
 		
@@ -3744,7 +4157,7 @@ namespace Tao.Sdl {
 		/// <param name="green"></param>
 		/// <param name="red"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_SetGamma(float red, float green, 
 			float blue);
@@ -3765,7 +4178,7 @@ namespace Tao.Sdl {
 		/// hardware does not support gamma translation, or otherwise fails,
 		/// this function will return -1.
 		/// </remarks>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_SetGammaRamp(IntPtr red, IntPtr green,
 			IntPtr blue);
@@ -3780,7 +4193,7 @@ namespace Tao.Sdl {
 		/// hardware does not support gamma translation, or otherwise fails,
 		/// this function will return -1.
 		/// </remarks>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_GetGammaRamp(IntPtr red, IntPtr green,
 			IntPtr blue);
@@ -3799,7 +4212,7 @@ namespace Tao.Sdl {
 		/// <param name="rect"></param>
 		/// <param name="color"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_FillRect(IntPtr surface, IntPtr rect,
 			int color);
@@ -3816,7 +4229,7 @@ namespace Tao.Sdl {
 		/// <param name="g"></param>
 		/// <param name="b"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_MapRGB(IntPtr format, Byte r, Byte g, 
 			Byte b);
@@ -3833,7 +4246,7 @@ namespace Tao.Sdl {
 		/// <param name="b"></param>
 		/// <param name="a"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_MapRGBA(IntPtr format, Byte r, Byte g,
 			Byte b, Byte a);
@@ -3847,7 +4260,7 @@ namespace Tao.Sdl {
 		/// <param name="r"></param>
 		/// <param name="g"></param>
 		/// <param name="b"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_GetRGB(int pixel, IntPtr fmt, 
 			out Byte r, out Byte g, out Byte b);
@@ -3862,7 +4275,7 @@ namespace Tao.Sdl {
 		/// <param name="g"></param>
 		/// <param name="b"></param>
 		/// <param name="a"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_GetRGBA(int pixel, IntPtr fmt, 
 			out Byte r, out Byte g, out Byte b, out Byte a);
@@ -3879,7 +4292,7 @@ namespace Tao.Sdl {
 		/// <param name="x"></param>
 		/// <param name="y"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern Byte SDL_GetMouseState(out int x, out int y);
 
@@ -3894,7 +4307,7 @@ namespace Tao.Sdl {
 		/// <param name="x"></param>
 		/// <param name="y"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern Byte SDL_GetRelativeMouseState(out int x, out int y);
 		
@@ -3921,7 +4334,7 @@ namespace Tao.Sdl {
 		/// <param name="mask"></param>
 		/// <param name="w"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_CreateCursor(IntPtr data, IntPtr mask,
 			int w, int h, int hot_x, int hot_y);
@@ -3935,7 +4348,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="cursor"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_SetCursor(IntPtr cursor);
 
@@ -3945,7 +4358,7 @@ namespace Tao.Sdl {
 		/// <remarks>
 		/// </remarks>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_GetCursor();
 
@@ -3956,7 +4369,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="cursor"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_FreeCursor(IntPtr cursor);
 		
@@ -3971,7 +4384,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="toggle"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_ShowCursor(int toggle);
 		
@@ -3981,7 +4394,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="x"></param>
 		/// <param name="y"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_WarpMouse(short x, short y);
 		
@@ -4050,7 +4463,7 @@ namespace Tao.Sdl {
 		/// <param name="Bmask"></param>
 		/// <param name="Amask"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_CreateRGBSurface(int flags, 
 			int width, int height, int depth, 
@@ -4122,7 +4535,7 @@ namespace Tao.Sdl {
 		/// <param name="Bmask"></param>
 		/// <param name="Amask"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_CreateRGBSurfaceFrom(IntPtr pixels, 
 			int width, int height, int depth, int pitch, int Rmask, 
@@ -4209,7 +4622,7 @@ namespace Tao.Sdl {
 		/// <param name="dst"></param>
 		/// <param name="dstrect"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION, 
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, 
 			 EntryPoint="SDL_UpperBlit"), SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_BlitSurface(IntPtr src, IntPtr srcrect,
 			IntPtr dst, IntPtr dstrect);
@@ -4223,7 +4636,7 @@ namespace Tao.Sdl {
 		/// surface.
 		/// </remarks>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION), 
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), 
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_GetVideoSurface();
 		
@@ -4257,7 +4670,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="surface"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION), 
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), 
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_LockSurface(IntPtr surface);
 		
@@ -4288,7 +4701,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="surface"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION), 
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), 
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_UnlockSurface(IntPtr surface);
 		
@@ -4304,7 +4717,7 @@ namespace Tao.Sdl {
 		/// <param name="src"></param>
 		/// <param name="freesrc"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_LoadBMP_RW(IntPtr src, int freesrc);
 		
@@ -4318,7 +4731,7 @@ namespace Tao.Sdl {
 		/// <param name="dst"></param>
 		/// <param name="freedst"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_SaveBMP_RW(IntPtr surface, IntPtr dst,
 			int freedst);
@@ -4348,7 +4761,7 @@ namespace Tao.Sdl {
 		/// <param name="firstcolor"></param>
 		/// <param name="ncolors"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_SetColors(IntPtr surface, 
 			int firstcolor, int ncolors);
@@ -4380,7 +4793,7 @@ namespace Tao.Sdl {
 		/// <param name="flags"></param>
 		/// <param name="ncolors"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_SetPalette(IntPtr surface, int flags,
 			IntPtr colors, int firstcolor, int ncolors);
@@ -4400,7 +4813,7 @@ namespace Tao.Sdl {
 		/// <param name="flag"></param>
 		/// <param name="key"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_SetColorKey(IntPtr surface, int flag,
 			int key);
@@ -4424,7 +4837,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="surface"></param>
 		/// <param name="rect"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_SetClipRect(IntPtr surface, IntPtr rect);
 		
@@ -4435,7 +4848,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="surface"></param>
 		/// <param name="rect"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_GetClipRect(IntPtr surface, IntPtr rect);
 		
@@ -4452,7 +4865,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="surface"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_DisplayFormat(IntPtr surface);
 
@@ -4470,7 +4883,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="surface"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_DisplayFormatAlpha(IntPtr surface);
 
@@ -4495,7 +4908,7 @@ namespace Tao.Sdl {
 		/// <param name="fmt"></param>
 		/// <param name="flags"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_ConvertSurface(IntPtr src, IntPtr fmt,
 			int flags);
@@ -4528,7 +4941,7 @@ namespace Tao.Sdl {
 		/// <param name="flag"></param>
 		/// <param name="alpha"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_SetAlpha(IntPtr surface, int flag, 
 			Byte alpha);
@@ -4540,7 +4953,7 @@ namespace Tao.Sdl {
 		/// <param name="file"></param>
 		/// <param name="mode"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_RWFromFile(String file, String mode);
 
@@ -4550,7 +4963,7 @@ namespace Tao.Sdl {
 		/// <param name="mem"></param>
 		/// <param name="size"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_RWFromMem(Byte[] mem, int size);
 		
@@ -4570,7 +4983,7 @@ namespace Tao.Sdl {
 		/// <param name="action"></param>
 		/// <param name="mask"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_PeepEvents([Out]SDL_Event[] events, int numEvents, SDL_eventaction action, int mask);	
 
@@ -4583,7 +4996,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="sdlEvent"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_PollEvent(out SDL_Event sdlEvent);
 		
@@ -4601,7 +5014,7 @@ namespace Tao.Sdl {
 		/// <param name="type"></param>
 		/// <param name="state"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_EventState(Byte type, int state);
 
@@ -4614,7 +5027,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="evt"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_WaitEvent(out SDL_Event evt);
 
@@ -4622,7 +5035,7 @@ namespace Tao.Sdl {
 		/// Pumps the event loop, gathering events from the input devices.
 		/// </summary>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_PumpEvents();		
 
@@ -4633,7 +5046,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="evt"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_PushEvent(out SDL_Event evt);
 		
@@ -4643,7 +5056,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="title"></param>
 		/// <param name="icon"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_WM_SetCaption(string title, string icon);
 		
@@ -4652,7 +5065,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="title"></param>
 		/// <param name="icon"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_WM_GetCaption(out string title, 
 			out string icon);
@@ -4667,7 +5080,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="icon"></param>
 		/// <param name="mask"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_WM_SetIcon(IntPtr icon, IntPtr mask);
 		
@@ -4677,7 +5090,7 @@ namespace Tao.Sdl {
 		/// This function is a noop and returns 0 in non-windowed environments.
 		/// </summary>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_WM_IconifyWindow();
 		
@@ -4690,7 +5103,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="mode"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_WM_GrabInput(SDL_GrabMode mode);
 
@@ -4712,7 +5125,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="surface"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_WM_ToggleFullScreen(IntPtr surface);
 
@@ -4721,7 +5134,7 @@ namespace Tao.Sdl {
 		/// Count the number of joysticks attached to the system.
 		/// </summary>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_NumJoysticks();
 
@@ -4732,7 +5145,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="device_index"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern string SDL_JoystickName(int device_index);
 
@@ -4748,7 +5161,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="device_index"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_JoystickOpen(int device_index);
 
@@ -4760,7 +5173,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="device_index"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_JoystickOpened(int device_index);
 		
@@ -4769,7 +5182,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="joystick"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_JoystickIndex(IntPtr joystick);
 		
@@ -4778,7 +5191,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="joystick"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_JoystickNumAxes(IntPtr joystick);
 
@@ -4791,7 +5204,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="joystick"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_JoystickNumBalls(IntPtr joystick);
 		
@@ -4800,7 +5213,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="joystick"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_JoystickNumHats(IntPtr joystick);
 		
@@ -4809,7 +5222,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="joystick"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_JoystickNumButtons(IntPtr joystick);
 
@@ -4822,7 +5235,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="joystick"></param>
 		/// <param name="axis"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_JoystickGetAxis(IntPtr joystick, 
 			int axis);
@@ -4835,7 +5248,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="joystick"></param>
 		/// <param name="hat"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_JoystickGetHat(IntPtr joystick,
 			int hat);
@@ -4851,7 +5264,7 @@ namespace Tao.Sdl {
 		/// <param name="ball"></param>
 		/// <param name="dx"></param>
 		/// <param name="dy"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_JoystickGetBall(IntPtr joystick, 
 			int ball, IntPtr dx, IntPtr dy);
@@ -4864,7 +5277,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="joystick"></param>		
 		/// <param name="button"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_JoystickGetButton(IntPtr joystick, 
 			int button);
@@ -4873,7 +5286,7 @@ namespace Tao.Sdl {
 		/// Close a joystick previously opened with SDL_JoystickOpen(). 
 		/// </summary>
 		/// <param name="joystick"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_JoystickClose(IntPtr joystick);
 		
@@ -4881,7 +5294,7 @@ namespace Tao.Sdl {
 		/// <summary>
 		/// Swap the OpenGL buffers, if double-buffering is supported.
 		/// </summary>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_GL_SwapBuffers();
 
@@ -4891,7 +5304,7 @@ namespace Tao.Sdl {
 		/// <param name="attr"></param>
 		/// <param name="value"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_GL_SetAttribute(SDL_GLattr attr, 
 			int value);
@@ -4909,7 +5322,7 @@ namespace Tao.Sdl {
 		/// <param name="attr"></param>
 		/// <param name="val"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_GL_GetAttribute(SDL_GLattr attr, 
 			out int val);
@@ -4919,7 +5332,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="extension"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_GL_GetProcAddress(string extension);
  
@@ -4934,7 +5347,7 @@ namespace Tao.Sdl {
 		/// flag.
 		/// </remarks>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_CDNumDrives();
 
@@ -4952,7 +5365,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="drive"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern string SDL_CDName(int drive);
 
@@ -4974,7 +5387,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="drive"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_CDOpen(int drive);
 
@@ -4988,7 +5401,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="cdrom"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION), 
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), 
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_CDStatus(IntPtr cdrom);
 
@@ -5002,7 +5415,7 @@ namespace Tao.Sdl {
 		/// <param name="start"></param>
 		/// <param name="length"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_CDPlay(IntPtr cdrom, int start, 
 			int length);
@@ -5038,7 +5451,7 @@ namespace Tao.Sdl {
 		/// <param name="ntracks"></param>
 		/// <param name="nframes"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_CDPlayTracks(IntPtr cdrom, 
 			int start_track, int start_frame, int ntracks, 
@@ -5052,7 +5465,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="cdrom"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_CDPause(IntPtr cdrom);
 
@@ -5064,7 +5477,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="cdrom"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_CDResume(IntPtr cdrom);
 
@@ -5076,7 +5489,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="cdrom"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_CDStop(IntPtr cdrom);
 
@@ -5088,7 +5501,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <param name="cdrom"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_CDEject(IntPtr cdrom);
 
@@ -5096,28 +5509,15 @@ namespace Tao.Sdl {
 		/// Closes the handle for the CD-ROM drive
 		/// </summary>
 		/// <param name="cdrom"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_CDClose(IntPtr cdrom);
 
 		/// <summary>
-		/// 
-		/// </summary>
-		public static int SDL_BYTEORDER {
-			get {
-				if (BitConverter.IsLittleEndian) {
-					return SDL_LIL_ENDIAN;
-				}
-				else {
-					return SDL_BIG_ENDIAN;
-				}
-			}
-		}
-
-		/// <summary>
 		/// Native audio byte ordering
 		/// </summary>
-		public static int AUDIO_U16SYS {
+		public static int AUDIO_U16SYS 
+		{
 			get {
 				if (SDL_BYTEORDER == SDL_LIL_ENDIAN) {
 					return AUDIO_U16LSB;
@@ -5150,7 +5550,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="driver_name">
 		/// </param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_AudioInit(String driver_name);
 
@@ -5160,7 +5560,7 @@ namespace Tao.Sdl {
 		/// have a specific need to specify the audio driver you want to use.
 		/// You should normally use SDL_Init() or SDL_InitSubSystem().
 		/// </summary>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_AudioQuit();
 
@@ -5172,7 +5572,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="buf"></param>
 		/// <param name="maxlen"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern String SDL_AudioDriverName(
 			String buf, int maxlen);
@@ -5237,7 +5637,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="desired"></param>
 		/// <param name="obtained"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_OpenAudio(
 			IntPtr desired, IntPtr obtained);
@@ -5246,7 +5646,7 @@ namespace Tao.Sdl {
 		/// Get the current audio state
 		/// </summary>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern SDL_audiostatus SDL_GetAudioStatus();
 
@@ -5259,7 +5659,7 @@ namespace Tao.Sdl {
 		/// Silence will be written to the audio device during the pause.
 		/// </summary>
 		/// <param name="pause_on"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_PauseAudio(int pause_on);
 
@@ -5288,7 +5688,7 @@ namespace Tao.Sdl {
 		/// <param name="spec"></param>
 		/// <param name="src"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_LoadWAV_RW(
 			IntPtr src, int freesrc, IntPtr spec, 
@@ -5304,7 +5704,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="audio_buf"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_FreeWAV(IntPtr audio_buf);
 
@@ -5326,7 +5726,7 @@ namespace Tao.Sdl {
 		/// <param name="dst_channels"></param>
 		/// <param name="dst_rate"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_BuildAudioCVT(IntPtr cvt,
 			short src_format, Byte src_channels, int src_rate,
@@ -5349,7 +5749,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		/// <param name="cvt"></param>
 		/// <returns></returns>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_ConvertAudio(IntPtr cvt);
 
@@ -5367,7 +5767,7 @@ namespace Tao.Sdl {
 		/// <param name="src"></param>
 		/// <param name="len"></param>
 		/// <param name="volume"></param>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_MixAudio(
 			IntPtr dst, IntPtr src, int len, int volume);
@@ -5381,7 +5781,7 @@ namespace Tao.Sdl {
 		/// Do not call these from the callback
 		/// function or you will cause deadlock.
 		/// </summary>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_LockAudio();
 
@@ -5393,7 +5793,7 @@ namespace Tao.Sdl {
 		///  Do not call these from the callback
 		/// function or you will cause deadlock.
 		/// </summary>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_UnlockAudio();
 
@@ -5401,8 +5801,10 @@ namespace Tao.Sdl {
 		/// This function shuts down audio processing and 
 		/// closes the audio device.
 		/// </summary>
-		[DllImport("SDL.dll", CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_CloseAudio();
+		#endregion NOT_DONE
+		#endregion Sdl Methods
 	}
 }
