@@ -148,17 +148,32 @@ public class GlTypeMap {
   // to get the correct output for the (known) input.  you break it,
   // you get to keep both pieces.
 
+#if true
   static string [] inArrayExpansions = new string[] {
-    "ref bool", "bool []",
-    "ref byte", "byte []",
-    "ref short", "short []",
-    "ref ushort", "ushort []",
-    "ref int", "int []",
-    "ref uint", "uint []",
-    "ref float", "float []",
-    "ref double", "double []",
+    "ref bool", "bool []", "bool [,]", "bool [,,]",
+    "ref byte", "byte []", "byte [,]", "byte [,,]",
+    "ref short", "short []", "short [,]", "short [,,]",
+    "ref ushort", "ushort []", "ushort [,]", "ushort [,,]",
+    "ref int", "int []", "int [,]", "int [,,]",
+    "ref uint", "uint []", "uint [,]", "uint [,,]",
+    "ref float", "float []", "float [,]", "float [,,]",
+    "ref double", "double []", "double [,]", "double [,,]",
     "IntPtr"
   };
+#else
+  static string [] inArrayExpansions = new string[] {
+    "ref bool",
+    "ref byte",
+    "ref short",
+    "ref ushort",
+    "ref int",
+    "ref uint",
+    "ref float",
+    "ref double",
+    "[In] Array",
+    "IntPtr"
+  };
+#endif
 
   static string [] outArrayExpansions = new string[] {
     "out bool", "[Out] bool []",
@@ -270,11 +285,16 @@ public class Driver {
 
   public static StreamWriter Output;
 
+  public static bool doInstance = false;
+
   public static void Main (string [] args) {
-    if (args.Length != 3) {
-      Console.WriteLine ("Usage: gencore gl.xml typemap.xml Gl-funcs.cs");
+    if (args.Length < 3 || args.Length > 4) {
+      Console.WriteLine ("Usage: gencore gl.xml typemap.xml Gl-funcs.cs [instance]");
       return;
     }
+
+    if (args.Length == 4 && args[3] == "instance")
+      doInstance = true;
 
     Console.WriteLine ("Loading typemap...");
     TypeMap = new GlTypeMap(args[1]);
@@ -401,15 +421,16 @@ public class Driver {
       } else {
         // write the extension pointer holder first (just once)
         Output.WriteLine();
-        Output.WriteLine("    public static IntPtr ext__GL_{0}__{1} = IntPtr.Zero;", name, fentry);
+        Output.WriteLine("    public {0} IntPtr ext__GL_{1}__{2} = IntPtr.Zero;",
+                         doInstance ? "" : "static", name, fentry);
         Output.WriteLine();
 
         foreach (string paramstr in paramstrings) {
           // write the OpenGLExtensionImport attribute
           Output.WriteLine("    [OpenGLExtensionImport(\"GL_{0}\", \"{1}\")]", name, fentry);
-          Output.WriteLine("    public static {0} {1} ({2}) {{", frettype, fname, paramstr);
-          // Output.WriteLine("      throw new InvalidOperationException(\"Binding error: {0}\");", fname);
-          Output.WriteLine("      throw new InvalidOperationException();", fname);
+          Output.WriteLine("    public {0} {1} {2} ({3}) {{",
+                           doInstance ? "" : "static", frettype, fname, paramstr);
+          Output.WriteLine("      throw new NotImplementedException(\"{0}\");", fname);
           Output.WriteLine("    }");
         }
       }
