@@ -192,8 +192,7 @@
         </member>
         <member name="P:NAnt.NUnit.Types.FormatterElement.Type">
             <summary>
-            Type of formatter - either <see cref="F:NAnt.NUnit.Types.FormatterType.Plain"/> or
-            <see cref="F:NAnt.NUnit.Types.FormatterType.Xml"/>. 
+            Type of formatter.
             </summary>
         </member>
         <member name="P:NAnt.NUnit.Types.FormatterElement.Extension">

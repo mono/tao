@@ -4,122 +4,389 @@
         <name>NAnt.MSNetTasks</name>
     </assembly>
     <members>
-        <member name="T:NAnt.Core.Tasks.ScriptTask">
+        <member name="T:NAnt.MSNet.Tasks.IldasmTask">
             <summary>
-            Executes the code contained within the task. This code can include custom extension function definitions. 
-            Once the script task has executed those custom functions will be available for use in the buildfile.
+            Disassembles any portable executable (PE) file that contains
+            intermediate language (IL) code.
             </summary>
+            <example>
+              <para>
+              Disassembles <c>helloworld.exe</c> to <c>helloworld.il</c>.
+              </para>
+              <code>
+                <![CDATA[
+            <ildasm input="helloworld.exe" output="helloworld.il" />
+                ]]>
+              </code>
+            </example>
+            <example>
+              <para>
+              Disassembles a set of PE files into the specified directory.
+              </para>
+              <code>
+                <![CDATA[
+            <ildasm todir=".">
+                <assemblies>
+                    <include name="*.exe" />
+                    <include name="*.dll" />
+                </assemblies>
+            </ildasm>
+                ]]>
+              </code>
+            </example>
+        </member>
+        <member name="M:NAnt.MSNet.Tasks.IldasmTask.ExecuteTask">
+            <summary>
+            Disassembles the PE files.
+            </summary>
+        </member>
+        <member name="M:NAnt.MSNet.Tasks.IldasmTask.BaseExecuteTask">
+            <summary>
+            Disassembles the PE files.
+            </summary>
+        </member>
+        <member name="M:NAnt.MSNet.Tasks.IldasmTask.GetOutputFile(System.IO.FileInfo)">
+            <summary>
+            Determines the full path and extension for the output file.
+            </summary>
+            <param name="file">
+            A <see cref="T:System.IO.FileInfo"/> that represents the output
+            file for which the full path and extension should be determined.
+            </param>
+            <returns>
+            A <see cref="T:System.IO.FileInfo"/> that represents the full path
+            (with extensions) for the specified file.
+            </returns>
+        </member>
+        <member name="M:NAnt.MSNet.Tasks.IldasmTask.WriteOptions">
+            <summary>
+            Writes the disassembler options.
+            </summary>
+        </member>
+        <member name="M:NAnt.MSNet.Tasks.IldasmTask.WriteOption(System.IO.StringWriter,System.String)">
+             <summary>
+             Writes an option using the default output format.
+             </summary>
+             <param name="writer">
+             The <see cref="T:System.IO.StringWriter"/> to which the disassembler options
+             should be written.
+            </param>
+             <param name="name">
+             A <see cref="T:System.String"/> that contains the name of the
+             option which should be passed to the disassembler.
+             </param>
+        </member>
+        <member name="M:NAnt.MSNet.Tasks.IldasmTask.WriteOption(System.IO.StringWriter,System.String,System.String)">
+            <summary>
+            Writes an option and its value using the default output format.
+            </summary>
+            <param name="writer">
+            The <see cref="T:System.IO.StringWriter"/> to which the disassembler options
+            should be written.
+            </param>
+            <param name="name">
+            A <see cref="T:System.String"/> that contains the name of the
+            option which should be passed to the disassembler.
+            </param>
+            <param name="arg">
+            A <see cref="T:System.String"/> that contains the value of the
+            option which should be passed to the disassembler.
+            </param>
+        </member>
+        <member name="M:NAnt.MSNet.Tasks.IldasmTask.NeedsDisassembling">
+            <summary>
+            Determines whether or not disassembling is needed.
+            </summary>
+            <returns>
+            <see langword="true" /> if disassembling is needed; otherwise,
+            <see langword="false" />.
+            </returns>
+        </member>
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.All">
+            <summary>
+            Specifies whether or not the disassembler should combine the
+            <c>/HEADER</c>, <c>/BYTE</c>, and <c>TOKENS</c> options.
+            </summary>
+            <value>
+            <see langword="true" /> if the disassembler should combine the
+            <c>/HEADER</c>, <c>/BYTE</c>, and <c>TOKENS</c> options;
+            otherwise, <see langword="false" />. The default is
+            <see langword="false" />.
+            </value>
             <remarks>
-                <para>
-                The <see cref="T:NAnt.Core.Tasks.ScriptTask"/> must contain a single <c>code</c> 
-                element, which in turn contains the script code.
-                </para>
-                <para>
-                A static entry point named <c>ScriptMain</c> is required if no custom functions have been defined. It must 
-                have a single <see cref="T:NAnt.Core.Project"/> parameter.
-                </para>
-                <para>
-                The following namespaces are loaded by default:
-                </para>
-                <list type="bullet">
-                    <item>
-                        <description>System</description>
-                    </item>
-                    <item>
-                        <description>System.Collections</description>
-                    </item>
-                    <item>
-                        <description>System.Collections.Specialized</description>
-                    </item>
-                    <item>
-                        <description>System.IO</description>
-                    </item>
-                    <item>
-                        <description>System.Text</description>
-                    </item>
-                    <item>
-                        <description>System.Text.RegularExpressions</description>
-                    </item>
-                    <item>
-                        <description>NAnt.Core</description>
-                    </item>
-                </list>
+            <para>
+            Corresponds to the <c>/ALL</c> flag.
+            </para>
             </remarks>
-            <example>
-              <para>Run C# code that writes a message to the build log.</para>
-              <code>
-                    &lt;script language="C#"&gt;
-                        &lt;code&gt;&lt;![CDATA[
-                            public static void ScriptMain(Project project) {
-                                project.Log(Level.Info, "Hello World from a script task using C#"); 
-                            }
-                        ]]&gt;&lt;/code&gt;
-                    &lt;/script&gt;
-              </code>
-            </example>
-            <example>
-              <para>Define a custom function and call it using C#.</para>
-              <code>
-                    &lt;script language="C#" prefix="test" &gt;
-                        &lt;code&gt;&lt;![CDATA[                 
-            
-                            [Function("test-func")]
-                            public static string Testfunc(  ) {
-                                    return "some result !!!!!!!!";
-                            }
-                    ]]&gt;&lt;/code&gt;
-                    &lt;/script&gt;
-                    &lt;echo message='${test::test-func()}'/&gt;
-            
-              </code>
-            </example>
-            <example>
-              <para>Run Visual Basic.NET code that writes a message to the build log.</para>
-              <code>
-                    &lt;script language="VB"&gt;
-                        &lt;code&gt;&lt;![CDATA[
-                            Public Shared Sub ScriptMain(project As Project)
-                                project.Log(Level.Info, "Hello World from a script task using Visual Basic.NET")
-                            End Sub
-                        ]]&gt;&lt;/code&gt;
-                    &lt;/script&gt;
-              </code>
-            </example>
         </member>
-        <member name="M:NAnt.Core.Tasks.ScriptTask.InitializeTask(System.Xml.XmlNode)">
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.Bytes">
             <summary>
-            Initializes the task using the specified xml node.
+            Specifies whether or not the disassembler should generate the
+            IL stream bytes (in hexadecimal notation) as instruction comments.
             </summary>
+            <value>
+            <see langword="true" /> if the IL stream bytes should be generated
+            as instruction comments; otherwise, <see langword="false" />. The
+            default is <see langword="false" />.
+            </value>
+            <remarks>
+            <para>
+            Corresponds to the <c>/BYTE</c> flag.
+            </para>
+            </remarks>
         </member>
-        <member name="M:NAnt.Core.Tasks.ScriptTask.ExecuteTask">
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.ForceRebuild">
             <summary>
-            Executes the script block.
+            Instructs NAnt to rebuild the output file regardless of the file
+            timestamps.
             </summary>
+            <value>
+            <see langword="true" /> if the output file should be rebuilt
+            regardless of its timestamps; otherwise <see langword="false" />.
+            The default is <see langword="false" />.
+            </value>
         </member>
-        <member name="P:NAnt.Core.Tasks.ScriptTask.Language">
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.Header">
             <summary>
-            The language of the script block (VB, C# or JS).
+            Specifies whether or not the disassembler should include PE header
+            information and runtime header information in the output.
             </summary>
+            <value>
+            <see langword="true" /> if PE header information and runtime header
+            information should be included in the output; otherwise,
+            <see langword="false" />. The default is <see langword="false" />.
+            </value>
+            <remarks>
+            <para>
+            Corresponds to the <c>/HEADER</c> flag.
+            </para>
+            </remarks>
         </member>
-        <member name="P:NAnt.Core.Tasks.ScriptTask.References">
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.InputFile">
             <summary>
-            Any required references.
+            Specifies the PE file to disassemble.
             </summary>
+            <value>
+            A <see cref="T:System.IO.FileInfo"/> that represents the PE file
+            to disassemble.
+            </value>
         </member>
-        <member name="P:NAnt.Core.Tasks.ScriptTask.MainClass">
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.LineNumbers">
             <summary>
-            The name of the main class containing the static <c>ScriptMain</c> entry point. 
+            Specifies whether or not the disassembler should include
+            references to original source lines.
             </summary>
+            <value>
+            <see langword="true" /> if references to original source lines
+            should be included; otherwise, <see langword="false" />. The
+            default is <see langword="false" />.
+            </value>
+            <remarks>
+            <para>
+            Corresponds to the <c>/LINENUM</c> flag.
+            </para>
+            </remarks>
         </member>
-        <member name="P:NAnt.Core.Tasks.ScriptTask.Prefix">
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.NoIL">
             <summary>
-            The namespace prefix for any custom functions defined in the script. If ommitted the prefix will default to 'script'
+            Specifies whether or not the disassembler should suppress ILASM
+            code output.
             </summary>
+            <value>
+            <see langword="true" /> if ILASM code output should be suppresses;
+            otherwise, <see langword="false" />. The default is
+            <see langword="false" />.
+            </value>
+            <remarks>
+            <para>
+            Corresponds to the <c>/NOIL</c> flag.
+            </para>
+            </remarks>
         </member>
-        <member name="P:NAnt.Core.Tasks.ScriptTask.Imports">
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.PublicOnly">
             <summary>
-            The namespaces to import.
+            Specifies whether or not the disassembler should disassemble
+            public items only. This is a shortcut for <c>visibility="pub"</c>.
             </summary>
+            <value>
+            <see langword="true" /> if only public items should be
+            disassembled; otherwise, <see langword="false" />. The default is
+            <see langword="false" />.
+            </value>
+            <remarks>
+            <para>
+            Corresponds to the <c>/PUBONLY</c> flag.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.QuoteAllNames">
+            <summary>
+            Specifies whether or not the disassembler should enclose all names
+            in single quotation marks. By default, only names that don't match
+            the ILASM definition of a simple name are quoted.
+            </summary>
+            <value>
+            <see langword="true" /> if all names should be enclosed in single
+            quotation marks; otherwise, <see langword="false" />. The default
+            is <see langword="false" />.
+            </value>
+            <remarks>
+            <para>
+            Corresponds to the <c>/QUOTEALLNAMES</c> flag.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.RawExceptionHandling">
+            <summary>
+            Specifies whether or not the disassembler should generate
+            structured exception handling clauses in canonical (label) form.
+            </summary>
+            <value>
+            <see langword="true" /> if structured exception handling clauses
+            should be generated in canonical form; otherwise,
+            <see langword="false" />. The default is <see langword="false" />.
+            </value>
+            <remarks>
+            <para>
+            Corresponds to the <c>/RAWEH</c> flag.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.Source">
+            <summary>
+            Specifies whether or not the disassembler should generate
+            original source lines as comments.
+            </summary>
+            <value>
+            <see langword="true" /> if original source lines should be
+            generated as comments; otherwise, <see langword="false" />.
+            The default is <see langword="false" />.
+            </value>
+            <remarks>
+            <para>
+            Corresponds to the <c>/SOURCE</c> flag.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.Tokens">
+            <summary>
+            Specifies whether or not the disassembler should generate metadata
+            token values as comments.
+            </summary>
+            <value>
+            <see langword="true" /> if metadata token values should be
+            generated as comments; otherwise, <see langword="false" />. The
+            default is <see langword="false" />.
+            </value>
+            <remarks>
+            <para>
+            Corresponds to the <c>/TOKENS</c> flag.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.Unicode">
+            <summary>
+            Specifies whether or not the disassembler should use the UNICODE
+            encoding when generating the output. The default is ANSI.
+            </summary>
+            <value>
+            <see langword="true" /> if the output should be generated using
+            the UNICODE encoding; otherwise, <see langword="false" />. The
+            default is <see langword="false" />.
+            </value>
+            <remarks>
+            <para>
+            Corresponds to the <c>/UNICODE</c> flag.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.Utf8">
+            <summary>
+            Specifies whether or not the disassembler should use the UTF-8
+            encoding when generating the output. The default is ANSI.
+            </summary>
+            <value>
+            <see langword="true" /> if the output should be generated using
+            the UTF-8 encoding; otherwise, <see langword="false" />. The
+            default is <see langword="false" />.
+            </value>
+            <remarks>
+            <para>
+            Corresponds to the <c>/UTF8</c> flag.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.Item">
+            <summary>
+            Instructs the disassembler to disassemble the specified item only.
+            </summary>
+            <value>
+            A <see cref="T:System.String"/> that specifies the item to
+            disassemble.
+            </value>
+            <remarks>
+            <para>
+            Corresponds to the <c>/ITEM</c> flag.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.Visibility">
+            <summary>
+            Instructs the disassembler to disassemble only the items with the
+            specified visibility.
+            </summary>
+            <value>
+            A <see cref="T:System.String"/> that contains the visibility
+            suboptions. Possible values are <c>PUB</c>, <c>PRI</c>,
+            <c>FAM</c>, <c>ASM</c>, <c>FAA</c>, <c>FOA</c>, <c>PSC</c>,
+            or any combination of them separated by <c>+</c>.
+            </value>
+            <remarks>
+            <para>
+            Corresponds to the <c>/VISIBILITY</c> flag.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.OutputFile">
+            <summary>
+            Specifies the name of the output file created by the disassembler.
+            </summary>
+            <value>
+            A <see cref="T:System.IO.FileInfo"/> that represents the name of
+            the output file.
+            </value>
+            <remarks>
+            <para>
+            Corresponds to the <c>/OUT</c> flag.
+            </para>
+            </remarks>
+        </member>
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.ToDirectory">
+            <summary>
+            Specifies the directory to which outputs will be stored.
+            </summary>
+            <value>
+            A <see cref="T:System.IO.DirectoryInfo"/> that represents the
+            directory to which outputs will be stored.
+            </value>
+        </member>
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.Assemblies">
+            <summary>
+            Specifies a list of PE files to disassemble.
+            </summary>
+            <value>
+            A <see cref="T:NAnt.Core.Types.FileSet"/> that represents the set
+            of PE files to disassemble.
+            </value>
+        </member>
+        <member name="P:NAnt.MSNet.Tasks.IldasmTask.ProgramArguments">
+            <summary>
+            Gets the command-line arguments for the external program.
+            </summary>
+            <value>
+            A <see cref="T:System.String"/> that contains the command-line
+            arguments for the external program.
+            </value>
         </member>
         <member name="T:NAnt.MSNet.Tasks.ServiceControllerTask">
             <summary>
@@ -232,10 +499,7 @@
         </member>
         <member name="P:NAnt.MSNet.Tasks.ServiceControllerTask.Action">
             <summary>
-            The action that should be performed on the service - either 
-            <see cref="F:NAnt.MSNet.Tasks.ServiceControllerTask.ActionType.Start"/>, <see cref="F:NAnt.MSNet.Tasks.ServiceControllerTask.ActionType.Stop"/>,
-            <see cref="F:NAnt.MSNet.Tasks.ServiceControllerTask.ActionType.Restart"/>, <see cref="F:NAnt.MSNet.Tasks.ServiceControllerTask.ActionType.Pause"/> 
-            or <see cref="F:NAnt.MSNet.Tasks.ServiceControllerTask.ActionType.Continue"/>.
+            The action that should be performed on the service.
             </summary>
         </member>
         <member name="P:NAnt.MSNet.Tasks.ServiceControllerTask.Timeout">

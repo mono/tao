@@ -49,7 +49,7 @@
                 <![CDATA[
             <zip zipfile="backup.zip">
                 <fileset basedir="build">
-                    <includes name="*.*"/>
+                    <include name="*.*" />
                 </fileset>
             </zip>
                 ]]>
@@ -78,9 +78,9 @@
         </member>
         <member name="P:NAnt.Zip.Tasks.ZipTask.ZipLevel">
             <summary>
-            Desired level of compression (default is <c>6</c>).
+            Desired level of compression. Possible values are 0 (STORE only) 
+            to 9 (highest). The default is <c>6</c>.
             </summary>
-            <value>0 - 9 (0 - STORE only, 1-9 DEFLATE (1-lowest, 9-highest))</value>
         </member>
         <member name="P:NAnt.Zip.Tasks.ZipTask.IncludeEmptyDirs">
             <summary>

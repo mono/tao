@@ -16,23 +16,23 @@
             CVS repository.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.AbstractSourceControlTask.HOME">
+        <member name="F:NAnt.SourceControl.Tasks.AbstractSourceControlTask.EnvHome">
             <summary>
             Name of the environmental variable specifying a users' home
                 in a *nix environment.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.AbstractSourceControlTask.APP_DATA">
+        <member name="F:NAnt.SourceControl.Tasks.AbstractSourceControlTask.AppData">
             <summary>
             Used on windows to specify the location of application data.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.AbstractSourceControlTask.PATH">
+        <member name="F:NAnt.SourceControl.Tasks.AbstractSourceControlTask.PathVariable">
             <summary>
             The environment variable that holds path information.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.AbstractSourceControlTask.EXE_NAME">
+        <member name="F:NAnt.SourceControl.Tasks.AbstractSourceControlTask.PropExeName">
             <summary>
             Property name used to specify the source control executable.  This is 
                 used as a readonly property.
@@ -47,7 +47,7 @@
         <member name="M:NAnt.SourceControl.Tasks.AbstractSourceControlTask.SetGlobalOption(System.String,System.String,System.Boolean)">
             <summary>
             Adds a new global option if none exists.  If one does exist then
-                the use switch is toggled on or of.
+            the use switch is toggled on or of.
             </summary>
             <param name="name">The common name of the option.</param>
             <param name="value">The option value or command line switch
@@ -69,8 +69,8 @@
         <member name="M:NAnt.SourceControl.Tasks.AbstractSourceControlTask.PrepareProcess(System.Diagnostics.Process)">
             <summary>
             Build up the command line arguments, determine which executable is being
-                used and find the path to that executable and set the working 
-                directory.
+            used and find the path to that executable and set the working 
+            directory.
             </summary>
             <param name="process">The process to prepare.</param>
         </member>
@@ -98,6 +98,8 @@
         <member name="M:NAnt.SourceControl.Tasks.AbstractSourceControlTask.AppendFiles">
             <summary>
             Append the files specified in the fileset to the command line argument.
+            Files are changed to use a relative path from the working directory
+            that the task is spawned in.
             </summary>
         </member>
         <member name="M:NAnt.SourceControl.Tasks.AbstractSourceControlTask.DeriveVcsFromEnvironment">
@@ -175,7 +177,7 @@
         <member name="P:NAnt.SourceControl.Tasks.AbstractSourceControlTask.PassFile">
             <summary>
             The full path to the cached password file.  If not specified then the
-                environment variables are used to try and locate the file.
+            environment variables are used to try and locate the file.
             </summary>
         </member>
         <member name="P:NAnt.SourceControl.Tasks.AbstractSourceControlTask.GlobalOptions">
@@ -186,14 +188,30 @@
         <member name="P:NAnt.SourceControl.Tasks.AbstractSourceControlTask.CommandOptions">
             <summary>
             A collection of options that can be used to modify the default behavoir
-                of the version control commands.  See the sub-tasks for implementation
-                specifics.
+            of the version control commands.  See the sub-tasks for implementation
+            specifics.
             </summary>
         </member>
         <member name="P:NAnt.SourceControl.Tasks.AbstractSourceControlTask.CommandLineArguments">
             <summary>
-            The command-line arguments for the program.
+            Command-line arguments for the program.  The command line arguments are used to specify
+            any cvs command options that are not available as attributes.  These are appended
+            after the command itself and are additive to whatever attributes are currently specified.
             </summary>
+            <example>
+                &lt;cvs-checkout    cvsroot=":pserver:anonymous@cvs.sourceforge.net:/cvsroot/nant" 
+                                    password=""
+                                    module="nant"
+                                    destination="e:\test\merillcornish\working"
+                                    readonly="true"
+                                    quiet="true"
+                                    commandline="-n"
+                                    cvsfullpath="C:\Program Files\TortoiseCVS\cvs.exe"
+                /&gt;
+                <br />
+                Produces the cvs command:
+                <code>c:\Program Files\TortoiseCVS\cvs.exe -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/nant -q checkout -n nant</code>
+            </example>
         </member>
         <member name="P:NAnt.SourceControl.Tasks.AbstractSourceControlTask.ProgramArguments">
             <summary>
@@ -208,7 +226,7 @@
         <member name="P:NAnt.SourceControl.Tasks.AbstractSourceControlTask.VcsFileSet">
             <summary>
             Used to specify the version control system (VCS) files that are going
-                to be acted on.
+            to be acted on.
             </summary>
         </member>
         <member name="P:NAnt.SourceControl.Tasks.AbstractSourceControlTask.Ssh">
@@ -221,65 +239,65 @@
             The environment name for the ssh variable.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.DEFAULT_RECURSIVE">
+        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.DefaultRecursive">
             <summary>
-            Default value for the recursive directive.  Default is <code>false</code>.
+            Default value for the recursive directive.  The default is 
+            <see langword="false" />.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.DEFAULT_QUIET">
+        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.DefaultQuiet">
             <summary>
             Default value for the quiet command.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.DEFAULT_REALLY_QUIET">
+        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.DefaultReallyQuiet">
             <summary>
             Default value for the really quiet command.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.CVS_HOME">
+        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.CvsHome">
             <summary>
             An environment variable that holds path information about where
                 cvs is located.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.CVS_PASSFILE">
+        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.CvsPassfile">
             <summary>
             Name of the password file that cvs stores pserver 
                 cvsroot/ password pairings.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.DEFAULT_COMPRESSION_LEVEL">
+        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.DefaultCompressionLevel">
             <summary>
             The default compression level to use for cvs commands.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.DEFAULT_USE_SHARPCVSLIB">
+        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.DefaultUseSharpCvsLib">
             <summary>
-            The default use of binaries, defaults to use sharpcvs
-                <code>true</code>.
+            The default use of binaries, defaults to use sharpcvs.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.CVS_EXE">
+        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.CvsExe">
             <summary>
             The name of the cvs executable.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.SHARP_CVS_EXE">
+        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.SharpCvsExe">
             <summary>
             The temporary name of the sharpcvslib binary file, to avoid 
-                conflicts in the path variable.
+            conflicts in the path variable.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.CVS_RSH">
+        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.CvsRsh">
             <summary>
             Environment variable that holds the executable name that is used for
-                ssh communication.
+            ssh communication.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.USE_SHARPCVSLIB">
+        <member name="F:NAnt.SourceControl.Tasks.AbstractCvsTask.UseSharpCvsLibProp">
             <summary>
             Property name used to specify on a project level whether sharpcvs is
-                used or not.
+            used or not.
             </summary>
         </member>
         <member name="M:NAnt.SourceControl.Tasks.AbstractCvsTask.#ctor">
@@ -314,6 +332,38 @@
             The environment name for the ssh variable.
             </summary>
         </member>
+        <member name="P:NAnt.SourceControl.Tasks.AbstractCvsTask.VcsExeName">
+            <summary>
+            The name of the cvs binary, or <c>cvs.exe</c> at the time this 
+            was written.
+            </summary>
+        </member>
+        <member name="P:NAnt.SourceControl.Tasks.AbstractCvsTask.PassFileName">
+            <summary>
+            The name of the pass file, or <c>.cvspass</c> at the time
+            of this writing.
+            </summary>
+        </member>
+        <member name="P:NAnt.SourceControl.Tasks.AbstractCvsTask.VcsHomeEnv">
+            <summary>
+            The name of the version control system specific home environment 
+            variable.
+            </summary>
+        </member>
+        <member name="P:NAnt.SourceControl.Tasks.AbstractCvsTask.IsModuleNeeded">
+            <summary>
+            Specify if the module is needed for this cvs command.  It is
+            only needed if there is no module information on the local file
+            system.
+            </summary>
+        </member>
+        <member name="P:NAnt.SourceControl.Tasks.AbstractCvsTask.IsCvsRootNeeded">
+            <summary>
+            Specify if the cvs root should be used for this cvs command.  It is
+            only needed if there is no module information on the local file
+            system, there fore is not needed for a cvs update.
+            </summary>
+        </member>
         <member name="P:NAnt.SourceControl.Tasks.AbstractCvsTask.ExeName">
             <summary>
             The name of the cvs executable.
@@ -332,77 +382,25 @@
                 On *nix: /usr/bin/cvs
             </value>
         </member>
-        <member name="P:NAnt.SourceControl.Tasks.AbstractCvsTask.VcsExeName">
-            <summary>
-            The name of the cvs binary, or <code>cvs.exe</code> at the time this 
-                was written.
-            </summary>
-        </member>
-        <member name="P:NAnt.SourceControl.Tasks.AbstractCvsTask.PassFileName">
-            <summary>
-            The name of the pass file, or <code>.cvspass</code> at the time
-                of this writing.
-            </summary>
-        </member>
-        <member name="P:NAnt.SourceControl.Tasks.AbstractCvsTask.VcsHomeEnv">
-            <summary>
-            The name of the version control system specific home environment 
-                variable.
-            </summary>
-        </member>
         <member name="P:NAnt.SourceControl.Tasks.AbstractCvsTask.Root">
             <summary>
             <para>
-            The cvs root variable has the following components.  The examples used is for the
-                NAnt cvsroot.
-                
-                protocol:       ext
-                username:       [username]
-                servername:     cvs.sourceforge.net
-                server path:    /cvsroot/nant
+            The cvs root variable has the following components uses the following format:
+                <para>
+                    <code>[protocol]:[username]@[servername]:[server path]</code>
+                    <ul>
+                        <li>protocol:       ext, pserver, ssh (sharpcvslib); if you are not using sharpcvslib consult your cvs documentation.</li>
+                        <li>username:       [username]</li>
+                        <li>servername:     cvs.sourceforge.net</li>
+                        <li>server path:    /cvsroot/nant</li>
+                    </ul>
+                </para>
             </para>
-            <para>
-            Currently supported protocols include:
-            </para>
-            <list type="table">
-                <item>
-                    <term>ext</term>
-                    <description>
-                    Used for securely checking out sources from a cvs repository.  
-                    This checkout method uses a local ssh binary to communicate 
-                    with the repository.  If you would like to secure password 
-                    information then this method can be used along with public/private 
-                    key pairs to authenticate against a remote server.
-                    Please see: http://sourceforge.net/docman/display_doc.php?docid=761&amp;group_id=1
-                    for information on how to do this for http://sourceforge.net.
-                    </description>
-                </item>
-                <item>
-                    <term>ssh</term>
-                    <description>
-                    Similar to the ext method.
-                    </description>
-                </item>
-                <item>
-                    <term>pserver</term>
-                    <description>
-                    The pserver authentication method is used to checkout sources 
-                    without encryption.  Passwords are stored as plain text and 
-                    all files are transported unencrypted.
-                    </description>
-                </item>
-            </list>
             </summary>
             <example>
               <para>NAnt anonymous cvsroot:</para>
               <code>
               :pserver:anonymous@cvs.sourceforge.net:/cvsroot/nant
-              </code>
-            </example>
-            <example>
-              <para>Sharpcvslib anonymous cvsroot:</para>
-              <code>
-              :pserver:anonymous@cvs.sourceforge.net:/cvsroot/sharpcvslib
               </code>
             </example>
         </member>
@@ -411,27 +409,30 @@
             The module to perform an operation on.
             </summary>
             <value>
-            The module to perform an operation on.  This is a normal file/ folder
-                name without path information.
+            The module to perform an operation on.  This is a normal file/folder
+            name without path information.
             </value>
             <example>
-              <para>In Nant the module name would be:</para>
+              <para>In NAnt the module name would be:</para>
               <code>nant</code>
             </example>
         </member>
         <member name="P:NAnt.SourceControl.Tasks.AbstractCvsTask.UseSharpCvsLib">
             <summary>
-            <code>true</code> if the SharpCvsLib binaries that come bundled with 
-                NAnt should be used to perform the cvs commands, <code>false</code>
-                otherwise.
-                
-                You may also specify an override value for all cvs tasks instead
-                of specifying a value for each.  To do this set the property
-                <code>sourcecontrol.usesharpcvslib</code> to <code>false</code>.
-                
-                <warn>If you choose not to use SharpCvsLib to checkout from 
-                    cvs you will need to include a cvs.exe binary in your
-                    path.</warn>
+            <para>
+            <see langword="true" /> if the SharpCvsLib binaries that come bundled 
+            with NAnt should be used to perform the cvs commands, <see langword="false" />
+            otherwise.
+            </para>
+            <para>
+            You may also specify an override value for all cvs tasks instead
+            of specifying a value for each.  To do this set the property
+            <c>sourcecontrol.usesharpcvslib</c> to <see langword="false" />.
+            </para>
+            <warn>
+            If you choose not to use SharpCvsLib to checkout from cvs you will 
+            need to include a cvs.exe binary in your path.
+            </warn>
             </summary>
             <example>
                 To use a cvs client in your path instead of sharpcvslib specify
@@ -455,28 +456,81 @@
         </member>
         <member name="P:NAnt.SourceControl.Tasks.AbstractCvsTask.Quiet">
             <summary>
-            Indicates if the output from the cvs command should be supressed.  Defaults to 
-                <code>false</code>.
+            Indicates if the output from the cvs command should be supressed.  
+            The default is <see langword="false" />.
             </summary>
         </member>
         <member name="P:NAnt.SourceControl.Tasks.AbstractCvsTask.ReallyQuiet">
             <summary>
-            Indicates if the output from the cvs command should be stopped.  Default to 
-                <code>false</code>.
+            Indicates if the output from the cvs command should be stopped.  
+            The default is <see langword="false" />.
             </summary>
         </member>
         <member name="P:NAnt.SourceControl.Tasks.AbstractCvsTask.ReadOnly">
             <summary>
-            <code>true</code> if the sandbox files should be checked out in
-                read only mode.
+            <see langword="true" /> if the sandbox files should be checked out in
+            read only mode. The default is <see langword="false" />.
             </summary>
         </member>
         <member name="P:NAnt.SourceControl.Tasks.AbstractCvsTask.ReadWrite">
             <summary>
-            <code>true</code> if the sandbox files should be checked out in 
-                read/ write mode.
-                
-                Defaults to <code>true</code>.
+            <see langword="true" /> if the sandbox files should be checked out in 
+            read/write mode. The default is <see langword="true" />.
+            </summary>
+        </member>
+        <member name="P:NAnt.SourceControl.Tasks.AbstractCvsTask.CompressionLevel">
+            <summary>
+            Compression level to use for all net traffic.  This should be a value from 1-9.
+            <br />
+            <br />
+            <bold>NOTE: This is not available on sharpcvslib.</bold>
+            </summary>
+        </member>
+        <member name="T:NAnt.SourceControl.Tasks.ChangeLogTask">
+            <summary>
+            Produces an XML report that represents the cvs changes from the given 
+            start day, to a given end date.
+            </summary>
+            <example>
+              <para>Report changes in NAnt from 1st of June 2004 until 25th of July 2004.</para>
+              <code>
+                <![CDATA[
+            <cvs-changelog
+                destination="e:/test/nant/sourcecontrol/"
+                cvsroot=":pserver:anonymous@cvs.sourceforge.net:/cvsroot/nant"
+                password=""
+                module="nant"
+                start="2004/06/01"
+                end="2004/07/25"
+                xmlfile="e:/test/nant/sourcecontrol/changelog-nant.xml"
+            />
+                ]]>
+              </code>
+            </example>
+        </member>
+        <member name="F:NAnt.SourceControl.Tasks.ChangeLogTask.CvsCommandName">
+            <summary>
+            The command being executed.
+            </summary>
+        </member>
+        <member name="P:NAnt.SourceControl.Tasks.ChangeLogTask.CommandName">
+            <summary>
+            The cvs command to execute.
+            </summary>
+        </member>
+        <member name="P:NAnt.SourceControl.Tasks.ChangeLogTask.DestFile">
+            <summary>
+            Name of the xml file that will contain the cvs log information.
+            </summary>
+        </member>
+        <member name="P:NAnt.SourceControl.Tasks.ChangeLogTask.StartDate">
+            <summary>
+            The earliest change to use in the cvs log command.
+            </summary>
+        </member>
+        <member name="P:NAnt.SourceControl.Tasks.ChangeLogTask.EndDate">
+            <summary>
+            The latest date to use in the cvs log command.
             </summary>
         </member>
         <member name="T:NAnt.SourceControl.Tasks.CheckoutTask">
@@ -525,7 +579,7 @@
             </cvs-checkout>
             </example>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.CheckoutTask.COMMAND_NAME">
+        <member name="F:NAnt.SourceControl.Tasks.CheckoutTask.CvsCommandName">
             <summary>
             The command being executed.
             </summary>
@@ -543,7 +597,7 @@
         <member name="P:NAnt.SourceControl.Tasks.CheckoutTask.Revision">
             <summary>
             Specify the revision to checkout.  This corresponds to the "sticky-tag"
-                of the file.
+            of the file.
             </summary>
         </member>
         <member name="P:NAnt.SourceControl.Tasks.CheckoutTask.StickyTag">
@@ -554,20 +608,20 @@
         <member name="P:NAnt.SourceControl.Tasks.CheckoutTask.Date">
             <summary>
             Specify the revision date to checkout.  The date specified is validated
-                and then passed to the cvs binary in a standard format recognized by
-                cvs.
+            and then passed to the cvs binary in a standard format recognized by
+            cvs.
             </summary>
         </member>
         <member name="P:NAnt.SourceControl.Tasks.CheckoutTask.OverrideDir">
             <summary>
             Specify a directory name to replace the module name.  Valid names
-                include any valid filename, excluding path information.
+            include any valid filename, excluding path information.
             </summary>
         </member>
         <member name="P:NAnt.SourceControl.Tasks.CheckoutTask.OverrideDirectory">
             <summary>
             Specify a directory name to replace the module name.  Valid names
-                include any valid filename, excluding path information.
+            include any valid filename, excluding path information.
             </summary>
         </member>
         <member name="T:NAnt.SourceControl.Tasks.CvsTask">
@@ -592,9 +646,9 @@
             The cvs command to execute.
             </summary>
         </member>
-        <member name="P:NAnt.SourceControl.Tasks.CvsTask.RawCommandLine">
+        <member name="P:NAnt.SourceControl.Tasks.CvsTask.IsModuleNeeded">
             <summary>
-            The command line to use for the cvs command.
+            Specify if the module is needed for this cvs command.  
             </summary>
         </member>
         <member name="T:NAnt.SourceControl.Tasks.ExportTask">
@@ -631,15 +685,15 @@
                 overridedir="replacement_for_module_directory_name"
                 recursive="false">
                 <fileset>
-                    <includes name="nant/bin/NAnt.exe"/>
-                    <includes name="nant/bin/NAnt.exe.config"/>
+                    <include name="nant/bin/NAnt.exe"/>
+                    <include name="nant/bin/NAnt.exe.config"/>
                 </fileset>
             </cvs-export>
                 ]]>
               </code>
             </example>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.ExportTask.COMMAND_NAME">
+        <member name="F:NAnt.SourceControl.Tasks.ExportTask.CvsCommandName">
             <summary>
             The command being executed.
             </summary>
@@ -669,7 +723,7 @@
             <summary>
             Indicates whether the head revision should be used if the revison specified by
             <see cref="P:NAnt.SourceControl.Tasks.ExportTask.Revision"/> or the <see cref="P:NAnt.SourceControl.Tasks.ExportTask.Date"/> tags are not
-            found. 
+            found. The default is <see langword="false"/>.
             </summary>
             <value>
             <see langword="true"/> if the specified tag should be moved; 
@@ -1010,29 +1064,29 @@
                 overridedir="replacement_for_module_directory_name"
                 usesharpcvslib="false">
                 <fileset>
-                    <includes name="build.number"/>
+                    <include name="build.number"/>
                 </fileset>
             </cvs-update>
                 ]]>
               </code>
             </example>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.UpdateTask.DEFAULT_OVERWRITE_LOCAL">
+        <member name="F:NAnt.SourceControl.Tasks.UpdateTask.DefaultOverwriteLocal">
             <summary>
             Default value for the overwrite local directive.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.UpdateTask.DEFAULT_BUILD_DIRS">
+        <member name="F:NAnt.SourceControl.Tasks.UpdateTask.DefaultBuildDirs">
             <summary>
             Default value for build directory directive.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.UpdateTask.DEFAULT_PRUNE_EMPTY">
+        <member name="F:NAnt.SourceControl.Tasks.UpdateTask.DefaultPruneEmpty">
             <summary>
             Default value for prune empty directories directive.
             </summary>
         </member>
-        <member name="F:NAnt.SourceControl.Tasks.UpdateTask.COMMAND_NAME">
+        <member name="F:NAnt.SourceControl.Tasks.UpdateTask.CvsCommandName">
             <summary>
             The command being executed.
             </summary>
@@ -1041,9 +1095,24 @@
             <summary>
             Initializes a new instance of the <see cref="T:NAnt.SourceControl.Tasks.UpdateTask"/> 
             class.
-            
+            </summary>
+            <remarks>
             Sets the build directory and prune empty directory properties to
-                true.
+            <see langword="true"/>.
+            </remarks>
+        </member>
+        <member name="P:NAnt.SourceControl.Tasks.UpdateTask.IsModuleNeeded">
+            <summary>
+            Specify if the module is needed for this cvs command.  It is
+            only needed if there is no module information on the local file
+            system.
+            </summary>
+        </member>
+        <member name="P:NAnt.SourceControl.Tasks.UpdateTask.IsCvsRootNeeded">
+            <summary>
+            Specify if the cvs root should be used for this cvs command.  It is
+            only needed if there is no module information on the local file
+            system, there fore is not needed for a cvs update.
             </summary>
         </member>
         <member name="P:NAnt.SourceControl.Tasks.UpdateTask.CommandName">
@@ -1053,37 +1122,33 @@
         </member>
         <member name="P:NAnt.SourceControl.Tasks.UpdateTask.BuildDirs">
             <summary>
-            If <code>true</code> new directories will be created on the local
-                sandbox.
-                
-            Defaults to <code>true</code>.
+            If <see langword="true" />. new directories will be created on the local
+            sandbox. The default is <see langword="true" />.
             </summary>
         </member>
         <member name="P:NAnt.SourceControl.Tasks.UpdateTask.PruneEmpty">
             <summary>
-            If <code>true</code> empty directories copied down from the remote
-                repository will be removed from the local sandbox.
-                
-            Defaults to <code>true</code>.
+            If <see langword="true" /> empty directories copied down from the 
+            remote repository will be removed from the local sandbox.
+            The default is <see langword="true" />.
             </summary>
         </member>
         <member name="P:NAnt.SourceControl.Tasks.UpdateTask.OverwriteLocal">
             <summary>
-            If <code>true</code> the local copy of the file will be overwritten
-                with the copy from the remote repository.  
-                
-            Defaults to <code>false</code>.
+            If <see langword="true" /> the local copy of the file will be 
+            overwritten with the copy from the remote repository. The default
+            is <see langword="false" />.
             </summary>
         </member>
         <member name="P:NAnt.SourceControl.Tasks.UpdateTask.Recursive">
             <summary>
-            <code>true</code> if the command should be executed recursively.
+            <see langword="true" /> if the command should be executed recursively.
             </summary>
         </member>
         <member name="P:NAnt.SourceControl.Tasks.UpdateTask.Revision">
             <summary>
-            Specify the revision to update the file to.  This corresponds to the "sticky-tag"
-                of the file.
+            Specify the revision to update the file to.  This corresponds to the 
+            "sticky-tag" of the file.
             </summary>
         </member>
         <member name="P:NAnt.SourceControl.Tasks.UpdateTask.StickyTag">

@@ -17,7 +17,7 @@
                 <![CDATA[
             <cl outputdir="build" options="/clr">
                 <sources>
-                    <includes name="helloworld.cpp" />
+                    <include name="helloworld.cpp" />
                 </sources>
             </cl>
                 ]]>
@@ -54,9 +54,7 @@
         </member>
         <member name="P:NAnt.VisualCpp.Tasks.ClTask.CharacterSet">
             <summary>
-            Tells the compiler to use the specified character set - either
-            <see cref="F:NAnt.VisualCpp.Types.CharacterSet.Unicode"/> or 
-            <see cref="F:NAnt.VisualCpp.Types.CharacterSet.MultiByte"/>.
+            Tells the compiler to use the specified character set.
             </summary>
         </member>
         <member name="P:NAnt.VisualCpp.Tasks.ClTask.Options">
@@ -110,7 +108,7 @@
                 <![CDATA[
             <lib output="library.lib">
                 <sources>
-                    <includes name="library.obj" />
+                    <include name="library.obj" />
                 </sources>
             </lib>
                 ]]>
@@ -171,7 +169,7 @@
                 <![CDATA[
             <link output="helloworld.exe">
                 <sources>
-                    <includes name="*.obj" />
+                    <include name="*.obj" />
                 </sources>
             </link>
                 ]]>

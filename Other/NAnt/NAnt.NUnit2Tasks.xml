@@ -21,8 +21,8 @@
               ignore test errors and continue the build.
               </para>
               <para>
-              In order to run a test assembly built with NUnit 2.0 using the NAnt
-              <see cref="T:NAnt.NUnit2.Tasks.NUnit2Task"/>, you must add the following node to your 
+              In order to run a test assembly built with NUnit 2.0 or 2.1 using the 
+              NAnt <see cref="T:NAnt.NUnit2.Tasks.NUnit2Task"/>, you must add the following node to your 
               test config file :
               </para>
               <code>
@@ -33,7 +33,8 @@
                     <assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1">
                         <dependentAssembly>
                             <assemblyIdentity name="nunit.framework" publicKeyToken="96d09a1eb7f44a77" culture="Neutral" /> 
-                            <bindingRedirect oldVersion="2.0.6.0" newVersion="2.1.4.0" /> 
+                            <bindingRedirect oldVersion="2.0.6.0" newVersion="2.2.0.0" /> 
+                            <bindingRedirect oldVersion="2.1.4.0" newVersion="2.2.0.0" /> 
                         </dependentAssembly>
                     </assemblyBinding>
                 </runtime>
@@ -63,7 +64,7 @@
                 <formatter type="Xml" usefile="true" extension=".xml" outputdir="${build.dir}/results" />
                 <test>
                     <assemblies>
-                        <includesList name="tests.txt" />
+                        <includesfile name="tests.txt" />
                     </assemblies>
                 </test>
             </nunit2>
@@ -108,8 +109,8 @@
         </member>
         <member name="P:NAnt.NUnit2.Types.NUnit2Test.TestName">
             <summary>
-            Name of a specific test to run. If not specified then all tests in 
-            the assembly are run.
+            Name of a specific testfixture to run. If not specified then all 
+            testfixtures are run.
             </summary>
         </member>
         <member name="P:NAnt.NUnit2.Types.NUnit2Test.Assemblies">
@@ -124,13 +125,15 @@
         </member>
         <member name="P:NAnt.NUnit2.Types.NUnit2Test.XsltFile">
             <summary>
-            XSLT transform file to use when using the <see cref="F:NAnt.NUnit.Types.FormatterType.Xml"/> 
+            XSLT transform file to use when using the <see cref="F:NAnt.NUnit.Types.FormatterType.Plain"/> 
             formatter.
             </summary>
         </member>
         <member name="P:NAnt.NUnit2.Types.NUnit2Test.AppConfigFile">
             <summary>
             The application configuration file to use for the NUnit test domain.
+            If not specified, NAnt will try to use a configuration name matching
+            the file name of the assembly with extension ".config".
             </summary>
         </member>
         <member name="P:NAnt.NUnit2.Types.NUnit2Test.TestAssemblies">
@@ -277,14 +280,12 @@
             to workaround some limitations in it.
             </summary>
         </member>
-        <member name="M:NAnt.NUnit2.Tasks.NUnit2TestDomain.RunTest(System.String,System.IO.FileInfo,System.IO.FileInfo,NUnit.Core.EventListener)">
+        <member name="M:NAnt.NUnit2.Tasks.NUnit2TestDomain.CreateRunner(System.IO.FileInfo,System.IO.FileInfo)">
             <summary>
             Runs a single testcase.
             </summary>
-            <param name="testcase">The test to run, or <see langword="null"/> if running all tests.</param>
             <param name="assemblyFile">The test assembly.</param>
             <param name="configFile">The application configuration file for the test domain.</param>
-            <param name="listener">An <see cref="T:NUnit.Core.EventListener"/>.</param>
             <returns>
             The result of the test.
             </returns>

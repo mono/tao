@@ -31,18 +31,22 @@
         </member>
         <member name="M:NAnt.Win32.Tasks.ReadRegistryTask.LookupRegKey(System.String,Microsoft.Win32.RegistryHive[])">
             <summary>
-            return the hive for a given key
+            Returns the hive for a given key.
             </summary>
             <param name="key"></param>
             <param name="registries"></param>
-            <returns></returns>
+            <returns>
+            The hive for a given key.
+            </returns>
         </member>
         <member name="M:NAnt.Win32.Tasks.ReadRegistryTask.GetHiveKey(Microsoft.Win32.RegistryHive)">
             <summary>
-            return the key for a given registry hive
+            Returns the key for a given registry hive.
             </summary>
-            <param name="hive"></param>
-            <returns></returns>
+            <param name="hive">The registry hive to return the key for.</param>
+            <returns>
+            The key for a given registry hive.
+            </returns>
         </member>
         <member name="P:NAnt.Win32.Tasks.ReadRegistryTask.PropertyName">
             <summary>
@@ -69,10 +73,9 @@
         </member>
         <member name="P:NAnt.Win32.Tasks.ReadRegistryTask.RegistryHiveName">
             <summary>
-            The registry hive to use - either <see cref="F:Microsoft.Win32.RegistryHive.LocalMachine"/>,
-            <see cref="F:Microsoft.Win32.RegistryHive.Users"/>, <see cref="F:Microsoft.Win32.RegistryHive.CurrentUser"/> or
-            <see cref="F:Microsoft.Win32.RegistryHive.ClassesRoot"/>. 
-            The default is <see cref="F:Microsoft.Win32.RegistryHive.LocalMachine"/>.
+            Space separated list of registry hives to search for <see cref="P:NAnt.Win32.Tasks.ReadRegistryTask.RegistryKey"/>.
+            For a list of possible values, see <see cref="T:Microsoft.Win32.RegistryHive"/>. The 
+            default is <see cref="F:Microsoft.Win32.RegistryHive.LocalMachine"/>.
             </summary>
             <remarks>
             <seealso cref="T:Microsoft.Win32.RegistryHive"/>
