@@ -3772,6 +3772,17 @@ namespace Tao.Cg {
         public static extern void cgCompileProgram(IntPtr prog);
         #endregion void cgCompileProgram(IntPtr prog)
 
+        #region int cgGetParameterType(IntPtr param)
+        /// <summary>
+        ///    Gets the data type of the specified parameter.
+        /// </summary>
+        /// <param name="param">Id of the parameter to query.</param>
+        /// <returns>Enum value representing the parameter's data type.</returns>
+        // CGDLL_API CGtype cgGetParameterType(CGparameter param);
+        [DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern int cgGetParameterType(IntPtr param);
+        #endregion cgGetParameterType(IntPtr param)
+        
         #region bool cgIsProgramCompiled(IntPtr prog)
         /// <summary>
         ///     Determines if a program has been compiled.
