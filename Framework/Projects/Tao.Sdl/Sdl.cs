@@ -4190,6 +4190,84 @@ namespace Tao.Sdl {
 
 		// SDL_types -- none
 
+		#region SDL_version.h
+		#region IntPtr SDL_Linked_VersionInternal()
+		//     extern DECLSPEC const SDL_version * SDLCALL SDL_Linked_Version(void)
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDL_Linked_Version"), SuppressUnmanagedCodeSecurity]
+		private static extern IntPtr SDL_Linked_VersionInternal();
+		#endregion IntPtr SDL_Linked_VersionInternal()
+
+		#region SDL_version SDL_Linked_Version() 
+		/// <summary>
+		///     This function gets the version of the dynamically linked SDL library.
+		/// </summary>
+		/// <returns>
+		///     SDL_version struct
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_version.h:
+		///     <code>extern DECLSPEC const SDL_version * SDLCALL SDL_Linked_Version(void)</code>
+		///     </p>
+		/// </remarks>
+		public static SDL_version SDL_Linked_Version() 
+		{ 
+			return (Sdl.SDL_version)Marshal.PtrToStructure(
+				Sdl.SDL_Linked_VersionInternal(), 
+				typeof(Sdl.SDL_version)); 
+		} 
+		#endregion SDL_version SDL_Linked_Version() 
+
+		#region int SDL_VERSIONNUM( byte major, byte minor, byte patch )
+		// This method turns the version numbers into a numeric value: (1,2,3) -> (1203)
+		// This assumes that there will never be more than 100 patchlevels
+		private static int SDL_VERSIONNUM( byte major, byte minor, byte patch )
+		{
+			return (int)(major*1000 + minor*100 + patch);
+		}
+		#endregion int SDL_VERSIONNUM( byte major, byte minor, byte patch )
+
+		#region int SDL_COMPILEDVERSION
+		/// <summary>
+		/// This returns the current SDL version
+		/// </summary>
+		/// <remarks>
+		///      <p>
+		///     Binds to C-function call in SDL_version.h:
+		///     <code>#define SDL_COMPILEDVERSION SDL_VERSIONNUM(SDL_MAJOR_VERSION, SDL_MINOR_VERSION, SDL_PATCHLEVEL)</code>
+		///     </p>
+		/// </remarks>
+		/// <returns>
+		/// Returns the version number as a numeric value: (1.2.7 -> 1207)
+		/// </returns>
+		public static int SDL_COMPILEDVERSION
+		{
+			get
+			{
+				SDL_version version = Sdl.SDL_Linked_Version();
+				return Sdl.SDL_VERSIONNUM(version.major, version.minor, version.patch);
+			}
+		}
+		#endregion int SDL_COMPILEDVERSION
+
+		#region bool SDL_VERSION_ATLEAST( byte major, byte minor, byte patch )
+		/// <summary>
+		/// Will evaluate to true if SDL version is at least X.Y.Z
+		/// </summary>
+		/// <param name="major">Major version number</param>
+		/// <param name="minor">Minor version number</param>
+		/// <param name="patch">Patch version number</param>
+		/// <returns>True if the version of SDL is greater or equal to the version numbers passed in.</returns>
+		public static bool SDL_VERSION_ATLEAST( byte major, byte minor, byte patch )
+		{
+			return (Sdl.SDL_COMPILEDVERSION >= Sdl.SDL_VERSIONNUM(
+				major, 
+				minor, 
+				patch));
+		}
+		#endregion bool SDL_VERSION_ATLEAST( byte major, byte minor, byte patch )
+		#endregion SDL_version.h
+
 		#region SDL_video.h
 		#region int SDL_MUSTLOCK(IntPtr surface)
 		/// <summary>
@@ -4234,7 +4312,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <returns>
 		/// Returns a string containing the driver name. 
-		/// It returns null if no driver has benn initialized.
+		/// It returns null if no driver has been initialized.
 		/// </returns>
 		/// <param name="maxlen">
 		/// Length of string
@@ -5182,77 +5260,44 @@ namespace Tao.Sdl {
 			int Rmask, int Gmask, int Bmask, int Amask);
 		#endregion IntPtr SDL_AllocSurface(...)
 
+		#region IntPtr SDL_CreateRGBSurfaceFrom(...)
 		/// <summary>
-		/// Allocate and free an RGB surface (must be called after
-		///  SDL_SetVideoMode)
-		/// If the depth is 4 or 8 bits, an empty palette is allocated 
-		/// for the surface.
-		/// If the depth is greater than 8 bits, the pixel format is set 
-		/// using the
-		/// flags '[RGB]mask'.
-		/// If the function runs out of memory, it will return NULL. 
+		/// Create an SDL_Surface from pixel data
 		/// </summary>
 		/// <remarks>
-		///The 'flags' tell what kind of surface to create.
-		/// SDL_SWSURFACE means that the surface should be created in 
-		/// system memory.
-		/// SDL_HWSURFACE means that the surface should be created in 
-		/// video memory,
-		/// with the same format as the display surface.  This is useful 
-		/// for surfaces
-		/// that will not change much, to take advantage of hardware
-		/// acceleration
-		/// when being blitted to the display surface.
-		/// SDL_ASYNCBLIT means that SDL will try to perform asynchronous 
-		/// blits with
-		/// this surface, but you must always lock it before accessing the 
-		/// pixels.
-		/// SDL will wait for current blits to finish before returning
-		///  from the lock.
-		/// SDL_SRCCOLORKEY indicates that the surface will be used for
-		///  colorkey blits.
-		/// If the hardware supports acceleration of colorkey blits between
-		/// two surfaces in video memory, SDL will try to place the surface in
-		/// video memory. If this isn't possible or if there is no hardware
-		/// acceleration available, the surface will be placed in system 
-		/// memory.
-		/// SDL_SRCALPHA means that the surface will be used for alpha 
-		/// blits and 
-		/// if the hardware supports hardware acceleration of alpha 
-		/// blits between
-		/// two surfaces in video memory, to place the surface in video memory
-		/// if possible, otherwise it will be placed in system memory.
-		/// If the surface is created in video memory, blits will be 
-		/// _much_ faster,
-		/// but the surface format must be identical to the video 
-		/// surface format,
-		/// and the only way to access the pixels member of the surface 
-		/// is to use
-		/// the SDL_LockSurface() and SDL_UnlockSurface() calls.
-		/// If the requested surface actually resides in video memory,
-		///  SDL_HWSURFACE
-		/// will be set in the flags member of the returned surface.
-		///   If for some
-		/// reason the surface could not be placed in video memory, 
-		/// it will not have
-		/// the SDL_HWSURFACE flag set, and will be created in system 
-		/// memory instead.
+		/// Creates an SDL_Surface from the provided pixel data.
+		/// <p>
+		/// The data stored in pixels is assumed to be of the depth specified 
+		/// in the parameter list. The pixel data is not copied into the SDL_Surface
+		///  structure so it should not be freed until the surface has been freed 
+		///  with a called to <see cref="SDL_FreeSurface"/>. pitch is the length of each scanline
+		///   in bytes. </p>
+		///   <p>
+		/// See <see cref="SDL_CreateRGBSurface"/> for a more detailed description of the other 
+		/// parameters.</p>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>SDL_Surface *SDL_CreateRGBSurfaceFrom(void *pixels, int width, int height, int depth, int pitch, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)</code>
+		/// </p>
 		/// </remarks>
 		/// <param name="pixels"></param>
 		/// <param name="width"></param>
 		/// <param name="height"></param>
 		/// <param name="depth"></param>
-		/// <param name="pitch"></param>
+		/// <param name="pitch">length of each scanline in bytes.</param>
 		/// <param name="Rmask"></param>
 		/// <param name="Gmask"></param>
 		/// <param name="Bmask"></param>
 		/// <param name="Amask"></param>
-		/// <returns></returns>
+		/// <returns>Returns the created surface, or NULL upon error.
+		/// </returns>
+		/// <seealso cref="SDL_CreateRGBSurface"/>
+		/// <seealso cref="SDL_FreeSurface"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_CreateRGBSurfaceFrom(IntPtr pixels, 
 			int width, int height, int depth, int pitch, int Rmask, 
 			int Gmask, int Bmask, int Amask);
+		#endregion IntPtr SDL_CreateRGBSurfaceFrom(...)
 
 		#region void SDL_FreeSurfaceInternal(IntPtr surface)
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDL_FreeSurface"),
@@ -5735,27 +5780,27 @@ namespace Tao.Sdl {
 //		 * This is disabled in default builds of SDL.
 //		 */
 //		extern DECLSPEC int SDLCALL SDL_GL_LoadLibrary(const char *path);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="path"></param>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_GL_LoadLibrary(string path);
 //
 //		/*
 //		 * Get the address of a GL function (for extension functions)
 //		 */
 //		extern DECLSPEC void * SDLCALL SDL_GL_GetProcAddress(const char* proc);
 //
-//		/*
-//		 * Set an attribute of the OpenGL subsystem before intialization.
-//		 */
-//		extern DECLSPEC int SDLCALL SDL_GL_SetAttribute(SDL_GLattr attr, int value);
-//
-//		/*
-//		 * Get an attribute of the OpenGL subsystem from the windowing
-//		 * interface, such as glX. This is of course different from getting
-//		 * the values from SDL's internal OpenGL subsystem, which only
-//		 * stores the values you request before initialization.
-//		 *
-//		 * Developers should track the values they pass into SDL_GL_SetAttribute
-//		 * themselves if they want to retrieve these values.
-//		 */
-//		extern DECLSPEC int SDLCALL SDL_GL_GetAttribute(SDL_GLattr attr, int* value);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="proc"></param>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_GL_GetProcAddress(string proc);
+		
 //
 //		/*
 //		 * Swap the OpenGL buffers, if double-buffering is supported.
@@ -5826,6 +5871,8 @@ namespace Tao.Sdl {
 		/// <remarks>
 		/// This function iconifies/minimizes the window, and returns 1 if it succeeded.
 		/// If the function succeeds, it generates an <see cref="SDL_APPACTIVE"/> loss event.
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>int SDL_WM_IconifyWindow(void)</code></p>
 		/// </remarks>
 		/// <returns>Returns 1 if it succeeded. 
 		/// This function is a noop and returns 0 in non-windowed environments.</returns>
@@ -5848,6 +5895,8 @@ namespace Tao.Sdl {
 		/// attribute based on the flags parameter - if SDL_FULLSCREEN is not
 		/// set, then the display will be windowed by default where supported.</p>
 		/// <p>This is currently only implemented in the X11 video driver.</p>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>int SDL_WM_ToggleFullScreen(SDL_Surface *surface);</code></p>
 		/// </remarks>
 		/// <param name="surface"></param>
 		/// <returns>Returns 0 on failure or 1 on success.</returns>
@@ -5856,97 +5905,31 @@ namespace Tao.Sdl {
 		public static extern int SDL_WM_ToggleFullScreen(IntPtr surface);
 		#endregion int SDL_WM_ToggleFullScreen(IntPtr surface);
 
+		#region int SDL_WM_GrabInput(SDL_GrabMode mode);
 		/// <summary>
+		/// Grabs mouse and keyboard input.
+		/// </summary>
+		/// <remarks>
 		/// Grabbing means that the mouse is confined to the application 
 		/// window,
 		/// and nearly all keyboard input is passed directly to the 
 		/// application,
 		/// and not interpreted by a window manager, if any.
-		/// </summary>
+		/// <p>
+		/// When mode is SDL_GRAB_QUERY the grab mode is not changed, but the current grab mode is returned.
+		/// </p>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>SDL_GrabMode SDL_WM_GrabInput(SDL_GrabMode mode)</code></p>
+		/// </remarks>
 		/// <param name="mode"></param>
-		/// <returns></returns>
+		/// <returns>The current/new SDL_GrabMode.
+		/// </returns>
+		/// <seealso cref="SDL_GrabMode"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_WM_GrabInput(SDL_GrabMode mode);
+		#endregion int SDL_WM_GrabInput(SDL_GrabMode mode);
 		#endregion SDL_video.h
-
-		#region SDL_version.h
-		#region IntPtr SDL_Linked_VersionInternal()
-		//     extern DECLSPEC const SDL_version * SDLCALL SDL_Linked_Version(void)
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDL_Linked_Version"), SuppressUnmanagedCodeSecurity]
-		private static extern IntPtr SDL_Linked_VersionInternal();
-		#endregion IntPtr SDL_Linked_VersionInternal()
-
-		#region SDL_version SDL_Linked_Version() 
-		/// <summary>
-		///     This function gets the version of the dynamically linked SDL library.
-		/// </summary>
-		/// <returns>
-		///     SDL_version struct
-		/// </returns>
-		/// <remarks>
-		///     <p>
-		///     Binds to C-function call in SDL_version.h:
-		///     <code>extern DECLSPEC const SDL_version * SDLCALL SDL_Linked_Version(void)</code>
-		///     </p>
-		/// </remarks>
-		public static SDL_version SDL_Linked_Version() 
-		{ 
-			return (Sdl.SDL_version)Marshal.PtrToStructure(
-				Sdl.SDL_Linked_VersionInternal(), 
-				typeof(Sdl.SDL_version)); 
-		} 
-		#endregion SDL_version SDL_Linked_Version() 
-
-		#region int SDL_VERSIONNUM( byte major, byte minor, byte patch )
-		// This method turns the version numbers into a numeric value: (1,2,3) -> (1203)
-		// This assumes that there will never be more than 100 patchlevels
-		private static int SDL_VERSIONNUM( byte major, byte minor, byte patch )
-		{
-			return (int)(major*1000 + minor*100 + patch);
-		}
-		#endregion int SDL_VERSIONNUM( byte major, byte minor, byte patch )
-
-		#region int SDL_COMPILEDVERSION
-		/// <summary>
-		/// This returns the current SDL version
-		/// </summary>
-		/// <remarks>
-		///      <p>
-		///     Binds to C-function call in SDL_version.h:
-		///     <code>#define SDL_COMPILEDVERSION SDL_VERSIONNUM(SDL_MAJOR_VERSION, SDL_MINOR_VERSION, SDL_PATCHLEVEL)</code>
-		///     </p>
-		/// </remarks>
-		/// <returns>
-		/// Returns the version number as a numeric value: (1.2.7 -> 1207)
-		/// </returns>
-		public static int SDL_COMPILEDVERSION
-		{
-			get
-			{
-				SDL_version version = Sdl.SDL_Linked_Version();
-				return Sdl.SDL_VERSIONNUM(version.major, version.minor, version.patch);
-			}
-		}
-		#endregion int SDL_COMPILEDVERSION
-
-		#region bool SDL_VERSION_ATLEAST( byte major, byte minor, byte patch )
-		/// <summary>
-		/// Will evaluate to true if SDL version is at least X.Y.Z
-		/// </summary>
-		/// <param name="major">Major version number</param>
-		/// <param name="minor">Minor version number</param>
-		/// <param name="patch">Patch version number</param>
-		/// <returns>True if the version of SDL is greater or equal to the version numbers passed in.</returns>
-		public static bool SDL_VERSION_ATLEAST( byte major, byte minor, byte patch )
-		{
-			return (Sdl.SDL_COMPILEDVERSION >= Sdl.SDL_VERSIONNUM(
-				major, 
-				minor, 
-				patch));
-		}
-		#endregion bool SDL_VERSION_ATLEAST( byte major, byte minor, byte patch )
-		#endregion SDL_version.h
 
 		#region NOT_DONE
 
@@ -6444,6 +6427,7 @@ namespace Tao.Sdl {
 
 		/// <summary>
 		/// Set an attribute of the OpenGL subsystem before intialization.
+		/// int SDLCALL SDL_GL_SetAttribute(SDL_GLattr attr, int value)
 		/// </summary>
 		/// <param name="attr"></param>
 		/// <param name="value"></param>
@@ -6462,6 +6446,7 @@ namespace Tao.Sdl {
 		/// Developers should track the values they pass into
 		///  SDL_GL_SetAttribute
 		/// themselves if they want to retrieve these values.
+		/// extern DECLSPEC int SDLCALL SDL_GL_GetAttribute(SDL_GLattr attr, int* value);
 		/// </summary>
 		/// <param name="attr"></param>
 		/// <param name="val"></param>
@@ -6471,14 +6456,6 @@ namespace Tao.Sdl {
 		public static extern int SDL_GL_GetAttribute(SDL_GLattr attr, 
 			out int val);
 		
-		/// <summary>
-		///		
-		/// </summary>
-		/// <param name="extension"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern IntPtr SDL_GL_GetProcAddress(string extension);
  
 		// CD-Rom
 		/// <summary>
