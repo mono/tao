@@ -22,6 +22,9 @@ namespace Tao.Sdl
 		int sleepTime = 1000;
 		short[] vx = {40, 80, 130, 80, 40};
 		short[] vy = {80, 40, 80, 130, 130};
+		byte[] src1 = {1,2,3,4};
+		byte[] src2 = {2,10,20,40};
+		byte[] dest = new byte[4];
 		
 		/// <summary>
 		/// 
@@ -62,6 +65,7 @@ namespace Tao.Sdl
 		{
 			Sdl.SDL_Quit();
 		}
+
 		#region SDL_gfxPrimitives.h
 		/// <summary>
 		/// 
@@ -851,6 +855,26 @@ namespace Tao.Sdl
 		{
 		}
 		#endregion SDL_rotozoom.h
+
+		#region SDL_imageFilter.h
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void ImageFilterAdd()
+		{
+			int result = SdlGfx.SDL_imageFilterAdd(src1, src2, dest, src1.Length);
+			//Console.WriteLine("result: " + result.ToString());
+			//Console.WriteLine(
+			//	"dest: " + dest[0].ToString() + 
+			//	", " + dest[1].ToString() + ", " + dest[2].ToString() + 
+			//	", " + dest[3].ToString());
+			Assert.AreEqual(src1[0] + src2[0], dest[0]);
+			Assert.AreEqual(src1[1] + src2[1], dest[1]);
+			Assert.AreEqual(src1[2] + src2[2], dest[2]);
+			Assert.AreEqual(src1[3] + src2[3], dest[3]);
+		}
+		#endregion SDL_imageFilter.h
 	}
 	#endregion SDL_gfx.h
 }
