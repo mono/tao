@@ -103,20 +103,6 @@ namespace Tao.Sdl {
     public sealed class SdlImage {
 		// --- Fields ---
         #region Private Constants
-        #region string SDL_IMAGE_NATIVE_LIBRARY
-        /// <summary>
-        ///     Specifies SdlImage's native library archive.
-        /// </summary>
-        /// <remarks>
-        ///     Specifies SDL_image.dll for Windows and libSDL_image.so for Linux.
-        /// </remarks>
-#if WIN32
-		private const string SDL_IMAGE_NATIVE_LIBRARY = "SDL_image.dll";
-#elif LINUX
-		private const string SDL_IMAGE_NATIVE_LIBRARY = "libSDL_image.so";
-#endif
-        #endregion string SDL_IMAGE_NATIVE_LIBRARY
-
         #region CallingConvention CALLING_CONVENTION
         /// <summary>
         ///     Specifies the calling convention.
@@ -196,7 +182,7 @@ namespace Tao.Sdl {
         /// a pointer to the image as a new SDL_Surface. 
         /// NULL is returned on errors. 
         /// </returns>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_LoadTyped_RW(
@@ -226,7 +212,7 @@ namespace Tao.Sdl {
         /// NULL is returned on errors, such as no support 
         /// built for the image, or a file reading error. 
         /// </returns>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_Load(string file);
@@ -251,7 +237,7 @@ namespace Tao.Sdl {
         /// a pointer to the image as a new SDL_Surface. 
         /// NULL is returned on errors. 
         /// </returns>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_Load_RW(IntPtr src, int freesrc);
@@ -271,7 +257,7 @@ namespace Tao.Sdl {
         /// Load src as a BMP image for use as a surface, 
         /// if BMP support is compiled into the SDL_image library. 
         /// </remarks>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_LoadBMP_RW(IntPtr src);
@@ -291,7 +277,7 @@ namespace Tao.Sdl {
         /// Load src as a PNM image for use as a surface, 
         /// if PNM support is compiled into the SDL_image library. 
         /// </remarks>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_LoadPNM_RW(IntPtr src);
@@ -311,7 +297,7 @@ namespace Tao.Sdl {
         /// Load src as a XPM image for use as a surface, 
         /// if XPM support is compiled into the SDL_image library. 
         /// </remarks>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_LoadXPM_RW(IntPtr src);
@@ -331,7 +317,7 @@ namespace Tao.Sdl {
         /// Load src as a XCF image for use as a surface, 
         /// if XCF support is compiled into the SDL_image library. 
         /// </remarks>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_LoadXCF_RW(IntPtr src);
@@ -351,7 +337,7 @@ namespace Tao.Sdl {
         /// Load src as a PCX image for use as a surface, 
         /// if PCX support is compiled into the SDL_image library. 
         /// </remarks>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_LoadPCX_RW(IntPtr src);
@@ -371,7 +357,7 @@ namespace Tao.Sdl {
         /// Load src as a GIF image for use as a surface, 
         /// if GIF support is compiled into the SDL_image library. 
         /// </remarks>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_LoadGIF_RW(IntPtr src);
@@ -391,7 +377,7 @@ namespace Tao.Sdl {
         /// Load src as a JPG image for use as a surface, 
         /// if JPG support is compiled into the SDL_image library. 
         /// </remarks>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_LoadJPG_RW(IntPtr src);
@@ -411,7 +397,7 @@ namespace Tao.Sdl {
         /// Load src as a TIF image for use as a surface, 
         /// if TIF support is compiled into the SDL_image library. 
         /// </remarks>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_LoadTIF_RW(IntPtr src);
@@ -431,7 +417,7 @@ namespace Tao.Sdl {
         /// Load src as a PNG image for use as a surface, 
         /// if PNG support is compiled into the SDL_image library. 
         /// </remarks>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_LoadPNG_RW(IntPtr src);
@@ -456,7 +442,7 @@ namespace Tao.Sdl {
         /// which is a way of identifying a filetype from a 
         /// signature in it's contents. So be careful with this. 
         /// </remarks>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_LoadTGA_RW(IntPtr src);
@@ -476,7 +462,7 @@ namespace Tao.Sdl {
         /// Load src as a LBM image for use as a surface, 
         /// if LBM support is compiled into the SDL_image library. 
         /// </remarks>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_LoadLBM_RW(IntPtr src);
@@ -496,7 +482,7 @@ namespace Tao.Sdl {
         /// Load src as a XPM image for use as a surface, 
         /// if XPM support is compiled into the SDL_image library. 
         /// </remarks>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_ReadXPMFromArray(IntPtr[] src);
@@ -514,7 +500,7 @@ namespace Tao.Sdl {
         /// 1 if the image is a BMP and the BMP format support is
         ///  compiled into SDL_image. 0 is returned otherwise. 
         /// </returns>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_isBMP(IntPtr src);
@@ -532,7 +518,7 @@ namespace Tao.Sdl {
         /// 1 if the image is a PNM and the PNM format support is
         ///  compiled into SDL_image. 0 is returned otherwise. 
         /// </returns>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_isPNM(IntPtr src);
@@ -550,7 +536,7 @@ namespace Tao.Sdl {
         /// 1 if the image is a XPM and the XPM format support is
         ///  compiled into SDL_image. 0 is returned otherwise. 
         /// </returns>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_isXPM(IntPtr src);
@@ -568,7 +554,7 @@ namespace Tao.Sdl {
         /// 1 if the image is a XCF and the XCF format support is
         ///  compiled into SDL_image. 0 is returned otherwise. 
         /// </returns>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_isXCF(IntPtr src);
@@ -586,7 +572,7 @@ namespace Tao.Sdl {
         /// 1 if the image is a PCX and the PCX format support is
         ///  compiled into SDL_image. 0 is returned otherwise. 
         /// </returns>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_isPCX(IntPtr src);
@@ -604,7 +590,7 @@ namespace Tao.Sdl {
         /// 1 if the image is a GIF and the GIF format support is
         ///  compiled into SDL_image. 0 is returned otherwise. 
         /// </returns>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_isGIF(IntPtr src);
@@ -622,7 +608,7 @@ namespace Tao.Sdl {
         /// 1 if the image is a JPG and the JPG format support is
         ///  compiled into SDL_image. 0 is returned otherwise. 
         /// </returns>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_isJPG(IntPtr src);
@@ -640,7 +626,7 @@ namespace Tao.Sdl {
         /// 1 if the image is a TIF and the TIF format support is
         ///  compiled into SDL_image. 0 is returned otherwise. 
         /// </returns>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_isTIF(IntPtr src);
@@ -658,7 +644,7 @@ namespace Tao.Sdl {
         /// 1 if the image is a PNG and the PNG format support is
         ///  compiled into SDL_image. 0 is returned otherwise. 
         /// </returns>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_isPNG(IntPtr src);
@@ -676,7 +662,7 @@ namespace Tao.Sdl {
         /// 1 if the image is a LBM and the LBM format support is
         ///  compiled into SDL_image. 0 is returned otherwise. 
         /// </returns>
-        [DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+        [DllImport("SDL_image.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr IMG_isLBM(IntPtr src);

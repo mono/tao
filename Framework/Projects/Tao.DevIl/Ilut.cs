@@ -57,14 +57,10 @@ namespace Tao.DevIl {
         ///     Specifies the calling convention.
         /// </summary>
         /// <remarks>
-        ///     Specifies <see cref="CallingConvention.StdCall" /> for Windows and
-        ///     <see cref="CallingConvention.Cdecl" /> for Linux.
+        ///     Specifies <see cref="CallingConvention.Cdecl" /> for Windows and
+        ///     for Linux.
         /// </remarks>
-        #if WIN32
-        private const CallingConvention CALLING_CONVENTION = CallingConvention.StdCall;
-        #elif UNIX
         private const CallingConvention CALLING_CONVENTION = CallingConvention.Cdecl;
-        #endif
         #endregion CallingConvention CALLING_CONVENTION
         #endregion Private Constants
     }

@@ -3,4 +3,6 @@ Gl-enums.cs
 Gl-funcs.cs
 gencore.exe
 Gl.cs
+ContextGl.cs
+ContextGl-funcs.cs
 *.flc

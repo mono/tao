@@ -13,6 +13,7 @@
         </csc>
         <copy file="${framework.solutions.directory}/${nant.project.name}/Solution Items/${nant.project.name}.License.txt" todir="${framework.build.directory}" />
         <copy file="${framework.solutions.directory}/${nant.project.name}/Solution Items/${nant.project.name}.Readme.txt" todir="${framework.build.directory}" />
+        <copy file="${framework.solutions.directory}/${nant.project.name}/Solution Items/${nant.project.name}.dll.config" todir="${framework.build.directory}" />
     </target>
 
     <target name="clean">

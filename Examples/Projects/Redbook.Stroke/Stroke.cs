@@ -262,7 +262,9 @@ namespace Redbook {
 
         #region PrintStrokedString(string text)
         private static void PrintStrokedString(string text) {
-            Gl.glCallLists(text.Length, Gl.GL_BYTE, text);
+            byte [] textbytes = new byte[text.Length];
+            for (int i = 0; i < text.Length; i++) textbytes[i] = (byte) text[i];
+            Gl.glCallLists(text.Length, Gl.GL_BYTE, textbytes);
         }
         #endregion PrintStrokedString(string text)
 

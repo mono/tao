@@ -28,10 +28,11 @@
 
 using System;
 using System.Runtime.InteropServices;
-using System.Collections;
+using System.Security;
 
 namespace Tao.OpenGl {
 
+[CLSCompliantAttribute(true)]
 public sealed class ContextGl {
 
     //

@@ -2,15 +2,16 @@
 
 <typemap>
   <type name="GLenum">
-    <mapto language="c#" type="uint" />
+    <mapto language="c#" type="int" />
   </type>
 
   <type name="GLbitfield">
-    <mapto language="c#" type="uint" />
+    <mapto language="c#" type="int" nonclstype="uint" />
   </type>
 
   <type name="GLboolean">
-    <mapto language="c#" type="bool" />
+    <!-- we sort of cheat here and just add bool as the nonclstype -->
+    <mapto language="c#" type="int" nonclstype="bool" />
   </type>
 
   <type name="GLsizei">
@@ -38,7 +39,7 @@
   </type>
 
   <type name="GLuint">
-    <mapto language="c#" type="uint" />
+    <mapto language="c#" type="int" nonclstype="uint" />
   </type>
 
   <type name="GLshort">
@@ -46,11 +47,11 @@
   </type>
 
   <type name="GLushort">
-    <mapto language="c#" type="ushort" />
+    <mapto language="c#" type="short" nonclstype="ushort" />
   </type>
 
   <type name="GLbyte">
-    <mapto language="c#" type="byte" />
+    <mapto language="c#" type="byte" nonclstype="sbyte" />
   </type>
 
   <type name="GLubyte">
@@ -105,11 +106,11 @@
 
   <type name="Half16NV">
     <!-- wish we could do something better with this -->
-    <mapto language="c#" type="ushort" />
+    <mapto language="c#" type="short" nonclstype="ushort" />
   </type>
 
   <type name="handleARB">
-    <mapto language="c#" type="uint" />
+    <mapto language="c#" type="int" nonclstype="uint" />
   </type>
 
   <type name="charARB">

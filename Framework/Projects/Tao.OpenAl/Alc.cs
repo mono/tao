@@ -41,20 +41,6 @@ namespace Tao.OpenAl {
     public sealed class Alc {
         // --- Fields ---
         #region Private Constants
-        #region string ALC_NATIVE_LIBRARY
-        /// <summary>
-        ///     Specifies ALC's native library archive.
-        /// </summary>
-        /// <remarks>
-        ///     Specifies OpenAL32.dll for Windows and libAL.so for LINUX.
-        /// </remarks>
-        #if WIN32
-        private const string ALC_NATIVE_LIBRARY = "OpenAL32.dll";
-        #elif LINUX
-        private const string ALC_NATIVE_LIBRARY = "libAL.so";
-        #endif
-        #endregion string AL_CNATIVE_LIBRARY
-
         #region CallingConvention CALLING_CONVENTION
         /// <summary>
         ///     Specifies the calling convention.
@@ -241,7 +227,7 @@ namespace Tao.OpenAl {
         ///     A pointer to an opened device.
         /// </param>
         // ALCAPI ALCvoid ALCAPIENTRY alcCloseDevice(ALCdevice *device);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alcCloseDevice([In] IntPtr device);
         #endregion alcCloseDevice([In] IntPtr device)
 
@@ -268,7 +254,7 @@ namespace Tao.OpenAl {
         ///     Returns a pointer to the new context (IntPtr.Zero on failure).
         /// </returns>
         // ALCAPI ALCcontext* ALCAPIENTRY alcCreateContext(ALCdevice *device, ALCint *attrList);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr alcCreateContext([In] IntPtr device, [In] ref int attribute);
         #endregion IntPtr alcCreateContext([In] IntPtr device, [In] ref int attribute)
 
@@ -295,7 +281,7 @@ namespace Tao.OpenAl {
         ///     Returns a pointer to the new context (IntPtr.Zero on failure).
         /// </returns>
         // ALCAPI ALCcontext* ALCAPIENTRY alcCreateContext(ALCdevice *device, ALCint *attrList);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr alcCreateContext([In] IntPtr device, [In] int[] attribute);
         #endregion IntPtr alcCreateContext([In] IntPtr device, [In] int[] attribute)
 
@@ -322,7 +308,7 @@ namespace Tao.OpenAl {
         ///     Returns a pointer to the new context (IntPtr.Zero on failure).
         /// </returns>
         // ALCAPI ALCcontext* ALCAPIENTRY alcCreateContext(ALCdevice *device, ALCint *attrList);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr alcCreateContext([In] IntPtr device, [In] IntPtr attribute);
         #endregion IntPtr alcCreateContext([In] IntPtr device, [In] IntPtr attribute)
 
@@ -349,7 +335,7 @@ namespace Tao.OpenAl {
         ///     Returns a pointer to the new context (IntPtr.Zero on failure).
         /// </returns>
         // ALCAPI ALCcontext* ALCAPIENTRY alcCreateContext(ALCdevice *device, ALCint *attrList);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern IntPtr alcCreateContext([In] IntPtr device, [In] int *attribute);
         #endregion IntPtr alcCreateContext([In] IntPtr device, [In] int *attribute)
 
@@ -361,7 +347,7 @@ namespace Tao.OpenAl {
         ///     Pointer to the context to be destroyed.
         /// </param>
         // ALCAPI ALCvoid ALCAPIENTRY alcDestroyContext(ALCcontext *context);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alcDestroyContext([In] IntPtr context);
         #endregion alcDestroyContext([In] IntPtr context)
 
@@ -376,7 +362,7 @@ namespace Tao.OpenAl {
         ///     A pointer to a device or IntPtr.Zero on failue.
         /// </returns>
         // ALCAPI ALCdevice* ALCAPIENTRY alcGetContextsDevice(ALCcontext *context);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr alcGetContextsDevice([In] IntPtr context);
         #endregion IntPtr alcGetContextsDevice([In] IntPtr context)
 
@@ -388,7 +374,7 @@ namespace Tao.OpenAl {
         ///     Returns a pointer to the current context or IntPtr.Zero on failure.
         /// </returns>
         // ALCAPI ALCcontext* ALCAPIENTRY alcGetCurrentContext(ALCvoid);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr alcGetCurrentContext();
         #endregion IntPtr alcGetCurrentContext()
 
@@ -406,7 +392,7 @@ namespace Tao.OpenAl {
         ///     Returns the enum value described by the <i>enumName</i> string.
         /// </returns>
         // ALCAPI ALCenum ALCAPIENTRY alcGetEnumValue(ALCdevice *device, ALCubyte *enumName);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, CharSet=CharSet.Ansi, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, CharSet=CharSet.Ansi, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int alcGetEnumValue([In] IntPtr device, string enumName);
         #endregion int alcGetEnumValue([In] IntPtr device, string enumName)
 
@@ -421,7 +407,7 @@ namespace Tao.OpenAl {
         ///     The current context error state will be returned.
         /// </returns>
         // ALCAPI ALCenum ALCAPIENTRY alcGetError(ALCdevice *device);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int alcGetError([In] IntPtr device);
         #endregion int alcGetError([In] IntPtr device)
 
@@ -452,7 +438,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the data to be returned.
         /// </param>
         // ALCAPI ALCvoid ALCAPIENTRY alcGetIntegerv(ALCdevice *device, ALCenum param, ALCsizei size, ALCint *data);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alcGetIntegerv([In] IntPtr device, int attribute, int size, out int data);
         #endregion alcGetIntegerv([In] IntPtr device, int attribute, int size, out int data)
 
@@ -483,7 +469,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the data to be returned.
         /// </param>
         // ALCAPI ALCvoid ALCAPIENTRY alcGetIntegerv(ALCdevice *device, ALCenum param, ALCsizei size, ALCint *data);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alcGetIntegerv([In] IntPtr device, int attribute, int size, [Out] int[] data);
         #endregion alcGetIntegerv([In] IntPtr device, int attribute, int size, [Out] int[] data)
 
@@ -514,7 +500,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the data to be returned.
         /// </param>
         // ALCAPI ALCvoid ALCAPIENTRY alcGetIntegerv(ALCdevice *device, ALCenum param, ALCsizei size, ALCint *data);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alcGetIntegerv([In] IntPtr device, int attribute, int size, [Out] IntPtr data);
         #endregion alcGetIntegerv([In] IntPtr device, int attribute, int size, [Out] IntPtr data)
 
@@ -545,7 +531,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the data to be returned.
         /// </param>
         // ALCAPI ALCvoid ALCAPIENTRY alcGetIntegerv(ALCdevice *device, ALCenum param, ALCsizei size, ALCint *data);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alcGetIntegerv([In] IntPtr device, int attribute, int size, [Out] int *data);
         #endregion alcGetIntegerv([In] IntPtr device, int attribute, int size, [Out] int *data)
 
@@ -563,7 +549,7 @@ namespace Tao.OpenAl {
         ///     Returns the address of the function, or IntPtr.Zero if it is not found.
         /// </returns>
         // ALCAPI ALCvoid* ALCAPIENTRY alcGetProcAddress(ALCdevice *device, ALCubyte *funcName);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, CharSet=CharSet.Ansi, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, CharSet=CharSet.Ansi, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr alcGetProcAddress([In] IntPtr device, string functionName);
         #endregion IntPtr alcGetProcAddress([In] IntPtr device, string functionName)
 
@@ -590,7 +576,7 @@ namespace Tao.OpenAl {
         ///     Returns a pointer to a string.
         /// </returns>
         // ALCAPI ALCubyte* ALCAPIENTRY alcGetString(ALCdevice *device, ALCenum param);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, CharSet=CharSet.Ansi, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, CharSet=CharSet.Ansi, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern string alcGetString([In] IntPtr device, int attribute);
         #endregion string alcGetString([In] IntPtr device, int attribute)
 
@@ -609,7 +595,7 @@ namespace Tao.OpenAl {
         ///     <see cref="ALC_FALSE" /> if the extension is not available.
         /// </returns>
         // ALCAPI ALCboolean ALCAPIENTRY alcIsExtensionPresent(ALCdevice *device, ALCubyte *extName);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, CharSet=CharSet.Ansi, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, CharSet=CharSet.Ansi, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int alcIsExtensionPresent([In] IntPtr device, string extensionName);
         #endregion int alcIsExtensionPresent([In] IntPtr device, string extensionName)
 
@@ -624,7 +610,7 @@ namespace Tao.OpenAl {
         ///     Returns an error code on failure.
         /// </returns>
         // ALCAPI ALCboolean ALCAPIENTRY alcMakeContextCurrent(ALCcontext *context);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int alcMakeContextCurrent([In] IntPtr context);
         #endregion int alcMakeContextCurrent([In] IntPtr context)
 
@@ -639,7 +625,7 @@ namespace Tao.OpenAl {
         ///     Returns a pointer to the opened device.
         /// </returns>
         // ALCAPI ALCdevice* ALCAPIENTRY alcOpenDevice(ALCubyte *deviceName);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, CharSet=CharSet.Ansi, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, CharSet=CharSet.Ansi, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr alcOpenDevice(string deviceName);
         #endregion IntPtr alcOpenDevice(string deviceName)
 
@@ -651,7 +637,7 @@ namespace Tao.OpenAl {
         ///     Pointer to the new context.
         /// </param>
         // ALCAPI ALCvoid ALCAPIENTRY alcProcessContext(ALCcontext *context);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alcProcessContext([In] IntPtr context);
         #endregion alcProcessContext([In] IntPtr context)
 
@@ -663,7 +649,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the context to be suspended.
         /// </param>
         // ALCAPI ALCvoid ALCAPIENTRY alcSuspendContext(ALCcontext *context);
-        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alcSuspendContext([In] IntPtr context);
         #endregion alcSuspendContext([In] IntPtr context)
         #endregion Public OpenAL 1.0 Methods

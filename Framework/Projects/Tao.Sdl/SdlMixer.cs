@@ -94,20 +94,6 @@ namespace Tao.Sdl {
     public sealed class SdlMixer {
 		// --- Fields ---
         #region Private Constants
-        #region string SDL_MIXER_NATIVE_LIBRARY
-        /// <summary>
-        ///     Specifies SdlMixer native library archive.
-        /// </summary>
-        /// <remarks>
-        ///     Specifies SDL_mixer.dll for Windows and libSDL_mixer.so for Linux.
-        /// </remarks>
-#if WIN32
-		private const string SDL_MIXER_NATIVE_LIBRARY = "SDL_mixer.dll";
-#elif LINUX
-		private const string SDL_MIXER_NATIVE_LIBRARY = "libSDL_mixer.so";
-#endif
-        #endregion string SDL_MIXER_NATIVE_LIBRARY
-
         #region CallingConvention CALLING_CONVENTION
         /// <summary>
         ///     Specifies the calling convention.
@@ -308,7 +294,7 @@ namespace Tao.Sdl {
         /// linked SDL_mixer library.
         /// </summary>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr Mix_Linked_Version();
@@ -392,7 +378,7 @@ namespace Tao.Sdl {
         /// <returns>
         /// 0 on success, -1 on errors 
         /// </returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_OpenAudio(
@@ -430,7 +416,7 @@ namespace Tao.Sdl {
         /// Never fails...but a high number of channels
         /// can segfault if you run out of memory. We're talking REALLY high!
         /// </returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_AllocateChannels(int numchans);
@@ -464,7 +450,7 @@ namespace Tao.Sdl {
         /// it was opened will be returned. The values of the 
         /// arguments variables are not set on an error.
         /// </returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_QuerySpec(
@@ -492,7 +478,7 @@ namespace Tao.Sdl {
         /// a pointer to the sample as a Mix_Chunk. 
         /// NULL is returned on errors.
         /// </returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr Mix_LoadWAV_RW(IntPtr src, int freesrc);
@@ -521,7 +507,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="file"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr Mix_LoadMUS(string file);
@@ -545,7 +531,7 @@ namespace Tao.Sdl {
         /// a pointer to the sample as a Mix_Chunk. 
         /// NULL is returned on errors.
         /// </returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY,
+        [DllImport("SDL_mixer.dll",
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr Mix_QuickLoad_WAV(
@@ -572,7 +558,7 @@ namespace Tao.Sdl {
         /// a pointer to the sample as a Mix_Chunk. 
         /// NULL is returned on errors, such as when out of memory.
         /// </returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr Mix_QuickLoad_RAW(
@@ -590,7 +576,7 @@ namespace Tao.Sdl {
         /// <param name="chunk">
         /// Pointer to the Mix_Chunk to free.
         /// </param>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_FreeChunk(IntPtr chunk);
@@ -599,7 +585,7 @@ namespace Tao.Sdl {
         /// 
         /// </summary>
         /// <param name="music"></param>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_FreeMusic(IntPtr music);
@@ -610,7 +596,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="music"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern Mix_MusicType Mix_GetMusicType(IntPtr music);
@@ -619,7 +605,7 @@ namespace Tao.Sdl {
         //This can be used to provide real-time visual display of 
         //the audio stream
         //or add a custom mixer filter for the stream data.	
-        //[DllImport(SDL_MIXER_NATIVE_LIBRARY, 				
+        //[DllImport("SDL_mixer.dll", 				
         //CallingConvention=CALLING_CONVENTION),
         //SuppressUnmanagedCodeSecurity]
         //public static extern void Mix_SetPostMix(void (*mix_func)
@@ -639,7 +625,7 @@ namespace Tao.Sdl {
         /// This callback is only called if the music finishes naturally.
         /// </summary>
         /// <param name="music_finished"></param>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_HookMusicFinished(
@@ -649,7 +635,7 @@ namespace Tao.Sdl {
         /// Get a pointer to the user data for the current music hook
         /// </summary>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr Mix_GetMusicHookData();
@@ -667,7 +653,7 @@ namespace Tao.Sdl {
         ///  before calling your callback.
         /// </summary>
         /// <param name="channel_finished"></param>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_ChannelFinished(
@@ -716,7 +702,7 @@ namespace Tao.Sdl {
         /// <param name="left"></param>
         /// <param name="right"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_SetPanning(
@@ -790,7 +776,7 @@ namespace Tao.Sdl {
         /// <param name="angle"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_SetPosition(
@@ -842,7 +828,7 @@ namespace Tao.Sdl {
         /// <param name="channel"></param>
         /// <param name="distance"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_SetDistance(
@@ -885,7 +871,7 @@ namespace Tao.Sdl {
         /// <param name="channel"></param>
         /// <param name="flip"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_SetReverseStereo(
@@ -899,7 +885,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="num"></param>
         /// <returns>Returns the number of reserved channels.</returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_ReserveChannels(int num);
@@ -913,7 +899,7 @@ namespace Tao.Sdl {
         /// <param name="which"></param>
         /// <param name="tag"></param>
         /// <returns>Returns true if everything was OK.</returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_GroupChannel(int which, int tag);
@@ -925,7 +911,7 @@ namespace Tao.Sdl {
         /// <param name="to"></param>
         /// <param name="tag"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_GroupChannels(
@@ -937,7 +923,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="tag"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_GroupAvailable(int tag);
@@ -948,7 +934,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="tag"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_GroupCount(int tag);
@@ -958,7 +944,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="tag"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_GroupOldest(int tag);
@@ -969,7 +955,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="tag"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_GroupNewer(int tag);
@@ -1007,7 +993,7 @@ namespace Tao.Sdl {
         /// the channel the sample is played on. 
         /// On any errors, -1 is returned.
         /// </returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_PlayChannelTimed(
@@ -1054,7 +1040,7 @@ namespace Tao.Sdl {
         /// <param name="music"></param>
         /// <param name="loops"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_PlayMusic(IntPtr music, int loops);
@@ -1067,7 +1053,7 @@ namespace Tao.Sdl {
         /// <param name="loops"></param>
         /// <param name="ms"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_FadeInMusic(
@@ -1081,7 +1067,7 @@ namespace Tao.Sdl {
         /// <param name="ms"></param>
         /// <param name="position"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_FadeInMusicPos(
@@ -1096,7 +1082,7 @@ namespace Tao.Sdl {
         /// <param name="ms"></param>
         /// <param name="ticks"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_FadeInChannelTimed(
@@ -1173,7 +1159,7 @@ namespace Tao.Sdl {
         /// current volume of the channel. 
         /// If channel is -1, the average volume is returned.
         /// </returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_Volume(int channel, int volume);
@@ -1201,7 +1187,7 @@ namespace Tao.Sdl {
         /// if you passed a negative value for volume then this 
         /// volume is still the current volume for the chunk.
         /// </returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_VolumeChunk(
@@ -1212,7 +1198,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="volume"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_VolumeMusic(int volume);
@@ -1222,7 +1208,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="channel"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_HaltChannel(int channel);
@@ -1232,7 +1218,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="tag"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_HaltGroup(int tag);
@@ -1241,7 +1227,7 @@ namespace Tao.Sdl {
         /// 
         /// </summary>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_HaltMusic();
@@ -1255,7 +1241,7 @@ namespace Tao.Sdl {
         /// <param name="channel"></param>
         /// <param name="ticks"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_ExpireChannel(
@@ -1269,7 +1255,7 @@ namespace Tao.Sdl {
         /// <param name="which"></param>
         /// <param name="ms"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_FadeOutChannel(int which, int ms);
@@ -1280,7 +1266,7 @@ namespace Tao.Sdl {
         /// <param name="tag"></param>
         /// <param name="ms"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_FadeOutGroup(int tag, int ms);
@@ -1290,7 +1276,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="ms"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_FadeOutMusic(int ms);
@@ -1299,7 +1285,7 @@ namespace Tao.Sdl {
         /// Query the fading status of a channel
         /// </summary>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern Mix_Fading Mix_FadingMusic();
@@ -1309,7 +1295,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="which"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern Mix_Fading Mix_FadingChannel(int which);
@@ -1318,7 +1304,7 @@ namespace Tao.Sdl {
         /// Pause a particular channel
         /// </summary>
         /// <param name="channel"></param>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_Pause(int channel);
@@ -1327,7 +1313,7 @@ namespace Tao.Sdl {
         /// Resume a particular channel
         /// </summary>
         /// <param name="channel"></param>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_Resume(int channel);
@@ -1337,7 +1323,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="channel"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_Paused(int channel);
@@ -1345,7 +1331,7 @@ namespace Tao.Sdl {
         /// <summary>
         /// Pause the music stream
         /// </summary>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_PauseMusic();
@@ -1353,7 +1339,7 @@ namespace Tao.Sdl {
         /// <summary>
         /// Resume the music stream
         /// </summary>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_ResumeMusic();
@@ -1361,7 +1347,7 @@ namespace Tao.Sdl {
         /// <summary>
         /// 
         /// </summary>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_RewindMusic();
@@ -1370,7 +1356,7 @@ namespace Tao.Sdl {
         /// 
         /// </summary>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_PausedMusic();
@@ -1385,7 +1371,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="position"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_SetMusicPosition(double position);
@@ -1396,7 +1382,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="channel"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_Playing(int channel);
@@ -1405,7 +1391,7 @@ namespace Tao.Sdl {
         /// 
         /// </summary>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_PlayingMusic();
@@ -1415,7 +1401,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="command"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_SetMusicCMD(String command);
@@ -1425,7 +1411,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_SetSynchroValue(int value);
@@ -1434,7 +1420,7 @@ namespace Tao.Sdl {
         /// 
         /// </summary>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_GetSynchroValue();
@@ -1446,7 +1432,7 @@ namespace Tao.Sdl {
         /// </summary>
         /// <param name="channel"></param>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr Mix_GetChunk(int channel);
@@ -1468,7 +1454,7 @@ namespace Tao.Sdl {
         ///    actually closed.
         /// </remarks>
         /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+        [DllImport("SDL_mixer.dll", 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_CloseAudio();

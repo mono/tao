@@ -10,6 +10,8 @@
 // License as specified in the top-level License.txt file.
 //
 
+// TODO: docs :)
+
 #define DEBUG_PARAM_GEN
 
 using System;
@@ -24,6 +26,7 @@ public class GlParam {
   public string inout;
 
   public ArrayList nativetypes;
+  public ArrayList nonclstypes;
 }
 
 public class GlTypeMap {
@@ -48,6 +51,7 @@ public class GlTypeMap {
     }
 
     public string type;
+    public string nonclstype;
     public int if_out;
     public int if_array;
     public int is_generic;
@@ -116,6 +120,8 @@ public class GlTypeMap {
               tme.as_array = Convert.ToInt32(mapnode.Attributes["as_array"].Value);
             if (mapnode.Attributes["is_generic"] != null)
               tme.is_generic = Convert.ToInt32(mapnode.Attributes["is_generic"].Value);
+            if (mapnode.Attributes["nonclstype"] != null)
+              tme.nonclstype = mapnode.Attributes["nonclstype"].Value;
 
             ArrayList entries = typeHash[typename] as ArrayList;
             if (entries == null) {
@@ -152,15 +158,27 @@ public class GlTypeMap {
 
 #if true
   static string [] inArrayExpansions = new string[] {
-    "ref bool", "bool []", "bool [,]", "bool [,,]",
-    "ref byte", "byte []", "byte [,]", "byte [,,]",
-    "ref short", "short []", "short [,]", "short [,,]",
-    "ref ushort", "ushort []", "ushort [,]", "ushort [,,]",
-    "ref int", "int []", "int [,]", "int [,,]",
-    "ref uint", "uint []", "uint [,]", "uint [,,]",
-    "ref float", "float []", "float [,]", "float [,,]",
-    "ref double", "double []", "double [,]", "double [,,]",
+    "bool []",
+    "byte []",
+    "short []",
+    "int []",
+    "float []",
+    "double []",
     "IntPtr"
+  };
+  static string [] inArrayNonCLSExpansions = new string[] {
+    /* Things that are unsafe based on type */
+    "ref sbyte", "sbyte []", "sbyte [,]", "sbyte [,,]",
+    "ref ushort", "ushort []", "ushort [,]", "ushort [,,]",
+    "ref uint", "uint []", "uint [,]", "uint [,,]",
+
+    /* Things that are unsafe due to being overloads */
+    "ref bool", "bool [,]", "bool [,,]",
+    "ref byte", "byte [,]", "byte [,,]",
+    "ref short", "short [,]", "short [,,]",
+    "ref int", "int [,]", "int [,,]",
+    "ref float", "float [,]", "float [,,]",
+    "ref double", "double [,]", "double [,,]",
   };
 #else
   static string [] inArrayExpansions = new string[] {
@@ -178,15 +196,25 @@ public class GlTypeMap {
 #endif
 
   static string [] outArrayExpansions = new string[] {
-    "out bool", "[Out] bool []",
-    "out byte", "[Out] byte []",
-    "out short", "[Out] short []",
-    "out ushort", "[Out] ushort []",
-    "out int", "[Out] int []",
-    "out uint", "[Out] uint []",
-    "out float", "[Out] float []",
-    "out double", "[Out] double []",
+    "[Out] bool []",
+    "[Out] byte []",
+    "[Out] short []",
+    "[Out] int []",
+    "[Out] float []",
+    "[Out] double []",
     "IntPtr"
+  };
+
+  static string [] outArrayNonCLSExpansions = new string[] {
+    "out bool",
+    "out byte",
+    "out short",
+    "out int",
+    "out float",
+    "out double",
+    "out sbyte", "[Out] sbyte []",
+    "out ushort", "[Out] ushort []",
+    "out uint", "[Out] uint []",
   };
 
   public void ExpandParam (GlParam param) {
@@ -211,31 +239,48 @@ public class GlTypeMap {
       {
         // found one
         if (tme.is_generic == 1) {
-          if (want_out == 1)
+          if (want_out == 1) {
             param.nativetypes = new ArrayList(outArrayExpansions);
-          else
+            param.nonclstypes = new ArrayList(outArrayNonCLSExpansions);
+          } else {
             param.nativetypes = new ArrayList(inArrayExpansions);
+            param.nonclstypes = new ArrayList(inArrayNonCLSExpansions);
+          }
         } else {
           string target = tme.type;
+          string nonclstarget = tme.nonclstype;
           param.nativetypes = new ArrayList();
+          param.nonclstypes = new ArrayList();
 
           if (want_array == 1) {
             if (want_out == 1) {
               // an out array
               param.nativetypes.Add("out " + target);
               param.nativetypes.Add("[Out] " + target + " []");
+              if (nonclstarget != null) {
+                param.nonclstypes.Add("out " + nonclstarget);
+                param.nonclstypes.Add("[Out] " + nonclstarget + " []");
+              }
             } else {
               // an in array
               param.nativetypes.Add("ref " + target);
               param.nativetypes.Add(target + " []");
+              if (nonclstarget != null) {
+                param.nonclstypes.Add("ref " + nonclstarget);
+                param.nonclstypes.Add(nonclstarget + " []");
+              }
             }
           } else {
             if (want_out == 1) {
               // an out value
               param.nativetypes.Add("out " + target);
+              if (nonclstarget != null)
+                param.nonclstypes.Add("out " + nonclstarget);
             } else {
               // an in value
               param.nativetypes.Add(target);
+              if (nonclstarget != null)
+                param.nonclstypes.Add(nonclstarget);
             }
           }
         }
@@ -248,6 +293,7 @@ public class GlTypeMap {
     throw new Exception();
   }
 
+  // note: this always uses the CLS type
   public string TypeForRetVal (string intype) {
     ArrayList entries = typeHash[intype] as ArrayList;
     if (entries == null) {
@@ -396,6 +442,28 @@ public class Driver {
   // fparams is an array of arrays.
   // start with i = 0;
 
+  public class FuncParams {
+    public string paramString;
+    public bool isCLSCompliant;
+
+    public FuncParams () {
+      paramString = "";
+      isCLSCompliant = true;
+    }
+
+    public FuncParams (string ptype, string name, bool compliant) {
+      paramString = ptype + " " + name;
+      isCLSCompliant = compliant;
+    }
+
+    // prepend [s,b] to the set of nextparams
+    public FuncParams (string ptype, string name, bool compliant, FuncParams fp) {
+      paramString = ptype + " " + name + ", " + fp.paramString;
+      if (!compliant || !fp.isCLSCompliant) isCLSCompliant = false;
+      else isCLSCompliant = true;
+    }
+  }
+
   public static ArrayList GenParamList (ArrayList fparams, int i) {
     if (i >= fparams.Count)
       return null;
@@ -407,14 +475,17 @@ public class Driver {
 
     if (nextparams == null) {
       foreach (string nativetype in param.nativetypes)
-        results.Add(nativetype + " " + param.name);
+        results.Add(new FuncParams(nativetype, param.name, true));
+      foreach (string nonclstype in param.nonclstypes)
+        results.Add(new FuncParams(nonclstype, param.name, false));
       return results;
     }
 
-    foreach (string nativetype in param.nativetypes) {
-      foreach (string nextparam in nextparams) {
-        results.Add(nativetype + " " + param.name + ", " + nextparam);
-      }
+    foreach (FuncParams fp in nextparams) {
+      foreach (string nativetype in param.nativetypes)
+        results.Add(new FuncParams(nativetype, param.name, true, fp));
+      foreach (string nonclstype in param.nonclstypes)
+        results.Add(new FuncParams(nonclstype, param.name, false, fp));
     }
 
     return results;
@@ -449,26 +520,26 @@ public class Driver {
 
       // read in the fparams
 
-      ArrayList fparams = ReadParams (funcnode);
-      ArrayList paramstrings;
+      ArrayList fparamstr = ReadParams (funcnode);
+      ArrayList fparams;
 
-      if (fparams.Count == 0) {
-        paramstrings = new ArrayList();
-        paramstrings.Add("");
+      if (fparamstr.Count == 0) {
+        fparams = new ArrayList();
+        fparams.Add(new FuncParams());
       } else {
-        foreach (GlParam param in fparams)
+        foreach (GlParam param in fparamstr)
           TypeMap.ExpandParam(param);
-        paramstrings = GenParamList (fparams, 0);
+        fparams = GenParamList (fparamstr, 0);
       }
 
-      paramCountHash[fname] = paramstrings.Count;
+      paramCountHash[fname] = fparams.Count;
 
       if (iscore) {
-        foreach (string paramstr in paramstrings) {
+        foreach (FuncParams fp in fparams) {
           // write the DllImport attribute
           Output.WriteLine();
-          Output.WriteLine("    [DllImport(\"opengl32.dll\", EntryPoint=\"{0}\")]", fentry);
-          Output.WriteLine("    public static extern {0} {1} ({2});", frettype, fname, paramstr);
+          Output.WriteLine("    [DllImport(\"opengl32.dll\", EntryPoint=\"{0}\"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute({1})]", fentry, fp.isCLSCompliant ? "true" : "false");
+          Output.WriteLine("    public static extern {0} {1} ({2});", frettype, fname, fp.paramString);
         }
       } else {
         // write the extension pointer holder first (just once)
@@ -477,11 +548,11 @@ public class Driver {
                          doInstance ? "" : "static", name, fentry);
         Output.WriteLine();
 
-        foreach (string paramstr in paramstrings) {
+        foreach (FuncParams fp in fparams) {
           // write the OpenGLExtensionImport attribute
-          Output.WriteLine("    [OpenGLExtensionImport(\"GL_{0}\", \"{1}\")]", name, fentry);
+          Output.WriteLine("    [OpenGLExtensionImport(\"GL_{0}\", \"{1}\"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute({2})]", name, fentry, fp.isCLSCompliant ? "true" : "false");
           Output.WriteLine("    public {0} {1} {2} ({3}) {{",
-                           doInstance ? "" : "static", frettype, fname, paramstr);
+                           doInstance ? "" : "static", frettype, fname, fp.paramString);
           Output.WriteLine("      throw new NotImplementedException(\"{0}\");", fname);
           Output.WriteLine("    }");
         }

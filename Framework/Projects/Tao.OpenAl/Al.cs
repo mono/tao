@@ -41,20 +41,6 @@ namespace Tao.OpenAl {
     public sealed class Al {
         // --- Fields ---
         #region Private Constants
-        #region string AL_NATIVE_LIBRARY
-        /// <summary>
-        ///     Specifies AL's native library archive.
-        /// </summary>
-        /// <remarks>
-        ///     Specifies OpenAL32.dll for Windows and libAL.so for LINUX.
-        /// </remarks>
-        #if WIN32
-        private const string AL_NATIVE_LIBRARY = "OpenAL32.dll";
-        #elif LINUX
-        private const string AL_NATIVE_LIBRARY = "libAL.so";
-        #endif
-        #endregion string AL_NATIVE_LIBRARY
-
         #region CallingConvention CALLING_CONVENTION
         /// <summary>
         ///     Specifies the calling convention.
@@ -759,7 +745,7 @@ namespace Tao.OpenAl {
         ///     The frequency of the audio data.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alBufferData(ALuint buffer, ALenum format, ALvoid* data, ALsizei size, ALsizei freq);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alBufferData(int buffer, int format, [In] byte[] data, int size, int frequency);
         #endregion alBufferData(int buffer, int format, [In] byte[] data, int size, int frequency)
 
@@ -793,7 +779,7 @@ namespace Tao.OpenAl {
         ///     The frequency of the audio data.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alBufferData(ALuint buffer, ALenum format, ALvoid* data, ALsizei size, ALsizei freq);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alBufferData(int buffer, int format, [In] IntPtr data, int size, int frequency);
         #endregion alBufferData(int buffer, int format, [In] IntPtr data, int size, int frequency)
 
@@ -827,7 +813,7 @@ namespace Tao.OpenAl {
         ///     The frequency of the audio data.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alBufferData(ALuint buffer, ALenum format, ALvoid* data, ALsizei size, ALsizei freq);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alBufferData(int buffer, int format, [In] void *data, int size, int frequency);
         #endregion alBufferData(int buffer, int format, [In] void *data, int size, int frequency)
 
@@ -848,7 +834,7 @@ namespace Tao.OpenAl {
         ///     <b>alDeleteBuffers</b> does nothing and will not return an error.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alDeleteBuffers(ALsizei n, ALuint* buffers);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alDeleteBuffers(int number, [In] ref int buffer);
         #endregion alDeleteBuffers(int number, [In] ref int buffer)
 
@@ -869,7 +855,7 @@ namespace Tao.OpenAl {
         ///     <b>alDeleteBuffers</b> does nothing and will not return an error.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alDeleteBuffers(ALsizei n, ALuint* buffers);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alDeleteBuffers(int number, [In] int[] buffers);
         #endregion alDeleteBuffers(int number, [In] int[] buffers)
 
@@ -890,7 +876,7 @@ namespace Tao.OpenAl {
         ///     <b>alDeleteBuffers</b> does nothing and will not return an error.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alDeleteBuffers(ALsizei n, ALuint* buffers);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alDeleteBuffers(int number, [In] IntPtr buffers);
         #endregion alDeleteBuffers(int number, [In] IntPtr buffers)
 
@@ -911,7 +897,7 @@ namespace Tao.OpenAl {
         ///     <b>alDeleteBuffers</b> does nothing and will not return an error.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alDeleteBuffers(ALsizei n, ALuint* buffers);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alDeleteBuffers(int number, [In] int *buffers);
         #endregion alDeleteBuffers(int number, [In] int *buffers)
 
@@ -932,7 +918,7 @@ namespace Tao.OpenAl {
         ///     does nothing and will not return an error.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alDeleteSources(ALsizei n, ALuint* sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alDeleteSources(int number, [In] ref int sources);
         #endregion alDeleteSources(int number, [In] ref int sources)
 
@@ -953,7 +939,7 @@ namespace Tao.OpenAl {
         ///     does nothing and will not return an error.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alDeleteSources(ALsizei n, ALuint* sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alDeleteSources(int number, [In] int[] sources);
         #endregion alDeleteSources(int number, [In] int[] sources)
 
@@ -974,7 +960,7 @@ namespace Tao.OpenAl {
         ///     does nothing and will not return an error.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alDeleteSources(ALsizei n, ALuint* sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alDeleteSources(int number, [In] IntPtr sources);
         #endregion alDeleteSources(int number, [In] IntPtr sources)
 
@@ -995,7 +981,7 @@ namespace Tao.OpenAl {
         ///     does nothing and will not return an error.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alDeleteSources(ALsizei n, ALuint* sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alDeleteSources(int number, [In] int *sources);
         #endregion alDeleteSources(int number, [In] int *sources)
 
@@ -1012,7 +998,7 @@ namespace Tao.OpenAl {
         ///     generated.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alDisable(ALenum capability);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alDisable(int capability);
         #endregion alDisable(int capability)
 
@@ -1070,7 +1056,7 @@ namespace Tao.OpenAl {
         ///     </para>
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alDistanceModel(ALenum value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alDistanceModel(int val);
         #endregion alDistanceModel(int val)
 
@@ -1085,7 +1071,7 @@ namespace Tao.OpenAl {
         ///     The default Doppler factor value is 1.0.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alDopplerFactor(ALfloat value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alDopplerFactor(float val);
         #endregion alDopplerFactor(float val)
 
@@ -1100,7 +1086,7 @@ namespace Tao.OpenAl {
         ///     The default Doppler velocity value is 343.3.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alDopplerVelocity(ALfloat value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alDopplerVelocity(float val);
         #endregion alDopplerVelocity(float val)
 
@@ -1117,7 +1103,7 @@ namespace Tao.OpenAl {
         ///     generated.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alEnable(ALenum capability);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alEnable(int capability);
         #endregion alEnable(int capability)
 
@@ -1139,7 +1125,7 @@ namespace Tao.OpenAl {
         ///     does nothing and does not return an error.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGenBuffers(ALsizei n, ALuint* buffers);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGenBuffers(int number, out int buffer);
         #endregion alGenBuffers(int number, out int buffer)
 
@@ -1161,7 +1147,7 @@ namespace Tao.OpenAl {
         ///     does nothing and does not return an error.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGenBuffers(ALsizei n, ALuint* buffers);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGenBuffers(int number, [Out] int[] buffers);
         #endregion alGenBuffers(int number, [Out] int[] buffers)
 
@@ -1183,7 +1169,7 @@ namespace Tao.OpenAl {
         ///     does nothing and does not return an error.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGenBuffers(ALsizei n, ALuint* buffers);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGenBuffers(int number, [Out] IntPtr buffers);
         #endregion alGenBuffers(int number, [Out] IntPtr buffers)
 
@@ -1205,7 +1191,7 @@ namespace Tao.OpenAl {
         ///     does nothing and does not return an error.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGenBuffers(ALsizei n, ALuint* buffers);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGenBuffers(int number, [Out] int *buffers);
         #endregion alGenBuffers(int number, [Out] int *buffers)
 
@@ -1227,7 +1213,7 @@ namespace Tao.OpenAl {
         ///     does nothing and does not return an error.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGenSources(ALsizei n, ALuint* sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGenSources(int number, out int source);
         #endregion alGenSources(int number, out int source)
 
@@ -1249,7 +1235,7 @@ namespace Tao.OpenAl {
         ///     does nothing and does not return an error.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGenSources(ALsizei n, ALuint* sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGenSources(int number, [Out] int[] sources);
         #endregion alGenSources(int number, [Out] int[] sources)
 
@@ -1271,7 +1257,7 @@ namespace Tao.OpenAl {
         ///     does nothing and does not return an error.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGenSources(ALsizei n, ALuint* sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGenSources(int number, [Out] IntPtr sources);
         #endregion alGenSources(int number, [Out] IntPtr sources)
 
@@ -1293,7 +1279,7 @@ namespace Tao.OpenAl {
         ///     does nothing and does not return an error.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGenSources(ALsizei n, ALuint* sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGenSources(int number, [Out] int *sources);
         #endregion alGenSources(int number, [Out] int *sources)
 
@@ -1313,7 +1299,7 @@ namespace Tao.OpenAl {
         ///     function will always generate the error <see cref="AL_INVALID_ENUM" />.
         /// </remarks>
         // ALAPI ALboolean ALAPIENTRY alGetBoolean(ALenum param);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int alGetBoolean(int state);
         #endregion int alGetBoolean(int state)
 
@@ -1332,7 +1318,7 @@ namespace Tao.OpenAl {
         ///     function will always generate the error <see cref="AL_INVALID_ENUM" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetBooleanv(ALenum param, ALboolean* data);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetBooleanv(int state, out int output);
         #endregion alGetBooleanv(int state, out int output)
 
@@ -1351,7 +1337,7 @@ namespace Tao.OpenAl {
         ///     function will always generate the error <see cref="AL_INVALID_ENUM" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetBooleanv(ALenum param, ALboolean* data);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetBooleanv(int state, [Out] int[] output);
         #endregion alGetBooleanv(int state, [Out] int[] output)
 
@@ -1370,7 +1356,7 @@ namespace Tao.OpenAl {
         ///     function will always generate the error <see cref="AL_INVALID_ENUM" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetBooleanv(ALenum param, ALboolean* data);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetBooleanv(int state, [Out] IntPtr output);
         #endregion alGetBooleanv(int state, [Out] IntPtr output)
 
@@ -1389,7 +1375,7 @@ namespace Tao.OpenAl {
         ///     function will always generate the error <see cref="AL_INVALID_ENUM" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetBooleanv(ALenum param, ALboolean* data);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetBooleanv(int state, [Out] int *output);
         #endregion alGetBooleanv(int state, [Out] int *output)
 
@@ -1410,7 +1396,7 @@ namespace Tao.OpenAl {
         ///     There are no float attributes for buffers at this time.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetBufferf(ALuint buffer, ALenum param, ALfloat* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetBufferf(int buffer, int attribute, out int val);
         #endregion alGetBufferf(int buffer, int attribute, out int val)
 
@@ -1431,7 +1417,7 @@ namespace Tao.OpenAl {
         ///     There are no float attributes for buffers at this time.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetBufferf(ALuint buffer, ALenum param, ALfloat* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetBufferf(int buffer, int attribute, [Out] int[] val);
         #endregion alGetBufferf(int buffer, int attribute, [Out] int[] val)
 
@@ -1452,7 +1438,7 @@ namespace Tao.OpenAl {
         ///     There are no float attributes for buffers at this time.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetBufferf(ALuint buffer, ALenum param, ALfloat* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetBufferf(int buffer, int attribute, [Out] IntPtr val);
         #endregion alGetBufferf(int buffer, int attribute, [Out] IntPtr val)
 
@@ -1473,7 +1459,7 @@ namespace Tao.OpenAl {
         ///     There are no float attributes for buffers at this time.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetBufferf(ALuint buffer, ALenum param, ALfloat* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetBufferf(int buffer, int attribute, [Out] float *val);
         #endregion alGetBufferf(int buffer, int attribute, [Out] float *val)
 
@@ -1494,7 +1480,7 @@ namespace Tao.OpenAl {
         ///     There are no float attributes for buffers at this time.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetBufferfv(ALuint buffer, ALenum param, ALfloat* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetBufferfv(int buffer, int attribute, out float val);
         #endregion alGetBufferfv(int buffer, int attribute, out float val)
 
@@ -1515,7 +1501,7 @@ namespace Tao.OpenAl {
         ///     There are no float attributes for buffers at this time.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetBufferfv(ALuint buffer, ALenum param, ALfloat* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetBufferfv(int buffer, int attribute, [Out] float[] val);
         #endregion alGetBufferfv(int buffer, int attribute, [Out] float[] val)
 
@@ -1536,7 +1522,7 @@ namespace Tao.OpenAl {
         ///     There are no float attributes for buffers at this time.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetBufferfv(ALuint buffer, ALenum param, ALfloat* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetBufferfv(int buffer, int attribute, [Out] IntPtr val);
         #endregion alGetBufferfv(int buffer, int attribute, [Out] IntPtr val)
 
@@ -1557,7 +1543,7 @@ namespace Tao.OpenAl {
         ///     There are no float attributes for buffers at this time.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetBufferfv(ALuint buffer, ALenum param, ALfloat* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetBufferfv(int buffer, int attribute, [Out] float *val);
         #endregion alGetBufferfv(int buffer, int attribute, [Out] float *val)
 
@@ -1586,7 +1572,7 @@ namespace Tao.OpenAl {
         ///     A pointer to an integer to hold the retrieved data.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetBufferi(ALuint buffer, ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetBufferi(int buffer, int attribute, out int val);
         #endregion alGetBufferi(int buffer, int attribute, out int val)
 
@@ -1615,7 +1601,7 @@ namespace Tao.OpenAl {
         ///     A pointer to an integer to hold the retrieved data.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetBufferi(ALuint buffer, ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetBufferi(int buffer, int attribute, [Out] int[] val);
         #endregion alGetBufferi(int buffer, int attribute, [Out] int[] val)
 
@@ -1644,7 +1630,7 @@ namespace Tao.OpenAl {
         ///     A pointer to an integer to hold the retrieved data.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetBufferi(ALuint buffer, ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetBufferi(int buffer, int attribute, [Out] IntPtr val);
         #endregion alGetBufferi(int buffer, int attribute, [Out] IntPtr val)
 
@@ -1673,7 +1659,7 @@ namespace Tao.OpenAl {
         ///     A pointer to an integer to hold the retrieved data.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetBufferi(ALuint buffer, ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetBufferi(int buffer, int attribute, [Out] int *val);
         #endregion alGetBufferi(int buffer, int attribute, [Out] int *val)
 
@@ -1702,7 +1688,7 @@ namespace Tao.OpenAl {
         ///     A pointer to an integer to hold the retrieved data.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetBufferiv(ALuint buffer, ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetBufferiv(int buffer, int attribute, out int val);
         #endregion alGetBufferiv(int buffer, int attribute, out int val)
 
@@ -1731,7 +1717,7 @@ namespace Tao.OpenAl {
         ///     A pointer to an integer to hold the retrieved data.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetBufferiv(ALuint buffer, ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetBufferiv(int buffer, int attribute, [Out] int[] val);
         #endregion alGetBufferiv(int buffer, int attribute, [Out] int[] val)
 
@@ -1760,7 +1746,7 @@ namespace Tao.OpenAl {
         ///     A pointer to an integer to hold the retrieved data.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetBufferiv(ALuint buffer, ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetBufferiv(int buffer, int attribute, [Out] IntPtr val);
         #endregion alGetBufferiv(int buffer, int attribute, [Out] IntPtr val)
 
@@ -1789,7 +1775,7 @@ namespace Tao.OpenAl {
         ///     A pointer to an integer to hold the retrieved data.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetBufferiv(ALuint buffer, ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetBufferiv(int buffer, int attribute, [Out] int *val);
         #endregion alGetBufferiv(int buffer, int attribute, [Out] int *val)
 
@@ -1809,7 +1795,7 @@ namespace Tao.OpenAl {
         ///     <see cref="AL_INVALID_ENUM" />.
         /// </remarks>
         // ALAPI ALdouble ALAPIENTRY alGetdouble(ALenum param);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern double alGetdouble(int state);
         #endregion double alGetdouble(int state)
 
@@ -1829,7 +1815,7 @@ namespace Tao.OpenAl {
         ///     <see cref="AL_INVALID_ENUM" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetdoublev(ALenum param, ALdouble* data);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetdoublev(int state, out double output);
         #endregion alGetdoublev(int state, out double output)
 
@@ -1849,7 +1835,7 @@ namespace Tao.OpenAl {
         ///     <see cref="AL_INVALID_ENUM" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetdoublev(ALenum param, ALdouble* data);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetdoublev(int state, [Out] double[] output);
         #endregion alGetdoublev(int state, [Out] double[] output)
 
@@ -1869,7 +1855,7 @@ namespace Tao.OpenAl {
         ///     <see cref="AL_INVALID_ENUM" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetdoublev(ALenum param, ALdouble* data);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetdoublev(int state, [Out] IntPtr output);
         #endregion alGetdoublev(int state, [Out] IntPtr output)
 
@@ -1889,7 +1875,7 @@ namespace Tao.OpenAl {
         ///     <see cref="AL_INVALID_ENUM" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetdoublev(ALenum param, ALdouble* data);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetdoublev(int state, [Out] double *output);
         #endregion alGetdoublev(int state, [Out] double *output)
 
@@ -1904,7 +1890,7 @@ namespace Tao.OpenAl {
         ///     The actual value for the described enum is returned.
         /// </returns>
         // ALAPI ALenum ALAPIENTRY alGetEnumValue(ALubyte* ename);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int alGetEnumValue(string enumName);
         #endregion int alGetEnumValue(string enumName)
 
@@ -1924,7 +1910,7 @@ namespace Tao.OpenAl {
         ///     the current error state.
         /// </remarks>
         // ALAPI ALenum ALAPIENTRY alGetError(ALvoid);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int alGetError();
         #endregion int alGetError()
 
@@ -1947,7 +1933,7 @@ namespace Tao.OpenAl {
         ///     The floating point value described by <i>state</i> will be returned.
         /// </returns>
         // ALAPI ALfloat ALAPIENTRY alGetFloat(ALenum param);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern float alGetFloat(int state);
         #endregion float alGetFloat(int state)
 
@@ -1970,7 +1956,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the location where the state will be stored.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetFloatv(ALenum param, ALfloat* data);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetFloatv(int state, out float output);
         #endregion alGetFloatv(int state, out float output)
 
@@ -1993,7 +1979,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the location where the state will be stored.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetFloatv(ALenum param, ALfloat* data);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetFloatv(int state, [Out] float[] output);
         #endregion alGetFloatv(int state, [Out] float[] output)
 
@@ -2016,7 +2002,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the location where the state will be stored.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetFloatv(ALenum param, ALfloat* data);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetFloatv(int state, [Out] IntPtr output);
         #endregion alGetFloatv(int state, [Out] IntPtr output)
 
@@ -2039,7 +2025,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the location where the state will be stored.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetFloatv(ALenum param, ALfloat* data);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetFloatv(int state, [Out] float *output);
         #endregion alGetFloatv(int state, [Out] float *output)
 
@@ -2061,7 +2047,7 @@ namespace Tao.OpenAl {
         ///     The integer value described by <i>state</i> will be returned.
         /// </returns>
         // ALAPI ALint ALAPIENTRY alGetInteger(ALenum param);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int alGetInteger(int state);
         #endregion int alGetInteger(int state)
 
@@ -2083,7 +2069,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the location where the state will be stored.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetIntegerv(ALenum param, ALint* data);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetIntegerv(int state, out int output);
         #endregion alGetIntegerv(int state, out int output)
 
@@ -2105,7 +2091,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the location where the state will be stored.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetIntegerv(ALenum param, ALint* data);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetIntegerv(int state, [Out] int[] output);
         #endregion alGetIntegerv(int state, [Out] int[] output)
 
@@ -2127,7 +2113,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the location where the state will be stored.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetIntegerv(ALenum param, ALint* data);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetIntegerv(int state, [Out] IntPtr output);
         #endregion alGetIntegerv(int state, [Out] IntPtr output)
 
@@ -2149,7 +2135,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the location where the state will be stored.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetIntegerv(ALenum param, ALint* data);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetIntegerv(int state, [Out] int *output);
         #endregion alGetIntegerv(int state, [Out] int *output)
 
@@ -2178,7 +2164,7 @@ namespace Tao.OpenAl {
         ///     Pointer to the the floating point being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetListener3f(ALenum param, ALfloat* v1, ALfloat* v2, ALfloat* v3);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetListener3f(int attribute, out float output1, out float output2, out float output3);
         #endregion alGetListener3f(int attribute, out float output1, out float output2, out float output3)
 
@@ -2207,7 +2193,7 @@ namespace Tao.OpenAl {
         ///     Pointer to the the floating point being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetListener3f(ALenum param, ALfloat* v1, ALfloat* v2, ALfloat* v3);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetListener3f(int attribute, [Out] float[] output1, [Out] float[] output2, [Out] float[] output3);
         #endregion alGetListener3f(int attribute, [Out] float[] output1, [Out] float[] output2, [Out] float[] output3)
 
@@ -2236,7 +2222,7 @@ namespace Tao.OpenAl {
         ///     Pointer to the the floating point being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetListener3f(ALenum param, ALfloat* v1, ALfloat* v2, ALfloat* v3);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetListener3f(int attribute, [Out] IntPtr output1, [Out] IntPtr output2, [Out] IntPtr output3);
         #endregion alGetListener3f(int attribute, [Out] IntPtr output1, [Out] IntPtr output2, [Out] IntPtr output3)
 
@@ -2265,7 +2251,7 @@ namespace Tao.OpenAl {
         ///     Pointer to the the floating point being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetListener3f(ALenum param, ALfloat* v1, ALfloat* v2, ALfloat* v3);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetListener3f(int attribute, [Out] float *output1, [Out] float *output2, [Out] float *output3);
         #endregion alGetListener3f(int attribute, [Out] float *output1, [Out] float *output2, [Out] float *output3)
 
@@ -2287,7 +2273,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the floating point value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetListenerf(ALenum param, ALfloat* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetListenerf(int attribute, out float output);
         #endregion alGetListenerf(int attribute, out float output)
 
@@ -2309,7 +2295,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the floating point value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetListenerf(ALenum param, ALfloat* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetListenerf(int attribute, [Out] float[] output);
         #endregion alGetListenerf(int attribute, [Out] float[] output)
 
@@ -2331,7 +2317,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the floating point value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetListenerf(ALenum param, ALfloat* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetListenerf(int attribute, [Out] IntPtr output);
         #endregion alGetListenerf(int attribute, [Out] IntPtr output)
 
@@ -2353,7 +2339,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the floating point value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetListenerf(ALenum param, ALfloat* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetListenerf(int attribute, [Out] float *output);
         #endregion alGetListenerf(int attribute, [Out] float *output)
 
@@ -2377,7 +2363,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the floating point-vector value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetListenerfv(ALenum param, ALfloat* values);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetListenerfv(int attribute, out float output);
         #endregion alGetListenerfv(int attribute, out float output)
 
@@ -2401,7 +2387,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the floating point-vector value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetListenerfv(ALenum param, ALfloat* values);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetListenerfv(int attribute, [Out] float[] output);
         #endregion alGetListenerfv(int attribute, [Out] float[] output)
 
@@ -2425,7 +2411,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the floating point-vector value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetListenerfv(ALenum param, ALfloat* values);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetListenerfv(int attribute, [Out] IntPtr output);
         #endregion alGetListenerfv(int attribute, [Out] IntPtr output)
 
@@ -2449,7 +2435,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the floating point-vector value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetListenerfv(ALenum param, ALfloat* values);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetListenerfv(int attribute, [Out] float *output);
         #endregion alGetListenerfv(int attribute, [Out] float *output)
 
@@ -2467,7 +2453,7 @@ namespace Tao.OpenAl {
         ///     There are no integer listener attributes at this time.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetListeneri(ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetListeneri(int attribute, out int output);
         #endregion alGetListeneri(int attribute, out int output)
 
@@ -2485,7 +2471,7 @@ namespace Tao.OpenAl {
         ///     There are no integer listener attributes at this time.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetListeneri(ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetListeneri(int attribute, [Out] int[] output);
         #endregion alGetListeneri(int attribute, [Out] int[] output)
 
@@ -2503,7 +2489,7 @@ namespace Tao.OpenAl {
         ///     There are no integer listener attributes at this time.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetListeneri(ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetListeneri(int attribute, [Out] IntPtr output);
         #endregion alGetListeneri(int attribute, [Out] IntPtr output)
 
@@ -2521,7 +2507,7 @@ namespace Tao.OpenAl {
         ///     There are no integer listener attributes at this time.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetListeneri(ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetListeneri(int attribute, [Out] int *output);
         #endregion alGetListeneri(int attribute, [Out] int *output)
 
@@ -2539,7 +2525,7 @@ namespace Tao.OpenAl {
         ///     There are no integer listener attributes at this time.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetListeneriv(ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetListeneriv(int attribute, out int output);
         #endregion alGetListeneriv(int attribute, out int output)
 
@@ -2557,7 +2543,7 @@ namespace Tao.OpenAl {
         ///     There are no integer listener attributes at this time.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetListeneriv(ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetListeneriv(int attribute, [Out] int[] output);
         #endregion alGetListeneriv(int attribute, [Out] int[] output)
 
@@ -2575,7 +2561,7 @@ namespace Tao.OpenAl {
         ///     There are no integer listener attributes at this time.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetListeneriv(ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetListeneriv(int attribute, [Out] IntPtr output);
         #endregion alGetListeneriv(int attribute, [Out] IntPtr output)
 
@@ -2593,7 +2579,7 @@ namespace Tao.OpenAl {
         ///     There are no integer listener attributes at this time.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alGetListeneriv(ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetListeneriv(int attribute, [Out] int *output);
         #endregion alGetListeneriv(int attribute, [Out] int *output)
 
@@ -2611,7 +2597,7 @@ namespace Tao.OpenAl {
         ///     The return value will be IntPtr.Zero if the function is not found.
         /// </remarks>
         // ALAPI ALvoid* ALAPIENTRY alGetProcAddress(ALubyte* fname);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr alGetProcAddress(string functionName);
         #endregion IntPtr alGetProcAddress(string functionName)
 
@@ -2644,7 +2630,7 @@ namespace Tao.OpenAl {
         ///     The float values which the attribute will be set to.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSource3f(ALuint source,  ALenum param, ALfloat* v1, ALfloat* v2, ALfloat* v3);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetSource3f(int source, int attribute, out float value1, out float value2, out float value3);
         #endregion alGetSource3f(int source, int attribute, out float value1, out float value2, out float value3)
 
@@ -2677,7 +2663,7 @@ namespace Tao.OpenAl {
         ///     The float values which the attribute will be set to.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSource3f(ALuint source,  ALenum param, ALfloat* v1, ALfloat* v2, ALfloat* v3);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetSource3f(int source, int attribute, [Out] float[] value1, [Out] float[] value2, [Out] float[] value3);
         #endregion alGetSource3f(int source, int attribute, [Out] float[] value1, [Out] float[] value2, [Out] float[] value3)
 
@@ -2710,7 +2696,7 @@ namespace Tao.OpenAl {
         ///     The float values which the attribute will be set to.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSource3f(ALuint source,  ALenum param, ALfloat* v1, ALfloat* v2, ALfloat* v3);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetSource3f(int source, int attribute, [Out] IntPtr value1, [Out] IntPtr value2, [Out] IntPtr value3);
         #endregion alGetSource3f(int source, int attribute, [Out] IntPtr value1, [Out] IntPtr value2, [Out] IntPtr value3)
 
@@ -2743,7 +2729,7 @@ namespace Tao.OpenAl {
         ///     The float values which the attribute will be set to.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSource3f(ALuint source,  ALenum param, ALfloat* v1, ALfloat* v2, ALfloat* v3);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetSource3f(int source, int attribute, [Out] float *value1, [Out] float *value2, [Out] float *value3);
         #endregion alGetSource3f(int source, int attribute, [Out] float *value1, [Out] float *value2, [Out] float *value3)
 
@@ -2777,7 +2763,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the floating point value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSourcef(ALuint source, ALenum param, ALfloat* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetSourcef(int source, int attribute, out float val);
         #endregion alGetSourcef(int source, int attribute, out float val)
 
@@ -2811,7 +2797,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the floating point value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSourcef(ALuint source, ALenum param, ALfloat* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetSourcef(int source, int attribute, [Out] float[] val);
         #endregion alGetSourcef(int source, int attribute, [Out] float[] val)
 
@@ -2845,7 +2831,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the floating point value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSourcef(ALuint source, ALenum param, ALfloat* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetSourcef(int source, int attribute, [Out] IntPtr val);
         #endregion alGetSourcef(int source, int attribute, [Out] IntPtr val)
 
@@ -2879,7 +2865,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the floating point value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSourcef(ALuint source, ALenum param, ALfloat* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetSourcef(int source, int attribute, [Out] float *val);
         #endregion alGetSourcef(int source, int attribute, [Out] float *val)
 
@@ -2906,7 +2892,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the vector to retrieve.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSourcefv(ALuint source, ALenum param, ALfloat* values);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetSourcefv(int source, int attribute, out float val);
         #endregion alGetSourcefv(int source, int attribute, out float val)
 
@@ -2933,7 +2919,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the vector to retrieve.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSourcefv(ALuint source, ALenum param, ALfloat* values);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetSourcefv(int source, int attribute, [Out] float[] values);
         #endregion alGetSourcefv(int source, int attribute, [Out] float[] values)
 
@@ -2960,7 +2946,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the vector to retrieve.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSourcefv(ALuint source, ALenum param, ALfloat* values);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetSourcefv(int source, int attribute, [Out] IntPtr values);
         #endregion alGetSourcefv(int source, int attribute, [Out] IntPtr values)
 
@@ -2987,7 +2973,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the vector to retrieve.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSourcefv(ALuint source, ALenum param, ALfloat* values);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetSourcefv(int source, int attribute, [Out] float *values);
         #endregion alGetSourcefv(int source, int attribute, [Out] float *values)
 
@@ -3019,7 +3005,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the integer value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSourcei(ALuint source, ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetSourcei(int source, int attribute, out int val);
         #endregion alGetSourcei(int source, int attribute, out int val)
 
@@ -3048,7 +3034,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the integer value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSourcei(ALuint source, ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetSourcei(int source, int attribute, [Out] int[] val);
         #endregion alGetSourcei(int source, int attribute, [Out] int[] val)
 
@@ -3077,7 +3063,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the integer value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSourcei(ALuint source, ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetSourcei(int source, int attribute, [Out] IntPtr val);
         #endregion alGetSourcei(int source, int attribute, [Out] IntPtr val)
 
@@ -3106,7 +3092,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the integer value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSourcei(ALuint source, ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetSourcei(int source, int attribute, [Out] int *val);
         #endregion alGetSourcei(int source, int attribute, [Out] int *val)
 
@@ -3138,7 +3124,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the integer value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSourceiv(ALuint source, ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetSourceiv(int source, int attribute, out int val);
         #endregion alGetSourceiv(int source, int attribute, out int val)
 
@@ -3167,7 +3153,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the integer value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSourceiv(ALuint source, ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetSourceiv(int source, int attribute, [Out] int[] val);
         #endregion alGetSourceiv(int source, int attribute, [Out] int[] val)
 
@@ -3196,7 +3182,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the integer value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSourceiv(ALuint source, ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alGetSourceiv(int source, int attribute, [Out] IntPtr val);
         #endregion alGetSourceiv(int source, int attribute, [Out] IntPtr val)
 
@@ -3225,7 +3211,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the integer value being retrieved.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alGetSourceiv(ALuint source, ALenum param, ALint* value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alGetSourceiv(int source, int attribute, [Out] int *val);
         #endregion alGetSourceiv(int source, int attribute, [Out] int *val)
 
@@ -3250,7 +3236,7 @@ namespace Tao.OpenAl {
         ///     A pointer to a null-terminated string.
         /// </returns>
         // ALAPI ALubyte* ALAPIENTRY alGetString(ALenum param);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern string alGetString(int state);
         #endregion string alGetString(int state)
 
@@ -3265,7 +3251,7 @@ namespace Tao.OpenAl {
         ///     Unknown.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alHint(ALenum target, ALenum mode);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alHint(int target, int mode);
         #endregion alHint(int target, int mode)
 
@@ -3281,7 +3267,7 @@ namespace Tao.OpenAl {
         ///     <see cref="AL_FALSE" /> if the buffer name is not valid.
         /// </returns>
         // ALAPI ALboolean ALAPIENTRY alIsBuffer(ALuint buffer);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int alIsBuffer(int buffer);
         #endregion int alIsBuffer(int buffer)
 
@@ -3302,7 +3288,7 @@ namespace Tao.OpenAl {
         ///     <see cref="AL_INVALID_ENUM" /> will also be set.
         /// </remarks>
         // ALAPI ALboolean ALAPIENTRY alIsEnabled(ALenum capability);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int alIsEnabled(int capability);
         #endregion int alIsEnabled(int capability)
 
@@ -3318,7 +3304,7 @@ namespace Tao.OpenAl {
         ///     the extension is not available.
         /// </returns>
         // ALAPI ALboolean ALAPIENTRY alIsExtensionPresent(ALubyte* fname);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int alIsExtensionPresent(string extensionName);
         #endregion int alIsExtensionPresent(String extensionName)
 
@@ -3334,7 +3320,7 @@ namespace Tao.OpenAl {
         ///     <see cref="AL_FALSE" /> if the source name is not valid.
         /// </returns>
         // ALAPI ALboolean ALAPIENTRY alIsSource(ALuint id);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int alIsSource(int id);
         #endregion int alIsSource(int id)
 
@@ -3363,7 +3349,7 @@ namespace Tao.OpenAl {
         ///     The value to set the attribute to.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alListener3f(ALenum param, ALfloat v1, ALfloat v2, ALfloat v3);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alListener3f(int attribute, float value1, float value2, float value3);
         #endregion alListener3f(int attribute, float value1, float value2, float value3)
 
@@ -3378,7 +3364,7 @@ namespace Tao.OpenAl {
         ///     The float value to set the attribute to.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alListenerf(ALenum param, ALfloat value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alListenerf(int attribute, float val);
         #endregion alListenerf(int attribute, float val)
 
@@ -3402,7 +3388,7 @@ namespace Tao.OpenAl {
         ///     Pointer to floating point-vector values.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alListenerfv(ALenum param, ALfloat* values);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alListenerfv(int attribute, [In] ref float values);
         #endregion alListenerfv(int attribute, [In] ref float values)
 
@@ -3426,7 +3412,7 @@ namespace Tao.OpenAl {
         ///     Pointer to floating point-vector values.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alListenerfv(ALenum param, ALfloat* values);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alListenerfv(int attribute, [In] float[] values);
         #endregion alListenerfv(int attribute, [In] float[] values)
 
@@ -3450,7 +3436,7 @@ namespace Tao.OpenAl {
         ///     Pointer to floating point-vector values.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alListenerfv(ALenum param, ALfloat* values);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alListenerfv(int attribute, [In] IntPtr values);
         #endregion alListenerfv(int attribute, [In] IntPtr values)
 
@@ -3474,7 +3460,7 @@ namespace Tao.OpenAl {
         ///     Pointer to floating point-vector values.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alListenerfv(ALenum param, ALfloat* values);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alListenerfv(int attribute, [In] float *values);
         #endregion alListenerfv(int attribute, [In] float *values)
 
@@ -3492,7 +3478,7 @@ namespace Tao.OpenAl {
         ///     There are no integer listener attributes at this time.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alListeneri(ALenum param, ALint value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alListeneri(int attribute, int val);
         #endregion alListeneri(int attribute, int val)
 
@@ -3510,7 +3496,7 @@ namespace Tao.OpenAl {
         ///     Unknown.
         /// </param>
         // ALAPI void ALAPIENTRY alQueuei(ALuint sid, ALenum param, ALint value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alQueuei(int source, int attribute, int val);
         #endregion alQueuei(int source, int attribute, int val)
 
@@ -3546,7 +3532,7 @@ namespace Tao.OpenAl {
         ///     This function is an alternative to <see cref="alSourcefv" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSource3f(ALuint source, ALenum param, ALfloat v1, ALfloat v2, ALfloat v3);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSource3f(int source, int attribute, float value1, float value2, float value3);
         #endregion alSource3f(int source, int attribute, float value1, float value2, float value3)
 
@@ -3578,7 +3564,7 @@ namespace Tao.OpenAl {
         ///     The value to set the attribute to.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alSourcef(ALuint source, ALenum param, ALfloat value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourcef(int source, int attribute, float val);
         #endregion alSourcef(int source, int attribute, float val)
 
@@ -3605,7 +3591,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the vector to set the attribute to.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alSourcefv(ALuint source, ALenum param, ALfloat* values);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourcefv(int source, int attribute, [In] ref float values);
         #endregion alSourcefv(int source, int attribute, float[] values)
 
@@ -3632,7 +3618,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the vector to set the attribute to.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alSourcefv(ALuint source, ALenum param, ALfloat* values);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourcefv(int source, int attribute, [In] float[] values);
         #endregion alSourcefv(int source, int attribute, [In] float[] values)
 
@@ -3659,7 +3645,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the vector to set the attribute to.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alSourcefv(ALuint source, ALenum param, ALfloat* values);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourcefv(int source, int attribute, [In] IntPtr values);
         #endregion alSourcefv(int source, int attribute, [In] IntPtr values)
 
@@ -3686,7 +3672,7 @@ namespace Tao.OpenAl {
         ///     A pointer to the vector to set the attribute to.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alSourcefv(ALuint source, ALenum param, ALfloat* values);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alSourcefv(int source, int attribute, [In] float *values);
         #endregion alSourcefv(int source, int attribute, [In] float *values)
 
@@ -3720,7 +3706,7 @@ namespace Tao.OpenAl {
         ///     <b>alSourcei(…, Al.AL_BUFFER, …)</b> as a valid buffer of zero length.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourcei(ALuint source, ALenum param, ALint value);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourcei(int source, int attribute, int val);
         #endregion alSourcei(int source, int attribute, int val)
 
@@ -3735,7 +3721,7 @@ namespace Tao.OpenAl {
         ///     The paused source will have its state changed to <see cref="AL_PAUSED" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourcePause(ALuint source);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourcePause(int source);
         #endregion alSourcePause(int source)
 
@@ -3753,7 +3739,7 @@ namespace Tao.OpenAl {
         ///     The paused sources will have their state changed to <see cref="AL_PAUSED" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourcePausev(ALsizei n, ALuint *sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourcePausev(int number, [In] ref int source);
         #endregion alSourcePausev(int number, [In] ref int source)
 
@@ -3771,7 +3757,7 @@ namespace Tao.OpenAl {
         ///     The paused sources will have their state changed to <see cref="AL_PAUSED" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourcePausev(ALsizei n, ALuint *sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourcePausev(int number, [In] int[] sources);
         #endregion alSourcePausev(int number, [In] int[] sources)
 
@@ -3789,7 +3775,7 @@ namespace Tao.OpenAl {
         ///     The paused sources will have their state changed to <see cref="AL_PAUSED" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourcePausev(ALsizei n, ALuint *sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourcePausev(int number, [In] IntPtr sources);
         #endregion alSourcePausev(int number, [In] IntPtr sources)
 
@@ -3807,7 +3793,7 @@ namespace Tao.OpenAl {
         ///     The paused sources will have their state changed to <see cref="AL_PAUSED" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourcePausev(ALsizei n, ALuint *sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alSourcePausev(int number, [In] int *sources);
         #endregion alSourcePausev(int number, [In] int *sources)
 
@@ -3822,7 +3808,7 @@ namespace Tao.OpenAl {
         ///     The playing source will have its state changed to <see cref="AL_PLAYING" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourcePlay(ALuint source);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourcePlay(int source);
         #endregion alSourcePlay(int source)
 
@@ -3840,7 +3826,7 @@ namespace Tao.OpenAl {
         ///     The playing sources will have their state changed to <see cref="AL_PLAYING" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourcePlayv(ALsizei n, ALuint *sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourcePlayv(int number, [In] ref int source);
         #endregion alSourcePlayv(int number, [In] ref int source)
 
@@ -3858,7 +3844,7 @@ namespace Tao.OpenAl {
         ///     The playing sources will have their state changed to <see cref="AL_PLAYING" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourcePlayv(ALsizei n, ALuint *sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourcePlayv(int number, [In] int[] sources);
         #endregion alSourcePlayv(int number, [In] int[] sources)
 
@@ -3876,7 +3862,7 @@ namespace Tao.OpenAl {
         ///     The playing sources will have their state changed to <see cref="AL_PLAYING" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourcePlayv(ALsizei n, ALuint *sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourcePlayv(int number, [In] IntPtr sources);
         #endregion alSourcePlayv(int number, [In] IntPtr sources)
 
@@ -3894,7 +3880,7 @@ namespace Tao.OpenAl {
         ///     The playing sources will have their state changed to <see cref="AL_PLAYING" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourcePlayv(ALsizei n, ALuint *sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alSourcePlayv(int number, [In] int *sources);
         #endregion alSourcePlayv(int number, [In] int *sources)
 
@@ -3912,7 +3898,7 @@ namespace Tao.OpenAl {
         ///     A pointer to an array of buffer names to be queued.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alSourceQueueBuffers(ALuint source, ALsizei n, ALuint* buffers);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourceQueueBuffers(int source, int number, [In] ref int buffer);
         #endregion alSourceQueueBuffers(int source, int number, [In] ref int buffer)
 
@@ -3930,7 +3916,7 @@ namespace Tao.OpenAl {
         ///     A pointer to an array of buffer names to be queued.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alSourceQueueBuffers(ALuint source, ALsizei n, ALuint* buffers);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourceQueueBuffers(int source, int number, [In] int[] buffers);
         #endregion alSourceQueueBuffers(int source, int number, [In] int[] buffers)
 
@@ -3948,7 +3934,7 @@ namespace Tao.OpenAl {
         ///     A pointer to an array of buffer names to be queued.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alSourceQueueBuffers(ALuint source, ALsizei n, ALuint* buffers);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourceQueueBuffers(int source, int number, [In] IntPtr buffers);
         #endregion alSourceQueueBuffers(int source, int number, [In] IntPtr buffers)
 
@@ -3966,7 +3952,7 @@ namespace Tao.OpenAl {
         ///     A pointer to an array of buffer names to be queued.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alSourceQueueBuffers(ALuint source, ALsizei n, ALuint* buffers);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alSourceQueueBuffers(int source, int number, [In] int *buffers);
         #endregion alSourceQueueBuffers(int source, int number, [In] int *buffers)
 
@@ -3978,7 +3964,7 @@ namespace Tao.OpenAl {
         ///     The name of the source to be rewound.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alSourceRewind(ALuint source);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourceRewind(int source);
         #endregion alSourceRewind(int source)
 
@@ -3993,7 +3979,7 @@ namespace Tao.OpenAl {
         ///     A pointer to an array of sources to be rewound.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alSourceRewindv(ALsizei n, ALuint *sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourceRewindv(int number, [In] ref int source);
         #endregion alSourceRewindv(int number, [In] ref int source)
 
@@ -4008,7 +3994,7 @@ namespace Tao.OpenAl {
         ///     A pointer to an array of sources to be rewound.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alSourceRewindv(ALsizei n, ALuint *sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourceRewindv(int number, [In] int[] sources);
         #endregion alSourceRewindv(int number, [In] int[] sources)
 
@@ -4023,7 +4009,7 @@ namespace Tao.OpenAl {
         ///     A pointer to an array of sources to be rewound.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alSourceRewindv(ALsizei n, ALuint *sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourceRewindv(int number, [In] IntPtr sources);
         #endregion alSourceRewindv(int number, [In] IntPtr sources)
 
@@ -4038,7 +4024,7 @@ namespace Tao.OpenAl {
         ///     A pointer to an array of sources to be rewound.
         /// </param>
         // ALAPI ALvoid ALAPIENTRY alSourceRewindv(ALsizei n, ALuint *sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alSourceRewindv(int number, [In] int *sources);
         #endregion alSourceRewindv(int number, [In] int *sources)
 
@@ -4053,7 +4039,7 @@ namespace Tao.OpenAl {
         ///     The stopped source will have its state changed to <see cref="AL_STOPPED" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourceStop(ALuint source);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourceStop(int source);
         #endregion alSourceStop(int source)
 
@@ -4071,7 +4057,7 @@ namespace Tao.OpenAl {
         ///     The stopped sources will have their state changed to <see cref="AL_STOPPED" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourceStopv(ALsizei n, ALuint *sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourceStopv(int number, [In] ref int source);
         #endregion alSourceStopv(int number, [In] ref int source)
 
@@ -4089,7 +4075,7 @@ namespace Tao.OpenAl {
         ///     The stopped sources will have their state changed to <see cref="AL_STOPPED" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourceStopv(ALsizei n, ALuint *sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourceStopv(int number, [In] int[] sources);
         #endregion alSourceStopv(int number, [In] int[] sources)
 
@@ -4107,7 +4093,7 @@ namespace Tao.OpenAl {
         ///     The stopped sources will have their state changed to <see cref="AL_STOPPED" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourceStopv(ALsizei n, ALuint *sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourceStopv(int number, [In] IntPtr sources);
         #endregion alSourceStopv(int number, [In] IntPtr sources)
 
@@ -4125,7 +4111,7 @@ namespace Tao.OpenAl {
         ///     The stopped sources will have their state changed to <see cref="AL_STOPPED" />.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourceStopv(ALsizei n, ALuint *sources);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alSourceStopv(int number, [In] int *sources);
         #endregion alSourceStopv(int number, [In] int *sources)
 
@@ -4147,7 +4133,7 @@ namespace Tao.OpenAl {
         ///     removed from the queue.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourceUnqueueBuffers(ALuint source, ALsizei n, ALuint* buffers);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourceUnqueueBuffers(int source, int number, [In] ref int buffer);
         #endregion alSourceUnqueueBuffers(int source, int number, [In] ref int buffer)
 
@@ -4169,7 +4155,7 @@ namespace Tao.OpenAl {
         ///     removed from the queue.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourceUnqueueBuffers(ALuint source, ALsizei n, ALuint* buffers);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourceUnqueueBuffers(int source, int number, [In] int[] buffers);
         #endregion alSourceUnqueueBuffers(int source, int number, [In] int[] buffers)
 
@@ -4191,7 +4177,7 @@ namespace Tao.OpenAl {
         ///     removed from the queue.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourceUnqueueBuffers(ALuint source, ALsizei n, ALuint* buffers);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alSourceUnqueueBuffers(int source, int number, [In] IntPtr buffers);
         #endregion alSourceUnqueueBuffers(int source, int number, [In] IntPtr buffers)
 
@@ -4213,7 +4199,7 @@ namespace Tao.OpenAl {
         ///     removed from the queue.
         /// </remarks>
         // ALAPI ALvoid ALAPIENTRY alSourceUnqueueBuffers(ALuint source, ALsizei n, ALuint* buffers);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alSourceUnqueueBuffers(int source, int number, [In] int *buffers);
         #endregion alSourceUnqueueBuffers(int source, int number, [In] int *buffers)
         #endregion Public OpenAL 1.0 Methods
@@ -4233,7 +4219,7 @@ namespace Tao.OpenAl {
         ///     Unknown.
         /// </returns>
         // ALAPI ALsizei ALAPIENTRY alGenEnvironmentIASIG(ALsizei n, ALuint* environs);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int alGenEnvironmentIASIG(int number, out int environments);
         #endregion int alGenEnvironmentIASIG(int number, out int environments)
 
@@ -4251,7 +4237,7 @@ namespace Tao.OpenAl {
         ///     Unknown.
         /// </returns>
         // ALAPI ALsizei ALAPIENTRY alGenEnvironmentIASIG(ALsizei n, ALuint* environs);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int alGenEnvironmentIASIG(int number, [Out] int[] environments);
         #endregion int alGenEnvironmentIASIG(int number, [Out] int[] environments)
 
@@ -4269,7 +4255,7 @@ namespace Tao.OpenAl {
         ///     Unknown.
         /// </returns>
         // ALAPI ALsizei ALAPIENTRY alGenEnvironmentIASIG(ALsizei n, ALuint* environs);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int alGenEnvironmentIASIG(int number, [Out] IntPtr environments);
         #endregion int alGenEnvironmentIASIG(int number, [Out] IntPtr environments)
 
@@ -4287,7 +4273,7 @@ namespace Tao.OpenAl {
         ///     Unknown.
         /// </returns>
         // ALAPI ALsizei ALAPIENTRY alGenEnvironmentIASIG(ALsizei n, ALuint* environs);
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern int alGenEnvironmentIASIG(int number, [Out] int *environments);
         #endregion int alGenEnvironmentIASIG(int number, [Out] int *environments)
 
@@ -4302,7 +4288,7 @@ namespace Tao.OpenAl {
         ///     Unknown.
         /// </param>
         // ALAPI void ALAPIENTRY alDeleteEnvironmentIASIG( ALsizei n, ALuint* environs );
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alDeleteEnvironmentIASIG(int number, [In] ref int environments);
         #endregion alDeleteEnvironmentIASIG(int number, [In] ref int environments)
 
@@ -4317,7 +4303,7 @@ namespace Tao.OpenAl {
         ///     Unknown.
         /// </param>
         // ALAPI void ALAPIENTRY alDeleteEnvironmentIASIG( ALsizei n, ALuint* environs );
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alDeleteEnvironmentIASIG(int number, [In] int[] environments);
         #endregion alDeleteEnvironmentIASIG(int number, [In] int[] environments)
 
@@ -4332,7 +4318,7 @@ namespace Tao.OpenAl {
         ///     Unknown.
         /// </param>
         // ALAPI void ALAPIENTRY alDeleteEnvironmentIASIG( ALsizei n, ALuint* environs );
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alDeleteEnvironmentIASIG(int number, [In] IntPtr environments);
         #endregion alDeleteEnvironmentIASIG(int number, [In] IntPtr environments)
 
@@ -4347,7 +4333,7 @@ namespace Tao.OpenAl {
         ///     Unknown.
         /// </param>
         // ALAPI void ALAPIENTRY alDeleteEnvironmentIASIG( ALsizei n, ALuint* environs );
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void alDeleteEnvironmentIASIG(int number, [In] int *environments);
         #endregion alDeleteEnvironmentIASIG(int number, [In] int *environments)
 
@@ -4362,7 +4348,7 @@ namespace Tao.OpenAl {
         ///     Unknown.
         /// </returns>
         // ALAPI ALboolean ALAPIENTRY alIsEnvironmentIASIG( ALuint environ );
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int alIsEnvironmentIASIG(int environment);
         #endregion int alIsEnvironmentIASIG(int environment)
 
@@ -4380,7 +4366,7 @@ namespace Tao.OpenAl {
         ///     Unknown.
         /// </param>
         // ALAPI void ALAPIENTRY alEnvironmentiIASIG( ALuint eid, ALenum param, ALint value );
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alEnvironmentiIASIG(int environmentId, int attribute, int val);
         #endregion alEnvironmentiIASIG(int environmentId, int attribute, int val)
 
@@ -4398,7 +4384,7 @@ namespace Tao.OpenAl {
         ///     Unknown.
         /// </param>
         // ALAPI void ALAPIENTRY alEnvironmentfIASIG( ALuint eid, ALenum param, ALuint value );
-        [DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void alEnvironmentfIASIG(int environmentId, int attribute, int val);
         #endregion alEnvironmentfIASIG(int environmentId, int attribute, int val)
         #endregion Public IASIG Methods

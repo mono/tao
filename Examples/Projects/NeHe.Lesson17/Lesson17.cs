@@ -446,7 +446,10 @@ namespace NeHe {
                     Gl.glLoadIdentity();                                        // Reset The Modelview Matrix
                     Gl.glTranslated(x, y, 0);                                   // Position The Text (0,0 - Bottom Left)
                     Gl.glListBase(fontbase - 32 + (128 * charset));             // Choose The Font Set (0 or 1)
-                    Gl.glCallLists(text.Length, Gl.GL_UNSIGNED_BYTE, text);     // Write The Text To The Screen
+		    // .NET: We can't draw text directly, it's a string!
+		    byte [] textbytes = new byte [text.Length];
+		    for (int i = 0; i < text.Length; i++) textbytes[i] = (byte) text[i];
+                    Gl.glCallLists(text.Length, Gl.GL_UNSIGNED_BYTE, textbytes);// Write The Text To The Screen
                     Gl.glMatrixMode(Gl.GL_PROJECTION);                          // Select The Projection Matrix
                 Gl.glPopMatrix();                                               // Restore The Old Projection Matrix
                 Gl.glMatrixMode(Gl.GL_MODELVIEW);                               // Select The Modelview Matrix

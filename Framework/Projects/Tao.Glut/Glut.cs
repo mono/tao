@@ -513,33 +513,15 @@ namespace Tao.Glut {
     public sealed class Glut {
         // --- Fields ---
         #region Private Constants
-        #region string GLUT_NATIVE_LIBRARY
-        /// <summary>
-        ///     Specifies GLUT's native library archive.
-        /// </summary>
-        /// <remarks>
-        ///     Specifies glut32.dll for Windows and libglut.so for Linux.
-        /// </remarks>
-        #if WIN32
-        private const string GLUT_NATIVE_LIBRARY = "glut32.dll";
-        #elif LINUX
-        private const string GLUT_NATIVE_LIBRARY = "libglut.so";
-        #endif
-        #endregion string GLUT_NATIVE_LIBRARY
-
         #region CallingConvention CALLING_CONVENTION
         /// <summary>
         ///     Specifies the calling convention.
         /// </summary>
         /// <remarks>
-        ///     Specifies <see cref="CallingConvention.StdCall" /> for Windows and
-        ///     <see cref="CallingConvention.Cdecl" /> for Linux.
+        ///     Specifies <see cref="CallingConvention.Winapi" /> for Windows and
+        ///     Linux, to indicate that the default should be used.
         /// </remarks>
-        #if WIN32
-        private const CallingConvention CALLING_CONVENTION = CallingConvention.StdCall;
-        #elif LINUX
-        private const CallingConvention CALLING_CONVENTION = CallingConvention.Cdecl;
-        #endif
+        private const CallingConvention CALLING_CONVENTION = CallingConvention.Winapi;
         #endregion CallingConvention CALLING_CONVENTION
         #endregion Private Constants
 
@@ -2518,7 +2500,7 @@ namespace Tao.Glut {
 //        ///     Pointer to font.
 //        /// </returns>
 //        // GLUTAPI void *glutStrokeRoman;
-//        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+//        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 //        private static extern IntPtr glutStrokeRoman();
 //        #endif
 //        #endregion IntPtr glutStrokeRoman()
@@ -2532,7 +2514,7 @@ namespace Tao.Glut {
 //        ///     Pointer to font.
 //        /// </returns>
 //        // GLUTAPI void *glutStrokeMonoRoman;
-//        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+//        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 //        private static extern IntPtr glutStrokeMonoRoman();
 //        #endif
 //        #endregion IntPtr glutStrokeMonoRoman()
@@ -2546,7 +2528,7 @@ namespace Tao.Glut {
 //        ///     Pointer to font.
 //        /// </returns>
 //        // GLUTAPI void *glutBitmap9By15;
-//        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+//        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 //        private static extern IntPtr glutBitmap9By15();
 //        #endif
 //        #endregion IntPtr glutBitmap9By15()
@@ -2560,7 +2542,7 @@ namespace Tao.Glut {
 //        ///     Pointer to font.
 //        /// </returns>
 //        // GLUTAPI void *glutBitmap8By13;
-//        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+//        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 //        private static extern IntPtr glutBitmap8By13();
 //        #endif
 //        #endregion IntPtr glutBitmap8By13()
@@ -2574,7 +2556,7 @@ namespace Tao.Glut {
 //        ///     Pointer to font.
 //        /// </returns>
 //        // GLUTAPI void *glutBitmapTimesRoman10;
-//        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+//        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 //        private static extern IntPtr glutBitmapTimesRoman10();
 //        #endif
 //        #endregion IntPtr glutBitmapTimesRoman10()
@@ -2588,7 +2570,7 @@ namespace Tao.Glut {
 //        ///     Pointer to font.
 //        /// </returns>
 //        // GLUTAPI void *glutBitmapTimesRoman24;
-//        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+//        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 //        private static extern IntPtr glutBitmapTimesRoman24();
 //        #endif
 //        #endregion IntPtr glutBitmapTimesRoman24()
@@ -2602,7 +2584,7 @@ namespace Tao.Glut {
 //        ///     Pointer to font.
 //        /// </returns>
 //        // GLUTAPI void *glutBitmapHelvetica10;
-//        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+//        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 //        private static extern IntPtr glutBitmapHelvetica10();
 //        #endif
 //        #endregion IntPtr glutBitmapHelvetica10()
@@ -2616,7 +2598,7 @@ namespace Tao.Glut {
 //        ///     Pointer to font.
 //        /// </returns>
 //        // GLUTAPI void *glutBitmapHelvetica12;
-//        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+//        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 //        private static extern IntPtr glutBitmapHelvetica12();
 //        #endif
 //        #endregion IntPtr glutBitmapHelvetica12()
@@ -2630,7 +2612,7 @@ namespace Tao.Glut {
 //        ///     Pointer to font.
 //        /// </returns>
 //        // GLUTAPI void *glutBitmapHelvetica18;
-//        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+//        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
 //        private static extern IntPtr glutBitmapHelvetica18();
 //        #endif
 //        #endregion IntPtr glutBitmapHelvetica18()
@@ -2646,7 +2628,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutDisplayFunc(void (GLUTCALLBACK *func)(void));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutDisplayFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutDisplayFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutDisplayFunc(DisplayCallback func);
         #endregion __glutDisplayFunc(DisplayCallback func)
 
@@ -2658,7 +2640,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutReshapeFunc(void (GLUTCALLBACK *func)(int width, int height));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutReshapeFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutReshapeFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutReshapeFunc(ReshapeCallback func);
         #endregion __glutReshapeFunc(ReshapeCallback func)
 
@@ -2670,7 +2652,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutKeyboardFunc(void (GLUTCALLBACK *func)(unsigned char key, int x, int y));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutKeyboardFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutKeyboardFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutKeyboardFunc(KeyboardCallback func);
         #endregion __glutKeyboardFunc(KeyboardCallback func)
 
@@ -2682,7 +2664,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutMouseFunc(void (GLUTCALLBACK *func)(int button, int state, int x, int y));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutMouseFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutMouseFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutMouseFunc(MouseCallback func);
         #endregion __glutMouseFunc(MouseCallback func)
 
@@ -2694,7 +2676,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutMotionFunc(void (GLUTCALLBACK *func)(int x, int y));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutMotionFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutMotionFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutMotionFunc(MotionCallback func);
         #endregion __glutMotionFunc(MotionCallback func)
 
@@ -2706,7 +2688,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutPassiveMotionFunc(void (GLUTCALLBACK *func)(int x, int y));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutPassiveMotionFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutPassiveMotionFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutPassiveMotionFunc(PassiveMotionCallback func);
         #endregion __glutPassiveMotionFunc(PassiveMotionCallback func)
 
@@ -2718,7 +2700,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutEntryFunc(void (GLUTCALLBACK *func)(int state));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutEntryFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutEntryFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutEntryFunc(EntryCallback func);
         #endregion __glutEntryFunc(EntryCallback func)
 
@@ -2730,7 +2712,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutVisibilityFunc(void (GLUTCALLBACK *func)(int state));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutVisibilityFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutVisibilityFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutVisibilityFunc(VisibilityCallback func);
         #endregion __glutVisibilityFunc(VisibilityCallback func)
 
@@ -2742,7 +2724,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutIdleFunc(void (GLUTCALLBACK *func)(void));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutIdleFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutIdleFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutIdleFunc(IdleCallback func);
         #endregion __glutIdleFunc(IdleCallback func)
 
@@ -2754,7 +2736,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutTimerFunc(unsigned int millis, void (GLUTCALLBACK *func)(int value), int value);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutTimerFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutTimerFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutTimerFunc(int msecs, TimerCallback func, int val);
         #endregion __glutTimerFunc(int msecs, TimerCallback func, int val)
 
@@ -2766,7 +2748,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutMenuStateFunc(void (GLUTCALLBACK *func)(int state));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutMenuStateFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutMenuStateFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutMenuStateFunc(MenuStateCallback func);
         #endregion __glutMenuStateFunc(MenuStateCallback func)
 
@@ -2778,7 +2760,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutSpecialFunc(void (GLUTCALLBACK *func)(int key, int x, int y));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutSpecialFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutSpecialFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutSpecialFunc(SpecialCallback func);
         #endregion __glutSpecialFunc(SpecialCallback func)
 
@@ -2790,7 +2772,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutSpaceballMotionFunc(void (GLUTCALLBACK *func)(int x, int y, int z));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutSpaceballMotionFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutSpaceballMotionFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutSpaceballMotionFunc(SpaceballMotionCallback func);
         #endregion __glutSpaceballMotionFunc(SpaceballMotionCallback func)
 
@@ -2802,7 +2784,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutSpaceballRotateFunc(void (GLUTCALLBACK *func)(int x, int y, int z));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutSpaceballRotateFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutSpaceballRotateFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutSpaceballRotateFunc(SpaceballRotateCallback func);
         #endregion __glutSpaceballRotateFunc(SpaceballRotateCallback func)
 
@@ -2814,7 +2796,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutSpaceballButtonFunc(void (GLUTCALLBACK *func)(int button, int state));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutSpaceballButtonFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutSpaceballButtonFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutSpaceballButtonFunc(SpaceballButtonCallback func);
         #endregion __glutSpaceballButtonFunc(SpaceballButtonCallback func)
 
@@ -2826,7 +2808,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutButtonBoxFunc(void (GLUTCALLBACK *func)(int button, int state));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutButtonBoxFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutButtonBoxFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutButtonBoxFunc(ButtonBoxCallback func);
         #endregion __glutButtonBoxFunc(ButtonBoxCallback func)
 
@@ -2838,7 +2820,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutDialsFunc(void (GLUTCALLBACK *func)(int dial, int value));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutDialsFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutDialsFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutDialsFunc(DialsCallback func);
         #endregion __glutDialsFunc(DialsCallback func)
 
@@ -2850,7 +2832,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutTabletMotionFunc(void (GLUTCALLBACK *func)(int x, int y));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutTabletMotionFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutTabletMotionFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutTabletMotionFunc(TabletMotionCallback func);
         #endregion __glutTabletMotionFunc(TabletMotionCallback func)
 
@@ -2862,7 +2844,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutTabletButtonFunc(void (GLUTCALLBACK *func)(int button, int state, int x, int y));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutTabletButtonFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutTabletButtonFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutTabletButtonFunc(TabletButtonCallback func);
         #endregion __glutTabletButtonFunc(TabletButtonCallback func)
 
@@ -2874,7 +2856,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutMenuStatusFunc(void (GLUTCALLBACK *func)(int status, int x, int y));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutMenuStatusFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutMenuStatusFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutMenuStatusFunc(MenuStatusCallback func);
         #endregion __glutMenuStatusFunc(MenuStatusCallback func)
 
@@ -2886,7 +2868,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutOverlayDisplayFunc(void (GLUTCALLBACK *func)(void));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutOverlayDisplayFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutOverlayDisplayFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutOverlayDisplayFunc(OverlayDisplayCallback func);
         #endregion __glutOverlayDisplayFunc(OverlayDisplayCallback func)
 
@@ -2898,7 +2880,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutWindowStatusFunc(void (GLUTCALLBACK *func)(int state));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutWindowStatusFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutWindowStatusFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutWindowStatusFunc(WindowStatusCallback func);
         #endregion __glutWindowStatusFunc(WindowStatusCallback func)
 
@@ -2910,7 +2892,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutKeyboardUpFunc(void (GLUTCALLBACK *func)(unsigned char key, int x, int y));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutKeyboardUpFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutKeyboardUpFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutKeyboardUpFunc(KeyboardUpCallback func);
         #endregion __glutKeyboardUpFunc(KeyboardUpCallback func)
 
@@ -2922,7 +2904,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutSpecialUpFunc(void (GLUTCALLBACK *func)(int key, int x, int y));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutSpecialUpFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutSpecialUpFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutSpecialUpFunc(SpecialUpCallback func);
         #endregion __glutSpecialUpFunc(SpecialUpCallback func)
 
@@ -2934,7 +2916,7 @@ namespace Tao.Glut {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutJoystickFunc(void (GLUTCALLBACK *func)(unsigned int buttonMask, int x, int y, int z), int pollInterval);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutJoystickFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutJoystickFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutJoystickFunc(JoystickCallback func, int pollInterval);
         #endregion __glutJoystickFunc(JoystickCallback func, int pollInterval)
 
@@ -2947,7 +2929,7 @@ namespace Tao.Glut {
         ///     from a non-standard method!</b>
         /// </remarks>
         // GLUTAPI void APIENTRY glutWMCloseFunc(void (GLUTCALLBACK *func)(void));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="glutWMCloseFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="glutWMCloseFunc"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __glutWMCloseFunc(WindowCloseCallback func);
         #endregion __glutWMCloseFunc(WindowCloseCallback func)
         #endregion Internal Callback Sub-API
@@ -3185,7 +3167,7 @@ namespace Tao.Glut {
             glutInit_ATEXIT_HACK(ref argcp, argv);
         }
         #else
-        [DllImport(GLUT_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll"), SuppressUnmanagedCodeSecurity]
         public static extern void glutInit(ref int argcp, StringBuilder[] argv);
         #endif
         #endregion glutInit(ref int argcp, [In, Out] StringBuilder[] argv)
@@ -3220,7 +3202,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutInit" />
         /// <seealso cref="ExitCallback" />
         // GLUTAPI void APIENTRY __glutInitWithExit(int *argcp, char **argv, void (__cdecl *exitfunc)(int));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void __glutInitWithExit(ref int argcp, [In, Out] StringBuilder[] argv, [In] ExitCallback func);
         #endif
         #endregion __glutInitWithExit(ref int argcp, [In, Out] StringBuilder[] argv, [In] ExitCallback func)
@@ -3385,7 +3367,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutInit" />
         /// <seealso cref="glutInitDisplayString" />
         // GLUTAPI void APIENTRY glutInitDisplayMode(unsigned int mode);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutInitDisplayMode(int mode);
         #endregion glutInitDisplayMode(int mode)
 
@@ -3872,7 +3854,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutInit" />
         /// <seealso cref="glutInitDisplayMode" />
         // GLUTAPI void APIENTRY glutInitDisplayString(const char *string);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutInitDisplayString(string str);
         #endregion glutInitDisplayString(string str)
 
@@ -3949,7 +3931,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutReshapeFunc" />
         /// <seealso cref="ReshapeCallback" />
         // GLUTAPI void APIENTRY glutInitWindowPosition(int x, int y);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutInitWindowPosition(int x, int y);
         #endregion glutInitWindowPosition(int x, int y)
 
@@ -4027,7 +4009,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutReshapeFunc" />
         /// <seealso cref="ReshapeCallback" />
         // GLUTAPI void APIENTRY glutInitWindowSize(int width, int height);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutInitWindowSize(int width, int height);
         #endregion glutInitWindowSize(int width, int height)
         #endregion Initialization Sub-API
@@ -4045,7 +4027,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutInit" />
         // GLUTAPI void APIENTRY glutMainLoop(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutMainLoop();
         #endregion glutMainLoop()
         #endregion Beginning Event Processing Sub-API
@@ -4103,7 +4085,7 @@ namespace Tao.Glut {
             return glutCreateWindow_ATEXIT_HACK(name);
         }
         #else
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int glutCreateWindow(string name);
         #endif
         #endregion int glutCreateWindow(string name)
@@ -4136,7 +4118,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutCreateMenu" />
         /// <seealso cref="glutCreateSubWindow" />
         /// <seealso cref="glutDestroyWindow" />
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int __glutCreateWindowWithExit(string name, [In] ExitCallback func);
         #endif
         #endregion int __glutCreateWindowWithExit(string name, [In] ExitCallback func)
@@ -4218,7 +4200,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutCreateWindow" />
         /// <seealso cref="glutDestroyWindow" />
         // GLUTAPI int APIENTRY glutCreateSubWindow(int win, int x, int y, int width, int height);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int glutCreateSubWindow(int win, int x, int y, int width, int height);
         #endregion int glutCreateSubWindow(int win, int x, int y, int width, int height)
 
@@ -4241,7 +4223,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutCreateSubWindow" />
         /// <seealso cref="glutDestroyMenu" />
         // GLUTAPI void APIENTRY glutDestroyWindow(int win);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutDestroyWindow(int win);
         #endregion glutDestroyWindow(int win)
 
@@ -4278,7 +4260,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutPostOverlayRedisplay" />
         /// <seealso cref="glutPostWindowRedisplay" />
         // GLUTAPI void APIENTRY glutPostRedisplay(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutPostRedisplay();
         #endregion glutPostRedisplay()
 
@@ -4308,7 +4290,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutPostOverlayRedisplay" />
         /// <seealso cref="glutPostRedisplay" />
         // GLUTAPI void APIENTRY glutPostWindowRedisplay(int win);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutPostWindowRedisplay(int win);
         #endregion glutPostWindowRedisplay(int win)
 
@@ -4339,7 +4321,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutDisplayFunc" />
         /// <seealso cref="glutPostRedisplay" />
         // GLUTAPI void APIENTRY glutSwapBuffers(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSwapBuffers();
         #endregion glutSwapBuffers()
 
@@ -4355,7 +4337,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutCreateWindow" />
         /// <seealso cref="glutSetWindow" />
         // GLUTAPI int APIENTRY glutGetWindow(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int glutGetWindow();
         #endregion int glutGetWindow()
 
@@ -4375,7 +4357,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutGetWindow" />
         /// <seealso cref="glutSetMenu" />
         // GLUTAPI void APIENTRY glutSetWindow(int win);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSetWindow(int win);
         #endregion glutSetWindow(int win)
 
@@ -4398,7 +4380,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutCreateWindow" />
         /// <seealso cref="glutSetIconTitle" />
         // GLUTAPI void APIENTRY glutSetWindowTitle(const char *name);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSetWindowTitle(string name);
         #endregion glutSetWindowTitle(string name)
 
@@ -4422,7 +4404,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutIconifyWindow" />
         /// <seealso cref="glutSetWindowTitle" />
         // GLUTAPI void APIENTRY glutSetIconTitle(const char *name);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSetIconTitle(string name);
         #endregion glutSetIconTitle(string name)
 
@@ -4464,7 +4446,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutInitWindowPosition" />
         /// <seealso cref="glutReshapeWindow" />
         // GLUTAPI void APIENTRY glutPositionWindow(int x, int y);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutPositionWindow(int x, int y);
         #endregion glutPositionWindow(int x, int y)
 
@@ -4506,7 +4488,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutPositionWindow" />
         /// <seealso cref="glutReshapeFunc" />
         // GLUTAPI void APIENTRY glutReshapeWindow(int width, int height);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutReshapeWindow(int width, int height);
         #endregion glutReshapeWindow(int width, int height)
 
@@ -4527,7 +4509,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutPushWindow" />
         /// <seealso cref="glutShowWindow" />
         // GLUTAPI void APIENTRY glutPopWindow(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutPopWindow();
         #endregion glutPopWindow()
 
@@ -4548,7 +4530,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutPopWindow" />
         /// <seealso cref="glutShowWindow" />
         // GLUTAPI void APIENTRY glutPushWindow(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutPushWindow();
         #endregion glutPushWindow()
 
@@ -4570,7 +4552,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutPushWindow" />
         /// <seealso cref="glutShowWindow" />
         // GLUTAPI void APIENTRY glutIconifyWindow(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutIconifyWindow();
         #endregion glutIconifyWindow()
 
@@ -4592,7 +4574,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutPopWindow" />
         /// <seealso cref="glutPushWindow" />
         // GLUTAPI void APIENTRY glutShowWindow(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutShowWindow();
         #endregion glutShowWindow()
 
@@ -4613,7 +4595,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutPushWindow" />
         /// <seealso cref="glutShowWindow" />
         // GLUTAPI void APIENTRY glutHideWindow(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutHideWindow();
         #endregion glutHideWindow()
 
@@ -4656,7 +4638,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutPositionWindow" />
         /// <seealso cref="glutReshapeWindow" />
         // GLUTAPI void APIENTRY glutFullScreen(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutFullScreen();
         #endregion glutFullScreen()
 
@@ -4792,7 +4774,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutCreateWindow" />
         /// <seealso cref="glutCreateSubWindow" />
         // GLUTAPI void APIENTRY glutSetCursor(int cursor);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSetCursor(int cursor);
         #endregion glutSetCursor(int cursor)
 
@@ -4828,7 +4810,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutMotionFunc" />
         /// <seealso cref="glutMouseFunc" />
         // GLUTAPI void APIENTRY glutWarpPointer(int x, int y);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutWarpPointer(int x, int y);
         #endregion glutWarpPointer(int x, int y)
         #endregion Window Management Sub-API
@@ -4941,7 +4923,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutShowOverlay" />
         /// <seealso cref="glutUseLayer" />
         // GLUTAPI void APIENTRY glutEstablishOverlay(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutEstablishOverlay();
         #endregion glutEstablishOverlay()
 
@@ -4966,7 +4948,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutDestroyWindow" />
         /// <seealso cref="glutEstablishOverlay" />
         // GLUTAPI void APIENTRY glutRemoveOverlay(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutRemoveOverlay();
         #endregion glutRemoveOverlay()
 
@@ -4994,7 +4976,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutEstablishOverlay" />
         /// <seealso cref="glutSetWindow" />
         // GLUTAPI void APIENTRY glutUseLayer(GLenum layer);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutUseLayer(int layer);
         #endregion glutUseLayer(int layer)
 
@@ -5089,7 +5071,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutPostRedisplay" />
         /// <seealso cref="glutPostWindowOverlayRedisplay" />
         // GLUTAPI void APIENTRY glutPostOverlayRedisplay(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutPostOverlayRedisplay();
         #endregion glutPostOverlayRedisplay()
 
@@ -5135,7 +5117,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutPostOverlayRedisplay" />
         /// <seealso cref="glutPostRedisplay" />
         // GLUTAPI void APIENTRY glutPostWindowOverlayRedisplay(int win);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutPostWindowOverlayRedisplay(int win);
         #endregion glutPostWindowOverlayRedisplay(int win)
 
@@ -5156,7 +5138,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutHideOverlay" />
         /// <seealso cref="glutShowWindow" />
         // GLUTAPI void APIENTRY glutShowOverlay(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutShowOverlay();
         #endregion glutShowOverlay()
 
@@ -5174,7 +5156,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutShowOverlay" />
         /// <seealso cref="glutShowWindow" />
         // GLUTAPI void APIENTRY glutHideOverlay(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutHideOverlay();
         #endregion glutHideOverlay()
         #endregion Overlay Sub-API
@@ -5257,7 +5239,7 @@ namespace Tao.Glut {
             return glutCreateMenu_ATEXIT_HACK(func);
         }
         #else
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int glutCreateMenu([In] CreateMenuCallback func);
         #endif
         #endregion int glutCreateMenu([In] CreateMenuCallback func)
@@ -5300,7 +5282,7 @@ namespace Tao.Glut {
         /// <seealso cref="ExitCallback" />
         /// <seealso cref="glutCreateMenu" />
         // GLUTAPI int APIENTRY __glutCreateMenuWithExit(void (GLUTCALLBACK *func)(int), void (__cdecl *exitfunc)(int));
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern int __glutCreateMenuWithExit([In] CreateMenuCallback func, [In] ExitCallback exitFunc);
         #endif
         #endregion int __glutCreateMenuWithExit([In] CreateMenuCallback func, [In] ExitCallback func)
@@ -5359,7 +5341,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutCreateMenu" />
         /// <seealso cref="glutGetMenu" />
         // GLUTAPI void APIENTRY glutDestroyMenu(int menu);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutDestroyMenu(int menu);
         #endregion glutDestroyMenu(int menu)
 
@@ -5377,7 +5359,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutSetMenu" />
         // GLUTAPI int APIENTRY glutGetMenu(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int glutGetMenu();
         #endregion int glutGetMenu()
 
@@ -5393,7 +5375,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutGetMenu" />
         // GLUTAPI void APIENTRY glutSetMenu(int menu);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSetMenu(int menu);
         #endregion glutSetMenu(int menu)
 
@@ -5418,7 +5400,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutCreateMenu" />
         /// <seealso cref="glutRemoveMenuItem" />
         // GLUTAPI void APIENTRY glutAddMenuEntry(const char *label, int val);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutAddMenuEntry(string name, int val);
         #endregion glutAddMenuEntry(string name, int val)
 
@@ -5442,7 +5424,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutChangeToSubMenu" />
         /// <seealso cref="glutRemoveMenuItem" />
         // GLUTAPI void APIENTRY glutAddSubMenu(const char *label, int menu);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutAddSubMenu(string name, int menu);
         #endregion glutAddSubMenu(string name, int menu)
 
@@ -5473,7 +5455,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutChangeToSubMenu" />
         /// <seealso cref="glutRemoveMenuItem" />
         // GLUTAPI void APIENTRY glutChangeToMenuEntry(int item, const char *label, int val);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutChangeToMenuEntry(int entry, string name, int val);
         #endregion glutChangeToMenuEntry(int entry, string name, int val)
 
@@ -5504,7 +5486,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutChangeToMenuEntry" />
         /// <seealso cref="glutRemoveMenuItem" />
         // GLUTAPI void APIENTRY glutChangeToSubMenu(int item, const char *label, int menu);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutChangeToSubMenu(int entry, string name, int menu);
         #endregion glutChangeToSubMenu(int entry, string name, int menu)
 
@@ -5526,7 +5508,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutChangeToMenuEntry" />
         /// <seealso cref="glutChangeToSubMenu" />
         // GLUTAPI void APIENTRY glutRemoveMenuItem(int item);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutRemoveMenuItem(int entry);
         #endregion glutRemoveMenuItem(int entry)
 
@@ -5551,7 +5533,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutMenuStatusFunc" />
         /// <seealso cref="glutMouseFunc" />
         // GLUTAPI void APIENTRY glutAttachMenu(int button);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutAttachMenu(int button);
         #endregion glutAttachMenu(int button)
 
@@ -5574,7 +5556,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutMenuStatusFunc" />
         /// <seealso cref="glutMouseFunc" />
         // GLUTAPI void APIENTRY glutDetachMenu(int button);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutDetachMenu(int button);
         #endregion glutDetachMenu(int button)
         #endregion Menu Sub-API
@@ -6926,7 +6908,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutGetColor" />
         /// <seealso cref="glutInitDisplayMode" />
         // GLUTAPI void APIENTRY glutSetColor(int cell, GLfloat red, GLfloat green, GLfloat blue);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSetColor(int cell, float red, float green, float blue);
         #endregion glutSetColor(int cell, float red, float green, float blue)
 
@@ -6960,7 +6942,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutGet" />
         /// <seealso cref="glutSetColor" />
         // GLUTAPI GLfloat APIENTRY glutGetColor(int cell, int component);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern float glutGetColor(int cell, int component);
         #endregion float glutGetColor(int cell, int component)
 
@@ -7012,7 +6994,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutGetColor" />
         /// <seealso cref="glutSetColor" />
         // GLUTAPI void APIENTRY glutCopyColormap(int win);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutCopyColormap(int win);
         #endregion glutCopyColormap(int win)
         #endregion Color Index Sub-API
@@ -7290,7 +7272,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutGetWindow" />
         /// <seealso cref="glutLayerGet" />
         // GLUTAPI int APIENTRY glutGet(GLenum type);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int glutGet(int state);
         #endregion int glutGet(int state)
 
@@ -7403,7 +7385,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutTabletButtonFunc" />
         /// <seealso cref="glutTabletMotionFunc" />
         // GLUTAPI int APIENTRY glutDeviceGet(GLenum type);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int glutDeviceGet(int info);
         #endregion int glutDeviceGet(int info)
 
@@ -7452,7 +7434,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutGet" />
         /// <seealso cref="Gl.glGetString" />
         // GLUTAPI int APIENTRY glutExtensionSupported(const char *name);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int glutExtensionSupported(string extension);
         #endregion int glutExtensionSupported(string extension)
 
@@ -7505,7 +7487,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutMouseFunc" />
         /// <seealso cref="glutSpecialFunc" />
         // GLUTAPI int APIENTRY glutGetModifiers(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int glutGetModifiers();
         #endregion int glutGetModifiers()
 
@@ -7584,7 +7566,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutEstablishOverlay" />
         /// <seealso cref="glutSetColor" />
         // GLUTAPI int APIENTRY glutLayerGet(GLenum type);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int glutLayerGet(int info);
         #endregion int glutLayerGet(int info)
         #endregion State Retrieval Sub-API
@@ -7685,7 +7667,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutBitmapWidth" />
         /// <seealso cref="glutStrokeCharacter" />
         // GLUTAPI void APIENTRY glutBitmapCharacter(void *font, int character);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutBitmapCharacter([In] IntPtr font, int character);
         #endregion glutBitmapCharacter([In] IntPtr font, int character)
 
@@ -7712,7 +7694,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutBitmapCharacter" />
         /// <seealso cref="glutStrokeWidth" />
         // GLUTAPI int APIENTRY glutBitmapWidth(void *font, int character);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int glutBitmapWidth([In] IntPtr font, int character);
         #endregion int glutBitmapWidth([In] IntPtr font, int character)
 
@@ -7796,7 +7778,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutBitmapCharacter" />
         /// <seealso cref="glutStrokeWidth" />
         // GLUTAPI void APIENTRY glutStrokeCharacter(void *font, int character);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutStrokeCharacter([In] IntPtr font, int character);
         #endregion glutStrokeCharacter([In] IntPtr font, int character)
 
@@ -7823,7 +7805,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutBitmapWidth" />
         /// <seealso cref="glutStrokeCharacter" />
         // GLUTAPI int APIENTRY glutStrokeWidth(void *font, int character);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int glutStrokeWidth([In] IntPtr font, int character);
         #endregion int glutStrokeWidth([In] IntPtr font, int character)
 
@@ -7849,7 +7831,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutBitmapCharacter" />
         /// <seealso cref="glutStrokeWidth" />
         // GLUTAPI int APIENTRY glutBitmapLength(void *font, const unsigned char *string);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int glutBitmapLength([In] IntPtr font, string text);
         #endregion int glutBitmapLength([In] IntPtr font, string text)
 
@@ -7875,7 +7857,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutBitmapWidth" />
         /// <seealso cref="glutStrokeCharacter" />
         // GLUTAPI int APIENTRY glutStrokeLength(void *font, const unsigned char *string);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int glutStrokeLength(IntPtr font, string text);
         #endregion int glutStrokeLength(IntPtr font, string text)
         #endregion Font Sub-API
@@ -7901,7 +7883,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutSolidSphere" />
         // GLUTAPI void APIENTRY glutWireSphere(GLdouble radius, GLint slices, GLint stacks);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutWireSphere(double radius, int slices, int stacks);
         #endregion glutWireSphere(double radius, int slices, int stacks)
 
@@ -7925,7 +7907,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutWireSphere" />
         // GLUTAPI void APIENTRY glutSolidSphere(GLdouble radius, GLint slices, GLint stacks);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSolidSphere(double radius, int slices, int stacks);
         #endregion glutSolidSphere(double radius, int slices, int stacks)
 
@@ -7953,7 +7935,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutSolidCone" />
         // GLUTAPI void APIENTRY glutWireCone(GLdouble base, GLdouble height, GLint slices, GLint stacks);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutWireCone(double baseRadius, double height, int slices, int stacks);
         #endregion glutWireCone(double baseRadius, double height, int slices, int stacks)
 
@@ -7981,7 +7963,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutWireCone" />
         // GLUTAPI void APIENTRY glutSolidCone(GLdouble base, GLdouble height, GLint slices, GLint stacks);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSolidCone(double baseRadius, double height, int slices, int stacks);
         #endregion glutSolidCone(double baseRadius, double height, int slices, int stacks)
 
@@ -7998,7 +7980,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutSolidCube" />
         // GLUTAPI void APIENTRY glutWireCube(GLdouble size);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutWireCube(double size);
         #endregion glutWireCube(double size)
 
@@ -8015,7 +7997,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutWireCube" />
         // GLUTAPI void APIENTRY glutSolidCube(GLdouble size);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSolidCube(double size);
         #endregion glutSolidCube(double size)
 
@@ -8041,7 +8023,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutSolidTorus" />
         // GLUTAPI void APIENTRY glutWireTorus(GLdouble innerRadius, GLdouble outerRadius, GLint sides, GLint rings);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutWireTorus(double innerRadius, double outerRadius, int sides, int rings);
         #endregion glutWireTorus(double innerRadius, double outerRadius, int sides, int rings)
 
@@ -8067,7 +8049,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutWireTorus" />
         // GLUTAPI void APIENTRY glutSolidTorus(GLdouble innerRadius, GLdouble outerRadius, GLint sides, GLint rings);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSolidTorus(double innerRadius, double outerRadius, int sides, int rings);
         #endregion glutSolidTorus(double innerRadius, double outerRadius, int sides, int rings)
 
@@ -8081,7 +8063,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutSolidDodecahedron" />
         // GLUTAPI void APIENTRY glutWireDodecahedron(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutWireDodecahedron();
         #endregion glutWireDodecahedron()
 
@@ -8095,7 +8077,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutWireDodecahedron" />
         // GLUTAPI void APIENTRY glutSolidDodecahedron(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSolidDodecahedron();
         #endregion glutSolidDodecahedron()
 
@@ -8121,7 +8103,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutSolidTeapot" />
         // GLUTAPI void APIENTRY glutWireTeapot(GLdouble size);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutWireTeapot(double size);
         #endregion glutWireTeapot(double size)
 
@@ -8147,7 +8129,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutWireTeapot" />
         // GLUTAPI void APIENTRY glutSolidTeapot(GLdouble size);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSolidTeapot(double size);
         #endregion glutSolidTeapot(double size)
 
@@ -8161,7 +8143,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutSolidOctahedron" />
         // GLUTAPI void APIENTRY glutWireOctahedron(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutWireOctahedron();
         #endregion glutWireOctahedron()
 
@@ -8175,7 +8157,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutWireOctahedron" />
         // GLUTAPI void APIENTRY glutSolidOctahedron(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSolidOctahedron();
         #endregion glutSolidOctahedron()
 
@@ -8189,7 +8171,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutSolidTetrahedron" />
         // GLUTAPI void APIENTRY glutWireTetrahedron(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutWireTetrahedron();
         #endregion glutWireTetrahedron()
 
@@ -8203,7 +8185,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutWireTetrahedron" />
         // GLUTAPI void APIENTRY glutSolidTetrahedron(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSolidTetrahedron();
         #endregion glutSolidTetrahedron()
 
@@ -8217,7 +8199,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutSolidIcosahedron" />
         // GLUTAPI void APIENTRY glutWireIcosahedron(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutWireIcosahedron();
         #endregion glutWireIcosahedron()
 
@@ -8231,7 +8213,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutWireIcosahedron" />
         // GLUTAPI void APIENTRY glutSolidIcosahedron(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSolidIcosahedron();
         #endregion glutSolidIcosahedron()
         #endregion Pre-built Models Sub-API
@@ -8324,7 +8306,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutVideoPan" />
         /// <seealso cref="glutVideoResize" />
         // GLUTAPI int APIENTRY glutVideoResizeGet(GLenum param);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int glutVideoResizeGet(int param);
         #endregion int glutVideoResizeGet(int param)
 
@@ -8336,7 +8318,7 @@ namespace Tao.Glut {
         ///     Unknown.  Unable to locate definitive documentation on this method.
         /// </remarks>
         // GLUTAPI void APIENTRY glutSetupVideoResizing(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSetupVideoResizing();
         #endregion glutSetupVideoResizing()
 
@@ -8348,7 +8330,7 @@ namespace Tao.Glut {
         ///     Unknown.  Unable to locate definitive documentation on this method.
         /// </remarks>
         // GLUTAPI void APIENTRY glutStopVideoResizing(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutStopVideoResizing();
         #endregion glutStopVideoResizing()
 
@@ -8372,7 +8354,7 @@ namespace Tao.Glut {
         ///     Unknown.  Unable to locate definitive documentation on this method.
         /// </remarks>
         // GLUTAPI void APIENTRY glutVideoResize(int x, int y, int width, int height);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutVideoResize(int x, int y, int width, int height);
         #endregion glutVideoResize(int x, int y, int width, int height)
 
@@ -8396,7 +8378,7 @@ namespace Tao.Glut {
         ///     Unknown.  Unable to locate definitive documentation on this method.
         /// </remarks>
         // GLUTAPI void APIENTRY glutVideoPan(int x, int y, int width, int height);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutVideoPan(int x, int y, int width, int height);
         #endregion glutVideoPan(int x, int y, int width, int height)
         #endregion Video Resize Sub-API
@@ -8428,7 +8410,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutInit" />
         /// <seealso cref="glutInitDisplayMode" />
         // GLUTAPI void APIENTRY glutReportErrors(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutReportErrors();
         #endregion glutReportErrors()
         #endregion Debugging Sub-API
@@ -8480,7 +8462,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutSpecialFunc" />
         /// <seealso cref="glutSpecialUpFunc" />
         // GLUTAPI void APIENTRY glutIgnoreKeyRepeat(int ignore);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutIgnoreKeyRepeat(int ignore);
         #endregion glutIgnoreKeyRepeat(int ignore)
 
@@ -8565,7 +8547,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutSpecialFunc" />
         /// <seealso cref="glutSpecialUpFunc" />
         // GLUTAPI void APIENTRY glutSetKeyRepeat(int repeatMode);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutSetKeyRepeat(int repeatMode);
         #endregion glutSetKeyRepeat(int repeatMode)
 
@@ -8614,7 +8596,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutJoystickFunc" />
         // GLUTAPI void APIENTRY glutForceJoystickFunc(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutForceJoystickFunc();
         #endregion glutForceJoystickFunc()
         #endregion Device Control Sub-API
@@ -8771,7 +8753,7 @@ namespace Tao.Glut {
         ///     </para>
         /// </remarks>
         // GLUTAPI void APIENTRY glutGameModeString(const char *string);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutGameModeString(string str);
         #endregion glutGameModeString(string str)
 
@@ -8856,7 +8838,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutInitDisplayString" />
         /// <seealso cref="glutLeaveGameMode" />
         // GLUTAPI int APIENTRY glutEnterGameMode(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int glutEnterGameMode();
         #endregion int glutEnterGameMode()
 
@@ -8883,7 +8865,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutGameModeString" />
         /// <seealso cref="glutInitDisplayString" />
         // GLUTAPI void APIENTRY glutLeaveGameMode(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutLeaveGameMode();
         #endregion glutLeaveGameMode()
 
@@ -8973,7 +8955,7 @@ namespace Tao.Glut {
         /// <seealso cref="glutLayerGet" />
         /// <seealso cref="glutLeaveGameMode" />
         // GLUTAPI int APIENTRY glutGameModeGet(GLenum mode);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int glutGameModeGet(int mode);
         #endregion int glutGameModeGet(int mode)
         #endregion Game Mode Sub-API
@@ -9002,7 +8984,7 @@ namespace Tao.Glut {
         ///     </para>
         /// </remarks>
         // GLUTAPI void * GLUTAPIENTRY glutGetProcAddress(const char *procName);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr glutGetProcAddress(string procName);
         #endregion IntPtr glutGetProcAddress(string procName);
 
@@ -9044,7 +9026,7 @@ namespace Tao.Glut {
         /// </remarks>
         /// <seealso cref="glutMainLoop" />
         // GLUTAPI void APIENTRY glutCheckLoop(void);
-        [DllImport(GLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glut32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void glutCheckLoop();
         #endregion glutCheckLoop()
 

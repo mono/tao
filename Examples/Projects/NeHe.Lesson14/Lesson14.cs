@@ -407,7 +407,10 @@ namespace NeHe {
             Gl.glTranslatef(-length / 2, 0, 0);                                 // Center Our Text On The Screen
             Gl.glPushAttrib(Gl.GL_LIST_BIT);                                    // Pushes The Display List Bits
                 Gl.glListBase(fontbase);                                        // Sets The Base Character to 0
-                Gl.glCallLists(text.Length, Gl.GL_UNSIGNED_BYTE, text);         // Draws The Display List Text
+// .NET - can't call text, it's a string!
+                byte [] textbytes = new byte[text.Length];
+                for (int i = 0; i < text.Length; i++) textbytes[i] = (byte) text[i];
+                Gl.glCallLists(text.Length, Gl.GL_UNSIGNED_BYTE, textbytes);         // Draws The Display List Text
             Gl.glPopAttrib();                                                   // Pops The Display List Bits
         }
         #endregion glPrint(string text)

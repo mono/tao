@@ -180,7 +180,10 @@ namespace Redbook {
         private static void PrintString(string text) {
             Gl.glPushAttrib(Gl.GL_LIST_BIT);
                 Gl.glListBase(fontOffset);
-                Gl.glCallLists(text.Length, Gl.GL_UNSIGNED_BYTE, text);
+		// it's a STRING, not an ARRAY damnit
+		byte [] textbytes = new byte[text.Length];
+		for (int i = 0; i < text.Length; i++) textbytes[i] = (byte) text[i];
+                Gl.glCallLists(text.Length, Gl.GL_UNSIGNED_BYTE, textbytes);
             Gl.glPopAttrib();
         }
         #endregion PrintString(string text)

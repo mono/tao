@@ -67,33 +67,15 @@ namespace Tao.OpenGl {
     public sealed class Glu {
         // --- Fields ---
         #region Private Constants
-        #region string GLU_NATIVE_LIBRARY
-        /// <summary>
-        ///     Specifies GLU's native library archive.
-        /// </summary>
-        /// <remarks>
-        ///     Specifies glu32.dll for Windows or libGLU.so for LINUX.
-        /// </remarks>
-        #if WIN32
-        private const string GLU_NATIVE_LIBRARY = "glu32.dll";
-        #elif LINUX
-        private const string GLU_NATIVE_LIBRARY = "libGLU.so";
-        #endif
-        #endregion string GLU_NATIVE_LIBRARY
-
         #region CallingConvention CALLING_CONVENTION
         /// <summary>
         ///     Specifies the calling convention.
         /// </summary>
         /// <remarks>
-        ///     Specifies <see cref="CallingConvention.StdCall" /> for Windows and
-        ///     <see cref="CallingConvention.Cdecl" /> for LINUX.
+        ///     Specifies <see cref="CallingConvention.Winapi" /> for Windows and
+        ///     Linux, to indicate that the default should be used.
         /// </remarks>
-        #if WIN32
-        private const CallingConvention CALLING_CONVENTION = CallingConvention.StdCall;
-        #elif LINUX
-        private const CallingConvention CALLING_CONVENTION = CallingConvention.Cdecl;
-        #endif
+        private const CallingConvention CALLING_CONVENTION = CallingConvention.Winapi;
         #endregion CallingConvention CALLING_CONVENTION
         #endregion Private Constants
 
@@ -1786,7 +1768,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluNurbsCallback(GLUnurbs *nobj, GLenum which, void (CALLBACK* fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsBeginCallback func);
         #endregion __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsBeginCallback func)
 
@@ -1798,7 +1780,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluNurbsCallback(GLUnurbs *nobj, GLenum which, void (CALLBACK* fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsBeginDataCallback func);
         #endregion __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsBeginDataCallback func)
 
@@ -1810,7 +1792,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluNurbsCallback(GLUnurbs *nobj, GLenum which, void (CALLBACK* fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsColorCallback func);
         #endregion __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsColorCallback func)
 
@@ -1822,7 +1804,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluNurbsCallback(GLUnurbs *nobj, GLenum which, void (CALLBACK* fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsColorDataCallback func);
         #endregion __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsColorDataCallback func)
 
@@ -1834,7 +1816,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluNurbsCallback(GLUnurbs *nobj, GLenum which, void (CALLBACK* fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsEndCallback func);
         #endregion __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsEndCallback func)
 
@@ -1846,7 +1828,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluNurbsCallback(GLUnurbs *nobj, GLenum which, void (CALLBACK* fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsEndDataCallback func);
         #endregion __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsEndDataCallback func)
 
@@ -1858,7 +1840,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluNurbsCallback(GLUnurbs *nobj, GLenum which, void (CALLBACK* fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsErrorCallback func);
         #endregion __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsErrorCallback func)
 
@@ -1870,7 +1852,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluNurbsCallback(GLUnurbs *nobj, GLenum which, void (CALLBACK* fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsNormalCallback func);
         #endregion __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsNormalCallback func)
 
@@ -1882,7 +1864,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluNurbsCallback(GLUnurbs *nobj, GLenum which, void (CALLBACK* fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsNormalDataCallback func);
         #endregion __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsNormalDataCallback func)
 
@@ -1894,7 +1876,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluNurbsCallback(GLUnurbs *nobj, GLenum which, void (CALLBACK* fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsTexCoordCallback func);
         #endregion __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsTexCoordCallback func)
 
@@ -1906,7 +1888,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluNurbsCallback(GLUnurbs *nobj, GLenum which, void (CALLBACK* fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsTexCoordDataCallback func);
         #endregion __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsTexCoordDataCallback func)
 
@@ -1918,7 +1900,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluNurbsCallback(GLUnurbs *nobj, GLenum which, void (CALLBACK* fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsVertexCallback func);
         #endregion __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsVertexCallback func)
 
@@ -1930,7 +1912,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluNurbsCallback(GLUnurbs *nobj, GLenum which, void (CALLBACK* fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluNurbsCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsVertexDataCallback func);
         #endregion __gluNurbsCallback([In] GLUnurbs nurb, int which, [In] NurbsVertexDataCallback func)
 
@@ -1942,7 +1924,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluQuadricCallback(GLUquadric *qobj, GLenum which, void (CALLBACK* fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluQuadricCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluQuadricCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluQuadricCallback([In] GLUquadric quad, int which, [In] QuadricErrorCallback func);
         #endregion __gluQuadricCallback([In] GLUquadric quad, int which, [In] QuadricErrorCallback func)
 
@@ -1954,7 +1936,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluTessCallback(GLUtesselator *tess, GLenum which, void (CALLBACK *fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluTessCallback([In] GLUtesselator tess, int which, [In] TessBeginCallback func);
         #endregion __gluTessCallback([In] GLUtesselator tess, int which, [In] TessBeginCallback func)
 
@@ -1966,7 +1948,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluTessCallback(GLUtesselator *tess, GLenum which, void (CALLBACK *fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluTessCallback([In] GLUtesselator tess, int which, [In] TessBeginDataCallback func);
         #endregion __gluTessCallback([In] GLUtesselator tess, int which, [In] TessBeginDataCallback func)
 
@@ -1978,7 +1960,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluTessCallback(GLUtesselator *tess, GLenum which, void (CALLBACK *fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluTessCallback([In] GLUtesselator tess, int which, [In] TessCombineCallback func);
         #endregion __gluTessCallback([In] GLUtesselator tess, int which, [In] TessCombineCallback func)
 
@@ -1990,7 +1972,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluTessCallback(GLUtesselator *tess, GLenum which, void (CALLBACK *fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluTessCallback([In] GLUtesselator tess, int which, [In] TessCombineCallback1 func);
         #endregion __gluTessCallback([In] GLUtesselator tess, int which, [In] TessCombineCallback1 func)
 
@@ -2002,7 +1984,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluTessCallback(GLUtesselator *tess, GLenum which, void (CALLBACK *fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluTessCallback([In] GLUtesselator tess, int which, [In] TessCombineDataCallback func);
         #endregion __gluTessCallback([In] GLUtesselator tess, int which, [In] TessCombineDataCallback func)
 
@@ -2014,7 +1996,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluTessCallback(GLUtesselator *tess, GLenum which, void (CALLBACK *fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluTessCallback([In] GLUtesselator tess, int which, [In] TessEdgeFlagCallback func);
         #endregion __gluTessCallback([In] GLUtesselator tess, int which, [In] TessEdgeFlagCallback func)
 
@@ -2026,7 +2008,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluTessCallback(GLUtesselator *tess, GLenum which, void (CALLBACK *fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluTessCallback([In] GLUtesselator tess, int which, [In] TessEdgeFlagDataCallback func);
         #endregion __gluTessCallback([In] GLUtesselator tess, int which, [In] TessEdgeFlagDataCallback func)
 
@@ -2038,7 +2020,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluTessCallback(GLUtesselator *tess, GLenum which, void (CALLBACK *fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluTessCallback([In] GLUtesselator tess, int which, [In] TessEndCallback func);
         #endregion __gluTessCallback([In] GLUtesselator tess, int which, [In] TessEndCallback func)
 
@@ -2050,7 +2032,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluTessCallback(GLUtesselator *tess, GLenum which, void (CALLBACK *fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluTessCallback([In] GLUtesselator tess, int which, [In] TessEndDataCallback func);
         #endregion __gluTessCallback([In] GLUtesselator tess, int which, [In] TessEndDataCallback func)
 
@@ -2062,7 +2044,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluTessCallback(GLUtesselator *tess, GLenum which, void (CALLBACK *fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluTessCallback([In] GLUtesselator tess, int which, [In] TessErrorCallback func);
         #endregion __gluTessCallback([In] GLUtesselator tess, int which, [In] TessErrorCallback func)
 
@@ -2074,7 +2056,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluTessCallback(GLUtesselator *tess, GLenum which, void (CALLBACK *fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluTessCallback([In] GLUtesselator tess, int which, [In] TessErrorDataCallback func);
         #endregion __gluTessCallback([In] GLUtesselator tess, int which, [In] TessErrorDataCallback func)
 
@@ -2086,7 +2068,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluTessCallback(GLUtesselator *tess, GLenum which, void (CALLBACK *fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluTessCallback([In] GLUtesselator tess, int which, [In] TessVertexCallback func);
         #endregion __gluTessCallback([In] GLUtesselator tess, int which, [In] TessVertexCallback func)
 
@@ -2098,7 +2080,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluTessCallback(GLUtesselator *tess, GLenum which, void (CALLBACK *fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluTessCallback([In] GLUtesselator tess, int which, [In] TessVertexCallback1 func);
         #endregion __gluTessCallback([In] GLUtesselator tess, int which, [In] TessVertexCallback1 func)
 
@@ -2110,7 +2092,7 @@ namespace Tao.OpenGl {
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
         /// </remarks>
         // void APIENTRY gluTessCallback(GLUtesselator *tess, GLenum which, void (CALLBACK *fn)());
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="gluTessCallback"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern void __gluTessCallback([In] GLUtesselator tess, int which, [In] TessVertexDataCallback func);
         #endregion __gluTessCallback([In] GLUtesselator tess, int which, [In] TessVertexDataCallback func)
 
@@ -2162,7 +2144,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCurve" />
         // void APIENTRY gluBeginCurve(GLUnurbs *nobj);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluBeginCurve([In] GLUnurbs nurb);
         #endregion gluBeginCurve([In] GLUnurbs nurb)
 
@@ -2227,7 +2209,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessCallback" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluBeginPolygon(GLUtesselator *tess);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluBeginPolygon([In] GLUtesselator tess);
         #endregion gluBeginPolygon([In] GLUtesselator tess)
 
@@ -2285,7 +2267,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNurbsSurface" />
         /// <seealso cref="gluPwlCurve" />
         // void APIENTRY gluBeginSurface(GLUnurbs *nobj);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluBeginSurface([In] GLUnurbs nurb);
         #endregion gluBeginSurface([In] GLUnurbs nurb)
 
@@ -2376,7 +2358,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNurbsCurve" />
         /// <seealso cref="gluPwlCurve" />
         // void APIENTRY gluBeginTrim(GLUnurbs *nobj);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluBeginTrim([In] GLUnurbs nurb);
         #endregion gluBeginTrim([In] GLUnurbs nurb)
 
@@ -2585,7 +2567,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] byte[] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] byte[] data)
 
@@ -2794,7 +2776,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] byte[ , ] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] byte[ , ] data)
 
@@ -3003,7 +2985,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] byte[ , , ] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] byte[ , , ] data)
 
@@ -3212,7 +3194,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] double[] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] double[] data)
 
@@ -3421,7 +3403,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] double[ , ] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] double[ , ] data)
 
@@ -3630,7 +3612,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] double[ , , ] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] double[ , , ] data)
 
@@ -3839,7 +3821,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] short[] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] short[] data)
 
@@ -4048,7 +4030,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] short[ , ] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] short[ , ] data)
 
@@ -4257,7 +4239,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] short[ , , ] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] short[ , , ] data)
 
@@ -4466,7 +4448,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] int[] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] int[] data)
 
@@ -4675,7 +4657,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] int[ , ] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] int[ , ] data)
 
@@ -4884,7 +4866,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] int[ , , ] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] int[ , , ] data)
 
@@ -5093,7 +5075,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] float[] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] float[] data)
 
@@ -5302,7 +5284,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] float[ , ] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] float[ , ] data)
 
@@ -5511,7 +5493,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] float[ , , ] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] float[ , , ] data)
 
@@ -5720,7 +5702,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] ushort[] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] ushort[] data)
 
@@ -5929,7 +5911,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] ushort[ , ] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] ushort[ , ] data)
 
@@ -6138,7 +6120,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] ushort[ , , ] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] ushort[ , , ] data)
 
@@ -6347,7 +6329,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] uint[] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] uint[] data)
 
@@ -6556,7 +6538,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] uint[ , ] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] uint[ , ] data)
 
@@ -6765,7 +6747,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] uint[ , , ] data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] uint[ , , ] data)
 
@@ -6974,7 +6956,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] IntPtr data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] IntPtr data)
 
@@ -7183,7 +7165,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] void *data);
         #endregion int gluBuild1DMipmapLevels(int target, int internalFormat, int width, int format, int type, int level, int min, int max, [In] void *data)
 
@@ -7387,7 +7369,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] byte[] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] byte[] data)
 
@@ -7591,7 +7573,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] byte[ , ] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] byte[ , ] data)
 
@@ -7795,7 +7777,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] byte[ , , ] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] byte[ , , ] data)
 
@@ -7999,7 +7981,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] double[] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] double[] data)
 
@@ -8203,7 +8185,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] double[ , ] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] double[ , ] data)
 
@@ -8407,7 +8389,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] double[ , , ] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] double[ , , ] data)
 
@@ -8611,7 +8593,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] short[] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] short[] data)
 
@@ -8815,7 +8797,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] short[ , ] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] short[ , ] data)
 
@@ -9019,7 +9001,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] short[ , , ] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] short[ , , ] data)
 
@@ -9223,7 +9205,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] int[] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] int[] data)
 
@@ -9427,7 +9409,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] int[ , ] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] int[ , ] data)
 
@@ -9631,7 +9613,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] int[ , , ] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] int[ , , ] data)
 
@@ -9835,7 +9817,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] float[] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] float[] data)
 
@@ -10039,7 +10021,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] float[ , ] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] float[ , ] data)
 
@@ -10243,7 +10225,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] float[ , , ] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] float[ , , ] data)
 
@@ -10447,7 +10429,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] ushort[] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] ushort[] data)
 
@@ -10651,7 +10633,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] ushort[ , ] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] ushort[ , ] data)
 
@@ -10855,7 +10837,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] ushort[ , , ] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] ushort[ , , ] data)
 
@@ -11059,7 +11041,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] uint[] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] uint[] data)
 
@@ -11263,7 +11245,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] uint[ , ] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] uint[ , ] data)
 
@@ -11467,7 +11449,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] uint[ , , ] data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] uint[ , , ] data)
 
@@ -11671,7 +11653,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] IntPtr data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] IntPtr data)
 
@@ -11875,7 +11857,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild1DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] void *data);
         #endregion int gluBuild1DMipmaps(int target, int internalFormat, int width, int format, int type, [In] void *data)
 
@@ -12092,7 +12074,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] byte[] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] byte[] data)
 
@@ -12309,7 +12291,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] byte[ , ] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] byte[ , ] data)
 
@@ -12526,7 +12508,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] byte[ , , ] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] byte[ , , ] data)
 
@@ -12743,7 +12725,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] double[] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] double[] data)
 
@@ -12960,7 +12942,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] double[ , ] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] double[ , ] data)
 
@@ -13177,7 +13159,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] double[ , , ] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] double[ , , ] data)
 
@@ -13394,7 +13376,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] short[] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] short[] data)
 
@@ -13611,7 +13593,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] short[ , ] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] short[ , ] data)
 
@@ -13828,7 +13810,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] short[ , , ] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] short[ , , ] data)
 
@@ -14045,7 +14027,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] int[] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] int[] data)
 
@@ -14262,7 +14244,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] int[ , ] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] int[ , ] data)
 
@@ -14479,7 +14461,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] int[ , , ] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] int[ , , ] data)
 
@@ -14696,7 +14678,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] float[] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] float[] data)
 
@@ -14913,7 +14895,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] float[ , ] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] float[ , ] data)
 
@@ -15130,7 +15112,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] float[ , , ] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] float[ , , ] data)
 
@@ -15347,7 +15329,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] ushort[] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] ushort[] data)
 
@@ -15564,7 +15546,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] ushort[ , ] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] ushort[ , ] data)
 
@@ -15781,7 +15763,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] ushort[ , , ] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] ushort[ , , ] data)
 
@@ -15998,7 +15980,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] uint[] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] uint[] data)
 
@@ -16215,7 +16197,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] uint[ , ] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] uint[ , ] data)
 
@@ -16432,7 +16414,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] uint[ , , ] data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] uint[ , , ] data)
 
@@ -16649,7 +16631,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] IntPtr data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] IntPtr data)
 
@@ -16866,7 +16848,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] void *data);
         #endregion int gluBuild2DMipmapLevels(int target, int internalFormat, int width, int height, int format, int type, int level, int min, int max, [In] void *data)
 
@@ -17082,7 +17064,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] byte[] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] byte[] data)
 
@@ -17298,7 +17280,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] byte[ , ] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] byte[ , ] data)
 
@@ -17514,7 +17496,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] byte[ , , ] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] byte[ , , ] data)
 
@@ -17730,7 +17712,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] double[] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] double[] data)
 
@@ -17946,7 +17928,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] double[ , ] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] double[ , ] data)
 
@@ -18162,7 +18144,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] double[ , , ] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] double[ , , ] data)
 
@@ -18378,7 +18360,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] short[] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] short[] data)
 
@@ -18594,7 +18576,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] short[ , ] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] short[ , ] data)
 
@@ -18810,7 +18792,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] short[ , , ] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] short[ , , ] data)
 
@@ -19026,7 +19008,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] int[] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] int[] data)
 
@@ -19242,7 +19224,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] int[ , ] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] int[ , ] data)
 
@@ -19458,7 +19440,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] int[ , , ] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] int[ , , ] data)
 
@@ -19674,7 +19656,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] float[] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] float[] data)
 
@@ -19890,7 +19872,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] float[ , ] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] float[ , ] data)
 
@@ -20106,7 +20088,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] float[ , , ] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] float[ , , ] data)
 
@@ -20322,7 +20304,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] ushort[] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] ushort[] data)
 
@@ -20538,7 +20520,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] ushort[ , ] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] ushort[ , ] data)
 
@@ -20754,7 +20736,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] ushort[ , , ] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] ushort[ , , ] data)
 
@@ -20970,7 +20952,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] uint[] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] uint[] data)
 
@@ -21186,7 +21168,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] uint[ , ] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] uint[ , ] data)
 
@@ -21402,7 +21384,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] uint[ , , ] data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] uint[ , , ] data)
 
@@ -21618,7 +21600,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] IntPtr data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] IntPtr data)
 
@@ -21834,7 +21816,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild2DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] void *data);
         #endregion int gluBuild2DMipmaps(int target, int internalFormat, int width, int height, int format, int type, [In] void *data)
 
@@ -22053,7 +22035,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] byte[] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] byte[] data)
 
@@ -22272,7 +22254,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] byte[ , ] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] byte[ , ] data)
 
@@ -22491,7 +22473,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] byte[ , , ] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] byte[ , , ] data)
 
@@ -22710,7 +22692,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] double[] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] double[] data)
 
@@ -22929,7 +22911,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] double[ , ] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] double[ , ] data)
 
@@ -23148,7 +23130,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] double[ , , ] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] double[ , , ] data)
 
@@ -23367,7 +23349,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] short[] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] short[] data)
 
@@ -23586,7 +23568,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] short[ , ] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] short[ , ] data)
 
@@ -23805,7 +23787,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] short[ , , ] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] short[ , , ] data)
 
@@ -24024,7 +24006,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] int[] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] int[] data)
 
@@ -24243,7 +24225,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] int[ , ] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] int[ , ] data)
 
@@ -24462,7 +24444,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] int[ , , ] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] int[ , , ] data)
 
@@ -24681,7 +24663,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] float[] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] float[] data)
 
@@ -24900,7 +24882,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] float[ , ] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] float[ , ] data)
 
@@ -25119,7 +25101,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] float[ , , ] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] float[ , , ] data)
 
@@ -25338,7 +25320,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] ushort[] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] ushort[] data)
 
@@ -25557,7 +25539,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] ushort[ , ] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] ushort[ , ] data)
 
@@ -25776,7 +25758,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] ushort[ , , ] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] ushort[ , , ] data)
 
@@ -25995,7 +25977,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] uint[] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] uint[] data)
 
@@ -26214,7 +26196,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] uint[ , ] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] uint[ , ] data)
 
@@ -26433,7 +26415,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] uint[ , , ] data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] uint[ , , ] data)
 
@@ -26652,7 +26634,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] IntPtr data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] IntPtr data)
 
@@ -26871,7 +26853,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmapLevels (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, GLint level, GLint base, GLint max, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] void *data);
         #endregion int gluBuild3DMipmapLevels(int target, int internalFormat, int width, int height, int depth, int format, int type, int level, int min, int max, [In] void *data)
 
@@ -27093,7 +27075,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] byte[] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] byte[] data)
 
@@ -27315,7 +27297,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] byte[ , ] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] byte[ , ] data)
 
@@ -27537,7 +27519,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] byte[ , , ] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] byte[ , , ] data)
 
@@ -27759,7 +27741,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] double[] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] double[] data)
 
@@ -27981,7 +27963,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] double[ , ] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] double[ , ] data)
 
@@ -28203,7 +28185,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] double[ , , ] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] double[ , , ] data)
 
@@ -28425,7 +28407,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] short[] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] short[] data)
 
@@ -28647,7 +28629,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] short[ , ] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] short[ , ] data)
 
@@ -28869,7 +28851,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] short[ , , ] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] short[ , , ] data)
 
@@ -29091,7 +29073,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] int[] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] int[] data)
 
@@ -29313,7 +29295,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] int[ , ] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] int[ , ] data)
 
@@ -29535,7 +29517,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] int[ , , ] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] int[ , , ] data)
 
@@ -29757,7 +29739,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] float[] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] float[] data)
 
@@ -29979,7 +29961,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] float[ , ] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] float[ , ] data)
 
@@ -30201,7 +30183,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] float[ , , ] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] float[ , , ] data)
 
@@ -30423,7 +30405,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] ushort[] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] ushort[] data)
 
@@ -30645,7 +30627,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] ushort[ , ] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] ushort[ , ] data)
 
@@ -30867,7 +30849,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] ushort[ , , ] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] ushort[ , , ] data)
 
@@ -31089,7 +31071,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] uint[] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] uint[] data)
 
@@ -31311,7 +31293,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] uint[ , ] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] uint[ , ] data)
 
@@ -31533,7 +31515,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] uint[ , , ] data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] uint[ , , ] data)
 
@@ -31755,7 +31737,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] IntPtr data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] IntPtr data)
 
@@ -31977,7 +31959,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmapLevels" />
         /// <seealso cref="gluErrorString" />
         // GLAPI GLint GLAPIENTRY gluBuild3DMipmaps (GLenum target, GLint internalFormat, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, const void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] void *data);
         #endregion int gluBuild3DMipmaps(int target, int internalFormat, int width, int height, int depth, int format, int type, [In] void *data)
 
@@ -32031,7 +32013,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="glXQueryExtensionsString" />
         /// <seealso cref="glXQueryServerString" />
         // GLAPI GLboolean GLAPIENTRY gluCheckExtension (const GLubyte *extName, const GLubyte *extString);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluCheckExtension(string extensionName, string extensionString);
         #endregion int gluCheckExtension(string extensionName, string extensionString)
 
@@ -32088,7 +32070,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluQuadricTexture" />
         /// <seealso cref="gluSphere" />
         // void APIENTRY gluCylinder(GLUquadric *qobj, GLdouble baseRadius, GLdouble topRadius, GLdouble height, GLint slices, GLint stacks);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluCylinder([In] GLUquadric quad, double baseRadius, double topRadius, double height, int slices, int stacks);
         #endregion gluCylinder([In] GLUquadric quad, double baseRadius, double topRadius, double height, int slices, int stacks)
 
@@ -32107,7 +32089,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNewNurbsRenderer" />
         // void APIENTRY gluDeleteNurbsRenderer(GLUnurbs *nobj);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluDeleteNurbsRenderer([In] GLUnurbs nurb);
         #endregion gluDeleteNurbsRenderer([In] GLUnurbs nurb)
 
@@ -32126,7 +32108,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNewQuadric" />
         // void APIENTRY gluDeleteQuadric(GLUquadric *state);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluDeleteQuadric([In] GLUquadric quad);
         #endregion gluDeleteQuadric([In] GLUquadric quad)
 
@@ -32146,7 +32128,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessCallback" />
         // void APIENTRY gluDeleteTess(GLUtesselator *tess);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluDeleteTess([In] GLUtesselator tess);
         #endregion gluDeleteTess([In] GLUtesselator tess)
 
@@ -32198,7 +32180,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluQuadricTexture" />
         /// <seealso cref="gluSphere" />
         // void APIENTRY gluDisk(GLUquadric *qobj, GLdouble innerRadius, GLdouble outerRadius, GLint slices, GLint loops);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluDisk([In] GLUquadric quad, double innerRadius, double outerRadius, int slices, int loops);
         #endregion gluDisk([In] GLUquadric quad, double innerRadius, double outerRadius, int slices, int loops)
 
@@ -32250,7 +32232,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCurve" />
         // void APIENTRY gluEndCurve(GLUnurbs *nobj);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluEndCurve([In] GLUnurbs nurb);
         #endregion gluEndCurve([In] GLUnurbs nurb)
 
@@ -32316,7 +32298,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessCallback" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluEndPolygon(GLUtesselator *tess);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluEndPolygon([In] GLUtesselator tess);
         #endregion gluEndPolygon([In] GLUtesselator tess)
 
@@ -32374,7 +32356,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNurbsSurface" />
         /// <seealso cref="gluPwlCurve" />
         // void APIENTRY gluEndSurface(GLUnurbs *nobj);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluEndSurface([In] GLUnurbs nurb);
         #endregion gluEndSurface([In] GLUnurbs nurb)
 
@@ -32465,7 +32447,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNurbsCurve" />
         /// <seealso cref="gluPwlCurve" />
         // void APIENTRY gluEndTrim(GLUnurbs *nobj);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluEndTrim([In] GLUnurbs nurb);
         #endregion gluEndTrim([In] GLUnurbs nurb)
 
@@ -32506,7 +32488,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluQuadricCallback" />
         /// <seealso cref="gluTessCallback" />
         // const GLubyte* APIENTRY gluErrorString(GLenum errCode);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern string gluErrorString(int errorCode);
         #endregion string gluErrorString(int errorCode)
 
@@ -32589,7 +32571,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluQuadricCallback" />
         /// <seealso cref="gluTessCallback" />
         // const wchar_t* APIENTRY gluErrorUnicodeStringEXT(GLenum errCode);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern string gluErrorUnicodeStringEXT(int errorCode);
         #endregion string gluErrorUnicodeStringEXT(int errorCode)
 
@@ -32621,7 +32603,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsProperty" />
         // void APIENTRY gluGetNurbsProperty(GLUnurbs *nobj, GLenum property, GLfloat *value);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluGetNurbsProperty([In] GLUnurbs nurb, int property, [Out] float[] data);
         #endregion gluGetNurbsProperty([In] GLUnurbs nurb, int property, [Out] float[] data)
 
@@ -32653,7 +32635,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsProperty" />
         // void APIENTRY gluGetNurbsProperty(GLUnurbs *nobj, GLenum property, GLfloat *value);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluGetNurbsProperty([In] GLUnurbs nurb, int property, out float data);
         #endregion gluGetNurbsProperty([In] GLUnurbs nurb, int property, out float data)
 
@@ -32685,7 +32667,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsProperty" />
         // void APIENTRY gluGetNurbsProperty(GLUnurbs *nobj, GLenum property, GLfloat *value);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluGetNurbsProperty([In] GLUnurbs nurb, int property, [Out] IntPtr data);
         #endregion gluGetNurbsProperty([In] GLUnurbs nurb, int property, [Out] IntPtr data)
 
@@ -32757,7 +32739,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glGetString" />
         // const GLubyte* APIENTRY gluGetString(GLenum name);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern string gluGetString(int name);
         #endregion string gluGetString(int name)
 
@@ -32785,7 +32767,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluGetTessProperty(GLUtesselator *tess, GLenum which, GLdouble *value);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluGetTessProperty([In] GLUtesselator tess, int which, [Out] double[] data);
         #endregion gluGetTessProperty([In] GLUtesselator tess, int which, [Out] double[] data)
 
@@ -32813,7 +32795,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluGetTessProperty(GLUtesselator *tess, GLenum which, GLdouble *value);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluGetTessProperty([In] GLUtesselator tess, int which, out double data);
         #endregion gluGetTessProperty([In] GLUtesselator tess, int which, out double data)
 
@@ -32841,7 +32823,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluGetTessProperty(GLUtesselator *tess, GLenum which, GLdouble *value);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluGetTessProperty([In] GLUtesselator tess, int which, [Out] IntPtr data);
         #endregion gluGetTessProperty([In] GLUtesselator tess, int which, [Out] IntPtr data)
 
@@ -32888,7 +32870,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsProperty" />
         // void APIENTRY gluLoadSamplingMatrices(GLUnurbs *nobj, const GLfloat modelMatrix[16], const GLfloat projMatrix[16], const GLint viewport[4]);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluLoadSamplingMatrices([In] GLUnurbs nurb, [In] float[] modelMatrix, [In] float[] projectionMatrix, [In] int[] viewport);
         #endregion gluLoadSamplingMatrices([In] GLUnurbs nurb, [In] float[] modelMatrix, [In] float[] projectionMatrix, [In] int[] viewport)
 
@@ -32973,7 +32955,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="Gl.glFrustum" />
         /// <seealso cref="gluPerspective" />
         // void APIENTRY gluLookAt(GLdouble eyex, GLdouble eyey, GLdouble eyez, GLdouble centerx, GLdouble centery, GLdouble centerz, GLdouble upx, GLdouble upy, GLdouble upz);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluLookAt(double eyeX, double eyeY, double eyeZ, double centerX, double centerY, double centerZ, double upX, double upY, double upZ);
         #endregion gluLookAt(double eyeX, double eyeY, double eyeZ, double centerX, double centerY, double centerZ, double upX, double upY, double upZ)
 
@@ -32997,7 +32979,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNurbsCallback" />
         /// <seealso cref="gluNurbsProperty" />
         // GLUnurbs* APIENTRY gluNewNurbsRenderer(void);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern GLUnurbs gluNewNurbsRenderer();
         #endregion GLUnurbs gluNewNurbsRenderer()
 
@@ -33025,7 +33007,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluQuadricTexture" />
         /// <seealso cref="gluSphere" />
         // GLUquadric* APIENTRY gluNewQuadric(void);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern GLUquadric gluNewQuadric();
         #endregion GLUquadric gluNewQuadric()
 
@@ -33046,7 +33028,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessBeginPolygon" />
         /// <seealso cref="gluTessCallback" />
         // GLUtesselator* APIENTRY gluNewTess(void);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern GLUtesselator gluNewTess();
         #endregion GLUtesselator gluNewTess()
 
@@ -33160,7 +33142,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessEndContour" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluNextContour(GLUtesselator *tess, GLenum type);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluNextContour([In] GLUtesselator tess, int type);
         #endregion gluNextContour([In] GLUtesselator tess, int type)
 
@@ -36468,7 +36450,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] byte[] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] byte[] userData)
 
@@ -36500,7 +36482,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] byte[ , ] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] byte[ , ] userData)
 
@@ -36532,7 +36514,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] byte[ , , ] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] byte[ , , ] userData)
 
@@ -36564,7 +36546,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] double[] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] double[] userData)
 
@@ -36596,7 +36578,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] double[ , ] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] double[ , ] userData)
 
@@ -36628,7 +36610,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] double[ , , ] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] double[ , , ] userData)
 
@@ -36660,7 +36642,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] short[] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] short[] userData)
 
@@ -36692,7 +36674,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] short[ , ] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] short[ , ] userData)
 
@@ -36724,7 +36706,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] short[ , , ] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] short[ , , ] userData)
 
@@ -36756,7 +36738,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] int[] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] int[] userData)
 
@@ -36788,7 +36770,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] int[ , ] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] int[ , ] userData)
 
@@ -36820,7 +36802,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] int[ , , ] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] int[ , , ] userData)
 
@@ -36852,7 +36834,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] float[] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] float[] userData)
 
@@ -36884,7 +36866,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] float[ , ] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] float[ , ] userData)
 
@@ -36916,7 +36898,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] float[ , , ] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] float[ , , ] userData)
 
@@ -36948,7 +36930,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] ushort[] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] ushort[] userData)
 
@@ -36980,7 +36962,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] ushort[ , ] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] ushort[ , ] userData)
 
@@ -37012,7 +36994,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] ushort[ , , ] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] ushort[ , , ] userData)
 
@@ -37044,7 +37026,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] uint[] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] uint[] userData)
 
@@ -37076,7 +37058,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] uint[ , ] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] uint[ , ] userData)
 
@@ -37108,7 +37090,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] uint[ , , ] userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] uint[ , , ] userData)
 
@@ -37140,7 +37122,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] IntPtr userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] IntPtr userData)
 
@@ -37172,7 +37154,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackData(GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void gluNurbsCallbackData([In] GLUnurbs nurb, [In] void *userData);
         #endregion gluNurbsCallbackData([In] GLUnurbs nurb, [In] void *userData)
 
@@ -37194,7 +37176,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] byte[] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] byte[] userData)
 
@@ -37216,7 +37198,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] byte[ , ] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] byte[ , ] userData)
 
@@ -37238,7 +37220,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] byte[ , , ] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] byte[ , , ] userData)
 
@@ -37260,7 +37242,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] double[] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] double[] userData)
 
@@ -37282,7 +37264,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] double[ , ] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] double[ , ] userData)
 
@@ -37304,7 +37286,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] double[ , , ] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] double[ , , ] userData)
 
@@ -37326,7 +37308,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] short[] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] short[] userData)
 
@@ -37348,7 +37330,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] short[ , ] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] short[ , ] userData)
 
@@ -37370,7 +37352,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] short[ , , ] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] short[ , , ] userData)
 
@@ -37392,7 +37374,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] int[] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] int[] userData)
 
@@ -37414,7 +37396,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] int[ , ] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] int[ , ] userData)
 
@@ -37436,7 +37418,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] int[ , , ] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] int[ , , ] userData)
 
@@ -37458,7 +37440,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] float[] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] float[] userData)
 
@@ -37480,7 +37462,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] float[ , ] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] float[ , ] userData)
 
@@ -37502,7 +37484,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] float[ , , ] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] float[ , , ] userData)
 
@@ -37524,7 +37506,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] ushort[] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] ushort[] userData)
 
@@ -37546,7 +37528,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] ushort[ , ] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] ushort[ , ] userData)
 
@@ -37568,7 +37550,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] ushort[ , , ] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] ushort[ , , ] userData)
 
@@ -37590,7 +37572,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] uint[] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] uint[] userData)
 
@@ -37612,7 +37594,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] uint[ , ] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] uint[ , ] userData)
 
@@ -37634,7 +37616,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] uint[ , , ] userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] uint[ , , ] userData)
 
@@ -37656,7 +37638,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] IntPtr userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] IntPtr userData)
 
@@ -37678,7 +37660,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="gluNurbsCallback" />
         // GLAPI void GLAPIENTRY gluNurbsCallbackDataEXT (GLUnurbs* nurb, GLvoid* userData);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] void *userData);
         #endregion gluNurbsCallbackDataEXT([In] GLUnurbs nurb, [In] void *userData)
 
@@ -37772,7 +37754,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluPwlCurve" />
         // void APIENTRY gluNurbsCurve(GLUnurbs *nobj, GLint nknots, GLfloat *knot, GLint stride, GLfloat *ctlarray, GLint order, GLenum type);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCurve([In] GLUnurbs nurb, int knotCount, [In] float[] knots, int stride, [In] float[] control, int order, int type);
         #endregion gluNurbsCurve([In] GLUnurbs nurb, int knotCount, [In] float[] knots, int stride, [In] float[] control, int order, int type)
 
@@ -37866,7 +37848,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluPwlCurve" />
         // void APIENTRY gluNurbsCurve(GLUnurbs *nobj, GLint nknots, GLfloat *knot, GLint stride, GLfloat *ctlarray, GLint order, GLenum type);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsCurve([In] GLUnurbs nurb, int knotCount, [In] float[] knots, int stride, [In] float[ , ] control, int order, int type);
         #endregion gluNurbsCurve([In] GLUnurbs nurb, int knotCount, [In] float[] knots, int stride, [In] float[ , ] control, int order, int type)
 
@@ -38122,7 +38104,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCallback" />
         // void APIENTRY gluNurbsProperty(GLUnurbs *nobj, GLenum property, GLfloat value);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsProperty([In] GLUnurbs nurb, int property, float val);
         #endregion gluNurbsProperty([In] GLUnurbs nurb, int property, float val)
 
@@ -38226,7 +38208,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNurbsCurve" />
         /// <seealso cref="gluPwlCurve" />
         // void APIENTRY gluNurbsSurface(GLUnurbs *nobj, GLint sknot_count, float *sknot, GLint tknot_count, GLfloat *tknot, GLint s_stride, GLint t_stride, GLfloat *ctlarray, GLint sorder, GLint torder, GLenum type);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsSurface([In] GLUnurbs nurb, int sKnotCount, [In] float[] sKnots, int tKnotCount, [In] float[] tKnots, int sStride, int tStride, float[] control, int sOrder, int tOrder, int type);
         #endregion gluNurbsSurface([In] GLUnurbs nurb, int sKnotCount, [In] float[] sKnots, int tKnotCount, [In] float[] tKnots, int sStride, int tStride, float[] control, int sOrder, int tOrder, int type)
 
@@ -38330,7 +38312,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNurbsCurve" />
         /// <seealso cref="gluPwlCurve" />
         // void APIENTRY gluNurbsSurface(GLUnurbs *nobj, GLint sknot_count, float *sknot, GLint tknot_count, GLfloat *tknot, GLint s_stride, GLint t_stride, GLfloat *ctlarray, GLint sorder, GLint torder, GLenum type);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsSurface([In] GLUnurbs nurb, int sKnotCount, [In] float[] sKnots, int tKnotCount, [In] float[] tKnots, int sStride, int tStride, float[ , ] control, int sOrder, int tOrder, int type);
         #endregion gluNurbsSurface([In] GLUnurbs nurb, int sKnotCount, [In] float[] sKnots, int tKnotCount, [In] float[] tKnots, int sStride, int tStride, float[ , ] control, int sOrder, int tOrder, int type)
 
@@ -38434,7 +38416,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNurbsCurve" />
         /// <seealso cref="gluPwlCurve" />
         // void APIENTRY gluNurbsSurface(GLUnurbs *nobj, GLint sknot_count, float *sknot, GLint tknot_count, GLfloat *tknot, GLint s_stride, GLint t_stride, GLfloat *ctlarray, GLint sorder, GLint torder, GLenum type);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluNurbsSurface([In] GLUnurbs nurb, int sKnotCount, [In] float[] sKnots, int tKnotCount, [In] float[] tKnots, int sStride, int tStride, float[ , , ] control, int sOrder, int tOrder, int type);
         #endregion gluNurbsSurface([In] GLUnurbs nurb, int sKnotCount, [In] float[] sKnots, int tKnotCount, [In] float[] tKnots, int sStride, int tStride, float[ , , ] control, int sOrder, int tOrder, int type)
 
@@ -38462,7 +38444,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="Gl.glOrtho" />
         /// <seealso cref="gluPerspective" />
         // void APIENTRY gluOrtho2D(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluOrtho2D(double left, double right, double bottom, double top);
         #endregion gluOrtho2D(double left, double right, double bottom, double top)
 
@@ -38528,7 +38510,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluQuadricTexture" />
         /// <seealso cref="gluSphere" />
         // void APIENTRY gluPartialDisk(GLUquadric *qobj, GLdouble innerRadius, GLdouble outerRadius, GLint slices, GLint loops, GLdouble startAngle, GLdouble sweepAngle);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluPartialDisk([In] GLUquadric quad, double innerRadius, double outerRadius, int slices, int loops, double startAngle, double sweepAngle);
         #endregion gluPartialDisk([In] GLUquadric quad, double innerRadius, double outerRadius, int slices, int loops, double startAngle, double sweepAngle)
 
@@ -38609,7 +38591,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="Gl.glLoadIdentity" />
         /// <seealso cref="gluOrtho2D" />
         // void APIENTRY gluPerspective(GLdouble fovy, GLdouble aspect, GLdouble zNear, GLdouble zFar);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluPerspective(double fovY, double aspectRatio, double zNear, double zFar);
         #endregion gluPerspective(double fovY, double aspectRatio, double zNear, double zFar)
 
@@ -38691,7 +38673,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="Gl.glRenderMode" />
         /// <seealso cref="gluPerspective" />
         // void APIENTRY gluPickMatrix(GLdouble x, GLdouble y, GLdouble width, GLdouble height, GLint viewport[4]);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluPickMatrix(double x, double y, double width, double height, [In] int[] viewport);
         #endregion gluPickMatrix(double x, double y, double width, double height, [In] int[] viewport)
 
@@ -38767,7 +38749,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="Gl.glGetIntegerv" />
         /// <seealso cref="gluUnProject" />
         // int APIENTRY gluProject(GLdouble objx, GLdouble objy, GLdouble objz, const GLdouble modelMatrix[16], const GLdouble projMatrix[16], const GLint viewport[4], GLdouble *winx, GLdouble *winy, GLdouble *winz);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluProject(double objX, double objY, double objZ, [In] double[] modelMatrix, [In] double[] projectionMatrix, [In] int[] viewport, out double winX, out double winY, out double winZ);
         #endregion int gluProject(double objX, double objY, double objZ, [In] double[] modelMatrix, [In] double[] projectionMatrix, [In] int[] viewport, out double winX, out double winY, out double winZ)
 
@@ -38823,7 +38805,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCurve" />
         // void APIENTRY gluPwlCurve(GLUnurbs *nobj, GLint count, GLfloat *array, GLint stride, GLenum type);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluPwlCurve([In] GLUnurbs nurb, int count, [In] float[] data, int stride, int type);
         #endregion gluPwlCurve([In] GLUnurbs nurb, int count, [In] float[] data, int stride, int type)
 
@@ -38879,7 +38861,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsCurve" />
         // void APIENTRY gluPwlCurve(GLUnurbs *nobj, GLint count, GLfloat *array, GLint stride, GLenum type);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluPwlCurve([In] GLUnurbs nurb, int count, [In] float[ , ] data, int stride, int type);
         #endregion gluPwlCurve([In] GLUnurbs nurb, int count, [In] float[ , ] data, int stride, int type)
 
@@ -38993,7 +38975,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluQuadricOrientation" />
         /// <seealso cref="gluQuadricTexture" />
         // void APIENTRY gluQuadricDrawStyle(GLUquadric *quadObject, GLenum drawStyle);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluQuadricDrawStyle([In] GLUquadric quad, int drawStyle);
         #endregion gluQuadricDrawStyle([In] GLUquadric quad, int drawStyle)
 
@@ -39045,7 +39027,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluQuadricOrientation" />
         /// <seealso cref="gluQuadricTexture" />
         // void APIENTRY gluQuadricNormals(GLUquadric *quadObject, GLenum normals);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluQuadricNormals([In] GLUquadric quad, int normal);
         #endregion gluQuadricNormals([In] GLUquadric quad, int normal)
 
@@ -39096,7 +39078,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluQuadricNormals" />
         /// <seealso cref="gluQuadricTexture" />
         // void APIENTRY gluQuadricOrientation(GLUquadric *quadObject, GLenum orientation);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluQuadricOrientation([In] GLUquadric quad, int orientation);
         #endregion gluQuadricOrientation([In] GLUquadric quad, int orientation)
 
@@ -39148,7 +39130,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluQuadricNormals" />
         /// <seealso cref="gluQuadricOrientation" />
         // void APIENTRY gluQuadricTexture(GLUquadric *quadObject, GLboolean textureCoords);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluQuadricTexture([In] GLUquadric quad, int texture);
         #endregion gluQuadricTexture([In] GLUquadric quad, int texture)
 
@@ -39321,7 +39303,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluBuild3DMipmaps" />
         /// <seealso cref="gluErrorString" />
         // int APIENTRY gluScaleImage(GLenum format, GLint widthin, GLint heightin, GLenum typein, const void *datain, GLint widthout, GLint heightout, GLenum typeout, void *dataout);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluScaleImage(int format, int widthIn, int heightIn, int typeIn, [In] IntPtr dataIn, int widthOut, int heightOut, int typeOut, [Out] IntPtr dataOut);
         #endregion int gluScaleImage(int format, int widthIn, int heightIn, int typeIn, [In] IntPtr dataIn, int widthOut, int heightOut, int typeOut, [Out] IntPtr dataOut)
 
@@ -39368,7 +39350,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluQuadricOrientation" />
         /// <seealso cref="gluQuadricTexture" />
         // void APIENTRY gluSphere(GLUquadric *qobj, GLdouble radius, GLint slices, GLint stacks);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluSphere([In] GLUquadric quad, double radius, int slices, int stacks);
         #endregion gluSphere([In] GLUquadric quad, double radius, int slices, int stacks)
 
@@ -39398,7 +39380,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginContour(GLUtesselator *tess);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginContour([In] GLUtesselator tess);
         #endregion gluTessBeginContour([In] GLUtesselator tess)
 
@@ -39468,7 +39450,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] byte[] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] byte[] data)
 
@@ -39538,7 +39520,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] byte[ , ] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] byte[ , ] data)
 
@@ -39608,7 +39590,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] byte[ , , ] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] byte[ , , ] data)
 
@@ -39678,7 +39660,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] double[] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] double[] data)
 
@@ -39748,7 +39730,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] double[ , ] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] double[ , ] data)
 
@@ -39818,7 +39800,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] double[ , , ] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] double[ , , ] data)
 
@@ -39888,7 +39870,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] short[] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] short[] data)
 
@@ -39958,7 +39940,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] short[ , ] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] short[ , ] data)
 
@@ -40028,7 +40010,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] short[ , , ] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] short[ , , ] data)
 
@@ -40098,7 +40080,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] int[] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] int[] data)
 
@@ -40168,7 +40150,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] int[ , ] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] int[ , ] data)
 
@@ -40238,7 +40220,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] int[ , , ] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] int[ , , ] data)
 
@@ -40308,7 +40290,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] float[] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] float[] data)
 
@@ -40378,7 +40360,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] float[ , ] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] float[ , ] data)
 
@@ -40448,7 +40430,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] float[ , , ] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] float[ , , ] data)
 
@@ -40518,7 +40500,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] ushort[] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] ushort[] data)
 
@@ -40588,7 +40570,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] ushort[ , ] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] ushort[ , ] data)
 
@@ -40658,7 +40640,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] ushort[ , , ] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] ushort[ , , ] data)
 
@@ -40728,7 +40710,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] uint[] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] uint[] data)
 
@@ -40798,7 +40780,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] uint[ , ] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] uint[ , ] data)
 
@@ -40868,7 +40850,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] uint[ , , ] data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] uint[ , , ] data)
 
@@ -40938,7 +40920,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] IntPtr data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] IntPtr data)
 
@@ -41008,7 +40990,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessBeginPolygon(GLUtesselator *tess, void *polygon_data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void gluTessBeginPolygon([In] GLUtesselator tess, [In] void *data);
         #endregion gluTessBeginPolygon([In] GLUtesselator tess, [In] void *data)
 
@@ -45574,7 +45556,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessEndContour(GLUtesselator *tess);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessEndContour([In] GLUtesselator tess);
         #endregion gluTessEndContour([In] GLUtesselator tess)
 
@@ -45635,7 +45617,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessProperty" />
         /// <seealso cref="gluTessVertex" />
         // void APIENTRY gluTessEndPolygon(GLUtesselator *tess);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessEndPolygon([In] GLUtesselator tess);
         #endregion gluTessEndPolygon([In] GLUtesselator tess)
 
@@ -45684,7 +45666,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessBeginPolygon" />
         /// <seealso cref="gluTessEndPolygon" />
         // void APIENTRY gluTessNormal(GLUtesselator *tess, GLdouble x, GLdouble y, GLdouble z);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessNormal([In] GLUtesselator tess, double x, double y, double z);
         #endregion gluTessNormal([In] GLUtesselator tess, double x, double y, double z)
 
@@ -45800,7 +45782,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluGetTessProperty" />
         /// <seealso cref="gluNewTess" />
         // void APIENTRY gluTessProperty(GLUtesselator *tess, GLenum which, GLdouble value);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessProperty([In] GLUtesselator tess, int which, double data);
         #endregion gluTessProperty([In] GLUtesselator tess, int which, double data)
 
@@ -45896,7 +45878,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] byte[] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] byte[] data)
 
@@ -45992,7 +45974,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] byte[ , ] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] byte[ , ] data)
 
@@ -46088,7 +46070,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] byte[ , , ] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] byte[ , , ] data)
 
@@ -46184,7 +46166,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] double[] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] double[] data)
 
@@ -46280,7 +46262,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] double[ , ] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] double[ , ] data)
 
@@ -46376,7 +46358,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] double[ , , ] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] double[ , , ] data)
 
@@ -46472,7 +46454,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] short[] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] short[] data)
 
@@ -46568,7 +46550,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] short[ , ] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] short[ , ] data)
 
@@ -46664,7 +46646,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] short[ , , ] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] short[ , , ] data)
 
@@ -46760,7 +46742,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] int[] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] int[] data)
 
@@ -46856,7 +46838,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] int[ , ] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] int[ , ] data)
 
@@ -46952,7 +46934,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] int[ , , ] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] int[ , , ] data)
 
@@ -47048,7 +47030,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] float[] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] float[] data)
 
@@ -47144,7 +47126,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] float[ , ] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] float[ , ] data)
 
@@ -47240,7 +47222,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] float[ , , ] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] float[ , , ] data)
 
@@ -47336,7 +47318,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] ushort[] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] ushort[] data)
 
@@ -47432,7 +47414,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] ushort[ , ] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] ushort[ , ] data)
 
@@ -47528,7 +47510,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] ushort[ , , ] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] ushort[ , , ] data)
 
@@ -47624,7 +47606,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] uint[] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] uint[] data)
 
@@ -47720,7 +47702,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] uint[ , ] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] uint[ , ] data)
 
@@ -47816,7 +47798,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] uint[ , , ] data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] uint[ , , ] data)
 
@@ -47912,7 +47894,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] IntPtr data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] IntPtr data)
 
@@ -48008,7 +47990,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluTessNormal" />
         /// <seealso cref="gluTessProperty" />
         // void APIENTRY gluTessVertex(GLUtesselator *tess, GLdouble coords[3], void *data);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] void *data);
         #endregion gluTessVertex([In] GLUtesselator tess, [In] double[] location, [In] void *data)
 
@@ -48085,7 +48067,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="Gl.glGetIntegerv" />
         /// <seealso cref="gluProject" />
         // int APIENTRY gluUnProject(GLdouble winx, GLdouble winy, GLdouble winz, const GLdouble modelMatrix[16], const GLdouble projMatrix[16], const GLint viewport[4], GLdouble *objx, GLdouble *objy, GLdouble *objz);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluUnProject(double winX, double winY, double winZ, [In] double[] modelMatrix, [In] double[] projectionMatrix, [In] int[] viewport, out double objX, out double objY, out double objZ);
         #endregion int gluUnProject(double winX, double winY, double winZ, [In] double[] modelMatrix, [In] double[] projectionMatrix, [In] int[] viewport, out double objX, out double objY, out double objZ)
 
@@ -48190,7 +48172,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="gluProject" />
         /// <seealso cref="gluUnProject" />
         // GLAPI GLint GLAPIENTRY gluUnProject4 (GLdouble winX, GLdouble winY, GLdouble winZ, GLdouble clipW, const GLdouble *model, const GLdouble *proj, const GLint *view, GLdouble nearVal, GLdouble farVal, GLdouble* objX, GLdouble* objY, GLdouble* objZ, GLdouble* objW);
-        [DllImport(GLU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int gluUnProject4(double winX, double winY, double winZ, double clipW, [In] double[] modelMatrix, [In] double[] projectionMatrix, [In] int[] viewport, double nearVal, double farVal, out double objX, out double objY, out double objZ, out double objW);
         #endregion int gluUnProject4(double winX, double winY, double winZ, double clipW, [In] double[] modelMatrix, [In] double[] projectionMatrix, [In] int[] viewport, double nearVal, double farVal, out double objX, out double objY, out double objZ, out double objW)
    }

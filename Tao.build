@@ -27,11 +27,12 @@
         <property name="framework.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework" />
         <property name="framework.docs.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework.Documentation" />
         <property name="framework.release.directory" value="${root.directory}/Releases/Framework" />
-        <tstamp verbose="true">
-            <formatter property="timestamp.date" pattern="yyyy.MM.dd"/>
-            <formatter property="timestamp.hour" pattern="HH" />
-        </tstamp>
     </target>
+
+    <tstamp verbose="true">
+        <formatter property="timestamp.date" pattern="yyyy.MM.dd"/>
+        <formatter property="timestamp.hour" pattern="HH" />
+    </tstamp>
 
     <call target="set-global-directories" />
 
@@ -147,6 +148,7 @@
         <echo message="Initializing Linux platform." />
         <property name="build.platform.define" value="LINUX" />
         <property name="platform.directory" value="Linux" />
+
         <call target="set-global-directories" />
     </target>
 
@@ -157,9 +159,13 @@
 
     <!-- build framework targets -->
     <target name="build.framework.all" description="Builds all of the Tao Framework assemblies.">
-        <call target="build.postprocess" />
+        <mkdir dir="${framework.build.directory}" />
+
+        <call target="build.glcore" />
+        <call target="build.glpostprocess" />
         <call target="build.opengl" />
         <if test="${build.platform.define = 'WIN32'}">
+            <call target="build.postprocess" />
             <call target="build.platform.windows" />
         </if>
         <if test="${build.platform.define = 'LINUX'}">
@@ -193,7 +199,19 @@
         <nant buildfile="${framework.projects.directory}/Tao.OpenAl/Tao.OpenAl.build" target="build" />
     </target>
 
-    <target name="build.opengl" depends="build.postprocess" description="Builds Tao.OpenGl.">
+    <target name="build.glcore" description="Builds GlCore.">
+        <nant buildfile="${framework.projects.directory}/Tao.OpenGl/Tao.OpenGl.build" target="glcore" />
+    </target>
+
+    <target name="build.glpostprocess" depends="build.glcore" description="Builds Tao.GlPostProcess.">
+        <nant buildfile="${framework.projects.directory}/Tao.GlPostProcess/Tao.GlPostProcess.build" target="build" />
+    </target>
+
+    <target name="build.postprocess" description="Builds Tao.PostProcess.">
+        <nant buildfile="${framework.projects.directory}/Tao.PostProcess/Tao.PostProcess.build" target="build" />
+    </target>
+
+    <target name="build.opengl" depends="build.glpostprocess" description="Builds Tao.OpenGl.">
         <nant buildfile="${framework.projects.directory}/Tao.OpenGl/Tao.OpenGl.build" target="build" />
     </target>
 
@@ -201,8 +219,8 @@
         <nant buildfile="${framework.projects.directory}/Tao.Platform.Windows/Tao.Platform.Windows.build" target="build" />
     </target>
 
-    <target name="build.postprocess" description="Builds Tao.PostProcess.">
-        <nant buildfile="${framework.projects.directory}/Tao.PostProcess/Tao.PostProcess.build" target="build" />
+    <target name="build.platform.linux" depends="build.opengl" description="Builds Tao.Platform.Linux.">
+        <nant buildfile="${framework.projects.directory}/Tao.Platform.Linux/Tao.Platform.Linux.build" target="build" />
     </target>
 
     <target name="build.sdl" description="Builds Tao.Sdl.">
@@ -213,7 +231,12 @@
     <target name="clean.framework.all" description="Cleans all of the Tao Framework assemblies.">
         <call target="clean.postprocess" />
         <call target="clean.opengl" />
-        <call target="clean.platform.windows" />
+        <if test="${build.platform.define = 'LINUX'}">
+            <call target="build.platform.linux" />
+        </if>
+        <if test="${build.platform.define = 'WIN32'}">
+            <call target="build.platform.windows" />
+        </if>
         <call target="clean.glut" />
         <call target="clean.glfw" />
         <call target="clean.cg" />
@@ -250,6 +273,10 @@
         <nant buildfile="${framework.projects.directory}/Tao.Platform.Windows/Tao.Platform.Windows.build" target="clean" />
     </target>
 
+    <target name="clean.glpostprocess" description="Cleans Tao.GlPostProcess.">
+        <nant buildfile="${framework.projects.directory}/Tao.GlPostProcess/Tao.GlPostProcess.build" target="clean" />
+    </target>
+
     <target name="clean.postprocess" description="Cleans Tao.PostProcess.">
         <nant buildfile="${framework.projects.directory}/Tao.PostProcess/Tao.PostProcess.build" target="clean" />
     </target>
@@ -260,6 +287,8 @@
 
     <!-- build example targets -->
     <target name="build.examples.all" description="Builds all of the Tao example assemblies.">
+        <mkdir dir="${examples.build.directory}" />
+
         <call target="build.gewang" />
         <call target="build.glfwexamples" />
         <call target="build.naterobins" />
@@ -598,8 +627,12 @@
         <zip zipfile="${framework.release.directory}/Tao.Framework.${timestamp.date}.${timestamp.hour}.${platform.directory}.${runtime.directory}.zip">
             <fileset basedir="${framework.build.directory}">
                 <includes name="${framework.build.directory}/*.dll" />
+                <includes name="${framework.build.directory}/*.dll.config" />
                 <includes name="${framework.build.directory}/*.txt" />
+                <excludes name="${framework.build.directory}/Tao.OpenGlBits*" />
+                <excludes name="${framework.build.directory}/Tao.OpenGlCore*" />
                 <excludes name="${framework.build.directory}/Tao.PostProcess.*" />
+                <excludes name="${framework.build.directory}/Tao.GlPostProcess.*" />
             </fileset>
         </zip>
     </target>
@@ -613,6 +646,7 @@
                 <excludes name="${framework.projects.directory}/**/bin/*" />
                 <excludes name="${framework.projects.directory}/**/obj/*" />
                 <excludes name="${framework.projects.directory}/**/*.dll" />
+                <excludes name="${framework.projects.directory}/**/*.dll.config" />
                 <excludes name="${framework.projects.directory}/**/*.exe" />
                 <excludes name="${framework.projects.directory}/**/*.pdb" />
                 <excludes name="${framework.projects.directory}/**/*.xml" />

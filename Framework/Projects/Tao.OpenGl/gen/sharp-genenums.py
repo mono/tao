@@ -39,5 +39,8 @@ for k in enumhash.keys():
     if GL_PREFIX or string.ascii_letters.find(k[0]) == -1:
         prefix = "GL_"
 
-    print "    public const uint %s = 0x%08x;" % (prefix + k, enumhash[k])
+    if (enumhash[k] < 0):
+        print "    public const int %s = unchecked((int) 0x%08x);" % (prefix + k, enumhash[k])
+    else:
+        print "    public const int %s = 0x%08x;" % (prefix + k, enumhash[k])
 
