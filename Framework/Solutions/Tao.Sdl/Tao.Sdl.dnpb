@@ -100,6 +100,32 @@
 		<File>Rectangles.cs</File>
 	    </Files>
 	</Project>
+<Project name="SdlExamples.SmpegPlayer" path="..\\..\\..\\\Examples\Projects\\SdlExamples.SmpegPlayer" language="C#" type="WinExe" startupObject="SdlExamples.SmpegPlayer">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.Sdl" />
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>SmpegPlayer.cs</File>
+	    </Files>
+	</Project>
 <Project name="SdlExamples.GfxPrimitives" path="..\\..\\..\\\Examples\Projects\\SdlExamples.GfxPrimitives" language="C#" type="WinExe" startupObject="SdlExamples.GfxPrimitives">
 	    <Configuration name="Debug">
 		<Options>
