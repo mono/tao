@@ -964,7 +964,7 @@ namespace Tao.Sdl {
 		[DllImport(SMPEG_NATIVE_LIBRARY, 
 			 CallingConvention=CALLING_CONVENTION), 
 		SuppressUnmanagedCodeSecurity]
-		public static extern void SMPEG_playAudioSDL( object mpeg, byte[] stream, int len );
+		public static extern void SMPEG_playAudioSDL( IntPtr mpeg, byte[] stream, int len );
 		#endregion void SMPEG_playAudioSDL( object mpeg, byte[] stream, int len )
 
 		#region int SMPEG_wantedSpec( IntPtr mpeg, IntPtr wanted )
@@ -987,7 +987,7 @@ namespace Tao.Sdl {
 		public static extern int SMPEG_wantedSpec( IntPtr mpeg, IntPtr wanted );
 		#endregion int SMPEG_wantedSpec( IntPtr mpeg, IntPtr wanted )
 
-		#region void SMPEG_actualSpec( IntPtr mpeg, IntPtr spec )
+		#region void SMPEG_actualSpec( IntPtr mpeg, ref Sdl.SDL_AudioSpec spec )
 		/// <summary>
 		/// Inform SMPEG of the actual SDL audio spec used for sound playback
 		/// </summary>
@@ -1004,8 +1004,8 @@ namespace Tao.Sdl {
 		[DllImport(SMPEG_NATIVE_LIBRARY, 
 			 CallingConvention=CALLING_CONVENTION), 
 		SuppressUnmanagedCodeSecurity]
-		public static extern void SMPEG_actualSpec( IntPtr mpeg, IntPtr spec );
-		#endregion void SMPEG_actualSpec( IntPtr mpeg, IntPtr spec )
+		public static extern void SMPEG_actualSpec( IntPtr mpeg, ref Sdl.SDL_AudioSpec spec );
+		#endregion void SMPEG_actualSpec( IntPtr mpeg, ref Sdl.SDL_AudioSpec spec )
 		#endregion smpeg.h
 		#endregion Smpeg Methods
     }

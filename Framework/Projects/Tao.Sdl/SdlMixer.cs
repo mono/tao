@@ -336,7 +336,7 @@ namespace Tao.Sdl {
 		/// 
 		/// </summary>
 		[DelegateCallingConventionCdecl]
-		public delegate void MixFunctionDelegate(IntPtr udata, IntPtr stream, int len);
+		public delegate void MixFunctionDelegate(IntPtr udata, byte[] stream, int len);
 		#endregion void MixFunctionDelegate(IntPtr udata, IntPtr stream, int len)
 
 		#region void ChannelFinishedDelegate(int channel)

@@ -232,7 +232,7 @@ namespace Tao.Sdl {
 		/// <summary>
 		/// Signed 16-bit little-endian samples
 		/// </summary>
-		public readonly short AUDIO_S16 = AUDIO_S16LSB;
+		public readonly short AUDIO_S16 = unchecked((short)AUDIO_S16LSB);
 		#endregion AUDIO_S16
 
 		#region SDL_MIX_MAXVOLUME
@@ -2418,6 +2418,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <seealso cref="SDL_OpenAudio"/>
 		/// <seealso cref="SDL_LoadWAV"/>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
 		public struct SDL_AudioSpec 
 		{
 			/// <summary>
@@ -2517,13 +2518,12 @@ namespace Tao.Sdl {
 			/// <param name="stream"></param>
 			/// <param name="len"></param>
 			public delegate void callback(
-				[ MarshalAs( UnmanagedType.AsAny )] Object userdata, 
-				out byte stream, int len);
+				IntPtr userdata, 
+				byte[] stream, int len);
 			/// <summary>
 			/// Pointer the user data which is passed to the callback function
 			/// </summary>
-			[ MarshalAs( UnmanagedType.AsAny )]
-			public Object userdata;
+			public object userdata;
 		}
 		#endregion SDL_AudioSpec
 

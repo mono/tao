@@ -67,6 +67,8 @@ namespace SdlExamples
 	#endregion Class Documentation
 	public class SmpegPlayer 
 	{		
+		//int position = 0;
+		//byte[] two = new byte[4096];
 		//Smpeg.SMPEG_DisplayCallback callbackDelegate;
 		IntPtr surfacePtr;
 
@@ -90,19 +92,38 @@ namespace SdlExamples
 				height, 
 				bpp, 
 				flags);
+			SdlMixer.Mix_OpenAudio(SdlMixer.MIX_DEFAULT_FREQUENCY, unchecked(Sdl.AUDIO_S16LSB), 2, 1024);
 			Smpeg.SMPEG_Info info = new Smpeg.SMPEG_Info();
 
+
+			//SdlMixer.MixFunctionDelegate audioMixer = new SdlMixer.MixFunctionDelegate(this.player);
+			//int freq;
+			//short format;
+			//int channels;
+			SdlMixer.Mix_CloseAudio();
 			IntPtr intPtr = Smpeg.SMPEG_new("Data/SdlExamples.SmpegPlayer.mpg", out info, 1); 
+			//Smpeg.SMPEG_enableaudio(intPtr, 0);
+			//SdlMixer.Mix_QuerySpec(out freq, out unchecked(format), out channels);
+			//Sdl.SDL_AudioSpec audiofmt = new Tao.Sdl.Sdl.SDL_AudioSpec();
+			//audiofmt.freq = freq;
+			//audiofmt.format = unchecked(format);
+			//audiofmt.channels = (byte) channels;
+			//Console.WriteLine("Freq: " + audiofmt.freq);
+			//Console.WriteLine("Format: " + audiofmt.format);
+			//Console.WriteLine("Channels: " + audiofmt.channels);
+
 			Smpeg.SMPEG_getinfo(intPtr, out info);
 			Console.WriteLine("Time: " + info.total_time.ToString());
 			Console.WriteLine("Width: " + info.width.ToString());
 			Console.WriteLine("Height: " + info.height.ToString());
 			Console.WriteLine("Smpeg_error: " + Smpeg.SMPEG_error(intPtr));
-			//Smpeg.SMPEG_enableaudio(intPtr, 1);
-			//Smpeg.SMPEG_enablevideo(intPtr, 1);
-			//Smpeg.SMPEG_setvolume(intPtr, 100);
+			
+			//Smpeg.SMPEG_actualSpec(intPtr, ref audiofmt); 
+			//SdlMixer.Mix_HookMusic(audioMixer, intPtr);
 			Smpeg.SMPEG_setdisplay(intPtr, surfacePtr, IntPtr.Zero, null);
+			
 			Smpeg.SMPEG_play(intPtr);
+			//Smpeg.SMPEG_enableaudio(intPtr, 1);
 
 			while ((Smpeg.SMPEG_status(intPtr) == Smpeg.SMPEG_PLAYING) &&
 				(quitFlag == false))
@@ -125,6 +146,16 @@ namespace SdlExamples
 			Smpeg.SMPEG_stop(intPtr);
 			Smpeg.SMPEG_delete(intPtr);
 		} 
+
+//		private void player(IntPtr one, byte[] temp, int len)
+//		{
+//			//position +=len;
+//			IntPtr tempPtr = new IntPtr(one.ToInt32() + position);
+//			
+//			Marshal.Copy(tempPtr, two, 0, len);
+//			Smpeg.SMPEG_playAudio(one, two, len);
+//			position +=len;
+//		}
 		#endregion Run()
 
 		#region Main()
