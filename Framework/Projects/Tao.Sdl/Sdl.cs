@@ -4615,9 +4615,15 @@ namespace Tao.Sdl {
 			public byte field2;
 
 			/// <summary>
+			/// 
+			/// </summary>
+			private short unused;
+
+			/// <summary>
 			/// Total amount of video memory in Kilobytes.
 			/// </summary>
 			public int video_mem;
+
 
 			/// <summary>
 			/// Pixel format of the video device. Pointer to SDL_PixelFormat.
@@ -4631,7 +4637,7 @@ namespace Tao.Sdl {
 			{
 				get
 				{
-					return (field1 & 0x01);
+					return (field1 & 1);
 				}
 			}
 
@@ -4642,7 +4648,7 @@ namespace Tao.Sdl {
 			{
 				get
 				{
-					return (field1 & 0x02);
+					return (field1>>1 & 1);
 				}
 			}
 			/// <summary>
@@ -4652,7 +4658,7 @@ namespace Tao.Sdl {
 			{
 				get
 				{
-					return (field2 & 0x02);
+					return (field2>>1 & 1);
 				}
 			}
 			/// <summary>
@@ -4662,7 +4668,7 @@ namespace Tao.Sdl {
 			{
 				get
 				{
-					return (field2 & 0x04);
+					return (field2>>2 & 1);
 				}
 			}
 
@@ -4673,7 +4679,7 @@ namespace Tao.Sdl {
 			{
 				get
 				{
-					return (field2 & 0x08);
+					return (field2>>3 & 1);
 				}
 			}
 			/// <summary>
@@ -4683,7 +4689,7 @@ namespace Tao.Sdl {
 			{
 				get
 				{
-					return (field2 & 0x10);
+					return (field2>>4 & 1);
 				}
 			}
 			/// <summary>
@@ -4693,7 +4699,7 @@ namespace Tao.Sdl {
 			{
 				get
 				{
-					return (field2 & 0x20);
+					return (field2>>5 & 1);
 				}
 			}
 			/// <summary>
@@ -4703,7 +4709,7 @@ namespace Tao.Sdl {
 			{
 				get
 				{
-					return (field2 & 0x40);
+					return (field2>>6 & 1);
 				}
 			}
 			/// <summary>
@@ -4713,7 +4719,7 @@ namespace Tao.Sdl {
 			{
 				get
 				{
-					return (field2 & 0x80);
+					return (field2>>7 & 1);
 				}
 			}
 		}

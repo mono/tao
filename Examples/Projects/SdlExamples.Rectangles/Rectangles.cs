@@ -160,6 +160,7 @@ namespace SdlExamples
 				Console.WriteLine(videoInfo.blit_fill);
 				Console.WriteLine(videoInfo.video_mem);
 				Console.WriteLine(pixelFormat.BitsPerPixel);
+				Console.WriteLine(pixelFormat.BytesPerPixel);
 				Console.WriteLine(pixelFormat.Rmask);
 				Console.WriteLine(pixelFormat.Gmask);
 				Console.WriteLine(pixelFormat.Bmask);

@@ -27,6 +27,7 @@
         <property name="framework.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework" />
         <property name="framework.docs.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework.Documentation" />
         <property name="framework.release.directory" value="${root.directory}/Releases/Framework" />
+        <property name="project.build.directory" value="${root.directory}/Build" />
     </target>
 
     <tstamp verbose="true">
@@ -234,6 +235,11 @@
         <call target="clean.platform.windows" />
         <call target="clean.postprocess" />
         <call target="clean.sdl" />
+    </target>
+
+
+    <target name="clean.framework.builddir" description="Cleans build directory.">
+	<delete dir="${project.build.directory}" failonerror="false" />
     </target>
 
     <target name="clean.cg" description="Cleans Tao.Cg.">
