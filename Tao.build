@@ -168,10 +168,8 @@
             <call target="build.postprocess" />
             <call target="build.platform.windows" />
         </if>
-        <if test="${build.platform.define == 'LINUX'}">
-            <!-- <call target="build.platform.linux" /> -->
-        </if>
-        <call target="build.glut" />
+        <call target="build.freeglut" />
+        <!-- <call target="build.glut" /> -->
         <call target="build.glfw" />
         <call target="build.cg" />
         <call target="build.devil" />
@@ -187,13 +185,19 @@
         <nant buildfile="${framework.projects.directory}/Tao.DevIl/Tao.DevIl.build" target="build" />
     </target>
 
+    <target name="build.freeglut" depends="build.opengl" description="Builds Tao.FreeGlut.">
+        <nant buildfile="${framework.projects.directory}/Tao.FreeGlut/Tao.FreeGlut.build" target="build" />
+    </target>
+
     <target name="build.glfw" depends="build.opengl" description="Builds Tao.Glfw.">
         <nant buildfile="${framework.projects.directory}/Tao.Glfw/Tao.Glfw.build" target="build" />
     </target>
 
+<!--
     <target name="build.glut" depends="build.opengl" description="Builds Tao.Glut.">
         <nant buildfile="${framework.projects.directory}/Tao.Glut/Tao.Glut.build" target="build" />
     </target>
+-->
 
     <target name="build.openal" description="Builds Tao.OpenAl.">
         <nant buildfile="${framework.projects.directory}/Tao.OpenAl/Tao.OpenAl.build" target="build" />
@@ -219,10 +223,6 @@
         <nant buildfile="${framework.projects.directory}/Tao.Platform.Windows/Tao.Platform.Windows.build" target="build" />
     </target>
 
-    <target name="build.platform.linux" depends="build.opengl" description="Builds Tao.Platform.Linux.">
-        <nant buildfile="${framework.projects.directory}/Tao.Platform.Linux/Tao.Platform.Linux.build" target="build" />
-    </target>
-
     <target name="build.sdl" description="Builds Tao.Sdl.">
         <mkdir dir="${framework.build.directory}" />
         <nant buildfile="${framework.projects.directory}/Tao.Sdl/Tao.Sdl.build" target="build" />
@@ -232,8 +232,9 @@
     <target name="clean.framework.all" description="Cleans all of the Tao Framework assemblies.">
         <call target="clean.postprocess" />
         <call target="clean.opengl" />
-        <call target="clean.glut" />
+        <call target="clean.freeglut" />
         <call target="clean.glfw" />
+        <!-- <call target="clean.glut" /> -->
         <call target="clean.cg" />
         <call target="clean.devil" />
         <call target="clean.openal" />
@@ -249,13 +250,19 @@
         <nant buildfile="${framework.projects.directory}/Tao.DevIl/Tao.DevIl.build" target="clean" />
     </target>
 
+    <target name="clean.freeglut" description="Cleans Tao.FreeGlut.">
+        <nant buildfile="${framework.projects.directory}/Tao.FreeGlut/Tao.FreeGlut.build" target="clean" />
+    </target>
+
     <target name="clean.glfw" description="Cleans Tao.Glfw.">
         <nant buildfile="${framework.projects.directory}/Tao.Glfw/Tao.Glfw.build" target="clean" />
     </target>
 
+<!--
     <target name="clean.glut" description="Cleans Tao.Glut.">
         <nant buildfile="${framework.projects.directory}/Tao.Glut/Tao.Glut.build" target="clean" />
     </target>
+-->
 
     <target name="clean.openal" description="Cleans Tao.OpenAl.">
         <nant buildfile="${framework.projects.directory}/Tao.OpenAl/Tao.OpenAl.build" target="clean" />
@@ -286,15 +293,15 @@
         <mkdir dir="${examples.build.directory}" />
 
         <call target="build.gewang" />
-        <call target="build.glfwexamples" />
+        <!-- <call target="build.glfwexamples" /> -->
         <call target="build.naterobins" />
-        <call target="build.nehe" />
-        <call target="build.openalexamples" />
+        <!-- <call target="build.nehe" /> -->
+        <!-- <call target="build.openalexamples" /> -->
         <call target="build.redbook" />
-        <call target="build.sdlexamples" />
+        <!-- <call target="build.sdlexamples" /> -->
     </target>
 
-    <target name="build.gewang" depends="build.glut" description="Builds GeWang.">
+    <target name="build.gewang" depends="build.freeglut" description="Builds GeWang.">
         <nant buildfile="${examples.projects.directory}/GeWang.ClippingPlanes/GeWang.ClippingPlanes.build" target="build" />
         <nant buildfile="${examples.projects.directory}/GeWang.Lorenz3d/GeWang.Lorenz3d.build" target="build" />
         <nant buildfile="${examples.projects.directory}/GeWang.Mirror/GeWang.Mirror.build" target="build" />
@@ -312,7 +319,7 @@
         <nant buildfile="${examples.projects.directory}/GlfwExamples.Triangle2/GlfwExamples.Triangle2.build" target="build" />
     </target>
 
-    <target name="build.naterobins" depends="build.glut" description="Builds NateRobins.">
+    <target name="build.naterobins" depends="build.freeglut" description="Builds NateRobins.">
         <nant buildfile="${examples.projects.directory}/NateRobins.Area/NateRobins.Area.build" target="build" />
         <nant buildfile="${examples.projects.directory}/NateRobins.Maiden/NateRobins.Maiden.build" target="build" />
         <nant buildfile="${examples.projects.directory}/NateRobins.MultiView/NateRobins.MultiView.build" target="build" />
@@ -352,7 +359,7 @@
         <nant buildfile="${examples.projects.directory}/NeHe.Lesson34/NeHe.Lesson34.build" target="build" />
     </target>
 
-    <target name="build.openalexamples" depends="build.glut,build.openal" description="Builds OpenAlExamples.">
+    <target name="build.openalexamples" depends="build.freeglut,build.openal" description="Builds OpenAlExamples.">
         <nant buildfile="${examples.projects.directory}/OpenAlExamples.Boxes/OpenAlExamples.Boxes.build" target="build" />
         <nant buildfile="${examples.projects.directory}/OpenAlExamples.Lesson01/OpenAlExamples.Lesson01.build" target="build" />
         <nant buildfile="${examples.projects.directory}/OpenAlExamples.Lesson02/OpenAlExamples.Lesson02.build" target="build" />
@@ -361,7 +368,7 @@
         <nant buildfile="${examples.projects.directory}/OpenAlExamples.Waterfall/OpenAlExamples.Waterfall.build" target="build" />
     </target>
 
-    <target name="build.redbook" depends="build.glut" description="Builds Redbook.">
+    <target name="build.redbook" depends="build.freeglut" description="Builds Redbook.">
         <nant buildfile="${examples.projects.directory}/Redbook.Aaindex/Redbook.Aaindex.build" target="build" />
         <nant buildfile="${examples.projects.directory}/Redbook.Aapoly/Redbook.Aapoly.build" target="build" />
         <nant buildfile="${examples.projects.directory}/Redbook.Aargb/Redbook.Aargb.build" target="build" />
@@ -431,6 +438,7 @@
         <nant buildfile="${examples.projects.directory}/Redbook.Varray/Redbook.Varray.build" target="build" />
         <nant buildfile="${examples.projects.directory}/Redbook.Wrap/Redbook.Wrap.build" target="build" />
     </target>
+
     <target name="build.sdlexamples" depends="build.sdl" description="Builds SdlExamples.">
         <nant buildfile="${examples.projects.directory}/SdlExamples.Rectangles/SdlExamples.Rectangles.build" target="build" />
         <nant buildfile="${examples.projects.directory}/SdlExamples.GfxPrimitives/SdlExamples.GfxPrimitives.build" target="build" />
@@ -594,11 +602,11 @@
             <assemblies basedir="${framework.build.directory}">
                 <include name="Tao.Cg.dll" />
                 <include name="Tao.DevIl.dll" />
+                <include name="Tao.FreeGlut.dll" />
                 <include name="Tao.Glfw.dll" />
-                <include name="Tao.Glut.dll" />
+                <!-- <include name="Tao.Glut.dll" /> -->
                 <include name="Tao.OpenAl.dll" />
                 <include name="Tao.OpenGl.dll" />
-                <include name="Tao.Platform.Linux.dll" />
                 <include name="Tao.Platform.Windows.dll" />
                 <include name="Tao.Sdl.dll" />
             </assemblies>
