@@ -33,20 +33,22 @@ using System.Runtime.InteropServices;
 namespace Tao.Sdl {
     #region Class Documentation
     /// <summary>
-    /// SdlMixer is a simple multi-channel audio mixer. 
+    /// <p>SdlMixer is a simple multi-channel audio mixer. 
     /// It supports 8 channels of 16 bit stereo audio, plus a 
     /// single channel of music, mixed by the popular MikMod MOD, 
-    /// Timidity MIDI and SMPEG MP3 libraries. 
+    /// Timidity MIDI and SMPEG MP3 libraries.</p> 
+    /// <p>
     /// The mixer can currently load Microsoft WAVE files and 
     /// Creative Labs VOC files as audio samples, and can load MIDI 
     /// files via Timidity and the following music formats via 
     /// MikMod: .MOD .S3M .IT .XM. It can load Ogg Vorbis streams 
     /// as music if built with the Ogg Vorbis libraries, and 
-    /// finally it can load MP3 music using the SMPEG library. 
+    /// finally it can load MP3 music using the SMPEG library.</p> 
+    /// <p>
     /// The process of mixing MIDI files to wave output is very CPU 
     /// intensive, so if playing regular WAVE files sound great, but
     ///  playing MIDI files sound choppy, try using 8-bit audio, 
-    ///  mono audio, or lower frequencies. 
+    ///  mono audio, or lower frequencies.</p>
     /// </summary>
     /// <remarks>
     /// This assumes you have gotten SDL_mixer and installed it 
@@ -54,6 +56,7 @@ namespace Tao.Sdl {
     ///  source distribution to help you get it compiled and installed. 
     ///	SDL_mixer supports playing music and sound samples from 
     ///	the following formats:
+    ///	<code>
     ///	- WAVE/RIFF (.wav)
     ///	- AIFF (.aiff)
     ///	- VOC (.voc)
@@ -62,10 +65,11 @@ namespace Tao.Sdl {
     ///	- OggVorbis (.ogg) requiring ogg/vorbis libraries on system
     ///	- MP3 (.mp3) requiring SMPEG library on system
     ///	- also any command-line player, which is not mixed by SDL_mixer...
-    ///	
+    ///	</code>
+    ///	<p>
     ///	When using SDL_mixer functions you need to avoid the 
-    ///	following functions from SDL: 
-    ///
+    ///	following functions from SDL:</p>
+    /// <p><code>
     ///	SDL_OpenAudio 
     ///	Use Mix_OpenAudio instead. 
     ///	SDL_CloseAudio 
@@ -78,9 +82,9 @@ namespace Tao.Sdl {
     ///	Using it may cause problems as well. 
     ///	SDL_UnlockAudio 
     ///	This is just not needed since SDL_mixer handles this for you.
-    ///	Using it may cause problems as well. 
-    ///	You may call the following functions freely: 
-    ///
+    ///	Using it may cause problems as well. </code></p>
+    ///	<p>You may call the following functions freely:</p> 
+    /// <code>
     ///	SDL_AudioDriverName 
     ///	This will still work as usual. 
     ///	SDL_GetAudioStatus 
@@ -88,11 +92,10 @@ namespace Tao.Sdl {
     ///	SDL_AUDIO_PLAYING even though SDL_mixer is just playing silence. 
     ///	It is also a BAD idea to call SDL_mixer and SDL audio 
     ///	functions from a callback. Callbacks include Effects 
-    ///	functions and other SDL_mixer audio hooks. 
+    ///	functions and other SDL_mixer audio hooks. </code>
     /// </remarks>
     #endregion Class Documentation
     public sealed class SdlMixer {
-		// --- Fields ---
         #region Private Constants
         #region string SDL_MIXER_NATIVE_LIBRARY
         /// <summary>
@@ -123,78 +126,76 @@ namespace Tao.Sdl {
 
         #region Public Constants
         /// <summary>
-        /// The default mixer has 8 simultaneous mixing channels
+        /// The default mixer has this many simultaneous mixing 
+        /// channels after the first call to Mix_OpenAudio.
         /// </summary>
         public const int MIX_CHANNELS = 8;
+
         /// <summary>
-        /// 
+        /// Good default sample rate in Hz (samples per second)
+        ///  for PC sound cards.
         /// </summary>
         public const int MIX_DEFAULT_FREQUENCY = 22050;
 
         /// <summary>
-        /// 
+        /// The suggested default is signed 16bit samples in host byte order.
         /// </summary>
         public static int MIX_DEFAULT_FORMAT {
             get {
-                return Sdl.AUDIO_S16SYS;
+				if (Sdl.SDL_BYTEORDER == Sdl.SDL_LIL_ENDIAN)
+				{
+					return Sdl.AUDIO_S16SYS;
+				}
+				else
+				{
+					return Sdl.AUDIO_S16MSB;
+				}
             }
         }
 
+
         /// <summary>
-        /// 
+        /// Stereo sound is a good default.
         /// </summary>
         public const int MIX_DEFAULT_CHANNELS = 2;
 
         /// <summary>
-        /// Volume of a chunk
+		/// Maximum value for any volume setting.
         /// </summary>
+        /// <remarks>
+        /// This is currently the same as <see cref="Sdl.SDL_MIX_MAXVOLUME"/>.
+        /// </remarks>
         public const int MIX_MAX_VOLUME = 128;
 
         /// <summary>
-        /// 
+        /// This is the channel number used for post processing effects.
         /// </summary>
         public const int MIX_CHANNEL_POST = -2;
 
+		/// <summary>
+		/// A convience definition for the string name of the
+		///  environment variable to define when you desire 
+		///  the internal effects to sacrifice quality and/or 
+		///  RAM for speed. The environment variable must be 
+		///  set (else nonexisting) before Mix_OpenAudio is 
+		///  called for the setting to take effect.
+		/// </summary>
+		public const string MIX_EFFECTSMAXSPEED = "MIX_EFFECTSMAXSPEED";
         #endregion Public Constants
 
         #region Public Enums
+		#region Mix_Fading
         /// <summary>
-        /// Specifies an audio format to mix audio in
+        /// Fader effect type enumerations
         /// </summary>
-        public enum AudioFormat {
-            /// <summary>
-            /// Unsigned 8-bit
-            /// </summary>
-            U8 = 0x0008,
-            /// <summary>
-            /// Signed 8-bit
-            /// </summary>
-            S8 = 0x8008,
-            /// <summary>
-            /// Unsigned 16-bit, little-endian
-            /// </summary>
-            U16LSB = 0x0010,
-            /// <summary>
-            /// Signed 16-bit, little-endian
-            /// </summary>
-            S16LSB = 0x8010,
-            /// <summary>
-            /// Unsigned 16-bit, big-endian
-            /// </summary>
-            U16MSB = 0x1010,
-            /// <summary>
-            /// Signed 16-bit, big-endian
-            /// </summary>
-            S16MSB = 0x9010,
-            /// <summary>
-            /// Default, equal to S16LSB
-            /// </summary>
-            Default = 0x8010
-        }
-
-        /// <summary>
-        /// The different fading types supported
-        /// </summary>
+        /// <remarks>
+        /// Return values from Mix_FadingMusic and Mix_FadingChannel
+        ///  are of these enumerated values. If no fading is taking 
+        ///  place on the queried channel or music, then MIX_NO_FADING
+        ///   is returned. Otherwise they are self explanatory.
+        /// </remarks>
+        /// <seealso cref="Mix_FadingChannel"/>
+        /// <seealso cref="Mix_FadingMusic"/>
         public enum Mix_Fading {
             /// <summary>
             /// 
@@ -209,11 +210,21 @@ namespace Tao.Sdl {
             /// </summary>
             MIX_FADING_IN
         }
+		#endregion Mix_Fading
 
+		#region Mix_MusicType
         /// <summary>
-        /// 
+        /// Music type enumerations
         /// </summary>
-        public enum Mix_MusicType {
+        /// <remarks>
+		/// Return values from Mix_GetMusicType are of these enumerated values.
+		/// If no music is playing then MUS_NONE is returned.
+		/// If music is playing via an external command then MUS_CMD is returned.
+		/// Otherwise they are self explanatory.
+		/// </remarks>
+		/// <seealso cref="Mix_GetMusicType"/>
+        public enum Mix_MusicType 
+		{
             /// <summary>
             /// 
             /// </summary>
@@ -243,34 +254,63 @@ namespace Tao.Sdl {
             /// </summary>
             MUS_MP3
         } 
+		#endregion Mix_MusicType
         #endregion Public Enums
 
         #region Public Structs
-
+		#region Mix_Chunk
         /// <summary>
         /// The internal format for an audio chunk
         /// </summary>
-        public struct Mix_Chunk {
+        /// <remarks>
+		/// The internal format for an audio chunk. 
+		/// This stores the sample data, the length in bytes of that data,
+		///  and the volume to use when mixing the sample. 
+		///  <p>Struct in SDL_mixer.h
+		///  <code>
+		///  typedef struct {
+		///		int allocated;
+		///		Uint8 *abuf;
+		///		Uint32 alen;
+		///		Uint8 volume;     /* Per-sample volume, 0-128 */
+		///	} Mix_Chunk;
+		///  </code></p>
+		/// </remarks>
+		/// <seealso cref="Mix_VolumeChunk"/>
+		/// <seealso cref="Mix_GetChunk"/>
+		/// <seealso cref="Mix_LoadWAV"/>
+		/// <seealso cref="Mix_LoadWAV_RW"/>
+		/// <seealso cref="Mix_FreeChunk"/>
+        public struct Mix_Chunk 
+		{
             /// <summary>
-            /// 
-            /// </summary>
+			/// a boolean indicating whether to free abuf when the chunk 
+			/// is freed.
+			/// </summary>
+			/// <remarks>0 if the memory was not allocated and thus not 
+			/// owned by this chunk.
+			/// 1 if the memory was allocated and is thus owned by this chunk.
+            /// </remarks>
             public int allocated;
             /// <summary>
-            /// 
+            /// Pointer to the sample data, which is 
+            /// in the output format and sample rate.
             /// </summary>
             public IntPtr abuf;
             /// <summary>
-            /// 
+            /// Length of abuf in bytes.
             /// </summary>
             public int alen;
             /// <summary>
-            /// Per-sample volume, 0-128
+            /// 0 = silent, 128 = max volume. 
+            /// This takes effect when mixing.
             /// </summary>
-            public Byte volume;
+            public byte volume;
         } 
+		#endregion Mix_Chunk
         #endregion Public Structs
 
-		// --- Constructors & Destructors ---
+		#region Constructors & Destructors
         #region SdlMixer()
         /// <summary>
         ///     Prevents instantiation.
@@ -279,8 +319,8 @@ namespace Tao.Sdl {
 		{
         }
         #endregion SdlMixer()
+		#endregion Constructors & Destructors
 
-		// --- Public Delegates ---
 		#region Public Delegates
 		/// <summary>
 		/// 
@@ -293,23 +333,43 @@ namespace Tao.Sdl {
 		public delegate void ChannelFinishedDelegate(int channel);
 		#endregion Public Delegates
 		
-		// --- Public Externs ---
 		#region SdlMixer Methods
-        /// <summary>
-        /// This function gets the version of the dynamically 
-        /// linked SDL_mixer library.
-        /// </summary>
-        /// <returns></returns>
-        [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
-             CallingConvention=CALLING_CONVENTION), 
-        SuppressUnmanagedCodeSecurity]
-        public static extern IntPtr Mix_Linked_Version();
+		#region IntPtr Mix_Linked_VersionInternal()
+		//     const SDL_version * Mix_Linked_Version(void)
+		[DllImport(SDL_MIXER_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="Mix_Linked_Version"), SuppressUnmanagedCodeSecurity]
+		private static extern IntPtr Mix_Linked_VersionInternal();
+		#endregion IntPtr Mix_Linked_VersionInternal()
+
+		#region SDL_version Mix_Linked_Version() 
+		/// <summary>
+		///     Using this you can compare the runtime version to the 
+		/// version that you compiled with.
+		/// </summary>
+		/// <returns>
+		///     This function gets the version of the dynamically 
+		/// linked SDL_mixer library in an <see cref="Sdl.SDL_version"/> struct.
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mixer.h:
+		///     <code>const SDL_version * Mix_Linked_Version(void)</code>
+		///     </p>
+		/// </remarks>
+		public static Sdl.SDL_version Mix_Linked_Version() 
+		{ 
+			return (Sdl.SDL_version)Marshal.PtrToStructure(
+				Mix_Linked_VersionInternal(), 
+				typeof(Sdl.SDL_version)); 
+		} 
+		#endregion SDL_version Mix_Linked_Version() 
 	
+		#region int Mix_OpenAudio(...)
         /// <summary>
         /// Open the mixer with a certain audio format
         /// </summary>
         /// <remarks>
         /// Initialize the mixer API.
+        /// <p>
         ///	This must be called before using other functions in this 
         ///	library.
         ///	SDL must be initialized with SDL_INIT_AUDIO before this call. 
@@ -327,11 +387,11 @@ namespace Tao.Sdl {
         ///	        just as many times for the device to actually close.
         ///	         The format will not changed on subsequent calls. 
         ///	         So you will have to close all the way before
-        ///	          trying to open with different format parameters.
+        ///	          trying to open with different format parameters.</p>
         ///	          
-        ///	          format is based on SDL audio support, see SDL_audio.h. Here are the values listed there:
+        ///	          <p>format is based on SDL audio support, see SDL_audio.h. Here are the values listed there:</p>
         ///
-        ///
+        /// <code>
         /// AUDIO_U8
         /// Unsigned 8-bit samples
         ///
@@ -361,9 +421,13 @@ namespace Tao.Sdl {
         ///
         /// AUDIO_S16SYS
         /// Signed 16-bit samples, in system byte order
+        /// </code>
         ///
-        ///
-        /// MIX_DEFAULT_FORMAT is the same as AUDIO_S16SYS.
+        /// <p>MIX_DEFAULT_FORMAT is the same as AUDIO_S16SYS.</p>
+        /// <p>Binds to C-funtion in SDL_mixer.h
+        /// <code>
+        /// int Mix_OpenAudio(int frequency, Uint16 format, int channels, int chunksize)
+        /// </code></p>
         /// </remarks>
         /// <param name="frequency">
         /// Output sampling frequency in samples per second (Hz).
@@ -384,21 +448,41 @@ namespace Tao.Sdl {
         /// <returns>
         /// 0 on success, -1 on errors 
         /// </returns>
+        /// <example>
+        /// <code>
+		/// // start SDL with audio support
+		///		if(SDL_Init(SDL_INIT_AUDIO)==-1) 
+		///	{
+		///		printf("SDL_Init: %s\n", SDL_GetError());
+		///		exit(1);
+		///	}
+		///	// open 44.1KHz, signed 16bit, system byte order,
+		///	//      stereo audio, using 1024 byte chunks
+		///	if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 1024)==-1) 
+		///{
+		///	printf("Mix_OpenAudio: %s\n", Mix_GetError());
+		///	exit(2);
+		///}
+        /// </code>
+        /// </example>
+        /// <seealso cref="Mix_CloseAudio"/>
+        /// <seealso cref="Mix_QuerySpec"/>
+        /// <seealso cref="Mix_AllocateChannels"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_OpenAudio(
             int frequency, short format, int channels, int chunksize);
+		#endregion int Mix_OpenAudio(...)
 
+		#region int Mix_AllocateChannels(int numchans)
         /// <summary>
         /// Dynamically change the number of channels managed by the mixer.
         /// If decreasing the number of channels, the upper channels are
         /// stopped. 
-        /// This function returns the new number of allocated channels.
+        /// <p>This function returns the new number of allocated channels.</p>
         /// </summary>
         /// <remarks>
-        /// A negative number will not do anything, 
-        /// it will tell you how many channels are currently allocated. 
         /// Set the number of channels being mixed. 
         /// This can be called multiple times, 
         /// even with sounds playing. If numchans is less
@@ -415,27 +499,39 @@ namespace Tao.Sdl {
         /// however music will still play. 
         /// </remarks>
         /// <param name="numchans">
-        /// Number of channels to allocate for mixing.
+        /// Number of channels to allocate for mixing. 
+        /// A negative number will not do anything, it will tell
+        ///  you how many channels are currently allocated.
         /// </param>
         /// <returns>
         /// The number of channels allocated.
         /// Never fails...but a high number of channels
         /// can segfault if you run out of memory. We're talking REALLY high!
         /// </returns>
+        /// <example>
+        /// <code>
+		/// // allocate 16 mixing channels
+		/// Mix_AllocateChannels(16);
+        /// </code></example>
+        /// <seealso cref="Mix_OpenAudio"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_AllocateChannels(int numchans);
+		#endregion int Mix_AllocateChannels(int numchans)
 
+		#region int Mix_QuerySpec(out int frequency, out short format, out int channels)
         /// <summary>
-        /// Find out what the actual audio device parameters are.
-        /// This function returns 1 if the audio has been opened, 0 otherwise.
+        /// Get output format.
         /// </summary>
         /// <remarks>
         /// Get the actual audio format in use by the opened 
         /// audio device.
         ///  This may or may not match the parameters you
         ///   passed to Mix_OpenAudio.
+        ///   <p>Binds to C-function in SDL_mixer.h
+        ///   <code>int Mix_QuerySpec(int *frequency, Uint16 *format, int *channels)
+        ///   </code></p>
         /// </remarks>
         /// <param name="channels">
         /// A pointer to an int where the 
@@ -456,13 +552,43 @@ namespace Tao.Sdl {
         /// it was opened will be returned. The values of the 
         /// arguments variables are not set on an error.
         /// </returns>
+        /// <example>
+        /// <code>
+		/// // get and print the audio format in use
+		///		int numtimesopened, frequency, channels;
+		///		Uint16 format;
+		///		numtimesopened=Mix_QuerySpec(&amp;frequency, &amp;format, &amp;channels);
+		///		if(!numtimesopened) 
+		///	{
+		///		printf("Mix_QuerySpec: %s\n",Mix_GetError());
+		///	}
+		///	else 
+		///{
+		///	char *format_str="Unknown";
+		///	switch(format) 
+		///{
+		///	case AUDIO_U8: format_str="U8"; break;
+		///	case AUDIO_S8: format_str="S8"; break;
+		///	case AUDIO_U16LSB: format_str="U16LSB"; break;
+		///	case AUDIO_S16LSB: format_str="S16LSB"; break;
+		///	case AUDIO_U16MSB: format_str="U16MSB"; break;
+		///	case AUDIO_S16MSB: format_str="S16MSB"; break;
+		///}
+		///	printf("opened=%d times  frequency=%dHz  format=%s  channels=%d",
+		///	numtimesopened, frequency, format, channels);
+		///}
+        /// </code>
+        /// </example>
+        ///  <seealso cref="Mix_OpenAudio"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_QuerySpec(
-            IntPtr frequency, 
-            IntPtr format, IntPtr channels);
+            out int frequency, 
+            out short format, out int channels);
+		#endregion int Mix_QuerySpec(out int frequency, out short format, out int channels)
 
+		#region IntPtr Mix_LoadWAV_RW(IntPtr src, int freesrc)
         /// <summary>
         /// Load a wave file or a music (.mod .s3m .it .xm) file
         /// </summary>
@@ -471,6 +597,9 @@ namespace Tao.Sdl {
         /// This can load WAVE, AIFF, RIFF, OGG, and VOC formats. 
         /// Using SDL_RWops is not covered here, but they enable 
         /// you to load from almost any source.
+		/// <p>Binds to C-function in SDL_mixer.h
+		///   <code>Mix_Chunk *Mix_LoadWAV_RW(SDL_RWops *src, int freesrc)
+		///   </code></p>
         /// </remarks>
         /// <param name="src">
         /// The source SDL_RWops as a pointer. 
@@ -484,11 +613,27 @@ namespace Tao.Sdl {
         /// a pointer to the sample as a Mix_Chunk. 
         /// NULL is returned on errors.
         /// </returns>
+        /// <example>
+        /// <code>
+		/// // load sample.wav in to sample
+		///		Mix_Chunk *sample;
+		///		sample=Mix_LoadWAV_RW(SDL_RWFromFile("sample.wav", "rb"), 1);
+		///		if(!sample) 
+		///	{
+		///		printf("Mix_LoadWAV_RW: %s\n", Mix_GetError());
+		///		// handle error
+		///	}
+        /// </code></example>
+        /// <seealso cref="Mix_LoadWAV"/>
+        /// <seealso cref="Mix_QuickLoad_WAV"/>
+        /// <seealso cref="Mix_FreeChunk"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr Mix_LoadWAV_RW(IntPtr src, int freesrc);
+		#endregion IntPtr Mix_LoadWAV_RW(IntPtr src, int freesrc)
 
+		#region IntPtr Mix_LoadWAV(string file)
         /// <summary>
         /// Load WAV from a file.
         /// </summary>
@@ -499,20 +644,71 @@ namespace Tao.Sdl {
         /// Load file for use as a sample. 
         /// This is actually Mix_LoadWAV_RW(SDL_RWFromFile(file, "rb"), 1).
         ///  This can load WAVE, AIFF, RIFF, OGG, and VOC files.
+		///  <p>Binds to C-function in SDL_mixer.h
+		///   <code>Mix_Chunk *Mix_LoadWAV(char *file)
+		///   </code></p>
         /// </remarks>
         /// <returns>
         /// a pointer to the sample as a Mix_Chunk. 
         /// NULL is returned on errors.
         /// </returns>
-        public static IntPtr Mix_LoadWAV(String file) {
+		/// <example>
+		/// <code>
+		/// // load sample.wav in to sample
+		///		Mix_Chunk *sample;
+		///		sample=Mix_LoadWAV("sample.wav");
+		///		if(!sample) 
+		///	{
+		///		printf("Mix_LoadWAV: %s\n", Mix_GetError());
+		///		// handle error
+		///	}
+		/// </code></example>
+		/// <seealso cref="Mix_LoadWAV_RW"/>
+		/// <seealso cref="Mix_QuickLoad_WAV"/>
+		/// <seealso cref="Mix_FreeChunk"/>
+        public static IntPtr Mix_LoadWAV(string file) 
+		{
             return Mix_LoadWAV_RW(Sdl.SDL_RWFromFile(file, "rb"), 1);
         }
+		#endregion IntPtr Mix_LoadWAV(string file)
 
         /// <summary>
-        /// 
+        /// Load a music file into a Mix_Music
         /// </summary>
-        /// <param name="file"></param>
-        /// <returns></returns>
+        /// <param name="file">Name of music file to use.
+        /// </param>
+        /// <returns>
+        /// A pointer to a Mix_Music. NULL is returned on errors.
+        /// </returns>
+        /// <remarks>
+		/// Load music file to use. This can load WAVE, MOD, MIDI, OGG, MP3, 
+		/// and any file that you use a command to play with.
+		/// <p>If you are using an external command to play the music, 
+		/// you must call Mix_SetMusicCMD before this, otherwise the 
+		/// internal players will be used. Alternatively, if you have 
+		/// set an external command up and don't want to use it, you 
+		/// must call Mix_SetMusicCMD(NULL) to use the built-in players 
+		/// again.</p>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>Mix_Music *Mix_LoadMUS(const char *file)
+		/// </code></p>
+        /// </remarks>
+        /// <example>
+        /// <code>
+		/// // load the MP3 file "music.mp3" to play as music
+		///		Mix_Music *music;
+		///		music=Mix_LoadMUS("music.mp3");
+		///		if(!music) 
+		///	{
+		///		printf("Mix_LoadMUS(\"music.mp3\"): %s\n", Mix_GetError());
+		///		// this might be a critical error...
+		///	}
+        /// </code></example>
+        /// <seealso cref="Mix_Music"/>
+        /// <seealso cref="Mix_SetMusicCMD"/>
+        /// <seealso cref="Mix_PlayMusic"/>
+        /// <seealso cref="Mix_FadeInMusic"/>
+        /// <seealso cref="Mix_FadeInMusicPos"/> 
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
@@ -1464,6 +1660,70 @@ namespace Tao.Sdl {
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_CloseAudio();
+
+		#region void Mix_SetError(string message)
+		/// <summary>
+		/// Set the current error string
+		/// </summary>
+		/// <remarks>
+		/// This is the same as SDL_SetError, which sets the error string
+		/// which may be fetched with Mix_GetError (or SDL_GetError). 
+		/// This functions acts like printf, except that it is limited to
+		///  SDL_ERRBUFIZE(1024) chars in length. It only accepts the 
+		///  following format types: %s, %d, %f, %p. No variations are 
+		///  supported, like %.2f would not work. For any more specifics 
+		///  read the SDL docs.
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>
+		/// void Mix_SetError(const char *fmt, ...)
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// int mymixfunc(int i) {
+		///		Mix_SetError("mymixfunc is not implemented! %d was passed in.",i);
+		///		return(-1);
+		///	}
+		/// </code></example>
+		/// <param name="message"></param>
+		/// <seealso cref="Mix_GetError"/>
+		public static void Mix_SetError(string message)
+		{
+			Sdl.SDL_SetError(message);
+		}
+		#endregion void Mix_SetError(string message)
+
+		#region string Mix_GetError()
+		/// <summary>
+		/// Get the current error string
+		/// </summary>
+		/// <remarks>
+		/// This is the same as SDL_GetError, which returns the last error set 
+		/// as a string which you may use to tell the user what happened when 
+		/// an error status has been returned from an SDL_ttf function call.
+		/// <p>Binds to C-function in SDL_ttf.h
+		/// <code>
+		/// char *Mix_GetError() 
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <returns>
+		/// a char pointer (string) containing a humam 
+		/// readable version or the reason for the last error that
+		///  occured.
+		///  </returns>
+		///  <example>
+		///  <code>
+		///  printf("Oh My Goodness, an error : %s", Mix_GetError());
+		///  </code>
+		///  </example>
+		/// <seealso cref="Mix_SetError"/>
+		public static string Mix_GetError()
+		{
+			return Sdl.SDL_GetError();
+		}
+		#endregion string Mix_GetError()
 		#endregion SdlMixer Methods
     }
 }
