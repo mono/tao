@@ -3,6 +3,20 @@
 + = Addition
 ! = Bug Fix
 
+[ May 11, 2004 - 0.11.3 ]
+    ! Fixed a bug where I was writing the wrong property name for a projects root
+      namespace.
+    ! Removed a DEBUG statement I had left in the code in 0.11.2.
+    ! Fixed a bug in the VS2002 writer which caused the version variables to not
+      be overriden correctly.
+    + Added the rootNamespace property to the <Project> element, allowing you to
+      specify the root namespace.
+    * /target and /clean are now mutually exclusive command line switches, and
+      they both now take the all option. In the case of /target all, all build
+      file for all targets will be created. In the case of /clean all, the user
+      will be prompted to make sure they want to do it, and if so, will clean
+      all build files for all targets.
+
 [ April 22, 2004 - 0.11.2 ]
 	! Fixed a bug with the /file command-line operator. Was using the unresolved
 	  file path rather then the resolved one, was making the attempt to open the
