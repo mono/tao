@@ -299,6 +299,66 @@ namespace Tao.Sdl
 		}
 		#endregion SDL.h
 
+		#region SDL_audio.h
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void AudioDriverName()
+		{
+			Sdl.SDL_Init(Sdl.SDL_INIT_AUDIO);
+			string driver= "";
+			string result = Sdl.SDL_AudioDriverName(driver,20);
+			Assert.IsNotNull(result);
+			//Console.WriteLine("audio driver: " + result);
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void OpenAudio()
+		{
+			Sdl.SDL_Init(Sdl.SDL_INIT_AUDIO);
+			//Console.WriteLine("audio driver: " + result);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+//		[Test]
+//		public void LoadWAV()
+//		{
+//			Sdl.SDL_Init(Sdl.SDL_INIT_AUDIO);
+//			IntPtr spec;
+//
+//			IntPtr audio_buf;
+//
+//			int audio_len;
+//			
+//			IntPtr pointer = Sdl.SDL_LoadWAV("disconnected.wav", out spec, out audio_buf, out audio_len);
+//				Console.WriteLine("Error: " + Sdl.SDL_GetError());
+//		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+//		[Test]
+//		public void LoadWAV_RW()
+//		{
+//			Sdl.SDL_Init(Sdl.SDL_INIT_AUDIO);
+//			IntPtr spec;
+//
+//			IntPtr audio_buf;
+//
+//			int audio_len;
+//			
+//			IntPtr result = Sdl.SDL_LoadWAV_RW(Sdl.SDL_RWFromFile("sample.wav", "rb"), 1,  ref spec,  ref audio_buf, out audio_len);
+//			Console.WriteLine("Error: " + Sdl.SDL_GetError());
+//		}
+		#endregion SDL_audio.h
+
 		#region SDL_active.h
 		/// <summary>
 		/// 
@@ -330,6 +390,70 @@ namespace Tao.Sdl
 
 		}
 		#endregion SDL_byteorder.h
+
+		#region SDL_cdrom.h
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void CDNumDrives()
+		{
+			Sdl.SDL_Quit();
+			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+			Assert.AreEqual(Sdl.SDL_CDNumDrives(), 1);
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void CDName()
+		{
+			Sdl.SDL_Quit();
+			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+			//Console.WriteLine("CDName: " + Sdl.SDL_CDName(0));
+			Assert.AreEqual(Sdl.SDL_CDName(0), "D:\\");
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void CDOpen()
+		{
+			Sdl.SDL_Quit();
+			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+			IntPtr resultPtr = Sdl.SDL_CDOpen(0);
+			Sdl.SDL_CD cd = 
+				(Sdl.SDL_CD)Marshal.PtrToStructure(resultPtr, typeof(Sdl.SDL_CD));
+			//Console.WriteLine("CDName: " + Sdl.SDL_CDName(0));
+			Assert.AreEqual(cd.id, 0 );
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void CDStatus()
+		{
+			Sdl.SDL_Quit();
+			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+			Sdl.SDL_CD cd = new Sdl.SDL_CD();
+			cd.id = 0;
+			Console.WriteLine("CDStatus: " + Sdl.SDL_CDStatus(ref cd));
+			//Assert.AreEqual(Sdl.SDL_CDName(0), "D:\\");
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void CD_INDRIVE()
+		{
+			Sdl.SDL_Quit();
+			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+			Sdl.SDL_CD cd = new Sdl.SDL_CD();
+			cd.id = 0;
+			Console.WriteLine("CD_INDRIVE: " + Sdl.CD_INDRIVE(Sdl.SDL_CDStatus(ref cd)).ToString());
+			//Assert.AreEqual(Sdl.SDL_CDName(0), "D:\\");
+		}
+		#endregion SDL_cdrom.h
 		
 		#region SDL_cpuinfo.h
 		/// <summary>
@@ -592,5 +716,7 @@ namespace Tao.Sdl
 			Assert.IsFalse(Sdl.SDL_VERSION_ATLEAST(1,2,8));
 		}
 		#endregion SDL_version.h
+
+
 	}
 }

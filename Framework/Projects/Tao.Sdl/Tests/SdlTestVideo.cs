@@ -95,6 +95,7 @@ namespace Tao.Sdl
 		{
 			string buffer="";
 			string driverName = Sdl.SDL_VideoDriverName(buffer, 100);
+			//Console.WriteLine("Video: "+ driverName);
 			Assert.IsNotNull(driverName);
 		}
 
