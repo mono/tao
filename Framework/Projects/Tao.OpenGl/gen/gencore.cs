@@ -6,9 +6,11 @@
 //
 // Copyright (C) 2004 Vladimir Vukicevic <vladimir@pobox.com>
 //
-// This file is part of Tao; licensed under the MIT/X11 License
-// as specified in the top-level License.txt file.
+// This file is part of Tsunami and Tao; licensed under the MIT/X11
+// License as specified in the top-level License.txt file.
 //
+
+#define DEBUG_PARAM_GEN
 
 using System;
 using System.IO;
@@ -287,6 +289,25 @@ public class Driver {
 
   public static bool doInstance = false;
 
+  static Hashtable paramCountHash;
+
+#if DEBUG_PARAM_GEN
+  class FuncParamStruct {
+    public string fname;
+    public int nparams;
+    public FuncParamStruct (string f, int n) { fname = f; nparams = n; }
+  }
+
+  internal class FuncParamStructComparer : IComparer {
+    public int Compare (object a, object b) {
+      FuncParamStruct fpa = a as FuncParamStruct;
+      FuncParamStruct fpb = b as FuncParamStruct;
+
+      return fpb.nparams - fpa.nparams;
+    }
+  }
+#endif
+
   public static void Main (string [] args) {
     if (args.Length < 3 || args.Length > 4) {
       Console.WriteLine ("Usage: gencore gl.xml typemap.xml Gl-funcs.cs [instance]");
@@ -305,6 +326,8 @@ public class Driver {
 
     Output = new StreamWriter(args[2]);
 
+    paramCountHash = new Hashtable();
+
     XmlNode glspec = Doc.GetElementsByTagName("glspec")[0];
     foreach (XmlNode setnode in glspec.ChildNodes) {
       if (setnode.NodeType != XmlNodeType.Element)
@@ -320,6 +343,22 @@ public class Driver {
     Output.Close();
 
     Console.WriteLine ("Wrote {0}", args[2]);
+
+#if DEBUG_PARAM_GEN
+    ArrayList ar = new ArrayList();
+    // the hash is name->num params, we need to find the max
+    foreach (string fname in paramCountHash.Keys) {
+      int nparams = (int) paramCountHash[fname];
+      if (nparams > 20) {
+        ar.Add(new FuncParamStruct(fname, nparams));
+      }
+    }
+
+    ar.Sort(new FuncParamStructComparer());
+    for (int i = 0; i < 20; i++) {
+      Console.WriteLine ("{0}: {1}", ((FuncParamStruct) ar[i]).fname, ((FuncParamStruct) ar[i]).nparams);
+    }
+#endif
   }
 
   public static ArrayList ReadParams (XmlNode funcnode) {
@@ -391,6 +430,17 @@ public class Driver {
         continue;
 
       string fname = funcnode.Attributes["name"].Value;
+
+      // XXXX hack: these functions have multiple Void params, meaning
+      // that we end up with huge sets of overloads --
+      // glGetSeparableFilter has 3, so we end up with 33*33*33
+      // overloads, plus change: 4913. ouch.
+      if (fname == "GetSeparableFilterEXT" ||
+          fname == "GetSeparableFilter" ||
+          fname == "SeparableFilter2DEXT" ||
+          fname == "SeparableFilter2D")
+        continue;
+
       string fentry = "gl" + fname;
       if (funcUseGlPrefix) fname = "gl" + fname;
 
@@ -410,6 +460,8 @@ public class Driver {
           TypeMap.ExpandParam(param);
         paramstrings = GenParamList (fparams, 0);
       }
+
+      paramCountHash[fname] = paramstrings.Count;
 
       if (iscore) {
         foreach (string paramstr in paramstrings) {
