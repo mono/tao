@@ -2544,12 +2544,26 @@ namespace Tao.Platform.Windows {
         #region WGL_ARB_render_texture Methods
         #region int wglBindTexImageARB([In] IntPtr extensionPointer, IntPtr hPbuffer, int iBuffer)
         // BOOL wglBindTexImageARB(HANDLE hPbuffer, GLint iBuffer)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="extensionPointer"></param>
+		/// <param name="hPbuffer"></param>
+		/// <param name="iBuffer"></param>
+		/// <returns></returns>
         [IlasmAttribute(".maxstack 3\r\nldarg hPbuffer\r\nldarg iBuffer\r\nldarg extensionPointer\r\ncalli unmanaged stdcall int32([in]native int,[in]int32)\r\nret")]
         public static int wglBindTexImageARB([In] IntPtr extensionPointer, IntPtr hPbuffer, int iBuffer) { throw new NotImplementedException( "IL replacement failure." ); }
         #endregion int wglBindTexImageARB([In] IntPtr extensionPointer, IntPtr hPbuffer, int iBuffer)
 
         #region int wglReleaseTexImageARB([In] IntPtr extensionPointer, IntPtr hPbuffer, int iBuffer)
         // BOOL wglReleaseTexImageARB(HANDLE hPbuffer, GLint iBuffer)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="extensionPointer"></param>
+		/// <param name="hPbuffer"></param>
+		/// <param name="iBuffer"></param>
+		/// <returns></returns>
         [IlasmAttribute(".maxstack 3\r\nldarg hPbuffer\r\nldarg iBuffer\r\nldarg extensionPointer\r\ncalli unmanaged stdcall int32([in]native int,[in]int32)\r\nret")]
         public static int wglReleaseTexImageARB([In] IntPtr extensionPointer, IntPtr hPbuffer, int iBuffer) { throw new NotImplementedException( "IL replacement failure." ); }
         #endregion int wglReleaseTexImageARB([In] IntPtr extensionPointer, IntPtr hPbuffer, int iBuffer)
@@ -2557,6 +2571,13 @@ namespace Tao.Platform.Windows {
         #region Overloads for BOOL wglSetPbufferAttribARB(HANDLE hPbuffer, const GLint* piAttribList)
         #region int wglSetPbufferAttribARB([In] IntPtr extensionPointer, IntPtr hPbuffer, ref int piAttribList)
         // BOOL wglSetPbufferAttribARB(HANDLE hPbuffer, const GLint* piAttribList)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="extensionPointer"></param>
+		/// <param name="hPbuffer"></param>
+		/// <param name="piAttribList"></param>
+		/// <returns></returns>
         [IlasmAttribute(".maxstack 3\r\nldarg hPbuffer\r\nldarg piAttribList\r\nldarg extensionPointer\r\ncalli unmanaged stdcall int32([in]native int,[in][out]int32)\r\nret")]
         public static int wglSetPbufferAttribARB([In] IntPtr extensionPointer, IntPtr hPbuffer, ref int piAttribList) { throw new NotImplementedException( "IL replacement failure." ); }
         #endregion int wglSetPbufferAttribARB([In] IntPtr extensionPointer, IntPtr hPbuffer, ref int piAttribList)
@@ -2569,6 +2590,13 @@ namespace Tao.Platform.Windows {
 
         #region int wglSetPbufferAttribARB([In] IntPtr extensionPointer, IntPtr hPbuffer, IntPtr piAttribList)
         // BOOL wglSetPbufferAttribARB(HANDLE hPbuffer, const GLint* piAttribList)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="extensionPointer"></param>
+		/// <param name="hPbuffer"></param>
+		/// <param name="piAttribList"></param>
+		/// <returns></returns>
         [IlasmAttribute(".maxstack 3\r\nldarg hPbuffer\r\nldarg piAttribList\r\nldarg extensionPointer\r\ncalli unmanaged stdcall int32([in]native int,[in]native int)\r\nret")]
         public static int wglSetPbufferAttribARB([In] IntPtr extensionPointer, IntPtr hPbuffer, IntPtr piAttribList) { throw new NotImplementedException( "IL replacement failure." ); }
         #endregion int wglSetPbufferAttribARB([In] IntPtr extensionPointer, IntPtr hPbuffer, IntPtr piAttribList)
@@ -2998,6 +3026,12 @@ namespace Tao.Platform.Windows {
         #region WGL_EXT_swap_control Methods
         #region int wglSwapIntervalEXT([In] IntPtr extensionPointer, int interval)
         // BOOL wglSwapIntervalEXT(GLint interval)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="extensionPointer"></param>
+		/// <param name="interval"></param>
+		/// <returns></returns>
         [IlasmAttribute(".maxstack 2\r\nldarg interval\r\nldarg extensionPointer\r\ncalli unmanaged stdcall int32([in]int32)\r\nret")]
         public static int wglSwapIntervalEXT([In] IntPtr extensionPointer, int interval) { throw new NotImplementedException( "IL replacement failure." ); }
         #endregion int wglSwapIntervalEXT([In] IntPtr extensionPointer, int interval)

@@ -327,6 +327,7 @@ namespace Tao.Sdl {
 		/// <summary>
 		/// 
 		/// </summary>
+		[DelegateCallingConventionCdecl]
 		public delegate void MusicFinishedDelegate();
 		#endregion void MusicFinishedDelegate()
 
@@ -334,6 +335,7 @@ namespace Tao.Sdl {
 		/// <summary>
 		/// 
 		/// </summary>
+		[DelegateCallingConventionCdecl]
 		public delegate void MixFunctionDelegate(IntPtr udata, IntPtr stream, int len);
 		#endregion void MixFunctionDelegate(IntPtr udata, IntPtr stream, int len)
 
@@ -379,6 +381,7 @@ namespace Tao.Sdl {
 		/// </param>
 		/// <seealso cref="Mix_RegisterEffect"/>
 		/// <seealso cref="Mix_UnregisterEffect"/>
+		[DelegateCallingConventionCdecl]
 		public delegate void MixEffectFunctionDelegate(int chan, IntPtr stream, int len, IntPtr udata);
 		#endregion void MixEffectFunctionDelegate(...)
 
@@ -408,6 +411,7 @@ namespace Tao.Sdl {
 		/// </param>
 		/// <seealso cref="Mix_RegisterEffect"/>
 		/// <seealso cref="Mix_UnregisterEffect"/>
+		[DelegateCallingConventionCdecl]
 		public delegate void MixEffectDoneDelegate(int chan, IntPtr udata);
 		#endregion void MixEffectDoneDelegate(int chan, IntPtr udata)
 		#endregion Public Delegates

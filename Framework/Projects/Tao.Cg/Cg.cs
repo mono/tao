@@ -4120,7 +4120,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Gets the resource enumerant assigned to a resource name.
         /// </summary>
-        /// <param name="param">Resource's name.</param>
+        /// <param name="resource_name">Resource's name.</param>
         /// <returns>Resource enumerant.</returns>
         [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern int cgGetResource(string resource_name);

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <DNPreBuild xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.2.xsd" version="1.2">
-    <Solution name="Tao.Cg">
+    <Solution name="Tao.OpenAl">
         <Configuration name="Debug">
             <Options>
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
                 <OutputPath>bin\Debug</OutputPath>
-		<XmlDocFile>Tao.Cg.xml</XmlDocFile>
+		<XmlDocFile>Tao.OpenAl.xml</XmlDocFile>
 		<AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>true</DebugInformation>
             </Options>
@@ -16,21 +16,23 @@
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
                 <OutputPath>bin\Release</OutputPath>
-                <XmlDocFile>Tao.Cg.xml</XmlDocFile>
+                <XmlDocFile>Tao.OpenAl.xml</XmlDocFile>
 		<AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>false</DebugInformation>
             </Options>
         </Configuration>
         <Files>
-            <File>Solution Items\Tao.Cg.License.txt</File>
-            <File>Solution Items\Tao.Cg.Readme.txt</File>
-            <File>Solution Items\Tao.Cg.snk</File>
+            <File>Solution Items\Tao.OpenAl.License.txt</File>
+            <File>Solution Items\Tao.OpenAl.Readme.txt</File>
+            <File>Solution Items\Tao.OpenAl.snk</File>
         </Files>
-	<Project name="Tao.Cg" path="..\\..\\Projects\\Tao.Cg\\" language="C#" type="Library">
+	<Project name="Tao.OpenAl" path="..\\..\\Projects\\Tao.OpenAl\\" language="C#" type="Library">
 	    <Reference name="System" />
             <Files>
                 <File>AssemblyInfo.cs</File>
-                <File>Cg.cs</File>
+                <File>Al.cs</File>
+                <File>Alc.cs</File>
+                <File>Alut.cs</File>
             </Files>
         </Project>
     </Solution>

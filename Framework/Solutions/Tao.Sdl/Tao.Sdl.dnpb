@@ -27,7 +27,6 @@
 	    <File>Solution Items\Tao.Sdl.snk</File>
 	</Files>
 	<Project name="Tao.Sdl" path="..\\..\\Projects\\Tao.Sdl\\" language="C#" type="Library">
-
 	    <Reference name="System" /> 
 	    <Files>
 		<File>AssemblyInfo.cs</File>
@@ -37,6 +36,7 @@
 		<File>SdlTtf.cs</File>
 		<File>SdlGfx.cs</File>
 		<File>Smpeg.cs</File>
+		<File>DelegateCallingConventionCdeclAttribute.cs</File>
 	    </Files>
 	</Project>
 	<Project name="Tao.Sdl.Tests" path="..\\..\\Projects\\Tao.Sdl\\Tests" language="C#" type="Library">

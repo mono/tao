@@ -599,41 +599,143 @@ namespace Tao.Platform.Windows {
         // <seealso cref="OpenPrinter" />
         [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Auto)]
         public struct DEVMODE {
+			/// <summary>
+			/// 
+			/// </summary>
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst=32)]
             public string dmDeviceName;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmSpecVersion;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmDriverVersion;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmSize;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmDriverExtra;
+			/// <summary>
+			/// 
+			/// </summary>
             public int dmFields;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmOrientation;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmPaperSize;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmPaperLength;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmPaperWidth;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmScale;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmCopies;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmDefaultSource;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmPrintQuality;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmColor;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmDuplex;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmYResolution;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmTTOption;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmCollate;
+			/// <summary>
+			/// 
+			/// </summary>
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst=32)]
             public string dmFormName;
+			/// <summary>
+			/// 
+			/// </summary>
             public short dmLogPixels;
+			/// <summary>
+			/// 
+			/// </summary>
             public int dmBitsPerPel;
+			/// <summary>
+			/// 
+			/// </summary>
             public int dmPelsWidth;
+			/// <summary>
+			/// 
+			/// </summary>
             public int dmPelsHeight;
+			/// <summary>
+			/// 
+			/// </summary>
             public int dmDisplayFlags;
+			/// <summary>
+			/// 
+			/// </summary>
             public int dmDisplayFrequency;
+			/// <summary>
+			/// 
+			/// </summary>
             public int dmICMMethod;
+			/// <summary>
+			/// 
+			/// </summary>
             public int dmICMIntent;
+			/// <summary>
+			/// 
+			/// </summary>
             public int dmMediaType;
+			/// <summary>
+			/// 
+			/// </summary>
             public int dmDitherType;
+			/// <summary>
+			/// 
+			/// </summary>
             public int dmReserved1;
+			/// <summary>
+			/// 
+			/// </summary>
             public int dmReserved2;
+			/// <summary>
+			/// 
+			/// </summary>
             public int dmPanningWidth;
+			/// <summary>
+			/// 
+			/// </summary>
             public int dmPanningHeight;
         }
         #endregion DEVMODE Struct
@@ -1365,18 +1467,57 @@ namespace Tao.Platform.Windows {
         }
         #endregion BOOL SetPixelFormat(HDC hdc, int iPixelFormat, PIXELFORMATDESCRIPTOR* ppfd)
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="deviceContext"></param>
+		/// <returns></returns>
         [DllImport(GDI_NATIVE_LIBRARY, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern bool SwapBuffers(IntPtr deviceContext);
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="deviceContext"></param>
+		/// <returns></returns>
         [DllImport(GDI_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SwapBuffers"), SuppressUnmanagedCodeSecurity]
         public static extern int SwapBuffersFast([In] IntPtr deviceContext);
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="height"></param>
+		/// <param name="width"></param>
+		/// <param name="escapement"></param>
+		/// <param name="orientation"></param>
+		/// <param name="weight"></param>
+		/// <param name="italic"></param>
+		/// <param name="underline"></param>
+		/// <param name="strikeOut"></param>
+		/// <param name="charSet"></param>
+		/// <param name="outputPrecision"></param>
+		/// <param name="clipPrecision"></param>
+		/// <param name="quality"></param>
+		/// <param name="pitchAndFamily"></param>
+		/// <param name="typeFace"></param>
+		/// <returns></returns>
         [DllImport(GDI_NATIVE_LIBRARY, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr CreateFont(int height, int width, int escapement, int orientation, int weight, bool italic, bool underline, bool strikeOut, int charSet, int outputPrecision, int clipPrecision, int quality, int pitchAndFamily, string typeFace);
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="objectHandle"></param>
+		/// <returns></returns>
         [DllImport(GDI_NATIVE_LIBRARY, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern bool DeleteObject(IntPtr objectHandle);
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="deviceContext"></param>
+		/// <param name="objectHandle"></param>
+		/// <returns></returns>
         [DllImport(GDI_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr SelectObject(IntPtr deviceContext, IntPtr objectHandle);
     }

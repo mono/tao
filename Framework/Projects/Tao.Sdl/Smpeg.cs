@@ -274,6 +274,7 @@ namespace Tao.Sdl {
 		/// <code>
 		/// typedef void (* SMPEG_FilterCallback)( SDL_Overlay * dest, SDL_Overlay * source, SDL_Rect * region, SMPEG_FilterInfo * filter_info, void * data );
 		/// </code></p></remarks>
+		[DelegateCallingConventionCdecl]
 		public delegate void SMPEG_FilterCallback(IntPtr dest, IntPtr source, out Sdl.SDL_Rect region, IntPtr filter_info, object data);
 		#endregion void SMPEG_FilterCallback(...)
 
@@ -286,6 +287,7 @@ namespace Tao.Sdl {
 		/// <code>
 		/// typedef void (* SMPEG_FilterDestroy)( struct SMPEG_Filter * filter )
 		/// </code></p></remarks>
+		[DelegateCallingConventionCdecl]
 		public delegate void SMPEG_FilterDestroy(IntPtr filter);
 		#endregion void SMPEG_FilterDestroy(IntPtr filter)
 		#endregion MPEGfilter.h
@@ -302,6 +304,7 @@ namespace Tao.Sdl {
 		/// </code>
 		/// </p>
 		/// </remarks>
+		[DelegateCallingConventionCdecl]
 		public delegate void SMPEG_DisplayCallback(
 			IntPtr dst, int x, int y, int w, int h);
 		#endregion void SMPEG_DisplayCallback(...)

@@ -76,61 +76,143 @@ typedef dReal dQuaternion[4];
 
 
         // --- Public Structs ---
+		/// <summary>
+		/// 
+		/// </summary>
         [StructLayout(LayoutKind.Sequential)]
         public struct dMass {
+			/// <summary>
+			/// 
+			/// </summary>
             public real mass;
+			/// <summary>
+			/// 
+			/// </summary>
             [MarshalAs(UnmanagedType.ByValArray, SizeConst=4)]
             public real[] c;
+			/// <summary>
+			/// 
+			/// </summary>
             [MarshalAs(UnmanagedType.ByValArray, SizeConst=12)]
             public real[] I;
         }
 
         // --- Public Externs ---
         // dWorldID dWorldCreate();
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr dWorldCreate();
 
         // dSpaceID dHashSpaceCreate(dSpaceID space);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="space"></param>
+		/// <returns></returns>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr dHashSpaceCreate(IntPtr space);
 
         // dJointGroupID dJointGroupCreate(int max_size);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="max_size"></param>
+		/// <returns></returns>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr dJointGroupCreate(int max_size);
 
         // void dWorldSetGravity(dWorldID, dReal x, dReal y, dReal z);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="world"></param>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		/// <param name="z"></param>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void dWorldSetGravity(IntPtr world, real x, real y, real z);
 
         // dGeomID dCreatePlane(dSpaceID space, dReal a, dReal b, dReal c, dReal d);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="space"></param>
+		/// <param name="a"></param>
+		/// <param name="b"></param>
+		/// <param name="c"></param>
+		/// <param name="d"></param>
+		/// <returns></returns>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr dCreatePlane(IntPtr space, real a, real b, real c, real d);
 
         // dSpaceID dSimpleSpaceCreate(dSpaceID space);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="space"></param>
+		/// <returns></returns>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr dSimpleSpaceCreate(IntPtr space);
 
         // void dSpaceAdd(dSpaceID, dGeomID);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="space"></param>
+		/// <param name="geom"></param>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void dSpaceAdd(IntPtr space, IntPtr geom);
 
         // dBodyID dBodyCreate(dWorldID);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="world"></param>
+		/// <returns></returns>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr dBodyCreate(IntPtr world);
 
         // void dMassSetSphere(dMass *, dReal density, dReal radius);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="mass"></param>
+		/// <param name="density"></param>
+		/// <param name="radius"></param>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void dMassSetSphere(ref dMass mass, real density, real radius);
 
         // void dBodySetMass(dBodyID, const dMass *mass);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="body"></param>
+		/// <param name="mass"></param>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void dBodySetMass(IntPtr body, ref dMass mass);
 
         // void dBodySetPosition(dBodyID, dReal x, dReal y, dReal z);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="body"></param>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		/// <param name="z"></param>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void dBodySetPosition(IntPtr body, real x, real y, real z);
 
         // void dBodyAddForce(dBodyID, dReal fx, dReal fy, dReal fz);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="body"></param>
+		/// <param name="fx"></param>
+		/// <param name="fy"></param>
+		/// <param name="fz"></param>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void dBodyAddForce(IntPtr body, real fx, real fy, real fz);
 
@@ -138,6 +220,11 @@ typedef dReal dQuaternion[4];
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="dBodyGetPosition"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern IntPtr __dBodyGetPosition(IntPtr body);
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="body"></param>
+		/// <returns></returns>
         public static real[] dBodyGetPosition(IntPtr body) {
             real[] positionArray = new real[3];
 
@@ -154,9 +241,19 @@ typedef dReal dQuaternion[4];
         }
 
         // const dReal * dBodyGetLinearVel(dBodyID);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="body"></param>
+		/// <returns></returns>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="dBodyGetLinearVel"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         private static extern IntPtr __dBodyGetLinearVel(IntPtr body);
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="body"></param>
+		/// <returns></returns>
         public static real[] dBodyGetLinearVel(IntPtr body) {
             real[] velocityArray = new real[3];
 
@@ -173,22 +270,49 @@ typedef dReal dQuaternion[4];
         }
 
         // void dWorldStep (dWorldID, dReal stepsize);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="world"></param>
+		/// <param name="stepsize"></param>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void dWorldStep(IntPtr world, real stepsize);
 
         // void dWorldSetCFM (dWorldID, dReal cfm);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="world"></param>
+		/// <param name="crm"></param>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void dWorldSetCFM(IntPtr world, real crm);
 
         // dGeomID dCreateBox (dSpaceID space, dReal lx, dReal ly, dReal lz);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="space"></param>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		/// <param name="z"></param>
+		/// <returns></returns>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr dCreateBox(IntPtr space, real x, real y, real z);
 
         // void dGeomSetBody (dGeomID, dBodyID);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="geom"></param>
+		/// <param name="body"></param>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void dGeomSetBody(IntPtr geom, IntPtr body);
 
         // void dJointGroupEmpty (dJointGroupID);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="jointGroup"></param>
         [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
         public static extern void dJointGroupEmpty(IntPtr jointGroup);
     }

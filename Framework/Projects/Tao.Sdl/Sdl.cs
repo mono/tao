@@ -4716,6 +4716,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <seealso cref="SDL_SetEventFilter" />
 		/// <seealso cref="SDL_GetEventFilter" />
+		[DelegateCallingConventionCdecl]
 		public delegate int SDL_EventFilter([Out] SDL_Event evt);
 		#endregion int SDL_EventFilter([Out] SDL_Event evt)
 		#endregion SDL_events.h
@@ -4738,6 +4739,7 @@ namespace Tao.Sdl {
 		///     </p>
 		/// </remarks>
 		/// <seealso cref="SDL_SetTimer" />
+		[DelegateCallingConventionCdecl]
 		public delegate int SDL_TimerCallback(int interval);
 		#endregion int SDL_TimerCallback(int interval)
 
@@ -4767,6 +4769,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <seealso cref="SDL_AddTimer" />
 		/// <seealso cref="SDL_RemoveTimer" />
+		[DelegateCallingConventionCdecl]
 		public delegate int SDL_NewTimerCallback(int interval);
 		#endregion int SDL_NewTimerCallback(int interval)
 		#endregion SDL_timer.h		

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <DNPreBuild xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.2.xsd" version="1.2">
-    <Solution name="Tao.Cg">
+    <Solution name="Tao.GlPostProcess">
         <Configuration name="Debug">
             <Options>
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
                 <OutputPath>bin\Debug</OutputPath>
-		<XmlDocFile>Tao.Cg.xml</XmlDocFile>
-		<AllowUnsafe>true</AllowUnsafe>
+                <XmlDocFile>Tao.GlPostProcess.xml</XmlDocFile>
                 <DebugInformation>true</DebugInformation>
             </Options>
         </Configuration>
@@ -16,21 +15,20 @@
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
                 <OutputPath>bin\Release</OutputPath>
-                <XmlDocFile>Tao.Cg.xml</XmlDocFile>
-		<AllowUnsafe>true</AllowUnsafe>
+                <XmlDocFile>Tao.GlPostProcess.xml</XmlDocFile>
                 <DebugInformation>false</DebugInformation>
             </Options>
         </Configuration>
         <Files>
-            <File>Solution Items\Tao.Cg.License.txt</File>
-            <File>Solution Items\Tao.Cg.Readme.txt</File>
-            <File>Solution Items\Tao.Cg.snk</File>
+            <File>Solution Items\Tao.GlPostProcess.License.txt</File>
+            <File>Solution Items\Tao.GlPostProcess.Readme.txt</File>
+            <File>Solution Items\Tao.GlPostProcess.snk</File>
         </Files>
-	<Project name="Tao.Cg" path="..\\..\\Projects\\Tao.Cg\\" language="C#" type="Library">
+	<Project name="Tao.GlPostProcess" path="..\\..\\Projects\\Tao.GlPostProcess\\" language="C#" type="Exe">
 	    <Reference name="System" />
             <Files>
                 <File>AssemblyInfo.cs</File>
-                <File>Cg.cs</File>
+                <File>GlPostProcess.cs</File>
             </Files>
         </Project>
     </Solution>

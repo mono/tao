@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <DNPreBuild xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.2.xsd" version="1.2">
-    <Solution name="Tao.Cg">
+    <Solution name="Tao.DevIl">
         <Configuration name="Debug">
             <Options>
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
                 <OutputPath>bin\Debug</OutputPath>
-		<XmlDocFile>Tao.Cg.xml</XmlDocFile>
-		<AllowUnsafe>true</AllowUnsafe>
+                <XmlDocFile>Tao.DevIl.xml</XmlDocFile>
                 <DebugInformation>true</DebugInformation>
             </Options>
         </Configuration>
@@ -16,21 +15,22 @@
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
                 <OutputPath>bin\Release</OutputPath>
-                <XmlDocFile>Tao.Cg.xml</XmlDocFile>
-		<AllowUnsafe>true</AllowUnsafe>
+                <XmlDocFile>Tao.DevIl.xml</XmlDocFile>
                 <DebugInformation>false</DebugInformation>
             </Options>
         </Configuration>
         <Files>
-            <File>Solution Items\Tao.Cg.License.txt</File>
-            <File>Solution Items\Tao.Cg.Readme.txt</File>
-            <File>Solution Items\Tao.Cg.snk</File>
+            <File>Solution Items\Tao.DevIl.License.txt</File>
+            <File>Solution Items\Tao.DevIl.Readme.txt</File>
+            <File>Solution Items\Tao.DevIl.snk</File>
         </Files>
-	<Project name="Tao.Cg" path="..\\..\\Projects\\Tao.Cg\\" language="C#" type="Library">
+	<Project name="Tao.DevIl" path="..\\..\\Projects\\Tao.DevIl\\" language="C#" type="Library">
 	    <Reference name="System" />
             <Files>
                 <File>AssemblyInfo.cs</File>
-                <File>Cg.cs</File>
+                <File>Il.cs</File>
+                <File>Ilu.cs</File>
+                <File>Ilut.cs</File>
             </Files>
         </Project>
     </Solution>
