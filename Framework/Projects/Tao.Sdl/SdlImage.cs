@@ -130,29 +130,23 @@ namespace Tao.Sdl {
         #endregion CallingConvention CALLING_CONVENTION
         #endregion Private Constants
 
-        #region Static SdlImage()
         // --- Constructors & Destructors ---
+		#region SdlImage()
         /// <summary>
-        ///     Static Sdl constructor. All the functionality of 
-        ///     the SDL library is available through this class 
-        ///     and its properties.
-        /// </summary>
-        static SdlImage() {
-            foreach(MethodInfo mi in 
-                Type.GetType("Tao.SimpleDirectMediaLayer.SdlImage").GetMethods()) {
-                try {
-                    Marshal.Prelink(mi);
-                }
-                catch {}
-            }
-        }
-        #endregion Static SdlImage()
-
-        #region SdlImage()
-        /// <summary>
-        ///     Prevents instantiation.
+        /// Prevents instantiation.
         /// </summary>
         private SdlImage() {
+        }
+
+        /// <summary>
+		/// Static SdlImage constructor. All the functionality of 
+		/// the SDLImage library is available through this class 
+		/// and its properties.
+		/// Explicit static constructor tells the C# compiler
+		/// not to mark type as beforefieldinit.
+        /// </summary>
+        static SdlImage() 
+		{
         }
         #endregion SdlImage()
 

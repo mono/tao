@@ -282,29 +282,24 @@ namespace Tao.Sdl {
         public delegate void ChannelFinishedDelegate(int channel);
         #endregion Public Delegates
 
-        #region Static SdlMixer()
-        // --- Constructors & Destructors ---
-        /// <summary>
-        ///     Static Sdl constructor. All the functionality of 
-        ///     the SDL library is available through this class 
-        ///     and its properties.
-        /// </summary>
-        static SdlMixer() {
-            foreach(MethodInfo mi in 
-                Type.GetType("Tao.SimpleDirectMediaLayer.SdlMixer").GetMethods()) {
-                try {
-                    Marshal.Prelink(mi);
-                }
-                catch {}
-            }
-        }
-        #endregion Static SdlMixer()
-
+		// --- Constructors & Destructors ---
         #region SdlMixer()
         /// <summary>
         ///     Prevents instantiation.
         /// </summary>
-        private SdlMixer() {
+        private SdlMixer() 
+		{
+        }
+
+        /// <summary>
+		/// Static SdlMixer constructor. All the functionality of 
+		/// the SDLMixer library is available through this class 
+		/// and its properties.
+		/// Explicit static constructor tells the C# compiler
+		/// not to mark type as beforefieldinit.
+        /// </summary>
+        static SdlMixer() 
+		{
         }
         #endregion SdlMixer()
 

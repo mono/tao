@@ -2866,7 +2866,19 @@ namespace Tao.Sdl {
 		/// <summary>
 		///     Prevents instantiation.
 		/// </summary>
-		private Sdl() {
+		private Sdl() 
+		{
+		}
+
+		/// <summary>
+		/// Static Sdl constructor. All the functionality of 
+		/// the SDL library is available through this class 
+		/// and its properties.
+		/// Explicit static constructor tells the C# compiler
+		/// not to mark type as beforefieldinit.
+		/// </summary>
+		static Sdl() 
+		{
 		}
 		#endregion Sdl()
 

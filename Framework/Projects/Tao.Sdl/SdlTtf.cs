@@ -141,29 +141,24 @@ namespace Tao.Sdl {
         }
         #endregion Public Structs
 
-        #region Static SdlTtf()
-        // --- Constructors & Destructors ---
-        /// <summary>
-        ///     Static SdlTtf constructor. All the functionality of 
-        ///     the SDLTtf library is available through this class 
-        ///     and its properties.
-        /// </summary>
-        static SdlTtf() {
-            foreach(MethodInfo mi in 
-                Type.GetType("Tao.SimpleDirectMediaLayer.SdlTtf").GetMethods()) {
-                try {
-                    Marshal.Prelink(mi);
-                }
-                catch {}
-            }
-        }
-        #endregion Static SdlTtf()
-
+		 // --- Constructors & Destructors ---
         #region SdlTtf()
         /// <summary>
         ///     Prevents instantiation.
         /// </summary>
-        private SdlTtf() {
+        private SdlTtf() 
+		{
+        }
+
+        /// <summary>
+		/// Static SdlTtf constructor. All the functionality of 
+		/// the SDLTtf library is available through this class 
+		/// and its properties.
+		/// Explicit static constructor tells the C# compiler
+		/// not to mark type as beforefieldinit.     
+        /// </summary>
+        static SdlTtf() 
+		{
         }
         #endregion SdlTtf()
 
