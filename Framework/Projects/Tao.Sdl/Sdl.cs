@@ -612,35 +612,35 @@ namespace Tao.Sdl {
 		/// Used as a mask when testing buttons in buttonstate
 		/// Button 1:	Left mouse button
 		/// </summary>
-		public const int SDL_BUTTON_LEFT = 1;
+		public const byte SDL_BUTTON_LEFT = 1;
 		/// <summary>
 		/// Button 2:	Middle mouse button
 		/// </summary>
-		public const int SDL_BUTTON_MIDDLE = 2;
+		public const byte SDL_BUTTON_MIDDLE = 2;
 		/// <summary>
 		/// Button 3:	Right mouse button
 		/// </summary>
-		public const int SDL_BUTTON_RIGHT = 3;
+		public const byte SDL_BUTTON_RIGHT = 3;
 		/// <summary>
 		/// Button 4:	Mouse wheel up	 (may also be a real button)
 		/// </summary>
-		public const int SDL_BUTTON_WHEELUP = 4;
+		public const byte SDL_BUTTON_WHEELUP = 4;
 		/// <summary>
 		/// Button 5:	Mouse wheel down (may also be a real button)
 		/// </summary>
-		public const int SDL_BUTTON_WHEELDOWN = 5;
+		public const byte SDL_BUTTON_WHEELDOWN = 5;
 		/// <summary>
 		/// 
 		/// </summary>
-		public const int SDL_BUTTON_LMASK = SDL_PRESSED << ((int)SDL_BUTTON_LEFT - 1);
+		public const byte SDL_BUTTON_LMASK = SDL_PRESSED << ((byte)SDL_BUTTON_LEFT - 1);
 		/// <summary>
 		/// 
 		/// </summary>
-		public const int SDL_BUTTON_MMASK = SDL_PRESSED << ((int)SDL_BUTTON_MIDDLE - 1);
+		public const byte SDL_BUTTON_MMASK = SDL_PRESSED << ((byte)SDL_BUTTON_MIDDLE - 1);
 		/// <summary>
 		/// 
 		/// </summary>
-		public const int SDL_BUTTON_RMASK = SDL_PRESSED << ((int)SDL_BUTTON_RIGHT - 1);
+		public const byte SDL_BUTTON_RMASK = SDL_PRESSED << ((byte)SDL_BUTTON_RIGHT - 1);
 		#endregion SDL_mouse.h
 
 		// SDL_mutex.h -- Skipped. Superceded by System.Threading class
@@ -7710,6 +7710,16 @@ namespace Tao.Sdl {
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_ShowCursor(int toggle);
 		#endregion int SDL_ShowCursor(int toggle)
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="x"></param>
+		/// <returns></returns>
+		public static byte SDL_BUTTON(byte x)
+		{
+			return (byte)(Sdl.SDL_PRESSED<<(x-1));
+		}
 		#endregion SDL_mouse.h
 
 		// SDL_mutex.h -- Skipped. Superceded by System.Threading class
@@ -8137,8 +8147,8 @@ namespace Tao.Sdl {
 		///     </p>
 		/// </remarks>
 		/// <param name="width">Width of mode</param>
-		/// <param name="height">Height of mdoe</param>
-		/// <param name="bpp">bit depth of Mdoe</param>
+		/// <param name="height">Height of mode</param>
+		/// <param name="bpp">bit depth of Mode</param>
 		/// <param name="flags"></param>
 		/// <returns></returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
