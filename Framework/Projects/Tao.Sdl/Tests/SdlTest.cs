@@ -669,6 +669,75 @@ namespace Tao.Sdl
 			Sdl.SDL_CDClose(cd);
 			Sdl.SDL_Quit();
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Category("CDROM")]
+		public void TrackAudio()
+		{
+			Sdl.SDL_Quit();
+			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+			IntPtr intPtr = Sdl.SDL_CDOpen(0);
+			Console.WriteLine("CD_INDRIVE: " + Sdl.CD_INDRIVE(Sdl.SDL_CDStatus(intPtr)));
+			//Make sure there is a CD in the drive
+			Assert.AreEqual(Sdl.CD_INDRIVE(Sdl.SDL_CDStatus(intPtr)), 1);
+			
+			Sdl.SDL_CD cd = 
+				(Sdl.SDL_CD)Marshal.PtrToStructure(
+				intPtr, typeof(Sdl.SDL_CD));
+			//Sdl.SDL_CDtrack[] cdTrack = new Sdl.SDL_CDtrack[cd.numtracks];
+			//IntPtr current;
+			Console.WriteLine(cd.numtracks);
+			Console.WriteLine(cd.cur_frame);
+			Console.WriteLine(cd.cur_track);
+			Console.WriteLine(cd.id);
+			Console.WriteLine(cd.status);
+			int minutes;
+			int seconds;
+			int frames;
+			
+			for (int i = 0; i < cd.numtracks; i++ )
+			{
+				Console.WriteLine("Type: " + cd.track[i].type);
+				Sdl.FRAMES_TO_MSF(cd.track[i].length, out minutes, out seconds, out frames);
+				Console.WriteLine("Length: " + minutes + ":" + seconds);
+				Console.WriteLine("Id: " + cd.track[i].id);
+				//Console.WriteLine(cd.track.ToInt32());
+				//cdTrack[ i ] = (Sdl.SDL_CDtrack)Marshal.PtrToStructure( cd.track, typeof(Sdl.SDL_CDtrack));
+				
+//				
+//         
+//				//Marshal.FreeCoTaskMem( (IntPtr)Marshal.ReadInt32( current ));
+//				//Marshal.DestroyStructure( current, typeof(Sdl.SDL_CDtrack) );
+//				current = (IntPtr)((int)current + 
+					//Marshal.SizeOf( cdTrack[ i ] ));
+         
+				//current = Marshal.ReadIntPtr(intPtr, Marshal.SizeOf(typeof(Sdl.SDL_CDtrack)));
+				//current = new IntPtr(intPtr.ToInt32() + i * Marshal.SizeOf(typeof(Sdl.SDL_CDtrack)));
+				//Marshal.Copy(current, j, 0, Marshal.SizeOf(typeof(Sdl.SDL_CDtrack)));
+				//Marshal.Copy(j, 0, structPtr, Marshal.SizeOf(typeof(Sdl.SDL_CDtrack)));
+				//Marshal.WriteIntPtr(intPtr, structPtr[i]);
+
+				//Console.WriteLine("SDL_CDtrack: " + Marshal.SizeOf(typeof(Sdl.SDL_CDtrack)));
+				//Assert.IsFalse(intPtr == IntPtr.Zero);
+				//Assert.IsFalse(current == IntPtr.Zero);
+				//Assert.IsFalse(structPtr[i] == IntPtr.Zero);
+				//Console.WriteLine(intPtr.ToString());
+				//Console.WriteLine(current.ToString());
+				//Console.WriteLine(structPtr[i].ToString());
+				//cdTrack[ i ] = (Sdl.SDL_CDtrack)Marshal.PtrToStructure( structPtr[i], typeof(Sdl.SDL_CDtrack));
+
+				//Console.WriteLine( "Track Id: " + cdTrack[ i ].id );
+				//Console.WriteLine( "Track Type: " + cdTrack[i].type );
+
+				//Assert.AreEqual(cdTrack[i].type,(byte) Sdl.SDL_AUDIO_TRACK);
+			}
+			Sdl.SDL_CDClose(intPtr);
+			Sdl.SDL_Quit();
+		}
+
 		/// <summary>
 		/// 
 		/// </summary>

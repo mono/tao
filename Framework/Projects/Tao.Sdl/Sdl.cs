@@ -74,6 +74,8 @@ namespace Tao.Sdl {
 		private const CallingConvention CALLING_CONVENTION = 
 			CallingConvention.Cdecl;
 		#endregion CallingConvention CALLING_CONVENTION
+
+		private const int BYTE_SIZE = 8;
 		#endregion Private Constants
 
 		#region Public Constants
@@ -2728,8 +2730,8 @@ namespace Tao.Sdl {
 		/// </example>
 		/// <seealso cref="SDL_CDOpen"/>
 		/// <seealso cref="SDL_CDtrack"/>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_CD 
+		[StructLayout(LayoutKind.Sequential)]
+			public class SDL_CD 
 		{
 			/// <summary>
 			/// Private drive identifier
@@ -2757,10 +2759,67 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// Array of track descriptions. (see <see cref="SDL_CDtrack"/>)
 			/// </summary>
-			//[MarshalAs(UnmanagedType.ByValArray,ArraySubType=UnmanagedType.LPStruct, SizeConst=100)] 
-			//public SDL_CDtrack[] track;
-			public IntPtr track;
+			public SDL_CDTrackData track;
+			/// <summary>
+			/// 
+			/// </summary>
+			public SDL_CD()
+			{
+				track = new SDL_CDTrackData();
+			}
 		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		[StructLayout(LayoutKind.Sequential)]
+			public class SDL_CDTrackData
+		{
+			[MarshalAs(UnmanagedType.ByValArray, SizeConst=Sdl.SDL_MAX_TRACKS*Sdl.BYTE_SIZE)]
+			private byte[] trackData;
+			/// <summary>
+			/// 
+			/// </summary>
+			public Sdl.SDL_CDtrack this[int index]
+			{
+				get
+				{
+					if ( (index < 0) | (index >= Sdl.SDL_MAX_TRACKS))
+					{
+						throw new IndexOutOfRangeException();
+					}
+
+					Sdl.SDL_CDtrack track;
+					GCHandle trackDataHandle = 
+						GCHandle.Alloc(trackData, GCHandleType.Pinned);
+
+					try
+					{
+						IntPtr trackDataBuffer = 
+							trackDataHandle.AddrOfPinnedObject();
+						trackDataBuffer = (IntPtr)(trackDataBuffer.ToInt32() + 
+							(index * Marshal.SizeOf(typeof(Sdl.SDL_CDtrack))));
+						track = (Sdl.SDL_CDtrack)Marshal.PtrToStructure(
+							trackDataBuffer, typeof(Sdl.SDL_CDtrack));
+					}
+					finally
+					{
+						trackDataHandle.Free();
+					}
+					return track;
+				}
+			}
+			/// <summary>
+			/// 
+			/// </summary>
+			public SDL_CDTrackData()
+			{
+				trackData = new byte[Sdl.SDL_MAX_TRACKS*Marshal.SizeOf(typeof(Sdl.SDL_CDtrack))];
+			}
+		}
+
+
+
 		#endregion SDL_CD
 		#endregion SDL_cdrom.h
 
