@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<project name="NeHe.Lesson09">
+    <target name="build">
+        <echo message="Build Directory is ${examples.build.directory}" />
+        <csc target="winexe" warnaserror="false" unsafe="false" debug="${build.debug}" optimize="${build.optimize}" output="${examples.build.directory}/${nant.project.name}.exe" define="${build.debug.define};">
+            <references basedir="${framework.build.directory}">
+                <includes name="Tao.OpenGl.dll" />
+                <includes name="Tao.Platform.Windows.dll" />
+            </references>
+            <sources failonempty="true">
+                <includes name="${examples.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
+                <includes name="${examples.projects.directory}/${nant.project.name}/Lesson09.cs" />
+            </sources>
+        </csc>
+        <copy file="${examples.projects.directory}/${nant.project.name}/Data/NeHe.Lesson09.Star.bmp" todir="${examples.build.directory}/Data" />
+        <copy file="${examples.solutions.directory}/NeHe/Solution Items/NeHe.License.txt" todir="${examples.build.directory}" />
+        <copy file="${examples.solutions.directory}/NeHe/Solution Items/NeHe.Readme.txt" todir="${examples.build.directory}" />
+    </target>
+
+    <target name="clean">
+        <delete file="${examples.build.directory}/${nant.project.name}.exe" failonerror="false" />
+        <delete file="${examples.build.directory}/${nant.project.name}.pdb" failonerror="false" />
+        <delete file="${examples.build.directory}/Data/NeHe.Lesson09.Star.bmp" failonerror="false" />
+        <delete file="${examples.build.directory}/NeHe.License.txt" failonerror="false" />
+        <delete file="${examples.build.directory}/NeHe.Readme.txt" failonerror="false" />
+    </target>
+</project>

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<project name="GeWang.Shadow">
+    <target name="build">
+        <echo message="Build Directory is ${examples.build.directory}" />
+        <csc target="exe" warnaserror="false" unsafe="false" debug="${build.debug}" optimize="${build.optimize}" output="${examples.build.directory}/${nant.project.name}.exe" define="${build.debug.define};">
+            <references basedir="${framework.build.directory}">
+                <includes name="Tao.Glut.dll" />
+                <includes name="Tao.OpenGl.dll" />
+            </references>
+            <sources failonempty="true">
+                <includes name="${examples.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
+                <includes name="${examples.projects.directory}/${nant.project.name}/Shadow.cs" />
+            </sources>
+        </csc>
+        <copy file="${examples.solutions.directory}/GeWang/Solution Items/GeWang.License.txt" todir="${examples.build.directory}" />
+        <copy file="${examples.solutions.directory}/GeWang/Solution Items/GeWang.Readme.txt" todir="${examples.build.directory}" />
+    </target>
+
+    <target name="clean">
+        <delete file="${examples.build.directory}/${nant.project.name}.exe" failonerror="false" />
+        <delete file="${examples.build.directory}/${nant.project.name}.pdb" failonerror="false" />
+        <delete file="${examples.build.directory}/GeWang.License.txt" failonerror="false" />
+        <delete file="${examples.build.directory}/GeWang.Readme.txt" failonerror="false" />
+    </target>
+</project>

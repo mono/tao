@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<project name="Redbook.Bezsurf">
+    <target name="build">
+        <echo message="Build Directory is ${examples.build.directory}" />
+        <csc target="winexe" warnaserror="false" unsafe="false" debug="${build.debug}" optimize="${build.optimize}" output="${examples.build.directory}/${nant.project.name}.exe" define="${build.debug.define};">
+            <references basedir="${framework.build.directory}">
+                <includes name="Tao.Glut.dll" />
+                <includes name="Tao.OpenGl.dll" />
+            </references>
+            <sources failonempty="true">
+                <includes name="${examples.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
+                <includes name="${examples.projects.directory}/${nant.project.name}/Bezsurf.cs" />
+            </sources>
+        </csc>
+        <copy file="${examples.solutions.directory}/Redbook/Solution Items/Redbook.License.txt" todir="${examples.build.directory}" />
+        <copy file="${examples.solutions.directory}/Redbook/Solution Items/Redbook.Readme.txt" todir="${examples.build.directory}" />
+    </target>
+
+    <target name="clean">
+        <delete file="${examples.build.directory}/${nant.project.name}.exe" failonerror="false" />
+        <delete file="${examples.build.directory}/${nant.project.name}.pdb" failonerror="false" />
+        <delete file="${examples.build.directory}/Redbook.License.txt" failonerror="false" />
+        <delete file="${examples.build.directory}/Redbook.Readme.txt" failonerror="false" />
+    </target>
+</project>

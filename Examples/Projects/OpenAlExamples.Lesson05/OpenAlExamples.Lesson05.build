@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<project name="OpenAlExamples.Lesson05">
+    <target name="build">
+        <echo message="Build Directory is ${examples.build.directory}" />
+        <csc target="exe" warnaserror="false" unsafe="false" debug="${build.debug}" optimize="${build.optimize}" output="${examples.build.directory}/${nant.project.name}.exe" define="${build.debug.define};">
+            <references basedir="${framework.build.directory}">
+                <includes name="Tao.Glut.dll" />
+                <includes name="Tao.OpenAl.dll" />
+                <includes name="Tao.OpenGl.dll" />
+            </references>
+            <sources failonempty="true">
+                <includes name="${examples.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
+                <includes name="${examples.projects.directory}/${nant.project.name}/Lesson05.cs" />
+            </sources>
+        </csc>
+        <copy file="${examples.projects.directory}/${nant.project.name}/Data/OpenAlExamples.Lesson05.Chimes.wav" todir="${examples.build.directory}/Data" />
+        <copy file="${examples.projects.directory}/${nant.project.name}/Data/OpenAlExamples.Lesson05.Ocean.wav" todir="${examples.build.directory}/Data" />
+        <copy file="${examples.projects.directory}/${nant.project.name}/Data/OpenAlExamples.Lesson05.Rain.wav" todir="${examples.build.directory}/Data" />
+        <copy file="${examples.projects.directory}/${nant.project.name}/Data/OpenAlExamples.Lesson05.Stream.wav" todir="${examples.build.directory}/Data" />
+        <copy file="${examples.projects.directory}/${nant.project.name}/Data/OpenAlExamples.Lesson05.Thunder.wav" todir="${examples.build.directory}/Data" />
+        <copy file="${examples.projects.directory}/${nant.project.name}/Data/OpenAlExamples.Lesson05.Waterdrop.wav" todir="${examples.build.directory}/Data" />
+        <copy file="${examples.solutions.directory}/OpenAlExamples/Solution Items/OpenAlExamples.License.txt" todir="${examples.build.directory}" />
+        <copy file="${examples.solutions.directory}/OpenAlExamples/Solution Items/OpenAlExamples.Readme.txt" todir="${examples.build.directory}" />
+    </target>
+
+    <target name="clean">
+        <delete file="${examples.build.directory}/${nant.project.name}.exe" failonerror="false" />
+        <delete file="${examples.build.directory}/${nant.project.name}.pdb" failonerror="false" />
+        <delete file="${examples.build.directory}/Data/OpenAlExamples.Lesson05.Chimes.wav" failonerror="false" />
+        <delete file="${examples.build.directory}/Data/OpenAlExamples.Lesson05.Ocean.wav" failonerror="false" />
+        <delete file="${examples.build.directory}/Data/OpenAlExamples.Lesson05.Rain.wav" failonerror="false" />
+        <delete file="${examples.build.directory}/Data/OpenAlExamples.Lesson05.Stream.wav" failonerror="false" />
+        <delete file="${examples.build.directory}/Data/OpenAlExamples.Lesson05.Thunder.wav" failonerror="false" />
+        <delete file="${examples.build.directory}/Data/OpenAlExamples.Lesson05.Waterdrop.wav" failonerror="false" />
+        <delete file="${examples.build.directory}/OpenAlExamples.License.txt" failonerror="false" />
+        <delete file="${examples.build.directory}/OpenAlExamples.Readme.txt" failonerror="false" />
+    </target>
+</project>
