@@ -7190,7 +7190,7 @@ namespace Tao.Sdl {
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_JoystickGetBall(IntPtr joystick, 
-			int ball, IntPtr dx, IntPtr dy);
+			int ball, out int dx, out int dy);
 		#endregion int SDL_JoystickGetBall(...)
 		
 		#region byte SDL_JoystickGetButton(IntPtr joystick, int button)
