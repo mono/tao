@@ -423,26 +423,81 @@ namespace Tao.Sdl {
 		/// Button 5:	Mouse wheel down (may also be a real button)
 		/// </summary>
 		public const int SDL_BUTTON_WHEELDOWN = 5;
-		
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_BUTTON_LMASK = SDL_PRESSED << ((int)SDL_BUTTON_LEFT - 1);
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_BUTTON_MMASK = SDL_PRESSED << ((int)SDL_BUTTON_MIDDLE - 1);
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_BUTTON_RMASK = SDL_PRESSED << ((int)SDL_BUTTON_RIGHT - 1);
-
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_ACTIVEEVENTMASK		= 1 << SDL_ACTIVEEVENT;
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_KEYDOWNMASK			= 1 << SDL_KEYDOWN;
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_KEYUPMASK				= 1 << SDL_KEYUP;
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_MOUSEMOTIONMASK		= 1 << SDL_MOUSEMOTION;
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_MOUSEBUTTONDOWNMASK	= 1 << SDL_MOUSEBUTTONDOWN;
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_MOUSEBUTTONUPMASK		= 1 << SDL_MOUSEBUTTONUP;
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_MOUSEEVENTMASK			= (1 << SDL_MOUSEMOTION)| (1 << SDL_MOUSEBUTTONDOWN)| (1 << SDL_MOUSEBUTTONUP);
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_JOYAXISMOTIONMASK		= 1 << SDL_JOYAXISMOTION;
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_JOYBALLMOTIONMASK		= 1 << SDL_JOYBALLMOTION;
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_JOYHATMOTIONMASK		= 1 << SDL_JOYHATMOTION;
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_JOYBUTTONDOWNMASK		= 1 << SDL_JOYBUTTONDOWN;
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_JOYBUTTONUPMASK		= 1 << SDL_JOYBUTTONUP;
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_JOYEVENTMASK			= (1 << SDL_JOYAXISMOTION) | (1 << SDL_JOYBALLMOTION) | (1 << SDL_JOYHATMOTION) | (1 << SDL_JOYBUTTONDOWN) | (1 << SDL_JOYBUTTONUP);
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_VIDEORESIZEMASK		= 1 << SDL_VIDEORESIZE;
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_VIDEOEXPOSEMASK		= 1 << SDL_VIDEOEXPOSE;
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int SDL_QUITMASK				= 1 << SDL_QUIT;
 		// TODO:
 		//public const int SDL_SYSWMEVENTMASK			= 1 << SDL_SYSWMEVENT;
@@ -1848,8 +1903,17 @@ namespace Tao.Sdl {
 		/// Various event types.
 		/// </summary>
 		public enum SDL_eventaction {
+			/// <summary>
+			/// 
+			/// </summary>
 			SDL_ADDEVENT,
+			/// <summary>
+			/// 
+			/// </summary>
 			SDL_PEEKEVENT,
+			/// <summary>
+			/// 
+			/// </summary>
 			SDL_GETEVENT
 		}
 
