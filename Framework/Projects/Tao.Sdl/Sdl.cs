@@ -183,56 +183,56 @@ namespace Tao.Sdl {
 		/// <summary>
 		/// Unsigned 8-bit samples.
 		/// </summary>
-		public const int AUDIO_U8 = 0x0008;
+		public const short AUDIO_U8 = 0x0008;
 		#endregion AUDIO_U8
 
 		#region AUDIO_S8
 		/// <summary>
 		/// Signed 8-bit samples.
 		/// </summary>
-		public const int AUDIO_S8 = 0x8008;
+		public const short AUDIO_S8 = unchecked ((short)0x8008);
 		#endregion AUDIO_S8
 
 		#region AUDIO_U16LSB
 		/// <summary>
 		/// Unsigned 16-bit little-endian samples.
 		/// </summary>
-		public const int AUDIO_U16LSB = 0x0010;
+		public const short AUDIO_U16LSB = 0x0010;
 		#endregion AUDIO_U16LSB
 
 		#region AUDIO_S16LSB
 		/// <summary>
 		/// Signed 16-bit little-endian samples
 		/// </summary>
-		public const int AUDIO_S16LSB	= 0x8010;	
+		public const short AUDIO_S16LSB	= unchecked ((short)0x8010);	
 		#endregion AUDIO_S16LSB
 
 		#region AUDIO_U16MSB
 		/// <summary>
 		/// Unsigned 16-bit big-endian samples
 		/// </summary>
-		public const int AUDIO_U16MSB	= 0x1010;
+		public const short AUDIO_U16MSB	= 0x1010;
 		#endregion AUDIO_U16MSB
 
 		#region AUDIO_S16MSB
 		/// <summary>
 		/// Signed 16-bit big-endian samples
 		/// </summary>
-		public const int AUDIO_S16MSB	= 0x9010;
+		public const short AUDIO_S16MSB	= unchecked ((short)0x9010);
 		#endregion AUDIO_S16MSB
 
 		#region AUDIO_U16
 		/// <summary>
 		/// Unsigned 16-bit little-endian samples
 		/// </summary>
-		public readonly int AUDIO_U16 = AUDIO_U16LSB;
+		public readonly short AUDIO_U16 = AUDIO_U16LSB;
 		#endregion AUDIO_U16
 
 		#region AUDIO_S16
 		/// <summary>
 		/// Signed 16-bit little-endian samples
 		/// </summary>
-		public readonly int AUDIO_S16 = AUDIO_S16LSB;
+		public readonly short AUDIO_S16 = AUDIO_S16LSB;
 		#endregion AUDIO_S16
 
 		#region SDL_MIX_MAXVOLUME
@@ -2567,7 +2567,8 @@ namespace Tao.Sdl {
 			/// Array of track descriptions. (see <see cref="SDL_CDtrack"/>)
 			/// </summary>
 			//[MarshalAs(UnmanagedType.ByValArray,ArraySubType=UnmanagedType.LPStruct, SizeConst=100)] 
-			public SDL_CDtrack[] track;
+			//public SDL_CDtrack[] track;
+			public IntPtr track;
 		}
 		#endregion SDL_CD
 		#endregion SDL_cdrom.h
@@ -6606,7 +6607,7 @@ namespace Tao.Sdl {
 		public static extern int SDL_JoystickOpened(int device_index);
 		#endregion int SDL_JoystickOpened(int device_index)
 		
-		#region int SDL_JoystickIndex(ref SDL_Joystick joystick)
+		#region int SDL_JoystickIndex(IntPtr joystick)
 		/// <summary>
 		/// Get the index of an SDL_Joystick.
 		/// </summary>
@@ -6623,10 +6624,10 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_JoystickOpen"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_JoystickIndex(ref SDL_Joystick joystick);
-		#endregion int SDL_JoystickIndex(ref SDL_Joystick joystick)
+		public static extern int SDL_JoystickIndex(IntPtr joystick);
+		#endregion int SDL_JoystickIndex(IntPtr joystick)
 		
-		#region int SDL_JoystickNumAxes(ref SDL_Joystick joystick)
+		#region int SDL_JoystickNumAxes(IntPtr joystick)
 		/// <summary>
 		/// Get the number of joystick axes
 		/// </summary>
@@ -6645,10 +6646,10 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_JoystickGetAxis"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_JoystickNumAxes(ref SDL_Joystick joystick);
-		#endregion int SDL_JoystickNumAxes(ref SDL_Joystick joystick)
+		public static extern int SDL_JoystickNumAxes(IntPtr joystick);
+		#endregion int SDL_JoystickNumAxes(IntPtr joystick)
 
-		#region int SDL_JoystickNumBalls(ref SDL_Joystick joystick)
+		#region int SDL_JoystickNumBalls(IntPtr joystick)
 		/// <summary>
 		/// Get the number of joystick trackballs
 		/// </summary>
@@ -6667,10 +6668,10 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_JoystickGetBall"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_JoystickNumBalls(ref SDL_Joystick joystick);
-		#endregion int SDL_JoystickNumBalls(ref SDL_Joystick joystick)
+		public static extern int SDL_JoystickNumBalls(IntPtr joystick);
+		#endregion int SDL_JoystickNumBalls(IntPtr joystick)
 		
-		#region int SDL_JoystickNumHats(ref SDL_Joystick joystick)
+		#region int SDL_JoystickNumHats(IntPtr joystick)
 		/// <summary>
 		/// Get the number of joystick hats.
 		/// </summary>
@@ -6689,10 +6690,10 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_JoystickGetHat"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_JoystickNumHats(ref SDL_Joystick joystick);
-		#endregion int SDL_JoystickNumHats(ref SDL_Joystick joystick)
+		public static extern int SDL_JoystickNumHats(IntPtr joystick);
+		#endregion int SDL_JoystickNumHats(IntPtr joystick)
 		
-		#region int SDL_JoystickNumButtons(ref SDL_Joystick joystick)
+		#region int SDL_JoystickNumButtons(IntPtr joystick)
 		/// <summary>
 		/// Get the number of joystick buttons.
 		/// </summary>
@@ -6711,8 +6712,8 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_JoystickGetButton"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_JoystickNumButtons(ref SDL_Joystick joystick);
-		#endregion int SDL_JoystickNumButtons(ref SDL_Joystick joystick)
+		public static extern int SDL_JoystickNumButtons(IntPtr joystick);
+		#endregion int SDL_JoystickNumButtons(IntPtr joystick)
 
 		#region void SDL_JoystickUpdate()
 		/// <summary>
@@ -6767,7 +6768,7 @@ namespace Tao.Sdl {
 		public static extern int SDL_JoystickEventState(int state);
 		#endregion int SDL_JoystickEventState(int state)
 
-		#region short SDL_JoystickGetAxis(ref SDL_Joystick joystick, int axis)
+		#region short SDL_JoystickGetAxis(IntPtr joystick, int axis)
 		/// <summary>
 		/// Get the current state of an axis.
 		/// </summary>
@@ -6803,11 +6804,11 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_JoystickNumAxes"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern short SDL_JoystickGetAxis(ref SDL_Joystick joystick, 
+		public static extern short SDL_JoystickGetAxis(IntPtr joystick, 
 			int axis);
-		#endregion short SDL_JoystickGetAxis(ref SDL_Joystick joystick, int axis)
+		#endregion short SDL_JoystickGetAxis(IntPtr joystick, int axis)
 
-		#region byte SDL_JoystickGetHat(ref SDL_Joystick joystick, int hat)
+		#region byte SDL_JoystickGetHat(IntPtr joystick, int hat)
 		/// <summary>
 		/// Get the current state of a joystick hat
 		/// </summary>
@@ -6838,9 +6839,9 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_JoystickNumHats"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern byte SDL_JoystickGetHat(ref SDL_Joystick joystick,
+		public static extern byte SDL_JoystickGetHat(IntPtr joystick,
 			int hat);
-		#endregion byte SDL_JoystickGetHat(ref SDL_Joystick joystick, int hat)
+		#endregion byte SDL_JoystickGetHat(IntPtr joystick, int hat)
 		
 		#region int SDL_JoystickGetBall(...)
 		/// <summary>
@@ -6879,11 +6880,11 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_JoystickNumBalls"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_JoystickGetBall(ref SDL_Joystick joystick, 
+		public static extern int SDL_JoystickGetBall(IntPtr joystick, 
 			int ball, IntPtr dx, IntPtr dy);
 		#endregion int SDL_JoystickGetBall(...)
 		
-		#region byte SDL_JoystickGetButton(ref SDL_Joystick joystick, int button)
+		#region byte SDL_JoystickGetButton(IntPtr joystick, int button)
 		/// <summary>
 		/// Get the current state of a given button on a given joystick.
 		/// </summary>
@@ -6902,11 +6903,11 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_JoystickNumButtons"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern byte SDL_JoystickGetButton(ref SDL_Joystick joystick, 
+		public static extern byte SDL_JoystickGetButton(IntPtr joystick, 
 			int button);
-		#endregion byte SDL_JoystickGetButton(ref SDL_Joystick joystick, int button)
+		#endregion byte SDL_JoystickGetButton(IntPtr joystick, int button)
 		
-		#region void SDL_JoystickClose(ref SDL_Joystick joystick)
+		#region void SDL_JoystickClose(IntPtr joystick)
 		/// <summary>
 		/// Closes a previously opened joystick.
 		/// </summary>
@@ -6922,8 +6923,8 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_JoystickOpened"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_JoystickClose(ref SDL_Joystick joystick);
-		#endregion void SDL_JoystickClose(ref SDL_Joystick joystick)
+		public static extern void SDL_JoystickClose(IntPtr joystick);
+		#endregion void SDL_JoystickClose(IntPtr joystick)
 		#endregion SDL_joystick.h
 
 		#region SDL_keyboard.h

@@ -662,6 +662,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
+		[Category("CPUInfo")]
 		public void HasMMX()
 		{
 
@@ -674,6 +675,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
+		[Category("CPUInfo")]
 		public void HasMMXExt()
 		{
 
@@ -686,6 +688,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
+		[Category("CPUInfo")]
 		public void Has3DNow()
 		{
 
@@ -698,6 +701,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
+		[Category("CPUInfo")]
 		public void HasAltiVec()
 		{
 
@@ -710,6 +714,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
+		[Category("CPUInfo")]
 		public void HasRDTSC()
 		{
 
@@ -722,6 +727,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
+		[Category("CPUInfo")]
 		public void HasSSE()
 		{
 
@@ -734,6 +740,8 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
+		[Category("CPUInfo")]
+		[Category("CPUInfo")]
 		public void HasSSE2()
 		{
 
