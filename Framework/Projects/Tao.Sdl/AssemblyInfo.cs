@@ -66,7 +66,7 @@ using System.Security.Permissions;
 [assembly: AssemblyTitle("Tao Framework SDL Binding For .NET (Linux)")]
 #endif
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
-[assembly: AssemblyVersion("1.2.7.3")]
+[assembly: AssemblyVersion("2.0.0.0")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]
