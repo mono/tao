@@ -3,6 +3,29 @@
 + = Addition
 ! = Bug Fix
 
+[ August 5, 2004 - 0.12.1 ]
+    + Added environment variable expansion for all values. Environment variables
+      should be listed in the form ${VAR}.
+
+[ July 30, 2004 - 0.12.0 ]
+    + Added preprocessing via XML processing information tags. Available tags
+      are: <?if <exp> ?>, <?elseif <exp> ?>, <?else ?> and <?endif ?>. The
+      current expression parser is very basic, but will be replaced with a more
+      capable parser over time. Current operators available are: =, !=, <, >,
+      <=, >=. Current test variables available: OS, RuntimeVersion, RuntimeMajor,
+      RuntimeMinor, RuntimeRevision.
+
+[ July 27, 2004 - 0.11.4 ]
+    + Added 'useRegex' attribute to the Match tag. Matches can now use regular
+      expressions to match filenames.
+    + Added the 'assemblyName' attribute to the Project tag. Projects can now
+      set their output assembly name.
+    ! Fixed several bugs in the way that Project tags inheirt their parent
+      Solutions configuration options. This operation should now work fully as
+      intended.
+    ! Due to some wierdness, Project Guid's are now stored as part of the Project
+      node and created at parse time.
+
 [ May 11, 2004 - 0.11.3 ]
     ! Fixed a bug where I was writing the wrong property name for a projects root
       namespace.
@@ -18,24 +41,24 @@
       all build files for all targets.
 
 [ April 22, 2004 - 0.11.2 ]
-	! Fixed a bug with the /file command-line operator. Was using the unresolved
-	  file path rather then the resolved one, was making the attempt to open the
-	  dnpb file fail.
-	! Fixed a bug in the schema that required at least 1 solution and 1 reference
-	  path. We can do just fine with 0 of either of these. Some files may be all
-	  <Process> statements and not have any <Solution> tags.
-	! Fixed a bug that caused the project references not to be written with the
-	  SharpDevelop target.
-	* Changed the schema to version 1.2, allowing for Configuration nodes to exist
-	  under project nodes. The inheritance of values is hierarchical. Meaning, if
-	  you define a configuration named Debug at the Soltion level, and one by the
-	  same name at the Project level, the one at the Project level will first
-	  inherit the options of the Solution level configuration, then set it's own
-	  options. If you define a configuration at the Project level and it does not
-	  exist at the Solution level, it will be created at the Solution level.
-	* Project references should now work correctly across the board. Note that due
-	  to a restriction in Visual Studio, you can only reference projects in the same
-	  solution.
+    ! Fixed a bug with the /file command-line operator. Was using the unresolved
+      file path rather then the resolved one, was making the attempt to open the
+      dnpb file fail.
+    ! Fixed a bug in the schema that required at least 1 solution and 1 reference
+      path. We can do just fine with 0 of either of these. Some files may be all
+      <Process> statements and not have any <Solution> tags.
+    ! Fixed a bug that caused the project references not to be written with the
+      SharpDevelop target.
+    * Changed the schema to version 1.2, allowing for Configuration nodes to exist
+      under project nodes. The inheritance of values is hierarchical. Meaning, if
+      you define a configuration named Debug at the Soltion level, and one by the
+      same name at the Project level, the one at the Project level will first
+      inherit the options of the Solution level configuration, then set it's own
+      options. If you define a configuration at the Project level and it does not
+      exist at the Solution level, it will be created at the Solution level.
+    * Project references should now work correctly across the board. Note that due
+      to a restriction in Visual Studio, you can only reference projects in the same
+      solution.
 
 [ April 21, 2004 - 0.11.1 ]
     ! Fixed a problem with resolving paths in various targets. Was not properly
@@ -46,22 +69,22 @@
       file referecning verison 1.0 will fail! Please update to the 1.1 schema.
 
 [ April 19, 2004 - 0.11.0 ]
-	* Added several attributes across the code to make FxCop happy
-	! Fixed bugs in reference paths being written in the VS targets.
-	! Fixed a bug in ProjectNode which was doing two CWDStack.Push() calls instead of
-	  a Push/Pop pair. Was wreaking havoc with <Process> tags.	
-	! Fixed some bugs in the path tracking, both the Project and Solution nodes now
-	  have a FullPath property, which is the full path to the file resolved at load
-	  time. This should fix all path relativity problems.
-	+ Added new /clean switch, allowing the target to clean up any files it generated.
-	  in accordance, the ITarget interface has been updated to support a new Clean()
-	  method.
-	+ Completed addition of the <Process> tag, to allow the referencing of external
-	  prebuild.xml files.
-	+ Added the runtime attribute to the Project element. This allows the developer
-	  to specify which runtime a project should target (Mono or Microsoft). This is
-	  of course ignored in certain targets like the Visual Studio targets.
-	+ Added the SharpDevelop target.
+    * Added several attributes across the code to make FxCop happy
+    ! Fixed bugs in reference paths being written in the VS targets.
+    ! Fixed a bug in ProjectNode which was doing two CWDStack.Push() calls instead of
+      a Push/Pop pair. Was wreaking havoc with <Process> tags.	
+    ! Fixed some bugs in the path tracking, both the Project and Solution nodes now
+      have a FullPath property, which is the full path to the file resolved at load
+      time. This should fix all path relativity problems.
+    + Added new /clean switch, allowing the target to clean up any files it generated.
+      in accordance, the ITarget interface has been updated to support a new Clean()
+      method.
+    + Completed addition of the <Process> tag, to allow the referencing of external
+      prebuild.xml files.
+    + Added the runtime attribute to the Project element. This allows the developer
+      to specify which runtime a project should target (Mono or Microsoft). This is
+      of course ignored in certain targets like the Visual Studio targets.
+    + Added the SharpDevelop target.
 
 [ April 13, 2004 - 0.10.1a ]
     + Added the buildAction attribute to the File node. This is needed for dnpb

@@ -1,49 +1,71 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <DNPreBuild xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.2.xsd" version="1.2">
     <Solution name="Tao.Sdl">
-        <Configuration name="Debug">
-            <Options>
-                <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-                <OptimizeCode>false</OptimizeCode>
+	<Configuration name="Debug">
+	    <Options>
+		<CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		<OptimizeCode>false</OptimizeCode>
 		<AllowUnsafe>true</AllowUnsafe>
-                <OutputPath>bin\Debug</OutputPath>
-                <XmlDocFile>Tao.Sdl.xml</XmlDocFile>
+		<OutputPath>bin\Debug</OutputPath>
+		<XmlDocFile>Tao.Sdl.xml</XmlDocFile>
 		<DebugInformation>true</DebugInformation>
-            </Options>
-        </Configuration>
-        <Configuration name="Release">
-            <Options>
-                <CompilerDefines>TRACE;WIN32</CompilerDefines>
-                <OptimizeCode>true</OptimizeCode>
+	    </Options>
+	</Configuration>
+	<Configuration name="Release">
+	    <Options>
+		<CompilerDefines>TRACE;WIN32</CompilerDefines>
+		<OptimizeCode>true</OptimizeCode>
 		<AllowUnsafe>true</AllowUnsafe>
-                <OutputPath>bin\Release</OutputPath>
-                <XmlDocFile>Tao.Sdl.xml</XmlDocFile>
-                <DebugInformation>false</DebugInformation>
-            </Options>
-        </Configuration>
-        <Files>
-            <File>Solution Items\Tao.Sdl.License.txt</File>
-            <File>Solution Items\Tao.Sdl.Readme.txt</File>
-            <File>Solution Items\Tao.Sdl.snk</File>
-        </Files>
+		<OutputPath>bin\Release</OutputPath>
+		<XmlDocFile>Tao.Sdl.xml</XmlDocFile>
+		<DebugInformation>false</DebugInformation>
+	    </Options>
+	</Configuration>
+	<Files>
+	    <File>Solution Items\Tao.Sdl.License.txt</File>
+	    <File>Solution Items\Tao.Sdl.Readme.txt</File>
+	    <File>Solution Items\Tao.Sdl.snk</File>
+	</Files>
 	<Project name="Tao.Sdl" path="..\\..\\Projects\\Tao.Sdl\\" language="C#" type="Library">
+
 	    <Reference name="System" /> 
-            <Files>
-                <File>AssemblyInfo.cs</File>
-                <File>Sdl.cs</File>
-                <File>SdlImage.cs</File>
-                <File>SdlMixer.cs</File>
-                <File>SdlTtf.cs</File>
-            </Files>
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>Sdl.cs</File>
+		<File>SdlImage.cs</File>
+		<File>SdlMixer.cs</File>
+		<File>SdlTtf.cs</File>
+	    </Files>
 	</Project>
-	<Project name="Tao.Sdl.Tests" path="..\\..\\Projects\\Tao.Sdl\\Tao.Sdl.Tests" language="C#" type="Library">
+	<Project name="Tao.Sdl.Tests" path="..\\..\\Projects\\Tao.Sdl\\Tests" language="C#" type="Library">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>true</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <XmlDocFile>Tao.Sdl.Tests.xml</XmlDocFile>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>true</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <XmlDocFile>Tao.Sdl.Tests.xml</XmlDocFile>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
 	    <Reference name="System" /> 
 	    <Reference name="nunit.framework.dll" path="..\\..\\Other\\NAnt\\lib\\net\\1.1"/>
 	    <Reference name="Tao.Sdl" />
-            <Files>
-                <File>AssemblyInfo.cs</File>
-                <File>SdlTest.cs</File>
-            </Files>
-        </Project>
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>SdlTest.cs</File>
+		<File>SdlTestVideo.cs</File>
+	    </Files>
+	</Project>
     </Solution>
 </DNPreBuild>
