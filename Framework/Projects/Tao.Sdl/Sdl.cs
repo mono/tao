@@ -39,7 +39,8 @@ namespace Tao.Sdl {
 	///     Binds functions and definitions in SDL.dll or libSDL.so.
 	/// </remarks>
 	#endregion Class Documentation
-	public sealed class Sdl {
+	public sealed class Sdl 
+	{
 		#region Private Constants
 		#region string SDL_NATIVE_LIBRARY
 		/// <summary>
@@ -49,7 +50,7 @@ namespace Tao.Sdl {
 		///     Specifies SDL.dll for Windows and libSDL.so for Linux.
 		/// </remarks>
 #if WIN32
-        private const string SDL_NATIVE_LIBRARY = "SDL.dll";
+		private const string SDL_NATIVE_LIBRARY = "SDL.dll";
 #elif LINUX
 		private const string SDL_NATIVE_LIBRARY = "libSDL.so";
 #endif
@@ -502,23 +503,144 @@ namespace Tao.Sdl {
 
 		// SDL_getenv.h -- none
 
-		// SDL_joystick.h -- TODO
-		// SDL_keyboard.h -- TODO
-		// SDL_keysym.h -- TODO
-		// SDL_loadso.h -- TODO
+		#region SDL_joystick.h
+		/// <summary>
+		/// Indicates which position a joystick hat is pressed in
+		/// </summary>
+		public const byte SDL_HAT_CENTERED = 0x00;
 
+		/// <summary>
+		/// 
+		/// </summary>
+		public const byte SDL_HAT_UP = 0x01;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public const byte SDL_HAT_RIGHT = 0x02;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public const byte SDL_HAT_DOWN = 0x04;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		public const byte SDL_HAT_LEFT = 0x08;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const byte SDL_HAT_RIGHTUP = (SDL_HAT_RIGHT|SDL_HAT_UP);
+		/// <summary>
+		/// 
+		/// </summary>
+		public const byte SDL_HAT_RIGHTDOWN = (SDL_HAT_RIGHT|SDL_HAT_DOWN);
+		/// <summary>
+		/// 
+		/// </summary>
+		public const byte SDL_HAT_LEFTUP = (SDL_HAT_LEFT|SDL_HAT_UP);
+		/// <summary>
+		/// 
+		/// </summary>
+		public const byte SDL_HAT_LEFTDOWN = (SDL_HAT_LEFT|SDL_HAT_DOWN);
+		#endregion SDL_joystick.h
+
+		#region SDL_keyboard.h
+		/// <summary>
+		/// This is the mask which refers to all hotkey bindings.
+		/// </summary>
+		public const int SDL_ALL_HOTKEYS = unchecked((int) 0xFFFFFFFF);
+
+		/// <summary>
+		/// Enable/Disable keyboard repeat.  Keyboard repeat defaults to off. 
+		/// 'delay' is the initial delay in ms between the time 
+		/// when a key is pressed,
+		/// and keyboard repeat begins.
+		/// </summary>
+		/// <seealso cref="SDL_EnableKeyRepeat"/>
+		public const int SDL_DEFAULT_REPEAT_DELAY = 500;
+		
+		/// <summary>
+		/// Enable/Disable keyboard repeat.  Keyboard repeat defaults to off. 
+		/// 'interval' is the time in ms between keyboard repeat events.
+		/// </summary>
+		/// <seealso cref="SDL_EnableKeyRepeat"/>
+		public const int SDL_DEFAULT_REPEAT_INTERVAL = 30;
+		#endregion SDL_keyboard.h
+
+		#region SDL_keysym.h
+		/// <summary>
+		/// Both CTRL keys.
+		/// </summary>
+		public const short KMOD_CTRL = 
+			(short) (SDLMod.KMOD_LCTRL|SDLMod.KMOD_RCTRL);
+
+		/// <summary>
+		/// Both SHIFT keys.
+		/// </summary>
+		public const short KMOD_SHIFT = 
+			(short) (SDLMod.KMOD_LSHIFT|SDLMod.KMOD_RSHIFT);
+
+		/// <summary>
+		/// Both ALT keys.
+		/// </summary>
+		public const short KMOD_ALT = 
+			(short) (SDLMod.KMOD_LALT|SDLMod.KMOD_RALT);
+
+		/// <summary>
+		/// Both META keys.
+		/// </summary>
+		public const short KMOD_META = (
+			short) (SDLMod.KMOD_LMETA|SDLMod.KMOD_RMETA);
+		#endregion SDL_keysym.h
+
+		// SDL_loadso.h -- skipped
 		// SDL_main.h -- none
 
-		// SDL_mouse.h --TODO
-		// SDL_mutex.h -- TODO
+		#region SDL_mouse.h
+		/// <summary>
+		/// Used as a mask when testing buttons in buttonstate
+		/// Button 1:	Left mouse button
+		/// </summary>
+		public const int SDL_BUTTON_LEFT = 1;
+		/// <summary>
+		/// Button 2:	Middle mouse button
+		/// </summary>
+		public const int SDL_BUTTON_MIDDLE = 2;
+		/// <summary>
+		/// Button 3:	Right mouse button
+		/// </summary>
+		public const int SDL_BUTTON_RIGHT = 3;
+		/// <summary>
+		/// Button 4:	Mouse wheel up	 (may also be a real button)
+		/// </summary>
+		public const int SDL_BUTTON_WHEELUP = 4;
+		/// <summary>
+		/// Button 5:	Mouse wheel down (may also be a real button)
+		/// </summary>
+		public const int SDL_BUTTON_WHEELDOWN = 5;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_BUTTON_LMASK = SDL_PRESSED << ((int)SDL_BUTTON_LEFT - 1);
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_BUTTON_MMASK = SDL_PRESSED << ((int)SDL_BUTTON_MIDDLE - 1);
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_BUTTON_RMASK = SDL_PRESSED << ((int)SDL_BUTTON_RIGHT - 1);
+		#endregion SDL_mouse.h
 
+		// SDL_mutex.h -- Skipped. Superceded by System.Threading class
 		// SDL_name.h -- none
 		// SDL_opengl.h -- superceded by Tao.OpenGL
 		// SDL_quit.h -- none
-		// TODO: SDL_rwops -- skipped for now, might be useful.
-
-		// SDL_syswm.h -- TODO
-		// SDL_thread.h -- TODO?
+		// SDL_rwops -- skipped for now, might be useful.
+		// SDL_syswm.h -- none
+		// SDL_thread.h -- skipped. Superceded by System.Threading class
 
 		#region SDL_timer.h
 		#region SDL_TIMESLICE
@@ -539,7 +661,27 @@ namespace Tao.Sdl {
 		#endregion TIMER_RESOLUTION
 		#endregion SDL_timer.h
 
-		// SDL_types -- none
+		#region SDL_types.h
+		/// <summary>
+		/// Button in pressed state.
+		/// </summary>
+		/// <remarks>
+		/// SDL_types.h defines SDL_PRESSED and <see cref="SDL_RELEASED"/>
+		///  in a nameless enum. Defining SDL_PRESSED as a const works 
+		///  better for Tao.SDL purposes</remarks>
+		///  <seealso cref="SDL_RELEASED"/>
+		public const byte SDL_PRESSED = 0x01;
+		/// <summary>
+		/// Button in released state.
+		/// </summary>
+		/// <remarks>
+		/// SDL_types.h defines <see cref="SDL_PRESSED"/> and SDL_RELEASED
+		///  in a nameless enum. Defining SDL_RELEASED as a const works 
+		///  better for Tao.SDL purposes</remarks>
+		///  <seealso cref="SDL_PRESSED"/>
+		public const byte SDL_RELEASED = 0x00;
+		#endregion SDL_types.h
+
 		// SDL_version -- none
 
 		#region SDL_video.h
@@ -778,151 +920,6 @@ namespace Tao.Sdl {
 		//		#endregion SDL_GL_DOUBLEBUFFER
 
 		#endregion SDL_video.h
-
-		#region NOT_DONE
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDLK_ESCAPE = 27;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDLK_F1 = 282;
-		
-		
-		
-
-		/// <summary>
-		/// Indicates which position a joystick hat is pressed in
-		/// </summary>
-		public const byte SDL_HAT_CENTERED = 0x00;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public const byte SDL_HAT_UP = 0x01;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public const byte SDL_HAT_RIGHT = 0x02;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public const byte SDL_HAT_DOWN = 0x04;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public const byte SDL_HAT_LEFT = 0x08;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const byte SDL_HAT_RIGHTUP = (SDL_HAT_RIGHT|SDL_HAT_UP);
-		/// <summary>
-		/// 
-		/// </summary>
-		public const byte SDL_HAT_RIGHTDOWN = (SDL_HAT_RIGHT|SDL_HAT_DOWN);
-		/// <summary>
-		/// 
-		/// </summary>
-		public const byte SDL_HAT_LEFTUP = (SDL_HAT_LEFT|SDL_HAT_UP);
-		/// <summary>
-		/// 
-		/// </summary>
-		public const byte SDL_HAT_LEFTDOWN = (SDL_HAT_LEFT|SDL_HAT_DOWN);
-
-		/// <summary>
-		/// Used as a mask when testing buttons in buttonstate
-		/// Button 1:	Left mouse button
-		/// </summary>
-		public const int SDL_BUTTON_LEFT = 1;
-		/// <summary>
-		/// Button 2:	Middle mouse button
-		/// </summary>
-		public const int SDL_BUTTON_MIDDLE = 2;
-		/// <summary>
-		/// Button 3:	Right mouse button
-		/// </summary>
-		public const int SDL_BUTTON_RIGHT = 3;
-		/// <summary>
-		/// Button 4:	Mouse wheel up	 (may also be a real button)
-		/// </summary>
-		public const int SDL_BUTTON_WHEELUP = 4;
-		/// <summary>
-		/// Button 5:	Mouse wheel down (may also be a real button)
-		/// </summary>
-		public const int SDL_BUTTON_WHEELDOWN = 5;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_BUTTON_LMASK = SDL_PRESSED << ((int)SDL_BUTTON_LEFT - 1);
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_BUTTON_MMASK = SDL_PRESSED << ((int)SDL_BUTTON_MIDDLE - 1);
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_BUTTON_RMASK = SDL_PRESSED << ((int)SDL_BUTTON_RIGHT - 1);
-		
-
-		/// <summary>
-		///		Button in pressed state.
-		/// </summary>
-		public const int SDL_PRESSED = 0x01;
-
-		/// <summary>
-		///		Button in released state.
-		/// </summary>
-		public const int SDL_RELEASED = 0x00;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public const short KMOD_CTRL = 
-			(short) (SDLMod.KMOD_LCTRL|SDLMod.KMOD_RCTRL);
-		/// <summary>
-		/// 
-		/// </summary>
-		public const short KMOD_SHIFT = 
-			(short) (SDLMod.KMOD_LSHIFT|SDLMod.KMOD_RSHIFT);
-		/// <summary>
-		/// 
-		/// </summary>
-		public const short KMOD_ALT = 
-			(short) (SDLMod.KMOD_LALT|SDLMod.KMOD_RALT);
-		/// <summary>
-		/// 
-		/// </summary>
-		public const short KMOD_META = (
-			short) (SDLMod.KMOD_LMETA|SDLMod.KMOD_RMETA);
-		
-		/// <summary>
-		/// Enable/Disable keyboard repeat.  Keyboard repeat defaults to off. 
-		/// 'delay' is the initial delay in ms between the time 
-		/// when a key is pressed,
-		/// and keyboard repeat begins.
-		/// </summary>
-		public const int SDL_DEFAULT_REPEAT_DELAY = 500;
-		
-		/// <summary>
-		/// Enable/Disable keyboard repeat.  Keyboard repeat defaults to off. 
-		/// 'interval' is the time in ms between keyboard repeat events.
-		/// </summary>
-		public const int SDL_DEFAULT_REPEAT_INTERVAL = 30;
-
-		/// <summary>
-		///
-		/// </summary>
-		public const int SDL_ALL_HOTKEYS = unchecked((int) 0xFFFFFFFF);
-
-		
-		
-		
-		#endregion NOT_DONE
-		
 		#endregion Public Constants
 
 		#region Public Enums
@@ -1021,216 +1018,11 @@ namespace Tao.Sdl {
 		#endregion SDL_events.h
 
 		// SDL_getenv.h -- none
+		// SDL_joystick.h -- none
+		// SDL_keyboard.h -- none
 
-		// SDL_joystick.h -- TODO
-		// SDL_keyboard.h -- TODO
-		// SDL_keysym.h -- TODO
-		// SDL_loadso.h -- TODO
-
-		// SDL_main.h -- none
-
-		// SDL_mouse.h --TODO
-		// SDL_mutex.h -- TODO
-
-		// SDL_name.h -- none
-		// SDL_opengl.h -- superceded by Tao.OpenGL
-		// SDL_quit.h -- none
-		// TODO: SDL_rwops -- skipped for now, might be useful.
-
-		// SDL_syswm.h -- TODO
-		// SDL_thread.h -- TODO?
-
-		// SDL_timer.h -- none
-
-		#region SDL_types.h
-		#region SDL_bool
-		/// <summary>
-		///     
-		/// </summary>
-		public enum SDL_bool 
-		{
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_FALSE = 0,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_TRUE  = 1
-		}
-		#endregion SDL_bool
-		#endregion SDL_types.h
-
-		// SDL_version -- none
-
-		#region SDL_video.h
-		#region SDL_GLattr
-		/// <summary>
-		/// Public enumeration for setting the OpenGL window Attributes
-		/// </summary>
-		/// <remarks>
-		/// While you can set most OpenGL attributes normally, 
-		/// the attributes list above must be known before SDL 
-		/// sets the video mode. These attributes a set and read 
-		/// with <see cref="SDL_GL_SetAttribute"/> and <see cref="SDL_GL_GetAttribute"/>.
-		/// </remarks>
-		/// <see cref="SDL_GL_SetAttribute"/>
-		/// <see cref="SDL_GL_GetAttribute"/>
-		public enum SDL_GLattr 
-		{
-			/// <summary>
-			/// Size of the framebuffer red component, in bits
-			/// </summary>
-			SDL_GL_RED_SIZE,
-			/// <summary>
-			/// Size of the framebuffer green component, in bits
-			/// </summary>
-			SDL_GL_GREEN_SIZE,
-			/// <summary>
-			/// Size of the framebuffer blue component, in bits
-			/// </summary>
-			SDL_GL_BLUE_SIZE,
-			/// <summary>
-			/// Size of the framebuffer alpha component, in bits
-			/// </summary>
-			SDL_GL_ALPHA_SIZE,
-			/// <summary>
-			/// Size of the framebuffer, in bits
-			/// </summary>
-			SDL_GL_BUFFER_SIZE,
-			/// <summary>
-			/// 0 or 1, enable or disable double buffering
-			/// </summary>
-			SDL_GL_DOUBLEBUFFER,
-			/// <summary>
-			/// Size of the depth buffer, in bits
-			/// </summary>
-			SDL_GL_DEPTH_SIZE,
-			/// <summary>
-			/// Size of the stencil buffer, in bits.
-			/// </summary>
-			SDL_GL_STENCIL_SIZE,
-			/// <summary>
-			/// Size of the accumulation buffer red component, in bits.
-			/// </summary>
-			SDL_GL_ACCUM_RED_SIZE,
-			/// <summary>
-			/// Size of the accumulation buffer green component, in bits.
-			/// </summary>
-			SDL_GL_ACCUM_GREEN_SIZE,
-			/// <summary>
-			/// Size of the accumulation buffer blue component, in bits.
-			/// </summary>
-			SDL_GL_ACCUM_BLUE_SIZE,
-			/// <summary>
-			/// Size of the accumulation buffer alpha component, in bits.
-			/// </summary>
-			SDL_GL_ACCUM_ALPHA_SIZE,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_GL_STEREO,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_GL_MULTISAMPLEBUFFERS,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_GL_MULTISAMPLESAMPLES
-		}
-		#endregion SDL_GLattr
-
-		#region SDL_GrabMode
-		/// <summary>
-		/// This function allows you to set and query the input grab state of
-		/// the application.  It returns the new input grab state.
-		/// </summary>
-		/// <see cref="SDL_WM_GrabInput"/>
-		public enum SDL_GrabMode 
-		{
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_GRAB_QUERY = -1,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_GRAB_OFF = 0,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_GRAB_ON = 1,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_GRAB_FULLSCREEN
-		}
-		#endregion SDL_GrabMode
-		#endregion SDL_video.h
-
-		#region NOT_DONE
-
-		/// <summary>
-		/// Enumeration of valid key mods (possibly OR'd together) 
-		/// </summary>
-		public enum SDLMod 
-		{
-			
-			/// <summary>
-			/// 
-			/// </summary>
-			KMOD_NONE  = 0x0000,
-			/// <summary>
-			/// 
-			/// </summary>
-			KMOD_LSHIFT= 0x0001,
-			/// <summary>
-			/// 
-			/// </summary>
-			KMOD_RSHIFT= 0x0002,
-			/// <summary>
-			/// 
-			/// </summary>
-			KMOD_LCTRL = 0x0040,
-			/// <summary>
-			/// 
-			/// </summary>
-			KMOD_RCTRL = 0x0080,
-			/// <summary>
-			/// 
-			/// </summary>
-			KMOD_LALT  = 0x0100,
-			/// <summary>
-			/// 
-			/// </summary>
-			KMOD_RALT  = 0x0200,
-			/// <summary>
-			/// 
-			/// </summary>
-			KMOD_LMETA = 0x0400,
-			/// <summary>
-			/// 
-			/// </summary>
-			KMOD_RMETA = 0x0800,
-			/// <summary>
-			/// 
-			/// </summary>
-			KMOD_NUM   = 0x1000,
-			/// <summary>
-			/// 
-			/// </summary>
-			KMOD_CAPS  = 0x2000,
-			/// <summary>
-			/// 
-			/// </summary>
-			KMOD_MODE  = 0x4000,
-			/// <summary>
-			/// 
-			/// </summary>
-			KMOD_RESERVED = 0x8000
-		}
-	
+		#region SDL_keysym.h
+		#region SDLKey
 		/// <summary>
 		/// What we really want is a mapping of every raw key on the keyboard.
 		/// To support international keyboards, we use the range 0xA1 - 0xFF
@@ -1238,8 +1030,8 @@ namespace Tao.Sdl {
 		/// We'll follow in the footsteps of X11...
 		/// The keyboard syms have been cleverly chosen to map to ASCII
 		/// </summary>
-		public enum SDLKey {
-			
+		public enum SDLKey 
+		{
 			/// <summary>
 			/// 
 			/// </summary>
@@ -1249,290 +1041,290 @@ namespace Tao.Sdl {
 			/// </summary>
 			SDLK_FIRST		= 0,
 			/// <summary>
-			/// 
+			/// backspace. '\b'
 			/// </summary>
 			SDLK_BACKSPACE		= 8,
 			/// <summary>
-			/// 
+			/// tab. '\t'
 			/// </summary>
 			SDLK_TAB		= 9,
 			/// <summary>
-			/// 
+			/// clear
 			/// </summary>
 			SDLK_CLEAR		= 12,
 			/// <summary>
-			/// 
+			/// return. '\r' 
 			/// </summary>
 			SDLK_RETURN		= 13,
 			/// <summary>
-			/// 
+			/// pause
 			/// </summary>
 			SDLK_PAUSE		= 19,
 			/// <summary>
-			/// 
+			/// escape. '^['
 			/// </summary>
 			SDLK_ESCAPE		= 27,
 			/// <summary>
-			/// 
+			/// space. ' '
 			/// </summary>
 			SDLK_SPACE		= 32,
 			/// <summary>
-			/// 
+			/// exclaim. '!'
 			/// </summary>
 			SDLK_EXCLAIM		= 33,
 			/// <summary>
-			/// 
+			/// quotedbl. '"'
 			/// </summary>
 			SDLK_QUOTEDBL		= 34,
 			/// <summary>
-			/// 
+			/// hash. '#'
 			/// </summary>
 			SDLK_HASH		= 35,
 			/// <summary>
-			/// 
+			/// dollar. '$'
 			/// </summary>
 			SDLK_DOLLAR		= 36,
 			/// <summary>
-			/// 
+			/// ampersand. '&amp;'
 			/// </summary>
 			SDLK_AMPERSAND		= 38,
 			/// <summary>
-			/// 
+			/// quote. '''
 			/// </summary>
 			SDLK_QUOTE		= 39,
 			/// <summary>
-			/// 
+			/// left parenthesis. '('
 			/// </summary>
 			SDLK_LEFTPAREN		= 40,
 			/// <summary>
-			/// 
+			/// right parenthesis. ')'
 			/// </summary>
 			SDLK_RIGHTPAREN		= 41,
 			/// <summary>
-			/// 
+			/// asterisk. '*'
 			/// </summary>
 			SDLK_ASTERISK		= 42,
 			/// <summary>
-			/// 
+			/// plus sign. '+'
 			/// </summary>
 			SDLK_PLUS		= 43,
 			/// <summary>
-			/// 
+			/// comma. ','
 			/// </summary>
 			SDLK_COMMA		= 44,
 			/// <summary>
-			/// 
+			/// minus sign. '-'
 			/// </summary>
 			SDLK_MINUS		= 45,
 			/// <summary>
-			/// 
+			/// period. '.'
 			/// </summary>
 			SDLK_PERIOD		= 46,
 			/// <summary>
-			/// 
+			/// forward slash. '/'
 			/// </summary>
 			SDLK_SLASH		= 47,
 			/// <summary>
-			/// 
+			/// 0
 			/// </summary>
 			SDLK_0			= 48,
 			/// <summary>
-			/// 
+			/// 1
 			/// </summary>
 			SDLK_1			= 49,
 			/// <summary>
-			/// 
+			/// 2
 			/// </summary>
 			SDLK_2			= 50,
 			/// <summary>
-			/// 
+			/// 3
 			/// </summary>
 			SDLK_3			= 51,
 			/// <summary>
-			/// 
+			/// 4
 			/// </summary>
 			SDLK_4			= 52,
 			/// <summary>
-			/// 
+			/// 5
 			/// </summary>
 			SDLK_5			= 53,
 			/// <summary>
-			/// 
+			/// 6
 			/// </summary>
 			SDLK_6			= 54,
 			/// <summary>
-			/// 
+			/// 7
 			/// </summary>
 			SDLK_7			= 55,
 			/// <summary>
-			/// 
+			/// 8
 			/// </summary>
 			SDLK_8			= 56,
 			/// <summary>
-			/// 
+			/// 9
 			/// </summary>
 			SDLK_9			= 57,
 			/// <summary>
-			/// 
+			/// colon. ':'
 			/// </summary>
 			SDLK_COLON		= 58,
 			/// <summary>
-			/// 
+			/// semicolon. ';'
 			/// </summary>
 			SDLK_SEMICOLON		= 59,
 			/// <summary>
-			/// 
+			/// less-than sign. '&lt;'
 			/// </summary>
 			SDLK_LESS		= 60,
 			/// <summary>
-			/// 
+			/// equals sign. '='
 			/// </summary>
 			SDLK_EQUALS		= 61,
 			/// <summary>
-			/// 
+			/// greater-than sign. '&gt;'
 			/// </summary>
 			SDLK_GREATER		= 62,
 			/// <summary>
-			/// 
+			/// question mark. '?'
 			/// </summary>
 			SDLK_QUESTION		= 63,
 			/// <summary>
-			/// 
+			/// at. '@'
 			/// </summary>
 			SDLK_AT			= 64,
 			/* 
 			   Skip uppercase letters
 			 */
 			/// <summary>
-			/// 
+			/// left bracket. '['
 			/// </summary>
 			SDLK_LEFTBRACKET	= 91,
 			/// <summary>
-			/// 
+			/// backslash. '\'
 			/// </summary>
 			SDLK_BACKSLASH		= 92,
 			/// <summary>
-			/// 
+			/// right bracket. ']'
 			/// </summary>
 			SDLK_RIGHTBRACKET	= 93,
 			/// <summary>
-			/// 
+			/// caret. '^'
 			/// </summary>
 			SDLK_CARET		= 94,
 			/// <summary>
-			/// 
+			/// underscore.'_'
 			/// </summary>
 			SDLK_UNDERSCORE		= 95,
 			/// <summary>
-			/// 
+			/// grave. '`'
 			/// </summary>
 			SDLK_BACKQUOTE		= 96,
 			/// <summary>
-			/// 
+			/// a
 			/// </summary>
 			SDLK_a			= 97,
 			/// <summary>
-			/// 
+			/// b
 			/// </summary>
 			SDLK_b			= 98,
 			/// <summary>
-			/// 
+			/// c
 			/// </summary>
 			SDLK_c			= 99,
 			/// <summary>
-			/// 
+			/// d
 			/// </summary>
 			SDLK_d			= 100,
 			/// <summary>
-			/// 
+			/// e
 			/// </summary>
 			SDLK_e			= 101,
 			/// <summary>
-			/// 
+			/// f
 			/// </summary>
 			SDLK_f			= 102,
 			/// <summary>
-			/// 
+			/// g
 			/// </summary>
 			SDLK_g			= 103,
 			/// <summary>
-			/// 
+			/// h
 			/// </summary>
 			SDLK_h			= 104,
 			/// <summary>
-			/// 
+			/// i
 			/// </summary>
 			SDLK_i			= 105,
 			/// <summary>
-			/// 
+			/// j
 			/// </summary>
 			SDLK_j			= 106,
 			/// <summary>
-			/// 
+			/// k
 			/// </summary>
 			SDLK_k			= 107,
 			/// <summary>
-			/// 
+			/// l
 			/// </summary>
 			SDLK_l			= 108,
 			/// <summary>
-			/// 
+			/// m
 			/// </summary>
 			SDLK_m			= 109,
 			/// <summary>
-			/// 
+			/// n
 			/// </summary>
 			SDLK_n			= 110,
 			/// <summary>
-			/// 
+			/// o
 			/// </summary>
 			SDLK_o			= 111,
 			/// <summary>
-			/// 
+			/// p
 			/// </summary>
 			SDLK_p			= 112,
 			/// <summary>
-			/// 
+			/// q
 			/// </summary>
 			SDLK_q			= 113,
 			/// <summary>
-			/// 
+			/// r
 			/// </summary>
 			SDLK_r			= 114,
 			/// <summary>
-			/// 
+			/// s
 			/// </summary>
 			SDLK_s			= 115,
 			/// <summary>
-			/// 
+			/// t
 			/// </summary>
 			SDLK_t			= 116,
 			/// <summary>
-			/// 
+			/// u
 			/// </summary>
 			SDLK_u			= 117,
 			/// <summary>
-			/// 
+			/// v
 			/// </summary>
 			SDLK_v			= 118,
 			/// <summary>
-			/// 
+			/// w
 			/// </summary>
 			SDLK_w			= 119,
 			/// <summary>
-			/// 
+			/// x
 			/// </summary>
 			SDLK_x			= 120,
 			/// <summary>
-			/// 
+			/// y
 			/// </summary>
 			SDLK_y			= 121,
 			/// <summary>
-			/// 
+			/// z
 			/// </summary>
 			SDLK_z			= 122,
 			/// <summary>
-			/// 
+			/// delete. '^?'
 			/// </summary>
 			SDLK_DELETE		= 127,
 			/* End of ASCII mapped keysyms */
@@ -1925,217 +1717,217 @@ namespace Tao.Sdl {
 
 			/* Numeric keypad */
 			/// <summary>
-			/// 
+			/// keypad 0
 			/// </summary>
 			SDLK_KP0		= 256,
 			/// <summary>
-			/// 
+			/// keypad 1
 			/// </summary>
 			SDLK_KP1		= 257,
 			/// <summary>
-			/// 
+			/// keypad 2
 			/// </summary>
 			SDLK_KP2		= 258,
 			/// <summary>
-			/// 
+			/// keypad 3
 			/// </summary>
 			SDLK_KP3		= 259,
 			/// <summary>
-			/// 
+			/// keypad 4
 			/// </summary>
 			SDLK_KP4		= 260,
 			/// <summary>
-			/// 
+			/// keypad 5
 			/// </summary>
 			SDLK_KP5		= 261,
 			/// <summary>
-			/// 
+			/// keypad 6
 			/// </summary>
 			SDLK_KP6		= 262,
 			/// <summary>
-			/// 
+			/// keypad 7
 			/// </summary>
 			SDLK_KP7		= 263,
 			/// <summary>
-			/// 
+			/// keypad 8
 			/// </summary>
 			SDLK_KP8		= 264,
 			/// <summary>
-			/// 
+			/// keypad 9
 			/// </summary>
 			SDLK_KP9		= 265,
 			/// <summary>
-			/// 
+			/// keypad period. '.'
 			/// </summary>
 			SDLK_KP_PERIOD		= 266,
 			/// <summary>
-			/// 
+			/// keypad divide. '/'
 			/// </summary>
 			SDLK_KP_DIVIDE		= 267,
 			/// <summary>
-			/// 
+			/// keypad multiply. '*'
 			/// </summary>
 			SDLK_KP_MULTIPLY	= 268,
 			/// <summary>
-			/// 
+			/// keypad minus. '-'
 			/// </summary>
 			SDLK_KP_MINUS		= 269,
 			/// <summary>
-			/// 
+			/// keypad plus. '+'
 			/// </summary>
 			SDLK_KP_PLUS		= 270,
 			/// <summary>
-			/// 
+			/// keypad enter. '\r'
 			/// </summary>
 			SDLK_KP_ENTER		= 271,
 			/// <summary>
-			/// 
+			/// keypad equals. '='
 			/// </summary>
 			SDLK_KP_EQUALS		= 272,
 
 			/* Arrows + Home/End pad */
 			/// <summary>
-			/// 
+			/// up arrow
 			/// </summary>
 			SDLK_UP			= 273,
 			/// <summary>
-			/// 
+			/// down arrow
 			/// </summary>
 			SDLK_DOWN		= 274,
 			/// <summary>
-			/// 
+			/// right arrow
 			/// </summary>
 			SDLK_RIGHT		= 275,
 			/// <summary>
-			/// 
+			/// left arrow
 			/// </summary>
 			SDLK_LEFT		= 276,
 			/// <summary>
-			/// 
+			/// insert
 			/// </summary>
 			SDLK_INSERT		= 277,
 			/// <summary>
-			/// 
+			/// home
 			/// </summary>
 			SDLK_HOME		= 278,
 			/// <summary>
-			/// 
+			/// end
 			/// </summary>
 			SDLK_END		= 279,
 			/// <summary>
-			/// 
+			/// page up
 			/// </summary>
 			SDLK_PAGEUP		= 280,
 			/// <summary>
-			/// 
+			/// page down
 			/// </summary>
 			SDLK_PAGEDOWN	= 281,
 
 			/* Function keys */
 			/// <summary>
-			/// 
+			/// F1
 			/// </summary>
 			SDLK_F1			= 282,
 			/// <summary>
-			/// 
+			/// F2
 			/// </summary>
 			SDLK_F2			= 283,
 			/// <summary>
-			/// 
+			/// F3
 			/// </summary>
 			SDLK_F3			= 284,
 			/// <summary>
-			/// 
+			/// F4
 			/// </summary>
 			SDLK_F4			= 285,
 			/// <summary>
-			/// 
+			/// F5
 			/// </summary>
 			SDLK_F5			= 286,
 			/// <summary>
-			/// 
+			/// F6
 			/// </summary>
 			SDLK_F6			= 287,
 			/// <summary>
-			/// 
+			/// F7
 			/// </summary>
 			SDLK_F7			= 288,
 			/// <summary>
-			/// 
+			/// F8
 			/// </summary>
 			SDLK_F8			= 289,
 			/// <summary>
-			/// 
+			/// F9
 			/// </summary>
 			SDLK_F9			= 290,
 			/// <summary>
-			/// 
+			/// F10
 			/// </summary>
 			SDLK_F10		= 291,
 			/// <summary>
-			/// 
+			/// F11
 			/// </summary>
 			SDLK_F11		= 292,
 			/// <summary>
-			/// 
+			/// F12
 			/// </summary>
 			SDLK_F12		= 293,
 			/// <summary>
-			/// 
+			/// F13
 			/// </summary>
 			SDLK_F13		= 294,
 			/// <summary>
-			/// 
+			/// F14
 			/// </summary>
 			SDLK_F14		= 295,
 			/// <summary>
-			/// 
+			/// F15
 			/// </summary>
 			SDLK_F15		= 296,
 
 			/* Key state modifier keys */
 			/// <summary>
-			/// 
+			/// numlock
 			/// </summary>
 			SDLK_NUMLOCK		= 300,
 			/// <summary>
-			/// 
+			/// capslock
 			/// </summary>
 			SDLK_CAPSLOCK		= 301,
 			/// <summary>
-			/// 
+			/// scrollock
 			/// </summary>
 			SDLK_SCROLLOCK		= 302,
 			/// <summary>
-			/// 
+			/// right shift
 			/// </summary>
 			SDLK_RSHIFT		= 303,
 			/// <summary>
-			/// 
+			/// left shift
 			/// </summary>
 			SDLK_LSHIFT		= 304,
 			/// <summary>
-			/// 
+			/// right ctrl
 			/// </summary>
 			SDLK_RCTRL		= 305,
 			/// <summary>
-			/// 
+			/// left ctrl
 			/// </summary>
 			SDLK_LCTRL		= 306,
 			/// <summary>
-			/// 
+			/// right alt
 			/// </summary>
 			SDLK_RALT		= 307,
 			/// <summary>
-			/// 
+			/// left alt
 			/// </summary>
 			SDLK_LALT		= 308,
 			/// <summary>
-			/// 
+			/// right meta
 			/// </summary>
 			SDLK_RMETA		= 309,
 			/// <summary>
-			/// 
+			/// left meta
 			/// </summary>
 			SDLK_LMETA		= 310,
 			/// <summary>
@@ -2147,7 +1939,7 @@ namespace Tao.Sdl {
 			/// </summary>
 			SDLK_RSUPER		= 312,
 			/// <summary>
-			/// "Alt Gr" key
+			/// "Alt Gr" key. Mode key
 			/// </summary>
 			SDLK_MODE		= 313,
 			/// <summary>
@@ -2157,23 +1949,23 @@ namespace Tao.Sdl {
 
 			// Miscellaneous function keys
 			/// <summary>
-			/// 
+			/// help
 			/// </summary>
 			SDLK_HELP		= 315,
 			/// <summary>
-			/// 
+			/// print-screen
 			/// </summary>
 			SDLK_PRINT		= 316,
 			/// <summary>
-			/// 
+			/// SysRq
 			/// </summary>
 			SDLK_SYSREQ		= 317,
 			/// <summary>
-			/// 
+			/// break
 			/// </summary>
 			SDLK_BREAK		= 318,
 			/// <summary>
-			/// 
+			/// menu
 			/// </summary>
 			SDLK_MENU		= 319,
 			/// <summary>
@@ -2194,24 +1986,209 @@ namespace Tao.Sdl {
 			/// 
 			/// </summary>
 			SDLK_LAST
-
 		}
+		#endregion SDLKey
+
+		#region SDLMod
 		/// <summary>
-		/// General keyboard/mouse state definitions
+		/// Enumeration of valid key mods (possibly OR'd together) 
 		/// </summary>
-		public enum KeyState {
+		public enum SDLMod 
+		{
+			/// <summary>
+			/// No modifiers applicable
+			/// </summary>
+			KMOD_NONE  = 0x0000,
+			/// <summary>
+			/// Left Shift is down
+			/// </summary>
+			KMOD_LSHIFT= 0x0001,
+			/// <summary>
+			/// Right Shift is down
+			/// </summary>
+			KMOD_RSHIFT= 0x0002,
+			/// <summary>
+			/// Left Control is down
+			/// </summary>
+			KMOD_LCTRL = 0x0040,
+			/// <summary>
+			/// Right Control is down
+			/// </summary>
+			KMOD_RCTRL = 0x0080,
+			/// <summary>
+			/// Left Alt is down
+			/// </summary>
+			KMOD_LALT  = 0x0100,
+			/// <summary>
+			/// Right Alt is down
+			/// </summary>
+			KMOD_RALT  = 0x0200,
+			/// <summary>
+			/// Left Meta is down
+			/// </summary>
+			KMOD_LMETA = 0x0400,
+			/// <summary>
+			/// Right Meta is down
+			/// </summary>
+			KMOD_RMETA = 0x0800,
+			/// <summary>
+			/// Numlock is down
+			/// </summary>
+			KMOD_NUM   = 0x1000,
+			/// <summary>
+			/// Capslock is down
+			/// </summary>
+			KMOD_CAPS  = 0x2000,
 			/// <summary>
 			/// 
 			/// </summary>
-			SDL_PRESSED = 0x01, 
+			KMOD_MODE  = 0x4000,
 			/// <summary>
 			/// 
 			/// </summary>
-			SDL_RELEASED = 0x00
+			KMOD_RESERVED = 0x8000
 		}
+		#endregion SDLMod
+		#endregion SDL_keysym.h
 
-		
-		#endregion NOT_DONE
+		// SDL_loadso.h -- skipped
+		// SDL_main.h -- none
+		// SDL_mouse.h -- none
+		// SDL_mutex.h -- Skipped. Superceded by System.Threading class
+		// SDL_name.h -- none
+		// SDL_opengl.h -- skipped. superceded by Tao.OpenGL
+		// SDL_quit.h -- none
+		// SDL_rwops -- skipped for now, might be useful.
+		// SDL_syswm.h -- TODO
+		// SDL_thread.h -- Skipped. Superceded by System.Threading class
+		// SDL_timer.h -- none
+
+		#region SDL_types.h
+		#region SDL_bool
+		/// <summary>
+		///     
+		/// </summary>
+		public enum SDL_bool 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			SDL_FALSE = 0,
+			/// <summary>
+			/// 
+			/// </summary>
+			SDL_TRUE  = 1
+		}
+		#endregion SDL_bool
+		#endregion SDL_types.h
+
+		// SDL_version -- none
+
+		#region SDL_video.h
+		#region SDL_GLattr
+		/// <summary>
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// </summary>
+		/// <remarks>
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode. These attributes a set and read 
+		/// with <see cref="SDL_GL_SetAttribute"/> and <see cref="SDL_GL_GetAttribute"/>.
+		/// </remarks>
+		/// <see cref="SDL_GL_SetAttribute"/>
+		/// <see cref="SDL_GL_GetAttribute"/>
+		public enum SDL_GLattr 
+		{
+			/// <summary>
+			/// Size of the framebuffer red component, in bits
+			/// </summary>
+			SDL_GL_RED_SIZE,
+			/// <summary>
+			/// Size of the framebuffer green component, in bits
+			/// </summary>
+			SDL_GL_GREEN_SIZE,
+			/// <summary>
+			/// Size of the framebuffer blue component, in bits
+			/// </summary>
+			SDL_GL_BLUE_SIZE,
+			/// <summary>
+			/// Size of the framebuffer alpha component, in bits
+			/// </summary>
+			SDL_GL_ALPHA_SIZE,
+			/// <summary>
+			/// Size of the framebuffer, in bits
+			/// </summary>
+			SDL_GL_BUFFER_SIZE,
+			/// <summary>
+			/// 0 or 1, enable or disable double buffering
+			/// </summary>
+			SDL_GL_DOUBLEBUFFER,
+			/// <summary>
+			/// Size of the depth buffer, in bits
+			/// </summary>
+			SDL_GL_DEPTH_SIZE,
+			/// <summary>
+			/// Size of the stencil buffer, in bits.
+			/// </summary>
+			SDL_GL_STENCIL_SIZE,
+			/// <summary>
+			/// Size of the accumulation buffer red component, in bits.
+			/// </summary>
+			SDL_GL_ACCUM_RED_SIZE,
+			/// <summary>
+			/// Size of the accumulation buffer green component, in bits.
+			/// </summary>
+			SDL_GL_ACCUM_GREEN_SIZE,
+			/// <summary>
+			/// Size of the accumulation buffer blue component, in bits.
+			/// </summary>
+			SDL_GL_ACCUM_BLUE_SIZE,
+			/// <summary>
+			/// Size of the accumulation buffer alpha component, in bits.
+			/// </summary>
+			SDL_GL_ACCUM_ALPHA_SIZE,
+			/// <summary>
+			/// 
+			/// </summary>
+			SDL_GL_STEREO,
+			/// <summary>
+			/// 
+			/// </summary>
+			SDL_GL_MULTISAMPLEBUFFERS,
+			/// <summary>
+			/// 
+			/// </summary>
+			SDL_GL_MULTISAMPLESAMPLES
+		}
+		#endregion SDL_GLattr
+
+		#region SDL_GrabMode
+		/// <summary>
+		/// This function allows you to set and query the input grab state of
+		/// the application.  It returns the new input grab state.
+		/// </summary>
+		/// <see cref="SDL_WM_GrabInput"/>
+		public enum SDL_GrabMode 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			SDL_GRAB_QUERY = -1,
+			/// <summary>
+			/// 
+			/// </summary>
+			SDL_GRAB_OFF = 0,
+			/// <summary>
+			/// 
+			/// </summary>
+			SDL_GRAB_ON = 1,
+			/// <summary>
+			/// 
+			/// </summary>
+			SDL_GRAB_FULLSCREEN
+		}
+		#endregion SDL_GrabMode
+		#endregion SDL_video.h
 		#endregion Public Enums
 
 		#region Public Structs
@@ -2558,7 +2535,7 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_CDOpen"/>
 		/// <seealso cref="SDL_CDtrack"/>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
-		public struct SDL_CD 
+			public struct SDL_CD 
 		{
 			/// <summary>
 			/// Private drive identifier
@@ -2675,7 +2652,7 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_EnableKeyRepeat"/>
 		/// <seealso cref="SDL_EnableUNICODE"/>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
-		public struct SDL_KeyboardEvent 
+			public struct SDL_KeyboardEvent 
 		{
 			/// <summary>
 			/// SDL_KEYDOWN or SDL_KEYUP
@@ -2898,7 +2875,7 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_JoystickEventState"/>
 		/// <seealso cref="SDL_JoystickGetBall"/>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
-		public struct SDL_JoyBallEvent 
+			public struct SDL_JoyBallEvent 
 		{
 			/// <summary>
 			/// SDL_JOYBALLMOTION
@@ -3486,29 +3463,350 @@ namespace Tao.Sdl {
 		#endregion SDL_events.h
 
 		// SDL_getenv.h -- none
-		// SDL_main.h -- none
-		// SDL_name.h -- none
-		// SDL_opengl.h -- superceded by Tao.OpenGL
-		// SDL_quit.h -- none
 
-		//not done
-		#region SDL_syswm.h
+		#region SDL_joystick.h
+		#region SDL_Joystick
+		///<summary>
+		/// TODO. This needs work.
+		///</summary>
+		///<remarks>
+		///<p>
+		///		<code>
+		///		struct _SDL_Joystick 
+		///		{
+		///			Uint8 index;		/* Device index */
+		///			const char *name;	/* Joystick name - system dependent */
+		///			int naxes;		/* Number of axis controls on the joystick */
+		///			Sint16 *axes;		/* Current axis states */
+		///			int nhats;		/* Number of hats on the joystick */
+		///			Uint8 *hats;		/* Current hat states */
+		///			int nballs;		/* Number of trackballs on the joystick */
+		///			struct balldelta 
+		///			{
+		///				int dx;
+		///				int dy;
+		///			} *balls;		/* Current ball motion deltas */
+		///			int nbuttons;		/* Number of buttons on the joystick */
+		///			Uint8 *buttons;		/* Current button states */
+		///			struct joystick_hwdata *hwdata;	/* Driver dependent information */
+		///				int ref_count;		/* Reference count for multiple opens */
+		///			}
+		///			</code>
+		///			</p>
+		///			</remarks>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+		public struct SDL_Joystick
+		{
+			/// <summary>
+			/// Device index
+			/// </summary>
+			public byte index;
+			/// <summary>
+			/// Joystick name - system dependent
+			/// </summary>
+			public string name;
+			/// <summary>
+			/// Number of axis controls on the joystick
+			/// </summary>
+			public int naxes;
+			/// <summary>
+			/// Current axis states
+			/// </summary>
+			public IntPtr axes;
+			/// <summary>
+			/// Number of hats on the joystick
+			/// </summary>
+			/// <remarks>
+			/// IntPtr to short
+			/// </remarks>
+			public int nhats;
+			/// <summary>
+			/// Current hat states
+			/// </summary>
+			public IntPtr hats;
+			/// <summary>
+			/// Number of trackballs on the joystick
+			/// </summary>
+			/// <remarks>
+			/// IntPtr to byte
+			/// </remarks>
+			public int nballs;
+			/// <summary>
+			/// Current ball motion deltas
+			/// </summary>
+			/// <remarks>
+			/// IntPtr to balldelta
+			/// </remarks>
+			public IntPtr balls;
+			/// <summary>
+			/// Number of buttons on the joystick
+			/// </summary>
+			public int nbuttons;
+			/// <summary>
+			/// Current button states
+			/// </summary>
+			/// <remarks>
+			/// IntPtr to byte
+			/// </remarks>
+			public IntPtr buttons;
+			/// <summary>
+			/// Reference count for multiple opens
+			/// </summary>
+			/// <remarks>
+			/// IntPtr to joystick_hwdata
+			/// </remarks>
+			public IntPtr hwdata;
+		}
+		#endregion SDL_Joystick
+
+		#region balldelta
 		/// <summary>
-		/// From SDL_sysmwm.h
+		/// 
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_SysWMmsg 
+		public struct balldelta
 		{
 			/// <summary>
 			/// 
 			/// </summary>
-			public byte type;
+			public int dx;
 			/// <summary>
-			///
+			/// 
 			/// </summary>
-			public IntPtr msg;
+			public int dy;
 		}
+		#endregion balldelta
+
+		#region joystick_hwdata
+		/// <summary>
+		/// 
+		/// </summary>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+		public struct joystick_hwdata
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			public int ref_count;
+		}
+		#endregion joystick_hwdata
+		#endregion SDL_joystick.h
+
+		#region SDL_keyboard.h
+		#region SDL_keysym
+		/// <summary>
+		/// The SDL_keysym structure describes a key press or a key release.
+		/// </summary>
+		/// <remarks>
+		/// The SDL_keysym structure describes a key press or a key release. 
+		/// The scancode field is hardware specific and should be ignored 
+		/// unless you know what your doing. The sym field is the SDLKey 
+		/// value of the key being pressed or released. The mod field 
+		/// describes the state of the keyboard modifiers at the time the 
+		/// key press or release occurred. So a value of KMOD_NUM | KMOD_CAPS
+		///  | KMOD_LSHIFT would mean that Numlock, Capslock and the left shift
+		///   key were all press (or enabled in the case of the lock keys). 
+		///   Finally, the unicode field stores the 16-bit unicode value of 
+		///   the key.
+		///   <p>Note: It should be noted and understood that this field is
+		///    only valid when the SDL_keysym is describing a key press, 
+		///    not a key release. Unicode values only make sense on a key 
+		///    press because the unicode value describes an international 
+		///    character and only key presses produce characters. More 
+		///    information on Unicode can be found at www.unicode.org</p>
+		///   <p>Note: Unicode translation must be enabled using the 
+		///   <see cref="SDL_EnableUNICODE"/> function.
+		///   </p>
+		///	<p>Struct in SDL_keyboard.h
+		///	<code>
+		///	typedef struct{
+		///		Uint8 scancode;
+		///		SDLKey sym;
+		///		SDLMod mod;
+		///		Uint16 unicode;
+		///	} SDL_keysym;
+		///	</code></p>
+		/// </remarks>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_keysym 
+		{
+			/// <summary>
+			/// Hardware specific scancode.
+			/// </summary>
+			/// <remarks>
+			/// The scancode is hardware dependent, 
+			/// and should not be used by general
+			/// applications.  
+			/// If no hardware scancode is available, it will be 0.
+			/// </remarks>
+			public byte scancode;
+			/// <summary>
+			/// SDL virtual keysym.
+			/// </summary>
+			public int sym;
+			/// <summary>
+			/// Current key modifiers.
+			/// </summary>
+			public int mod;
+			/// <summary>
+			/// Translated character.
+			/// </summary>
+			/// <remarks>
+			/// The 'unicode' translated character is only available 
+			/// when character
+			/// translation is enabled by the SDL_EnableUNICODE() API.  
+			/// If non-zero,
+			/// this is a UNICODE character corresponding to the keypress.  
+			/// If the
+			/// high 9 bits of the character are 0, 
+			/// then this maps to the equivalent
+			/// ASCII character:
+			/// <p><code>
+			/// 	char ch;
+			///	if ( (keysym.unicode and 0xFF80) == 0 ) {
+			///		ch = keysym.unicode and 0x7F;
+			///	} else {
+			///		An international character..
+			///	}</code></p>
+			/// </remarks>
+			public short unicode;
+		}
+		#endregion SDL_keysym
+		#endregion SDL_keyboard.h
+
+		// SDL_keysym.h -- none
+		// SDL_loadso.h -- skipped
+		// SDL_main.h -- none
+
+		#region SDL_mouse.h
+		#region WMcursor
+		/// <summary>
+		/// Implementation dependent.
+		/// TODO. Fix this.
+		/// </summary>
+		/// <remarks>
+		/// <p>Struct in SDL_mouse.h
+		/// <code>
+		/// struct WMcursor WMcursor
+		/// </code>
+		/// </p>
+		/// </remarks>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct WMcursor 
+		{
+		}
+		#endregion WMcursor
+
+		#region SDL_Cursor
+		/// <summary>
+		/// Structure to hold cursor
+		/// </summary>
+		/// <remarks>
+		/// <p>Struct in SDL_mouse.h
+		/// <code>
+		/// struct {
+		///		SDL_Rect area;			/* The area of the mouse cursor */
+		///		Sint16 hot_x, hot_y;		/* The "tip" of the cursor */
+		///		Uint8 *data;			/* B/W cursor data */
+		///		Uint8 *mask;			/* B/W cursor mask */
+		///		Uint8 *save[2];			/* Place to save cursor area */
+		///		WMcursor *wm_cursor;		/* Window-manager cursor */
+		///	} SDL_Cursor
+		/// </code>
+		/// </p>
+		/// </remarks>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_Cursor 
+		{
+			/// <summary>
+			/// The area of the mouse cursor
+			/// </summary>
+			public SDL_Rect area;
+			/// <summary>
+			/// The "tip" of the cursor
+			/// </summary>
+			public short hot_x;
+			/// <summary>
+			/// The "tip" of the cursor
+			/// </summary>
+			public short hot_y;
+			/// <summary>
+			/// B/W cursor data
+			/// </summary>
+			/// <remarks>
+			/// IntPtr to byte
+			/// </remarks>
+			public IntPtr data;
+			/// <summary>
+			/// B/W cursor mask
+			/// </summary>
+			/// <remarks>
+			/// IntPtr to byte
+			/// </remarks>
+			public IntPtr mask;
+			/// <summary>
+			/// Place to save cursor area
+			/// </summary>
+			/// <remarks>
+			/// IntPtr to byte[2]
+			/// </remarks>
+			public IntPtr[] save;
+			/// <summary>
+			/// Window-manager cursor
+			/// </summary>
+			/// <remarks>
+			/// IntPtr to WMcursor
+			/// </remarks>
+			public IntPtr WMcursor;
+		}
+		#endregion SDL_Cursor
+		#endregion SDL_mouse.h
+
+		// SDL_mutex.h -- Skipped. Superceded by System.Threading class
+		// SDL_name.h -- none
+		// SDL_opengl.h -- superceded by Tao.OpenGL
+		// SDL_quit.h -- none
+		// SDL_rwops -- skipped for now, might be useful.
+		
+		#region SDL_syswm.h
+		#region SDL_SysWMmsg
+		/// <summary>
+		/// 
+		/// </summary>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_SysWMmsg
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			public SDL_version version;
+			/// <summary>
+			/// 
+			/// </summary>
+			public int data;
+		}
+		#endregion SDL_SysWMmsg
+
+		#region SDL_SysWMinfo
+		/// <summary>
+		/// 
+		/// </summary>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_SysWMinfo
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			public SDL_version version;
+			/// <summary>
+			/// 
+			/// </summary>
+			public int data;
+		}
+		#endregion SDL_SysWMinfo
 		#endregion SDL_syswm.h
+
+		// SDL_thread.h -- Skipped. Superceded by System.Threading class
 		
 		#region SDL_timer.h
 		#region SDL_TimerID
@@ -3523,6 +3821,8 @@ namespace Tao.Sdl {
 		}
 		#endregion SDL_TimerID
 		#endregion SDL_timer.h
+
+		// SDL_types.h
 
 		#region SDL_version.h
 		#region SDL_version
@@ -3688,11 +3988,11 @@ namespace Tao.Sdl {
 		/// A SDL_PixelFormat describes the format of the pixel data stored at the 
 		/// pixels field of a SDL_Surface. Every surface stores a SDL_PixelFormat 
 		/// in the format field.
-		/// <P>
+		/// <p>
 		/// If you wish to do pixel level modifications on a surface, then 
 		///	understanding how SDL stores its color information is essential.
-		/// </P>
-		/// <P>							
+		/// </p>
+		/// <p>							
 		/// 8-bit pixel formats are the easiest to understand. 
 		/// Since its an 8-bit format, we have 8 BitsPerPixel and 1 BytesPerPixel.
 		/// Since BytesPerPixel is 1, all pixels are represented by a Uint8 which
@@ -3700,8 +4000,9 @@ namespace Tao.Sdl {
 		/// of a pixel in a 8-bit surface: we read the color index from 
 		/// surface.pixels and we use that index to read the SDL_Color 
 		/// structure from surface.format.palette.colors. Like so: 
-		/// </P>	
-		///
+		/// </p>	
+		/// <p>
+		/// <code>
 		///		SDL_Surface *surface;
 		///		SDL_PixelFormat *fmt;
 		///		SDL_Color *color;
@@ -3735,7 +4036,8 @@ namespace Tao.Sdl {
 		///	color.r, color.g, color.b, index);
 		///	.
 		///	.
-		///
+		///	</code>
+		/// </p>
 		/// <P>
 		///	Pixel formats above 8-bit are an entirely different experience. 
 		///	They are considered to be "TrueColor" formats and the color 
@@ -3748,6 +4050,7 @@ namespace Tao.Sdl {
 		///	packing 8-bit color component in a pixel. 
 		///	</P>
 		///
+		///<code>
 		///	/* Extracting color components from a 32-bit color value */
 		///	SDL_PixelFormat *fmt;
 		///	SDL_Surface *surface;
@@ -3789,6 +4092,7 @@ namespace Tao.Sdl {
 		///	.
 		///	.
 		///	.
+		///	</code>
 		/// </remarks>
 		/// <see cref="SDL_Surface"/>
 		/// <see cref="SDL_MapRGB"/>
@@ -3937,8 +4241,8 @@ namespace Tao.Sdl {
 		/// accessing this field. The clip_rect field is the clipping rectangle
 		/// as set by SDL_SetClipRect.
 		///
-		/// The following are supported in the flags field.
-		///
+		/// <p>The following are supported in the flags field.</p>
+		///<code>
 		/// SDL_SWSURFACE Surface is stored in system memory
 		/// SDL_HWSURFACE Surface is stored in video memory
 		/// SDL_ASYNCBLIT Surface uses asynchronous blits if possible
@@ -3953,7 +4257,7 @@ namespace Tao.Sdl {
 		/// SDL_SRCCOLORKEY Surface use colorkey blitting
 		/// SDL_RLEACCEL Colorkey blitting is accelerated with RLE
 		/// SDL_SRCALPHA Surface blit uses alpha blending
-		/// SDL_PREALLOC Surface uses preallocated memory
+		/// SDL_PREALLOC Surface uses preallocated memory</code>
 		/// </remarks>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
 		public struct SDL_Surface {
@@ -4102,11 +4406,13 @@ namespace Tao.Sdl {
 		/// except for pixels which should be locked before use. 
 		/// The format field stores the format of the overlay 
 		/// which is one of the following: 
+		/// <code>
 		/// SDL_YV12_OVERLAY  0x32315659  /* Planar mode: Y + V + U */
 		/// SDL_IYUV_OVERLAY  0x56555949  /* Planar mode: Y + U + V */
 		/// SDL_YUY2_OVERLAY  0x32595559  /* Packed mode: Y0+U0+Y1+V0 */
 		/// SDL_UYVY_OVERLAY  0x59565955  /* Packed mode: U0+Y0+V0+Y1 */
-		/// SDL_YVYU_OVERLAY  0x55595659  /* Packed mode: Y0+V0+Y1+U0 */
+		/// SDL_YVYU_OVERLAY  0x55595659  /* Packed mode: Y0+V0+Y1+U0 */</code>
+		/// 
 		/// More information on YUV formats can be found at 
 		/// http://www.webartz.com/fourcc/indexyuv.htm.
 		/// </remarks>
@@ -4154,100 +4460,6 @@ namespace Tao.Sdl {
 		}
 		#endregion SDL_Overlay
 		#endregion SDL_video.h
-
-		#region NOT_DONE
-		/// <summary>
-		/// - The scancode is hardware dependent, 
-		/// and should not be used by general
-		/// applications.  If no hardware scancode is available, it will be 0.
-		/// </summary>
-		/// <remarks>
-		/// - The 'unicode' translated character is only available 
-		/// when character
-		/// translation is enabled by the SDL_EnableUNICODE() API.  
-		/// If non-zero,
-		/// this is a UNICODE character corresponding to the keypress.  
-		/// If the
-		/// high 9 bits of the character are 0, 
-		/// then this maps to the equivalent
-		/// ASCII character:
-		/// 	char ch;
-		///	if ( (keysym.unicode and 0xFF80) == 0 ) {
-		///		ch = keysym.unicode and 0x7F;
-		///	} else {
-		///		An international character..
-		///	}
-		/// </remarks>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_keysym {
-			/// <summary>
-			/// Hardware specific scancode.
-			/// </summary>
-			public byte scancode;
-			/// <summary>
-			/// SDL virtual keysym.
-			/// </summary>
-			public int sym;
-			/// <summary>
-			/// Current key modifiers.
-			/// </summary>
-			public int mod;
-			/// <summary>
-			/// Translated character.
-			/// </summary>
-			public short unicode;
-		}
-	
-		
-
-
-		
-
-		/// <summary>
-		/// Structure to hold cursor
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_Cursor {
-			/// <summary>
-			/// The area of the mouse cursor
-			/// </summary>
-			public SDL_Rect area;
-			/// <summary>
-			/// The "tip" of the cursor
-			/// </summary>
-			public short hot_x;
-			/// <summary>
-			/// The "tip" of the cursor
-			/// </summary>
-			public short hot_y;
-			/// <summary>
-			/// B/W cursor data
-			/// </summary>
-			public IntPtr data;
-			/// <summary>
-			/// B/W cursor mask
-			/// </summary>
-			public IntPtr mask;
-			/// <summary>
-			/// Place to save cursor area
-			/// </summary>
-			public IntPtr[] save;
-			/// <summary>
-			/// Window-manager cursor
-			/// </summary>
-			public IntPtr WMcursor;
-		}
-		/// <summary>
-		/// 
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct WMcursor {
-		}	
-
-		
-
-		
-		#endregion NOT_DONE
 		#endregion Public Structs
 
 		#region Private Static Fields
@@ -6256,7 +6468,929 @@ namespace Tao.Sdl {
 		#endregion string SDL_getenv(string name)
 		#endregion SDL_getenv.h
 
+		#region SDL_joystick.h
+		#region int SDL_NumJoysticks()
+		/// <summary>
+		/// Count the number of joysticks attached to the system.
+		/// </summary>
+		/// <remarks>
+		/// Counts the number of joysticks attached to the system.
+		/// <p>Binds to C-function in SDL_joystick.h
+		/// <code>int SDL_NumJoysticks(void)
+		/// </code></p>
+		/// </remarks>
+		/// <returns>
+		/// Returns the number of attached joysticks
+		/// </returns>
+		/// <seealso cref="SDL_JoystickName"/>
+		/// <seealso cref="SDL_JoystickOpen"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_NumJoysticks();
+		#endregion int SDL_NumJoysticks()
+
+		#region string SDL_JoystickName(int device_index)
+		/// <summary>
+		/// Get joystick name.
+		/// </summary>
+		/// <remarks>
+		/// Get the implementation dependent name of joystick. 
+		/// The index parameter refers to the N'th joystick on the system.
+		/// <p>Binds to C-function in SDL_joystick.h
+		/// <code>const char *SDL_JoystickName(int index)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="device_index"></param>
+		/// <returns>
+		/// Returns a string containing the joystick name.
+		/// </returns>
+		/// <example>
+		/// <code>
+		/// /* Print the names of all attached joysticks */
+		///		int num_joy, i;
+		///		num_joy=SDL_NumJoysticks();
+		///		printf("%d joysticks found\n", num_joy);
+		///		for(i=0;i&lt;num_joy;i++)
+		///		printf("%s\n", SDL_JoystickName(i));
+		/// </code>
+		/// </example>
+		/// <seealso cref="SDL_JoystickOpen"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern string SDL_JoystickName(int device_index);
+		#endregion string SDL_JoystickName(int device_index)
+
+		#region IntPtr SDL_JoystickOpen(int device_index)
+		/// <summary>
+		/// Open a joystick for use.
+		/// </summary>
+		/// <remarks>
+		/// Opens a joystick for use within SDL. 
+		/// The index refers to the N'th joystick in the system. 
+		/// A joystick must be opened before it game be used.
+		/// <p>Binds to C-function in SDL_joystick.h
+		/// <code>
+		/// </code></p>
+		/// </remarks>
+		/// <param name="device_index"></param>
+		/// <returns>
+		/// Returns a IntPtr to a SDL_Joystick structure on success. 
+		/// NULL on failure.
+		/// </returns>
+		/// <example>
+		/// <code>
+		/// SDL_Joystick *joy;
+		/// Check for joystick
+		///		if(SDL_NumJoysticks()>0)
+		///	{
+		///		// Open joystick
+		///		joy=SDL_JoystickOpen(0);
+		///  
+		///		if(joy)
+		///	{
+		///		printf("Opened Joystick 0\n");
+		///		printf("Name: %s\n", SDL_JoystickName(0));
+		///		printf("Number of Axes: %d\n", SDL_JoystickNumAxes(joy));
+		///		printf("Number of Buttons: %d\n", SDL_JoystickNumButtons(joy));
+		///		printf("Number of Balls: %d\n", SDL_JoystickNumBalls(joy));
+		///	}
+		///	else
+		///	printf("Couldn't open Joystick 0\n");
+		///  
+		///	// Close if opened
+		///	if(SDL_JoystickOpened(0))
+		///	SDL_JoystickClose(joy);
+		///}
+		/// </code>
+		/// </example>
+		/// <seealso cref="SDL_JoystickClose"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_JoystickOpen(int device_index);
+		#endregion IntPtr SDL_JoystickOpen(int device_index)
+
+		#region int SDL_JoystickOpened(int device_index)
+		/// <summary>
+		/// Determine if a joystick has been opened.
+		/// </summary>
+		/// <remarks>
+		/// Determines whether a joystick has already been opened 
+		/// within the application. index refers to the N'th joystick
+		///  on the system.
+		/// <p>Binds to C-function in SDL_joystick.h
+		/// <code>int SDL_JoystickOpened(int index)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="device_index"></param>
+		/// <returns>
+		/// Returns 1 if the joystick has been opened, or 0 if it has not.
+		/// </returns>
+		/// <seealso cref="SDL_JoystickOpen"/>
+		/// <seealso cref="SDL_JoystickClose"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_JoystickOpened(int device_index);
+		#endregion int SDL_JoystickOpened(int device_index)
+		
+		#region int SDL_JoystickIndex(ref SDL_Joystick joystick)
+		/// <summary>
+		/// Get the index of an SDL_Joystick.
+		/// </summary>
+		/// <remarks>
+		/// Returns the index of a given SDL_Joystick structure.
+		/// <p>Binds to C-function in SDL_joystick.h
+		/// <code>int SDL_JoystickIndex(SDL_Joystick *joystick)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="joystick"></param>
+		/// <returns>
+		/// Index number of the joystick.
+		/// </returns>
+		/// <seealso cref="SDL_JoystickOpen"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_JoystickIndex(ref SDL_Joystick joystick);
+		#endregion int SDL_JoystickIndex(ref SDL_Joystick joystick)
+		
+		#region int SDL_JoystickNumAxes(ref SDL_Joystick joystick)
+		/// <summary>
+		/// Get the number of joystick axes
+		/// </summary>
+		/// <remarks>
+		/// Return the number of axes available from a 
+		/// previously opened SDL_Joystick.
+		/// <p>Binds to C-function in SDL_joystick.h
+		/// <code>int SDL_JoystickNumAxes(SDL_Joystick *joystick)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="joystick"></param>
+		/// <returns>
+		/// Number of axes.
+		/// </returns>
+		/// <seealso cref="SDL_JoystickOpen"/>
+		/// <seealso cref="SDL_JoystickGetAxis"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_JoystickNumAxes(ref SDL_Joystick joystick);
+		#endregion int SDL_JoystickNumAxes(ref SDL_Joystick joystick)
+
+		#region int SDL_JoystickNumBalls(ref SDL_Joystick joystick)
+		/// <summary>
+		/// Get the number of joystick trackballs
+		/// </summary>
+		/// <remarks>
+		/// Return the number of trackballs available from a 
+		/// previously opened SDL_Joystick.
+		/// <p>Binds to C-function in SDL_joystick.h
+		/// <code>int SDL_JoystickNumBalls(SDL_Joystick *joystick)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="joystick"></param>
+		/// <returns>
+		/// Number of trackballs.
+		/// </returns>
+		/// <seealso cref="SDL_JoystickOpen"/>
+		/// <seealso cref="SDL_JoystickGetBall"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_JoystickNumBalls(ref SDL_Joystick joystick);
+		#endregion int SDL_JoystickNumBalls(ref SDL_Joystick joystick)
+		
+		#region int SDL_JoystickNumHats(ref SDL_Joystick joystick)
+		/// <summary>
+		/// Get the number of joystick hats.
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_joystick.h
+		/// <code>int SDL_JoystickNumHats(SDL_Joystick *joystick);
+		/// </code></p>
+		/// </remarks>
+		/// Return the number of hats available from a previously 
+		/// opened SDL_Joystick.
+		/// <param name="joystick"></param>
+		/// <returns>
+		/// Number of hats.
+		/// </returns>
+		/// <seealso cref="SDL_JoystickOpen"/>
+		/// <seealso cref="SDL_JoystickGetHat"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_JoystickNumHats(ref SDL_Joystick joystick);
+		#endregion int SDL_JoystickNumHats(ref SDL_Joystick joystick)
+		
+		#region int SDL_JoystickNumButtons(ref SDL_Joystick joystick)
+		/// <summary>
+		/// Get the number of joystick buttons.
+		/// </summary>
+		/// <remarks>
+		/// Return the number of buttons available from a 
+		/// previously opened SDL_Joystick.
+		/// <p>Binds to C-function in SDL_joystick.h
+		/// <code>int SDL_JoystickNumButtons(SDL_Joystick *joystick)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="joystick"></param>
+		/// <returns>
+		/// Number of buttons.
+		/// </returns>
+		/// <seealso cref="SDL_JoystickOpen"/>
+		/// <seealso cref="SDL_JoystickGetButton"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_JoystickNumButtons(ref SDL_Joystick joystick);
+		#endregion int SDL_JoystickNumButtons(ref SDL_Joystick joystick)
+
+		#region void SDL_JoystickUpdate()
+		/// <summary>
+		/// Updates the state of all joysticks.
+		/// </summary>
+		/// <remarks>
+		/// Updates the state(position, buttons, etc.) of all open joysticks.
+		///  If joystick events have been enabled with 
+		///  <see cref="SDL_JoystickEventState"/>
+		///   then this is called automatically in the event loop.
+		/// <p>Binds to C-function in SDL_joystick.h
+		/// <code>void SDL_JoystickUpdate(void)
+		/// </code></p>
+		/// </remarks>
+		/// <seealso cref="SDL_JoystickOpen"/>
+		/// <seealso cref="SDL_JoystickGetButton"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_JoystickUpdate();
+		#endregion void SDL_JoystickUpdate()
+
+		#region int SDL_JoystickEventState(int state)
+		/// <summary>
+		/// Enable/disable joystick event polling
+		/// </summary>
+		/// <remarks>
+		/// This function is used to enable or disable joystick event 
+		/// processing. With joystick event processing disabled you will
+		///  have to update joystick states with SDL_JoystickUpdate and 
+		///  read the joystick information manually. state is either 
+		///  SDL_QUERY, SDL_ENABLE or SDL_IGNORE.
+		///  <p>
+		///  Note: Joystick event handling is preferred
+		///  </p>
+		/// <p>Binds to C-function in SDL_joystick.h
+		/// <code>int SDL_JoystickEventState(int state)
+		/// </code></p>
+		/// </remarks>
+		/// <seealso cref="SDL_JoystickOpen"/>
+		/// <seealso cref="SDL_JoystickGetButton"/>
+		/// <returns>
+		/// If state is SDL_QUERY then the current state is returned,
+		///  otherwise the new processing state is returned.
+		/// </returns>
+		/// <seealso cref="SDL_JoystickUpdate"/>
+		/// <seealso cref="SDL_JoyAxisEvent"/>
+		/// <seealso cref="SDL_JoyBallEvent"/>
+		/// <seealso cref="SDL_JoyButtonEvent"/>
+		/// <seealso cref="SDL_JoyHatEvent"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_JoystickEventState(int state);
+		#endregion int SDL_JoystickEventState(int state)
+
+		#region short SDL_JoystickGetAxis(ref SDL_Joystick joystick, int axis)
+		/// <summary>
+		/// Get the current state of an axis.
+		/// </summary>
+		/// <remarks>
+		/// SDL_JoystickGetAxis returns the current state of the 
+		/// given axis on the given joystick.
+		/// <p>On most modern joysticks the X axis is usually represented 
+		/// by axis 0 and the Y axis by axis 1. The value returned by 
+		/// SDL_JoystickGetAxis is a signed integer (-32768 to 32768) 
+		/// representing the current position of the axis, it maybe necessary
+		///  to impose certain tolerances on these values to account for 
+		///  jitter. It is worth noting that some joysticks use axes 2 and
+		///   3 for extra buttons.</p>
+		/// <p>Binds to C-function in SDL_joystick.h
+		/// <code>Sint16 SDL_JoystickGetAxis(SDL_Joystick *joystick, int axis);
+		/// </code></p>
+		/// </remarks>
+		/// <param name="joystick"></param>
+		/// <param name="axis"></param>
+		/// <returns>
+		/// Returns a short representing the current position of the axis.
+		/// </returns>
+		/// <example>
+		/// <code>
+		/// Sint16 x_move, y_move;
+		///		SDL_Joystick *joy1;
+		///		.
+		///		.
+		///		x_move=SDL_JoystickGetAxis(joy1, 0);
+		///		y_move=SDL_JoystickGetAxis(joy1, 1);
+		/// </code>
+		/// </example>
+		/// <seealso cref="SDL_JoystickNumAxes"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern short SDL_JoystickGetAxis(ref SDL_Joystick joystick, 
+			int axis);
+		#endregion short SDL_JoystickGetAxis(ref SDL_Joystick joystick, int axis)
+
+		#region byte SDL_JoystickGetHat(ref SDL_Joystick joystick, int hat)
+		/// <summary>
+		/// Get the current state of a joystick hat
+		/// </summary>
+		/// <remarks>
+		/// SDL_JoystickGetHat returns the current 
+		/// state of the given hat on the given joystick.
+		/// <p>Binds to C-function in SDL_joystick.h
+		/// <code>Uint8 SDL_JoystickGetHat(SDL_Joystick *joystick, int hat)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="joystick"></param>
+		/// <param name="hat"></param>
+		/// <returns>
+		/// The current state is returned as a byte which 
+		/// is defined as an OR'd combination of one or more of the following:
+		/// <code>
+		/// SDL_HAT_CENTERED 
+		///	SDL_HAT_UP 
+		///	SDL_HAT_RIGHT 
+		///	SDL_HAT_DOWN 
+		///	SDL_HAT_LEFT 
+		///	SDL_HAT_RIGHTUP 
+		///	SDL_HAT_RIGHTDOWN 
+		///	SDL_HAT_LEFTUP 
+		/// SDL_HAT_LEFTDOWN 
+		/// </code>
+		/// </returns>
+		/// <seealso cref="SDL_JoystickNumHats"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern byte SDL_JoystickGetHat(ref SDL_Joystick joystick,
+			int hat);
+		#endregion byte SDL_JoystickGetHat(ref SDL_Joystick joystick, int hat)
+		
+		#region int SDL_JoystickGetBall(...)
+		/// <summary>
+		/// Get relative trackball motion. 
+		/// </summary>
+		/// <remarks>
+		/// Get the ball axis change.
+		/// <p>Trackballs can only return relative motion since 
+		/// the last call to SDL_JoystickGetBall, these motion 
+		/// deltas a placed into dx and dy.
+		/// </p>
+		/// <p>Binds to C-function in SDL_joystick.h
+		/// <code>int SDL_JoystickGetBall(SDL_Joystick *joystick, int ball, int *dx, int *dy);
+		/// </code></p>
+		/// </remarks>
+		/// <param name="joystick"></param>
+		/// <param name="ball"></param>
+		/// <param name="dx"></param>
+		/// <param name="dy"></param>
+		/// <returns>
+		/// Returns 0 on success or -1 on failure
+		/// </returns>
+		/// <example>
+		/// <code>
+		/// int delta_x, delta_y;
+		///		SDL_Joystick *joy;
+		///		.
+		///		.
+		///		.
+		///		SDL_JoystickUpdate();
+		///		if(SDL_JoystickGetBall(joy, 0, &amp;delta_x, &amp;delta_y)==-1)
+		///		printf("TrackBall Read Error!\n");
+		///		printf("Trackball Delta- X:%d, Y:%d\n", delta_x, delta_y);
+		/// </code>
+		/// </example>
+		/// <seealso cref="SDL_JoystickNumBalls"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_JoystickGetBall(ref SDL_Joystick joystick, 
+			int ball, IntPtr dx, IntPtr dy);
+		#endregion int SDL_JoystickGetBall(...)
+		
+		#region byte SDL_JoystickGetButton(ref SDL_Joystick joystick, int button)
+		/// <summary>
+		/// Get the current state of a given button on a given joystick.
+		/// </summary>
+		/// <remarks>
+		/// SDL_JoystickGetButton returns the current 
+		/// state of the given button on the given joystick.
+		/// <p>Binds to C-function in SDL_joystick.h
+		/// <code>Uint8 SDL_JoystickGetButton(SDL_Joystick *joystick, int button);
+		/// </code></p>
+		/// </remarks>
+		/// <param name="joystick"></param>		
+		/// <param name="button"></param>
+		/// <returns>
+		/// 1 if the button is pressed. Otherwise, 0.
+		/// </returns>
+		/// <seealso cref="SDL_JoystickNumButtons"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern byte SDL_JoystickGetButton(ref SDL_Joystick joystick, 
+			int button);
+		#endregion byte SDL_JoystickGetButton(ref SDL_Joystick joystick, int button)
+		
+		#region void SDL_JoystickClose(ref SDL_Joystick joystick)
+		/// <summary>
+		/// Closes a previously opened joystick.
+		/// </summary>
+		/// <remarks>
+		/// Close a joystick that was previously opened with 
+		/// <see cref="SDL_JoystickOpen"/>.
+		/// <p>Binds to C-function in SDL_joystick.h
+		/// <code>void SDL_JoystickClose(SDL_Joystick *joystick);
+		/// </code></p>
+		/// </remarks>
+		/// <param name="joystick"></param>
+		/// <seealso cref="SDL_JoystickOpen"/>
+		/// <seealso cref="SDL_JoystickOpened"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_JoystickClose(ref SDL_Joystick joystick);
+		#endregion void SDL_JoystickClose(ref SDL_Joystick joystick)
+		#endregion SDL_joystick.h
+
+		#region SDL_keyboard.h
+		#region int SDL_EnableUNICODE(int enable)
+		/// <summary>
+		/// Enable UNICODE translation
+		/// </summary>
+		/// <remarks>
+		/// Enables/Disables Unicode keyboard translation.
+		/// <p>To obtain the character codes corresponding to received 
+		/// keyboard events, Unicode translation must first be turned 
+		/// on using this function. The translation incurs a slight overhead
+		///  for each keyboard event and is therefore disabled by default. 
+		///  For each subsequently received key down event, the unicode member
+		///   of the SDL_keysym structure will then contain the corresponding 
+		///   character code, or zero for keysyms that do not correspond to 
+		///   any character code.</p>
+		/// <p>A value of 1 for enable enables Unicode translation; 0 disables
+		///  it, and -1 leaves it unchanged (useful for querying the current 
+		///  translation mode).</p>
+		/// <p>Note that only key press events will be translated, not 
+		/// release events.</p>
+		/// <p>Binds to C-function in SDL_keyboard.h
+		/// <code>int SDL_EnableUNICODE(int enable);
+		/// </code></p>
+		/// </remarks>
+		/// <param name="enable"></param>
+		/// <returns>
+		/// Returns the previous translation mode (0 or 1).
+		/// </returns>
+		/// <seealso cref="SDL_keysym"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_EnableUNICODE(int enable);
+		#endregion int SDL_EnableUNICODE(int enable)
+
+		#region int SDL_EnableKeyRepeat(int rate, int delay)
+		/// <summary>
+		/// Set keyboard repeat rate. 
+		/// </summary>
+		/// <remarks>
+		/// Enables or disables the keyboard repeat rate. 
+		/// delay specifies how long the key must be pressed before it 
+		/// begins repeating, it then repeats at the speed specified by 
+		/// interval. Both delay and interval are expressed in milliseconds.
+		/// <p>Setting delay to 0 disables key repeating completely. Good 
+		/// default values are SDL_DEFAULT_REPEAT_DELAY and 
+		/// SDL_DEFAULT_REPEAT_INTERVAL.</p>
+		///<p>Binds to C-function in SDL_keyboard.h
+		///<code>int SDL_EnableKeyRepeat(int delay, int interval);
+		///</code></p>
+		/// </remarks>
+		/// <param name="rate"></param>
+		/// <param name="delay"></param>
+		/// <returns>Returns 0 on success and -1 on failure.</returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_EnableKeyRepeat(int rate, 
+			int delay);
+		#endregion int SDL_EnableKeyRepeat(int rate, int delay)
+
+		#region IntPtr SDL_GetKeyStateInternal(out int numkeys)
+		/// <summary>
+		/// Get a snapshot of the current keyboard state. 
+		/// </summary>
+		/// <remarks>
+		/// Returns an array of keystates, indexed by the SDLK_* syms.
+		/// Used:
+		///	Uint8 *keystate = SDL_GetKeyState(NULL);
+		///	if ( keystate[SDLK_RETURN] ) ...  _RETURN_ is pressed.
+		///	<p>Binds to C-function in SDL_keyboard.h
+		///	<code>Uint8 *SDL_GetKeyState(int *numkeys);
+		///	</code></p>
+		/// </remarks>
+		/// <param name="numkeys"></param>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDL_GetKeyState"),
+		SuppressUnmanagedCodeSecurity]
+		private static extern IntPtr SDL_GetKeyStateInternal(out int numkeys);
+		#endregion IntPtr SDL_GetKeyStateInternal(out int numkeys)
+
+		#region byte[] SDL_GetKeyState(out int numkeys)
+		/// <summary>
+		/// Get a snapshot of the current keyboard state. 
+		/// </summary>
+		/// <remarks>
+		/// Gets a snapshot of the current keyboard state. The current state 
+		/// is return as a pointer to an array, the size of this array is 
+		/// stored in numkeys. The array is indexed by the SDLK_* symbols. 
+		/// A value of 1 means the key is pressed and a value of 0 means its 
+		/// not. The pointer returned is a pointer to an internal SDL array 
+		/// and should not be freed by the caller.
+		/// <p>Note: Use <see cref="SDL_PumpEvents"/> to update the state 
+		/// array.</p>
+		///	<p>Binds to C-function in SDL_keyboard.h
+		///	<code>Uint8 *SDL_GetKeyState(int *numkeys);
+		///	</code></p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// Uint8 *keystate = SDL_GetKeyState(NULL);
+		/// if ( keystate[SDLK_RETURN] ) printf("Return Key Pressed.\n");
+		/// </code>
+		/// </example>
+		/// <param name="numkeys"></param>
+		/// <seealso cref="SDLKey"/>
+		/// <seealso cref="SDL_PumpEvents"/> 
+		public static byte[] SDL_GetKeyState(out int numkeys) 
+		{
+			IntPtr state = SDL_GetKeyStateInternal(out numkeys);
+
+			// update the cached keyboard state
+			Marshal.Copy(state, keyboardState, 0, numkeys);
+
+			return keyboardState;
+		}
+		#endregion byte[] SDL_GetKeyState(out int numkeys)
+
+		#region SDLMod SDL_GetModState()
+		/// <summary>
+		/// Get the state of modifier keys. 
+		/// </summary>
+		/// <remarks>
+		/// Returns the current state of the modifier keys (CTRL, ALT, etc.).
+		/// <p>Binds to C-function in SDL_keyboard.h
+		/// <code>SDLMod SDL_GetModState(void)
+		/// </code></p>
+		/// </remarks>
+		/// <returns>The return value can be an OR'd combination of the 
+		/// <see cref="SDLMod"/> enum.
+		/// </returns>
+		/// <seealso cref="SDL_GetKeyState"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern SDLMod SDL_GetModState();
+		#endregion SDLMod SDL_GetModState()
+		
+		#region void SDL_SetModState(SDLMod modstate)
+		/// <summary>
+		/// Set the current key modifier state. 
+		/// </summary>
+		/// <remarks>
+		/// The inverse of SDL_GetModState, SDL_SetModState allows you to 
+		/// impose modifier key states on your application.
+		/// <p>Simply pass your desired modifier states into modstate. 
+		/// This value my be a logical OR'd combination of 
+		/// <see cref="SDLMod"/>.</p>
+		///  <p>Binds to C-function in SDL_keyboard.h
+		///  <code>void SDL_SetModState(SDLMod modstate)
+		///  </code></p>
+		/// </remarks>
+		/// <param name="modstate"></param>
+		/// <seealso cref="SDL_GetModState"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_SetModState(SDLMod modstate);
+		#endregion void SDL_SetModState(SDLMod modstate)
+
+		#region string SDL_GetKeyName(SDLKey key)
+		/// <summary>
+		/// Get the name of an SDL virtual keysym
+		/// </summary>
+		/// <remarks>
+		/// Returns the SDL-defined name of the SDLKey key.
+		/// <p>Binds to C-function in SDL_keyboard.h
+		/// <code>char *SDL_GetKeyName(SDLKey key);
+		/// </code></p>
+		/// </remarks>
+		/// <returns>
+		/// Returns the SDL-defined name of the SDLKey key.
+		/// </returns>
+		/// <seealso cref="SDLKey"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern string SDL_GetKeyName(SDLKey key);
+		#endregion string SDL_GetKeyName(SDLKey key)
+		#endregion SDL_keyboard.h
+
+		// SDL_keysym.h -- none
+		// SDL_loadso.h -- skipped
 		// SDL_main.h -- none
+
+		#region SDL_mouse.h
+		#region byte SDL_GetMouseState(out int x, out int y)
+		/// <summary>
+		/// Retrieve the current state of the mouse.
+		/// </summary>
+		/// <remarks>
+		/// The current button state is returned as a button bitmask, w
+		/// hich can be tested using the SDL_BUTTON(X) macros, 
+		/// and x and y are set to the current mouse cursor position. 
+		/// You can pass NULL for either x or y.
+		/// <p>Binds to C-function call in SDL_mouse.h:
+		/// <code>
+		/// Uint8 SDL_GetMouseState(int *x, int *y)
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		/// <returns></returns>
+		/// <example>
+		/// <code>
+		/// SDL_PumpEvents();
+		///		if(SDL_GetMouseState(NULL, NULL)&amp;SDL_BUTTON(1))
+		///		printf("Mouse Button 1(left) is pressed.\n");
+		/// </code>
+		/// </example>
+		/// <seealso cref="SDL_GetRelativeMouseState"/>
+		/// <seealso cref="SDL_PumpEvents"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern byte SDL_GetMouseState(out int x, out int y);
+		#endregion byte SDL_GetMouseState(out int x, out int y)
+
+		#region byte SDL_GetRelativeMouseState(out int x, out int y)
+		/// <summary>
+		/// Retrieve the current state of the mouse.
+		/// </summary>
+		/// <remarks>
+		/// The current button state is returned as a button bitmask, 
+		/// which can be tested using the SDL_BUTTON(X) macros, 
+		/// and x and y are set to the change in the mouse position 
+		/// since the last call to SDL_GetRelativeMouseState or 
+		/// since event initialization. You can pass NULL for either x or y.
+		///  <p>Binds to C-function call in SDL_mouse.h:
+		/// <code>
+		/// Uint8 SDL_GetRelativeMouseState(int *x, int *y);
+		/// </code>
+		/// </p> 
+		/// </remarks>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		/// <returns>
+		/// The current button state is returned as a button bitmask
+		/// </returns>
+		/// <seealso cref="SDL_GetMouseState"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern byte SDL_GetRelativeMouseState(out int x, out int y);
+		#endregion byte SDL_GetRelativeMouseState(out int x, out int y)
+
+		#region void SDL_WarpMouse(short x, short y)
+		/// <summary>
+		/// Set the position of the mouse cursor.
+		/// </summary>
+		/// <remarks>
+		/// Set the position of the mouse cursor (generates a mouse 
+		/// motion event).
+		/// <p>Binds to C-function call in SDL_mouse.h:
+		/// <code>
+		/// void SDL_WarpMouse(Uint16 x, Uint16 y);
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		/// <seealso cref="SDL_MouseMotionEvent"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_WarpMouse(short x, short y);
+		#endregion void SDL_WarpMouse(short x, short y)
+		
+		#region int SDL_CreateCursor(...)
+		/// <summary>
+		/// Creates a new mouse cursor.
+		/// </summary>
+		/// <remarks>
+		/// Create a cursor using the specified data and mask (in MSB format). 
+		/// The cursor width must be a multiple of 8 bits.
+		/// <p>The cursor is created in black and white according to the following:</p>
+		/// <code>
+		/// data  mask    resulting pixel on screen
+		///  0     1       White
+		///  1     1       Black
+		///  0     0       Transparent
+		///  1     0       Inverted color if possible, black if not.
+		///  </code>
+		/// Cursors created with this function must be freed with 
+		/// <see cref="SDL_FreeCursor"/>.
+		/// <p>Binds to C-function call in SDL_mouse.h:
+		/// <code>
+		/// SDL_Cursor *SDL_CreateCursor(Uint8 *data, Uint8 *mask, int w, int h, int hot_x, int hot_y);
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// /* Stolen from the mailing list */
+		///* Creates a new mouse cursor from an XPM */
+		///
+		///
+		/// /* XPM */
+		///static const char *arrow[] = {
+		///  /* width height num_colors chars_per_pixel */
+		///  "    32    32        3            1",
+		///  /* colors */
+		/// "X c #000000",
+		///  ". c #ffffff",
+		///  "  c None",
+		///  /* pixels */
+		///  "X                               ",
+		///  "XX                              ",
+		///  "X.X                             ",
+		///  "X..X                            ",
+		///  "X...X                           ",
+		///  "X....X                          ",
+		///  "X.....X                         ",
+		///  "X......X                        ",
+		///  "X.......X                       ",
+		///  "X........X                      ",
+		///  "X.....XXXXX                     ",
+		///  "X..X..X                         ",
+		///  "X.X X..X                        ",
+		///  "XX  X..X                        ",
+		///  "X    X..X                       ",
+		///  "     X..X                       ",
+		///  "      X..X                      ",
+		///  "      X..X                      ",
+		///  "       XX                       ",
+		///  "                                ",
+		///  "                                ",
+		///  "                                ",
+		///  "                                ",
+		///  "                                ",
+		///  "                                ",
+		///  "                                ",
+		///  "                                ",
+		///  "                                ",
+		///  "                                ",
+		///  "                                ",
+		///  "                                ",
+		///  "                                ",
+		///  "0,0"
+		///};
+		///
+		///static SDL_Cursor *init_system_cursor(const char *image[])
+		///{
+		///  int i, row, col;
+		///  Uint8 data[4*32];
+		///  Uint8 mask[4*32];
+		///  int hot_x, hot_y;
+		///
+		///  i = -1;
+		///  for ( row=0; row&lt;32; ++row ) {
+		///    for ( col=0; col&lt;32; ++col ) {
+		///      if ( col % 8 ) {
+		///        data[i] &lt;&lt;= 1;
+		///        mask[i] &lt;&lt;= 1;
+		///      } else {
+		///        ++i;
+		///        data[i] = mask[i] = 0;
+		///      }
+		///      switch (image[4+row][col]) {
+		///        case 'X':
+		///          data[i] |= 0x01;
+		///          mask[i] |= 0x01;
+		///          break;
+		///        case '.':
+		///          mask[i] |= 0x01;
+		///          break;
+		///        case ' ':
+		///          break;
+		///      }
+		///    }
+		///  }
+		///  sscanf(image[4+row], "%d,%d", &amp;hot_x, &amp;hot_y);
+		///  return SDL_CreateCursor(data, mask, 32, 32, hot_x, hot_y);
+		///}
+		/// </code>
+		/// </example>
+		/// <param name="data"></param>
+		/// <param name="h"></param>
+		/// <param name="hot_x"></param>
+		/// <param name="hot_y"></param>
+		/// <param name="mask"></param>
+		/// <param name="w"></param>
+		/// <returns></returns>
+		/// <seealso cref="SDL_FreeCursor"/>
+		/// <seealso cref="SDL_SetCursor"/>
+		/// <seealso cref="SDL_ShowCursor"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_CreateCursor(ref byte data, ref byte mask,
+			int w, int h, int hot_x, int hot_y);
+		#endregion int SDL_CreateCursor(...)
+
+		#region IntPtr SDL_SetCursor(ref SDL_Cursor cursor)
+		/// <summary>
+		/// Set the currently active cursor to the specified one. 
+		/// </summary>
+		/// <remarks>
+		/// Sets the currently active cursor to the specified one. 
+		/// If the cursor is currently visible, the change will 
+		/// be immediately represented on the display.
+		/// <p>Binds to C-function call in SDL_mouse.h:
+		/// <code>
+		/// void *SDL_SetCursor(SDL_Cursor *cursor);
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="cursor"></param>
+		/// <returns></returns>
+		/// <seealso cref="SDL_GetCursor"/>
+		/// <seealso cref="SDL_CreateCursor"/>
+		/// <seealso cref="SDL_ShowCursor"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_SetCursor(ref SDL_Cursor cursor);
+		#endregion IntPtr SDL_SetCursor(ref SDL_Cursor cursor)
+
+		#region IntPtr SDL_GetCursor()
+		/// <summary>
+		/// Returns the currently active cursor. 
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function call in SDL_mouse.h:
+		/// <code>
+		/// SDL_Cursor *SDL_GetCursor(void);
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <returns>IntPtr to <see cref="SDL_Cursor"/></returns>
+		/// <seealso cref="SDL_CreateCursor"/>
+		/// <seealso cref="SDL_SetCursor"/>
+		/// <seealso cref="SDL_ShowCursor"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_GetCursor();
+		#endregion IntPtr SDL_GetCursor()
+
+		#region void SDL_FreeCursor(ref SDL_Cursor cursor)
+		/// <summary>
+		/// Frees a cursor created with SDL_CreateCursor. 
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function call in SDL_mouse.h:
+		/// <code>
+		/// void SDL_FreeCursor(SDL_Cursor *cursor)
+		/// </code>
+		/// </p>
+		/// Frees a SDL_Cursor that was created using 
+		/// <see cref="SDL_CreateCursor"/>.
+		/// </remarks>
+		/// <param name="cursor"></param>
+		/// <returns></returns>
+		/// <seealso cref="SDL_CreateCursor"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_FreeCursor(ref SDL_Cursor cursor);
+		#endregion void SDL_FreeCursor(ref SDL_Cursor cursor)
+		
+		#region int SDL_ShowCursor(int toggle)
+		/// <summary>
+		/// Toggle whether or not the cursor is shown on the screen.
+		/// </summary>
+		/// <remarks>
+		/// Toggle whether or not the cursor is shown on the screen. 
+		/// Passing SDL_ENABLE displays the cursor and passing 
+		/// SDL_DISABLE hides it. The current state of the mouse 
+		/// cursor can be queried by passing SDL_QUERY, either 
+		/// SDL_DISABLE or SDL_ENABLE will be returned.
+		/// <p>
+		/// The cursor starts off displayed, but can be turned off.
+		/// </p>
+		/// <p>Binds to C-function call in SDL_mouse.h:
+		/// <code>
+		/// int SDL_ShowCursor(int toggle);
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="toggle"></param>
+		/// <returns></returns>
+		/// <seealso cref="SDL_CreateCursor"/>
+		/// <seealso cref="SDL_SetCursor"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_ShowCursor(int toggle);
+		#endregion int SDL_ShowCursor(int toggle)
+		#endregion SDL_mouse.h
+
+		// SDL_mutex.h -- Skipped. Superceded by System.Threading class
 		// SDL_name.h -- none
 		// SDL_opengl.h -- superceded by Tao.OpenGL
 		// SDL_quit.h -- none
@@ -6298,6 +7432,9 @@ namespace Tao.Sdl {
 		public static extern IntPtr SDL_RWFromMem(byte[] mem, int size);
 		#endregion IntPtr SDL_RWFromMem(byte[] mem, int size)
 		#endregion SDL_rwops.h
+
+		// SDL_syswm.h -- TODO
+		// SDL_thread.h -- skipped. Superceded by System.Threading class
 
 		#region SDL_timer.h
 		#region int SDL_GetTicks()
@@ -8584,384 +9721,6 @@ namespace Tao.Sdl {
 		public static extern int SDL_WM_GrabInput(SDL_GrabMode mode);
 		#endregion int SDL_WM_GrabInput(SDL_GrabMode mode);
 		#endregion SDL_video.h
-
-		#region NOT_DONE
-
-		//Keyboard
-		/// <summary>
-		/// If 'delay' is set to 0, keyboard repeat is disabled. 
-		/// </summary>
-		/// <remarks>
-		///
-		/// </remarks>
-		/// <param name="rate"></param>
-		/// <param name="delay"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_EnableKeyRepeat(int rate, 
-			int delay);
-
-		/// <summary>
-		/// Get a snapshot of the current state of the keyboard. 
-		/// </summary>
-		/// <remarks>
-		/// Returns an array of keystates, indexed by the SDLK_* syms.
-		/// Used:
-		///	Uint8 *keystate = SDL_GetKeyState(NULL);
-		///	if ( keystate[SDLK_RETURN] ) ...  _RETURN_ is pressed.
-		/// </remarks>
-		/// <param name="numkeys"></param>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDL_GetKeyState"),
-		SuppressUnmanagedCodeSecurity]
-		private static extern IntPtr SDL_GetKeyStateInternal(out int numkeys);
-
-		/// <summary>
-		/// Get a snapshot of the current state of the keyboard. 
-		/// </summary>
-		/// <remarks>
-		/// Returns an array of keystates, indexed by the SDLK_* syms.
-		/// Used:
-		///	Uint8 *keystate = SDL_GetKeyState(NULL);
-		///	if ( keystate[SDLK_RETURN] ) ...  _RETURN_ is pressed.
-		/// </remarks>
-		/// <param name="numkeys"></param>
-		public static byte[] SDL_GetKeyState(out int numkeys) {
-			IntPtr state = SDL_GetKeyStateInternal(out numkeys);
-
-			// update the cached keyboard state
-			Marshal.Copy(state, keyboardState, 0, numkeys);
-
-			return keyboardState;
-		}
-
-		/// <summary>
-		/// Get the current key modifier state. 
-		/// </summary>
-		/// <remarks>
-		/// </remarks>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern SDLMod SDL_GetModState();
-		
-		/// <summary>
-		/// Set the current key modifier state. 
-		/// </summary>
-		/// <remarks>
-		/// This does not change the keyboard state, only the key modifier
-		///  flags.
-		/// </remarks>
-		/// <param name="modstate"></param>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_SetModState(SDLMod modstate);
-
-		/// <summary>
-		/// Get the name of an SDL virtual keysym
-		/// </summary>
-		/// <remarks>
-		/// </remarks>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern String SDL_GetKeyName(SDLKey key);
-		
-		/// <summary>
-		/// Enable/Disable UNICODE translation of keyboard input.
-		/// </summary>
-		/// <remarks>
-		/// This translation has some overhead, so translation defaults off.
-		/// If 'enable' is 1, translation is enabled.
-		/// If 'enable' is 0, translation is disabled.
-		/// If 'enable' is -1, the translation state is not changed.
-		/// It returns the previous state of keyboard translation.
-		/// </remarks>
-		/// <param name="enable"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_EnableUNICODE(int enable);
-		
-
-
-		//Mouse
-		/// <summary>
-		/// Retrieve the current state of the mouse.
-		/// </summary>
-		/// <remarks>
-		/// The current button state is returned as a button bitmask, 
-		/// and x and y are set to the current mouse cursor position.  
-		/// You can pass NULL for either x or y.
-		/// </remarks>
-		/// <param name="x"></param>
-		/// <param name="y"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern byte SDL_GetMouseState(out int x, out int y);
-
-		/// <summary>
-		/// Retrieve the current state of the mouse.
-		/// </summary>
-		/// <remarks>
-		/// The current button state is returned as a button bitmask, 
-		/// and x and y are set to the mouse deltas since the last call to
-		///  SDL_GetRelativeMouseState().  
-		/// </remarks>
-		/// <param name="x"></param>
-		/// <param name="y"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern byte SDL_GetRelativeMouseState(out int x, out int y);
-		
-		/// <summary>
-		/// Create a cursor using the specified data and mask (in MSB format).
-		/// The cursor width must be a multiple of 8 bits. 
-		/// </summary>
-		/// <remarks>
-		/// The cursor is created in black and white according to the 
-		/// following:
-		/// data  mask    resulting pixel on screen
-		///  0     1       White
-		///  1     1       Black
-		///  0     0       Transparent
-		///  1     0       Inverted color if possible, black if not.
-		///
-		/// Cursors created with this function must be freed with 
-		/// SDL_FreeCursor().
-		/// </remarks>
-		/// <param name="data"></param>
-		/// <param name="h"></param>
-		/// <param name="hot_x"></param>
-		/// <param name="hot_y"></param>
-		/// <param name="mask"></param>
-		/// <param name="w"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_CreateCursor(IntPtr data, IntPtr mask,
-			int w, int h, int hot_x, int hot_y);
-
-		/// <summary>
-		/// Set the currently active cursor to the specified one. 
-		/// </summary>
-		/// <remarks>
-		/// If the cursor is currently visible, the change will be immediately 
-		/// represented on the display.
-		/// </remarks>
-		/// <param name="cursor"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_SetCursor(IntPtr cursor);
-
-		/// <summary>
-		/// Returns the currently active cursor. 
-		/// </summary>
-		/// <remarks>
-		/// </remarks>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern IntPtr SDL_GetCursor();
-
-		/// <summary>
-		/// Deallocates a cursor created with SDL_CreateCursor(). 
-		/// </summary>
-		/// <remarks>
-		/// </remarks>
-		/// <param name="cursor"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_FreeCursor(IntPtr cursor);
-		
-		/// <summary>
-		/// Toggle whether or not the cursor is shown on the screen.
-		/// </summary>
-		/// <remarks>
-		/// The cursor start off displayed, but can be turned off.
-		/// SDL_ShowCursor() returns 1 if the cursor was being displayed
-		/// before the call, or 0 if it was not.  You can query the current
-		/// state by passing a 'toggle' value of -1.
-		/// </remarks>
-		/// <param name="toggle"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_ShowCursor(int toggle);
-		
-		/// <summary>
-		/// Set the position of the mouse cursor (generates a mouse motion 
-		/// event).
-		/// </summary>
-		/// <param name="x"></param>
-		/// <param name="y"></param>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_WarpMouse(short x, short y);
-
-		// Joystick
-		/// <summary>
-		/// Count the number of joysticks attached to the system.
-		/// </summary>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_NumJoysticks();
-
-		/// <summary>
-		/// Get the implementation dependent name of a joystick.
-		/// This can be called before any joysticks are opened.
-		/// If no name can be found, this function returns NULL.
-		/// </summary>
-		/// <param name="device_index"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern string SDL_JoystickName(int device_index);
-
-		/// <summary>
-		/// Open a joystick for use - the index passed as an argument refers to
-		/// the N'th joystick on the system.  This index is the value which
-		///  will
-		/// identify this joystick in future joystick events.
-		/// </summary>
-		/// <remarks>
-		/// This function returns a joystick identifier, 
-		/// or NULL if an error occurred.
-		/// </remarks>
-		/// <param name="device_index"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern IntPtr SDL_JoystickOpen(int device_index);
-
-		/// <summary>
-		/// Checks if the joystick has been opened.
-		/// </summary>
-		/// <remarks>
-		/// Returns 1 if the joystick has been opened, or 0 if it has not.
-		/// </remarks>
-		/// <param name="device_index"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_JoystickOpened(int device_index);
-		
-		/// <summary>
-		/// Get the device index of an opened joystick.
-		/// </summary>
-		/// <param name="joystick"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_JoystickIndex(IntPtr joystick);
-		
-		/// <summary>
-		/// Get the number of general axis controls on a joystick.
-		/// </summary>
-		/// <param name="joystick"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_JoystickNumAxes(IntPtr joystick);
-
-		/// <summary>
-		/// Get the number of trackballs on a joystick.
-		/// </summary>
-		/// <remarks>
-		/// Joystick trackballs have only relative motion events associated
-		/// with them and their state cannot be polled.
-		/// </remarks>
-		/// <param name="joystick"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_JoystickNumBalls(IntPtr joystick);
-		
-		/// <summary>
-		/// Get the number of POV hats on a joystick.
-		/// </summary>
-		/// <param name="joystick"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_JoystickNumHats(IntPtr joystick);
-		
-		/// <summary>
-		/// Get the number of buttons on a joystick.
-		/// </summary>
-		/// <param name="joystick"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_JoystickNumButtons(IntPtr joystick);
-
-		/// <summary>
-		/// Get the current state of an axis control on a joystick
-		/// </summary>
-		/// <remarks>
-		/// The state is a value ranging from -32768 to 32767.
-		/// The axis indices start at index 0.
-		/// </remarks>
-		/// <param name="joystick"></param>
-		/// <param name="axis"></param>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_JoystickGetAxis(IntPtr joystick, 
-			int axis);
-
-		/// <summary>
-		/// Get the hat index. 
-		/// </summary>
-		/// <remarks>
-		/// The hat indices start at index 0.
-		/// </remarks>
-		/// <param name="joystick"></param>
-		/// <param name="hat"></param>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_JoystickGetHat(IntPtr joystick,
-			int hat);
-		
-		/// <summary>
-		/// Get the ball axis change since the last poll. 
-		/// </summary>
-		/// <remarks>
-		/// This returns 0, or -1 if you passed it invalid parameters.
-		/// The ball indices start at index 0.
-		/// </remarks>
-		/// <param name="joystick"></param>
-		/// <param name="ball"></param>
-		/// <param name="dx"></param>
-		/// <param name="dy"></param>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_JoystickGetBall(IntPtr joystick, 
-			int ball, IntPtr dx, IntPtr dy);
-		
-		/// <summary>
-		/// Get the current state of a button on a joystick. 
-		/// </summary>
-		/// <remarks>
-		/// The ball indices start at index 0.
-		/// </remarks>
-		/// <param name="joystick"></param>		
-		/// <param name="button"></param>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_JoystickGetButton(IntPtr joystick, 
-			int button);
-		
-		/// <summary>
-		/// Close a joystick previously opened with SDL_JoystickOpen(). 
-		/// </summary>
-		/// <param name="joystick"></param>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_JoystickClose(IntPtr joystick);
-		#endregion NOT_DONE
 		#endregion Sdl Methods
 	}
 }
