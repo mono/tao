@@ -40,7 +40,7 @@
         <if test="${current.runtime.config.net}">
             <if test="${not file::up-to-date(framework.build.directory + '/Tao.OpenGlBits.dll', framework.build.directory + '/Tao.OpenGl.dll') or not file::up-to-date(framework.build.directory + '/Tao.OpenGlCore.dll', framework.build.directory + '/Tao.OpenGl.dll')}">
                 <echo message="Running ILMerge..." />
-                <exec program="ILMerge.exe" commandline="/ndebug /out:${framework.build.directory}/Tao.OpenGl.dll ${framework.build.directory}/Tao.OpenGlCore.dll ${framework.build.directory}/Tao.OpenGlBits.dll" />
+                <exec program="ILMerge.exe" commandline="/snk:${framework.solutions.directory}/${nant.project.name}/Soluti~1/${nant.project.name}.snk /target:library /ndebug /out:${framework.build.directory}/Tao.OpenGl.dll ${framework.build.directory}/Tao.OpenGlCore.dll ${framework.build.directory}/Tao.OpenGlBits.dll" />
             </if>
         </if>
 
