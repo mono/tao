@@ -1319,7 +1319,8 @@
         </member>
         <member name="M:NAnt.Core.Filters.FilterChain.InitializeElement(System.Xml.XmlNode)">
             <summary>
-            Ensures the encoding set using <see cref="P:NAnt.Core.Filters.FilterChain.EncodingName"/> is valid.
+            Ensures the encoding set using <see cref="P:NAnt.Core.Filters.FilterChain.EncodingName"/> and 
+            <see cref="P:NAnt.Core.Filters.FilterChain.OutputEncodingName"/> is valid.
             </summary>
             <param name="elementNode">The <see cref="T:System.Xml.XmlNode"/> used to initialized the element.</param>
         </member>
@@ -1345,6 +1346,22 @@
             The last <see cref="T:NAnt.Core.Filters.Filter"/> in the chain.
             </returns>
         </member>
+        <member name="M:NAnt.Core.Filters.FilterChain.ValidateEncoding(System.String)">
+            <summary>
+            Verifies whether the specified encoding is valid.
+            </summary>
+            <param name="encodingName">The name of the encoding to validate.</param>
+            <exception cref="T:NAnt.Core.BuildException">
+              <para>
+              <paramref name="encodingName"/> is not a valid encoding.
+              </para>
+              <para>-or-</para>
+              <para>
+              <paramref name="encodingName"/> is not supported on the current
+              platform.
+              </para>
+            </exception>
+        </member>
         <member name="P:NAnt.Core.Filters.FilterChain.Filters">
             <summary>
             The filters to apply.
@@ -1353,13 +1370,35 @@
         <member name="P:NAnt.Core.Filters.FilterChain.EncodingName">
             <summary>
             The encoding to assume when filter-copying files. The default is
-            UTF-8.
+            system's current ANSI code page.
+            </summary>
+        </member>
+        <member name="P:NAnt.Core.Filters.FilterChain.OutputEncodingName">
+            <summary>
+            The encoding to use when writing the files. The default is
+            the value of <see cref="P:NAnt.Core.Filters.FilterChain.EncodingName"/> if specified, or the 
+            encoding of the input file.
             </summary>
         </member>
         <member name="P:NAnt.Core.Filters.FilterChain.Encoding">
             <summary>
             Gets the encoding that will be used when filter-copying the files.
             </summary>
+            <value>
+            The <see cref="T:System.Text.Encoding"/> corresponding with 
+            <see cref="P:NAnt.Core.Filters.FilterChain.EncodingName"/> or <see cref="P:System.Text.Encoding.Default"/> 
+            if <see cref="P:NAnt.Core.Filters.FilterChain.EncodingName"/> is <see langword="null"/>.
+            </value>
+        </member>
+        <member name="P:NAnt.Core.Filters.FilterChain.OutputEncoding">
+            <summary>
+            Gets the encoding to use when writing the files.
+            </summary>
+            <value>
+            The <see cref="T:System.Text.Encoding"/> corresponding with 
+            <see cref="P:NAnt.Core.Filters.FilterChain.OutputEncodingName"/> or <see langword="null"/> if no 
+            output encoding is specified.
+            </value>
         </member>
         <member name="T:NAnt.Core.Filters.FilterChain.FilterChainConfigurator">
             <summary>
@@ -1901,53 +1940,134 @@
             The <see cref="P:NAnt.Core.FunctionSetBase.Project"/> that this functionset will reference.
             </value>
         </member>
-        <member name="M:NAnt.Core.Functions.AssemblyFunctions.GetVersion(System.String)">
-            <summary>
-            Gets the version of the given assembly file.
-            </summary>
-            <param name="assemblyFile">The file name of the assembly to get version info for.</param>
-            <returns>
-            The full version of the given assembly file.
-            </returns>
-            <exception cref="T:System.ArgumentException"><paramref name="assemblyFile"/> is an empty <see cref="T:System.String"/>.</exception>
-            <exception cref="T:System.IO.FileNotFoundException"><paramref name="assemblyFile"/> does not exist.</exception>
-            <exception cref="T:System.BadImageFormatException"><paramref name="assemblyFile"/> is not a valid assembly.</exception>
-        </member>
-        <member name="M:NAnt.Core.Functions.AssemblyFunctions.GetFullName(System.String)">
+        <member name="M:NAnt.Core.Functions.AssemblyFunctions.GetFullName(System.Reflection.Assembly)">
             <summary>
             Gets the full name of the assembly, also known as the display name.
             </summary>
-            <param name="assemblyFile">The file name of the assembly to get the full name for.</param>
+            <param name="assembly">The assembly to get the full name for.</param>
             <returns>
             The full name of the assembly, also known as the display name.
             </returns>
-            <exception cref="T:System.ArgumentException"><paramref name="assemblyFile"/> is an empty <see cref="T:System.String"/>.</exception>
-            <exception cref="T:System.IO.FileNotFoundException"><paramref name="assemblyFile"/> does not exist.</exception>
-            <exception cref="T:System.BadImageFormatException"><paramref name="assemblyFile"/> is not a valid assembly.</exception>
         </member>
-        <member name="M:NAnt.Core.Functions.AssemblyFunctions.GetName(System.String)">
+        <member name="M:NAnt.Core.Functions.AssemblyFunctions.GetName(System.Reflection.Assembly)">
+            <summary>
+            Gets an <see cref="T:System.Reflection.AssemblyName"/> for the specified assembly.
+            </summary>
+            <param name="assembly">The assembly to get an <see cref="T:System.Reflection.AssemblyName"/> for.</param>
+            <returns>
+            An <see cref="T:System.Reflection.AssemblyName"/> for the specified assembly.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.AssemblyFunctions.GetLocation(System.Reflection.Assembly)">
+            <summary>
+            Gets the physical location, in codebase format, of the loaded file 
+            that contains the manifest.
+            </summary>
+            <param name="assembly">The assembly to get the location for.</param>
+            <returns>
+            The location of the specified assembly.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.AssemblyFunctions.LoadFromFile(System.String)">
+            <summary>
+            Loads an assembly given its file name or path.
+            </summary>
+            <param name="assemblyFile">The name or path of the file that contains the manifest of the assembly.</param>
+            <returns>
+            The loaded assembly.
+            </returns>
+            <exception cref="T:System.ArgumentException"><paramref name="assemblyFile"/> is an empty <see cref="T:System.String"/>.</exception>
+            <exception cref="T:System.IO.FileNotFoundException"><paramref name="assemblyFile"/> is not found, or the module you are trying to load does not specify a filename extension.</exception>
+            <exception cref="T:System.BadImageFormatException"><paramref name="assemblyFile"/> is not a valid assembly.</exception>
+            <exception cref="T:System.IO.PathTooLongException">An assembly or module was loaded twice with two different evidences, or the assembly name is longer than MAX_PATH characters.</exception>
+        </member>
+        <member name="T:NAnt.Core.Functions.AssemblyNameFunctions">
+            <summary>
+            Functions that return information about an assembly's identity.
+            </summary>
+        </member>
+        <member name="M:NAnt.Core.Functions.AssemblyNameFunctions.GetCodeBase(System.Reflection.AssemblyName)">
+            <summary>
+            Gets the location of the assembly as a URL.
+            </summary>
+            <param name="assemblyName">The <see cref="T:System.Reflection.AssemblyName"/> of the assembly.</param>
+            <returns>
+            The location of the assembly as a URL.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.AssemblyNameFunctions.GetEscapedCodeBase(System.Reflection.AssemblyName)">
+            <summary>
+            Gets the URI, including escape characters, that represents the codebase.
+            </summary>
+            <param name="assemblyName">The <see cref="T:System.Reflection.AssemblyName"/> of the assembly.</param>
+            <returns>
+            The URI, including escape characters, that represents the codebase.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.AssemblyNameFunctions.GetFullName(System.Reflection.AssemblyName)">
+            <summary>
+            Gets the full name of the assembly, also known as the display name.
+            </summary>
+            <param name="assemblyName">The <see cref="T:System.Reflection.AssemblyName"/> of the assembly.</param>
+            <returns>
+            The full name of the assembly, also known as the display name.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.AssemblyNameFunctions.GetName(System.Reflection.AssemblyName)">
             <summary>
             Gets the simple, unencrypted name of the assembly.
             </summary>
-            <param name="assemblyFile">The file name of the assembly to get the name for.</param>
+            <param name="assemblyName">The <see cref="T:System.Reflection.AssemblyName"/> of the assembly.</param>
             <returns>
             The simple, unencrypted name of the assembly.
             </returns>
-            <exception cref="T:System.ArgumentException"><paramref name="assemblyFile"/> is an empty <see cref="T:System.String"/>.</exception>
-            <exception cref="T:System.IO.FileNotFoundException"><paramref name="assemblyFile"/> does not exist.</exception>
-            <exception cref="T:System.BadImageFormatException"><paramref name="assemblyFile"/> is not a valid assembly.</exception>
         </member>
-        <member name="M:NAnt.Core.Functions.AssemblyFunctions.GetCulture(System.String)">
+        <member name="M:NAnt.Core.Functions.AssemblyNameFunctions.GetVersion(System.Reflection.AssemblyName)">
             <summary>
-            Gets the culture supported by the assembly.
+            Gets the version of the assembly.
             </summary>
-            <param name="assemblyFile">The file name of the assembly to get the culture for.</param>
+            <param name="assemblyName">The <see cref="T:System.Reflection.AssemblyName"/> of the assembly.</param>
             <returns>
-            Display name of the assembly's culture.
+            The version of the assembly.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.AssemblyNameFunctions.GetAssemblyName(System.String)">
+            <summary>
+            Gets the <see cref="T:System.Reflection.AssemblyName"/> for a given file.
+            </summary>
+            <param name="assemblyFile">The assembly file for which to get the <see cref="T:System.Reflection.AssemblyName"/>.</param>
+            <returns>
+            An <see cref="T:System.Reflection.AssemblyName"/> object representing the given file.
             </returns>
             <exception cref="T:System.ArgumentException"><paramref name="assemblyFile"/> is an empty <see cref="T:System.String"/>.</exception>
             <exception cref="T:System.IO.FileNotFoundException"><paramref name="assemblyFile"/> does not exist.</exception>
             <exception cref="T:System.BadImageFormatException"><paramref name="assemblyFile"/> is not a valid assembly.</exception>
+            <remarks>
+            The assembly is not added to this domain.
+            </remarks>
+        </member>
+        <member name="M:NAnt.Core.Functions.BooleanConversionFunctions.Parse(System.String)">
+            <summary>
+            Converts the specified string representation of a logical value to 
+            its <see cref="T:System.Boolean"/> equivalent.
+            </summary>
+            <param name="s">A string containing the value to convert.</param>
+            <returns>
+            <see langword="true"/> if <paramref name="value"/> is equivalent to 
+            "True"; otherwise, <see langword="false"/>.
+            </returns>
+            <exception cref="T:System.FormatException"><paramref name="s"/> is not equivalent to <see cref="F:System.Boolean.TrueString"/> or <see cref="F:System.Boolean.FalseString"/>.</exception>
+        </member>
+        <member name="M:NAnt.Core.Functions.BooleanConversionFunctions.ToString(System.Boolean)">
+            <summary>
+            Converts the specified <see cref="T:System.Boolean"/> to its equivalent string
+            representation.
+            </summary>
+            <param name="value">A <see cref="T:System.Boolean"/> to convert.</param>
+            <returns>
+            "True" if <paramref name="value"/> is <see langword="true"/>, or 
+            "False" if <paramref name="value"/> is <see langword="false"/>. 
+            </returns>
         </member>
         <member name="M:NAnt.Core.Functions.ConversionFunctions.ToInt(System.Int32)">
             <summary>
@@ -1994,7 +2114,7 @@
             with an exception when the conversion is not possible.
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.DateFunctions.Now">
+        <member name="M:NAnt.Core.Functions.DateTimeFunctions.Now">
             <summary>
             Gets a <see cref="T:System.DateTime"/> that is the current local date and 
             time on this computer.
@@ -2003,7 +2123,7 @@
             A <see cref="T:System.DateTime"/> whose value is the current date and time.
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.DateFunctions.GetYear(System.DateTime)">
+        <member name="M:NAnt.Core.Functions.DateTimeFunctions.GetYear(System.DateTime)">
             <summary>
             Gets the year component of the specified date.
             </summary>
@@ -2012,7 +2132,7 @@
             The year, between 1 and 9999.
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.DateFunctions.GetMonth(System.DateTime)">
+        <member name="M:NAnt.Core.Functions.DateTimeFunctions.GetMonth(System.DateTime)">
             <summary>
             Gets the month component of the specified date.
             </summary>
@@ -2021,7 +2141,7 @@
             The month, between 1 and 12.
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.DateFunctions.GetDay(System.DateTime)">
+        <member name="M:NAnt.Core.Functions.DateTimeFunctions.GetDay(System.DateTime)">
             <summary>
             Gets the day of the month represented by the specified date.
             </summary>
@@ -2030,7 +2150,7 @@
             The day value, between 1 and 31.
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.DateFunctions.GetHour(System.DateTime)">
+        <member name="M:NAnt.Core.Functions.DateTimeFunctions.GetHour(System.DateTime)">
             <summary>
             Gets the hour component of the specified date.
             </summary>
@@ -2039,7 +2159,7 @@
             The hour, between 0 and 23.
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.DateFunctions.GetMinute(System.DateTime)">
+        <member name="M:NAnt.Core.Functions.DateTimeFunctions.GetMinute(System.DateTime)">
             <summary>
             Gets the minute component of the specified date.
             </summary>
@@ -2048,7 +2168,7 @@
             The minute, between 0 and 59.
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.DateFunctions.GetSecond(System.DateTime)">
+        <member name="M:NAnt.Core.Functions.DateTimeFunctions.GetSecond(System.DateTime)">
             <summary>
             Gets the seconds component of the specified date.
             </summary>
@@ -2057,7 +2177,7 @@
             The seconds, between 0 and 59.
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.DateFunctions.GetMillisecond(System.DateTime)">
+        <member name="M:NAnt.Core.Functions.DateTimeFunctions.GetMillisecond(System.DateTime)">
             <summary>
             Gets the milliseconds component of the specified date.
             </summary>
@@ -2066,7 +2186,7 @@
             The millisecond, between 0 and 999.
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.DateFunctions.GetTicks(System.DateTime)">
+        <member name="M:NAnt.Core.Functions.DateTimeFunctions.GetTicks(System.DateTime)">
             <summary>
             Gets the number of ticks that represent the specified date.
             </summary>
@@ -2076,7 +2196,7 @@
             specified date.
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.DateFunctions.GetDayOfWeek(System.DateTime)">
+        <member name="M:NAnt.Core.Functions.DateTimeFunctions.GetDayOfWeek(System.DateTime)">
             <summary>
             Gets the day of the week represented by the specified date.
             </summary>
@@ -2086,7 +2206,7 @@
             indicating Saturday.
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.DateFunctions.GetDayOfYear(System.DateTime)">
+        <member name="M:NAnt.Core.Functions.DateTimeFunctions.GetDayOfYear(System.DateTime)">
             <summary>
             Gets the day of the year represented by the specified date.
             </summary>
@@ -2095,7 +2215,7 @@
             The day of the year, between 1 and 366.
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.DateFunctions.GetDaysInMonth(System.Int32,System.Int32)">
+        <member name="M:NAnt.Core.Functions.DateTimeFunctions.GetDaysInMonth(System.Int32,System.Int32)">
             <summary>
             Returns the number of days in the specified month of the specified 
             year.
@@ -2108,7 +2228,7 @@
             </returns>
             <exception cref="T:System.ArgumentOutOfRangeException"><paramref name="month"/> is less than 1 or greater than 12.</exception>
         </member>
-        <member name="M:NAnt.Core.Functions.DateFunctions.IsLeapYear(System.Int32)">
+        <member name="M:NAnt.Core.Functions.DateTimeFunctions.IsLeapYear(System.Int32)">
             <summary>
             Returns an indication whether the specified year is a leap year.
             </summary>
@@ -2117,6 +2237,37 @@
             <see langword="true" /> if <paramref name="year" /> is a leap year; 
             otherwise, <see langword="false" />.
             </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.DateTimeConversionFunctions.Parse(System.String)">
+            <summary>
+            Converts the specified string representation of a date and time to 
+            its <see cref="T:System.DateTime"/> equivalent.
+            </summary>
+            <param name="s">A string containing a date and time to convert.</param>
+            <returns>
+            A <see cref="T:System.DateTime"/> equivalent to the date and time contained 
+            in <paramref name="s"/>.
+            </returns>
+            <exception cref="T:System.FormatException"><paramref name="s"/> does not contain a valid string representation of a date and time.</exception>
+            <remarks>
+            The <see cref="T:System.Globalization.DateTimeFormatInfo"/> for the invariant culture is 
+            used to supply formatting information about <paramref name="s"/>.
+            </remarks>
+        </member>
+        <member name="M:NAnt.Core.Functions.DateTimeConversionFunctions.ToString(System.DateTime)">
+            <summary>
+            Converts the specified <see cref="T:System.DateTime"/> to its equivalent
+            string representation.
+            </summary>
+            <param name="value">A <see cref="T:System.DateTime"/> to convert.</param>
+            <returns>
+            A string representation of <paramref name="value"/> formatted using
+            the general format specifier ("G").
+            </returns>
+            <remarks>
+            <paramref name="value"/> is formatted with the 
+            <see cref="T:System.Globalization.DateTimeFormatInfo"/> for the invariant culture.
+            </remarks>
         </member>
         <member name="M:NAnt.Core.Functions.DirectoryFunctions.GetCreationTime(System.String)">
             <summary>
@@ -2203,6 +2354,113 @@
             existing directory; otherwise, <see langword="false" />.
             </returns>
         </member>
+        <member name="M:NAnt.Core.Functions.DoubleConversionFunctions.Parse(System.String)">
+            <summary>
+            Converts the specified string representation of a number to its 
+            double-precision floating point number equivalent.
+            </summary>
+            <param name="s">A string containing a number to convert.</param>
+            <returns>
+            A double-precision floating point number equivalent to the numeric 
+            value or symbol specified in <paramref name="s"/>.
+            </returns>
+            <exception cref="T:System.FormatException"><paramref name="s"/> is not a number in a valid format.</exception>
+            <exception cref="T:System.OverflowException"><paramref name="s"/> represents a number less than <see cref="F:System.Double.MinValue"/> or greater than <see cref="F:System.Double.MaxValue"/>.</exception>
+            <remarks>
+            The <see cref="T:System.Globalization.NumberFormatInfo"/> for the invariant culture is 
+            used to supply formatting information about <paramref name="s"/>.
+            </remarks>
+        </member>
+        <member name="M:NAnt.Core.Functions.DoubleConversionFunctions.ToString(System.Double)">
+            <summary>
+            Converts the specified <see cref="T:System.Double"/> to its equivalent 
+            string representation.
+            </summary>
+            <param name="value">A <see cref="T:System.Double"/> to convert.</param>
+            <returns>
+            The string representation of <paramref name="value"/> formatted
+            using the general format specifier ("G").
+            </returns>
+            <remarks>
+            <paramref name="value"/> is formatted with the 
+            <see cref="T:System.Globalization.NumberFormatInfo"/> for the invariant culture.
+            </remarks>
+        </member>
+        <member name="T:NAnt.Core.Functions.EnvironmentFunctions">
+            <summary>
+            Provide information about the current environment and platform.
+            </summary>
+        </member>
+        <member name="M:NAnt.Core.Functions.EnvironmentFunctions.GetFolderPath(System.Environment.SpecialFolder)">
+            <summary>
+            Gets the path to the system special folder identified by the 
+            specified enumeration.
+            </summary>
+            <param name="folder">An enumerated constant that identifies a system special folder.</param>
+            <returns>
+            The path to the specified system special folder, if that folder 
+            physically exists on your computer; otherwise, the empty string ("").
+            </returns>
+            <exception cref="T:System.ArgumentException"><paramref name="folder"/> is not a member of <see cref="T:System.Environment.SpecialFolder"/>.</exception>
+        </member>
+        <member name="M:NAnt.Core.Functions.EnvironmentFunctions.GetMachineName">
+            <summary>
+            Gets the NetBIOS name of this local computer.
+            </summary>
+            <returns>
+            The NetBIOS name of this local computer.
+            </returns>
+            <exception cref="T:System.InvalidOperationException">The name of this computer cannot be obtained.</exception>
+        </member>
+        <member name="M:NAnt.Core.Functions.EnvironmentFunctions.GetOSVersion">
+            <summary>
+            Gets a <see cref="T:System.Version"/> object that identifies this operating 
+            system.
+            </summary>
+            <returns>
+            A <see cref="T:System.Version"/> object that describes the major version, 
+            minor version, build, and revision of this operating system.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.EnvironmentFunctions.GetUserName">
+            <summary>
+            Gets the user name of the person who started the current thread.
+            </summary>
+            <returns>
+            The name of the person logged on to the system who started the 
+            current thread.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.EnvironmentFunctions.GetVariable(System.String)">
+            <summary>
+            Returns the value of the specified environment variable.
+            </summary>
+            <param name="name">The environment variable of which the value should be returned.</param>
+            <returns>
+            The value of the specified environment variable.
+            </returns>
+            <exception cref="T:System.ArgumentException">Environment variable <paramref name="name"/> does not exist.</exception>
+        </member>
+        <member name="M:NAnt.Core.Functions.EnvironmentFunctions.VariableExists(System.String)">
+            <summary>
+            Gets a value indicating whether the specified environment variable
+            exists.
+            </summary>
+            <param name="name">The environment variable that should be checked.</param>
+            <returns>
+            <see langword="true" /> if the environment variable exists; otherwise,
+            <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.EnvironmentFunctions.GetVersion">
+            <summary>
+            Gets a <see cref="T:System.Version"/> object that describes the major, 
+            minor, build, and revision numbers of the common language runtime.
+            </summary>
+            <returns>
+            A Version object.
+            </returns>
+        </member>
         <member name="M:NAnt.Core.Functions.FileFunctions.GetCreationTime(System.String)">
             <summary>
             Returns the creation date and time of the specified file.
@@ -2241,26 +2499,6 @@
             <exception cref="T:System.IO.PathTooLongException">The specified path, file name, or both exceed the system-defined maximum length.</exception>
             <exception cref="T:System.NotSupportedException">The <paramref name="path"/> parameter is in an invalid format.</exception>
         </member>
-        <member name="M:NAnt.Core.Functions.FileFunctions.GetFileVersion(System.String)">
-            <summary>
-            Gets the file version of the given file.
-            </summary>
-            <param name="fileName">The file to get file version info for.</param>
-            <returns>
-            The file version of the given file.
-            </returns>
-            <exception cref="T:System.IO.FileNotFoundException">The file specified cannot be found.</exception>
-        </member>
-        <member name="M:NAnt.Core.Functions.FileFunctions.GetProductVersion(System.String)">
-            <summary>
-            Gets the product version of the given file.
-            </summary>
-            <param name="fileName">The file to get product version info for.</param>
-            <returns>
-            The product version of the given file.
-            </returns>
-            <exception cref="T:System.IO.FileNotFoundException">The file specified cannot be found.</exception>
-        </member>
         <member name="M:NAnt.Core.Functions.FileFunctions.Exists(System.String)">
             <summary>
             Determines whether the specified file exists.
@@ -2286,7 +2524,7 @@
             <exception cref="T:System.ArgumentException"><paramref name="srcFile"/> or <paramref name="targetFile"/> is a zero-length string, contains only white space, or contains one or more invalid characters.</exception>
             <exception cref="T:System.IO.PathTooLongException">The specified path, file name, or both of either <paramref name="srcFile"/> or <paramref name="targetFile"/> exceed the system-defined maximum length.</exception>
         </member>
-        <member name="M:NAnt.Core.Functions.FileFunctions.Length(System.String)">
+        <member name="M:NAnt.Core.Functions.FileFunctions.GetLength(System.String)">
             <summary>
             Gets the length of the file.
             </summary>
@@ -2295,6 +2533,109 @@
             Length in bytes, of the file named <paramref name="file"/>.
             </returns>
             <exception cref="T:System.IO.FileNotFoundException">The file specified cannot be found.</exception>
+        </member>
+        <member name="M:NAnt.Core.Functions.FileFunctions.ReadContent(System.String)">
+            <summary>
+            Gets the contents of a file.
+            </summary>
+            <param name="file">filename</param>
+            <returns>
+            The contents of a file named <paramref name="file"/>.
+            </returns>
+            <exception cref="T:System.IO.FileNotFoundException">The file specified cannot be found.</exception>
+            <example>
+              <para>Set a property to equal the contents of a file.</para>
+              <code>
+                <![CDATA[
+            <property name="file-content" value="${file::get-content('build.date')}"/>
+                ]]>
+              </code>
+            </example>
+        </member>
+        <member name="T:NAnt.Core.Functions.FileVersionInfoFunctions">
+            <summary>
+            Functions that provide version information for a physical file on disk.
+            </summary>
+        </member>
+        <member name="M:NAnt.Core.Functions.FileVersionInfoFunctions.GetVersionInfo(System.String)">
+            <summary>
+            Returns a <see cref="T:System.Diagnostics.FileVersionInfo"/> representing the version 
+            information associated with the specified file.
+            </summary>
+            <param name="fileName">The file to retrieve the version information for.</param>
+            <returns>
+            A <see cref="T:System.Diagnostics.FileVersionInfo"/> containing information about the file.
+            </returns>
+            <exception cref="T:System.IO.FileNotFoundException">The file specified cannot be found.</exception>
+        </member>
+        <member name="M:NAnt.Core.Functions.FileVersionInfoFunctions.GetCompanyName(System.Diagnostics.FileVersionInfo)">
+            <summary>
+            Gets the name of the company that produced the file.
+            </summary>
+            <param name="fileVersionInfo">A <see cref="T:System.Diagnostics.FileVersionInfo"/> instance containing version information about a file.</param>
+            <returns>
+            The name of the company that produced the file.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.FileVersionInfoFunctions.GetFileVersion(System.Diagnostics.FileVersionInfo)">
+            <summary>
+            Gets the file version of a file.
+            </summary>
+            <param name="fileVersionInfo">A <see cref="T:System.Diagnostics.FileVersionInfo"/> instance containing version information about a file.</param>
+            <returns>
+            The file version of a file.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.FileVersionInfoFunctions.GetProductName(System.Diagnostics.FileVersionInfo)">
+            <summary>
+            Gets the name of the product the file is distributed with.
+            </summary>
+            <param name="fileVersionInfo">A <see cref="T:System.Diagnostics.FileVersionInfo"/> instance containing version information about a file.</param>
+            <returns>
+            The name of the product the file is distributed with.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.FileVersionInfoFunctions.GetProductVersion(System.Diagnostics.FileVersionInfo)">
+            <summary>
+            Gets the product version of a file.
+            </summary>
+            <param name="fileVersionInfo">A <see cref="T:System.Diagnostics.FileVersionInfo"/> instance containing version information about a file.</param>
+            <returns>
+            The product version of a file.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.Int32ConversionFunctions.Parse(System.String)">
+            <summary>
+            Converts the specified string representation of a number to its 
+            32-bit signed integer equivalent.
+            </summary>
+            <param name="s">A string containing a number to convert.</param>
+            <returns>
+            A 32-bit signed integer equivalent to the number contained in 
+            <paramref name="s"/>.
+            </returns>
+            <exception cref="T:System.FormatException"><paramref name="s"/> is not of the correct format.</exception>
+            <exception cref="T:System.OverflowException"><paramref name="s"/> represents a number less than <see cref="F:System.Int32.MinValue"/> or greater than <see cref="F:System.Int32.MaxValue"/>.</exception>
+            <remarks>
+            The <see cref="T:System.Globalization.NumberFormatInfo"/> for the invariant culture is 
+            used to supply formatting information about <paramref name="s"/>.
+            </remarks>
+        </member>
+        <member name="M:NAnt.Core.Functions.Int32ConversionFunctions.ToString(System.Int32)">
+            <summary>
+            Converts the specified <see cref="T:System.Int32"/> to its equivalent string
+            representation.
+            </summary>
+            <param name="value">A <see cref="T:System.Int32"/> to convert.</param>
+            <returns>
+            The string representation of <paramref name="value"/>, consisting 
+            of a negative sign if the value is negative, and a sequence of 
+            digits ranging from 0 to 9 with no leading zeroes.
+            </returns>
+            <remarks>
+            <paramref name="value"/> is formatted with the 
+            <see cref="T:System.Globalization.NumberFormatInfo"/> for the invariant culture.
+            </remarks>
         </member>
         <member name="M:NAnt.Core.Functions.MathFunctions.Round(System.Double)">
             <summary>
@@ -2334,20 +2675,20 @@
             than or equal to zero; otherwise, -<paramref name="value" />.
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.NAntFunctions.GetLocation">
-            <summary>
-            Gets the full path to the <c>NAnt</c> assembly.
-            </summary>
-            <returns>
-            The full path to the <c>NAnt</c> assembly.
-            </returns>
-        </member>
         <member name="M:NAnt.Core.Functions.NAntFunctions.GetBaseDirectory">
             <summary>
             Gets the base directory of the appdomain in which NAnt is running.
             </summary>
             <returns>
             The base directory of the appdomain in which NAnt is running.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.NAntFunctions.GetAssembly">
+            <summary>
+            Gets the NAnt assembly.
+            </summary>
+            <returns>
+            The NAnt assembly.
             </returns>
         </member>
         <member name="M:NAnt.Core.Functions.ProjectFunctions.GetName">
@@ -2631,27 +2972,6 @@
             <returns>
             <see langword="true" /> if NAnt is running on unix;
             otherwise, <see langword="false" />.
-            </returns>
-        </member>
-        <member name="M:NAnt.Core.Functions.EnvironmentFunctions.GetVariable(System.String)">
-            <summary>
-            Returns the value of the specified environment variable.
-            </summary>
-            <param name="name">The environment variable of which the value should be returned.</param>
-            <returns>
-            The value of the specified environment variable.
-            </returns>
-            <exception cref="T:System.ArgumentException">Environment variable <paramref name="name"/> does not exist.</exception>
-        </member>
-        <member name="M:NAnt.Core.Functions.EnvironmentFunctions.VariableExists(System.String)">
-            <summary>
-            Gets a value indicating whether the specified environment variable
-            exists.
-            </summary>
-            <param name="name">The environment variable that should be checked.</param>
-            <returns>
-            <see langword="true" /> if the environment variable exists; otherwise,
-            <see langword="false" />.
             </returns>
         </member>
         <member name="M:NAnt.Core.Functions.PathFunctions.GetFullPath(System.String)">
@@ -3532,7 +3852,7 @@
             A <see cref="T:System.TimeSpan"/> that represents <paramref name="value"/>.
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.TimeSpanFunctions.Parse(System.String)">
+        <member name="M:NAnt.Core.Functions.TimeSpanConversionFunctions.Parse(System.String)">
             <summary>
             Constructs a <see cref="T:System.TimeSpan"/> from a time indicated by a 
             specified string.
@@ -3544,7 +3864,7 @@
             <exception cref="T:System.FormatException"><paramref name="s"/> has an invalid format.</exception>
             <exception cref="T:System.OverflowException">At least one of the hours, minutes, or seconds components is outside its valid range.</exception>
         </member>
-        <member name="M:NAnt.Core.Functions.TimeSpanFunctions.ToString(System.TimeSpan)">
+        <member name="M:NAnt.Core.Functions.TimeSpanConversionFunctions.ToString(System.TimeSpan)">
             <summary>
             Converts the specified <see cref="T:System.TimeSpan"/> to its equivalent 
             string representation.
@@ -3555,40 +3875,65 @@
             of the return value is of the form: [-][d.]hh:mm:ss[.ff].
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.VersionFunctions.GetMajor(System.String)">
+        <member name="M:NAnt.Core.Functions.VersionFunctions.GetMajor(System.Version)">
             <summary>
-            Gets the value of the major component of a given version string.
+            Gets the value of the major component of a given version.
             </summary>
-            <param name="version">A string containing the major, minor, build, and revision numbers, where each number is delimited with a period character ('.').</param>
+            <param name="version">A version.</param>
             <returns>
             The major version number.
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.VersionFunctions.GetMinor(System.String)">
+        <member name="M:NAnt.Core.Functions.VersionFunctions.GetMinor(System.Version)">
             <summary>
-            Gets the value of the minor component of a given version string.
+            Gets the value of the minor component of a given version.
             </summary>
-            <param name="version">A string containing the major, minor, build, and revision numbers, where each number is delimited with a period character ('.').</param>
+            <param name="version">A version.</param>
             <returns>
             The minor version number.
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.VersionFunctions.GetBuild(System.String)">
+        <member name="M:NAnt.Core.Functions.VersionFunctions.GetBuild(System.Version)">
             <summary>
-            Gets the value of the build component of a given version string.
+            Gets the value of the build component of a given version.
             </summary>
-            <param name="version">A string containing the major, minor, build, and revision numbers, where each number is delimited with a period character ('.').</param>
+            <param name="version">A version.</param>
             <returns>
             The build number, or -1 if the build number is undefined.
             </returns>
         </member>
-        <member name="M:NAnt.Core.Functions.VersionFunctions.GetRevision(System.String)">
+        <member name="M:NAnt.Core.Functions.VersionFunctions.GetRevision(System.Version)">
             <summary>
-            Gets the value of the revision component of a given version string.
+            Gets the value of the revision component of a given version.
+            </summary>
+            <param name="version">A version.</param>
+            <returns>
+            The revision number, or -1 if the revision number is undefined.
+            </returns>
+        </member>
+        <member name="M:NAnt.Core.Functions.VersionConversionFunctions.Parse(System.String)">
+            <summary>
+            Converts the specified string representation of a version to 
+            its <see cref="T:System.Version"/> equivalent.
             </summary>
             <param name="version">A string containing the major, minor, build, and revision numbers, where each number is delimited with a period character ('.').</param>
             <returns>
-            The revision number, or -1 if the revision number is undefined.
+            A <see cref="T:System.Version"/> instance representing the specified 
+            <see cref="T:System.String"/>.
+            </returns>
+            <exception cref="T:System.ArgumentException"><paramref name="version"/> has fewer than two components or more than four components.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">A major, minor, build, or revision component is less than zero.</exception>
+            <exception cref="T:System.FormatException">At least one component of <paramref name="version"/> does not parse to a decimal integer.</exception>
+        </member>
+        <member name="M:NAnt.Core.Functions.VersionConversionFunctions.ToString(System.Version)">
+            <summary>
+            Converts the specified <see cref="T:System.Version"/> to its equivalent
+            string representation.
+            </summary>
+            <param name="value">A <see cref="T:System.Version"/> to convert.</param>
+            <returns>
+            The string representation of the values of the major, minor, build, 
+            and revision components of the specified <see cref="T:System.Version"/>.
             </returns>
         </member>
         <member name="T:NAnt.Core.Tasks.AttribTask">
@@ -3616,6 +3961,8 @@
             <attrib file="myfile.txt" readonly="true" />
                 ]]>
               </code>
+            </example>
+            <example>
               <para>
                 Set the <c>normal</c> file attribute for the specified file.
               </para>
@@ -3624,6 +3971,8 @@
             <attrib file="myfile.txt" normal="true" />
                 ]]>
               </code>
+            </example>
+            <example>
               <para>
                 Set the <c>normal</c> file attribute for all executable files in 
                 the current project directory and sub-directories.
@@ -3840,6 +4189,8 @@
             <available type="File" resource="myfile.txt" property="myfile.present" />
                 ]]>
               </code>
+            </example>
+            <example>
               <para>
               Sets the <c>build.dir.present</c> property to <see langword="true" /> 
               if the directory is available on the filesystem and <see langword="false" /> 
@@ -3850,6 +4201,8 @@
             <available type="Directory" resource="build" property="build.dir.present" />
                 ]]>
               </code>
+            </example>
+            <example>
               <para>
               Sets the <c>mono-0.21.framework.present</c> property to <see langword="true" /> 
               if the Mono 0.21 framework is available on the current system and 
@@ -3860,6 +4213,8 @@
             <available type="Framework" resource="mono-0.21" property="mono-0.21.framework.present" />
                 ]]>
               </code>
+            </example>
+            <example>
               <para>
               Sets the <c>net-1.1.frameworksdk.present</c> property to <see langword="true" /> 
               if the .NET 1.1 Framework SDK is available on the current system and 
@@ -3978,13 +4333,20 @@
             Calls a NAnt target in the current project.
             </summary>
             <example>
-              <para>Call the target &quot;build&quot;.</para>
+              <para>
+              Call the target &quot;build&quot;.
+              </para>
               <code>
                 <![CDATA[
             <call target="build" />
                 ]]>
               </code>
-              <para>This shows how a project could 'compile' a debug and release build using a common compile target.</para>
+            </example>
+            <example>
+              <para>
+              This shows how a project could 'compile' a debug and release build 
+              using a common compile target.
+              </para>
               <code>
                 <![CDATA[
             <project default="build">
@@ -4048,6 +4410,8 @@
             <copy file="myfile.txt" tofile="mycopy.txt" />
                 ]]>
               </code>
+            </example>
+            <example>
               <para>Copy a set of files to a new directory.</para>
               <code>
                 <![CDATA[
@@ -4840,6 +5204,8 @@
             </if>
                 ]]>
               </code>
+            </example>
+            <example>
               <para>Check that a property value is true.</para>
               <code>
                 <![CDATA[
@@ -5093,8 +5459,7 @@
              Loads tasks form a given assembly or all assemblies in a given directory
              or <see cref="T:NAnt.Core.Types.FileSet"/>.
              </summary>
-             <remarks></remarks>
-             <example>
+            <example>
                <para>
                Load tasks from a single assembly.
                </para>
@@ -5103,6 +5468,8 @@
              <loadtasks assembly="c:foo\NAnt.Contrib.Tasks.dll" />
                  ]]>
                </code>
+             </example>
+             <example>
                <para>
                Scan a single directory for task assemblies.
                </para>
@@ -5111,6 +5478,8 @@
              <loadtasks path="c:\foo" />
                  ]]>
                </code>
+             </example>
+             <example>
                <para>
                Use a <see cref="P:NAnt.Core.Tasks.LoadTasksTask.TaskFileSet"/> containing both a directory and an 
                assembly.
@@ -5180,6 +5549,8 @@
             </foreach>
                 ]]>
               </code>
+            </example>
+            <example>
               <para>Loops over all files in the project directory.</para>
               <code>
                 <![CDATA[
@@ -5195,6 +5566,8 @@
             </foreach>
                 ]]>
               </code>
+            </example>
+            <example>
               <para>Loops over the folders in <c>c:\</c>.</para>
               <code>
                 <![CDATA[
@@ -5203,6 +5576,8 @@
             </foreach>
                 ]]>
               </code>
+            </example>
+            <example>
               <para>Loops over all folders in the project directory.</para>
               <code>
                 <![CDATA[
@@ -5218,6 +5593,8 @@
             </foreach>
                 ]]>
               </code>
+            </example>
+            <example>
               <para>Loops over a list.</para>
               <code>
                 <![CDATA[
@@ -5226,6 +5603,8 @@
             </foreach>
                 ]]>
               </code>
+            </example>
+            <example>
               <para>
               Loops over lines in the file <c>properties.csv</c>, where each line 
               is of the format name,value.
@@ -5429,6 +5808,8 @@
             <mkdir dir="build" />
                 ]]>
               </code>
+            </example>
+            <example>
               <para>Create the directory tree <c>one/two/three</c>.</para>
               <code>
                 <![CDATA[
@@ -5472,6 +5853,8 @@
             <move file="myfile.txt" tofile="mytarget.txt" />
                 ]]>
               </code>
+            </example>
+            <example>
               <para>Move a set of files.</para>
               <code>
                 <![CDATA[
@@ -5821,6 +6204,8 @@
             <echo message="${lastword}" />
                 ]]>
               </code>
+            </example>
+            <example>
               <para>
               Split the full filename and extension of a filename.
               </para>
@@ -5829,6 +6214,8 @@
             <regex pattern="^(?'filename'.*)\.(?'extension'\w+)$" input="d:\Temp\SomeDir\SomeDir\bla.xml" />
                 ]]>
               </code>
+            </example>
+            <example>
               <para>
               Split the path and the filename. (This checks for <c>/</c> or <c>\</c> 
               as the path separator).
@@ -5886,6 +6273,8 @@
             <sleep hours="1" minutes="2" seconds="3" milliseconds="4" />
                 ]]>
               </code>
+            </example>
+            <example>
               <para>Sleep 123 milliseconds.</para>
               <code>
                 <![CDATA[
@@ -5968,7 +6357,7 @@
               </code>
             </example>
             <example>
-            <para>Create some code based on a directory of templates.</para>
+              <para>Create some code based on a directory of templates.</para>
               <code>
                 <![CDATA[
             <style style="CodeGenerator.xsl" extension="java">
@@ -6091,12 +6480,16 @@
             <sysinfo />
                 ]]>
               </code>
+            </example>
+            <example>
               <para>Register the properties without a prefix.</para>
               <code>
                 <![CDATA[
             <sysinfo prefix="" />
                 ]]>
               </code>
+            </example>
+            <example>
               <para>Register properties and display a summary.</para>
               <code>
                 <![CDATA[
@@ -6127,6 +6520,8 @@
             <touch file="Main.cs" />
                 ]]>
               </code>
+            </example>
+            <example>
               <para>Touch all executable files in the current directory and its subdirectories.</para>
               <code>
                 <![CDATA[
@@ -6203,6 +6598,8 @@
             <tstamp property="build.date" pattern="yyyyMMdd" verbose="true" />
                 ]]>
               </code>
+            </example>
+            <example>
               <para>Set a number of properties for Ant like compatibility.</para>
               <code>
                 <![CDATA[
@@ -6343,26 +6740,28 @@
             </para>
             </remarks>
             <example>
-                <para>
-                The example provided assumes that the following XML file (App.config)
-                exists in the current build directory.
-                </para>
-                <code>
-                    <![CDATA[
+              <para>
+              The example provided assumes that the following XML file (App.config)
+              exists in the current build directory.
+              </para>
+              <code>
+                <![CDATA[
             <?xml version="1.0" encoding="utf-8" ?>
             <configuration xmlns="http://www.gordic.cz/shared/project-config/v_1.0.0.0">
                 <appSettings>
                     <add key="server" value="testhost.somecompany.com" />
                 </appSettings>
             </configuration>
-                    ]]>
-                </code>
-                <para>
-                The example will read the server value from the above
-                configuration file.
-                </para>
-                <code>
-                    <![CDATA[
+                ]]>
+              </code>
+            </example>
+            <example>
+              <para>
+              The example will read the server value from the above
+              configuration file.
+              </para>
+              <code>
+                <![CDATA[
             <xmlpeek
                 file="App.config"
                 xpath="/x:configuration/x:appSettings/x:add[@key = 'server']/@value"
@@ -6371,8 +6770,8 @@
                     <namespace prefix="x" uri="http://www.gordic.cz/shared/project-config/v_1.0.0.0" />
                 </namespaces>
             </xmlpeek>
-                    ]]>
-                </code>
+                ]]>
+              </code>
             </example>
         </member>
         <member name="M:NAnt.Core.Tasks.XmlPeekTask.ExecuteTask">
@@ -6443,33 +6842,35 @@
             </para>
             </remarks>
             <example>
-                <para>
-                The example provided assumes that the following XML file (App.config)
-                exists in the current build directory.
-                </para>
-                <code>
-                    <![CDATA[
+              <para>
+              The example provided assumes that the following XML file (App.config)
+              exists in the current build directory.
+              </para>
+              <code>
+                <![CDATA[
             <?xml version="1.0" encoding="utf-8" ?>
             <configuration>
                 <appSettings>
                     <add key="server" value="testhost.somecompany.com" />
                 </appSettings>
             </configuration>
-                    ]]>
-                </code>
-                <para>
-                The example will change the <c>server</c> setting in the above 
-                configuration from <c>testhost.somecompany.com</c> to
-                <c>productionhost.somecompany.com</c>.
-                </para>
-                <code>
-                    <![CDATA[
+                ]]>
+              </code>
+            </example>
+            <example>
+              <para>
+              The example will change the <c>server</c> setting in the above 
+              configuration from <c>testhost.somecompany.com</c> to
+              <c>productionhost.somecompany.com</c>.
+              </para>
+              <code>
+                <![CDATA[
             <xmlpoke
                 file="App.config"
                 xpath="/configuration/appSettings/add[@key = 'server']/@value"
                 value="productionhost.somecompany.com" />
-                    ]]>
-                </code>
+                ]]>
+              </code>
             </example>
         </member>
         <member name="M:NAnt.Core.Tasks.XmlPokeTask.ExecuteTask">
@@ -6552,6 +6953,37 @@
             <summary>
             Represents a command-line argument.
             </summary>
+            <example>
+              <para>
+              A single command-line argument containing a space character.
+              </para>
+              <code>
+                <![CDATA[
+            <arg value="-l -a" />
+                ]]>
+              </code>
+            </example>
+            <example>
+              <para>
+              Two separate command-line arguments.
+              </para>
+              <code>
+                <![CDATA[
+            <arg line="-l -a" />
+                ]]>
+              </code>
+            </example>
+            <example>
+              <para>
+              A single command-line argument with the value <c>\dir;\dir2;\dir3</c>
+              on DOS-based systems and <c>/dir:/dir2:/dir3</c> on Unix-like systems.
+              </para>
+              <code>
+                <![CDATA[
+            <arg path="/dir;/dir2:\dir3" />
+                ]]>
+              </code>
+            </example>
         </member>
         <member name="M:NAnt.Core.Types.Argument.#ctor">
             <summary>
@@ -6570,6 +7002,12 @@
             with the given file.
             </summary>
         </member>
+        <member name="M:NAnt.Core.Types.Argument.#ctor(NAnt.Core.Types.PathList)">
+            <summary>
+            Initializes a new instance of the <see cref="T:NAnt.Core.Types.Argument"/> class
+            with the given path.
+            </summary>
+        </member>
         <member name="M:NAnt.Core.Types.Argument.ToString">
             <summary>
             Returns the argument as a <see cref="T:System.String"/>.
@@ -6578,8 +7016,20 @@
             The argument as a <see cref="T:System.String"/>.
             </returns>
             <remarks>
-            File arguments will be quoted.
+            File and individual path elements will be quoted if necessary.
             </remarks>
+        </member>
+        <member name="M:NAnt.Core.Types.Argument.QuoteArgument(System.String)">
+            <summary>
+            Quotes a command line argument if it contains a single quote or a
+            space.
+            </summary>
+            <param name="argument">The command line argument.</param>
+            <returns>
+            A quoted command line argument if <paramref name="argument" /> 
+            contains a single quote or a space; otherwise, 
+            <paramref name="argument" />.
+            </returns>
         </member>
         <member name="P:NAnt.Core.Types.Argument.Value">
             <summary>
@@ -6590,6 +7040,24 @@
             <summary>
             The name of a file as a single command-line argument; will be 
             replaced with the absolute filename of the file.
+            </summary>
+        </member>
+        <member name="P:NAnt.Core.Types.Argument.Path">
+            <summary>
+            A string that will be treated as a path-like string as a single 
+            command-line argument; you can use <c>:</c> or <c>;</c> as path 
+            separators and NAnt will convert it to the platform's local 
+            conventions.
+            </summary>
+            <remarks>
+            Individual parts will be replaced with the absolute path, resolved
+            relative to the project base directory.
+            </remarks>
+        </member>
+        <member name="P:NAnt.Core.Types.Argument.Line">
+            <summary>
+            List of command-line arguments; will be passed to the executable
+            as is.
             </summary>
         </member>
         <member name="P:NAnt.Core.Types.Argument.IfDefined">
@@ -7120,6 +7588,16 @@
                 <item>
                     <description>
                     **/.svn/**
+                    </description>
+                </item>
+                <item>
+                    <description>
+                    **/_svn
+                    </description>
+                </item>
+                <item>
+                    <description>
+                    **/_svn/**
                     </description>
                 </item>
                 <item>
@@ -8039,13 +8517,21 @@
             A textual representation of the path.
             </returns>
         </member>
+        <member name="M:NAnt.Core.Types.PathList.GetElements">
+            <summary>
+            Returns all path elements defined by this path object.
+            </summary>
+            <returns>
+            A list of path elements.
+            </returns>
+        </member>
         <member name="M:NAnt.Core.Types.PathList.TranslatePath(NAnt.Core.Project,System.String)">
             <summary>
-            Splits a PATH (with ; as separator) into its parts, while resolving
-            references to environment variables.
+            Splits a PATH (with ; or : as separators) into its parts, while 
+            resolving references to environment variables.
             </summary>
             <param name="project">The <see cref="T:NAnt.Core.Project"/> to be used to resolve relative paths.</param>
-            <param name="source"></param>
+            <param name="source">The path to translate.</param>
             <returns>
             A PATH split up its parts, with references to environment variables
             resolved.
@@ -12510,11 +12996,12 @@
             </summary>
             <param name="project">The project to work from.</param>
         </member>
-        <member name="M:NAnt.Core.TypeFactory.LookupFunction(System.String)">
+        <member name="M:NAnt.Core.TypeFactory.LookupFunction(System.String,NAnt.Core.Project)">
             <summary>
             Looks up a function by name.
             </summary>
-            <param name="methodName">The name of the function to lookup.</param>
+            <param name="methodName">The name of the function to lookup, including namespace prefix.</param>
+            <param name="project">The <see cref="T:NAnt.Core.Project"/> in which the function is invoked.</param>
             <returns>
             A <see cref="T:System.Reflection.MethodInfo"/> representing the function, or 
             <see langword="null"/> if a function with the given name does not

@@ -6,7 +6,7 @@
     <members>
         <member name="T:NAnt.NUnit2.Tasks.NUnit2Task">
             <summary>
-            Runs tests using the NUnit V2.1 framework.
+            Runs tests using the NUnit V2.2 framework.
             </summary>
             <remarks>
               <para>

@@ -814,6 +814,11 @@
             </summary>
             <param name="writer"><see cref="T:System.IO.TextWriter"/> to which the compiler options should be written.</param>
         </member>
+        <member name="M:NAnt.DotNet.Tasks.CscTask.NeedsCompiling">
+            <summary>
+            Determines whether compilation is needed.
+            </summary>
+        </member>
         <member name="P:NAnt.DotNet.Tasks.CscTask.BaseAddress">
             <summary>
             The preferred base address at which to load a DLL. The default base 
@@ -1734,43 +1739,50 @@
             </para>
             </remarks>
             <example>
-            <para>
-            Adds all public classes contained in <c>myTest.dll</c> to a COM+ application 
-            and produces the <c>myTest.tlb</c> type library. If the application already 
-            exists, it is overwritten.
-            </para>
-            <code>
+              <para>
+              Adds all public classes contained in <c>myTest.dll</c> to a COM+ 
+              application and produces the <c>myTest.tlb</c> type library. If the 
+              application already exists, it is overwritten.
+              </para>
+              <code>
                 <![CDATA[
             <regsvcs action="FindOrCreate" assembly="myTest.dll" />
                 ]]>
-            </code>
-            <para>
-            Adds all public classes contained in <c>myTest.dll</c> to <c>myTargetApp</c> 
-            and produces the <c>myTest.tlb</c> type library. If the application already 
-            exists, it is overwritten.
-            </para>
-            <code>
+              </code>
+            </example>
+            <example>
+              <para>
+              Adds all public classes contained in <c>myTest.dll</c> to <c>myTargetApp</c> 
+              and produces the <c>myTest.tlb</c> type library. If the application already 
+              exists, it is overwritten.
+              </para>
+              <code>
                 <![CDATA[
             <regsvcs action="FindOrCreate" assembly="myTest.dll" application="myTargetApp" />
                 ]]>
-            </code>
-            <para>
-            Adds all public classes contained in <c>myTest.dll</c> to a COM+ application 
-            and produces the <c>myTest.tlb</c> type library. A new application is always 
-            created.
-            </para>
-            <code>
+              </code>
+            </example>
+            <example>
+              <para>
+              Adds all public classes contained in <c>myTest.dll</c> to a COM+ 
+              application and produces the <c>myTest.tlb</c> type library. A new 
+              application is always created.
+              </para>
+              <code>
                 <![CDATA[
             <regsvcs action="Create" assembly="myTest.dll" />
                 ]]>
-            </code>
-            <para>
-            Uninstalls the COM+ application contained in <c>myTest.dll</c></para>
-            <code>
+              </code>
+            </example>
+            <example>
+              <para>
+              Uninstalls the COM+ application contained in <c>myTest.dll</c>.
+              </para>
+              <code>
                 <![CDATA[
             <regsvcs action="Uninstall" assembly="myTest.dll" />
                 ]]>
-            </code>
+              </code>
             </example>
         </member>
         <member name="M:NAnt.DotNet.Tasks.RegsvcsTask.ExecuteTask">
@@ -2185,6 +2197,11 @@
             Writes the compiler options to the specified <see cref="T:System.IO.TextWriter"/>.
             </summary>
             <param name="writer"><see cref="T:System.IO.TextWriter"/> to which the compiler options should be written.</param>
+        </member>
+        <member name="M:NAnt.DotNet.Tasks.VbcTask.NeedsCompiling">
+            <summary>
+            Determines whether compilation is needed.
+            </summary>
         </member>
         <member name="P:NAnt.DotNet.Tasks.VbcTask.BaseAddress">
             <summary>

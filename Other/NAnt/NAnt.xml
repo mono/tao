@@ -23,12 +23,13 @@
             and passing the command-line arguments.
             </summary>
         </member>
-        <member name="M:NAnt.Console.ConsoleStub.HelperArguments.#ctor(System.String[])">
+        <member name="M:NAnt.Console.ConsoleStub.HelperArguments.#ctor(System.String[],System.String)">
             <summary>
             Initializes a new instance of the <see cref="T:NAnt.Console.ConsoleStub.HelperArguments"/>
             class with the specified command-line arguments.
             </summary>
             <param name="args">The commandline arguments passed to NAnt.exe.</param>
+            <param name="probePaths">Directories relative to the base directory of the AppDomain to probe for missing assembly references.</param>
         </member>
         <member name="M:NAnt.Console.ConsoleStub.HelperArguments.CallConsoleRunner">
             <summary>

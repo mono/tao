@@ -671,6 +671,15 @@
             source file and the value is <see langword="null"/>.
             </remarks>
         </member>
+        <member name="P:NAnt.VSNet.Project.IsWebProject">
+            <summary>
+            Gets a value indicating if this is a web project.
+            </summary>
+            <value>
+            <see langword="true" /> if this is a web project; otherwise,
+            <see langword="false" />.
+            </value>
+        </member>
         <member name="P:NAnt.VSNet.Project.Name">
             <summary>
             Gets the name of the VS.NET project.
@@ -1250,6 +1259,12 @@
             The expanded macro or <see langword="null" /> if the macro is not
             supported.
             </returns>
+        </member>
+        <member name="M:NAnt.VSNet.VcProject.CleanPath(System.String)">
+            <summary>
+            Removes leading and trailing quotes from the specified path.
+            </summary>
+            <param name="path">The path to clean.</param>
         </member>
         <member name="P:NAnt.VSNet.VcProject.Name">
             <summary>
