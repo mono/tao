@@ -3,7 +3,7 @@
     <target name="build">
 	<mkdir dir="${examples.build.directory}" />
         <echo message="Build Directory is ${examples.build.directory}" />
-        <csc target="exe" warnaserror="false" unsafe="false" debug="${build.debug}" optimize="${build.optimize}" output="${examples.build.directory}/${nant.project.name}.exe" define="${build.debug.define};">
+        <csc target="winexe" warnaserror="false" unsafe="false" debug="${build.debug}" optimize="${build.optimize}" output="${examples.build.directory}/${nant.project.name}.exe" define="${build.debug.define};">
             <references basedir="${framework.build.directory}">
                 <include name="Tao.Sdl.dll" />
             </references>
