@@ -166,6 +166,14 @@ namespace SdlExamples
 				Console.WriteLine(pixelFormat.Bmask);
 				Console.WriteLine(pixelFormat.Amask);
 
+				int numevents= 10;
+				Sdl.SDL_Event[] events = new Sdl.SDL_Event[numevents];
+				events[0].type = Sdl.SDL_KEYDOWN;
+				events[0].key.keysym.sym = (int)Sdl.SDLK_p;
+				events[1].type = Sdl.SDL_KEYDOWN;
+				events[1].key.keysym.sym = (int)Sdl.SDLK_z;
+				int result2 = Sdl.SDL_PeepEvents(events, numevents, Sdl.SDL_ADDEVENT, Sdl.SDL_KEYDOWNMASK);
+				Console.WriteLine("Addevent result: " + result2);
 
 				while (quitFlag == false) 
 				{
@@ -181,6 +189,14 @@ namespace SdlExamples
 							(evt.key.keysym.sym == (int)Sdl.SDLK_q))
 						{
 							quitFlag = true;
+						}
+						if (evt.key.keysym.sym == (int)Sdl.SDLK_p)
+						{
+							Console.WriteLine("Key p event was added");
+						}
+						if (evt.key.keysym.sym == (int)Sdl.SDLK_z)
+						{
+							Console.WriteLine("Key z event was added");
 						}
 					}
 

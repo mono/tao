@@ -358,10 +358,11 @@ namespace Tao.Sdl {
 		/// </summary>
 		[CLSCompliant(false)]
 		public const int SDL_QUIT = 12;		
-		// /// <summary>
-		// /// System specific event
-		// /// </summary>
-		// public const int SDL_SYSWMEVENT = 13;			
+		/// <summary>
+		/// System specific event
+		/// </summary>
+		[CLSCompliant(false)]
+		public const int SDL_SYSWMEVENT = 13;			
 		/// <summary>
 		/// Reserved for future use..
 		/// </summary>
@@ -479,8 +480,10 @@ namespace Tao.Sdl {
 		/// 
 		/// </summary>
 		public const int SDL_QUITMASK = 1 << SDL_QUIT;
-		// TODO:
-		//public const int SDL_SYSWMEVENTMASK = 1 << SDL_SYSWMEVENT;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_SYSWMEVENTMASK = 1 << SDL_SYSWMEVENT;
 
 		/// <summary>
 		/// This is the mask which refers to all hotkey bindings.
@@ -3643,7 +3646,6 @@ namespace Tao.Sdl {
 		[StructLayout(LayoutKind.Explicit)]
 			public struct SDL_Event 
 		{
-			//The Tao version is much different from the old SDL.NET version
 			/// <summary>
 			/// 
 			/// </summary>
@@ -6547,7 +6549,7 @@ namespace Tao.Sdl {
 		///  <seealso cref="SDL_PushEvent"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_PeepEvents([Out]SDL_Event[] events, int numevents, 
+		public static extern int SDL_PeepEvents([In, Out]SDL_Event[] events, int numevents, 
 			int action, int mask);	
 		#endregion int SDL_PeepEvents(...)
 
