@@ -2352,7 +2352,7 @@ namespace Tao.DevIl {
         public static extern void ilGetIntegerv(int Mode, out int Param);
         #endregion ilGetIntegerv(int Mode, out int Param);
 
-        #region ilGetIntegerv(int Mode, [Out] int Param);
+        #region ilGetIntegerv(int Mode, [Out] int[] Param);
         /// <summary>
         ///
         /// </summary>
@@ -2360,8 +2360,8 @@ namespace Tao.DevIl {
         /// <param name="Param"></param>
         // ILAPI ILvoid ILAPIENTRY ilGetIntegerv(ILenum Mode, ILint* Param);
         [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-        public static extern void ilGetIntegerv(int Mode, [Out] int Param);
-        #endregion ilGetIntegerv(int Mode, [Out] int Param);
+        public static extern void ilGetIntegerv(int Mode, [Out] int[] Param);
+        #endregion ilGetIntegerv(int Mode, [Out] int[] Param);
 
         #region int ilGetLumpPos();
         /// <summary>

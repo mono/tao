@@ -8,4 +8,4 @@ These are various SDL examples.
 Dave Hudson (jendave@yahoo.com)
 
 October 22, 2004
-	Initial release, version 1.0.0.0
+    Initial release, version 1.0.0.0

@@ -290,6 +290,7 @@
     <target name="build.examples.all" description="Builds all of the Tao example assemblies.">
         <mkdir dir="${examples.build.directory}" />
 
+        <call target="build.devilexamples" />
         <call target="build.gewang" />
         <!-- <call target="build.glfwexamples" /> -->
         <call target="build.naterobins" />
@@ -297,6 +298,10 @@
         <!-- <call target="build.openalexamples" /> -->
         <call target="build.redbook" />
         <!-- <call target="build.sdlexamples" /> -->
+    </target>
+
+    <target name="build.devilexamples" depends="build.devil,build.freeglut,build.opengl" description="Builds DevIlExamples.">
+        <nant buildfile="${examples.projects.directory}/DevIlExamples.SimpleExample/DevIlExamples.SimpleExample.build" target="build" />
     </target>
 
     <target name="build.gewang" depends="build.freeglut" description="Builds GeWang.">
@@ -445,6 +450,7 @@
 
     <!-- clean example targets -->
     <target name="clean.examples.all" description="Cleans all of the Tao example assemblies.">
+        <call target="clean.devilexamples" />
         <call target="clean.gewang" />
         <call target="clean.glfwexamples" />
         <call target="clean.naterobins" />
@@ -453,6 +459,10 @@
         <call target="clean.redbook" />
         <call target="clean.sdlexamples" />
         <delete dir="${examples.build.directory}/Data" failonerror="false" />
+    </target>
+
+    <target name="clean.devilexamples" description="Cleans DevIlExamples.">
+        <nant buildfile="${examples.projects.directory}/DevIlExamples.SimpleExample/DevIlExamples.SimpleExample.build" target="clean" />
     </target>
 
     <target name="clean.gewang" description="Cleans GeWang.">
@@ -592,6 +602,7 @@
         <nant buildfile="${examples.projects.directory}/Redbook.Varray/Redbook.Varray.build" target="clean" />
         <nant buildfile="${examples.projects.directory}/Redbook.Wrap/Redbook.Wrap.build" target="clean" />
     </target>
+
     <target name="clean.sdlexamples" description="Cleans SdlExamples.">
         <nant buildfile="${examples.projects.directory}/SdlExamples.Rectangles/SdlExamples.Rectangles.build" target="clean" />
     </target>

@@ -1,0 +1,23 @@
+DevIlExamples
+Copyright ©2003-2005 Tao Framework Team
+http://www.taoframework.com
+All rights reserved.
+
+These are C# ports of some DevIL examples.  The originals
+are available from http://openil.sourceforge.net/.
+
+These examples use Tao.DevIl, Tao.FreeGlut, and Tao.OpenGl.  Make sure you
+have the appropriate native libraries for your system installed.
+
+These examples are fairly well documented, however, do not take
+them to be 'best practices' for .NET DevIL development.  The
+intent of these ports is as an introduction or as a comparison
+against the original native versions.
+
+Randy Ridge
+http://www.taoframework.com
+
+Change Log:
+
+December 04, 2004
+    Initial release, version 1.0.0.0.

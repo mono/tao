@@ -5,7 +5,7 @@ All rights reserved.
 
 These are C# ports of examples found at
 http://www.opengl.org/developers/code/examples/redbook/.  They make
-use of GLUT, make sure to have the appropriate native GLUT libraries
+use of FreeGLUT, make sure to have the appropriate native libraries
 for your system installed.
 
 These examples are somewhat well documented, however, do not take

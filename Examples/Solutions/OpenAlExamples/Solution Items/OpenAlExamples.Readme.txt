@@ -5,10 +5,8 @@ All rights reserved.
 
 These are C# ports of various OpenAL examples, most of which can be
 found at http://www.devmaster.net/articles.php?catID=6.  They make use of
-OpenAL and some use GLUT, make sure to have the appropriate native OpenAL
-and GLUT libraries for your system installed.  You'll also want to copy
-your Tao.OpenGl and Tao.OpenAl .dll and .xml to the Dependencies folder
-to compile.
+OpenAL and some use FreeGLUT, make sure to have the appropriate native
+libraries for your system installed.
 
 These examples aren't well documented, but they should be fairly easy
 to understand, particularly if you follow along with the originals,
