@@ -32,36 +32,53 @@ using System.Security;
 namespace Tao.DevIl {
     #region Class Documentation
     /// <summary>
-    ///     Core DevIL library binding for .NET.
+    ///     DevIL (Developer's Image Library) ILUT binding for .NET.
     /// </summary>
     #endregion Class Documentation
     public sealed class Ilut {
         // --- Fields ---
         #region Private Constants
-        #region string ILUT_NATIVE_LIBRARY
-        /// <summary>
-        ///     Specifies DevIl's native library archive.
-        /// </summary>
-        /// <remarks>
-        ///     Specifies ilut.dll for Windows and libILUT.so for Linux.
-        /// </remarks>
-        #if WIN32
-        private const string ILUT_NATIVE_LIBRARY = "ilut.dll";
-        #elif LINUX
-        private const string ILUT_NATIVE_LIBRARY = "libILUT.so";
-        #endif
-        #endregion string ILUT_NATIVE_LIBRARY
-
         #region CallingConvention CALLING_CONVENTION
         /// <summary>
         ///     Specifies the calling convention.
         /// </summary>
         /// <remarks>
-        ///     Specifies <see cref="CallingConvention.Cdecl" /> for Windows and
-        ///     for Linux.
+        ///     Specifies <see cref="CallingConvention.Winapi" />.
         /// </remarks>
-        private const CallingConvention CALLING_CONVENTION = CallingConvention.Cdecl;
+        private const CallingConvention CALLING_CONVENTION = CallingConvention.Winapi;
         #endregion CallingConvention CALLING_CONVENTION
         #endregion Private Constants
+
+        #region Public Constants
+        #region Version
+        #region ILUT_VERSION_1_6_7
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int ILUT_VERSION_1_6_7 = 1;
+        #endregion ILUT_VERSION_1_6_7
+
+        #region ILUT_VERSION
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int ILUT_VERSION = 167;
+        #endregion ILUT_VERSION
+
+        #region ILUT_VERSION_NUM
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int ILUT_VERSION_NUM = Il.IL_VERSION_NUM;
+        #endregion ILUT_VERSION_NUM
+
+        #region ILUT_VENDOR
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int ILUT_VENDOR = Il.IL_VENDOR;
+        #endregion ILUT_VENDOR
+        #endregion Version
+        #endregion Public Constants
     }
 }

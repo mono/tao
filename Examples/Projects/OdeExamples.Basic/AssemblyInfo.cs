@@ -39,19 +39,19 @@ using System.Security.Permissions;
 #endif
 [assembly: AssemblyCopyright("Copyright ©2003-2005 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
-[assembly: AssemblyDefaultAlias("GlfwExamples.Gears")]
+[assembly: AssemblyDefaultAlias("OdeExamples.Basic")]
 [assembly: AssemblyDelaySign(false)]
-[assembly: AssemblyDescription("GLFW Gears example.")]
+[assembly: AssemblyDescription("A basic ODE example.")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: AssemblyInformationalVersion("1.0.0.0")]
 [assembly: AssemblyKeyFile("")]
 [assembly: AssemblyKeyName("")]
 #if DEBUG
-[assembly: AssemblyProduct("GlfwExamples.Gears.exe *** Debug Build ***")]
+[assembly: AssemblyProduct("OdeExamples.Basic.exe *** Debug Build ***")]
 #else
-[assembly: AssemblyProduct("GlfwExamples.Gears.exe")]
+[assembly: AssemblyProduct("OdeExamples.Basic.exe")]
 #endif
-[assembly: AssemblyTitle("GLFW Gears Example")]
+[assembly: AssemblyTitle("A basic ODE example.")]
 [assembly: AssemblyTrademark("Tao Framework - http://www.taoframework.com")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: CLSCompliant(true)]

@@ -39305,6 +39305,179 @@ namespace Tao.OpenGl {
         public static extern int gluScaleImage(int format, int widthIn, int heightIn, int typeIn, [In] IntPtr dataIn, int widthOut, int heightOut, int typeOut, [Out] IntPtr dataOut);
         #endregion int gluScaleImage(int format, int widthIn, int heightIn, int typeIn, [In] IntPtr dataIn, int widthOut, int heightOut, int typeOut, [Out] IntPtr dataOut)
 
+        #region int gluScaleImage(int format, int widthIn, int heightIn, int typeIn, [In] byte[] dataIn, int widthOut, int heightOut, int typeOut, [Out] byte[] dataOut)
+        /// <summary>
+        ///     Scales an image to an arbitrary size.
+        /// </summary>
+        /// <param name="format">
+        ///     The format of the pixel data.  The following symbolic values are valid:
+        ///     <see cref="Gl.GL_COLOR_INDEX" />, <see cref="Gl.GL_STENCIL_INDEX" />,
+        ///     <see cref="Gl.GL_DEPTH_COMPONENT" />, <see cref="Gl.GL_RED" />,
+        ///     <see cref="Gl.GL_GREEN" />, <see cref="Gl.GL_BLUE" />,
+        ///     <see cref="Gl.GL_ALPHA" />, <see cref="Gl.GL_RGB" />,
+        ///     <see cref="Gl.GL_RGBA" />, <see cref="Gl.GL_BGR_EXT" />,
+        ///     <see cref="Gl.GL_BGRA_EXT" />, <see cref="Gl.GL_LUMINANCE" />, and
+        ///     <see cref="Gl.GL_LUMINANCE_ALPHA" />.
+        /// </param>
+        /// <param name="widthIn">
+        ///     The width of the source image that is scaled.
+        /// </param>
+        /// <param name="heightIn">
+        ///     The height of the source image that is scaled.
+        /// </param>
+        /// <param name="typeIn">
+        ///     The data type for <i>dataIn</i>.  Must be one of
+        ///     <see cref="Gl.GL_UNSIGNED_BYTE" />, <see cref="Gl.GL_BYTE" />,
+        ///     <see cref="Gl.GL_BITMAP" />, <see cref="Gl.GL_UNSIGNED_SHORT" />,
+        ///     <see cref="Gl.GL_SHORT" />, <see cref="Gl.GL_UNSIGNED_INT" />,
+        ///     <see cref="Gl.GL_INT" />, <see cref="Gl.GL_FLOAT" />,
+        ///     <see cref="Gl.GL_UNSIGNED_BYTE_3_3_2" />,
+        ///     <see cref="Gl.GL_UNSIGNED_BYTE_2_3_3_REV" />,
+        ///     <see cref="Gl.GL_UNSIGNED_SHORT_5_6_5" />,
+        ///     <see cref="Gl.GL_UNSIGNED_SHORT_5_6_5_REV" />,
+        ///     <see cref="Gl.GL_UNSIGNED_SHORT_4_4_4_4" />,
+        ///     <see cref="Gl.GL_UNSIGNED_SHORT_4_4_4_4_REV" />,
+        ///     <see cref="Gl.GL_UNSIGNED_SHORT_5_5_5_1" />,
+        ///     <see cref="Gl.GL_UNSIGNED_SHORT_1_5_5_5_REV" />,
+        ///     <see cref="Gl.GL_UNSIGNED_INT_8_8_8_8" />,
+        ///     <see cref="Gl.GL_UNSIGNED_INT_8_8_8_8_REV" />,
+        ///     <see cref="Gl.GL_UNSIGNED_INT_10_10_10_2" />, and
+        ///     <see cref="Gl.GL_UNSIGNED_INT_2_10_10_10_REV" />.
+        /// </param>
+        /// <param name="dataIn">
+        ///     A pointer to the source image.
+        /// </param>
+        /// <param name="widthOut">
+        ///     The width of the destination image.
+        /// </param>
+        /// <param name="heightOut">
+        ///     The height of the destination image.
+        /// </param>
+        /// <param name="typeOut">
+        ///     The data type for <i>dataOut</i>.  Must be one of
+        ///     <see cref="Gl.GL_UNSIGNED_BYTE" />, <see cref="Gl.GL_BYTE" />,
+        ///     <see cref="Gl.GL_BITMAP" />, <see cref="Gl.GL_UNSIGNED_SHORT" />,
+        ///     <see cref="Gl.GL_SHORT" />, <see cref="Gl.GL_UNSIGNED_INT" />,
+        ///     <see cref="Gl.GL_INT" />, <see cref="Gl.GL_FLOAT" />,
+        ///     <see cref="Gl.GL_UNSIGNED_BYTE_3_3_2" />,
+        ///     <see cref="Gl.GL_UNSIGNED_BYTE_2_3_3_REV" />,
+        ///     <see cref="Gl.GL_UNSIGNED_SHORT_5_6_5" />,
+        ///     <see cref="Gl.GL_UNSIGNED_SHORT_5_6_5_REV" />,
+        ///     <see cref="Gl.GL_UNSIGNED_SHORT_4_4_4_4" />,
+        ///     <see cref="Gl.GL_UNSIGNED_SHORT_4_4_4_4_REV" />,
+        ///     <see cref="Gl.GL_UNSIGNED_SHORT_5_5_5_1" />,
+        ///     <see cref="Gl.GL_UNSIGNED_SHORT_1_5_5_5_REV" />,
+        ///     <see cref="Gl.GL_UNSIGNED_INT_8_8_8_8" />,
+        ///     <see cref="Gl.GL_UNSIGNED_INT_8_8_8_8_REV" />,
+        ///     <see cref="Gl.GL_UNSIGNED_INT_10_10_10_2" />, or
+        ///     <see cref="Gl.GL_UNSIGNED_INT_2_10_10_10_REV" />.
+        /// </param>
+        /// <param name="dataOut">
+        ///     A pointer to the destination image.
+        /// </param>
+        /// <returns>
+        ///     A return value of zero indicates success, otherwise a GLU error code is
+        ///     returned (see <see cref="gluErrorString" />).
+        /// </returns>
+        /// <remarks>
+        ///     <para>
+        ///         <b>gluScaleImage</b> scales a pixel image using the appropriate pixel store
+        ///         modes to unpack data from the source image and pack data into the
+        ///         destination image.
+        ///     </para>
+        ///     <para>
+        ///         When shrinking an image, <b>gluScaleImage</b> uses a box filter to sample the
+        ///         source image and create pixels for the destination image.  When magnifying an
+        ///         image, the pixels from the source image are linearly interpolated to create
+        ///         the destination image.
+        ///     </para>
+        ///     <para>
+        ///         A return value of zero indicates success, otherwise a GLU error code is
+        ///         returned (see <see cref="gluErrorString" />).
+        ///     </para>
+        ///     <para>
+        ///         See the <see cref="Gl.glReadPixels" /> reference page for a description of
+        ///         the acceptable values for the <i>format</i>, <i>typeIn</i>, and
+        ///         <i>typeOut</i> parameters.
+        ///     </para>
+        ///     <para>
+        ///         <b>NOTES</b>
+        ///     </para>
+        ///     <para>
+        ///         Formats <see cref="Gl.GL_BGR" />, and <see cref="Gl.GL_BGRA" />, and types
+        ///         <see cref="Gl.GL_UNSIGNED_BYTE_3_3_2" />,
+        ///         <see cref="Gl.GL_UNSIGNED_BYTE_2_3_3_REV" />,
+        ///         <see cref="Gl.GL_UNSIGNED_SHORT_5_6_5" />,
+        ///         <see cref="Gl.GL_UNSIGNED_SHORT_5_6_5_REV" />,
+        ///         <see cref="Gl.GL_UNSIGNED_SHORT_4_4_4_4" />,
+        ///         <see cref="Gl.GL_UNSIGNED_SHORT_4_4_4_4_REV" />,
+        ///         <see cref="Gl.GL_UNSIGNED_SHORT_5_5_5_1" />,
+        ///         <see cref="Gl.GL_UNSIGNED_SHORT_1_5_5_5_REV" />,
+        ///         <see cref="Gl.GL_UNSIGNED_INT_8_8_8_8" />,
+        ///         <see cref="Gl.GL_UNSIGNED_INT_8_8_8_8_REV" />,
+        ///         <see cref="Gl.GL_UNSIGNED_INT_10_10_10_2" />, and
+        ///         <see cref="Gl.GL_UNSIGNED_INT_2_10_10_10_REV" /> are only available if the GL
+        ///         version is 1.2 or greater.
+        ///     </para>
+        ///     <para>
+        ///         <b>ERRORS</b>
+        ///     </para>
+        ///     <para>
+        ///         <see cref="GLU_INVALID_VALUE" /> is returned if <i>widthIn</i>,
+        ///         <i>heightIn</i>, <i>widthOut</i>, or <i>heightOut</i> is negative.
+        ///     </para>
+        ///     <para>
+        ///         <see cref="GLU_INVALID_ENUM" /> is returned if <i>format</i>, <i>typeIn</i>,
+        ///         or <i>typeOut</i> is not legal.
+        ///     </para>
+        ///     <para>
+        ///         <see cref="GLU_INVALID_OPERATION" /> is returned if <i>typeIn</i> or
+        ///         <i>typeOut</i> is <see cref="Gl.GL_UNSIGNED_BYTE_3_3_2" /> or
+        ///         <see cref="Gl.GL_UNSIGNED_BYTE_2_3_3_REV" /> and <i>format</i> is not
+        ///         <see cref="Gl.GL_RGB" />.
+        ///     </para>
+        ///     <para>
+        ///         <see cref="GLU_INVALID_OPERATION" /> is returned if <i>typeIn</i> or
+        ///         <i>typeOut</i> is <see cref="Gl.GL_UNSIGNED_SHORT_5_6_5" /> or
+        ///         <see cref="Gl.GL_UNSIGNED_SHORT_5_6_5_REV" /> and <i>format</i> is not
+        ///         <see cref="Gl.GL_RGB" />.
+        ///     </para>
+        ///     <para>
+        ///         <see cref="GLU_INVALID_OPERATION" /> is returned if <i>typeIn</i> or
+        ///         <i>typeOut</i> is <see cref="Gl.GL_UNSIGNED_SHORT_4_4_4_4" /> or
+        ///         <see cref="Gl.GL_UNSIGNED_SHORT_4_4_4_4_REV" /> and <i>format</i> is neither
+        ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
+        ///     </para>
+        ///     <para>
+        ///         <see cref="GLU_INVALID_OPERATION" /> is returned if <i>typeIn</i> or
+        ///         <i>typeOut</i> is <see cref="Gl.GL_UNSIGNED_SHORT_5_5_5_1" /> or
+        ///         <see cref="Gl.GL_UNSIGNED_SHORT_1_5_5_5_REV" /> and <i>format</i> is neither
+        ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
+        ///     </para>
+        ///     <para>
+        ///         <see cref="GLU_INVALID_OPERATION" /> is returned if <i>typeIn</i> or
+        ///         <i>typeOut</i> is <see cref="Gl.GL_UNSIGNED_INT_8_8_8_8" /> or
+        ///         <see cref="Gl.GL_UNSIGNED_INT_8_8_8_8_REV" /> and <i>format</i> is neither
+        ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
+        ///     </para>
+        ///     <para>
+        ///         <see cref="GLU_INVALID_OPERATION" /> is returned if <i>typeIn</i> or
+        ///         <i>typeOut</i> is <see cref="Gl.GL_UNSIGNED_INT_10_10_10_2" /> or
+        ///         <see cref="Gl.GL_UNSIGNED_INT_2_10_10_10_REV" /> and <i>format</i> is neither
+        ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
+        ///     </para>
+        /// </remarks>
+        /// <seealso cref="Gl.glDrawPixels" />
+        /// <seealso cref="Gl.glReadPixels" />
+        /// <seealso cref="gluBuild1DMipmaps" />
+        /// <seealso cref="gluBuild2DMipmaps" />
+        /// <seealso cref="gluBuild3DMipmaps" />
+        /// <seealso cref="gluErrorString" />
+        // int APIENTRY gluScaleImage(GLenum format, GLint widthin, GLint heightin, GLenum typein, const void *datain, GLint widthout, GLint heightout, GLenum typeout, void *dataout);
+        [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern int gluScaleImage(int format, int widthIn, int heightIn, int typeIn, [In] byte[] dataIn, int widthOut, int heightOut, int typeOut, [Out] byte[] dataOut);
+        #endregion int gluScaleImage(int format, int widthIn, int heightIn, int typeIn, [In] byte[] dataIn, int widthOut, int heightOut, int typeOut, [Out] byte[] dataOut)
+
         #region gluSphere([In] GLUquadric quad, double radius, int slices, int stacks)
         /// <summary>
         ///     Draws a sphere.

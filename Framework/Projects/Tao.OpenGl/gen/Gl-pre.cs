@@ -29,6 +29,7 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Security;
+using System.Text;
 
 [assembly: CLSCompliantAttribute(true)]
 

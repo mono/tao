@@ -196,6 +196,7 @@ public class GlTypeMap {
     "ref float",
     "ref double",
     "string",
+    "StringBuilder",
     "IntPtr"
   };
 #endif

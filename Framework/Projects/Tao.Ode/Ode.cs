@@ -29,13 +29,15 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security;
 
+using real = System.Single;
+
 namespace Tao.Ode {
     #region Class Documentation
     /// <summary>
     ///     ODE (Open Dynamics Engine) binding for .NET.
     /// </summary>
     #endregion Class Documentation
-    public sealed class ODe {
+    public sealed class Ode {
         // --- Fields ---
         #region Private Constants
         #region CallingConvention CALLING_CONVENTION
@@ -61,6 +63,117 @@ namespace Tao.Ode {
         }
         #endregion Ode()
 
+
+
+/*
+typedef dReal dVector3[4];
+typedef dReal dVector4[4];
+typedef dReal dMatrix3[4*3];
+typedef dReal dMatrix4[4*4];
+typedef dReal dMatrix6[8*6];
+typedef dReal dQuaternion[4];
+*/
+
+
+        // --- Public Structs ---
+        [StructLayout(LayoutKind.Sequential)]
+        public struct dMass {
+            public real mass;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst=4)]
+            public real[] c;
+            [MarshalAs(UnmanagedType.ByValArray, SizeConst=12)]
+            public real[] I;
+        }
+
         // --- Public Externs ---
+        // dWorldID dWorldCreate();
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr dWorldCreate();
+
+        // dSpaceID dHashSpaceCreate(dSpaceID space);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr dHashSpaceCreate(IntPtr space);
+
+        // dJointGroupID dJointGroupCreate(int max_size);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr dJointGroupCreate(int max_size);
+
+        // void dWorldSetGravity(dWorldID, dReal x, dReal y, dReal z);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void dWorldSetGravity(IntPtr world, real x, real y, real z);
+
+        // dGeomID dCreatePlane(dSpaceID space, dReal a, dReal b, dReal c, dReal d);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr dCreatePlane(IntPtr space, real a, real b, real c, real d);
+
+        // dSpaceID dSimpleSpaceCreate(dSpaceID space);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr dSimpleSpaceCreate(IntPtr space);
+
+        // void dSpaceAdd(dSpaceID, dGeomID);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void dSpaceAdd(IntPtr space, IntPtr geom);
+
+        // dBodyID dBodyCreate(dWorldID);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr dBodyCreate(IntPtr world);
+
+        // void dMassSetSphere(dMass *, dReal density, dReal radius);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void dMassSetSphere(ref dMass mass, real density, real radius);
+
+        // void dBodySetMass(dBodyID, const dMass *mass);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void dBodySetMass(IntPtr body, ref dMass mass);
+
+        // void dBodySetPosition(dBodyID, dReal x, dReal y, dReal z);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void dBodySetPosition(IntPtr body, real x, real y, real z);
+
+        // void dBodyAddForce(dBodyID, dReal fx, dReal fy, dReal fz);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void dBodyAddForce(IntPtr body, real fx, real fy, real fz);
+
+        // const dReal * dBodyGetPosition(dBodyID);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="dBodyGetPosition"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        private static extern IntPtr __dBodyGetPosition(IntPtr body);
+
+        public static float[] dBodyGetPosition(IntPtr body) {
+            float[] positionArray = new float[3];
+
+            unsafe {
+                IntPtr position = __dBodyGetPosition(body);
+                float* positionPointer = (float*) position.ToPointer();
+
+                for(int i = 0; i < positionArray.Length; i++) {
+                    positionArray[i] = positionPointer[i];
+                }
+            }
+
+            return positionArray;
+        }
+
+        // const dReal * dBodyGetLinearVel(dBodyID);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="dBodyGetLinearVel"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        private static extern IntPtr __dBodyGetLinearVel(IntPtr body);
+
+        public static float[] dBodyGetLinearVel(IntPtr body) {
+            float[] velocityArray = new float[3];
+
+            unsafe {
+                IntPtr velocity = __dBodyGetLinearVel(body);
+                float* velocityPointer = (float*) velocity.ToPointer();
+
+                for(int i = 0; i < velocityArray.Length; i++) {
+                    velocityArray[i] = velocityPointer[i];
+                }
+            }
+
+            return velocityArray;
+        }
+
+        // void dWorldStep (dWorldID, dReal stepsize);
+        [DllImport("ode.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void dWorldStep(IntPtr world, real stepsize);
     }
 }

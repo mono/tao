@@ -82,6 +82,18 @@ namespace DevIlExamples {
                 Console.WriteLine("Converting example files - {0} -> {1}", inputFile, outputFile);
             }
 
+            if(Il.ilGetInteger(Il.IL_VERSION_NUM) < Il.IL_VERSION ||
+                Il.ilGetInteger(Ilu.ILU_VERSION_NUM) < Ilu.ILU_VERSION ||
+                Il.ilGetInteger(Ilut.ILUT_VERSION_NUM) < Ilut.ILUT_VERSION) {
+                Console.WriteLine("*** Your DevIL native libraries are older than what Tao.DevIl supports, get the latest DevIL native libraries. ***");
+                Console.WriteLine("Your DevIL native IL version: {0}.  Tao.DevIl's IL version: {1}.",
+                    Il.ilGetInteger(Il.IL_VERSION_NUM), Il.IL_VERSION);
+                Console.WriteLine("Your DevIL native ILU version: {0}.  Tao.DevIl's ILU version: {1}.",
+                    Il.ilGetInteger(Ilu.ILU_VERSION_NUM), Ilu.ILU_VERSION_NUM);
+                Console.WriteLine("Your DevIL native ILUT version: {0}.  Tao.DevIl's ILUT version: {1}.",
+                    Il.ilGetInteger(Ilut.ILUT_VERSION_NUM), Ilut.ILUT_VERSION_NUM);
+            }
+
             // Initialize DevIL
             Il.ilInit();
 
