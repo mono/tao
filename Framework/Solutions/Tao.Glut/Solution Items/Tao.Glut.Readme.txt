@@ -1,5 +1,5 @@
 Tao.Glut 3.7.6.0
-http://www.randyridge.com/Tao/Default.aspx
+http://www.taoframework.com
 Copyright ©2003-2004 Randy Ridge, All rights reserved.
 
 Tao.Glut is a GLUT API binding for .NET, implementing GLUT 3.7.6.

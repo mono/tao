@@ -2,7 +2,7 @@
 /*
 MIT License
 Copyright ©2003-2004 Randy Ridge
-http://www.randyridge.com/Tao/Default.aspx
+http://www.taoframework.com
 All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -31,7 +31,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Permissions;
 
-[assembly: AssemblyCompany("Randy Ridge http://www.randyridge.com/Tao/Default.aspx")]
+[assembly: AssemblyCompany("Randy Ridge http://www.taoframework.com")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
 #else
@@ -42,8 +42,8 @@ using System.Security.Permissions;
 [assembly: AssemblyDefaultAlias("Tao.PostProcess")]
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyDescription("Does various post-processing on Tao Framework libraries.")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: AssemblyInformationalVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.1")]
+[assembly: AssemblyInformationalVersion("1.0.0.1")]
 #if STRONG
 [assembly: AssemblyKeyFile(@"..\..\Solutions\Tao.PostProcess\Solution Items\Tao.PostProcess.snk")]
 #else
@@ -57,7 +57,7 @@ using System.Security.Permissions;
 #endif
 [assembly: AssemblyTitle("Tao.PostProcess")]
 [assembly: AssemblyTrademark("Randy Ridge")]
-[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.0.1")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]

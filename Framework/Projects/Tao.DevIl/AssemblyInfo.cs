@@ -2,7 +2,7 @@
 /*
 MIT License
 Copyright ©2003-2004 Randy Ridge
-http://www.randyridge.com/Tao/Default.aspx
+http://www.taoframework.com
 All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,7 +32,7 @@ using System.Security;
 using System.Security.Permissions;
 
 [assembly: AllowPartiallyTrustedCallers]
-[assembly: AssemblyCompany("Randy Ridge http://www.randyridge.com/Tao/Default.aspx")]
+[assembly: AssemblyCompany("Randy Ridge http://www.taoframework.com")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
 #else
@@ -47,8 +47,8 @@ using System.Security.Permissions;
 #elif LINUX
 [assembly: AssemblyDescription("Tao Framework DevIL Binding For .NET (Linux)")]
 #endif
-[assembly: AssemblyFileVersion("1.6.6.0")]
-[assembly: AssemblyInformationalVersion("1.6.6.0")]
+[assembly: AssemblyFileVersion("1.6.6.1")]
+[assembly: AssemblyInformationalVersion("1.6.6.1")]
 #if STRONG
 [assembly: AssemblyKeyFile(@"..\..\Solutions\Tao.DevIl\Solution Items\Tao.DevIl.snk")]
 #else
@@ -66,7 +66,7 @@ using System.Security.Permissions;
 [assembly: AssemblyTitle("Tao Framework DevIL Binding For .NET (Linux)")]
 #endif
 [assembly: AssemblyTrademark("Randy Ridge")]
-[assembly: AssemblyVersion("1.6.6.0")]
+[assembly: AssemblyVersion("1.6.6.1")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]

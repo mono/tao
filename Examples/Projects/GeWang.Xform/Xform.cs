@@ -2,7 +2,7 @@
 /*
 MIT License
 Copyright ©2003-2004 Randy Ridge
-http://www.randyridge.com/Tao/Default.aspx
+http://www.taoframework.com
 All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -50,7 +50,7 @@ namespace GeWang {
     ///     </para>
     ///     <para>
     ///         C# Implementation:  Randy Ridge
-    ///         http://www.randyridge.com/Tao/Default.aspx
+    ///         http://www.taoframework.com
     ///     </para>
     /// </remarks>
     #endregion Class Documentation

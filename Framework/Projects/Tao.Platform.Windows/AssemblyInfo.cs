@@ -2,7 +2,7 @@
 /*
 MIT License
 Copyright ©2003-2004 Randy Ridge
-http://www.randyridge.com/Tao/Default.aspx
+http://www.taoframework.com
 All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,7 +32,7 @@ using System.Security;
 using System.Security.Permissions;
 
 [assembly: AllowPartiallyTrustedCallers]
-[assembly: AssemblyCompany("Randy Ridge http://www.randyridge.com/Tao/Default.aspx")]
+[assembly: AssemblyCompany("Randy Ridge http://www.taoframework.com")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
 #else
@@ -43,8 +43,8 @@ using System.Security.Permissions;
 [assembly: AssemblyDefaultAlias("Tao.Platform.Windows")]
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyDescription("Tao Framework Windows Platform API Binding For .NET")]
-[assembly: AssemblyFileVersion("1.0.0.1")]
-[assembly: AssemblyInformationalVersion("1.0.0.1")]
+[assembly: AssemblyFileVersion("1.0.0.2")]
+[assembly: AssemblyInformationalVersion("1.0.0.2")]
 #if STRONG
 [assembly: AssemblyKeyFile(@"..\..\Solutions\Tao.Platform.Windows\Solution Items\Tao.Platform.Windows.snk")]
 #else
@@ -58,7 +58,7 @@ using System.Security.Permissions;
 #endif
 [assembly: AssemblyTitle("Tao Framework Windows Platform API Binding For .NET (Windows)")]
 [assembly: AssemblyTrademark("Randy Ridge")]
-[assembly: AssemblyVersion("1.0.0.1")]
+[assembly: AssemblyVersion("1.0.0.2")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]

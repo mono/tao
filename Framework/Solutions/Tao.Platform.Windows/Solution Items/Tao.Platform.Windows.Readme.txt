@@ -1,5 +1,5 @@
 Tao.Platform.Windows 1.0.0.0
-http://www.randyridge.com/Tao/Default.aspx
+http://www.taoframework.com
 Copyright ©2003-2004 Randy Ridge, All rights reserved.
 
 Tao.Platform.Windows is a Windows API binding for .NET.

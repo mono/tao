@@ -22,4 +22,4 @@ Tao Framework users.
 For more information and resources, visit the Tao Framework web site.
 
 Randy Ridge
-http://www.randyridge.com/Tao/Default.aspx
+http://www.taoframework.com

@@ -1,5 +1,5 @@
 GlfwExamples
-http://www.randyridge.com/Tao/Default.aspx
+http://www.taoframework.com
 Copyright ©2003-2004 Randy Ridge, All rights reserved.
 
 These are C# ports of some OpenGL examples developed by Ge Wang, the originals
@@ -18,7 +18,7 @@ on Ge Wang's site.  I never got around to it, but it looks pretty
 trivial.
 
 Randy Ridge
-http://www.randyridge.com/Tao/Default.aspx
+http://www.taoframework.com
 
 Change Log:
 

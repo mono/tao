@@ -2,7 +2,7 @@
 /*
 MIT License
 Copyright ©2003-2004 Randy Ridge
-http://www.randyridge.com/Tao/Default.aspx
+http://www.taoframework.com
 All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -32,7 +32,7 @@ using System.Security;
 using System.Security.Permissions;
 
 [assembly: AllowPartiallyTrustedCallers]
-[assembly: AssemblyCompany("Randy Ridge http://www.randyridge.com/Tao/Default.aspx")]
+[assembly: AssemblyCompany("Randy Ridge http://www.taoframework.com")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
 #else
@@ -47,8 +47,8 @@ using System.Security.Permissions;
 #elif LINUX
 [assembly: AssemblyDescription("Tao Framework GLFW Binding For .NET (Linux)")]
 #endif
-[assembly: AssemblyFileVersion("2.4.2.0")]
-[assembly: AssemblyInformationalVersion("2.4.2.0")]
+[assembly: AssemblyFileVersion("2.4.2.1")]
+[assembly: AssemblyInformationalVersion("2.4.2.1")]
 #if STRONG
 [assembly: AssemblyKeyFile(@"..\..\Solutions\Tao.Glfw\Solution Items\Tao.Glfw.snk")]
 #else
@@ -66,7 +66,7 @@ using System.Security.Permissions;
 [assembly: AssemblyTitle("Tao Framework GLFW Binding For .NET (Linux)")]
 #endif
 [assembly: AssemblyTrademark("Randy Ridge")]
-[assembly: AssemblyVersion("2.4.2.0")]
+[assembly: AssemblyVersion("2.4.2.1")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]

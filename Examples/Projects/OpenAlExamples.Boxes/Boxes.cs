@@ -2,7 +2,7 @@
 /*
 MIT License
 Copyright ©2003-2004 Randy Ridge
-http://www.randyridge.com/Tao/Default.aspx
+http://www.taoframework.com
 All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -48,7 +48,7 @@ namespace OpenAlExamples {
     ///     </para>
     ///     <para>
     ///         C# Implementation:  Randy Ridge
-    ///         http://www.randyridge.com/Tao/Default.aspx
+    ///         http://www.taoframework.com
     ///     </para>
     ///     <para>
     ///         The author's original code had many ifdefs for linux/windows specific things.

@@ -2,7 +2,7 @@
 /*
 MIT License
 Copyright ©2003-2004 Randy Ridge
-http://www.randyridge.com/Tao/Default.aspx
+http://www.taoframework.com
 All rights reserved.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -395,8 +395,8 @@ namespace Tao.Glut {
     ///     </para>
     ///     <para>
     ///         GLUT .NET Binding:<br />
-    ///         <a href="http://www.randyridge.com/Tao/Default.aspx">
-    ///             http://www.randyridge.com/Tao/Default.aspx
+    ///         <a href="http://www.taoframework.com">
+    ///             http://www.taoframework.com
     ///         </a>
     ///     </para>
     ///     <para>
@@ -419,15 +419,11 @@ namespace Tao.Glut {
     ///     </para>
     ///     <para>
     ///         GLUT Author:<br />
-    ///         <a href="mailto:mjk@nvidia.com?subject=GLUT">
-    ///             Mark J. Kilgard (mjk@nvidia.com)
-    ///         </a>
+    ///             Mark J. Kilgard
     ///     </para>
     ///     <para>
     ///         GLUT .NET Binding Author:<br />
-    ///         <a href="mailto:ridge@randyridge.com?subject=GLUT">
-    ///             Randy Ridge (ridge@randyridge.com)
-    ///         </a>
+    ///             Randy Ridge
     ///     </para>
     ///     <para>
     ///         <b>COPYRIGHT</b>

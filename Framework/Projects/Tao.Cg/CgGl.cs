@@ -2,7 +2,7 @@
 /*
 BSD License
 Copyright ©2004 Samo Kralj
-http://www.randyridge.com/Tao/Default.aspx
+http://www.taoframework.com
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

@@ -584,7 +584,7 @@
                     <property name="DocumentEmptyNamespaces" value="${build.debug}" />
                     <property name="IncludeAssemblyVersion" value="True" />
                     <property name="CopyrightText" value="Copyright ©2003-2004 Randy Ridge.  All rights reserved." />
-                    <property name="CopyrightHref" value="http://www.randyridge.com/Tao/Default.aspx" />
+                    <property name="CopyrightHref" value="http://www.taoframework.com" />
                 </documenter>
             </documenters>
         </ndoc>

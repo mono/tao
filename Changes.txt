@@ -1,4 +1,6 @@
 Changes since April 20, 2004 release:
-
-Changed field names in T.P.W.'s Gdi.PIXELFORMATDESCRIPTOR (BREAKING CHANGE).
-Added ChangeDisplaySettings overload to T.P.W.'s User class.
+    Changed field names in T.P.W.'s Gdi.PIXELFORMATDESCRIPTOR (BREAKING CHANGE).
+    Added ChangeDisplaySettings overload to T.P.W.'s User class.
+    Updated URL to point to new website.
+    Dave Hudson made some SDL changes.
+    Various minor updates which I can't recall.
