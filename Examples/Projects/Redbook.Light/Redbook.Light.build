@@ -4,12 +4,12 @@
         <echo message="Build Directory is ${examples.build.directory}" />
         <csc target="winexe" warnaserror="false" unsafe="false" debug="${build.debug}" optimize="${build.optimize}" output="${examples.build.directory}/${nant.project.name}.exe" define="${build.debug.define};">
             <references basedir="${framework.build.directory}">
-                <includes name="Tao.Glut.dll" />
-                <includes name="Tao.OpenGl.dll" />
+                <include name="Tao.Glut.dll" />
+                <include name="Tao.OpenGl.dll" />
             </references>
             <sources failonempty="true">
-                <includes name="${examples.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
-                <includes name="${examples.projects.directory}/${nant.project.name}/Light.cs" />
+                <include name="${examples.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
+                <include name="${examples.projects.directory}/${nant.project.name}/Light.cs" />
             </sources>
         </csc>
         <copy file="${examples.solutions.directory}/Redbook/Solution Items/Redbook.License.txt" todir="${examples.build.directory}" />

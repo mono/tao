@@ -4,11 +4,11 @@
         <echo message="Build Directory is ${framework.build.directory}" />
         <csc target="library" warnaserror="false" unsafe="true" debug="${build.debug}" optimize="${build.optimize}" output="${framework.build.directory}/${nant.project.name}.dll" define="${build.debug.define};${build.platform.define};${build.strong.define}" doc="${framework.build.directory}/${nant.project.name}.xml">
             <sources failonempty="true">
-                <includes name="${framework.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
-                <includes name="${framework.projects.directory}/${nant.project.name}/Sdl.cs" />
-                <includes name="${framework.projects.directory}/${nant.project.name}/SdlImage.cs" />
-                <includes name="${framework.projects.directory}/${nant.project.name}/SdlMixer.cs" />
-                <includes name="${framework.projects.directory}/${nant.project.name}/SdlTtf.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/Sdl.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/SdlImage.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/SdlMixer.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/SdlTtf.cs" />
             </sources>
         </csc>
         <copy file="${framework.solutions.directory}/${nant.project.name}/Solution Items/${nant.project.name}.License.txt" todir="${framework.build.directory}" />

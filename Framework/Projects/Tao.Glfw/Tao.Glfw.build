@@ -4,11 +4,11 @@
         <echo message="Build Directory is ${framework.build.directory}" />
         <csc target="library" warnaserror="false" unsafe="true" debug="${build.debug}" optimize="${build.optimize}" output="${framework.build.directory}/${nant.project.name}.dll" define="${build.debug.define};${build.platform.define};${build.strong.define}" doc="${framework.build.directory}/${nant.project.name}.xml">
             <references basedir="${framework.build.directory}">
-                <includes name="Tao.OpenGl.dll" />
+                <include name="Tao.OpenGl.dll" />
             </references>
             <sources failonempty="true">
-                <includes name="${framework.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
-                <includes name="${framework.projects.directory}/${nant.project.name}/Glfw.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/Glfw.cs" />
             </sources>
         </csc>
         <copy file="${framework.solutions.directory}/${nant.project.name}/Solution Items/${nant.project.name}.License.txt" todir="${framework.build.directory}" />

@@ -2,13 +2,13 @@
 <project name="Tao.GlPostProcess">
     <target name="build">
         <echo message="Build Directory is ${framework.build.directory}" />
-        <csc target="exe" warnaserror="false" unsafe="false" debug="${build.debug}" optimize="${build.optimize}" output="${framework.build.directory}/${nant.project.name}.exe" define="${build.debug.define};${build.platform.define};${build.strong.define}" doc="${framework.build.directory}/${nant.project.name}.xml">
+        <csc target="exe" warnaserror="false" unsafe="false" debug="${build.debug}" optimize="${build.optimize}" output="${framework.build.directory}/${nant.project.name}.exe" define="${build.debug.define};${build.platform.define};${build.strong.define}">
             <references basedir="${framework.build.directory}">
-                <includes name="Tao.OpenGlCore.dll" />
+                <include name="Tao.OpenGlCore.dll" />
             </references>
 
             <sources failonempty="true">
-                <includes name="${framework.projects.directory}/${nant.project.name}/GlPostProcess.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/GlPostProcess.cs" />
             </sources>
         </csc>
 

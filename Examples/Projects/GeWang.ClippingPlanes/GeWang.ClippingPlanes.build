@@ -4,12 +4,12 @@
         <echo message="Build Directory is ${examples.build.directory}" />
         <csc target="exe" warnaserror="false" unsafe="false" debug="${build.debug}" optimize="${build.optimize}" output="${examples.build.directory}/${nant.project.name}.exe" define="${build.debug.define};">
             <references basedir="${framework.build.directory}">
-                <includes name="Tao.Glut.dll" />
-                <includes name="Tao.OpenGl.dll" />
+                <include name="Tao.Glut.dll" />
+                <include name="Tao.OpenGl.dll" />
             </references>
             <sources failonempty="true">
-                <includes name="${examples.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
-                <includes name="${examples.projects.directory}/${nant.project.name}/ClippingPlanes.cs" />
+                <include name="${examples.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
+                <include name="${examples.projects.directory}/${nant.project.name}/ClippingPlanes.cs" />
             </sources>
         </csc>
         <copy file="${examples.solutions.directory}/GeWang/Solution Items/GeWang.License.txt" todir="${examples.build.directory}" />

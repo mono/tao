@@ -586,15 +586,15 @@
         <echo message="Start documentation creation in ${framework.docs.directory}" />
         <ndoc failonerror="false">
             <assemblies basedir="${framework.build.directory}">
-                <includes name="Tao.Cg.dll" />
-                <includes name="Tao.DevIl.dll" />
-                <includes name="Tao.Glfw.dll" />
-                <includes name="Tao.Glut.dll" />
-                <includes name="Tao.OpenAl.dll" />
-                <includes name="Tao.OpenGl.dll" />
-                <includes name="Tao.Platform.Linux.dll" />
-                <includes name="Tao.Platform.Windows.dll" />
-                <includes name="Tao.Sdl.dll" />
+                <include name="Tao.Cg.dll" />
+                <include name="Tao.DevIl.dll" />
+                <include name="Tao.Glfw.dll" />
+                <include name="Tao.Glut.dll" />
+                <include name="Tao.OpenAl.dll" />
+                <include name="Tao.OpenGl.dll" />
+                <include name="Tao.Platform.Linux.dll" />
+                <include name="Tao.Platform.Windows.dll" />
+                <include name="Tao.Sdl.dll" />
             </assemblies>
             <documenters>
                 <documenter name="MSDN">
@@ -626,9 +626,9 @@
     <target name="zip.binaries" description="Create .ZIP file of binary files.">
         <zip zipfile="${framework.release.directory}/Tao.Framework.${timestamp.date}.${timestamp.hour}.${platform.directory}.${runtime.directory}.zip">
             <fileset basedir="${framework.build.directory}">
-                <includes name="${framework.build.directory}/*.dll" />
-                <includes name="${framework.build.directory}/*.dll.config" />
-                <includes name="${framework.build.directory}/*.txt" />
+                <include name="${framework.build.directory}/*.dll" />
+                <include name="${framework.build.directory}/*.dll.config" />
+                <include name="${framework.build.directory}/*.txt" />
                 <excludes name="${framework.build.directory}/Tao.OpenGlBits*" />
                 <excludes name="${framework.build.directory}/Tao.OpenGlCore*" />
                 <excludes name="${framework.build.directory}/Tao.PostProcess.*" />
@@ -640,9 +640,9 @@
     <target name="zip.source" description="Create .ZIP file of the sources.">
         <zip zipfile="${framework.release.directory}/Tao.Framework.${timestamp.date}.${timestamp.hour}.${platform.directory}.${runtime.directory}.src.zip">
             <fileset basedir="${root.directory}">
-                <includes name="${root.directory}/*.build" />
-                <includes name="${root.directory}/*.txt" />
-                <includes name="${framework.projects.directory}/**" />
+                <include name="${root.directory}/*.build" />
+                <include name="${root.directory}/*.txt" />
+                <include name="${framework.projects.directory}/**" />
                 <excludes name="${framework.projects.directory}/**/bin/*" />
                 <excludes name="${framework.projects.directory}/**/obj/*" />
                 <excludes name="${framework.projects.directory}/**/*.dll" />
@@ -658,7 +658,7 @@
     <target name="zip.documentation.chm" description="Create .ZIP file of CHM Documentation files.">
         <zip zipfile="${framework.release.directory}/Tao.Framework.${timestamp.date}.${timestamp.hour}.${platform.directory}.${runtime.directory}.Chm.Docs.zip">
             <fileset basedir="${framework.docs.directory}">
-                <includes name="${framework.docs.directory}/*.chm" />
+                <include name="${framework.docs.directory}/*.chm" />
             </fileset>
         </zip>
     </target>
@@ -666,7 +666,7 @@
     <target name="zip.documentation.html" description="Create .ZIP file of HTML Documentation files.">
         <zip zipfile="${framework.release.directory}/Tao.Framework.${timestamp.date}.${timestamp.hour}.${platform.directory}.${runtime.directory}.Html.Docs.zip">
             <fileset basedir="${framework.docs.directory}">
-                <includes name="${framework.docs.directory}/*.*" />
+                <include name="${framework.docs.directory}/*.*" />
                 <excludes name="${framework.docs.directory}/*.chm" />
             </fileset>
         </zip>

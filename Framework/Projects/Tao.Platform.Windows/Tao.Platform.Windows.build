@@ -4,21 +4,21 @@
         <echo message="Build Directory is ${framework.build.directory}" />
         <csc target="library" warnaserror="false" unsafe="true" debug="${build.debug}" optimize="${build.optimize}" output="${framework.build.directory}/${nant.project.name}.dll" define="${build.debug.define};${build.platform.define};${build.strong.define}" doc="${framework.build.directory}/${nant.project.name}.xml">
             <references basedir="${framework.build.directory}">
-                <includes name="Tao.OpenGl.dll" />
+                <include name="Tao.OpenGl.dll" />
             </references>
             <resources>
-                <includes name="${framework.projects.directory}/${nant.project.name}/TaoButton.jpg" />
+                <include name="${framework.projects.directory}/${nant.project.name}/TaoButton.jpg" />
             </resources>
             <sources failonempty="true">
-                <includes name="${framework.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
-                <includes name="${framework.projects.directory}/${nant.project.name}/Gdi.cs" />
-                <includes name="${framework.projects.directory}/${nant.project.name}/IlasmAttribute.cs" />
-                <includes name="${framework.projects.directory}/${nant.project.name}/Kernel.cs" />
-                <includes name="${framework.projects.directory}/${nant.project.name}/SimpleOpenGlControl.cs" />
-                <includes name="${framework.projects.directory}/${nant.project.name}/User.cs" />
-                <includes name="${framework.projects.directory}/${nant.project.name}/Wgl.cs" />
-                <includes name="${framework.projects.directory}/${nant.project.name}/Winmm.cs" />
-                <includes name="${framework.projects.directory}/${nant.project.name}/WinNt.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/Gdi.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/IlasmAttribute.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/Kernel.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/SimpleOpenGlControl.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/User.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/Wgl.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/Winmm.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/WinNt.cs" />
             </sources>
         </csc>
         <exec program="ildasm" commandline="${framework.build.directory}/${nant.project.name}.dll /OUT=${framework.build.directory}/${nant.project.name}.il /TEXT" />

@@ -6,8 +6,8 @@
     <target name="glcore">
         <csc target="library" warnaserror="false" unsafe="true" debug="${build.debug}" optimize="${build.optimize}" output="${framework.build.directory}/Tao.OpenGlCore.dll" define="${build.debug.define};${build.platform.define};${build.strong.define}">
             <sources failonempty="true">
-                <includes name="${framework.projects.directory}/${nant.project.name}/GlCore.cs" />
-                <includes name="${framework.projects.directory}/${nant.project.name}/Glu.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/GlCore.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/Glu.cs" />
             </sources>
         </csc>
 
@@ -19,11 +19,11 @@
 
         <csc target="library" warnaserror="false" unsafe="true" debug="${build.debug}" optimize="${build.optimize}" output="${framework.build.directory}/Tao.OpenGlBits-Pre.dll" define="${build.debug.define};${build.platform.define};${build.strong.define}">
             <references basedir="${framework.build.directory}">
-                <includes name="Tao.OpenGlCore.dll" />
+                <include name="Tao.OpenGlCore.dll" />
             </references>
             <sources failonempty="true">
-                <includes name="${framework.projects.directory}/${nant.project.name}/Gl.cs" />
-                <includes name="${framework.projects.directory}/${nant.project.name}/ContextGl.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/Gl.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/ContextGl.cs" />
             </sources>
         </csc>
 
