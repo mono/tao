@@ -33,10 +33,16 @@
         <if test="${not file::up-to-date(framework.build.directory + '/Tao.OpenGlBits-Pre.dll', framework.build.directory + '/Tao.OpenGlBits.dll') or not file::up-to-date(framework.build.directory + '/Tao.GlPostProcess.exe', framework.build.directory + '/Tao.OpenGlBits.dll')}">
             <echo message="Not up to date!" />
             <!-- this will get the .exe on windows, and the sh script on linux -->
-            <exec program="${framework.build.directory}/Tao.GlPostProcess.exe" commandline="${framework.build.directory}/Tao.OpenGlBits-Pre.dll ${framework.build.directory}/Tao.OpenGlBits.dll Tao.OpenGl.Gl Tao.OpenGl.ContextGl" />
+            <if test="${current.runtime.config.net}">
+                <exec program="${framework.build.directory}/Tao.GlPostProcess.exe" commandline="${framework.build.directory}/Tao.OpenGlBits-Pre.dll ${framework.build.directory}/Tao.OpenGlBits.dll Tao.OpenGl.Gl Tao.OpenGl.ContextGl" />
+            </if>
+            <if test="${not current.runtime.config.net}">
+                <exec program="mono" commandline="${framework.build.directory}/Tao.GlPostProcess.exe ${framework.build.directory}/Tao.OpenGlBits-Pre.dll ${framework.build.directory}/Tao.OpenGl.dll Tao.OpenGl.Gl Tao.OpenGl.ContextGl" />
+                <copy file="${framework.solutions.directory}/${nant.project.name}/Solution Items/Tao.OpenGlCore.dll.config" todir="${framework.build.directory}/Tao.OpenGl.dll.config" />
+            </if>
         </if>
 
-        <!-- On Windows, use ILMerge.  On Linux, just copy. -->
+        <!-- On Windows, use ILMerge. -->
         <if test="${current.runtime.config.net}">
             <if test="${not file::up-to-date(framework.build.directory + '/Tao.OpenGlBits.dll', framework.build.directory + '/Tao.OpenGl.dll') or not file::up-to-date(framework.build.directory + '/Tao.OpenGlCore.dll', framework.build.directory + '/Tao.OpenGl.dll')}">
                 <echo message="Running ILMerge..." />
@@ -45,8 +51,7 @@
         </if>
 
         <if test="${not current.runtime.config.net}">
-            <echo message="Not merging OpenGlCore and OpenGlBits! Copying OpenGlBits to OpenGl..." />
-            <copy file="${framework.build.directory}/Tao.OpenGlBits.dll" tofile="${framework.build.directory}/Tao.OpenGl.dll" />
+            <echo message="Not merging OpenGlCore and OpenGlBits! (OpenGl is just OpenGlBits!)..." />
         </if>
 
         <copy file="${framework.solutions.directory}/${nant.project.name}/Solution Items/${nant.project.name}.License.txt" todir="${framework.build.directory}" />
@@ -67,7 +72,7 @@
         <delete file="${framework.build.directory}/${nant.project.name}.xml" failonerror="false" />
         <delete file="${framework.build.directory}/${nant.project.name}.License.txt" failonerror="false" />
         <delete file="${framework.build.directory}/${nant.project.name}.Readme.txt" failonerror="false" />
-	<delete dir="${framework.projects.directory}/${nant.project.name}/bin" failonerror="false"/>
-	<delete dir="${framework.projects.directory}/${nant.project.name}/obj" failonerror="false"/>
+        <delete dir="${framework.projects.directory}/${nant.project.name}/bin" failonerror="false"/>
+        <delete dir="${framework.projects.directory}/${nant.project.name}/obj" failonerror="false"/>
     </target>
 </project>

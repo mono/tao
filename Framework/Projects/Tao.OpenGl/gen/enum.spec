@@ -16,7 +16,7 @@
 #
 # Original Code. The Original Code is: OpenGL Sample Implementation,
 # Version 1.2.1, released January 26, 2000, developed by Silicon Graphics,
-# Inc. The Original Code is Copyright (c) 1991-2002 Silicon Graphics, Inc.
+# Inc. The Original Code is Copyright (c) 1991-2005 Silicon Graphics, Inc.
 # Copyright in any portions created by third parties is as indicated
 # elsewhere herein. All Rights Reserved.
 #
@@ -25,8 +25,8 @@
 # not been independently verified as being compliant with the OpenGL(R)
 # version 1.2.1 Specification.
 #
-# $Date: 2004/08/24 17:22:27 $ $Revision: 1.1 $
-# $Header: /home/miguel/third-conversion/public/tao/Framework/Projects/Tao.OpenGl/gen/enum.spec,v 1.1 2004/08/24 17:22:27 vlad Exp $
+# $Date$ $Revision: 1.16 $
+# $Header: /oss1/CVS/cvs/projects/ogl-sample/main/doc/registry/specs/enum.spec,v 1.16 2005/01/20 08:44:12 ljp Exp $
 
 # This is the OpenGL enumerant registry.
 #
@@ -568,6 +568,10 @@ ErrorCode enum:
 	OUT_OF_MEMORY					= 0x0505
 	use EXT_histogram TABLE_TOO_LARGE_EXT
 	use EXT_texture TEXTURE_TOO_LARGE_EXT
+
+# Additional error code
+# EXT_framebuffer_object enum:
+#	INVALID_FRAMEBUFFER_OPERATION_EXT		= 0x0506
 
 ###############################################################################
 
@@ -1346,7 +1350,9 @@ DataType enum:
 	DOUBLE						= 0x140A
 	DOUBLE_EXT					= 0x140A
 
+# ARB_half_float_pixel enum:
 # NV_half_float enum:
+#	HALF_FLOAT_ARB					= 0x140B
 #	HALF_FLOAT_NV					= 0x140B
 
 # OES_fixed_point enum:
@@ -2043,7 +2049,9 @@ EXT_blend_minmax enum:
 	BLEND_EQUATION					= 0x8009 # 1 I
 	BLEND_EQUATION_EXT				= 0x8009 # 1 I
 
+# VERSION_2_0 enum: (Promoted for OpenGL 2.0)
 # EXT_blend_equation_separate enum: (separate; see below)
+#	BLEND_EQUATION_RGB				= GL_BLEND_EQUATION # VERSION_2_0
 #	BLEND_EQUATION_RGB_EXT				= GL_BLEND_EQUATION
 
 ###############################################################################
@@ -3395,7 +3403,7 @@ SGIX_resample enum:
 # VERSION_1_5 enum: (Consistent naming scheme for OpenGL 1.5)
 # VERSION_1_4 enum: (Promoted for OpenGL 1.4)
 # EXT_fog_coord enum:
-#	FOG_COORD_SOURCE				= GL_FOG_COORDINATE_SOURCE
+#	FOG_COORD_SRC					= GL_FOG_COORDINATE_SOURCE
 #	FOG_COORDINATE_SOURCE				= 0x8450 # 1 I
 #	FOG_COORDINATE_SOURCE_EXT			= 0x8450 # 1 I
 #	FOG_COORD					= GL_FOG_COORDINATE
@@ -3590,9 +3598,8 @@ VERSION_1_2 enum:
 #	SUBTRACT					= 0x84E7
 #	SUBTRACT_ARB					= 0x84E7
 
-# ARB_future_use: 0x84E8
-# (0x84E7-0x84E8 previously used in a draft version of ARB_multisample,
-#  but not in the final ARB-approved version)
+# EXT_framebuffer_object (additional; see below):
+#	MAX_RENDERBUFFER_SIZE_EXT			= 0x84E8
 
 # VERSION_1_3 enum: (Promoted for OpenGL 1.3)
 # ARB_texture_compression enum:
@@ -3623,24 +3630,29 @@ VERSION_1_2 enum:
 
 # NVIDIA: 0x84F0-0x855F
 
-# NVIDIA_future_use: 0x84F0-0x84F1
+# NV_future_use: 0x84F0-0x84F1
 
 # NV_fence enum:
 #	ALL_COMPLETED_NV				= 0x84F2
 #	FENCE_STATUS_NV					= 0x84F3
 #	FENCE_CONDITION_NV				= 0x84F4
 
+# ARB_texture_rectangle enum:
 # NV_texture_rectangle enum:
+#	TEXTURE_RECTANGLE_ARB				= 0x84F5
 #	TEXTURE_RECTANGLE_NV				= 0x84F5
+#	TEXTURE_BINDING_RECTANGLE_ARB			= 0x84F6
 #	TEXTURE_BINDING_RECTANGLE_NV			= 0x84F6
+#	PROXY_TEXTURE_RECTANGLE_ARB			= 0x84F7
 #	PROXY_TEXTURE_RECTANGLE_NV			= 0x84F7
+#	MAX_RECTANGLE_TEXTURE_SIZE_ARB			= 0x84F8
 #	MAX_RECTANGLE_TEXTURE_SIZE_NV			= 0x84F8
 
 # NV_packed_depth_stencil enum:
 #	DEPTH_STENCIL_NV				= 0x84F9
 #	UNSIGNED_INT_24_8_NV				= 0x84FA
 
-# NVIDIA_future_use: 0x84FB-0x84FC
+# NV_future_use: 0x84FB-0x84FC
 
 # VERSION_1_4 enum: (Promoted for OpenGL 1.4)
 # EXT_texture_lod_bias enum:
@@ -3751,7 +3763,6 @@ VERSION_1_2 enum:
 #	DISCARD_NV					= 0x8530
 #	E_TIMES_F_NV					= 0x8531
 #	SPARE0_PLUS_SECONDARY_COLOR_NV			= 0x8532
-#	<unused>					= 0x8534
 #	UNSIGNED_IDENTITY_NV				= 0x8536
 #	UNSIGNED_INVERT_NV				= 0x8537
 #	EXPAND_NORMAL_NV				= 0x8538
@@ -3796,7 +3807,7 @@ VERSION_1_2 enum:
 # NV_register_combiners2 enum:
 #	PER_STAGE_CONSTANTS_NV				= 0x8535
 
-# NV_future_use: 0x8536-0x8557
+# NV_register_combiners (additional; see above): 0x8536-0x8557
 
 # NV_primitive_restart enum:
 #	PRIMITIVE_RESTART_NV				= 0x8558
@@ -4131,14 +4142,20 @@ SGIX_subsample enum:
 # NV_depth_clamp enum:
 #	DEPTH_CLAMP_NV					= 0x864F
 
-# Unfortunately, PROGRAM_BINDING_ARB does accidentally reuse 0x8677
+# VERSION_2_0 enum: (Promoted from ARB_vertex_shader; only some values)
 # ARB_vertex_program enum: (additional; see above; reuses NV_vertex_program values)
 # ARB_fragment_program enum: (additional; only some values; see below)
+# (Unfortunately, PROGRAM_BINDING_ARB does accidentally reuse 0x8677)
 #	VERTEX_PROGRAM_ARB				= 0x8620
+#	VERTEX_ATTRIB_ARRAY_ENABLED			= 0x8622    # VERSION_2_0
 #	VERTEX_ATTRIB_ARRAY_ENABLED_ARB			= 0x8622
+#	VERTEX_ATTRIB_ARRAY_SIZE			= 0x8623    # VERSION_2_0
 #	VERTEX_ATTRIB_ARRAY_SIZE_ARB			= 0x8623
+#	VERTEX_ATTRIB_ARRAY_STRIDE			= 0x8624    # VERSION_2_0
 #	VERTEX_ATTRIB_ARRAY_STRIDE_ARB			= 0x8624
+#	VERTEX_ATTRIB_ARRAY_TYPE			= 0x8625    # VERSION_2_0
 #	VERTEX_ATTRIB_ARRAY_TYPE_ARB			= 0x8625
+#	CURRENT_VERTEX_ATTRIB				= 0x8626    # VERSION_2_0
 #	CURRENT_VERTEX_ATTRIB_ARB			= 0x8626
 #	PROGRAM_LENGTH_ARB				= 0x8627    # ARB_fragment_program
 #	PROGRAM_STRING_ARB				= 0x8628    # ARB_fragment_program
@@ -4146,8 +4163,11 @@ SGIX_subsample enum:
 #	MAX_PROGRAM_MATRICES_ARB			= 0x862F    # ARB_fragment_program
 #	CURRENT_MATRIX_STACK_DEPTH_ARB			= 0x8640    # ARB_fragment_program
 #	CURRENT_MATRIX_ARB				= 0x8641    # ARB_fragment_program
+#	VERTEX_PROGRAM_POINT_SIZE			= 0x8642    # VERSION_2_0
 #	VERTEX_PROGRAM_POINT_SIZE_ARB			= 0x8642
+#	VERTEX_PROGRAM_TWO_SIDE				= 0x8643    # VERSION_2_0
 #	VERTEX_PROGRAM_TWO_SIDE_ARB			= 0x8643
+#	VERTEX_ATTRIB_ARRAY_POINTER			= 0x8645    # VERSION_2_0
 #	VERTEX_ATTRIB_ARRAY_POINTER_ARB			= 0x8645
 #	PROGRAM_ERROR_POSITION_ARB			= 0x864B    # ARB_fragment_program
 #	PROGRAM_BINDING_ARB				= 0x8677    # ARB_fragment_program
@@ -4558,10 +4578,15 @@ SGIX_subsample enum:
 
 # ATI_future_use: 0x87F9-0x87FF
 
+# VERSION_2_0 enum: (Promoted for OpenGL 2.0)
 # ATI_separate_stencil enum:
+#	STENCIL_BACK_FUNC				= 0x8800    # VERSION_2_0
 #	STENCIL_BACK_FUNC_ATI				= 0x8800
+#	STENCIL_BACK_FAIL				= 0x8801    # VERSION_2_0
 #	STENCIL_BACK_FAIL_ATI				= 0x8801
+#	STENCIL_BACK_PASS_DEPTH_FAIL			= 0x8802    # VERSION_2_0
 #	STENCIL_BACK_PASS_DEPTH_FAIL_ATI		= 0x8802
+#	STENCIL_BACK_PASS_DEPTH_PASS			= 0x8803    # VERSION_2_0
 #	STENCIL_BACK_PASS_DEPTH_PASS_ATI		= 0x8803
 
 # ARB_fragment_program enum:
@@ -4581,44 +4606,103 @@ SGIX_subsample enum:
 
 # ATI_future_use: 0x8811-0x8813
 
+# ARB_texture_float enum:
 # ATI_texture_float enum:
+#	RGBA32F_ARB					= 0x8814
 #	RGBA_FLOAT32_ATI				= 0x8814
+#	RGB32F_ARB					= 0x8815
 #	RGB_FLOAT32_ATI					= 0x8815
+#	ALPHA32F_ARB					= 0x8816
 #	ALPHA_FLOAT32_ATI				= 0x8816
+#	INTENSITY32F_ARB				= 0x8817
 #	INTENSITY_FLOAT32_ATI				= 0x8817
+#	LUMINANCE32F_ARB				= 0x8818
 #	LUMINANCE_FLOAT32_ATI				= 0x8818
+#	LUMINANCE_ALPHA32F_ARB				= 0x8819
 #	LUMINANCE_ALPHA_FLOAT32_ATI			= 0x8819
+#	RGBA16F_ARB					= 0x881A
 #	RGBA_FLOAT16_ATI				= 0x881A
+#	RGB16F_ARB					= 0x881B
 #	RGB_FLOAT16_ATI					= 0x881B
+#	ALPHA16F_ARB					= 0x881C
 #	ALPHA_FLOAT16_ATI				= 0x881C
+#	INTENSITY16F_ARB				= 0x881D
 #	INTENSITY_FLOAT16_ATI				= 0x881D
+#	LUMINANCE16F_ARB				= 0x881E
 #	LUMINANCE_FLOAT16_ATI				= 0x881E
+#	LUMINANCE_ALPHA16F_ARB				= 0x881F
 #	LUMINANCE_ALPHA_FLOAT16_ATI			= 0x881F
 
-# ATI_future_use: 0x8820-0x8823
+# ARB_color_buffer_float enum:
+# ATI_pixel_format_float enum: (really WGL_ATI_pixel_format_float)
+#	RGBA_FLOAT_MODE_ARB				= 0x8820
+#	TYPE_RGBA_FLOAT_ATI				= 0x8820
 
+# ATI_future_use: 0x8821-0x8823
+
+# VERSION_2_0 enum: (Promoted for OpenGL 2.0)
+# ARB_draw_buffers enum:
 # ATI_draw_buffers enum:
+#	MAX_DRAW_BUFFERS				= 0x8824    # VERSION_2_0
+#	MAX_DRAW_BUFFERS_ARB				= 0x8824
 #	MAX_DRAW_BUFFERS_ATI				= 0x8824
+#	DRAW_BUFFER0					= 0x8825    # VERSION_2_0
+#	DRAW_BUFFER0_ARB				= 0x8825
 #	DRAW_BUFFER0_ATI				= 0x8825
+#	DRAW_BUFFER1					= 0x8826    # VERSION_2_0
+#	DRAW_BUFFER1_ARB				= 0x8826
 #	DRAW_BUFFER1_ATI				= 0x8826
+#	DRAW_BUFFER2					= 0x8827    # VERSION_2_0
+#	DRAW_BUFFER2_ARB				= 0x8827
 #	DRAW_BUFFER2_ATI				= 0x8827
+#	DRAW_BUFFER3					= 0x8828    # VERSION_2_0
+#	DRAW_BUFFER3_ARB				= 0x8828
 #	DRAW_BUFFER3_ATI				= 0x8828
+#	DRAW_BUFFER4					= 0x8829    # VERSION_2_0
+#	DRAW_BUFFER4_ARB				= 0x8829
 #	DRAW_BUFFER4_ATI				= 0x8829
+#	DRAW_BUFFER5					= 0x882A    # VERSION_2_0
+#	DRAW_BUFFER5_ARB				= 0x882A
 #	DRAW_BUFFER5_ATI				= 0x882A
+#	DRAW_BUFFER6					= 0x882B    # VERSION_2_0
+#	DRAW_BUFFER6_ARB				= 0x882B
 #	DRAW_BUFFER6_ATI				= 0x882B
+#	DRAW_BUFFER7					= 0x882C    # VERSION_2_0
+#	DRAW_BUFFER7_ARB				= 0x882C
 #	DRAW_BUFFER7_ATI				= 0x882C
+#	DRAW_BUFFER8					= 0x882D    # VERSION_2_0
+#	DRAW_BUFFER8_ARB				= 0x882D
 #	DRAW_BUFFER8_ATI				= 0x882D
+#	DRAW_BUFFER9					= 0x882E    # VERSION_2_0
+#	DRAW_BUFFER9_ARB				= 0x882E
 #	DRAW_BUFFER9_ATI				= 0x882E
+#	DRAW_BUFFER10					= 0x882F    # VERSION_2_0
+#	DRAW_BUFFER10_ARB				= 0x882F
 #	DRAW_BUFFER10_ATI				= 0x882F
+#	DRAW_BUFFER11					= 0x8830    # VERSION_2_0
+#	DRAW_BUFFER11_ARB				= 0x8830
 #	DRAW_BUFFER11_ATI				= 0x8830
+#	DRAW_BUFFER12					= 0x8831    # VERSION_2_0
+#	DRAW_BUFFER12_ARB				= 0x8831
 #	DRAW_BUFFER12_ATI				= 0x8831
+#	DRAW_BUFFER13					= 0x8832    # VERSION_2_0
+#	DRAW_BUFFER13_ARB				= 0x8832
 #	DRAW_BUFFER13_ATI				= 0x8832
+#	DRAW_BUFFER14					= 0x8833    # VERSION_2_0
+#	DRAW_BUFFER14_ARB				= 0x8833
 #	DRAW_BUFFER14_ATI				= 0x8833
+#	DRAW_BUFFER15					= 0x8834    # VERSION_2_0
+#	DRAW_BUFFER15_ARB				= 0x8834
 #	DRAW_BUFFER15_ATI				= 0x8834
 
-# ATI_future_use: 0x8835-0x883F
+# ATI_pixel_format_float enum: (really WGL_ATI_pixel_format_float) (additional; see above)
+#	COLOR_CLEAR_UNCLAMPED_VALUE_ATI			= 0x8835
 
+# ATI_future_use: 0x8836-0x883F
+
+# VERSION_2_0 enum: (Promoted for OpenGL 2.0)
 # EXT_blend_equation_separate enum:
+#	BLEND_EQUATION_ALPHA				= 0x883D    # VERSION_2_0
 #	BLEND_EQUATION_ALPHA_EXT			= 0x883D
 
 ###############################################################################
@@ -4678,10 +4762,13 @@ SGIX_subsample enum:
 #	SIGNED_HILO8_NV					= 0x885F
 #	FORCE_BLUE_TO_ONE_NV				= 0x8860
 
+# VERSION_2_0 enum: (Promoted for OpenGL 2.0)
 # ARB_point_sprite enum:
 # NV_point_sprite enum:
+#	POINT_SPRITE					= 0x8861    # VERSION_2_0
 #	POINT_SPRITE_ARB				= 0x8861
 #	POINT_SPRITE_NV					= 0x8861
+#	COORD_REPLACE					= 0x8862    # VERSION_2_0
 #	COORD_REPLACE_ARB				= 0x8862
 #	COORD_REPLACE_NV				= 0x8862
 
@@ -4707,8 +4794,11 @@ SGIX_subsample enum:
 # NV_fragment_program enum:
 #	MAX_FRAGMENT_PROGRAM_LOCAL_PARAMETERS_NV	= 0x8868
 
+# VERSION_2_0 enum: (Promoted from ARB_vertex_shader)
 # ARB_vertex_program enum: (additional; see above)
+#	MAX_VERTEX_ATTRIBS				= 0x8869    # VERSION_2_0
 #	MAX_VERTEX_ATTRIBS_ARB				= 0x8869
+#	VERTEX_ATTRIB_ARRAY_NORMALIZED			= 0x886A    # VERSION_2_0
 #	VERTEX_ATTRIB_ARRAY_NORMALIZED_ARB		= 0x886A
 
 # NV_future_use: 0x886B-0x886D
@@ -4717,22 +4807,22 @@ SGIX_subsample enum:
 #	DEPTH_STENCIL_TO_RGBA_NV			= 0x886E
 #	DEPTH_STENCIL_TO_BGRA_NV			= 0x886F
 
-# NV_fragment_program enum: (additional; see above)
-#	FRAGMENT_PROGRAM_NV				= 0x8870
-#	MAX_TEXTURE_COORDS_NV				= 0x8871
-#	MAX_TEXTURE_IMAGE_UNITS_NV			= 0x8872
-#	FRAGMENT_PROGRAM_BINDING_NV			= 0x8873
-#	PROGRAM_ERROR_STRING_NV				= 0x8874
-
-# ARB_fragment_program enum: (additional; see above)
-#	MAX_TEXTURE_COORDS_ARB				= 0x8871
-#	MAX_TEXTURE_IMAGE_UNITS_ARB			= 0x8872
-
+# VERSION_2_0 enum: (Promoted from ARB_fragment_shader; only some values)
 # ARB_vertex_program enum: (additional; see above)
 # ARB_fragment_program enum: (additional; see above)
-#	PROGRAM_ERROR_STRING_ARB			= 0x8874
-#	PROGRAM_FORMAT_ASCII_ARB			= 0x8875
-#	PROGRAM_FORMAT_ARB				= 0x8876
+# NV_fragment_program enum: (additional; see above)
+#	FRAGMENT_PROGRAM_NV				= 0x8870
+#	MAX_TEXTURE_COORDS				= 0x8871    # VERSION_2_0
+#	MAX_TEXTURE_COORDS_ARB				= 0x8871    # ARB_fragment_program
+#	MAX_TEXTURE_COORDS_NV				= 0x8871
+#	MAX_TEXTURE_IMAGE_UNITS				= 0x8872    # VERSION_2_0
+#	MAX_TEXTURE_IMAGE_UNITS_ARB			= 0x8872    # ARB_fragment_program
+#	MAX_TEXTURE_IMAGE_UNITS_NV			= 0x8872
+#	FRAGMENT_PROGRAM_BINDING_NV			= 0x8873
+#	PROGRAM_ERROR_STRING_ARB			= 0x8874    # ARB_vertex_program / ARB_fragment_program
+#	PROGRAM_ERROR_STRING_NV				= 0x8874
+#	PROGRAM_FORMAT_ASCII_ARB			= 0x8875    # ARB_vertex_program / ARB_fragment_program
+#	PROGRAM_FORMAT_ARB				= 0x8876    # ARB_vertex_program / ARB_fragment_program
 
 # 0x8877 *should have been* assigned to PROGRAM_BINDING_ARB. Oops.
 
@@ -4902,10 +4992,34 @@ SGIX_subsample enum:
 #	DYNAMIC_COPY					= 0x88EA
 #	DYNAMIC_COPY_ARB				= 0x88EA
 
-# ARB_future_use: 0x88E3, 0x88E7, 0x88EB-0x88EF
+# ARB_pixel_buffer_object enum:
+# EXT_pixel_buffer_object enum:
+#	PIXEL_PACK_BUFFER_ARB				= 0x88EB
+#	PIXEL_PACK_BUFFER_EXT				= 0x88EB
+#	PIXEL_UNPACK_BUFFER_ARB				= 0x88EC
+#	PIXEL_UNPACK_BUFFER_EXT				= 0x88EC
+#	PIXEL_PACK_BUFFER_BINDING_ARB			= 0x88ED
+#	PIXEL_PACK_BUFFER_BINDING_EXT			= 0x88ED
+#	PIXEL_UNPACK_BUFFER_BINDING_ARB			= 0x88EF
+#	PIXEL_UNPACK_BUFFER_BINDING_EXT			= 0x88EF
+
+# ARB_future_use: 0x88E3, 0x88E7, 0x88EE
 # (for extending ARB_vertex_buffer_object):
 
-# NV_future_use: 0x88F0-0x890F
+# NV_future_use: 0x88F0-0x88F3
+
+# NV_vertex_program2_option enum: (duplicated in NV_fragment_prgoram2 below)
+#	MAX_PROGRAM_EXEC_INSTRUCTIONS_NV		= 0x88F4
+#	MAX_PROGRAM_CALL_DEPTH_NV			= 0x88F5
+
+# NV_fragment_program2 enum:
+#	MAX_PROGRAM_EXEC_INSTRUCTIONS_NV		= 0x88F4
+#	MAX_PROGRAM_CALL_DEPTH_NV			= 0x88F5
+#	MAX_PROGRAM_IF_DEPTH_NV				= 0x88F6
+#	MAX_PROGRAM_LOOP_DEPTH_NV			= 0x88F7
+#	MAX_PROGRAM_LOOP_COUNT_NV			= 0x88F8
+
+# NV_future_use: 0x88F9-0x890F
 
 # EXT_stencil_two_side enum:
 #	STENCIL_TEST_TWO_SIDE_EXT			= 0x8910
@@ -4921,7 +5035,15 @@ SGIX_subsample enum:
 #	SAMPLES_PASSED					= 0x8914
 #	SAMPLES_PASSED_ARB				= 0x8914
 
-# NV_future_use: 0x8915-0x891F
+# NV_future_use: 0x8915-0x8919
+
+# ARB_color_buffer_float enum: (additional; see above)
+#	CLAMP_VERTEX_COLOR_ARB				= 0x891A
+#	CLAMP_FRAGMENT_COLOR_ARB			= 0x891B
+#	CLAMP_READ_COLOR_ARB				= 0x891C
+#	FIXED_ONLY_ARB					= 0x891D
+
+# NV_future_use: 0x891E-0x891F
 
 ###############################################################################
 
@@ -5038,7 +5160,7 @@ SGIX_subsample enum:
 
 ###############################################################################
 
-# Khronos SIG: 0x8980-0x898F
+# Khronos OpenML WG: 0x8980-0x898F
 
 # OML_interlace enum:
 #	INTERLACE_OML					= 0x8980
@@ -5056,7 +5178,9 @@ SGIX_subsample enum:
 #	RESAMPLE_AVERAGE_OML				= 0x8988
 #	RESAMPLE_DECIMATE_OML				= 0x8989
 
-# Khronos_future_use: 0x898A-0x898F
+# Assigned to Affie Munshi for OES_point_size_array/OES_matrix_get extensions
+# OES_point_size_array enum:	0x898A-
+# OES_matrix_get enum:		0x898F
 
 ###############################################################################
 
@@ -5089,56 +5213,109 @@ SGIX_subsample enum:
 
 # ARB HLSL shader extensions: 0x8B30-0x8B8F
 
-# ARB shader bindings (3Dlabs)
+# VERSION_2_0 enum: (Promoted for OpenGL 2.0; only some values; renaming in many cases)
 # ARB_shader_objects, ARB_vertex_shader, ARB_fragment_shader enum:
-
+# NV_vertex_program3 enum: (reuses 0x8B4C)
 ##Shader types + room for expansion
+#	FRAGMENT_SHADER					= 0x8B30    # VERSION_2_0
 #	FRAGMENT_SHADER_ARB				= 0x8B30    # ARB_fragment_shader
+#	VERTEX_SHADER					= 0x8B31    # VERSION_2_0
 #	VERTEX_SHADER_ARB				= 0x8B31    # ARB_vertex_shader
 # ARB_future_use: 0x8B32-0x8B3F
 ##Container types + room for expansion
-#	PROGRAM_OBJECT_ARB				= 0x8B40    # ARB_shader_object
+#	PROGRAM_OBJECT_ARB				= 0x8B40    # ARB_shader_objects
 # ARB_future_use: 0x8B41-0x8B47
 ##Misc. shader enums
-#	SHADER_OBJECT_ARB				= 0x8B48    # ARB_shader_object
+#	SHADER_OBJECT_ARB				= 0x8B48    # ARB_shader_objects
+#	MAX_FRAGMENT_UNIFORM_COMPONENTS			= 0x8B49    # VERSION_2_0
 #	MAX_FRAGMENT_UNIFORM_COMPONENTS_ARB		= 0x8B49    # ARB_fragment_shader
+#	MAX_VERTEX_UNIFORM_COMPONENTS			= 0x8B4A    # VERSION_2_0
 #	MAX_VERTEX_UNIFORM_COMPONENTS_ARB		= 0x8B4A    # ARB_vertex_shader
+#	MAX_VARYING_FLOATS				= 0x8B4B    # VERSION_2_0
 #	MAX_VARYING_FLOATS_ARB				= 0x8B4B    # ARB_vertex_shader
-#	MAX_VERTEX_TEXTURE_IMAGE_UNITS_ARB		= 0x8B4C    # ARB_vertex_shader
+#	MAX_VERTEX_TEXTURE_IMAGE_UNITS			= 0x8B4C    # VERSION_2_0
+#	MAX_VERTEX_TEXTURE_IMAGE_UNITS_ARB		= 0x8B4C    # ARB_vertex_shader, NV_vertex_program3
+#	MAX_COMBINED_TEXTURE_IMAGE_UNITS		= 0x8B4D    # VERSION_2_0
 #	MAX_COMBINED_TEXTURE_IMAGE_UNITS_ARB		= 0x8B4D    # ARB_vertex_shader
-#	OBJECT_TYPE_ARB					= 0x8B4E    # ARB_shader_object
-#	OBJECT_SUBTYPE_ARB				= 0x8B4F    # ARB_shader_object
+#	OBJECT_TYPE_ARB					= 0x8B4E    # ARB_shader_objects
+#	SHADER_TYPE					= 0x8B4F    # VERSION_2_0 (renamed)
+#	OBJECT_SUBTYPE_ARB				= 0x8B4F    # ARB_shader_objects
 ##Attribute types + room for expansion.
-#	FLOAT_VEC2_ARB					= 0x8B50    # ARB_shader_object
-#	FLOAT_VEC3_ARB					= 0x8B51    # ARB_shader_object
-#	FLOAT_VEC4_ARB					= 0x8B52    # ARB_shader_object
-#	INT_VEC2_ARB					= 0x8B53    # ARB_shader_object
-#	INT_VEC3_ARB					= 0x8B54    # ARB_shader_object
-#	INT_VEC4_ARB					= 0x8B55    # ARB_shader_object
-#	BOOL_ARB					= 0x8B56    # ARB_shader_object
-#	BOOL_VEC2_ARB					= 0x8B57    # ARB_shader_object
-#	BOOL_VEC3_ARB					= 0x8B58    # ARB_shader_object
-#	BOOL_VEC4_ARB					= 0x8B59    # ARB_shader_object
-#	FLOAT_MAT2_ARB					= 0x8B5A    # ARB_shader_object
-#	FLOAT_MAT3_ARB					= 0x8B5B    # ARB_shader_object
-#	FLOAT_MAT4_ARB					= 0x8B5C    # ARB_shader_object
-# ARB_future_use: 0x8B5D-0x8B7F (for attribute types)
-#	OBJECT_DELETE_STATUS_ARB			= 0x8B80    # ARB_shader_object
-#	OBJECT_COMPILE_STATUS_ARB			= 0x8B81    # ARB_shader_object
-#	OBJECT_LINK_STATUS_ARB				= 0x8B82    # ARB_shader_object
-#	OBJECT_VALIDATE_STATUS_ARB			= 0x8B83    # ARB_shader_object
-#	OBJECT_INFO_LOG_LENGTH_ARB			= 0x8B84    # ARB_shader_object
-#	OBJECT_ATTACHED_OBJECTS_ARB			= 0x8B85    # ARB_shader_object
-#	OBJECT_ACTIVE_UNIFORMS_ARB			= 0x8B86    # ARB_shader_object
-#	OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB		= 0x8B87    # ARB_shader_object
-#	OBJECT_SHADER_SOURCE_LENGTH_ARB			= 0x8B88    # ARB_shader_object
+#	FLOAT_VEC2					= 0x8B50    # VERSION_2_0
+#	FLOAT_VEC2_ARB					= 0x8B50    # ARB_shader_objects
+#	FLOAT_VEC3					= 0x8B51    # VERSION_2_0
+#	FLOAT_VEC3_ARB					= 0x8B51    # ARB_shader_objects
+#	FLOAT_VEC4					= 0x8B52    # VERSION_2_0
+#	FLOAT_VEC4_ARB					= 0x8B52    # ARB_shader_objects
+#	INT_VEC2					= 0x8B53    # VERSION_2_0
+#	INT_VEC2_ARB					= 0x8B53    # ARB_shader_objects
+#	INT_VEC3					= 0x8B54    # VERSION_2_0
+#	INT_VEC3_ARB					= 0x8B54    # ARB_shader_objects
+#	INT_VEC4					= 0x8B55    # VERSION_2_0
+#	INT_VEC4_ARB					= 0x8B55    # ARB_shader_objects
+#	BOOL						= 0x8B56    # VERSION_2_0
+#	BOOL_ARB					= 0x8B56    # ARB_shader_objects
+#	BOOL_VEC2					= 0x8B57    # VERSION_2_0
+#	BOOL_VEC2_ARB					= 0x8B57    # ARB_shader_objects
+#	BOOL_VEC3					= 0x8B58    # VERSION_2_0
+#	BOOL_VEC3_ARB					= 0x8B58    # ARB_shader_objects
+#	BOOL_VEC4					= 0x8B59    # VERSION_2_0
+#	BOOL_VEC4_ARB					= 0x8B59    # ARB_shader_objects
+#	FLOAT_MAT2					= 0x8B5A    # VERSION_2_0
+#	FLOAT_MAT2_ARB					= 0x8B5A    # ARB_shader_objects
+#	FLOAT_MAT3					= 0x8B5B    # VERSION_2_0
+#	FLOAT_MAT3_ARB					= 0x8B5B    # ARB_shader_objects
+#	FLOAT_MAT4					= 0x8B5C    # VERSION_2_0
+#	FLOAT_MAT4_ARB					= 0x8B5C    # ARB_shader_objects
+#	SAMPLER_1D					= 0x8B5D    # VERSION_2_0
+#	SAMPLER_1D_ARB					= 0x8B5D    # ARB_shader_objects
+#	SAMPLER_2D					= 0x8B5E    # VERSION_2_0
+#	SAMPLER_2D_ARB					= 0x8B5E    # ARB_shader_objects
+#	SAMPLER_3D					= 0x8B5F    # VERSION_2_0
+#	SAMPLER_3D_ARB					= 0x8B5F    # ARB_shader_objects
+#	SAMPLER_CUBE					= 0x8B60    # VERSION_2_0
+#	SAMPLER_CUBE_ARB				= 0x8B60    # ARB_shader_objects
+#	SAMPLER_1D_SHADOW				= 0x8B61    # VERSION_2_0
+#	SAMPLER_1D_SHADOW_ARB				= 0x8B61    # ARB_shader_objects
+#	SAMPLER_2D_SHADOW				= 0x8B62    # VERSION_2_0
+#	SAMPLER_2D_SHADOW_ARB				= 0x8B62    # ARB_shader_objects
+#	SAMPLER_2D_RECT_ARB				= 0x8B63    # ARB_shader_objects
+#	SAMPLER_2D_RECT_SHADOW_ARB			= 0x8B64    # ARB_shader_objects
+# ARB_future_use: 0x8B65-0x8B7F (for attribute types)
+#	DELETE_STATUS					= 0x8B80    # VERSION_2_0 (renamed)
+#	OBJECT_DELETE_STATUS_ARB			= 0x8B80    # ARB_shader_objects
+#	COMPILE_STATUS					= 0x8B81    # VERSION_2_0 (renamed)
+#	OBJECT_COMPILE_STATUS_ARB			= 0x8B81    # ARB_shader_objects
+#	LINK_STATUS					= 0x8B82    # VERSION_2_0 (renamed)
+#	OBJECT_LINK_STATUS_ARB				= 0x8B82    # ARB_shader_objects
+#	VALIDATE_STATUS					= 0x8B83    # VERSION_2_0 (renamed)
+#	OBJECT_VALIDATE_STATUS_ARB			= 0x8B83    # ARB_shader_objects
+#	INFO_LOG_LENGTH					= 0x8B84    # VERSION_2_0 (renamed)
+#	OBJECT_INFO_LOG_LENGTH_ARB			= 0x8B84    # ARB_shader_objects
+#	ATTACHED_SHADERS				= 0x8B85    # VERSION_2_0 (renamed)
+#	OBJECT_ATTACHED_OBJECTS_ARB			= 0x8B85    # ARB_shader_objects
+#	ACTIVE_UNIFORMS					= 0x8B86    # VERSION_2_0 (renamed)
+#	OBJECT_ACTIVE_UNIFORMS_ARB			= 0x8B86    # ARB_shader_objects
+#	ACTIVE_UNIFORM_MAX_LENGTH			= 0x8B87    # VERSION_2_0 (renamed)
+#	OBJECT_ACTIVE_UNIFORM_MAX_LENGTH_ARB		= 0x8B87    # ARB_shader_objects
+#	SHADER_SOURCE_LENGTH				= 0x8B88    # VERSION_2_0 (renamed)
+#	OBJECT_SHADER_SOURCE_LENGTH_ARB			= 0x8B88    # ARB_shader_objects
+#	ACTIVE_ATTRIBUTES				= 0x8B89    # VERSION_2_0 (renamed)
 #	OBJECT_ACTIVE_ATTRIBUTES_ARB			= 0x8B89    # ARB_vertex_shader
+#	ACTIVE_ATTRIBUTE_MAX_LENGTH			= 0x8B8A    # VERSION_2_0 (renamed)
 #	OBJECT_ACTIVE_ATTRIBUTE_MAX_LENGTH_ARB		= 0x8B8A    # ARB_vertex_shader
-# ARB_future_use: 0x8B8B-0x8B8F
+#	FRAGMENT_SHADER_DERIVATIVE_HINT			= 0x8B8B    # VERSION_2_0
+#	FRAGMENT_SHADER_DERIVATIVE_HINT_ARB		= 0x8B8B    # ARB_fragment_shader
+#	SHADING_LANGUAGE_VERSION			= 0x8B8C    # VERSION_2_0
+#	SHADING_LANGUAGE_VERSION_ARB			= 0x8B8C    # ARB_shading_language_100
+
+# VERSION_2_0 enum:
+#	CURRENT_PROGRAM					= 0x8B8D
+# ARB_future_use: 0x8B8E-0x8B8F
 
 ###############################################################################
 
-# Khronos SIG: 0x8B90-0x8B9F
+# Khronos OpenGL ES WG: 0x8B90-0x8B9F
 
 # OES_compressed_paletted_texture enum:
 #	PALETTE4_RGB8_OES				= 0x8B90
@@ -5156,7 +5333,14 @@ SGIX_subsample enum:
 #	IMPLEMENTATION_COLOR_READ_TYPE_OES		= 0x8B9A
 #	IMPLEMENTATION_COLOR_READ_FORMAT_OES		= 0x8B9B
 
-# Khronos_future_use: 0x8B9C-0x8B9F
+# Extensions names TBD, for OpenGL ES 1.1
+# These need to go in enumext.spec as well
+#	POINT_SIZE_ARRAY_OES				= 0x8B9C
+#	TEXTURE_CROP_RECT_OES				= 0x8B9D
+
+# More Khronos extensions, need to go in enumext.spec
+#	MATRIX_INDEX_ARRAY_BUFFER_BINDING_OES		= 0x8B9E
+#	WEIGHT_INDEX_ARRAY_BUFFER_BINDING_OES		= 0x8B9F
 
 ###############################################################################
 
@@ -5175,11 +5359,104 @@ SGIX_subsample enum:
 # Imagination Tech.: 0x8C00-0x8C0F
 
 ###############################################################################
+
+# NVIDIA: 0x8C10-0x8C8F (Pat Brown)
+
+# ARB_texture_float enum: (additional; see above)
+#	TEXTURE_RED_TYPE_ARB		 0x8C10
+#	TEXTURE_GREEN_TYPE_ARB		 0x8C11
+#	TEXTURE_BLUE_TYPE_ARB		 0x8C12
+#	TEXTURE_ALPHA_TYPE_ARB		 0x8C13
+#	TEXTURE_LUMINANCE_TYPE_ARB	 0x8C14
+#	TEXTURE_INTENSITY_TYPE_ARB	 0x8C15
+#	TEXTURE_DEPTH_TYPE_ARB		 0x8C16
+#	UNSIGNED_NORMALIZED_ARB		 0x8C17
+
+# NVIDIA_future_use: 0x8C18-0x8C8F
+
+###############################################################################
+
+# ATI: 0x8C90-0x8C9F (Affie Munshi, OpenGL ES extensions)
+
+###############################################################################
+
+# OpenGL ARB: 0x8CA0-0x8CAF
+
+# VERSION_2_0 enum:
+#	POINT_SPRITE_COORD_ORIGIN			= 0x8CA0
+#	LOWER_LEFT					= 0x8CA1
+#	UPPER_LEFT					= 0x8CA2
+#	STENCIL_BACK_REF				= 0x8CA3
+#	STENCIL_BACK_VALUE_MASK				= 0x8CA4
+#	STENCIL_BACK_WRITEMASK				= 0x8CA5
+# EXT_framebuffer_object enum: (additional; see below)
+#	FRAMEBUFFER_BINDING_EXT				= 0x8CA6
+#	RENDERBUFFER_BINDING_EXT			= 0x8CA7
+
+# ARB_future_use: 0x8CA8-08CAF
+
+###############################################################################
+
+# 3Dlabs: 0x8CB0-0x8CCF (Barthold Lichtenbelt, 2004/12/1)
+
+###############################################################################
+
+# EXT_framebuffer_object enum: (additional; see above)
+#	FRAMEBUFFER_ATTACHMENT_OBJECT_TYPE_EXT		= 0x8CD0
+#	FRAMEBUFFER_ATTACHMENT_OBJECT_NAME_EXT		= 0x8CD1
+#	FRAMEBUFFER_ATTACHMENT_TEXTURE_LEVEL_EXT	= 0x8CD2
+#	FRAMEBUFFER_ATTACHMENT_TEXTURE_CUBE_MAP_FACE_EXT = 0x8CD3
+#	FRAMEBUFFER_ATTACHMENT_TEXTURE_ZOFFSET_EXT	= 0x8CD4
+#	FRAMEBUFFER_COMPLETE_EXT			= 0x8CD5
+#	FRAMEBUFFER_INCOMPLETE_ATTACHMENTS_EXT		= 0x8CD6
+#   XXX    FRAMEBUFFER_INCOMPLETE_XXX1_EXT		   = 0x8CD7
+#   XXX    FRAMEBUFFER_INCOMPLETE_XXX2_EXT		   = 0x8CD8
+#	FRAMEBUFFER_INCOMPLETE_DIMENSIONS_EXT		= 0x8CD9
+#	FRAMEBUFFER_INCOMPLETE_FORMATS_EXT		= 0x8CDA
+#	FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER_EXT		= 0x8CDB
+#	FRAMEBUFFER_INCOMPLETE_READ_BUFFER_EXT		= 0x8CDC
+#	FRAMEBUFFER_UNSUPPORTED_EXT			= 0x8CDD
+#	FRAMEBUFFER_STATUS_ERROR_EXT			= 0x8CDE
+#	MAX_COLOR_ATTACHMENTS_EXT			= 0x8CDF
+#	COLOR_ATTACHMENT0_EXT				= 0x8CE0
+#	COLOR_ATTACHMENT1_EXT				= 0x8CE1
+#	COLOR_ATTACHMENT2_EXT				= 0x8CE2
+#	COLOR_ATTACHMENT3_EXT				= 0x8CE3
+#	COLOR_ATTACHMENT4_EXT				= 0x8CE4
+#	COLOR_ATTACHMENT5_EXT				= 0x8CE5
+#	COLOR_ATTACHMENT6_EXT				= 0x8CE6
+#	COLOR_ATTACHMENT7_EXT				= 0x8CE7
+#	COLOR_ATTACHMENT8_EXT				= 0x8CE8
+#	COLOR_ATTACHMENT9_EXT				= 0x8CE9
+#	COLOR_ATTACHMENT10_EXT				= 0x8CEA
+#	COLOR_ATTACHMENT11_EXT				= 0x8CEB
+#	COLOR_ATTACHMENT12_EXT				= 0x8CEC
+#	COLOR_ATTACHMENT13_EXT				= 0x8CED
+#	COLOR_ATTACHMENT14_EXT				= 0x8CEE
+#	COLOR_ATTACHMENT15_EXT				= 0x8CEF
+# 0x8CF0-0x8CFF reserved for color attachments 16-31, if needed
+#	DEPTH_ATTACHMENT_EXT				= 0x8D00
+# 0x8D01-0x8D1F reserved for depth attachments 1-31, if needed
+#	STENCIL_ATTACHMENT_EXT				= 0x8D20
+# 0x8D21-0x8D3F reserved for stencil attachments 1-31, if needed
+#	FRAMEBUFFER_EXT					= 0x8D40
+#	RENDERBUFFER_EXT				= 0x8D41
+#	RENDERBUFFER_WIDTH_EXT				= 0x8D42
+#	RENDERBUFFER_HEIGHT_EXT				= 0x8D43
+#	RENDERBUFFER_INTERNAL_FORMAT_EXT		= 0x8D44
+#	STENCIL_INDEX_EXT				= 0x8D45
+#	STENCIL_INDEX1_EXT				= 0x8D46
+#	STENCIL_INDEX4_EXT				= 0x8D47
+#	STENCIL_INDEX8_EXT				= 0x8D48
+#	STENCIL_INDEX16_EXT				= 0x8D49
+# 0x8D4A-0x8D4D reserved for additional stencil formats
+
+###############################################################################
 ### PLEASE REMEMBER THAT NEW ENUMERANT ALLOCATIONS MUST BE OBTAINED BY
 ### REQUEST TO SGI'S ARB REPRESENTATIVE (see comments at the top of this file)
 ###############################################################################
 
-# Any_vendor_future_use: 0x8C10-0xFFFF
+# Any_vendor_future_use: 0x8D50-0xFFFF
 #
 #   This range must be the last range in the file.  To generate a new
 #   range, allocate multiples of 16 from the beginning of the

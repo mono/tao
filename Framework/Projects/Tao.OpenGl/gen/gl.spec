@@ -19,7 +19,7 @@
 #
 # Original Code. The Original Code is: OpenGL Sample Implementation,
 # Version 1.2.1, released January 26, 2000, developed by Silicon Graphics,
-# Inc. The Original Code is Copyright (c) 1991-2002 Silicon Graphics, Inc.
+# Inc. The Original Code is Copyright (c) 1991-2005 Silicon Graphics, Inc.
 # Copyright in any portions created by third parties is as indicated
 # elsewhere herein. All Rights Reserved.
 #
@@ -34,8 +34,8 @@
 #    AreTexturesResidentEXT BindTextureEXT DeleteTexturesEXT GenTexturesEXT IsTextureEXT
 
 #
-# $Date: 2004/09/07 07:27:56 $ $Revision: 1.2 $
-# $Header: /home/miguel/third-conversion/public/tao/Framework/Projects/Tao.OpenGl/gen/gl.spec,v 1.2 2004/09/07 07:27:56 vlad Exp $
+# $Date$ $Revision: 1.19 $
+# $Header: /oss1/CVS/cvs/projects/ogl-sample/main/doc/registry/specs/gl.spec,v 1.19 2005/01/20 08:44:12 ljp Exp $
 #
 
 required-props:
@@ -43,12 +43,12 @@ param:		retval retained
 dlflags:	notlistable handcode
 glxflags:	client-intercept client-handcode server-handcode EXT SGI ignore ARB
 vectorequiv:	*
-category:	display-list drawing drawing-control feedback framebuf misc modeling pixel-op pixel-rw state-req xform 1_1 VERSION_1_2 VERSION_1_3 VERSION_1_4 VERSION_1_5 ATI_element_array ATI_envmap_bumpmap ATI_fragment_shader ATI_pn_triangles ATI_vertex_array_object ATI_vertex_streams EXT_blend_color EXT_blend_minmax EXT_convolution EXT_copy_texture EXT_histogram EXT_polygon_offset EXT_subtexture EXT_texture3D EXT_texture_object EXT_vertex_array EXT_vertex_shader SGIS_detail_texture SGIS_multisample SGIS_pixel_texture ARB_point_parameters EXT_point_parameters SGIS_point_parameters SGIS_sharpen_texture SGIS_texture4D SGIS_texture_filter4 SGIX_async SGIX_flush_raster SGIX_fragment_lighting SGIX_framezoom SGIX_igloo_interface SGIX_instruments SGIX_list_priority SGIX_pixel_texture SGIX_polynomial_ffd SGIX_reference_plane SGIX_sprite SGIX_tag_sample_buffer SGI_color_table ARB_multitexture ARB_multisample ARB_texture_compression ARB_transpose_matrix ARB_vertex_blend ARB_matrix_palette EXT_compiled_vertex_array EXT_cull_vertex EXT_index_func EXT_index_material EXT_draw_range_elements EXT_vertex_weighting INGR_blend_func_separate NV_evaluators NV_fence NV_occlusion_query NV_point_sprite NV_register_combiners NV_register_combiners2 NV_vertex_array_range NV_vertex_program NV_vertex_program1_1_dcc MESA_resize_buffers MESA_window_pos PGI_misc_hints EXT_fog_coord EXT_blend_func_separate EXT_color_subtable EXT_coordinate_frame EXT_light_texture EXT_multi_draw_arrays EXT_paletted_texture EXT_pixel_transform EXT_secondary_color EXT_texture_perturb_normal HP_image_transform IBM_multimode_draw_arrays IBM_vertex_array_lists INTEL_parallel_arrays SUNX_constant_data SUN_global_alpha SUN_mesh_array SUN_triangle_list SUN_vertex 3DFX_tbuffer EXT_multisample SGIS_fog_function SGIS_texture_color_mask ARB_window_pos EXT_stencil_two_side EXT_depth_bounds_test EXT_blend_equation_separate ARB_vertex_program ARB_fragment_program ARB_vertex_buffer_object ARB_occlusion_query ARB_shader_objects ARB_vertex_shader ARB_fragment_shader S3_s3tc ATI_draw_buffers ATI_texture_env_combine3 ATI_texture_float NV_float_buffer NV_fragment_program NV_half_float NV_pixel_data_range NV_primitive_restart NV_texture_expand_normal NV_texture_expand_normal NV_vertex_program2 APPLE_element_array APPLE_fence APPLE_vertex_array_object APPLE_vertex_array_range ATI_draw_buffers NV_fragment_program NV_half_float NV_pixel_data_range NV_primitive_restart ATI_map_object_buffer ATI_separate_stencil ATI_vertex_attrib_array_object
+category:	display-list drawing drawing-control feedback framebuf misc modeling pixel-op pixel-rw state-req xform 1_1 VERSION_1_2 VERSION_1_3 VERSION_1_4 VERSION_1_5 VERSION_2_0 ATI_element_array ATI_envmap_bumpmap ATI_fragment_shader ATI_pn_triangles ATI_vertex_array_object ATI_vertex_streams EXT_blend_color EXT_blend_minmax EXT_convolution EXT_copy_texture EXT_histogram EXT_polygon_offset EXT_subtexture EXT_texture3D EXT_texture_object EXT_vertex_array EXT_vertex_shader SGIS_detail_texture SGIS_multisample SGIS_pixel_texture ARB_point_parameters EXT_point_parameters SGIS_point_parameters SGIS_sharpen_texture SGIS_texture4D SGIS_texture_filter4 SGIX_async SGIX_flush_raster SGIX_fragment_lighting SGIX_framezoom SGIX_igloo_interface SGIX_instruments SGIX_list_priority SGIX_pixel_texture SGIX_polynomial_ffd SGIX_reference_plane SGIX_sprite SGIX_tag_sample_buffer SGI_color_table ARB_multitexture ARB_multisample ARB_texture_compression ARB_transpose_matrix ARB_vertex_blend ARB_matrix_palette EXT_compiled_vertex_array EXT_cull_vertex EXT_index_func EXT_index_material EXT_draw_range_elements EXT_vertex_weighting INGR_blend_func_separate NV_evaluators NV_fence NV_occlusion_query NV_point_sprite NV_register_combiners NV_register_combiners2 NV_vertex_array_range NV_vertex_program NV_vertex_program1_1_dcc MESA_resize_buffers MESA_window_pos PGI_misc_hints EXT_fog_coord EXT_blend_func_separate EXT_color_subtable EXT_coordinate_frame EXT_light_texture EXT_multi_draw_arrays EXT_paletted_texture EXT_pixel_transform EXT_secondary_color EXT_texture_perturb_normal HP_image_transform IBM_multimode_draw_arrays IBM_vertex_array_lists INTEL_parallel_arrays SUNX_constant_data SUN_global_alpha SUN_mesh_array SUN_triangle_list SUN_vertex 3DFX_tbuffer EXT_multisample SGIS_fog_function SGIS_texture_color_mask ARB_window_pos EXT_stencil_two_side EXT_depth_bounds_test EXT_blend_equation_separate ARB_vertex_program ARB_fragment_program ARB_vertex_buffer_object ARB_occlusion_query ARB_shader_objects ARB_vertex_shader ARB_fragment_shader S3_s3tc ATI_draw_buffers ATI_texture_env_combine3 ATI_texture_float NV_float_buffer NV_fragment_program NV_half_float NV_pixel_data_range NV_primitive_restart NV_texture_expand_normal NV_texture_expand_normal NV_vertex_program2 APPLE_element_array APPLE_fence APPLE_vertex_array_object APPLE_vertex_array_range ATI_draw_buffers NV_fragment_program NV_half_float NV_pixel_data_range NV_primitive_restart ATI_map_object_buffer ATI_separate_stencil ATI_vertex_attrib_array_object ARB_draw_buffers ARB_texture_rectangle ARB_color_buffer_float
 
 # categories for extensions with no functions - need not be included now
-#   ARB_texture_env_add ARB_texture_cube_map ARB_texture_border_clamp ARB_shading_language_100 ARB_texture_non_power_of_two ARB_point_sprite EXT_abgr EXT_texture EXT_color_matrix SGI_texture_color_table EXT_cmyka EXT_packed_pixels SGIS_texture_lod EXT_rescale_normal EXT_misc_attribute SGIS_generate_mipmap SGIX_clipmap SGIX_shadow SGIS_texture_edge_clamp SGIS_texture_border_clamp EXT_blend_subtract EXT_blend_logic_op SGIX_async_histogram SGIX_async_pixel SGIX_interlace SGIX_pixel_tiles SGIX_texture_select SGIX_texture_multi_buffer SGIX_texture_scale_bias SGIX_depth_texture SGIX_fog_offset HP_convolution_border_modes SGIX_texture_add_env PGI_vertex_hints EXT_clip_volume_hint SGIX_ir_instrument1 SGIX_calligraphic_fragment SGIX_texture_lod_bias SGIX_shadow_ambient EXT_index_texture EXT_index_array_formats SGIX_ycrcb IBM_rasterpos_clip HP_texture_lighting WIN_phong_shading WIN_specular_fog SGIX_blend_alpha_minmax EXT_bgra HP_occlusion_test EXT_pixel_transform_color_table EXT_shared_texture_palette EXT_separate_specular_color EXT_texture_env REND_screen_coordinates EXT_texture_env_combine APPLE_specular_vector APPLE_transform_hint SGIX_fog_scale INGR_color_clamp INGR_interlace_read EXT_stencil_wrap EXT_422_pixels NV_texgen_reflection SUN_convolution_border_modes SUN_slice_accum EXT_texture_env_add EXT_texture_lod_bias EXT_texture_filter_anisotropic NV_light_max_exponent NV_fog_distance NV_texgen_emboss NV_blend_square NV_texture_env_combine4 NV_packed_depth_stencil NV_texture_compression_vtc NV_texture_rectangle NV_texture_shader NV_texture_shader2 NV_vertex_array_range2 IBM_cull_vertex SGIX_subsample SGIX_ycrcba SGIX_ycrcb_subsample SGIX_depth_pass_instrument 3DFX_texture_compression_FXT1 3DFX_multisample SGIX_vertex_preclip SGIX_convolution_accuracy SGIX_resample SGIX_scalebias_hint SGIX_texture_coordinate_clamp EXT_shadow_funcs MESA_pack_invert MESA_ycbcr_texture
+#   ARB_texture_env_add ARB_texture_cube_map ARB_texture_border_clamp ARB_shading_language_100 ARB_texture_non_power_of_two ARB_point_sprite ARB_half_float_pixel ARB_texture_float ARB_pixel_buffer_object EXT_abgr EXT_texture EXT_color_matrix SGI_texture_color_table EXT_cmyka EXT_packed_pixels SGIS_texture_lod EXT_rescale_normal EXT_misc_attribute SGIS_generate_mipmap SGIX_clipmap SGIX_shadow SGIS_texture_edge_clamp SGIS_texture_border_clamp EXT_blend_subtract EXT_blend_logic_op SGIX_async_histogram SGIX_async_pixel SGIX_interlace SGIX_pixel_tiles SGIX_texture_select SGIX_texture_multi_buffer SGIX_texture_scale_bias SGIX_depth_texture SGIX_fog_offset HP_convolution_border_modes SGIX_texture_add_env PGI_vertex_hints EXT_clip_volume_hint SGIX_ir_instrument1 SGIX_calligraphic_fragment SGIX_texture_lod_bias SGIX_shadow_ambient EXT_index_texture EXT_index_array_formats SGIX_ycrcb IBM_rasterpos_clip HP_texture_lighting WIN_phong_shading WIN_specular_fog SGIX_blend_alpha_minmax EXT_bgra HP_occlusion_test EXT_pixel_transform_color_table EXT_shared_texture_palette EXT_separate_specular_color EXT_texture_env REND_screen_coordinates EXT_texture_env_combine APPLE_specular_vector APPLE_transform_hint SGIX_fog_scale INGR_color_clamp INGR_interlace_read EXT_stencil_wrap EXT_422_pixels NV_texgen_reflection SUN_convolution_border_modes SUN_slice_accum EXT_texture_env_add EXT_texture_lod_bias EXT_texture_filter_anisotropic NV_light_max_exponent NV_fog_distance NV_texgen_emboss NV_blend_square NV_texture_env_combine4 NV_packed_depth_stencil NV_texture_compression_vtc NV_texture_rectangle NV_texture_shader NV_texture_shader2 NV_vertex_array_range2 IBM_cull_vertex SGIX_subsample SGIX_ycrcba SGIX_ycrcb_subsample SGIX_depth_pass_instrument 3DFX_texture_compression_FXT1 3DFX_multisample SGIX_vertex_preclip SGIX_convolution_accuracy SGIX_resample SGIX_scalebias_hint SGIX_texture_coordinate_clamp EXT_shadow_funcs MESA_pack_invert MESA_ycbcr_texture
 
-version:	1.0 1.1 1.2 1.3 1.4 1.5
+version:	1.0 1.1 1.2 1.3 1.4 1.5 2.0
 glxsingle:	*
 glxropcode:	*
 glxvendorpriv:	*
@@ -106,6 +106,11 @@ offset:		*
 
 passthru: #include <stddef.h>
 
+passthru: #ifndef GL_VERSION_2_0
+passthru: /* GL type for program/shader text */
+passthru: typedef char GLchar;			/* native character */
+passthru: #endif
+passthru:
 passthru: #ifndef GL_VERSION_1_5
 passthru: /* GL types for handling large vertex buffer objects */
 passthru: typedef ptrdiff_t GLintptr;
@@ -119,13 +124,17 @@ passthru: typedef ptrdiff_t GLsizeiptrARB;
 passthru: #endif
 passthru:
 passthru: #ifndef GL_ARB_shader_objects
-passthru: /* GL types for handling shader object handles and characters */
+passthru: /* GL types for handling shader object handles and program/shader text */
 passthru: typedef char GLcharARB;		/* native character */
 passthru: typedef unsigned int GLhandleARB;	/* shader object handle */
 passthru: #endif
 passthru:
+passthru: /* GL types for "half" precision (s10e5) float data in host memory */
+passthru: #ifndef GL_ARB_half_float_pixel
+passthru: typedef unsigned short GLhalfARB;
+passthru: #endif
+passthru:
 passthru: #ifndef GL_NV_half_float
-passthru: /* GL type for representing NVIDIA "half" floating point type in host memory */
 passthru: typedef unsigned short GLhalfNV;
 passthru: #endif
 passthru:
@@ -5766,6 +5775,1217 @@ GetBufferPointerv(target, pname, params)
 # OpenGL 1.5 (EXT_shadow_funcs) commands - none
 
 
+###############################################################################
+###############################################################################
+#
+# OpenGL 2.0 commands
+#
+###############################################################################
+###############################################################################
+
+# OpenGL 2.0 (EXT_blend_equation_separate) commands
+
+BlendEquationSeparate(modeRGB, modeAlpha)
+	return		void
+	param		modeRGB		BlendEquationModeEXT in value
+	param		modeAlpha	BlendEquationModeEXT in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	4228
+	glsopcode	?
+
+# OpenGL 2.0 (ARB_draw_buffers) commands
+
+DrawBuffers(n, bufs)
+	return		void
+	param		n		SizeI in value
+	param		bufs		DrawBufferModeATI in array [n]
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+# OpenGL 2.0 (ARB_stencil_two_side) commands
+
+StencilOpSeparate(face, sfail, dpfail, dppass)
+	return		void
+	param		face		StencilFaceDirection in value
+	param		sfail		StencilOp in value
+	param		dpfail		StencilOp in value
+	param		dppass		StencilOp in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+StencilFuncSeparate(frontfunc, backfunc, ref, mask)
+	return		void
+	param		frontfunc	StencilFunction in value
+	param		backfunc	StencilFunction in value
+	param		ref		ClampedStencilValue in value
+	param		mask		MaskedStencilValue in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+StencilMaskSeparate(face, mask)
+	return		void
+	param		face		StencilFaceDirection in value
+	param		mask		MaskedStencilValue in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+# OpenGL 2.0 (ARB_shader_objects / ARB_vertex_shader / ARB_fragment_shader) commands
+
+AttachShader(program, shader)
+	return		void
+	param		program		UInt32 in value
+	param		shader		UInt32 in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+BindAttribLocation(program, index, name)
+	return		void
+	param		program		UInt32 in value
+	param		index		UInt32 in value
+	param		name		Char in array []
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+CompileShader(shader)
+	return		void
+	param		shader		UInt32 in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+CreateProgram()
+	return		UInt32
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+CreateShader(type)
+	return		UInt32
+	param		type		GLenum in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+DeleteProgram(program)
+	return		void
+	param		program		UInt32 in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+DeleteShader(shader)
+	return		void
+	param		shader		UInt32 in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+DetachShader(program, shader)
+	return		void
+	param		program		UInt32 in value
+	param		shader		UInt32 in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+DisableVertexAttribArray(index)
+	return		void
+	param		index		UInt32 in value
+	dlflags		notlistable
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		666
+
+EnableVertexAttribArray(index)
+	return		void
+	param		index		UInt32 in value
+	dlflags		notlistable
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		665
+
+GetActiveAttrib(program, index, bufSize, length, size, type, name)
+	return		void
+	param		program		UInt32 in value
+	param		index		UInt32 in value
+	param		bufSize		SizeI in value
+	param		length		SizeI out array [1]
+	param		size		Int32 out array [1]
+	param		type		GLenum out array [1]
+	param		name		Char out array []
+	category	VERSION_2_0
+	dlflags		notlistable
+	version		2.0
+	extension
+	glxsingle	?
+	glxflags	ignore
+	glsflags	get
+	glsopcode	?
+	offset		?
+
+GetActiveUniform(program, index, bufSize, length, size, type, name)
+	return		void
+	param		program		UInt32 in value
+	param		index		UInt32 in value
+	param		bufSize		SizeI in value
+	param		length		SizeI out array [1]
+	param		size		Int32 out array [1]
+	param		type		GLenum out array [1]
+	param		name		Char out array []
+	category	VERSION_2_0
+	dlflags		notlistable
+	version		2.0
+	extension
+	glxsingle	?
+	glxflags	ignore
+	glsflags	get
+	glsopcode	?
+	offset		?
+
+GetAttachedShaders(program, maxCount, count, obj)
+	return		void
+	param		program		UInt32 in value
+	param		maxCount	SizeI in value
+	param		count		SizeI out array [1]
+	param		obj		UInt32 out array [count]
+	category	VERSION_2_0
+	dlflags		notlistable
+	version		2.0
+	extension
+	glxsingle	?
+	glxflags	ignore
+	glsflags	get
+	glsopcode	?
+	offset		?
+
+GetAttribLocation(program, name)
+	return		Int32
+	param		program		UInt32 in value
+	param		name		Char in array []
+	category	VERSION_2_0
+	dlflags		notlistable
+	version		2.0
+	extension
+	glxsingle	?
+	glxflags	ignore
+	glsflags	get
+	glsopcode	?
+	offset		?
+
+GetProgramiv(program, pname, params)
+	return		void
+	param		program		UInt32 in value
+	param		pname		GLenum in value
+	param		params		Int32 out array [pname]
+	category	VERSION_2_0
+	dlflags		notlistable
+	version		2.0
+	extension
+	glxsingle	?
+	glxflags	ignore
+	glsflags	get
+	glsopcode	?
+	offset		?
+
+GetProgramInfoLog(program, bufSize, length, infoLog)
+	return		void
+	param		program		UInt32 in value
+	param		bufSize		SizeI in value
+	param		length		SizeI out array [1]
+	param		infoLog		Char out array [length]
+	category	VERSION_2_0
+	dlflags		notlistable
+	version		2.0
+	extension
+	glxsingle	?
+	glxflags	ignore
+	glsflags	get
+	glsopcode	?
+	offset		?
+
+GetShaderiv(shader, pname, params)
+	return		void
+	param		shader		UInt32 in value
+	param		pname		GLenum in value
+	param		params		Int32 out array [pname]
+	category	VERSION_2_0
+	dlflags		notlistable
+	version		2.0
+	extension
+	glxsingle	?
+	glxflags	ignore
+	glsflags	get
+	glsopcode	?
+	offset		?
+
+GetShaderInfoLog(shader, bufSize, length, infoLog)
+	return		void
+	param		shader		UInt32 in value
+	param		bufSize		SizeI in value
+	param		length		SizeI out array [1]
+	param		infoLog		Char out array [length]
+	category	VERSION_2_0
+	dlflags		notlistable
+	version		2.0
+	extension
+	glxsingle	?
+	glxflags	ignore
+	glsflags	get
+	glsopcode	?
+	offset		?
+
+GetShaderSource(shader, bufSize, length, source)
+	return		void
+	param		shader		UInt32 in value
+	param		bufSize		SizeI in value
+	param		length		SizeI out array [1]
+	param		source		Char out array [length]
+	category	VERSION_2_0
+	dlflags		notlistable
+	version		2.0
+	extension
+	glxsingle	?
+	glxflags	ignore
+	glsflags	get
+	glsopcode	?
+	offset		?
+
+GetUniformLocation(program, name)
+	return		Int32
+	param		program		UInt32 in value
+	param		name		Char in array []
+	category	VERSION_2_0
+	dlflags		notlistable
+	version		2.0
+	extension
+	glxsingle	?
+	glxflags	ignore
+	glsflags	get
+	glsopcode	?
+	offset		?
+
+GetUniformfv(program, location, params)
+	return		void
+	param		program		UInt32 in value
+	param		location	Int32 in value
+	param		params		Float32 out array [location]
+	category	VERSION_2_0
+	dlflags		notlistable
+	version		2.0
+	extension
+	glxsingle	?
+	glxflags	ignore
+	glsflags	get
+	glsopcode	?
+	offset		?
+
+GetUniformiv(program, location, params)
+	return		void
+	param		program		UInt32 in value
+	param		location	Int32 in value
+	param		params		Int32 out array [location]
+	category	VERSION_2_0
+	dlflags		notlistable
+	version		2.0
+	extension
+	glxsingle	?
+	glxflags	ignore
+	glsflags	get
+	glsopcode	?
+	offset		?
+
+GetVertexAttribdv(index, pname, params)
+	return		void
+	param		index		UInt32 in value
+	param		pname		VertexAttribPropertyARB in value
+	param		params		Float64 out array [4]
+	dlflags		notlistable
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glxvendorpriv	1301
+	glsflags	client get
+	glsopcode	0x0232
+	offset		588
+
+GetVertexAttribfv(index, pname, params)
+	return		void
+	param		index		UInt32 in value
+	param		pname		VertexAttribPropertyARB in value
+	param		params		Float32 out array [4]
+	dlflags		notlistable
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glxvendorpriv	1302
+	glsflags	client get
+	glsopcode	0x0233
+	offset		589
+
+GetVertexAttribiv(index, pname, params)
+	return		void
+	param		index		UInt32 in value
+	param		pname		VertexAttribPropertyARB in value
+	param		params		Int32 out array [4]
+	dlflags		notlistable
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glxvendorpriv	1303
+	glsflags	client get
+	glsopcode	0x0234
+	offset		590
+
+GetVertexAttribPointerv(index, pname, pointer)
+	return		void
+	param		index		UInt32 in value
+	param		pname		VertexAttribPointerPropertyARB in value
+	param		pointer		VoidPointer out array [1]
+	dlflags		notlistable
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glxflags	ignore
+	glsflags	client get
+	glsopcode	0x0235
+	offset		591
+
+IsProgram(program)
+	return		Boolean
+	param		program		UInt32 in value
+	dlflags		notlistable
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glxvendorpriv	1304
+	glsflags	get
+	glsopcode	0x0236
+	offset		592
+
+IsShader(shader)
+	return		Boolean
+	param		shader		UInt32 in value
+	dlflags		notlistable
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glxvendorpriv	?
+	glsflags	get
+	glsopcode	?
+	offset		?
+
+LinkProgram(program)
+	return		void
+	param		program		UInt32 in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+ShaderSource(shader, count, string, length)
+	return		void
+	param		shader		UInt32 in value
+	param		count		SizeI in value
+	param		string		CharPointer in array [count]
+	param		length		Int32 in array [1]
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+UseProgram(program)
+	return		void
+	param		program		UInt32 in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+Uniform1f(location, v0)
+	return		void
+	param		location	Int32 in value
+	param		v0		Float32 in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+Uniform2f(location, v0, v1)
+	return		void
+	param		location	Int32 in value
+	param		v0		Float32 in value
+	param		v1		Float32 in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+Uniform3f(location, v0, v1, v2)
+	return		void
+	param		location	Int32 in value
+	param		v0		Float32 in value
+	param		v1		Float32 in value
+	param		v2		Float32 in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+Uniform4f(location, v0, v1, v2, v3)
+	return		void
+	param		location	Int32 in value
+	param		v0		Float32 in value
+	param		v1		Float32 in value
+	param		v2		Float32 in value
+	param		v3		Float32 in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+Uniform1i(location, v0)
+	return		void
+	param		location	Int32 in value
+	param		v0		Int32 in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+Uniform2i(location, v0, v1)
+	return		void
+	param		location	Int32 in value
+	param		v0		Int32 in value
+	param		v1		Int32 in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+Uniform3i(location, v0, v1, v2)
+	return		void
+	param		location	Int32 in value
+	param		v0		Int32 in value
+	param		v1		Int32 in value
+	param		v2		Int32 in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+Uniform4i(location, v0, v1, v2, v3)
+	return		void
+	param		location	Int32 in value
+	param		v0		Int32 in value
+	param		v1		Int32 in value
+	param		v2		Int32 in value
+	param		v3		Int32 in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+Uniform1fv(location, count, value)
+	return		void
+	param		location	Int32 in value
+	param		count		SizeI in value
+	param		value		Float32 in array [count]
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+Uniform2fv(location, count, value)
+	return		void
+	param		location	Int32 in value
+	param		count		SizeI in value
+	param		value		Float32 in array [count]
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+Uniform3fv(location, count, value)
+	return		void
+	param		location	Int32 in value
+	param		count		SizeI in value
+	param		value		Float32 in array [count]
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+Uniform4fv(location, count, value)
+	return		void
+	param		location	Int32 in value
+	param		count		SizeI in value
+	param		value		Float32 in array [count]
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+Uniform1iv(location, count, value)
+	return		void
+	param		location	Int32 in value
+	param		count		SizeI in value
+	param		value		Int32 in array [count]
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+Uniform2iv(location, count, value)
+	return		void
+	param		location	Int32 in value
+	param		count		SizeI in value
+	param		value		Int32 in array [count]
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+Uniform3iv(location, count, value)
+	return		void
+	param		location	Int32 in value
+	param		count		SizeI in value
+	param		value		Int32 in array [count]
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+Uniform4iv(location, count, value)
+	return		void
+	param		location	Int32 in value
+	param		count		SizeI in value
+	param		value		Int32 in array [count]
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+UniformMatrix2fv(location, count, transpose, value)
+	return		void
+	param		location	Int32 in value
+	param		count		SizeI in value
+	param		transpose	Boolean in value
+	param		value		Float32 in array [count]
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+UniformMatrix3fv(location, count, transpose, value)
+	return		void
+	param		location	Int32 in value
+	param		count		SizeI in value
+	param		transpose	Boolean in value
+	param		value		Float32 in array [count]
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+UniformMatrix4fv(location, count, transpose, value)
+	return		void
+	param		location	Int32 in value
+	param		count		SizeI in value
+	param		transpose	Boolean in value
+	param		value		Float32 in array [count]
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+ValidateProgram(program)
+	return		void
+	param		program		UInt32 in value
+	category	VERSION_2_0
+	version		2.0
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+VertexAttrib1d(index, x)
+	return		void
+	param		index		UInt32 in value
+	param		x		Float64 in value
+	category	VERSION_2_0
+	version		2.0
+	vectorequiv	VertexAttrib1dv
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		603
+
+VertexAttrib1dv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		Float64 in array [1]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glxropcode	4197
+	glsopcode	0x0240
+	offset		604
+
+VertexAttrib1f(index, x)
+	return		void
+	param		index		UInt32 in value
+	param		x		Float32 in value
+	category	VERSION_2_0
+	version		2.0
+	vectorequiv	VertexAttrib1fv
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		605
+
+VertexAttrib1fv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		Float32 in array [1]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glxropcode	4193
+	glsopcode	0x023F
+	offset		606
+
+VertexAttrib1s(index, x)
+	return		void
+	param		index		UInt32 in value
+	param		x		Int16 in value
+	category	VERSION_2_0
+	version		2.0
+	vectorequiv	VertexAttrib1sv
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		607
+
+VertexAttrib1sv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		Int16 in array [1]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glxropcode	4189
+	glsopcode	0x023E
+	offset		608
+
+VertexAttrib2d(index, x, y)
+	return		void
+	param		index		UInt32 in value
+	param		x		Float64 in value
+	param		y		Float64 in value
+	category	VERSION_2_0
+	version		2.0
+	vectorequiv	VertexAttrib2dv
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		609
+
+VertexAttrib2dv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		Float64 in array [2]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glxropcode	4198
+	glsopcode	0x0243
+	offset		610
+
+VertexAttrib2f(index, x, y)
+	return		void
+	param		index		UInt32 in value
+	param		x		Float32 in value
+	param		y		Float32 in value
+	category	VERSION_2_0
+	version		2.0
+	vectorequiv	VertexAttrib2fv
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		611
+
+VertexAttrib2fv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		Float32 in array [2]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glxropcode	4194
+	glsopcode	0x0242
+	offset		612
+
+VertexAttrib2s(index, x, y)
+	return		void
+	param		index		UInt32 in value
+	param		x		Int16 in value
+	param		y		Int16 in value
+	category	VERSION_2_0
+	version		2.0
+	vectorequiv	VertexAttrib2sv
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		613
+
+VertexAttrib2sv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		Int16 in array [2]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glxropcode	4190
+	glsopcode	0x0241
+	offset		614
+
+VertexAttrib3d(index, x, y, z)
+	return		void
+	param		index		UInt32 in value
+	param		x		Float64 in value
+	param		y		Float64 in value
+	param		z		Float64 in value
+	category	VERSION_2_0
+	version		2.0
+	vectorequiv	VertexAttrib3dv
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		615
+
+VertexAttrib3dv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		Float64 in array [3]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glxropcode	4199
+	glsopcode	0x0246
+	offset		616
+
+VertexAttrib3f(index, x, y, z)
+	return		void
+	param		index		UInt32 in value
+	param		x		Float32 in value
+	param		y		Float32 in value
+	param		z		Float32 in value
+	category	VERSION_2_0
+	version		2.0
+	vectorequiv	VertexAttrib3fv
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		617
+
+VertexAttrib3fv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		Float32 in array [3]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glxropcode	4195
+	glsopcode	0x0245
+	offset		618
+
+VertexAttrib3s(index, x, y, z)
+	return		void
+	param		index		UInt32 in value
+	param		x		Int16 in value
+	param		y		Int16 in value
+	param		z		Int16 in value
+	category	VERSION_2_0
+	version		2.0
+	vectorequiv	VertexAttrib3sv
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		619
+
+VertexAttrib3sv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		Int16 in array [3]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glxropcode	4191
+	glsopcode	0x0244
+	offset		620
+
+VertexAttrib4Nbv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		Int8 in array [4]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		659
+
+VertexAttrib4Niv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		Int32 in array [4]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		661
+
+VertexAttrib4Nsv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		Int16 in array [4]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		660
+
+VertexAttrib4Nub(index, x, y, z, w)
+	return		void
+	param		index		UInt32 in value
+	param		x		UInt8 in value
+	param		y		UInt8 in value
+	param		z		UInt8 in value
+	param		w		UInt8 in value
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		627
+
+VertexAttrib4Nubv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		UInt8 in array [4]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	glxropcode	4201
+	glsopcode	0x024A
+	offset		628
+
+VertexAttrib4Nuiv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		UInt32 in array [4]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		663
+
+VertexAttrib4Nusv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		UInt16 in array [4]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		662
+
+VertexAttrib4bv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		Int8 in array [4]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		654
+
+VertexAttrib4d(index, x, y, z, w)
+	return		void
+	param		index		UInt32 in value
+	param		x		Float64 in value
+	param		y		Float64 in value
+	param		z		Float64 in value
+	param		w		Float64 in value
+	category	VERSION_2_0
+	version		2.0
+	vectorequiv	VertexAttrib4dv
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		621
+
+VertexAttrib4dv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		Float64 in array [4]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glxropcode	4200
+	glsopcode	0x0249
+	offset		622
+
+VertexAttrib4f(index, x, y, z, w)
+	return		void
+	param		index		UInt32 in value
+	param		x		Float32 in value
+	param		y		Float32 in value
+	param		z		Float32 in value
+	param		w		Float32 in value
+	category	VERSION_2_0
+	version		2.0
+	vectorequiv	VertexAttrib4fv
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		623
+
+VertexAttrib4fv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		Float32 in array [4]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glxropcode	4196
+	glsopcode	0x0248
+	offset		624
+
+VertexAttrib4iv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		Int32 in array [4]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		655
+
+VertexAttrib4s(index, x, y, z, w)
+	return		void
+	param		index		UInt32 in value
+	param		x		Int16 in value
+	param		y		Int16 in value
+	param		z		Int16 in value
+	param		w		Int16 in value
+	category	VERSION_2_0
+	version		2.0
+	vectorequiv	VertexAttrib4sv
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		625
+
+VertexAttrib4sv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		Int16 in array [4]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	glxropcode	4192
+	glsopcode	0x0247
+	offset		626
+
+VertexAttrib4ubv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		UInt8 in array [4]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		656
+
+VertexAttrib4uiv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		UInt32 in array [4]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		658
+
+VertexAttrib4usv(index, v)
+	return		void
+	param		index		UInt32 in value
+	param		v		UInt16 in array [4]
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		657
+
+VertexAttribPointer(index, size, type, normalized, stride, pointer)
+	return		void
+	param		index		UInt32 in value
+	param		size		Int32 in value
+	param		type		VertexAttribPointerTypeARB in value
+	param		normalized	Boolean in value
+	param		stride		SizeI in value
+	param		pointer		Void in array [COMPSIZE(size/type/stride)] retained
+	dlflags		notlistable
+	category	VERSION_2_0
+	version		2.0
+	extension	soft WINSOFT NV10
+	glsflags	ignore
+	glxflags	ignore
+	offset		664
+
 
 ###############################################################################
 ###############################################################################
@@ -6890,9 +8110,8 @@ VertexAttrib1dARB(index, x)
 	version		1.3
 	vectorequiv	VertexAttrib1dvARB
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		603
+	alias		VertexAttrib1d
+	glsalias	VertexAttrib1d
 
 VertexAttrib1dvARB(index, v)
 	return		void
@@ -6903,7 +8122,8 @@ VertexAttrib1dvARB(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4197
 	glsopcode	0x0240
-	offset		604
+	alias		VertexAttrib1dv
+	glsalias	VertexAttrib1dv
 
 VertexAttrib1fARB(index, x)
 	return		void
@@ -6913,9 +8133,8 @@ VertexAttrib1fARB(index, x)
 	version		1.3
 	vectorequiv	VertexAttrib1fvARB
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		605
+	alias		VertexAttrib1f
+	glsalias	VertexAttrib1f
 
 VertexAttrib1fvARB(index, v)
 	return		void
@@ -6926,7 +8145,8 @@ VertexAttrib1fvARB(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4193
 	glsopcode	0x023F
-	offset		606
+	alias		VertexAttrib1fv
+	glsalias	VertexAttrib1fv
 
 VertexAttrib1sARB(index, x)
 	return		void
@@ -6936,9 +8156,8 @@ VertexAttrib1sARB(index, x)
 	version		1.3
 	vectorequiv	VertexAttrib1svARB
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		607
+	alias		VertexAttrib1s
+	glsalias	VertexAttrib1s
 
 VertexAttrib1svARB(index, v)
 	return		void
@@ -6949,7 +8168,8 @@ VertexAttrib1svARB(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4189
 	glsopcode	0x023E
-	offset		608
+	alias		VertexAttrib1sv
+	glsalias	VertexAttrib1sv
 
 VertexAttrib2dARB(index, x, y)
 	return		void
@@ -6960,9 +8180,8 @@ VertexAttrib2dARB(index, x, y)
 	version		1.3
 	vectorequiv	VertexAttrib2dvARB
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		609
+	alias		VertexAttrib2d
+	glsalias	VertexAttrib2d
 
 VertexAttrib2dvARB(index, v)
 	return		void
@@ -6973,7 +8192,8 @@ VertexAttrib2dvARB(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4198
 	glsopcode	0x0243
-	offset		610
+	alias		VertexAttrib2dv
+	glsalias	VertexAttrib2dv
 
 VertexAttrib2fARB(index, x, y)
 	return		void
@@ -6984,9 +8204,8 @@ VertexAttrib2fARB(index, x, y)
 	version		1.3
 	vectorequiv	VertexAttrib2fvARB
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		611
+	alias		VertexAttrib2f
+	glsalias	VertexAttrib2f
 
 VertexAttrib2fvARB(index, v)
 	return		void
@@ -6997,7 +8216,8 @@ VertexAttrib2fvARB(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4194
 	glsopcode	0x0242
-	offset		612
+	alias		VertexAttrib2fv
+	glsalias	VertexAttrib2fv
 
 VertexAttrib2sARB(index, x, y)
 	return		void
@@ -7008,9 +8228,8 @@ VertexAttrib2sARB(index, x, y)
 	version		1.3
 	vectorequiv	VertexAttrib2svARB
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		613
+	alias		VertexAttrib2s
+	glsalias	VertexAttrib2s
 
 VertexAttrib2svARB(index, v)
 	return		void
@@ -7021,7 +8240,8 @@ VertexAttrib2svARB(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4190
 	glsopcode	0x0241
-	offset		614
+	alias		VertexAttrib2sv
+	glsalias	VertexAttrib2sv
 
 VertexAttrib3dARB(index, x, y, z)
 	return		void
@@ -7033,9 +8253,8 @@ VertexAttrib3dARB(index, x, y, z)
 	version		1.3
 	vectorequiv	VertexAttrib3dvARB
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		615
+	alias		VertexAttrib3d
+	glsalias	VertexAttrib3d
 
 VertexAttrib3dvARB(index, v)
 	return		void
@@ -7046,7 +8265,8 @@ VertexAttrib3dvARB(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4199
 	glsopcode	0x0246
-	offset		616
+	alias		VertexAttrib3dv
+	glsalias	VertexAttrib3dv
 
 VertexAttrib3fARB(index, x, y, z)
 	return		void
@@ -7058,9 +8278,8 @@ VertexAttrib3fARB(index, x, y, z)
 	version		1.3
 	vectorequiv	VertexAttrib3fvARB
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		617
+	alias		VertexAttrib3f
+	glsalias	VertexAttrib3f
 
 VertexAttrib3fvARB(index, v)
 	return		void
@@ -7071,7 +8290,8 @@ VertexAttrib3fvARB(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4195
 	glsopcode	0x0245
-	offset		618
+	alias		VertexAttrib3fv
+	glsalias	VertexAttrib3fv
 
 VertexAttrib3sARB(index, x, y, z)
 	return		void
@@ -7083,9 +8303,8 @@ VertexAttrib3sARB(index, x, y, z)
 	version		1.3
 	vectorequiv	VertexAttrib3svARB
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		619
+	alias		VertexAttrib3s
+	glsalias	VertexAttrib3s
 
 VertexAttrib3svARB(index, v)
 	return		void
@@ -7096,7 +8315,8 @@ VertexAttrib3svARB(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4191
 	glsopcode	0x0244
-	offset		620
+	alias		VertexAttrib3sv
+	glsalias	VertexAttrib3sv
 
 VertexAttrib4NbvARB(index, v)
 	return		void
@@ -7105,9 +8325,8 @@ VertexAttrib4NbvARB(index, v)
 	category	ARB_vertex_program
 	version		1.3
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		659
+	alias		VertexAttrib4Nbv
+	glsalias	VertexAttrib4Nbv
 
 VertexAttrib4NivARB(index, v)
 	return		void
@@ -7116,9 +8335,8 @@ VertexAttrib4NivARB(index, v)
 	category	ARB_vertex_program
 	version		1.3
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		661
+	alias		VertexAttrib4Niv
+	glsalias	VertexAttrib4Niv
 
 VertexAttrib4NsvARB(index, v)
 	return		void
@@ -7127,9 +8345,8 @@ VertexAttrib4NsvARB(index, v)
 	category	ARB_vertex_program
 	version		1.3
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		660
+	alias		VertexAttrib4Nsv
+	glsalias	VertexAttrib4Nsv
 
 VertexAttrib4NubARB(index, x, y, z, w)
 	return		void
@@ -7141,9 +8358,8 @@ VertexAttrib4NubARB(index, x, y, z, w)
 	category	ARB_vertex_program
 	version		1.3
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		627
+	alias		VertexAttrib4Nub
+	glsalias	VertexAttrib4Nub
 
 VertexAttrib4NubvARB(index, v)
 	return		void
@@ -7152,11 +8368,10 @@ VertexAttrib4NubvARB(index, v)
 	category	ARB_vertex_program
 	version		1.3
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
 	glxropcode	4201
 	glsopcode	0x024A
-	offset		628
+	alias		VertexAttrib4Nubv
+	glsalias	VertexAttrib4Nubv
 
 VertexAttrib4NuivARB(index, v)
 	return		void
@@ -7165,9 +8380,8 @@ VertexAttrib4NuivARB(index, v)
 	category	ARB_vertex_program
 	version		1.3
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		663
+	alias		VertexAttrib4Nuiv
+	glsalias	VertexAttrib4Nuiv
 
 VertexAttrib4NusvARB(index, v)
 	return		void
@@ -7176,9 +8390,8 @@ VertexAttrib4NusvARB(index, v)
 	category	ARB_vertex_program
 	version		1.3
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		662
+	alias		VertexAttrib4Nusv
+	glsalias	VertexAttrib4Nusv
 
 VertexAttrib4bvARB(index, v)
 	return		void
@@ -7187,9 +8400,8 @@ VertexAttrib4bvARB(index, v)
 	category	ARB_vertex_program
 	version		1.3
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		654
+	alias		VertexAttrib4bv
+	glsalias	VertexAttrib4bv
 
 VertexAttrib4dARB(index, x, y, z, w)
 	return		void
@@ -7202,9 +8414,8 @@ VertexAttrib4dARB(index, x, y, z, w)
 	version		1.3
 	vectorequiv	VertexAttrib4dvARB
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		621
+	alias		VertexAttrib4d
+	glsalias	VertexAttrib4d
 
 VertexAttrib4dvARB(index, v)
 	return		void
@@ -7215,7 +8426,8 @@ VertexAttrib4dvARB(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4200
 	glsopcode	0x0249
-	offset		622
+	alias		VertexAttrib4dv
+	glsalias	VertexAttrib4dv
 
 VertexAttrib4fARB(index, x, y, z, w)
 	return		void
@@ -7228,9 +8440,8 @@ VertexAttrib4fARB(index, x, y, z, w)
 	version		1.3
 	vectorequiv	VertexAttrib4fvARB
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		623
+	alias		VertexAttrib4f
+	glsalias	VertexAttrib4f
 
 VertexAttrib4fvARB(index, v)
 	return		void
@@ -7241,7 +8452,8 @@ VertexAttrib4fvARB(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4196
 	glsopcode	0x0248
-	offset		624
+	alias		VertexAttrib4fv
+	glsalias	VertexAttrib4fv
 
 VertexAttrib4ivARB(index, v)
 	return		void
@@ -7250,9 +8462,8 @@ VertexAttrib4ivARB(index, v)
 	category	ARB_vertex_program
 	version		1.3
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		655
+	alias		VertexAttrib4iv
+	glsalias	VertexAttrib4iv
 
 VertexAttrib4sARB(index, x, y, z, w)
 	return		void
@@ -7265,9 +8476,8 @@ VertexAttrib4sARB(index, x, y, z, w)
 	version		1.3
 	vectorequiv	VertexAttrib4svARB
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		625
+	alias		VertexAttrib4s
+	glsalias	VertexAttrib4s
 
 VertexAttrib4svARB(index, v)
 	return		void
@@ -7276,11 +8486,10 @@ VertexAttrib4svARB(index, v)
 	category	ARB_vertex_program
 	version		1.3
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
 	glxropcode	4192
 	glsopcode	0x0247
-	offset		626
+	alias		VertexAttrib4sv
+	glsalias	VertexAttrib4sv
 
 VertexAttrib4ubvARB(index, v)
 	return		void
@@ -7289,9 +8498,8 @@ VertexAttrib4ubvARB(index, v)
 	category	ARB_vertex_program
 	version		1.3
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		656
+	alias		VertexAttrib4ubv
+	glsalias	VertexAttrib4ubv
 
 VertexAttrib4uivARB(index, v)
 	return		void
@@ -7300,9 +8508,8 @@ VertexAttrib4uivARB(index, v)
 	category	ARB_vertex_program
 	version		1.3
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		658
+	alias		VertexAttrib4uiv
+	glsalias	VertexAttrib4uiv
 
 VertexAttrib4usvARB(index, v)
 	return		void
@@ -7311,9 +8518,8 @@ VertexAttrib4usvARB(index, v)
 	category	ARB_vertex_program
 	version		1.3
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		657
+	alias		VertexAttrib4usv
+	glsalias	VertexAttrib4usv
 
 VertexAttribPointerARB(index, size, type, normalized, stride, pointer)
 	return		void
@@ -7327,9 +8533,8 @@ VertexAttribPointerARB(index, size, type, normalized, stride, pointer)
 	category	ARB_vertex_program
 	version		1.3
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		664
+	alias		VertexAttribPointer
+	glsalias	VertexAttribPointer
 
 EnableVertexAttribArrayARB(index)
 	return		void
@@ -7338,9 +8543,8 @@ EnableVertexAttribArrayARB(index)
 	category	ARB_vertex_program
 	version		1.3
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		665
+	alias		EnableVertexAttribArray
+	glsalias	EnableVertexAttribArray
 
 DisableVertexAttribArrayARB(index)
 	return		void
@@ -7349,9 +8553,8 @@ DisableVertexAttribArrayARB(index)
 	category	ARB_vertex_program
 	version		1.3
 	extension	soft WINSOFT NV10
-	glsflags	ignore
-	glxflags	ignore
-	offset		666
+	alias		DisableVertexAttribArray
+	glsalias	DisableVertexAttribArray
 
 ProgramStringARB(target, format, len, string)
 	return		void
@@ -7603,7 +8806,8 @@ GetVertexAttribdvARB(index, pname, params)
 	glxvendorpriv	1301
 	glsflags	client get
 	glsopcode	0x0232
-	offset		588
+	alias		GetVertexAttribdv
+	glsalias	GetVertexAttribdv
 
 GetVertexAttribfvARB(index, pname, params)
 	return		void
@@ -7617,7 +8821,8 @@ GetVertexAttribfvARB(index, pname, params)
 	glxvendorpriv	1302
 	glsflags	client get
 	glsopcode	0x0233
-	offset		589
+	alias		GetVertexAttribfv
+	glsalias	GetVertexAttribfv
 
 GetVertexAttribivARB(index, pname, params)
 	return		void
@@ -7631,7 +8836,8 @@ GetVertexAttribivARB(index, pname, params)
 	glxvendorpriv	1303
 	glsflags	client get
 	glsopcode	0x0234
-	offset		590
+	alias		GetVertexAttribiv
+	glsalias	GetVertexAttribiv
 
 GetVertexAttribPointervARB(index, pname, pointer)
 	return		void
@@ -7645,7 +8851,8 @@ GetVertexAttribPointervARB(index, pname, pointer)
 	glxflags	ignore
 	glsflags	client get
 	glsopcode	0x0235
-	offset		591
+	alias		GetVertexAttribPointerv
+	glsalias	GetVertexAttribPointerv
 
 IsProgramARB(program)
 	return		Boolean
@@ -7656,8 +8863,9 @@ IsProgramARB(program)
 	extension	soft WINSOFT NV10
 	glxvendorpriv	1304
 	glsflags	get
-	glsopcode	0x0236
-	offset		592
+	alias		IsProgram
+	glsalias	IsProgram
+
 
 ###############################################################################
 #
@@ -7928,8 +9136,8 @@ DetachObjectARB(containerObj, attachedObj)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		DetachShader
+	glsalias	DetachShader
 
 CreateShaderObjectARB(shaderType)
 	return		handleARB
@@ -7939,8 +9147,8 @@ CreateShaderObjectARB(shaderType)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		CreateShader
+	glsalias	CreateShader
 
 ShaderSourceARB(shaderObj, count, string, length)
 	return		void
@@ -7953,8 +9161,8 @@ ShaderSourceARB(shaderObj, count, string, length)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		ShaderSource
+	glsalias	ShaderSource
 
 CompileShaderARB(shaderObj)
 	return		void
@@ -7964,8 +9172,8 @@ CompileShaderARB(shaderObj)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		CompileShader
+	glsalias	CompileShader
 
 CreateProgramObjectARB()
 	return		handleARB
@@ -7974,8 +9182,8 @@ CreateProgramObjectARB()
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		CreateProgram
+	glsalias	CreateProgram
 
 AttachObjectARB(containerObj, obj)
 	return		void
@@ -7986,8 +9194,8 @@ AttachObjectARB(containerObj, obj)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		AttachShader
+	glsalias	AttachShader
 
 LinkProgramARB(programObj)
 	return		void
@@ -7997,8 +9205,8 @@ LinkProgramARB(programObj)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		LinkProgram
+	glsalias	LinkProgram
 
 UseProgramObjectARB(programObj)
 	return		void
@@ -8008,8 +9216,8 @@ UseProgramObjectARB(programObj)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		UseProgram
+	glsalias	UseProgram
 
 ValidateProgramARB(programObj)
 	return		void
@@ -8019,8 +9227,8 @@ ValidateProgramARB(programObj)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		ValidateProgram
+	glsalias	ValidateProgram
 
 Uniform1fARB(location, v0)
 	return		void
@@ -8031,8 +9239,8 @@ Uniform1fARB(location, v0)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		Uniform1f
+	glsalias	Uniform1f
 
 Uniform2fARB(location, v0, v1)
 	return		void
@@ -8044,8 +9252,8 @@ Uniform2fARB(location, v0, v1)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		Uniform2f
+	glsalias	Uniform2f
 
 Uniform3fARB(location, v0, v1, v2)
 	return		void
@@ -8058,8 +9266,8 @@ Uniform3fARB(location, v0, v1, v2)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		Uniform3f
+	glsalias	Uniform3f
 
 Uniform4fARB(location, v0, v1, v2, v3)
 	return		void
@@ -8073,8 +9281,8 @@ Uniform4fARB(location, v0, v1, v2, v3)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		Uniform4f
+	glsalias	Uniform4f
 
 Uniform1iARB(location, v0)
 	return		void
@@ -8085,8 +9293,8 @@ Uniform1iARB(location, v0)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		Uniform1i
+	glsalias	Uniform1i
 
 Uniform2iARB(location, v0, v1)
 	return		void
@@ -8098,8 +9306,8 @@ Uniform2iARB(location, v0, v1)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		Uniform2i
+	glsalias	Uniform2i
 
 Uniform3iARB(location, v0, v1, v2)
 	return		void
@@ -8112,8 +9320,8 @@ Uniform3iARB(location, v0, v1, v2)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		Uniform3i
+	glsalias	Uniform3i
 
 Uniform4iARB(location, v0, v1, v2, v3)
 	return		void
@@ -8127,8 +9335,8 @@ Uniform4iARB(location, v0, v1, v2, v3)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		Uniform4i
+	glsalias	Uniform4i
 
 Uniform1fvARB(location, count, value)
 	return		void
@@ -8140,8 +9348,8 @@ Uniform1fvARB(location, count, value)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		Uniform1fv
+	glsalias	Uniform1fv
 
 Uniform2fvARB(location, count, value)
 	return		void
@@ -8153,8 +9361,8 @@ Uniform2fvARB(location, count, value)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		Uniform2fv
+	glsalias	Uniform2fv
 
 Uniform3fvARB(location, count, value)
 	return		void
@@ -8166,8 +9374,8 @@ Uniform3fvARB(location, count, value)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		Uniform3fv
+	glsalias	Uniform3fv
 
 Uniform4fvARB(location, count, value)
 	return		void
@@ -8179,8 +9387,8 @@ Uniform4fvARB(location, count, value)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		Uniform4fv
+	glsalias	Uniform4fv
 
 Uniform1ivARB(location, count, value)
 	return		void
@@ -8192,8 +9400,8 @@ Uniform1ivARB(location, count, value)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		Uniform1iv
+	glsalias	Uniform1iv
 
 Uniform2ivARB(location, count, value)
 	return		void
@@ -8205,8 +9413,8 @@ Uniform2ivARB(location, count, value)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		Uniform2iv
+	glsalias	Uniform2iv
 
 Uniform3ivARB(location, count, value)
 	return		void
@@ -8218,8 +9426,8 @@ Uniform3ivARB(location, count, value)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		Uniform3iv
+	glsalias	Uniform3iv
 
 Uniform4ivARB(location, count, value)
 	return		void
@@ -8231,8 +9439,8 @@ Uniform4ivARB(location, count, value)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		Uniform4iv
+	glsalias	Uniform4iv
 
 UniformMatrix2fvARB(location, count, transpose, value)
 	return		void
@@ -8245,8 +9453,8 @@ UniformMatrix2fvARB(location, count, transpose, value)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		UniformMatrix2fv
+	glsalias	UniformMatrix2fv
 
 UniformMatrix3fvARB(location, count, transpose, value)
 	return		void
@@ -8259,8 +9467,8 @@ UniformMatrix3fvARB(location, count, transpose, value)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		UniformMatrix3fv
+	glsalias	UniformMatrix3fv
 
 UniformMatrix4fvARB(location, count, transpose, value)
 	return		void
@@ -8273,8 +9481,8 @@ UniformMatrix4fvARB(location, count, transpose, value)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		UniformMatrix4fv
+	glsalias	UniformMatrix4fv
 
 GetObjectParameterfvARB(obj, pname, params)
 	return		void
@@ -8334,23 +9542,21 @@ GetAttachedObjectsARB(containerObj, maxCount, count, obj)
 	extension
 	glxsingle	?
 	glxflags	ignore
-	glsflags	get
-	glsopcode	?
-	offset		?
+	alias		GetAttachedShaders
+	glsalias	GetAttachedShaders
 
 GetUniformLocationARB(programObj, name)
 	return		Int32
 	param		programObj	handleARB in value
-	param		name		charARB in array []
+	param		name		String in value
 	category	ARB_shader_objects
 	dlflags		notlistable
 	version		1.2
 	extension
 	glxsingle	?
 	glxflags	ignore
-	glsflags	get
-	glsopcode	?
-	offset		?
+	alias		GetUniformLocation
+	glsalias	GetUniformLocation
 
 GetActiveUniformARB(programObj, index, maxLength, length, size, type, name)
 	return		void
@@ -8360,16 +9566,15 @@ GetActiveUniformARB(programObj, index, maxLength, length, size, type, name)
 	param		length		SizeI out array [1]
 	param		size		Int32 out array [1]
 	param		type		GLenum out array [1]
-	param		name		charARB out array []
+	param		name		StringBuilder in value
 	category	ARB_shader_objects
 	dlflags		notlistable
 	version		1.2
 	extension
 	glxsingle	?
 	glxflags	ignore
-	glsflags	get
-	glsopcode	?
-	offset		?
+	alias		GetActiveUniform
+	glsalias	GetActiveUniform
 
 GetUniformfvARB(programObj, location, params)
 	return		void
@@ -8382,9 +9587,8 @@ GetUniformfvARB(programObj, location, params)
 	extension
 	glxsingle	?
 	glxflags	ignore
-	glsflags	get
-	glsopcode	?
-	offset		?
+	alias		GetUniformfv
+	glsalias	GetUniformfv
 
 GetUniformivARB(programObj, location, params)
 	return		void
@@ -8397,25 +9601,24 @@ GetUniformivARB(programObj, location, params)
 	extension
 	glxsingle	?
 	glxflags	ignore
-	glsflags	get
-	glsopcode	?
-	offset		?
+	alias		GetUniformiv
+	glsalias	GetUniformiv
 
 GetShaderSourceARB(obj, maxLength, length, source)
 	return		void
 	param		obj		handleARB in value
 	param		maxLength	SizeI in value
 	param		length		SizeI out array [1]
-	param		source		charARB out array [length]
+	param		source		StringBuilder in value
 	category	ARB_shader_objects
 	dlflags		notlistable
 	version		1.2
 	extension
 	glxsingle	?
 	glxflags	ignore
-	glsflags	get
-	glsopcode	?
-	offset		?
+	alias		GetShaderSource
+	glsalias	GetShaderSource
+
 
 ###############################################################################
 #
@@ -8428,14 +9631,14 @@ BindAttribLocationARB(programObj, index, name)
 	return		void
 	param		programObj	handleARB in value
 	param		index		UInt32 in value
-	param		name		charARB in array []
+	param		name		String in value
 	category	ARB_vertex_shader
 	version		1.2
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		BindAttribLocation
+	glsalias	BindAttribLocation
 
 GetActiveAttribARB(programObj, index, maxLength, length, size, type, name)
 	return		void
@@ -8445,30 +9648,28 @@ GetActiveAttribARB(programObj, index, maxLength, length, size, type, name)
 	param		length		SizeI out array [1]
 	param		size		Int32 out array [1]
 	param		type		GLenum out array [1]
-	param		name		charARB out array []
+	param		name		StringBuilder in value
 	category	ARB_vertex_shader
 	dlflags		notlistable
 	version		1.2
 	extension
 	glxsingle	?
 	glxflags	ignore
-	glsflags	get
-	glsopcode	?
-	offset		?
+	alias		GetActiveAttrib
+	glsalias	GetActiveAttrib
 
 GetAttribLocationARB(programObj, name)
 	return		Int32
 	param		programObj	handleARB in value
-	param		name		charARB in array []
+	param		name		String in value
 	category	ARB_vertex_shader
 	dlflags		notlistable
 	version		1.2
 	extension
 	glxsingle	?
 	glxflags	ignore
-	glsflags	get
-	glsopcode	?
-	offset		?
+	alias		GetAttribLocation
+	glsalias	GetAttribLocation
 
 ###############################################################################
 #
@@ -8519,6 +9720,84 @@ newcategory: ARB_point_sprite
 
 # (none)
 newcategory: ARB_fragment_program_shadow
+
+###############################################################################
+#
+# ARB Extension #37
+# ARB_draw_buffers commands
+#
+###############################################################################
+
+DrawBuffersARB(n, bufs)
+	return		void
+	param		n		SizeI in value
+	param		bufs		DrawBufferModeATI in array [n]
+	category	ARB_draw_buffers
+	version		1.5
+	extension
+	glxropcode	?
+	glxflags	ignore
+	alias		DrawBuffers
+	glsalias	DrawBuffers
+
+###############################################################################
+#
+# ARB Extension #38
+# ARB_texture_rectangle commands
+#
+###############################################################################
+
+# (none)
+newcategory: ARB_texture_rectangle
+
+###############################################################################
+#
+# ARB Extension #39
+# ARB_color_buffer_float commands
+#
+###############################################################################
+
+ClampColorARB(target, clamp)
+	return		void
+	param		target		ClampColorTargetARB in value
+	param		clamp		ClampColorModeARB in value
+	category	ARB_color_buffer_float
+	version		1.5
+	extension
+	glxropcode	?
+	glxflags	ignore
+	glsopcode	?
+	offset		?
+
+###############################################################################
+#
+# ARB Extension #40
+# ARB_half_float_pixel commands
+#
+###############################################################################
+
+# (none)
+newcategory: ARB_half_float_pixel
+
+###############################################################################
+#
+# ARB Extension #41
+# ARB_texture_float commands
+#
+###############################################################################
+
+# (none)
+newcategory: ARB_texture_float
+
+###############################################################################
+#
+# ARB Extension #42
+# ARB_pixel_buffer_object commands
+#
+###############################################################################
+
+# (none)
+newcategory: ARB_pixel_buffer_object
 
 
 ###############################################################################
@@ -14059,6 +15338,7 @@ DeleteFencesNV(n, fences)
 	dlflags		notlistable
 	version		1.2
 	extension	soft WINSOFT NV10
+	glxvendorpriv	1276
 	glxflags	ignore
 	glsopcode	0x0216
 	offset		647
@@ -14071,6 +15351,7 @@ GenFencesNV(n, fences)
 	dlflags		notlistable
 	version		1.2
 	extension	soft WINSOFT NV10
+	glxvendorpriv	1277
 	glxflags	ignore
 	glsopcode	0x0215
 	offset		648
@@ -14082,6 +15363,7 @@ IsFenceNV(fence)
 	dlflags		notlistable
 	version		1.2
 	extension	soft WINSOFT NV10
+	glxvendorpriv	1278
 	glxflags	ignore
 	glsflags	get
 	glsopcode	0x021A
@@ -14094,6 +15376,7 @@ TestFenceNV(fence)
 	dlflags		notlistable
 	version		1.2
 	extension	soft WINSOFT NV10
+	glxvendorpriv	1279
 	glxflags	ignore
 	glsflags	get
 	glsopcode	0x0218
@@ -14108,6 +15391,7 @@ GetFenceivNV(fence, pname, params)
 	dlflags		notlistable
 	version		1.2
 	extension	soft WINSOFT NV10
+	glxvendorpriv	1280
 	glxflags	ignore
 	glsflags	get
 	glsopcode	0x021B
@@ -14117,9 +15401,12 @@ FinishFenceNV(fence)
 	return		void
 	param		fence		FenceNV in value
 	category	NV_fence
+	dlflags		notlistable
 	version		1.2
 	extension	soft WINSOFT NV10
+	glxvendorpriv	1312
 	glxflags	ignore
+	glsflags	get
 	glsopcode	0x0219
 	offset		652
 
@@ -14558,8 +15845,8 @@ GetVertexAttribdvNV(index, pname, params)
 	glxvendorpriv	1301
 	glsflags	client get
 	glsopcode	0x0232
-	alias		GetVertexAttribdvARB
-	glsalias	GetVertexAttribdvARB
+	alias		GetVertexAttribdv
+	glsalias	GetVertexAttribdv
 
 GetVertexAttribfvNV(index, pname, params)
 	return		void
@@ -14573,8 +15860,8 @@ GetVertexAttribfvNV(index, pname, params)
 	glxvendorpriv	1302
 	glsflags	client get
 	glsopcode	0x0233
-	alias		GetVertexAttribfvARB
-	glsalias	GetVertexAttribfvARB
+	alias		GetVertexAttribfv
+	glsalias	GetVertexAttribfv
 
 GetVertexAttribivNV(index, pname, params)
 	return		void
@@ -14588,8 +15875,8 @@ GetVertexAttribivNV(index, pname, params)
 	glxvendorpriv	1303
 	glsflags	client get
 	glsopcode	0x0234
-	alias		GetVertexAttribivARB
-	glsalias	GetVertexAttribivARB
+	alias		GetVertexAttribiv
+	glsalias	GetVertexAttribiv
 
 GetVertexAttribPointervNV(index, pname, pointer)
 	return		void
@@ -14603,8 +15890,8 @@ GetVertexAttribPointervNV(index, pname, pointer)
 	glxflags	ignore
 	glsflags	client get
 	glsopcode	0x0235
-	alias		GetVertexAttribPointervARB
-	glsalias	GetVertexAttribPointervARB
+	alias		GetVertexAttribPointerv
+	glsalias	GetVertexAttribPointerv
 
 IsProgramNV(id)
 	return		Boolean
@@ -14616,15 +15903,15 @@ IsProgramNV(id)
 	glxvendorpriv	1304
 	glsflags	get
 	glsopcode	0x0236
-	alias		IsProgramARB
-	glsalias	IsProgramARB
+	alias		IsProgram
+	glsalias	IsProgram
 
 LoadProgramNV(target, id, len, program)
 	return		void
 	param		target		VertexAttribEnumNV in value
 	param		id		UInt32 in value
 	param		len		SizeI in value
-	param		program		String in value
+	param		program		charPointerARB in value
 	category	NV_vertex_program
 	version		1.2
 	extension	soft WINSOFT NV10
@@ -14840,8 +16127,8 @@ VertexAttrib1dNV(index, x)
 	version		1.2
 	vectorequiv	VertexAttrib1dvNV
 	extension	soft WINSOFT NV10
-	alias		VertexAttrib1dARB
-	glsalias	VertexAttrib1dARB
+	alias		VertexAttrib1d
+	glsalias	VertexAttrib1d
 
 VertexAttrib1dvNV(index, v)
 	return		void
@@ -14852,8 +16139,8 @@ VertexAttrib1dvNV(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4197
 	glsopcode	0x0240
-	alias		VertexAttrib1dvARB
-	glsalias	VertexAttrib1dvARB
+	alias		VertexAttrib1dv
+	glsalias	VertexAttrib1dv
 
 VertexAttrib1fNV(index, x)
 	return		void
@@ -14863,8 +16150,8 @@ VertexAttrib1fNV(index, x)
 	version		1.2
 	vectorequiv	VertexAttrib1fvNV
 	extension	soft WINSOFT NV10
-	alias		VertexAttrib1fARB
-	glsalias	VertexAttrib1fARB
+	alias		VertexAttrib1f
+	glsalias	VertexAttrib1f
 
 VertexAttrib1fvNV(index, v)
 	return		void
@@ -14875,8 +16162,8 @@ VertexAttrib1fvNV(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4193
 	glsopcode	0x023F
-	alias		VertexAttrib1fvARB
-	glsalias	VertexAttrib1fvARB
+	alias		VertexAttrib1fv
+	glsalias	VertexAttrib1fv
 
 VertexAttrib1sNV(index, x)
 	return		void
@@ -14886,8 +16173,8 @@ VertexAttrib1sNV(index, x)
 	version		1.2
 	vectorequiv	VertexAttrib1svNV
 	extension	soft WINSOFT NV10
-	alias		VertexAttrib1sARB
-	glsalias	VertexAttrib1sARB
+	alias		VertexAttrib1s
+	glsalias	VertexAttrib1s
 
 VertexAttrib1svNV(index, v)
 	return		void
@@ -14898,8 +16185,8 @@ VertexAttrib1svNV(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4189
 	glsopcode	0x023E
-	alias		VertexAttrib1svARB
-	glsalias	VertexAttrib1svARB
+	alias		VertexAttrib1sv
+	glsalias	VertexAttrib1sv
 
 VertexAttrib2dNV(index, x, y)
 	return		void
@@ -14910,8 +16197,8 @@ VertexAttrib2dNV(index, x, y)
 	version		1.2
 	vectorequiv	VertexAttrib2dvNV
 	extension	soft WINSOFT NV10
-	alias		VertexAttrib2dARB
-	glsalias	VertexAttrib2dARB
+	alias		VertexAttrib2d
+	glsalias	VertexAttrib2d
 
 VertexAttrib2dvNV(index, v)
 	return		void
@@ -14922,8 +16209,8 @@ VertexAttrib2dvNV(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4198
 	glsopcode	0x0243
-	alias		VertexAttrib2dvARB
-	glsalias	VertexAttrib2dvARB
+	alias		VertexAttrib2dv
+	glsalias	VertexAttrib2dv
 
 VertexAttrib2fNV(index, x, y)
 	return		void
@@ -14934,8 +16221,8 @@ VertexAttrib2fNV(index, x, y)
 	version		1.2
 	vectorequiv	VertexAttrib2fvNV
 	extension	soft WINSOFT NV10
-	alias		VertexAttrib2fARB
-	glsalias	VertexAttrib2fARB
+	alias		VertexAttrib2f
+	glsalias	VertexAttrib2f
 
 VertexAttrib2fvNV(index, v)
 	return		void
@@ -14946,8 +16233,8 @@ VertexAttrib2fvNV(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4194
 	glsopcode	0x0242
-	alias		VertexAttrib2fvARB
-	glsalias	VertexAttrib2fvARB
+	alias		VertexAttrib2fv
+	glsalias	VertexAttrib2fv
 
 VertexAttrib2sNV(index, x, y)
 	return		void
@@ -14958,8 +16245,8 @@ VertexAttrib2sNV(index, x, y)
 	version		1.2
 	vectorequiv	VertexAttrib2svNV
 	extension	soft WINSOFT NV10
-	alias		VertexAttrib2sARB
-	glsalias	VertexAttrib2sARB
+	alias		VertexAttrib2s
+	glsalias	VertexAttrib2s
 
 VertexAttrib2svNV(index, v)
 	return		void
@@ -14970,8 +16257,8 @@ VertexAttrib2svNV(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4190
 	glsopcode	0x0241
-	alias		VertexAttrib2svARB
-	glsalias	VertexAttrib2svARB
+	alias		VertexAttrib2sv
+	glsalias	VertexAttrib2sv
 
 VertexAttrib3dNV(index, x, y, z)
 	return		void
@@ -14983,8 +16270,8 @@ VertexAttrib3dNV(index, x, y, z)
 	version		1.2
 	vectorequiv	VertexAttrib3dvNV
 	extension	soft WINSOFT NV10
-	alias		VertexAttrib3dARB
-	glsalias	VertexAttrib3dARB
+	alias		VertexAttrib3d
+	glsalias	VertexAttrib3d
 
 VertexAttrib3dvNV(index, v)
 	return		void
@@ -14995,8 +16282,8 @@ VertexAttrib3dvNV(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4199
 	glsopcode	0x0246
-	alias		VertexAttrib3dvARB
-	glsalias	VertexAttrib3dvARB
+	alias		VertexAttrib3dv
+	glsalias	VertexAttrib3dv
 
 VertexAttrib3fNV(index, x, y, z)
 	return		void
@@ -15008,8 +16295,8 @@ VertexAttrib3fNV(index, x, y, z)
 	version		1.2
 	vectorequiv	VertexAttrib3fvNV
 	extension	soft WINSOFT NV10
-	alias		VertexAttrib3fARB
-	glsalias	VertexAttrib3fARB
+	alias		VertexAttrib3f
+	glsalias	VertexAttrib3f
 
 VertexAttrib3fvNV(index, v)
 	return		void
@@ -15020,8 +16307,8 @@ VertexAttrib3fvNV(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4195
 	glsopcode	0x0245
-	alias		VertexAttrib3fvARB
-	glsalias	VertexAttrib3fvARB
+	alias		VertexAttrib3fv
+	glsalias	VertexAttrib3fv
 
 VertexAttrib3sNV(index, x, y, z)
 	return		void
@@ -15033,8 +16320,8 @@ VertexAttrib3sNV(index, x, y, z)
 	version		1.2
 	vectorequiv	VertexAttrib3svNV
 	extension	soft WINSOFT NV10
-	alias		VertexAttrib3sARB
-	glsalias	VertexAttrib3sARB
+	alias		VertexAttrib3s
+	glsalias	VertexAttrib3s
 
 VertexAttrib3svNV(index, v)
 	return		void
@@ -15045,8 +16332,8 @@ VertexAttrib3svNV(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4191
 	glsopcode	0x0244
-	alias		VertexAttrib3svARB
-	glsalias	VertexAttrib3svARB
+	alias		VertexAttrib3sv
+	glsalias	VertexAttrib3sv
 
 VertexAttrib4dNV(index, x, y, z, w)
 	return		void
@@ -15059,8 +16346,8 @@ VertexAttrib4dNV(index, x, y, z, w)
 	version		1.2
 	vectorequiv	VertexAttrib4dvNV
 	extension	soft WINSOFT NV10
-	alias		VertexAttrib4dARB
-	glsalias	VertexAttrib4dARB
+	alias		VertexAttrib4d
+	glsalias	VertexAttrib4d
 
 VertexAttrib4dvNV(index, v)
 	return		void
@@ -15071,8 +16358,8 @@ VertexAttrib4dvNV(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4200
 	glsopcode	0x0249
-	alias		VertexAttrib4dvARB
-	glsalias	VertexAttrib4dvARB
+	alias		VertexAttrib4dv
+	glsalias	VertexAttrib4dv
 
 VertexAttrib4fNV(index, x, y, z, w)
 	return		void
@@ -15085,8 +16372,8 @@ VertexAttrib4fNV(index, x, y, z, w)
 	version		1.2
 	vectorequiv	VertexAttrib4fvNV
 	extension	soft WINSOFT NV10
-	alias		VertexAttrib4fARB
-	glsalias	VertexAttrib4fARB
+	alias		VertexAttrib4f
+	glsalias	VertexAttrib4f
 
 VertexAttrib4fvNV(index, v)
 	return		void
@@ -15097,8 +16384,8 @@ VertexAttrib4fvNV(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4196
 	glsopcode	0x0248
-	alias		VertexAttrib4fvARB
-	glsalias	VertexAttrib4fvARB
+	alias		VertexAttrib4fv
+	glsalias	VertexAttrib4fv
 
 VertexAttrib4sNV(index, x, y, z, w)
 	return		void
@@ -15111,8 +16398,8 @@ VertexAttrib4sNV(index, x, y, z, w)
 	version		1.2
 	vectorequiv	VertexAttrib4svNV
 	extension	soft WINSOFT NV10
-	alias		VertexAttrib4sARB
-	glsalias	VertexAttrib4sARB
+	alias		VertexAttrib4s
+	glsalias	VertexAttrib4s
 
 VertexAttrib4svNV(index, v)
 	return		void
@@ -15123,8 +16410,8 @@ VertexAttrib4svNV(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4192
 	glsopcode	0x0247
-	alias		VertexAttrib4svARB
-	glsalias	VertexAttrib4svARB
+	alias		VertexAttrib4sv
+	glsalias	VertexAttrib4sv
 
 VertexAttrib4ubNV(index, x, y, z, w)
 	return		void
@@ -15137,8 +16424,8 @@ VertexAttrib4ubNV(index, x, y, z, w)
 	version		1.2
 	extension	soft WINSOFT NV10
 	vectorequiv	VertexAttrib4ubvNV
-	alias		VertexAttrib4NubARB
-	glsalias	VertexAttrib4NubARB
+	alias		VertexAttrib4Nub
+	glsalias	VertexAttrib4Nub
 
 VertexAttrib4ubvNV(index, v)
 	return		void
@@ -15149,8 +16436,8 @@ VertexAttrib4ubvNV(index, v)
 	extension	soft WINSOFT NV10
 	glxropcode	4201
 	glsopcode	0x024A
-	alias		VertexAttrib4NubvARB
-	glsalias	VertexAttrib4NubvARB
+	alias		VertexAttrib4Nubv
+	glsalias	VertexAttrib4Nubv
 
 VertexAttribs1dvNV(index, count, v)
 	return		void
@@ -15547,12 +16834,12 @@ SampleMapATI(dst, interp, swizzle)
 ColorFragmentOp1ATI(op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod)
 	return		void
 	param		op		FragmentOpATI in value
-	param		dst		UInt32 in value
-	param		dstMask		UInt32 in value
-	param		dstMod		UInt32 in value
-	param		arg1		UInt32 in value
-	param		arg1Rep		UInt32 in value
-	param		arg1Mod		UInt32 in value
+	param		dst		ATIUint32 in value
+	param		dstMask		ATIUint32 in value
+	param		dstMod		ATIUint32 in value
+	param		arg1		ATIUint32 in value
+	param		arg1Rep		ATIUint32 in value
+	param		arg1Mod		ATIUint32 in value
 	category	ATI_fragment_shader
 	version		1.2
 	extension
@@ -15564,15 +16851,15 @@ ColorFragmentOp1ATI(op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod)
 ColorFragmentOp2ATI(op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod)
 	return		void
 	param		op		FragmentOpATI in value
-	param		dst		UInt32 in value
-	param		dstMask		UInt32 in value
-	param		dstMod		UInt32 in value
-	param		arg1		UInt32 in value
-	param		arg1Rep		UInt32 in value
-	param		arg1Mod		UInt32 in value
-	param		arg2		UInt32 in value
-	param		arg2Rep		UInt32 in value
-	param		arg2Mod		UInt32 in value
+	param		dst		ATIUint32 in value
+	param		dstMask		ATIUint32 in value
+	param		dstMod		ATIUint32 in value
+	param		arg1		ATIUint32 in value
+	param		arg1Rep		ATIUint32 in value
+	param		arg1Mod		ATIUint32 in value
+	param		arg2		ATIUint32 in value
+	param		arg2Rep		ATIUint32 in value
+	param		arg2Mod		ATIUint32 in value
 	category	ATI_fragment_shader
 	version		1.2
 	extension
@@ -15584,18 +16871,18 @@ ColorFragmentOp2ATI(op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2
 ColorFragmentOp3ATI(op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod, arg3, arg3Rep, arg3Mod)
 	return		void
 	param		op		FragmentOpATI in value
-	param		dst		UInt32 in value
-	param		dstMask		UInt32 in value
-	param		dstMod		UInt32 in value
-	param		arg1		UInt32 in value
-	param		arg1Rep		UInt32 in value
-	param		arg1Mod		UInt32 in value
-	param		arg2		UInt32 in value
-	param		arg2Rep		UInt32 in value
-	param		arg2Mod		UInt32 in value
-	param		arg3		UInt32 in value
-	param		arg3Rep		UInt32 in value
-	param		arg3Mod		UInt32 in value
+	param		dst		ATIUint32 in value
+	param		dstMask		ATIUint32 in value
+	param		dstMod		ATIUint32 in value
+	param		arg1		ATIUint32 in value
+	param		arg1Rep		ATIUint32 in value
+	param		arg1Mod		ATIUint32 in value
+	param		arg2		ATIUint32 in value
+	param		arg2Rep		ATIUint32 in value
+	param		arg2Mod		ATIUint32 in value
+	param		arg3		ATIUint32 in value
+	param		arg3Rep		ATIUint32 in value
+	param		arg3Mod		ATIUint32 in value
 	category	ATI_fragment_shader
 	version		1.2
 	extension
@@ -15607,11 +16894,11 @@ ColorFragmentOp3ATI(op, dst, dstMask, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2
 AlphaFragmentOp1ATI(op, dst, dstMod, arg1, arg1Rep, arg1Mod)
 	return		void
 	param		op		FragmentOpATI in value
-	param		dst		UInt32 in value
-	param		dstMod		UInt32 in value
-	param		arg1		UInt32 in value
-	param		arg1Rep		UInt32 in value
-	param		arg1Mod		UInt32 in value
+	param		dst		ATIUint32 in value
+	param		dstMod		ATIUint32 in value
+	param		arg1		ATIUint32 in value
+	param		arg1Rep		ATIUint32 in value
+	param		arg1Mod		ATIUint32 in value
 	category	ATI_fragment_shader
 	version		1.2
 	extension
@@ -15623,14 +16910,14 @@ AlphaFragmentOp1ATI(op, dst, dstMod, arg1, arg1Rep, arg1Mod)
 AlphaFragmentOp2ATI(op, dst, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod)
 	return		void
 	param		op		FragmentOpATI in value
-	param		dst		UInt32 in value
-	param		dstMod		UInt32 in value
-	param		arg1		UInt32 in value
-	param		arg1Rep		UInt32 in value
-	param		arg1Mod		UInt32 in value
-	param		arg2		UInt32 in value
-	param		arg2Rep		UInt32 in value
-	param		arg2Mod		UInt32 in value
+	param		dst		ATIUint32 in value
+	param		dstMod		ATIUint32 in value
+	param		arg1		ATIUint32 in value
+	param		arg1Rep		ATIUint32 in value
+	param		arg1Mod		ATIUint32 in value
+	param		arg2		ATIUint32 in value
+	param		arg2Rep		ATIUint32 in value
+	param		arg2Mod		ATIUint32 in value
 	category	ATI_fragment_shader
 	version		1.2
 	extension
@@ -15642,17 +16929,17 @@ AlphaFragmentOp2ATI(op, dst, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2
 AlphaFragmentOp3ATI(op, dst, dstMod, arg1, arg1Rep, arg1Mod, arg2, arg2Rep, arg2Mod, arg3, arg3Rep, arg3Mod)
 	return		void
 	param		op		FragmentOpATI in value
-	param		dst		UInt32 in value
-	param		dstMod		UInt32 in value
-	param		arg1		UInt32 in value
-	param		arg1Rep		UInt32 in value
-	param		arg1Mod		UInt32 in value
-	param		arg2		UInt32 in value
-	param		arg2Rep		UInt32 in value
-	param		arg2Mod		UInt32 in value
-	param		arg3		UInt32 in value
-	param		arg3Rep		UInt32 in value
-	param		arg3Mod		UInt32 in value
+	param		dst		ATIUint32 in value
+	param		dstMod		ATIUint32 in value
+	param		arg1		ATIUint32 in value
+	param		arg1Rep		ATIUint32 in value
+	param		arg1Mod		ATIUint32 in value
+	param		arg2		ATIUint32 in value
+	param		arg2Rep		ATIUint32 in value
+	param		arg2Mod		ATIUint32 in value
+	param		arg3		ATIUint32 in value
+	param		arg3Rep		ATIUint32 in value
+	param		arg3Mod		ATIUint32 in value
 	category	ATI_fragment_shader
 	version		1.2
 	extension
@@ -17607,15 +18894,18 @@ DrawBuffersATI(n, bufs)
 	version		1.2
 	extension
 	glxropcode	?
-	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		DrawBuffers
+	glsalias	DrawBuffers
 
 ###############################################################################
 #
 # Extension #278 - WGL_ATI_pixel_format_float
 #
 ###############################################################################
+newcategory: ATI_pixel_format_float
+passthru: /* This is really a WGL extension, but defines some associated GL enums.
+passthru:  * ATI does not export "GL_ATI_pixel_format_float" in the GL_EXTENSIONS string.
+passthru:  */
 
 ###############################################################################
 #
@@ -18462,8 +19752,8 @@ StencilOpSeparateATI(face, sfail, dpfail, dppass)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		StencilOpSeparate
+	glsalias	StencilOpSeparate
 
 StencilFuncSeparateATI(frontfunc, backfunc, ref, mask)
 	return		void
@@ -18476,8 +19766,8 @@ StencilFuncSeparateATI(frontfunc, backfunc, ref, mask)
 	extension
 	glxropcode	?
 	glxflags	ignore
-	glsopcode	?
-	offset		?
+	alias		StencilFuncSeparate
+	glsalias	StencilFuncSeparate
 
 ###############################################################################
 #
@@ -18594,13 +19884,13 @@ GetVertexAttribArrayObjectivATI(index, pname, params)
 
 ###############################################################################
 #
-# Extension #295 - OpenGL ES only, not in glext.h
+# Extension #295 - This is an OpenGL ES extension, but also implemented in Mesa
 # OES_read_format commands
 #
 ###############################################################################
 
 # (none)
-# newcategory: OES_read_format
+newcategory: OES_read_format
 
 ###############################################################################
 #
@@ -18657,7 +19947,8 @@ BlendEquationSeparateEXT(modeRGB, modeAlpha)
 	version		1.2
 	extension
 	glxropcode	4228
-	glsopcode	?
+	alias		BlendEquationSeparate
+	glsalias	BlendEquationSeparate
 
 ###############################################################################
 #
@@ -18679,3 +19970,70 @@ newcategory: MESA_pack_invert
 # (none)
 newcategory: MESA_ycbcr_texture
 
+###############################################################################
+#
+# Extension #301
+# MESA_ycbcr_texture commands
+#
+###############################################################################
+
+# (none)
+newcategory: MESA_ycbcr_texture
+
+###############################################################################
+#
+# Extension #302
+# EXT_pixel_buffer_object commands
+#
+###############################################################################
+
+# (none)
+newcategory: EXT_pixel_buffer_object
+
+###############################################################################
+#
+# Extension #303
+# NV_fragment_program_option commands
+#
+###############################################################################
+
+# (none)
+newcategory: NV_fragment_program_option
+
+###############################################################################
+#
+# Extension #304
+# NV_fragment_program2 commands
+#
+###############################################################################
+
+# (none)
+newcategory: NV_fragment_program2
+
+###############################################################################
+#
+# Extension #305
+# NV_vertex_program2_option commands
+#
+###############################################################################
+
+# (none)
+newcategory: NV_vertex_program2_option
+
+###############################################################################
+#
+# Extension #306
+# NV_vertex_program3 commands
+#
+###############################################################################
+
+# (none)
+newcategory: NV_vertex_program3
+
+###############################################################################
+#
+# Extension #307 - GLX_SGIX_hyperpipe commands
+# Extension #308 - GLX_MESA_agp_offset commands
+# Extension #309 - GL_EXT_texture_compression_dxt1 (OpenGL ES only, subset of _st3c version)
+#
+###############################################################################

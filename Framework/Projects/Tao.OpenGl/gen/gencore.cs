@@ -112,8 +112,8 @@ public class GlTypeMap {
               continue;
 
             GlTypeMapEntry tme = new GlTypeMapEntry();
-            tme.type = mapnode.Attributes["type"].Value;
-
+	    if (mapnode.Attributes["type"] != null)
+	      tme.type = mapnode.Attributes["type"].Value;
             if (mapnode.Attributes["if_return"] != null)
               tme.if_return = Convert.ToInt32(mapnode.Attributes["if_return"].Value);
             if (mapnode.Attributes["if_out"] != null)
@@ -262,16 +262,20 @@ public class GlTypeMap {
           if (want_array == 1) {
             if (want_out == 1) {
               // an out array
-              param.nativetypes.Add("out " + target);
-              param.nativetypes.Add("[Out] " + target + " []");
+	      if (target != null) {
+		param.nativetypes.Add("out " + target);
+		param.nativetypes.Add("[Out] " + target + " []");
+	      }
               if (nonclstarget != null) {
                 param.nonclstypes.Add("out " + nonclstarget);
                 param.nonclstypes.Add("[Out] " + nonclstarget + " []");
               }
             } else {
               // an in array
-	      param.nativetypes.Add("ref " + target);
-	      param.nativetypes.Add(target + " []");
+	      if (target != null) {
+		param.nativetypes.Add("ref " + target);
+		param.nativetypes.Add(target + " []");
+	      }
 	      if (nonclstarget != null) {
 		param.nonclstypes.Add("ref " + nonclstarget);
 		param.nonclstypes.Add(nonclstarget + " []");
@@ -280,12 +284,14 @@ public class GlTypeMap {
           } else {
             if (want_out == 1) {
               // an out value
-              param.nativetypes.Add("out " + target);
+	      if (target != null)
+		param.nativetypes.Add("out " + target);
               if (nonclstarget != null)
                 param.nonclstypes.Add("out " + nonclstarget);
             } else {
               // an in value
-              param.nativetypes.Add(target);
+	      if (target != null)
+		param.nativetypes.Add(target);
               if (nonclstarget != null)
                 param.nonclstypes.Add(nonclstarget);
             }
@@ -516,6 +522,7 @@ public class Driver {
       // that we end up with huge sets of overloads --
       // glGetSeparableFilter has 3, so we end up with 33*33*33
       // overloads, plus change: 4913. ouch.
+
       if (fname == "GetSeparableFilterEXT" ||
           fname == "GetSeparableFilter" ||
           fname == "SeparableFilter2DEXT" ||
@@ -566,7 +573,8 @@ public class Driver {
           Output.WriteLine("    [OpenGLExtensionImport(\"GL_{0}\", \"{1}\"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute({2})]", name, fentry, fp.isCLSCompliant ? "true" : "false");
           Output.WriteLine("    public {0} {1} {2} ({3}) {{",
                            doInstance ? "" : "static", frettype, fname, fp.paramString);
-          Output.WriteLine("      throw new NotImplementedException(\"{0}\");", fname);
+          //Output.WriteLine("      throw new NotImplementedException(\"{0}\");", fname);
+          Output.WriteLine("      throw new NotImplementedException();");
           Output.WriteLine("    }");
         }
       }

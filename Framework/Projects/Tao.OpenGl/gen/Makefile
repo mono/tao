@@ -4,13 +4,13 @@
 ## Tao OpenGL binding generation
 ##
 
-#MONO=mono
-#MCS=mcs
-#PYTHON=python
-
-MONO=
-MCS=csc
+MONO=mono
+MCS=mcs
 PYTHON=python
+
+#MONO=
+#MCS=csc
+#PYTHON=python
 
 all: Gl.cs ContextGl.cs
 	cp -f Gl.cs ContextGl.cs ..

@@ -58,6 +58,14 @@
     <mapto language="c#" type="byte" />
   </type>
 
+  <type name="GLhalfARB">
+    <mapto language="c#" type="short" nonclstype="ushort" />
+  </type>
+
+  <type name="GLhalfNV">
+    <mapto language="c#" type="short" nonclstype="ushort" />
+  </type>
+
   <!-- note 'void' with lowercase v -->
   <type name="void">
     <mapto language="c#" type="void" />
@@ -84,6 +92,17 @@
   <!-- only used by one SGIX extension -->
   <type name="IglooParameterSGIX">
     <mapto language="c#" type="IntPtr" />
+  </type>
+
+  <!-- why can't you just use String? -->
+  <type name="Char">
+    <mapto language="c#" if_array="1" type="string" />
+  </type>
+
+  <!-- magic for various *Op[23]ATI functions that use a lot of UInt32 params; we get an explosion
+       of functions without this -->
+  <type name="ATIUint32">
+    <mapto language="c#" type="int" />
   </type>
 
   <!-- misc -->
@@ -115,12 +134,21 @@
   </type>
 
   <type name="charARB">
+    <mapto language="c#" if_array="1" if_out="1" type="IntPtr" />
     <mapto language="c#" if_array="1" type="string" />
   </type>
 
   <type name="charPointerARB">
     <mapto language="c#" if_array="1" type="string" />
     <mapto language="c#" type="string" />
+  </type>
+
+  <type name="CharPointer">
+    <mapto language="c#" if_array="1" type="string[]" />
+  </type>
+
+  <type name="StringBuilder">
+    <mapto language="c#" type="System.Text.StringBuilder" />
   </type>
 
   <!-- GLbyte -->
@@ -212,6 +240,8 @@
   <typealias name="BlendFuncSeparateParameterEXT" mapto="GLenum" />
   <typealias name="BlendingFactorDest" mapto="GLenum" />
   <typealias name="BlendingFactorSrc" mapto="GLenum" />
+  <typealias name="ClampColorModeARB" mapto="GLenum" />
+  <typealias name="ClampColorTargetARB" mapto="GLenum" />
   <typealias name="ClipPlaneName" mapto="GLenum" />
   <typealias name="ColorMaterialParameter" mapto="GLenum" />
   <typealias name="ColorPointerType" mapto="GLenum" />
