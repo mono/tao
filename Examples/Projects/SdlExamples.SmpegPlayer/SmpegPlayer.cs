@@ -46,6 +46,7 @@ SOFTWARE.
 #endregion Original Credits / License
 
 using System;
+using System.Threading;
 using Tao.Sdl;
 using System.Runtime.InteropServices;
 
@@ -66,9 +67,9 @@ namespace SdlExamples
 	#endregion Class Documentation
 	public class SmpegPlayer 
 	{		
-		Smpeg.SMPEG_DisplayCallback callbackDelegate;
+		//Smpeg.SMPEG_DisplayCallback callbackDelegate;
 		IntPtr surfacePtr;
-		int result;
+
 		public void Update(IntPtr surfacePtr2, int x, int y, int w, int h)
 		{
 			Sdl.SDL_UpdateRect(surfacePtr, 0,0,0,0);
@@ -85,8 +86,8 @@ namespace SdlExamples
 			bool quitFlag = false;
 			int flags = (Sdl.SDL_HWSURFACE|Sdl.SDL_DOUBLEBUF|Sdl.SDL_ANYFORMAT);
 			int bpp = 16;
-			int width = 640;
-			int height = 480;
+			int width = 352;
+			int height = 240;
 			
 			Smpeg.SMPEG_Info info = new Smpeg.SMPEG_Info();
 			Sdl.SDL_Quit();
@@ -98,18 +99,25 @@ namespace SdlExamples
 				flags);
 
 			//callbackDelegate = new Smpeg.SMPEG_DisplayCallback(Update);
-			IntPtr intPtr = Smpeg.SMPEG_new("Data/SdlExamples.SmpegPlayer.mpg", out info, 0); 
+			IntPtr intPtr = Smpeg.SMPEG_new("Data/SdlExamples.SmpegPlayer.mpg", out info, 1); 
+			Smpeg.SMPEG_getinfo(intPtr, out info);
+			Console.WriteLine("Time: " + info.total_time.ToString());
+			Console.WriteLine("Width: " + info.width.ToString());
+			Console.WriteLine("Height: " + info.height.ToString());
 			Console.WriteLine("Smpeg_error: " + Smpeg.SMPEG_error(intPtr));
-			//Smpeg.SMPEG_enableaudio(intPtr, 1);
+			Smpeg.SMPEG_enableaudio(intPtr, 0);
 			Smpeg.SMPEG_enablevideo(intPtr, 1);
 			//Smpeg.SMPEG_setvolume(intPtr, 100);
 			Smpeg.SMPEG_setdisplay(intPtr, surfacePtr, IntPtr.Zero, null);
-
 			Smpeg.SMPEG_play(intPtr);
+			int frame = 0;
 
 			while ((Smpeg.SMPEG_status(intPtr) == Smpeg.SMPEG_PLAYING) &&
 				(quitFlag == false))
 			{
+//				Smpeg.SMPEG_renderFrame(intPtr, frame);
+//				Sdl.SDL_UpdateRect(surfacePtr, 0,0,0,0);
+//				frame++;
 				result = Sdl.SDL_PollEvent(out evt);
 
 				if (evt.type == Sdl.SDL_QUIT)

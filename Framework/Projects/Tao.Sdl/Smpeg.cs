@@ -389,7 +389,10 @@ namespace Tao.Sdl {
 		/// initialize the SDL audio
 		/// subsystem. If not, you will have to use the 
 		/// SMPEG_playaudio() function below
-		/// to extract the decoded data.</param>
+		/// to extract the decoded data. Never set this parameter to false (i.e. 0). 
+		/// This will cause the video playback to run very slowly. 
+		/// To disable audio, 
+		/// use the <see cref="SMPEG_enableaudio"/> function.</param>
 		/// <returns>This function returns a new SMPEG object.  
 		/// Use SMPEG_error() to find out whether or not there 
 		/// was a problem building the MPEG stream.</returns>

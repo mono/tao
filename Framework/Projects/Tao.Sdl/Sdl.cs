@@ -9674,7 +9674,7 @@ namespace Tao.Sdl {
 		public static extern void SDL_UnlockYUVOverlay(IntPtr overlay);
 		#endregion void SDL_UnlockYUVOverlay(IntPtr overlay)
 
-		#region int SDL_DisplayYUVOverlay(IntPtr overlay, IntPtr dstrect)
+		#region int SDL_DisplayYUVOverlay(IntPtr overlay, ref SDL_Rect dstrect)
 		/// <summary>
 		/// Blit the overlay to the display.
 		/// </summary>
@@ -9687,14 +9687,14 @@ namespace Tao.Sdl {
 		/// <code>SDL_DisplayYUVOverlay(SDL_Overlay *overlay, SDL_Rect *dstrect)
 		/// </code></p></remarks>
 		/// <param name="overlay">IntPtr to SDL_Overlay</param>
-		/// <param name="dstrect">IntPtr to SDL_Rect</param>
+		/// <param name="dstrect">SDL_Rect</param>
 		/// <returns>Returns 0 on success.</returns>
 		/// <seealso cref="SDL_Overlay"/>
 		/// <seealso cref="SDL_CreateYUVOverlay"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_DisplayYUVOverlay(IntPtr overlay, IntPtr dstrect);
-		#endregion int SDL_DisplayYUVOverlay(IntPtr overlay, IntPtr dstrect)
+		public static extern int SDL_DisplayYUVOverlay(IntPtr overlay, ref SDL_Rect dstrect);
+		#endregion int SDL_DisplayYUVOverlay(IntPtr overlay, ref SDL_Rect dstrect)
 
 		#region void SDL_FreeYUVOverlay(IntPtr overlay)
 		/// <summary>
