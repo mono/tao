@@ -6,6 +6,9 @@
             <sources failonempty="true">
                 <includes name="${framework.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
                 <includes name="${framework.projects.directory}/${nant.project.name}/Sdl.cs" />
+                <includes name="${framework.projects.directory}/${nant.project.name}/SdlImage.cs" />
+                <includes name="${framework.projects.directory}/${nant.project.name}/SdlMixer.cs" />
+                <includes name="${framework.projects.directory}/${nant.project.name}/SdlTtf.cs" />
             </sources>
         </csc>
         <copy file="${framework.solutions.directory}/${nant.project.name}/Solution Items/${nant.project.name}.License.txt" todir="${framework.build.directory}" />
