@@ -85,6 +85,10 @@ namespace Tao.OpenGl {
     [DllImport("libGL.so", EntryPoint="glXGetProcAddress")]
     internal static extern IntPtr glxGetProcAddress(string s);
 
+    // also linux, for our ARB-y friends
+    [DllImport("libGL.so", EntryPoint="glXGetProcAddressARB")]
+    internal static extern IntPtr glxGetProcAddressARB(string s);
+
     // windows
     [DllImport("opengl32.dll", EntryPoint="wglGetProcAddress")]
     internal static extern IntPtr wglGetProcAddress(string s);
@@ -133,6 +137,7 @@ namespace Tao.OpenGl {
       Unknown,
       Windows,
       X11,
+      X11_ARB,
       OSX
     };
 
@@ -166,6 +171,14 @@ namespace Tao.OpenGl {
         } catch (Exception e) {
         }
 
+	// X11 ARB?
+	try {
+	  result = glxGetProcAddressARB(s);
+	  gpaPlatform = GetProcAddressPlatform.X11_ARB;
+	  return result;
+	} catch (Exception e) {
+	}
+
         // Ack!
         throw new NotSupportedException ("Can't figure out how to call GetProcAddress on this platform!");
       } else if (gpaPlatform == GetProcAddressPlatform.Windows) {
@@ -174,6 +187,8 @@ namespace Tao.OpenGl {
         return aglGetProcAddress(s);
       } else if (gpaPlatform == GetProcAddressPlatform.X11) {
         return glxGetProcAddress(s);
+      } else if (gpaPlatform == GetProcAddressPlatform.X11_ARB) {
+	return glxGetProcAddressARB(s);
       }
 
       throw new NotSupportedException ("Shouldn't get here..");
