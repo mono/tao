@@ -341,6 +341,7 @@ namespace Tao.Sdl {
 		/// <summary>
 		/// 
 		/// </summary>
+		[DelegateCallingConventionCdecl]
 		public delegate void ChannelFinishedDelegate(int channel);
 		#endregion void ChannelFinishedDelegate(int channel)
 
@@ -1225,10 +1226,10 @@ namespace Tao.Sdl {
         /// <seealso cref="Mix_HaltChannel"/>
         /// <seealso cref="Mix_ExpireChannel"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
-             CallingConvention=CALLING_CONVENTION),
+			 CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_ChannelFinished(
-            ChannelFinishedDelegate channel_finished);
+			ChannelFinishedDelegate channel_finished);
 		#endregion void Mix_ChannelFinished(ChannelFinishedDelegate channel_finished)
 
 		#region int Mix_RegisterEffect(...)

@@ -12,8 +12,20 @@
                 <include name="${framework.projects.directory}/${nant.project.name}/SdlTtf.cs" />
                 <include name="${framework.projects.directory}/${nant.project.name}/SdlGfx.cs" />
                 <include name="${framework.projects.directory}/${nant.project.name}/Smpeg.cs" />
+                <include name="${framework.projects.directory}/${nant.project.name}/DelegateCallingConventionCdeclAttribute.cs" />
             </sources>
-        </csc>
+	</csc>
+<exec program="ildasm" commandline="${framework.build.directory}/${nant.project.name}.dll /OUT=${framework.build.directory}/${nant.project.name}.il /TEXT" />
+        <exec program="${framework.build.directory}/Tao.PostProcess.exe" commandline="${framework.build.directory}/${nant.project.name}.il ${framework.build.directory}/${nant.project.name}.pp.il /R /Y" />
+        <if propertytrue="build.strong">
+            <exec program="ilasm" commandline="/DLL /RESOURCE=${framework.build.directory}/${nant.project.name}.res /OUTPUT=${framework.build.directory}/${nant.project.name}.dll ${framework.build.directory}/${nant.project.name}.pp.il /KEY=${framework.solutions.directory}/${nant.project.name}/Soluti~1/${nant.project.name}.snk" />
+        </if>
+        <ifnot propertytrue="build.strong">
+            <exec program="ilasm" commandline="/DLL /RESOURCE=${framework.build.directory}/${nant.project.name}.res /OUTPUT=${framework.build.directory}/${nant.project.name}.dll ${framework.build.directory}/${nant.project.name}.pp.il" />
+        </ifnot>
+        <delete file="${framework.build.directory}/${nant.project.name}.il" />
+        <delete file="${framework.build.directory}/${nant.project.name}.pp.il" />
+        <delete file="${framework.build.directory}/${nant.project.name}.res" />
         <copy file="${framework.solutions.directory}/${nant.project.name}/Solution Items/${nant.project.name}.License.txt" todir="${framework.build.directory}" />
         <copy file="${framework.solutions.directory}/${nant.project.name}/Solution Items/${nant.project.name}.Readme.txt" todir="${framework.build.directory}" />
         <copy file="${framework.solutions.directory}/${nant.project.name}/Solution Items/${nant.project.name}.dll.config" todir="${framework.build.directory}" />
