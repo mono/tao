@@ -4531,7 +4531,9 @@ namespace Tao.Sdl {
 		#region SDL_VideoInfo
 		/// <summary>
 		/// Video Target information.
-		/// Useful for determining the video hardware capabilities
+		/// Useful for determining the video hardware capabilities.
+		/// Not finished. The C struct uses a set of bit-fields that need to be marshalled.
+		/// The vfmt IntPtr works and provided useful information.
 		/// </summary>
 		/// <remarks>
 		/// This (read-only) structure is returned by <see cref="SDL_GetVideoInfo"/>. 
@@ -4544,61 +4546,117 @@ namespace Tao.Sdl {
 		public struct SDL_VideoInfo 
 		{
 			/// <summary>
-			/// Is it possible to create hardware surfaces?
+			/// 
 			/// </summary>
-			public int hw_available;
-			/// <summary>
-			/// Is there a window manager available
-			/// </summary>
-			public int wm_available;
+			public byte field1;
+
 			/// <summary>
 			/// 
 			/// </summary>
-			private int UnusedBits1;
-			/// <summary>
-			/// 
-			/// </summary>
-			private int UnusedBits2;
-			/// <summary>
-			/// Are hardware to hardware blits accelerated?
-			/// </summary>
-			public int blit_hw;
-			/// <summary>
-			/// Are hardware to hardware colorkey blits accelerated?
-			/// </summary>
-			public int blit_hw_CC;
-			/// <summary>
-			/// Are hardware to hardware alpha blits accelerated?
-			/// </summary>
-			public int blit_hw_A;
-			/// <summary>
-			/// Are software to hardware blits accelerated?
-			/// </summary>
-			public int blit_sw;
-			/// <summary>
-			/// Are software to hardware colorkey blits accelerated?
-			/// </summary>
-			public int blit_sw_CC;
-			/// <summary>
-			/// Are software to hardware alpha blits accelerated?
-			/// </summary>
-			public int blit_sw_A;
-			/// <summary>
-			/// Are color fills accelerated?
-			/// </summary>
-			public int blit_fill;
-			/// <summary>
-			/// 
-			/// </summary>
-			private int UnusedBits3;
+			public byte field2;
+
 			/// <summary>
 			/// Total amount of video memory in Kilobytes.
 			/// </summary>
 			public int video_mem;
+
 			/// <summary>
 			/// Pixel format of the video device. Pointer to SDL_PixelFormat.
 			/// </summary>
 			public IntPtr vfmt;
+
+			/// <summary>
+			/// Is it possible to create hardware surfaces?
+			/// </summary>
+			public int hw_available
+			{
+				get
+				{
+					return (field1 & 0x01);
+				}
+			}
+
+			/// <summary>
+			/// Is there a window manager available
+			/// </summary>
+			public int wm_available
+			{
+				get
+				{
+					return (field1 & 0x02);
+				}
+			}
+			/// <summary>
+			/// Are hardware to hardware blits accelerated?
+			/// </summary>
+			public int blit_hw
+			{
+				get
+				{
+					return (field2 & 0x02);
+				}
+			}
+			/// <summary>
+			/// Are hardware to hardware colorkey blits accelerated?
+			/// </summary>
+			public int blit_hw_CC
+			{
+				get
+				{
+					return (field2 & 0x04);
+				}
+			}
+
+			/// <summary>
+			/// Are hardware to hardware alpha blits accelerated?
+			/// </summary>
+			public int blit_hw_A
+			{
+				get
+				{
+					return (field2 & 0x08);
+				}
+			}
+			/// <summary>
+			/// Are software to hardware blits accelerated?
+			/// </summary>
+			public int blit_sw
+			{
+				get
+				{
+					return (field2 & 0x10);
+				}
+			}
+			/// <summary>
+			/// Are software to hardware colorkey blits accelerated?
+			/// </summary>
+			public int blit_sw_CC
+			{
+				get
+				{
+					return (field2 & 0x20);
+				}
+			}
+			/// <summary>
+			/// Are software to hardware alpha blits accelerated?
+			/// </summary>
+			public int blit_sw_A
+			{
+				get
+				{
+					return (field2 & 0x40);
+				}
+			}
+			/// <summary>
+			/// Are color fills accelerated?
+			/// </summary>
+			public int blit_fill
+			{
+				get
+				{
+					return (field2 & 0x80);
+				}
+			}
 		}
 		#endregion SDL_VideoInfo
 

@@ -47,6 +47,7 @@ SOFTWARE.
 
 using System;
 using Tao.Sdl;
+using System.Runtime.InteropServices;
 
 namespace SdlExamples 
 {
@@ -132,6 +133,32 @@ namespace SdlExamples
 				result = Sdl.SDL_FillRect(rgbSurfacePtr, ref rect, 0);
 
 				Sdl.SDL_Rect rect2;
+
+				IntPtr videoInfoPointer = Sdl.SDL_GetVideoInfo();
+				if(videoInfoPointer == IntPtr.Zero) 
+				{
+					throw new ApplicationException(string.Format("Video query failed: {0}", Sdl.SDL_GetError()));
+				}
+
+				Sdl.SDL_VideoInfo videoInfo = (Sdl.SDL_VideoInfo)
+					Marshal.PtrToStructure(videoInfoPointer, 
+					typeof(Sdl.SDL_VideoInfo));
+				Console.WriteLine("Hi There");
+
+				Sdl.SDL_PixelFormat pixelFormat = (Sdl.SDL_PixelFormat)
+					Marshal.PtrToStructure(videoInfo.vfmt, 
+					typeof(Sdl.SDL_PixelFormat));
+
+				Console.WriteLine(videoInfo.hw_available);
+				Console.WriteLine(videoInfo.wm_available);
+				Console.WriteLine(videoInfo.blit_hw);
+				Console.WriteLine(videoInfo.blit_hw_CC);
+				Console.WriteLine(videoInfo.blit_hw_A);
+				Console.WriteLine(videoInfo.blit_sw);
+				Console.WriteLine(videoInfo.blit_hw_CC);
+				Console.WriteLine(videoInfo.blit_hw_A);
+				Console.WriteLine(videoInfo.blit_fill);
+				Console.WriteLine(videoInfo.video_mem);
 
 				while (quitFlag == false) 
 				{
