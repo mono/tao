@@ -30,7 +30,14 @@ while 1:
     line = string.split(line)
 
     if line[1] == '=':
-        enumhash[line[0]] = string.atoi(line[2], 0)
+        enumname = line[0]
+        enumtarget = line[2]
+        enumval = 0
+        try:
+            enumval = string.atoi(enumtarget, 0)
+        except:
+            enumval = enumtarget
+        enumhash[enumname] = enumval
 
 # now output
 
@@ -39,8 +46,16 @@ for k in enumhash.keys():
     if GL_PREFIX or string.ascii_letters.find(k[0]) == -1:
         prefix = "GL_"
 
-    if (enumhash[k] < 0):
-        print "    public const int %s = unchecked((int) 0x%08x);" % (prefix + k, enumhash[k])
+    print k
+    
+    val = enumhash[k]
+    while type(val) == str:
+        if val[0:3] == "GL_":
+            val = val[3:]
+        val = enumhash[val]
+
+    if (val < 0):
+        print "    public const int %s = unchecked((int) 0x%08x);" % (prefix + k, val)
     else:
-        print "    public const int %s = 0x%08x;" % (prefix + k, enumhash[k])
+        print "    public const int %s = 0x%08x;" % (prefix + k, val)
 

@@ -10,7 +10,7 @@
 
 MONO=
 MCS=csc
-PYTHON=/cygdrive/c/Python22/python
+PYTHON=python
 
 all: Gl.cs ContextGl.cs
 	cp -f Gl.cs ContextGl.cs ..
@@ -21,8 +21,8 @@ Gl.cs: Gl-pre.cs Gl-enums.cs Gl-mid.cs Gl-funcs.cs Gl-post.cs
 ContextGl.cs: ContextGl-pre.cs ContextGl-funcs.cs Gl-post.cs
 	cat ContextGl-pre.cs ContextGl-funcs.cs Gl-post.cs > ContextGl.cs
 
-Gl-enums.cs: enum.spec sharp-genenums.py
-	$(PYTHON) sharp-genenums.py < enum.spec > Gl-enums.cs
+Gl-enums.cs: enum.spec enumext.spec sharp-genenums.py
+	cat enum.spec enumext.spec | $(PYTHON) sharp-genenums.py > Gl-enums.cs
 
 ContextGl-funcs.cs: gl.xml typemap.xml gencore.exe
 	$(MONO) gencore.exe gl.xml typemap.xml ContextGl-funcs.cs instance
