@@ -59,7 +59,7 @@ namespace Tao.Sdl
 		/// Specifies SDL_gfx.dll for Windows and libSDL_gfx.so for Linux.
 		/// </remarks>
 #if WIN32
-		private const string SDL_GFX_NATIVE_LIBRARY = "sdlgfx.dll";
+		private const string SDL_GFX_NATIVE_LIBRARY = "SDL_gfx.dll";
 #elif LINUX
 private const string SDL_GFX_NATIVE_LIBRARY = "libSDL_gfx.so";
 #endif
