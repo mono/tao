@@ -353,6 +353,7 @@
         <nant buildfile="${examples.projects.directory}/NeHe.Lesson19/NeHe.Lesson19.build" target="build" />
         <nant buildfile="${examples.projects.directory}/NeHe.Lesson20/NeHe.Lesson20.build" target="build" />
         <nant buildfile="${examples.projects.directory}/NeHe.Lesson23/NeHe.Lesson23.build" target="build" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson25/NeHe.Lesson25.build" target="build" />
         <nant buildfile="${examples.projects.directory}/NeHe.Lesson26/NeHe.Lesson26.build" target="build" />
         <nant buildfile="${examples.projects.directory}/NeHe.Lesson34/NeHe.Lesson34.build" target="build" />
     </target>
@@ -507,6 +508,7 @@
         <nant buildfile="${examples.projects.directory}/NeHe.Lesson19/NeHe.Lesson19.build" target="clean" />
         <nant buildfile="${examples.projects.directory}/NeHe.Lesson20/NeHe.Lesson20.build" target="clean" />
         <nant buildfile="${examples.projects.directory}/NeHe.Lesson23/NeHe.Lesson23.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/NeHe.Lesson25/NeHe.Lesson25.build" target="clean" />
         <nant buildfile="${examples.projects.directory}/NeHe.Lesson26/NeHe.Lesson26.build" target="clean" />
         <nant buildfile="${examples.projects.directory}/NeHe.Lesson34/NeHe.Lesson34.build" target="clean" />
     </target>
