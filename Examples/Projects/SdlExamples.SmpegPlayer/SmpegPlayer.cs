@@ -116,6 +116,7 @@ namespace SdlExamples
 			Console.WriteLine("Time: " + info.total_time.ToString());
 			Console.WriteLine("Width: " + info.width.ToString());
 			Console.WriteLine("Height: " + info.height.ToString());
+			Console.WriteLine("Size: " + info.total_size.ToString());
 			Console.WriteLine("Smpeg_error: " + Smpeg.SMPEG_error(intPtr));
 			
 			//Smpeg.SMPEG_actualSpec(intPtr, ref audiofmt); 
@@ -123,6 +124,7 @@ namespace SdlExamples
 			Smpeg.SMPEG_setdisplay(intPtr, surfacePtr, IntPtr.Zero, null);
 			
 			Smpeg.SMPEG_play(intPtr);
+			//Smpeg.SMPEG_loop(intPtr, 1);
 			//Smpeg.SMPEG_enableaudio(intPtr, 1);
 
 			while ((Smpeg.SMPEG_status(intPtr) == Smpeg.SMPEG_PLAYING) &&

@@ -207,11 +207,11 @@ namespace Tao.Sdl {
 			/// </summary>
 			public int has_video;
 			/// <summary>
-			/// 
+			/// Width of movie file
 			/// </summary>
 			public int width;
 			/// <summary>
-			/// 
+			/// Height of movie file
 			/// </summary>
 			public int height;
 			/// <summary>
@@ -236,7 +236,7 @@ namespace Tao.Sdl {
 			/// </summary>
 			public int current_offset;
 			/// <summary>
-			/// 
+			/// Movie file size in bytes
 			/// </summary>
 			public int total_size;
 			/// <summary>
@@ -244,7 +244,7 @@ namespace Tao.Sdl {
 			/// </summary>
 			public double current_time;
 			/// <summary>
-			/// 
+			/// Length of movie file in seconds.
 			/// </summary>
 			public double total_time;
 		}
