@@ -400,12 +400,11 @@ namespace Tao.Sdl {
 		/// Reserved for future use..
 		/// </summary>
 		public const int SDL_EVENT_RESERVED7 = 23;		
-
-		// /// <summary>
-		// /// Events SDL_USEREVENT through SDL_MAXEVENTS-1 are 
-		// /// for your use.
-		// /// </summary>
-		// public const int SDL_USEREVENT = 24;
+//		/// <summary>
+//		/// Events SDL_USEREVENT through SDL_MAXEVENTS-1 are 
+//		/// for your use.
+//		/// </summary>
+//		public const int SDL_USEREVENT = 24;
 
 		/// <summary>
 		/// This last event is only for bounding internal arrays
@@ -8859,7 +8858,7 @@ namespace Tao.Sdl {
 		/// <returns></returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		private static extern IntPtr SDL_LoadBMP_RW(IntPtr src, int freesrc);
+		public static extern IntPtr SDL_LoadBMP_RW(IntPtr src, int freesrc);
 		#endregion IntPtr SDL_LoadBMP_RW(IntPtr src, int freesrc)
 
 		#region IntPtr SDL_LoadBMP(string file)
@@ -9075,7 +9074,7 @@ namespace Tao.Sdl {
 			byte alpha);
 		#endregion int SDL_SetAlpha(IntPtr surface, int flag, byte alpha);
 
-		#region void SDL_SetClipRect(IntPtr surface, IntPtr rect)
+		#region void SDL_SetClipRect(IntPtr surface, ref Sdl_Rect rect)
 		/// <summary>
 		/// Sets the clipping rectangle for a surface.
 		/// </summary>
@@ -9094,16 +9093,16 @@ namespace Tao.Sdl {
 		/// </code></p>
 		/// </remarks>
 		/// <param name="surface">IntPtr to SDL_Surface</param>
-		/// <param name="rect">IntPtr to SDL_Rect</param>
+		/// <param name="rect">SDL_Rect</param>
 		/// <seealso cref="SDL_GetClipRect">SDL_GetClipRect</seealso>
 		/// <seealso cref="SDL_BlitSurface">SDL_BlitSurface</seealso>
 		/// <seealso cref="SDL_Surface">SDL_Surface</seealso>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_SetClipRect(IntPtr surface, IntPtr rect);
-		#endregion void SDL_SetClipRect(IntPtr surface, IntPtr rect)
+		public static extern void SDL_SetClipRect(IntPtr surface, ref SDL_Rect rect);
+		#endregion void SDL_SetClipRect(IntPtr surface, ref SDL_Rect rect)
 		
-		#region void SDL_GetClipRect(IntPtr surface, IntPtr rect)
+		#region void SDL_GetClipRect(IntPtr surface, ref SDL_Rect rect)
 		/// <summary>
 		/// Gets the clipping rectangle for a surface.
 		/// </summary>
@@ -9119,14 +9118,14 @@ namespace Tao.Sdl {
 		/// </code></p>
 		/// </remarks>
 		/// <param name="surface">IntPtr to SDL_Surface</param>
-		/// <param name="rect">IntPtr to SDL_Rect</param>
+		/// <param name="rect">SDL_Rect</param>
 		/// <seealso cref="SDL_SetClipRect">SDL_SetClipRect</seealso>
 		/// <seealso cref="SDL_BlitSurface">SDL_BlitSurface</seealso>
 		/// <seealso cref="SDL_Surface">SDL_Surface</seealso>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_GetClipRect(IntPtr surface, IntPtr rect);
-		#endregion void SDL_GetClipRect(IntPtr surface, IntPtr rect)
+		public static extern void SDL_GetClipRect(IntPtr surface, ref SDL_Rect rect);
+		#endregion void SDL_GetClipRect(IntPtr surface, ref SDL_Rect rect)
 		
 		#region IntPtr SDL_ConvertSurface(IntPtr src, IntPtr fmt, int flags)
 		/// <summary>
