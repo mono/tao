@@ -42,22 +42,16 @@ namespace Tao.Sdl
 		{
 			Sdl.SDL_Quit();
 			int init = Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
-			//this.SmpegSetup();
+			this.SmpegSetup();
 			
 		}
-		private void SmepgSetup()
+		private void SmpegSetup()
 		{
 			surfacePtr = Sdl.SDL_SetVideoMode(
 				width, 
 				height, 
 				bpp, 
 				flags);
-			rect2 = new Sdl.SDL_Rect(
-				0,
-				0,
-				(short) width,
-				(short) height);
-			Sdl.SDL_SetClipRect(surfacePtr, ref rect2);
 		}
 		/// <summary>
 		/// 
@@ -98,6 +92,13 @@ namespace Tao.Sdl
 			Assert.IsFalse(intPtr == IntPtr.Zero);
 			this.Quit();
 		}
+//		public event Smpeg.SMPEG_DisplayCallback callbackEvent;
+//		callbackEvent += new Smpeg.SMPEG_DisplayCallback(
+//		private void Update(IntPtr surfacePtr, int x, int y, int w, int h)
+//		{
+//			Sdl.SDL_Flip(surfacePtr);
+//		}
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -111,8 +112,16 @@ namespace Tao.Sdl
 			IntPtr intPtr = Smpeg.SMPEG_new("test.mpg", out info, 0); 
 			Console.WriteLine("Smpeg_error: " + Smpeg.SMPEG_error(intPtr));
 			Assert.IsFalse(intPtr == IntPtr.Zero);
+			Smpeg.SMPEG_enableaudio(intPtr, 1);
+			Smpeg.SMPEG_enablevideo(intPtr, 1);
+			Smpeg.SMPEG_setvolume(intPtr, 100);
+			Smpeg.SMPEG_setdisplay(intPtr, surfacePtr, IntPtr.Zero, null);
+
 			Smpeg.SMPEG_play(intPtr);
+			//while (Smpeg.SMPEG_status(intPtr) == Smpeg.SMPEG_PLAYING){}
 			Thread.Sleep(sleepTime);
+			Smpeg.SMPEG_stop(intPtr);
+			Smpeg.SMPEG_delete(intPtr);
 			this.Quit();
 		}
 		#endregion smpeg.h
