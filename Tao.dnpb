@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DNPreBuild xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.2.xsd" version="1.2">
+    <Process>Framework\Solutions\Tao.Cg\Tao.Cg.dnpb</Process>
+</DNPreBuild>
