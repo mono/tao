@@ -40,7 +40,6 @@ namespace Tao.Sdl {
 	/// </remarks>
 	#endregion Class Documentation
 	public sealed class Sdl {
-		// --- Fields ---
 		#region Private Constants
 		#region string SDL_NATIVE_LIBRARY
 		/// <summary>
@@ -257,6 +256,36 @@ namespace Tao.Sdl {
 		#endregion SDL_BIG_ENDIAN
 		#endregion SDL_byteorder.h
 		
+		#region SDL_cdrom.h
+		#region SDL_MAX_TRACKS
+		/// <summary>
+		/// The maximum number of CD-ROM tracks on a disk
+		/// </summary>
+		public const int SDL_MAX_TRACKS = 99;
+		#endregion SDL_MAX_TRACKS
+
+		#region SDL_AUDIO_TRACK
+		/// <summary>
+		/// The types of CD-ROM track possible
+		/// </summary>
+		public const int SDL_AUDIO_TRACK = 0x00;
+		#endregion SDL_AUDIO_TRACK
+
+		#region SDL_DATA_TRACK
+		/// <summary>
+		/// The types of CD-ROM track possible
+		/// </summary>
+		public const int SDL_DATA_TRACK = 0x04;
+		#endregion SDL_DATA_TRACK
+
+		#region CD_FPS
+		/// <summary>
+		/// Frames per second.
+		/// </summary>
+		public const int CD_FPS = 75;
+		#endregion CD_FPS
+		#endregion SDL_cdrom.h
+
 		// SDL_copying.h -- none
 		// SDL_cpuinfo.h -- none
 		// SDL_error.h -- none
@@ -527,8 +556,6 @@ namespace Tao.Sdl {
 		#endregion SDL_video.h
 
 		#region NOT_DONE
-
-
 		/// <summary>
 		/// 
 		/// </summary>
@@ -538,25 +565,7 @@ namespace Tao.Sdl {
 		/// </summary>
 		public const int SDLK_F1 = 282;
 		
-		/// <summary>
-		/// The maximum number of CD-ROM tracks on a disk
-		/// </summary>
-		public const int SDL_MAX_TRACKS = 99;
-
-		/// <summary>
-		/// The types of CD-ROM track possible
-		/// </summary>
-		public const int SDL_AUDIO_TRACK = 0x00;
-		/// <summary>
-		/// The types of CD-ROM track possible
-		/// </summary>
-		public const int SDL_DATA_TRACK = 0x04;
-
-		/// <summary>
-		/// Frames per second.
-		/// </summary>
-		public const int CD_FPS = 75;
-
+		
 		
 
 		/// <summary>
@@ -917,6 +926,38 @@ namespace Tao.Sdl {
 		#endregion SDL_audio.h
 
 		// SDL_byteorder.h -- none
+
+		#region SDL_cdrom.h
+		#region CDstatus
+		/// <summary>
+		/// The possible states which a CD-ROM drive can be in.
+		/// </summary>
+		public enum CDstatus 
+		{
+			/// <summary>
+			/// The CD tray is empty.
+			/// </summary>
+			CD_TRAYEMPTY,
+			/// <summary>
+			/// The CD has stopped playing.
+			/// </summary>
+			CD_STOPPED,
+			/// <summary>
+			/// The CD is playing.
+			/// </summary>
+			CD_PLAYING,
+			/// <summary>
+			/// The CD has been paused.
+			/// </summary>
+			CD_PAUSED,
+			/// <summary>
+			/// An error occured while getting the status.
+			/// </summary>
+			CD_ERROR = -1
+		}
+		#endregion CDstatus
+		#endregion SDL_cdrom.h
+
 		// SDL_copying.h -- none
 		// SDL_cpuinfo.h -- none
 		// SDL_error.h -- none
@@ -1053,32 +1094,6 @@ namespace Tao.Sdl {
 		#endregion SDL_video.h
 
 		#region NOT_DONE
-		/// <summary>
-		/// The possible states which a CD-ROM drive can be in.
-		/// </summary>
-		public enum CDStatus 
-		{
-			/// <summary>
-			/// The CD tray is empty.
-			/// </summary>
-			CD_TRAYEMPTY,
-			/// <summary>
-			/// The CD has stopped playing.
-			/// </summary>
-			CD_STOPPED,
-			/// <summary>
-			/// The CD is playing.
-			/// </summary>
-			CD_PLAYING,
-			/// <summary>
-			/// The CD has been paused.
-			/// </summary>
-			CD_PAUSED,
-			/// <summary>
-			/// An error occured while getting the status.
-			/// </summary>
-			CD_ERROR = -1
-		}
 
 		/// <summary>
 		/// Enumeration of valid key mods (possibly OR'd together) 
@@ -2197,11 +2212,11 @@ namespace Tao.Sdl {
 			///                 <description>Signed 8-bit samples</description>
 			///             </item>
 			///             <item>
-			///                 <term><see cref="AUDIO_U16 or AUDIO_U16LSB" /></term>
+			///                 <term><see cref="AUDIO_U16"/> <see cref="AUDIO_U16LSB" /></term>
 			///                 <description>Unsigned 16-bit little-endian samples</description>
 			///             </item>
 			///             <item>
-			///                 <term><see cref="AUDIO_S16 or AUDIO_S16LSB" /></term>
+			///                 <term><see cref="AUDIO_S16"/> <see cref="AUDIO_S16LSB" /></term>
 			///                 <description>Signed 16-bit little-endian samples</description>
 			///             </item>
 			///             <item>
@@ -2391,6 +2406,129 @@ namespace Tao.Sdl {
 		#endregion SDL_audio.h
 
 		// SDL_byteorder.h -- none
+
+		#region SDL_cdrom.h
+		#region SDL_CDtrack
+		/// <summary>
+		/// CD Track Information Structure
+		/// </summary>
+		/// <remarks>
+		/// SDL_CDtrack stores data on each track on a CD, 
+		/// its fields should be pretty self explainatory.
+		/// It is a member a the <see cref="SDL_CD"/> structure.
+		/// <p>Note: Frames can be converted to standard timings.
+		/// There are CD_FPS frames per second, 
+		/// so SDL_CDtrack.length/CD_FPS=length_in_seconds.</p>
+		/// <p>Struct in SDL_cdrom.h
+		/// <code>
+		/// typedef struct{
+		/// Uint8 id;
+		/// Uint8 type;
+		/// Uint32 length;
+		/// Uint32 offset;
+		/// } SDL_CDtrack;
+		/// </code></p>
+		/// </remarks>
+		/// <seealso cref="SDL_CD"/>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_CDtrack 
+		{
+			/// <summary>
+			/// Track number(0-99)
+			/// </summary>
+			public byte id;
+			/// <summary>
+			/// Data or audio track
+			/// </summary>
+			/// <remarks>
+			/// SDL_AUDIO_TRACK or SDL_DATA_TRACK
+			/// </remarks>
+			public byte type;
+			/// <summary>
+			/// Unused
+			/// </summary>
+			public short unused;
+			/// <summary>
+			/// Length, in frames, of this track
+			/// </summary>
+			public int length;
+			/// <summary>
+			/// Offset, in frames, from start of disk
+			/// </summary>
+			public int offset;
+		}
+		#endregion SDL_CDtrack
+
+		#region SDL_CD
+		/// <summary>
+		/// CDROM Drive Information.
+		/// </summary>
+		/// <remarks>
+		/// An SDL_CD structure is returned by <see cref="SDL_CDOpen"/>.
+		///  It represents an
+		///  opened CDROM device and stores information on the layout of the
+		///   tracks on the disc.
+		/// <p>A frame is the base data unit of a CD. CD_FPS frames is equal
+		///  to 1 second of music. SDL provides two macros for converting
+		///   between time and frames: FRAMES_TO_MSF(f, M,S,F) and 
+		///   MSF_TO_FRAMES.</p>
+		/// <p>Struct from SDL_cdrom.h
+		/// <code>
+		/// typedef struct{
+		/// int id;
+		/// CDstatus status;
+		/// int numtracks;
+		/// int cur_track;
+		/// int cur_frame;
+		/// SDL_CDtrack track[SDL_MAX_TRACKS+1];
+		/// } SDL_CD;
+		/// </code></p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// int min, sec, frame;
+		///		int frame_offset;
+		///
+		///		FRAMES_TO_MSF(cdrom-&gt;cur_frame, &amp;min, &amp;sec, &amp;frame);
+		///		printf("Current Position: %d minutes, %d seconds, %d frames\n", min, sec, frame);
+		///
+		///		frame_offset=MSF_TO_FRAMES(min, sec, frame);
+		/// </code>
+		/// </example>
+		/// <seealso cref="SDL_CDOpen"/>
+		/// <seealso cref="SDL_CDtrack"/>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+		public struct SDL_CD 
+		{
+			/// <summary>
+			/// Private drive identifier
+			/// </summary>
+			public int id;
+			/// <summary>
+			/// Current drive <see cref="SDL_CDStatus">status</see>
+			/// </summary>
+			public CDstatus status;
+			/// <summary>
+			/// Number of tracks on the CD
+			/// </summary>
+			public int numtracks;
+			/// <summary>
+			/// Current track
+			/// </summary>
+			public int cur_track;
+			/// <summary>
+			/// Current frame offset within current track
+			/// </summary>
+			public int cur_frame;
+			/// <summary>
+			/// Array of track descriptions. (see <see cref="SDL_CDtrack"/>)
+			/// </summary>
+			[ MarshalAs( UnmanagedType.ByValArray, SizeConst=100 )]
+			public SDL_CDtrack[] track;
+		}
+		#endregion SDL_CD
+		#endregion SDL_cdrom.h
+
 		// SDL_copying.h -- none
 		// SDL_cpuinfo.h -- none
 		// SDL_error.h -- none
@@ -3456,82 +3594,7 @@ namespace Tao.Sdl {
 			public IntPtr msg;
 		}
 		
-		/// <summary>
-		/// CD Track Information Structure
-		/// </summary>
-		/// <remarks>
-		/// SDL_CDtrack stores data on each track on a CD, 
-		/// its fields should be pretty self explainatory.
-		/// It is a member a the SDL_CD structure.
-		/// Note: Frames can be converted to standard timings.
-		/// There are CD_FPS frames per second, 
-		/// so SDL_CDtrack.length/CD_FPS=length_in_seconds.
-		/// </remarks>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_CDtrack {
-			/// <summary>
-			/// Track number(0-99)
-			/// </summary>
-			public Byte id;
-			/// <summary>
-			/// Data or audio track
-			/// </summary>
-			/// <remarks>
-			/// SDL_AUDIO_TRACK or SDL_DATA_TRACK
-			/// </remarks>
-			public Byte type;
-			/// <summary>
-			/// Unused
-			/// </summary>
-			public short unused;
-			/// <summary>
-			/// Length, in frames, of this track
-			/// </summary>
-			public int length;
-			/// <summary>
-			/// Offset, in frames, from start of disk
-			/// </summary>
-			public int offset;
-		}
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <remarks>
-		/// This structure is only current as of the last call 
-		/// to SDL_CDStatus().
-		/// The numtracks, cur_track and cur_frame are only valid 
-		/// if there's a CD in drive.
-		/// </remarks>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_CD {
-			/// <summary>
-			/// Private drive identifier
-			/// </summary>
-			public int id;
-			/// <summary>
-			/// Current drive status
-			/// </summary>
-			public CDStatus status;
-			/// <summary>
-			/// Number of tracks on disk
-			/// </summary>
-			public int numtracks;
-			/// <summary>
-			/// Current track position
-			/// </summary>
-			public int cur_track;
-			/// <summary>
-			/// Current frame offset within current track
-			/// </summary>
-			public int cur_frame;
-			/// <summary>
-			/// 
-			/// </summary>
-			public SDL_CDtrack[] track;
-			//[MarshalAs(UnmanagedType.ByValArray, SizeConst=1200)]
-			//public Byte[] track;
-		}
 		/// <summary>
 		/// 
 		/// </summary>
@@ -3607,7 +3670,7 @@ namespace Tao.Sdl {
 
 		#endregion Private Static Fields
 
-		// --- Constructors & Destructors ---
+		#region Constructors & Destructors
 		#region Sdl()
 		/// <summary>
 		///     Prevents instantiation.
@@ -3616,8 +3679,8 @@ namespace Tao.Sdl {
 		{
 		}
 		#endregion Sdl()
+		#endregion Constructors & Destructors
 
-		// --- Public Delegates ---
 		#region Public Delegates
 		#region SDL_timer.h
 		#region int SDL_TimerCallback(int interval)
@@ -3672,9 +3735,7 @@ namespace Tao.Sdl {
 		
 		#endregion Public Delegates
 
-		// --- Public Externs ---
 		#region Sdl Methods
-
 		#region SDL.h
 		#region int SDL_Init(int flags)
 		/// <summary>
@@ -3989,6 +4050,19 @@ namespace Tao.Sdl {
 		/// <summary>
 		/// Native audio byte ordering
 		/// </summary>
+		/// <remarks>
+		/// <p>Based on code from SDL_audio.h
+		/// <code>
+		/// #if SDL_BYTEORDER == SDL_LIL_ENDIAN
+		/// #define AUDIO_U16SYS	AUDIO_U16LSB
+		/// #define AUDIO_S16SYS	AUDIO_S16LSB
+		/// #else
+		/// #define AUDIO_U16SYS	AUDIO_U16MSB
+		/// #define AUDIO_S16SYS	AUDIO_S16MSB
+		/// #endif
+		/// </code>
+		/// </p>
+		/// </remarks>
 		public static int AUDIO_U16SYS 
 		{
 			get 
@@ -4005,10 +4079,23 @@ namespace Tao.Sdl {
 		}
 		#endregion int AUDIO_U16SYS
 
-		#region AUDIO_S16SYS
+		#region int AUDIO_S16SYS
 		/// <summary>
 		/// Native audio byte ordering
 		/// </summary>
+		/// <remarks>
+		/// <p>Based on code from SDL_audio.h
+		/// <code>
+		/// #if SDL_BYTEORDER == SDL_LIL_ENDIAN
+		/// #define AUDIO_U16SYS	AUDIO_U16LSB
+		/// #define AUDIO_S16SYS	AUDIO_S16LSB
+		/// #else
+		/// #define AUDIO_U16SYS	AUDIO_U16MSB
+		/// #define AUDIO_S16SYS	AUDIO_S16MSB
+		/// #endif
+		/// </code>
+		/// </p>
+		/// </remarks>
 		public static int AUDIO_S16SYS 
 		{
 			get 
@@ -4023,7 +4110,7 @@ namespace Tao.Sdl {
 				}
 			}
 		}
-		#endregion AUDIO_S16SYS
+		#endregion int AUDIO_S16SYS
 
 		#region int SDL_AudioInit(string driver_name)
 		/// <summary>
@@ -4033,6 +4120,10 @@ namespace Tao.Sdl {
 		/// You should normally use 
 		/// <see cref="SDL_Init"/> or <see cref="SDL_InitSubSystem"/>.
 		/// </summary>
+		/// <remarks>
+		/// Binds to C-function call in SDL_audio.h:
+		/// <code>int SDL_AudioInit(const char *driver_name)
+		/// </code></remarks>
 		/// <param name="driver_name">
 		/// </param>
 		/// <returns></returns>
@@ -4048,112 +4139,227 @@ namespace Tao.Sdl {
 		/// have a specific need to specify the audio driver you want to use.
 		/// You should normally use SDL_Init() or SDL_InitSubSystem().
 		/// </summary>
+		/// <remarks>
+		/// Binds to C-function call in SDL_audio.h:
+		/// <code>void SDL_AudioQuit()
+		/// </code></remarks>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_AudioQuit();
 		#endregion void SDL_AudioQuit()
 
-		#region SDL_AudioDriverName( ref string buf, int maxlen)
+		#region string SDL_AudioDriverName(string namebuf, int maxlen)
 		/// <summary>
 		/// This function fills the given character buffer with the name of the
 		/// current audio driver, and returns a pointer to it if the audio
 		///  driver has	been initialized.  
 		/// </summary>
-		/// <returns>It returns NULL if no driver has been initialized.</returns>
-		/// <param name="buf"></param>
+		/// <remarks>
+		/// Binds to C-function call in SDL_audio.h:
+		/// <code>char * SDL_AudioDriverName(char *namebuf, int maxlen)
+		/// </code>
+		/// </remarks>
+		/// <returns>It returns NULL if no driver has been initialized.
+		/// </returns>
+		/// <param name="namebuf"></param>
 		/// <param name="maxlen"></param>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern string SDL_AudioDriverName(
-			ref string buf, int maxlen);
-		#endregion SDL_AudioDriverName( ref string buf, int maxlen)
+			string namebuf, int maxlen);
+		#endregion string SDL_AudioDriverName(string namebuf, int maxlen)
 
+		#region int SDL_OpenAudio(IntPtr desired, IntPtr obtained)
 		/// <summary>
-		/// This function opens the audio device with the desired 
-		/// parameters, and
-		///	returns 0 if successful, placing the actual hardware 
-		/// parameters in the
-		/// structure pointed to by 'obtained'.  
-		/// If 'obtained' is NULL, the audio
-		/// data passed to the callback function will be guaranteed 
-		/// to be in the
-		/// requested format, and will be automatically converted to the 
-		/// hardware
-		/// audio format if necessary.  This function returns -1 if it failed 
-		/// to open the audio device, or couldn't set up the audio thread.
-		/// When filling in the desired audio spec structure,
-		/// 'desired->freq' should be the desired audio frequency in 
-		/// samples-per-second.
-		/// 'desired->format' should be the desired audio format.
-		/// 'desired->samples' is the desired size of the audio buffer,
-		///  in samples.
-		/// This number should be a power of two, and may be adjusted 
-		/// by the audio
-		/// driver to a value more suitable for the hardware. 
-		///  Good values seem to
-		/// range between 512 and 8096 inclusive, depending on the 
-		/// application and
-		/// CPU speed.  Smaller values yield faster response time, 
-		/// but can lead
-		/// to underflow if the application is doing heavy processing and 
-		/// cannot
-		/// fill the audio buffer in time.  A stereo sample consists 
-		/// of both right
-		/// and left channels in LR ordering.
-		/// Note that the number of samples is directly related to 
-		/// time by the
-		/// following formula:  ms = (samples*1000)/freq
-		/// 'desired->size' is the size in bytes of the audio buffer, and is
-		/// calculated by SDL_OpenAudio().
-		/// 'desired->silence' is the value used to set the buffer to silence,
-		/// and is calculated by SDL_OpenAudio().
-		/// 'desired->callback' should be set to a function that will be 
-		/// called
-		/// when the audio device is ready for more data.  
-		/// It is passed a pointer
-		/// to the audio buffer, and the length in bytes of the audio buffer.
-		/// This function usually runs in a separate thread, and so you should
-		/// protect data structures that it accesses by calling SDL_LockAudio()
-		/// and SDL_UnlockAudio() in your code.
-		/// 'desired->userdata' is passed as the first parameter to 
-		/// your callback
-		/// function. The audio device starts out playing silence when
-		///  it's opened, and should be enabled for playing by calling
-		///   SDL_PauseAudio(0) when you are ready
-		/// for your audio callback function to be called.  Since the 
-		/// audio driver
-		/// may modify the requested size of the audio buffer,
-		///  you should allocate
-		///any local mixing buffers after you open the audio device.
+		/// Opens the audio device with the desired parameters.
 		/// </summary>
-		/// <param name="desired"></param>
-		/// <param name="obtained"></param>
+		/// <remarks>
+		/// This function opens the audio device with the desired parameters, 
+		/// and returns 0 if successful, placing the actual hardware 
+		/// parameters in the structure pointed to by obtained. If obtained
+		///  is NULL, the audio data passed to the callback function will 
+		///  be guaranteed to be in the requested format, and will be 
+		///  automatically converted to the hardware audio format if 
+		///  necessary. This function returns -1 if it failed to open
+		///   the audio device, or couldn't set up the audio thread.
+		///   <p>To open the audio device a desired 
+		///   <see cref="SDL_AudioSpec"/> must be created.</p>
+		///   <code>
+		/// SDL_AudioSpec *desired;
+		/// .
+		/// .
+		/// desired = malloc(sizeof(SDL_AudioSpec)); </code>
+		/// <p>You must then fill this structure with 
+		/// your desired audio specifications.</p>
+		/// <p>desired-&gt;freq</p>
+		/// The desired audio frequency in samples-per-second.
+		/// <p>desired-&gt;format</p>
+		/// The desired audio format (see <see cref="SDL_AudioSpec"/>)
+		/// <p>desired-&gt;samples</p>
+		/// The desired size of the audio buffer in samples. 
+		/// This number should be a power of two, and may be adjusted by the
+		///  audio driver to a value more suitable for the hardware. Good
+		///   values seem to range between 512 and 8192 inclusive, depending
+		///    on the application and CPU speed. Smaller values yield faster
+		///     response time, but can lead to underflow if the application
+		///      is doing heavy processing and cannot fill the audio buffer
+		///       in time. A stereo sample consists of both right and left
+		///        channels in LR ordering. Note that the number of samples
+		///         is directly related to time by the following formula: 
+		///         ms = (samples*1000)/freq
+		/// <p>desired-&gt;callback</p>
+		/// This should be set to a function that will be called when the
+		///  audio device is ready for more data. It is passed a pointer 
+		///  to the audio buffer, and the length in bytes of the audio 
+		///  buffer. This function usually runs in a separate thread, and 
+		///  so you should protect data structures that it accesses by 
+		///  calling <see cref="SDL_LockAudio"/> and 
+		///  <see cref="SDL_UnlockAudio"/> in your code. The callback 
+		///  prototype is: 
+		/// <code>
+		/// void callback(void *userdata, Uint8 *stream, int len);
+		/// </code>
+		/// <p>userdata is the pointer stored in userdata field of the
+		///  SDL_AudioSpec. stream is a pointer to the audio buffer you
+		///   want to fill with information and len is the length of the
+		///    audio buffer in bytes.</p>
+		/// <p> desired-&gt;userdata</p>
+		///<p> This pointer is passed as the first parameter to the 
+		///callback function.</p>
+		///<p> SDL_OpenAudio reads these fields from the desired 
+		///SDL_AudioSpec structure pass to the function and attempts to find 
+		///an audio configuration matching your desired. As mentioned above, 
+		///if the obtained parameter is NULL then SDL with convert from your
+		/// desired audio settings to the hardware settings as it plays.</p>
+		///<p>If obtained is NULL then the desired SDL_AudioSpec is your
+		/// working specification, otherwise the obtained SDL_AudioSpec 
+		/// becomes the working specification and the desirec specification
+		///  can be deleted. The data in the working specification is used 
+		///  when building SDL_AudioCVT's for converting loaded data to the
+		///   hardware format.</p>
+		///<p>SDL_OpenAudio calculates the size and silence fields for both 
+		///the desired and obtained specifications. The size field stores 
+		///the total size of the audio buffer in bytes, while the silence
+		/// stores the value used to represent silence in the audio buffer.
+		/// </p>									
+		/// <p>The audio device starts out playing silence when it's opened,
+		/// and should be enabled for playing by calling 
+		/// <see cref="SDL_PauseAudio"/>(0) when you are ready for your 
+		/// audio callback function to be called. Since the audio driver 
+		/// may modify the requested size of the audio buffer, you should
+		///  allocate any local mixing buffers after you open the audio 
+		///  device.</p>
+		///  <p>Binds to C-function call in SDL_audio.h:
+		///  <code>int SDL_OpenAudio(SDL_AudioSpec *desired, SDL_AudioSpec *obtained);
+		///  </code></p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		///
+		/// /* Prototype of our callback function */
+		///		void my_audio_callback(void *userdata, Uint8 *stream, int len);
+		///
+		///		/* Open the audio device */
+		///		SDL_AudioSpec *desired, *obtained;
+		///		SDL_AudioSpec *hardware_spec;
+		///
+		///		/* Allocate a desired SDL_AudioSpec */
+		///		desired = malloc(sizeof(SDL_AudioSpec));
+		///
+		///		/* Allocate space for the obtained SDL_AudioSpec */
+		///		obtained = malloc(sizeof(SDL_AudioSpec));
+		///
+		///		/* 22050Hz - FM Radio quality */
+		///		desired-&gt;freq=22050;
+		///
+		///		/* 16-bit signed audio */
+		///		desired-&gt;format=AUDIO_S16LSB;
+		///
+		///		/* Mono */
+		///		desired-&gt;channels=0;
+		///
+		///	/* Large audio buffer reduces risk of dropouts but 
+		///	increases response time */
+		///		desired-&gt;samples=8192;
+		///
+		///		/* Our callback function */
+		///		desired-&gt;callback=my_audio_callback;
+		///
+		///		desired-&gt;userdata=NULL;
+		///
+		///		/* Open the audio device */
+		///		if ( SDL_OpenAudio(desired, obtained) &lt; 0 )
+		///	{
+		///		fprintf(stderr, "Couldn't open audio: %s\n", SDL_GetError());
+		///		exit(-1);
+		///	}
+		///	/* desired spec is no longer needed */
+		///	free(desired);
+		///	hardware_spec=obtained;
+		///	.
+		///	.
+		///	/* Prepare callback for playing */
+		///	.
+		///	.
+		///	.
+		///	/* Start playing */
+		///	SDL_PauseAudio(0);</code>
+		///</example>
+		/// <param name="desired">IntPtr to SDL_AudioSpec</param>
+		/// <param name="obtained">IntPtr to SDL_AudioSpec</param>
+		/// <seealso cref="SDL_AudioSpec"/>
+		/// <seealso cref="SDL_LockAudio"/>
+		/// <seealso cref="SDL_UnlockAudio"/>
+		/// <seealso cref="SDL_PauseAudio"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_OpenAudio(
 			IntPtr desired, IntPtr obtained);
+		#endregion int SDL_OpenAudio(IntPtr desired, IntPtr obtained)
 
+		#region SDL_audiostatus SDL_GetAudioStatus()
 		/// <summary>
-		/// Get the current audio state
+		/// Get the current audio state.
 		/// </summary>
-		/// <returns></returns>
+		/// <remarks>
+		/// <p>Binds to C-function call in SDL_audio.h:
+		/// <code>SDL_audiostatus SDL_GetAudioStatus(void)
+		/// </code></p>
+		/// </remarks>
+		/// <returns>Returns either SDL_AUDIO_STOPPED, 
+		/// SDL_AUDIO_PAUSED or SDL_AUDIO_PLAYING 
+		/// depending on the current audio state.</returns>
+		/// <seealso cref="SDL_PauseAudio"/>
+		/// <seealso cref="SDL_audiostatus"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern SDL_audiostatus SDL_GetAudioStatus();
+		#endregion SDL_audiostatus SDL_GetAudioStatus()
 
+		#region void SDL_PauseAudio(int pause_on)
 		/// <summary>
-		/// This function pauses and unpauses the audio callback processing.
-		/// It should be called with a parameter of 0 after opening the audio
-		/// device to start playing sound.  
-		/// This is so you can safely initialize
-		/// data for your callback function after opening the audio device.
-		/// Silence will be written to the audio device during the pause.
+		/// Pauses and unpauses the audio callback processing.
 		/// </summary>
+		/// <remarks>
+		/// This function pauses and unpauses the audio callback processing. 
+		/// It should be called with pause_on=0 after opening the audio device 
+		/// to start playing sound. This is so you can safely initialize data 
+		/// for your callback function after opening the audio device. 
+		/// Silence will be written to the audio device during the pause.
+		/// <p>Binds to C-function call in SDL_audio.h:
+		/// <code>void SDL_PauseAudio(int pause_on)
+		/// </code></p>
+		/// </remarks>
 		/// <param name="pause_on"></param>
+		/// <seealso cref="SDL_GetAudioStatus"/>
+		/// <seealso cref="SDL_OpenAudio"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_PauseAudio(int pause_on);
+		#endregion void SDL_PauseAudio(int pause_on)
 
+		//TODO Fix this method
+		#region IntPtr SDL_LoadWAV_RW(...)
 		/// <summary>
 		/// This function loads a WAVE from the data source, 
 		/// automatically freeing
@@ -4161,18 +4367,20 @@ namespace Tao.Sdl {
 		/// For example, to load a WAVE file,
 		/// you could do:
 		///	SDL_LoadWAV_RW(SDL_RWFromFile("sample.wav", "rb"), 1, ...);
-		///
-		/// If this function succeeds, it returns the given SDL_AudioSpec,
+		///	</summary>
+		///	<remarks>If this function succeeds, it returns the given SDL_AudioSpec,
 		/// filled with the audio data format of the wave data, and sets
 		/// 'audio_buf' to a malloc()'d buffer containing the audio data,
 		/// and sets 'audio_len' to the length of that audio buffer, in bytes.
 		/// You need to free the audio buffer with SDL_FreeWAV() when you are 
 		/// done with it.
-		///
-		/// This function returns NULL and sets the SDL error message if the 
+		/// <p>This function returns NULL and sets the SDL error message if the 
 		/// wave file cannot be opened, uses an unknown data format, or is 
-		/// corrupt.  Currently raw and MS-ADPCM WAVE files are supported.
-		/// </summary>
+		/// corrupt.  Currently raw and MS-ADPCM WAVE files are supported.</p>
+		/// <p>Binds to C-function call in SDL_audio.h:
+		/// <code>SDL_AudioSpec * SDL_LoadWAV_RW(SDL_RWops *src, int freesrc, SDL_AudioSpec *spec, Uint8 **audio_buf, Uint32 *audio_len)
+		/// </code>
+		/// </p></remarks>
 		/// <param name="audio_buf"></param>
 		/// <param name="audio_len"></param>
 		/// <param name="freesrc"></param>
@@ -4182,33 +4390,118 @@ namespace Tao.Sdl {
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_LoadWAV_RW(
-			IntPtr src, int freesrc, IntPtr spec, 
-			Byte[] audio_buf, IntPtr audio_len);
+			IntPtr src, int freesrc,  out SDL_AudioSpec spec, 
+			out IntPtr audio_buf, out int audio_len);
+		#endregion IntPtr SDL_LoadWAV_RW(...)
 
-
-		//* Compatibility convenience function -- loads a WAV from a file */
-		//#define SDL_LoadWAV(file, spec, audio_buf, audio_len) \
-		//SDL_LoadWAV_RW(SDL_RWFromFile(file, "rb"),1, spec,audio_buf,audio_len)
-
+		//TODO Fix this method
+		#region IntPtr SDL_LoadWAV(string file, out IntPtr spec, out byte[] audio_buf, out IntPtr audio_len)
 		/// <summary>
-		/// This function frees data previously allocated with SDL_LoadWAV_RW()
+		/// Load a WAVE file.
 		/// </summary>
+		/// <remarks>
+		/// SDL_LoadWAV This function loads a WAVE file into memory.
+		/// <p>If this function succeeds, it returns the given 
+		/// <see cref="SDL_AudioSpec"/>,
+		///  filled with the audio data format of the wave data, and sets 
+		///  audio_buf to a malloc'd buffer containing the audio data, and
+		///   sets audio_len to the length of that audio buffer, in bytes.
+		///    You need to free the audio buffer with 
+		///    <see cref="SDL_FreeWAV"/> when you are done with it.</p>
+		/// <p>This function returns NULL and sets the SDL error message if the
+		///  wave file cannot be opened, uses an unknown data format, or is 
+		///  corrupt. Currently raw, MS-ADPCM and IMA-ADPCM WAVE files are 
+		///  supported.</p>
+		/// <p>Binds to C-function call in SDL_audio.h:
+		/// <code>
+		/// #define SDL_LoadWAV(file, spec, audio_buf, audio_len) 
+		/// SDL_LoadWAV_RW(SDL_RWFromFile(file, "rb"),1, spec,audio_buf,audio_len)
+		/// 
+		/// SDL_AudioSpec *SDL_LoadWAV(const char *file, SDL_AudioSpec *spec, Uint8 **audio_buf, Uint32 *audio_len);
+		/// </code></p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// SDL_AudioSpec wav_spec;
+		///		Uint32 wav_length;
+		///		Uint8 *wav_buffer;
+		///
+		///		/* Load the WAV */
+		///		if( SDL_LoadWAV("test.wav", wav_spec, wav_buffer, wav_length) == NULL )
+		///																			{
+		///		fprintf(stderr, "Could not open test.wav: %s\n", SDL_GetError());
+		///		exit(-1);
+		///	}
+		///	.
+		///	.
+		///	.
+		///	/* Do stuff with the WAV */
+		///	.
+		///	.
+		///	/* Free It */
+		///	SDL_FreeWAV(wav_buffer);
+		///	</code>
+		/// </example>
+		/// <param name="file"></param>
+		/// <param name="spec"></param>
 		/// <param name="audio_buf"></param>
-		/// <returns></returns>
+		/// <param name="audio_len"></param>
+		/// <returns>IntPtr to SDL_AudioApec</returns>
+		/// <seealso cref="SDL_AudioSpec"/>
+		/// <seealso cref="SDL_OpenAudio"/>
+		/// <seealso cref="SDL_FreeWAV"/>
+		public static IntPtr SDL_LoadWAV(string file, out SDL_AudioSpec spec, out IntPtr audio_buf, out int audio_len)
+		{
+				IntPtr result = SDL_LoadWAV_RW(SDL_RWFromFile(file, "rb"), 1, out spec,  out audio_buf, out audio_len);
+			Console.WriteLine("audio_len: " + audio_len.ToString());
+			return result;
+
+		}
+		#endregion IntPtr SDL_LoadWAV(string file, out  spec, out byte[] audio_buf, out IntPtr audio_len)
+
+		#region void SDL_FreeWAV(byte[] audio_buf)
+		/// <summary>
+		/// Frees previously opened WAV data.
+		/// </summary>
+		/// <remarks>
+		/// After a WAVE file has been opened with <see cref="SDL_LoadWAV"/>
+		///  its data can eventually be freed with SDL_FreeWAV. audio_buf is 
+		///  a pointer to the buffer created by SDL_LoadWAV.
+		///  <p>
+		/// <code>
+		/// void SDL_FreeWAV(Uint8 *audio_buf)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="audio_buf"></param>
+		/// <seealso cref="SDL_LoadWAV"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_FreeWAV(IntPtr audio_buf);
+		public static extern void SDL_FreeWAV(ref IntPtr audio_buf);
+		#endregion void SDL_FreeWAV(byte[] audio_buf)
 
+		#region int SDL_BuildAudioCVT(...)
 		/// <summary>
-		/// This function takes a source format and rate and a 
-		/// destination format
-		/// and rate, and initializes the 'cvt' structure with 
-		/// information needed
-		/// by SDL_ConvertAudio() to convert a buffer of audio 
-		/// data from one format
-		/// to the other.
-		/// This function returns 0, or -1 if there was an error.
+		/// Initializes a SDL_AudioCVT structure for conversion
 		/// </summary>
+		/// <remarks>
+		/// Before an <see cref="SDL_AudioCVT"/> structure can be used to 
+		/// convert audio data it must be initialized with source and 
+		/// destination information. 
+		/// <p>src_format and dst_format are the source and destination 
+		/// format of the conversion. (For information on audio formats 
+		/// see <see cref="SDL_AudioSpec"/>). src_channels and dst_channels
+		///  are the number of channels in the source and destination formats.
+		///   Finally, src_rate and dst_rate are the frequency or 
+		///   samples-per-second of the source and destination formats.
+		///    Once again, see <see cref="SDL_AudioSpec"/>.</p>
+		///    <p>
+		/// <code>
+		/// int SDL_BuildAudioCVT(SDL_AudioCVT *cvt, Uint16 src_format, Uint8 src_channels, int src_rate, Uint16 dst_format, Uint8 dst_channels, int dst_rate)
+		/// </code></p>
+		/// </remarks>
+		/// <example>
+		/// See <see cref="SDL_ConvertAudio"/>.
+		/// </example>
 		/// <param name="cvt"></param>
 		/// <param name="src_format"></param>
 		/// <param name="src_channels"></param>
@@ -4216,87 +4509,223 @@ namespace Tao.Sdl {
 		/// <param name="dst_format"></param>
 		/// <param name="dst_channels"></param>
 		/// <param name="dst_rate"></param>
-		/// <returns></returns>
+		/// <returns>
+		/// Returns -1 if the filter could not be built or 1 if it could.
+		/// </returns>
+		/// <seealso cref="SDL_ConvertAudio"/>
+		/// <seealso cref="SDL_AudioCVT"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_BuildAudioCVT(IntPtr cvt,
 			short src_format, Byte src_channels, int src_rate,
 			Byte dst_format, Byte dst_channels, int dst_rate);
+		#endregion int SDL_BuildAudioCVT(...)
 
+		#region int SDL_ConvertAudio(IntPtr cvt)
 		/// <summary>
-		/// Once you have initialized the 'cvt' structure using
-		///  SDL_BuildAudioCVT(),
-		/// created an audio buffer cvt->buf, and filled it with 
-		/// cvt->len bytes of
-		/// audio data in the source format, this function will 
-		/// convert it in-place
-		/// to the desired format.
-		/// The data conversion may expand the size of the audio data, 
-		/// so the buffer
-		/// cvt->buf should be allocated after the cvt structure is 
-		/// initialized by
-		/// SDL_BuildAudioCVT(), and should be cvt->len///cvt->len_mult 
-		/// bytes long.
+		/// Convert audio data to a desired audio format.
 		/// </summary>
-		/// <param name="cvt"></param>
-		/// <returns></returns>
+		/// <remarks>
+		/// SDL_ConvertAudio takes one parameter, cvt, which was previously 
+		/// initialized. Initilizing a <see cref="SDL_AudioCVT"/> is a two 
+		/// step process. First of all, the structure must be passed to 
+		/// <see cref="SDL_BuildAudioCVT"/> along with source and destination 
+		/// format parameters. Secondly, the cvt->buf and cvt->len fields must
+		///  be setup. cvt->buf should point to the audio data and cvt-&gt;len 
+		///  should be set to the length of the audio data in bytes. 
+		///  Remember, the length of the buffer pointed to by buf show be 
+		///  len*len_mult bytes in length.
+		/// <p>Once the SDL_AudioCVTstructure is initilized then we can pass 
+		/// it to SDL_ConvertAudio, which will convert the audio data pointer
+		///  to by cvt->buf. If SDL_ConvertAudio returned 0 then the conversion
+		///   was completed successfully, otherwise -1 is returned.</p>
+		/// <p>If the conversion completed successfully then the converted
+		///  audio data can be read from cvt->buf. The amount of valid, 
+		///  converted, audio data in the buffer is equal to 
+		///  cvt-&gt;len*cvt-&gt;len_ratio.</p>
+		/// <p>
+		/// <code>
+		/// int SDL_ConvertAudio(SDL_AudioCVT *cvt)
+		/// </code></p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// /* Converting some WAV data to hardware format */
+		///		void my_audio_callback(void *userdata, Uint8 *stream, int len);
+		///
+		///		SDL_AudioSpec *desired, *obtained;
+		///		SDL_AudioSpec wav_spec;
+		///		SDL_AudioCVT  wav_cvt;
+		///		Uint32 wav_len;
+		///		Uint8 *wav_buf;
+		///		int ret;
+		///
+		///		/* Allocated audio specs */
+		///		desired = malloc(sizeof(SDL_AudioSpec));
+		///		obtained = malloc(sizeof(SDL_AudioSpec));
+		///
+		///		/* Set desired format */
+		///		desired-&gt;freq=22050;
+		///		desired-&gt;format=AUDIO_S16LSB;
+		///		desired-&gt;samples=8192;
+		///		desired-&gt;callback=my_audio_callback;
+		///		desired-&gt;userdata=NULL;
+		///
+		///		/* Open the audio device */
+		///		if ( SDL_OpenAudio(desired, obtained) &lt; 0 )
+		///	{
+		///		fprintf(stderr, "Couldn't open audio: %s\n", SDL_GetError());
+		///		exit(-1);
+		///	}
+		///       
+		///	free(desired);
+		///
+		///	/* Load the test.wav */
+		///	if( SDL_LoadWAV("test.wav", &amp;wav_spec, &amp;wav_buf, &amp;wav_len) == NULL )
+		///{
+		///	fprintf(stderr, "Could not open test.wav: %s\n", SDL_GetError());
+		///	SDL_CloseAudio();
+		///	free(obtained);
+		///	exit(-1);
+		///                                           
+		///	/* Build AudioCVT */
+		///	ret = SDL_BuildAudioCVT(&amp;wav_cvt,
+		///	wav_spec.format, wav_spec.channels, wav_spec.freq,
+		///	obtained-&gt;format, obtained-&gt;channels, obtained-&gt;freq);
+		///
+		///	/* Check that the convert was built */
+		///	if(ret==-1)
+		///{
+		///	fprintf(stderr, "Couldn't build converter!\n");
+		///	SDL_CloseAudio();
+		///	free(obtained);
+		///	SDL_FreeWAV(wav_buf);
+		///}
+		///
+		///	/* Setup for conversion */
+		///	wav_cvt.buf = malloc(wav_len * wav_cvt.len_mult);
+		///	wav_cvt.len = wav_len;
+		///	memcpy(wav_cvt.buf, wav_buf, wav_len);
+		///
+		///	/* We can delete to original WAV data now */
+		///	SDL_FreeWAV(wav_buf);
+		///
+		///	/* And now we're ready to convert */
+		///	SDL_ConvertAudio(&amp;wav_cvt);
+		///
+		///	/* do whatever */
+		///	.
+		///	.
+		///	.
+		///	.
+		/// </code>
+		/// </example>
+		/// <param name="cvt">
+		/// IntPtr to <see cref="SDL_AudioCVT"/> struct.
+		/// </param>
+		/// <returns>
+		/// If SDL_ConvertAudio returned 0 then the conversion 
+		/// was completed successfully, otherwise -1 is returned.
+		/// </returns>
+		/// <seealso cref="SDL_AudioCVT"/>
+		/// <seealso cref="SDL_BuildAudioCVT"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_ConvertAudio(IntPtr cvt);
+		#endregion int SDL_ConvertAudio(IntPtr cvt)
 
+		#region void SDL_MixAudio(IntPtr dst, IntPtr src, int len, int volume)
 		/// <summary>
-		/// This takes two audio buffers of the playing audio format and mixes
-		/// them, performing addition, volume adjustment, and overflow 
-		/// clipping.
-		/// The volume ranges from 0 - 128, and should be set 
-		/// to SDL_MIX_MAXVOLUME
-		/// for full audio volume.  Note this does not change hardware volume.
-		/// This is provided for convenience -- 
-		/// you can mix your own audio data.
-		/// </summary>		
+		/// Mix audio data.
+		/// </summary>	
+		/// <remarks>
+		/// This function takes two audio buffers of len bytes each of the 
+		/// playing audio format and mixes them, performing addition, 
+		/// volume adjustment, and overflow clipping. The volume ranges
+		///  from 0 to SDL_MIX_MAXVOLUME and should be set to the maximum
+		///   value for full audio volume. Note this does not change hardware
+		///    volume. This is provided for convenience -- you can mix your 
+		///    own audio data.
+		/// <p>Note: Do not use this function for mixing together more than two
+		///  streams of sample data. The output from repeated application of 
+		///  this function may be distorted by clipping, because there is no 
+		///  accumulator with greater range than the input (not to mention this
+		///   being an inefficient way of doing it). Use mixing functions from 
+		///   SDL_mixer, OpenAL, or write your own mixer instead.</p>
+		/// <p>
+		/// <code>
+		/// void SDL_MixAudio(Uint8 *dst, Uint8 *src, Uint32 len, int volume)
+		/// </code></p>
+		/// </remarks>	
 		/// <param name="dst"></param>
 		/// <param name="src"></param>
 		/// <param name="len"></param>
 		/// <param name="volume"></param>
+		/// <seealso cref="SDL_OpenAudio"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_MixAudio(
 			IntPtr dst, IntPtr src, int len, int volume);
+		#endregion void SDL_MixAudio(IntPtr dst, IntPtr src, int len, int volume)
 
+		#region void SDL_LockAudio()
 		/// <summary>
-		/// The lock manipulated by these functions 
-		/// protects the callback function.
-		/// During a LockAudio/UnlockAudio pair, 
-		/// you can be guaranteed that the
-		/// callback function is not running.  
-		/// Do not call these from the callback
-		/// function or you will cause deadlock.
+		/// Lock out the callback function.
 		/// </summary>
+		/// <remarks>
+		/// The lock manipulated by these functions protects the callback 
+		/// function. During a LockAudio period, you can be guaranteed 
+		/// that the callback function is not running. Do not call these 
+		/// from the callback function or you will cause deadlock.
+		/// <p>Binds to C-function call in SDL_audio.h:
+		/// <code>
+		/// void SDL_LockAudio(void);
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <seealso cref="SDL_OpenAudio"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_LockAudio();
+		#endregion void SDL_LockAudio()
 
+		#region void SDL_UnlockAudio()
 		/// <summary>
-		/// The lock manipulated by these functions protects 
-		/// the callback function.
-		/// During a LockAudio/UnlockAudio pair, you can be guaranteed that the
-		/// callback function is not running. 
-		///  Do not call these from the callback
-		/// function or you will cause deadlock.
+		/// Unlock the callback function
 		/// </summary>
+		/// <remarks>
+		/// Unlocks a previous <see cref="SDL_LockAudio"/> call.
+		/// <p>Binds to C-function call in SDL_audio.h:
+		/// <code>
+		/// void SDL_UnlockAudio(void)
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <seealso cref="SDL_OpenAudio"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_UnlockAudio();
+		#endregion void SDL_UnlockAudio()
 
+		#region void SDL_CloseAudio()
 		/// <summary>
-		/// This function shuts down audio processing and 
-		/// closes the audio device.
+		/// Shuts down audio processing and closes the audio device.
 		/// </summary>
+		/// <remarks>
+		/// This function shuts down audio processing and closes the audio 
+		/// device.
+		/// <p>Binds to C-function call in SDL_audio.h:
+		/// <code>
+		/// void SDL_CloseAudio(void)
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <seealso cref="SDL_OpenAudio"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_CloseAudio();
+		#endregion void SDL_CloseAudio()
 		#endregion SDL_audio.h
-
 
 		#region SDL_byteorder.h
 		#region int SDL_BYTEORDER
@@ -4323,7 +4752,421 @@ namespace Tao.Sdl {
 		#endregion int SDL_BYTEORDER
 		#endregion SDL_byteorder.h
 
-		// SDL_cdrom.h -- reorg
+		#region SDL_cdrom.h
+		#region int CD_INDRIVE(CDstatus status)
+		/// <summary>
+		/// Given a status, returns true if there's a disk in the drive.
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-macro call in SDL_cdrom.h:
+		/// <code>#define CD_INDRIVE(status)	((int)status > 0)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="status"></param>
+		/// <returns>Returns 1 if true and 0 if false</returns>
+		/// <seealso cref="CDstatus"/>
+		public static int CD_INDRIVE(CDstatus status)
+		{
+			if ((int) status > 0)
+			{
+				return 1;
+			}
+			else
+			{
+				return 0;
+			}
+		}
+		#endregion int CD_INDRIVE(CDstatus status)
+
+		#region void FRAMES_TO_MSF(int frames, int M, int S, int F)
+		/// <summary>
+		/// Conversion function from frames to Minute/Second/Frames.
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-macro call in SDL_cdrom.h:
+		/// <code>#define FRAMES_TO_MSF(f, M,S,F)	{
+		/// int value = f;							
+		///		*(F) = value%CD_FPS;						
+		///		value /= CD_FPS;						
+		///		*(S) = value%60;						
+		///		value /= 60;							
+		///		*(M) = value;							
+		///	}
+		/// </code></p>
+		/// </remarks>
+		/// <param name="frames">Frames</param>
+		/// <param name="M">Minutes</param>
+		/// <param name="S">Seconds</param>
+		/// <param name="F">Frames (remainder)</param>
+		/// <seealso cref="CD_FPS"/>
+		public static void FRAMES_TO_MSF(int frames, out int M, out int S, out int F)
+		{
+			F = 0;
+			S = 0;
+			M = 0;
+			if (frames != 0)
+			{
+				F = frames%CD_FPS;
+				frames /= CD_FPS;
+				S = frames%60;
+				frames /= 60;
+				M = frames;
+			}
+		}
+		#endregion void FRAMES_TO_MSF(int frames, int M, int S, int F)
+
+		#region int MSF_TO_FRAMES(int M, int S, int F)
+		/// <summary>
+		/// Conversion function from Minute/Second/Frames to frames.
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-macro call in SDL_cdrom.h:
+		/// <code>#define MSF_TO_FRAMES(M, S, F)	((M)*60*CD_FPS+(S)*CD_FPS+(F))
+		/// </code></p>
+		/// </remarks>
+		/// <param name="M">Minutes</param>
+		/// <param name="S">Seconds</param>
+		/// <param name="F">Frames</param>
+		/// <seealso cref="CD_FPS"/>
+		public static int MSF_TO_FRAMES(int M, int S, int F)
+		{
+				return (M * 60 * CD_FPS) + (S * CD_FPS) + F;
+		}
+		#endregion int MSF_TO_FRAMES(int M, int S, int F)
+
+		#region int SDL_CDNumDrives()
+		/// <summary>
+		/// Returns the number of CD-ROM drives on the 
+		/// system.
+		/// </summary>
+		/// <remarks>
+		/// Returns the number of CD-ROM drives on the system, 
+		/// or -1 if SDL_Init() has not been called with the SDL_INIT_CDROM 
+		/// flag.
+		/// <p>Binds to C-function call in SDL_cdrom.h:
+		/// <code>int SDL_CDNumDrives(void)
+		/// </code></p>
+		/// </remarks>
+		/// <returns>Returns the number of CD-ROM drives on the system, 
+		/// or -1 if SDL_Init() has not been called with the SDL_INIT_CDROM 
+		/// flag.
+		/// </returns>
+		/// <seealso cref="SDL_CDOpen"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_CDNumDrives();
+		#endregion int SDL_CDNumDrives()
+
+		#region string SDL_CDName(int drive)
+		/// <summary>
+		/// Returns a human-readable, system-dependent identifier for the 
+		/// CD-ROM.
+		/// </summary>
+		/// <remarks>
+		/// Drive is the index of the drive. Drive indices start to 0 and end 
+		/// at SDL_CDNumDrives()-1.
+		/// <p>Binds to C-function in SDL_cdrom.h
+		/// <code>const char *SDL_CDName(int drive);
+		/// </code></p>
+		/// </remarks>
+		/// <example>
+		/// Example:
+		/// "/dev/cdrom"
+		/// "E:"
+		/// "/dev/disk/ide/1/master"
+		/// </example>
+		/// <param name="drive"></param>
+		/// <returns>
+		/// Returns a human-readable, system-dependent identifier for the 
+		/// CD-ROM.
+		/// </returns>
+		/// <seealso cref="SDL_CDNumDrives"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern string SDL_CDName(int drive);
+		#endregion string SDL_CDName(int drive)
+
+		#region IntPtr SDL_CDOpen(int drive)
+		/// <summary>
+		/// Opens a CD-ROM drive for access.
+		/// </summary>
+		/// <remarks>
+		/// Opens a CD-ROM drive for access. It returns a 
+		/// <see cref="SDL_CD"/> structure
+		///  on success, or NULL if the drive was invalid or busy. This 
+		///  newly opened CD-ROM becomes the default CD used when other 
+		///  CD functions are passed a NULL CD-ROM handle. 
+		/// <p>Drives are numbered starting with 0. Drive 0 is the system
+		///  default CD-ROM.</p>
+		///  <p>Binds to C-function in SDL_cdrom.h
+		///  <code>SDL_CD *SDL_CDOpen(int drive)
+		///  </code></p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// SDL_CD *cdrom;
+		///		int cur_track;
+		///		int min, sec, frame;
+		///		SDL_Init(SDL_INIT_CDROM);
+		///		atexit(SDL_Quit);
+		///
+		///		/* Check for CD drives */
+		///		if(!SDL_CDNumDrives())
+		///			{
+		///		/* None found */
+		///		fprintf(stderr, "No CDROM devices available\n");
+		///		exit(-1);
+		///	}
+		///
+		///	/* Open the default drive */
+		///	cdrom=SDL_CDOpen(0);
+		///
+		///	/* Did if open? Check if cdrom is NULL */
+		///	if(!cdrom)
+		///{
+		///	fprintf(stderr, "Couldn't open drive: %s\n", SDL_GetError());
+		///	exit(-1);
+		///}
+		///
+		///	/* Print Volume info */
+		///	printf("Name: %s\n", SDL_CDName(0));
+		///	printf("Tracks: %d\n", cdrom->numtracks);
+		///	for(cur_track=0;cur_track &lt; cdrom-&gt;numtracks; cur_track++)
+		///{
+		///	FRAMES_TO_MSF(cdrom->track[cur_track].length, &amp;min, &amp;sec, &amp;frame);
+		///	printf("\tTrack %d: Length %d:%d\n", cur_track, min, sec);
+		///}
+		///
+		///SDL_CDClose(cdrom);
+		///</code>
+		/// </example>
+		/// <param name="drive"></param>
+		/// <returns>It returns a SDL_CD structure
+		///  on success, or NULL if the drive was invalid or busy.
+		///  </returns>
+		///  <seealso cref="SDL_CD"/>
+		///  <seealso cref="SDL_CDtrack"/>
+		///  <seealso cref="SDL_CDClose"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_CDOpen(int drive);
+		#endregion IntPtr SDL_CDOpen(int drive)
+
+		#region CDstatus SDL_CDStatus(ref SDL_CD cdrom)
+		/// <summary>
+		/// This function returns the current status of the given drive.
+		/// </summary>
+		/// <remarks>
+		/// If the drive has a CD in it, 
+		/// the table of contents of the CD and current play position 
+		/// of the CD will be stored in the SDL_CD structure.
+		/// <p>
+		/// The macro CD_INDRIVE is provided for convenience, 
+		/// and given a status returns true if there's a disk 
+		/// in the drive.</p>
+		/// <p>Note: SDL_CDStatus also updates the <see cref="SDL_CD"/> 
+		/// structure passed to it.</p>
+		/// <p>Binds to C-function in SDL_cdrom.h
+		/// <code>CDstatus SDL_CDStatus(SDL_CD *cdrom);
+		/// </code></p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// int playTrack(int track)
+		///	{
+		///		int playing = 0;
+		///
+		///		if ( CD_INDRIVE(SDL_CDStatus(cdrom)) ) 
+		///	{
+		///		/* clamp to the actual number of tracks on the CD */
+		///		if (track >= cdrom->numtracks) 
+		///	{
+		///		track = cdrom->numtracks-1;
+		///	}
+		///
+		///	if ( SDL_CDPlayTracks(cdrom, track, 0, 1, 0) == 0 ) 
+		///{
+		///	playing = 1;
+		///}
+		///}
+		///return playing;
+		///}
+		///</code>
+		/// </example>
+		/// <param name="cdrom"></param>
+		/// <returns></returns>
+		/// <seealso cref="SDL_CD"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), 
+		SuppressUnmanagedCodeSecurity]
+		public static extern CDstatus SDL_CDStatus(ref SDL_CD cdrom);
+		#endregion CDstatus SDL_CDStatus(ref SDL_CD cdrom)
+
+		#region int SDL_CDPlay(ref SDL_CD cdrom, int start, int length)
+		/// <summary>
+		/// Play a CD. 
+		/// </summary>
+		/// <remarks>
+		/// Plays the given cdrom, starting a frame start for length frames.
+		/// <p>Binds to C-function in SDL_cdrom.h
+		/// <code>int SDL_CDPlay(SDL_CD *cdrom, int start, int length)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="cdrom"></param>
+		/// <param name="start"></param>
+		/// <param name="length"></param>
+		/// <returns>It returns 0, or -1 if there was an error.</returns>
+		/// <seealso cref="SDL_CDPlayTracks"/>
+		/// <seealso cref="SDL_CDStop"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_CDPlay(ref SDL_CD cdrom, int start, 
+			int length);
+		#endregion int SDL_CDPlay(ref SDL_CD cdrom, int start, int length)
+
+		#region int SDL_CDPlayTracks(...)
+		/// <summary>
+		/// Play the given CD track(s).
+		/// </summary>
+		/// <remarks>
+		/// SDL_CDPlayTracks plays the given CD starting at track start_track,
+		///  for ntracks tracks. 
+		/// <p>start_frame is the frame offset, from the beginning of the 
+		/// start_track, at which to start. nframes is the frame offset, 
+		/// from the beginning of the last track (start_track+ntracks), at
+		///  which to end playing.</p>
+		/// <p>SDL_CDPlayTracks should only be called after calling 
+		/// <see cref="SDL_CDStatus"/> to get track information about 
+		/// the CD.</p>
+		/// <p>Note: Data tracks are ignored.</p>
+		/// <p>Binds to C-function in SDL_cdrom.h
+		/// <code>int SDL_CDPlayTracks(SDL_CD *cdrom, int start_track, int start_frame, int ntracks, int nframes))
+		/// </code></p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		///		/* assuming cdrom is a previously opened device */
+		///		/* Play the entire CD */
+		///		if(CD_INDRIVE(SDL_CDStatus(cdrom)))
+		///		SDL_CDPlayTracks(cdrom, 0, 0, 0, 0);
+		///
+		///		/* Play the first track */
+		///		if(CD_INDRIVE(SDL_CDStatus(cdrom)))
+		///		SDL_CDPlayTracks(cdrom, 0, 0, 1, 0);
+		///
+		///		/* Play first 15 seconds of the 2nd track */
+		///		if(CD_INDRIVE(SDL_CDStatus(cdrom)))
+		///		SDL_CDPlayTracks(cdrom, 1, 0, 0, CD_FPS*15);
+		///	</code>
+		/// </example>
+		/// <param name="cdrom"></param>
+		/// <param name="start_track"></param>
+		/// <param name="start_frame"></param>
+		/// <param name="ntracks"></param>
+		/// <param name="nframes"></param>
+		/// <returns>Returns 0, or -1 if there was an error.</returns>
+		/// <seealso cref="SDL_CDPlay"/>
+		/// <seealso cref="SDL_CDStatus"/>
+		/// <seealso cref="SDL_CD"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_CDPlayTracks(ref SDL_CD cdrom, 
+			int start_track, int start_frame, int ntracks, 
+			int nframes);
+		#endregion int SDL_CDPlayTracks(...)
+
+		#region int SDL_CDPause(ref SDL_CD cdrom)
+		/// <summary>
+		/// Pauses a CDROM.
+		/// </summary>
+		/// <remarks>
+		/// Pauses play on the given cdrom.
+		/// <p>Binds to C-function in SDL_cdrom.h
+		/// <code>int SDL_CDPause(SDL_CD *cdrom)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="cdrom"></param>
+		/// <returns>Returns 0, or -1 on error.</returns>
+		/// <seealso cref="SDL_CDPlay"/>
+		/// <seealso cref="SDL_CDResume"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_CDPause(ref SDL_CD cdrom);
+		#endregion int SDL_CDPause(ref SDL_CD cdrom)
+
+		#region int SDL_CDResume(ref SDL_CD cdrom)
+		/// <summary>
+		/// Resumes a CDROM.
+		/// </summary>
+		/// <remarks>
+		/// Resumes play on the given cdrom.
+		/// <p>Binds to C-function in SDL_cdrom.h
+		/// <code>int SDL_CDResume(SDL_CD *cdrom)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="cdrom"></param>
+		/// <seealso cref="SDL_CDPlay"/>
+		/// <seealso cref="SDL_CDPause"/>
+		/// <returns>Returns 0, or -1 on error.</returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_CDResume(ref SDL_CD cdrom);
+		#endregion int SDL_CDResume(ref SDL_CD cdrom)
+
+		#region int SDL_CDStop(ref SDL_CD cdrom)
+		/// <summary>
+		/// Stops a CDROM.
+		/// </summary>
+		/// <remarks>
+		/// Stops play on the given cdrom.
+		/// <p>Binds to C-function in SDL_cdrom.h
+		/// <code>int SDL_CDStop(SDL_CD *cdrom)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="cdrom"></param>
+		/// <returns>Returns 0, or -1 on error.</returns>
+		/// <seealso cref="SDL_CDPlay"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_CDStop(ref SDL_CD cdrom);
+		#endregion int SDL_CDStop(ref SDL_CD cdrom)
+
+		#region int SDL_CDEject(ref SDL_CD cdrom)
+		/// <summary>
+		/// Ejects a CDROM.
+		/// </summary>
+		/// <remarks>
+		/// Ejects the given cdrom.
+		/// <p>Binds to C-function in SDL_cdrom.h
+		/// <code>int SDL_CDEject(SDL_CD *cdrom)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="cdrom"></param>
+		/// <returns>Returns 0, or -1 on error.</returns>
+		/// <seealso cref="SDL_CD"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_CDEject(ref SDL_CD cdrom);
+		#endregion int SDL_CDEject(ref SDL_CD cdrom)
+
+		#region int SDL_CDClose(ref SDL_CD cdrom)
+		/// <summary>
+		/// Closes a SDL_CD handle.
+		/// </summary>
+		/// <remarks>
+		/// Closes the given cdrom handle.
+		/// <p>Binds to C-function in SDL_cdrom.h
+		/// <code>void SDL_CDClose(SDL_CD *cdrom);
+		/// </code></p>
+		/// </remarks>
+		/// <param name="cdrom"></param>
+		/// <seealso cref="SDL_CDOpen"/>
+		/// <seealso cref="SDL_CD"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_CDClose(ref SDL_CD cdrom);
+		#endregion int SDL_CDClose(ref SDL_CD cdrom)
+		#endregion SDL_cdrom.h
+
 		// SDL_copying.h -- none
 
 		#region SDL_cpuinfo.h
@@ -4531,7 +5374,7 @@ namespace Tao.Sdl {
 		#region SDL_rwops.h
 		// This a is bare-minimum implementation. 
 		// More bindings may be needed in the future
-		#region IntPtr SDL_RWFromFile(String file, String mode)
+		#region IntPtr SDL_RWFromFile(string file, string mode)
 		/// <summary>
 		/// Create SDL_RWops structures from file.
 		/// </summary>
@@ -4545,8 +5388,8 @@ namespace Tao.Sdl {
 		/// <returns>IntPtr to SDL_RWops</returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern IntPtr SDL_RWFromFile(String file, String mode);
-		#endregion IntPtr SDL_RWFromFile(String file, String mode)
+		public static extern IntPtr SDL_RWFromFile(string file, string mode);
+		#endregion IntPtr SDL_RWFromFile(string file, string mode)
 
 		#region IntPtr SDL_RWFromMem(byte[] mem, int size)
 		/// <summary>
@@ -4972,7 +5815,7 @@ namespace Tao.Sdl {
 		/// For instance, if you pass SDL_HWSURFACE as a flag only modes that 
 		/// support hardware video surfaces will be returned.
 		/// <p>Binds to C-function call in SDL_video.h:
-		///     <code>extern DECLSPEC SDL_Rect ** SDLCALL SDL_ListModes(SDL_PixelFormat *format, Uint32 flags)</code>
+		/// <code>extern DECLSPEC SDL_Rect ** SDLCALL SDL_ListModes(SDL_PixelFormat *format, Uint32 flags)</code>
 		///     </p>
 		/// </remarks> 
 		/// <param name="format"></param> 
@@ -7316,189 +8159,6 @@ namespace Tao.Sdl {
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_JoystickClose(IntPtr joystick);
-		
-		
-		
- 
-		// CD-Rom
-		/// <summary>
-		/// SDL_CDNumDrives -- Returns the number of CD-ROM drives on the 
-		/// system.
-		/// </summary>
-		/// <remarks>
-		/// Returns the number of CD-ROM drives on the system, 
-		/// or -1 if SDL_Init() has not been called with the SDL_INIT_CDROM 
-		/// flag.
-		/// </remarks>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_CDNumDrives();
-
-		/// <summary>
-		/// Returns a human-readable, system-dependent identifier for the 
-		/// CD-ROM.
-		/// </summary>
-		/// <remarks>
-		/// Drive is the index of the drive. Drive indices start to 0 and end 
-		/// at SDL_CDNumDrives()-1.
-		/// Example:
-		/// "/dev/cdrom"
-		/// "E:"
-		/// "/dev/disk/ide/1/master"
-		/// </remarks>
-		/// <param name="drive"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern string SDL_CDName(int drive);
-
-		/// <summary>
-		/// Opens a CD-ROM drive for access.  
-		/// It returns a drive handle on success,
-		/// or NULL if the drive was invalid or busy.  
-		/// This newly opened CD-ROM becomes the default CD 
-		/// used when other CD functions are passed a NULL CD-ROM handle.
-		/// </summary>
-		/// <remarks>
-		/// Drives are numbered starting with 0.  Drive 0 is the system 
-		/// default CD-ROM.
-		/// Opens a CD-ROM drive for access. It returns a SDL_CD structure 
-		/// on success, 
-		/// or NULL if the drive was invalid or busy. 
-		/// This newly opened CD-ROM becomes the default CD used 
-		/// when other CD functions are passed a NULL CD-ROM handle.
-		/// </remarks>
-		/// <param name="drive"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern IntPtr SDL_CDOpen(int drive);
-
-		/// <summary>
-		/// This function returns the current status of the given drive.
-		/// </summary>
-		/// <remarks>
-		/// If the drive has a CD in it, 
-		/// the table of contents of the CD and current play position 
-		/// of the CD will be stored in the SDL_CD structure.
-		/// </remarks>
-		/// <param name="cdrom"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), 
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_CDStatus(IntPtr cdrom);
-
-		/// <summary>
-		/// Play the given CD starting at 'start' frame for 'length' frames. 
-		/// </summary>
-		/// <remarks>
-		/// It returns 0, or -1 if there was an error.
-		/// </remarks>
-		/// <param name="cdrom"></param>
-		/// <param name="start"></param>
-		/// <param name="length"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_CDPlay(IntPtr cdrom, int start, 
-			int length);
-
-		/// <summary>
-		/// Play the given CD starting at 'start_track' and 
-		/// 'start_frame' for 'ntracks' tracks and 'nframes' frames.  
-		/// If both 'ntrack' and 'nframe' are 0,
-		/// play until the end of the CD. 
-		/// This function will skip data tracks.
-		/// </summary>
-		/// <remarks>
-		/// This function should only be called after calling SDL_CDStatus()
-		///  to 
-		/// get track information about the CD.
-		/// For example:
-		/// // Play entire CD:
-		/// if ( CD_INDRIVE(SDL_CDStatus(cdrom)) )
-		/// SDL_CDPlayTracks(cdrom, 0, 0, 0, 0);
-		/// // Play last track:
-		/// if ( CD_INDRIVE(SDL_CDStatus(cdrom)) ) {
-		/// SDL_CDPlayTracks(cdrom, cdrom->numtracks-1, 0, 0, 0);
-		/// }
-		/// // Play first and second track and 10 seconds of third track:
-		/// if ( CD_INDRIVE(SDL_CDStatus(cdrom)) )
-		/// SDL_CDPlayTracks(cdrom, 0, 0, 2, 10);
-		///
-		/// This function returns 0, or -1 if there was an error.
-		/// </remarks>
-		/// <param name="cdrom"></param>
-		/// <param name="start_track"></param>
-		/// <param name="start_frame"></param>
-		/// <param name="ntracks"></param>
-		/// <param name="nframes"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_CDPlayTracks(IntPtr cdrom, 
-			int start_track, int start_frame, int ntracks, 
-			int nframes);
-
-		/// <summary>
-		/// Pause play.
-		/// </summary>
-		/// <remarks>
-		/// Returns 0, or -1 on error.
-		/// </remarks>
-		/// <param name="cdrom"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_CDPause(IntPtr cdrom);
-
-		/// <summary>
-		/// Resume play.
-		/// </summary>
-		/// <remarks>
-		/// Returns 0, or -1 on error.
-		/// </remarks>
-		/// <param name="cdrom"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_CDResume(IntPtr cdrom);
-
-		/// <summary>
-		/// Stop play.
-		/// </summary>
-		/// <remarks>
-		/// Returns 0, or -1 on error.
-		/// </remarks>
-		/// <param name="cdrom"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_CDStop(IntPtr cdrom);
-
-		/// <summary>
-		/// Eject CD-ROM
-		/// </summary>
-		/// <remarks>
-		/// Returns 0, or -1 on error.
-		/// </remarks>
-		/// <param name="cdrom"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_CDEject(IntPtr cdrom);
-
-		/// <summary>
-		/// Closes the handle for the CD-ROM drive
-		/// </summary>
-		/// <param name="cdrom"></param>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_CDClose(IntPtr cdrom);
-
-
-		
 		#endregion NOT_DONE
 		#endregion Sdl Methods
 	}
