@@ -100,11 +100,11 @@ private const string SDL_GFX_NATIVE_LIBRARY = "libSDL_gfx.so";
 		/// <summary>
 		///
 		/// </summary>
-		public const int FPS_LOWER_IMIT = 1;
+		public const int FPS_LOWER_LIMIT = 1;
 		/// <summary>
 		///
 		/// </summary>
-		public const int FPS_DEAFULT = 30;
+		public const int FPS_DEFAULT = 30;
 		#endregion SDL_framerate.h
 
 		// SDL_imageFilter.h -- none
