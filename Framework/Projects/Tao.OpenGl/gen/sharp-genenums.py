@@ -46,8 +46,6 @@ for k in enumhash.keys():
     if GL_PREFIX or string.ascii_letters.find(k[0]) == -1:
         prefix = "GL_"
 
-    print k
-    
     val = enumhash[k]
     while type(val) == str:
         if val[0:3] == "GL_":
