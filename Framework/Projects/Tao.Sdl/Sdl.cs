@@ -3850,6 +3850,14 @@ namespace Tao.Sdl {
 			/// Patch version
 			/// </summary>
 			public byte patch;
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <returns></returns>
+			public override string ToString()
+			{
+				return (this.major + "." + this.minor + "." + this.patch);
+			}
 		}
 		#endregion SDL_version
 		#endregion SDL_version.h
