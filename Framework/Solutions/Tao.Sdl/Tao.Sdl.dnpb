@@ -42,7 +42,7 @@
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>true</AllowUnsafe>
+		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
 		    <XmlDocFile>Tao.Sdl.Tests.xml</XmlDocFile>
 		    <DebugInformation>true</DebugInformation>
@@ -52,7 +52,7 @@
 		<Options>
 		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>true</AllowUnsafe>
+		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
 		    <XmlDocFile>Tao.Sdl.Tests.xml</XmlDocFile>
 		    <DebugInformation>false</DebugInformation>
@@ -68,6 +68,32 @@
 		<File>SdlTestImage.cs</File>
 		<File>SdlTestTtf.cs</File>
 		<File>SdlTestMixer.cs</File>
+	    </Files>
+	</Project>
+	<Project name="SdlExamples.Rectangles" path="..\\..\\..\\\Examples\Projects\\SdlExamples.Rectangles" language="C#" type="WinExe" startupObject="SdlExamples.Rectangles">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.Sdl" />
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>Rectangles.cs</File>
 	    </Files>
 	</Project>
     </Solution>

@@ -13,8 +13,6 @@ namespace Tao.Sdl
 	[TestFixture]
 	public class SdlTestMixer
 	{
-		int init;
-
 		/// <summary>
 		/// 
 		/// </summary>
