@@ -61,9 +61,11 @@ namespace Tao.Sdl {
 		///     Specifies the calling convention.
 		/// </summary>
 		/// <remarks>
-		///     Specifies <see cref="CallingConvention.Cdecl" /> for Windows and Linux.
+		///     Specifies <see cref="CallingConvention.Cdecl" /> 
+		///     for Windows and Linux.
 		/// </remarks>
-		private const CallingConvention CALLING_CONVENTION = CallingConvention.Cdecl;
+		private const CallingConvention CALLING_CONVENTION = 
+			CallingConvention.Cdecl;
 		#endregion CallingConvention CALLING_CONVENTION
 		#endregion Private Constants
 
@@ -127,7 +129,10 @@ namespace Tao.Sdl {
 
 		#region SDL_INIT_EVERYTHING
 		/// <summary>
-		///     All subsystems.
+		///     All subsystems. 
+		///     These are the flags which may be passed to SDL_Init()
+		///     -- you should specify the subsystems which you will be
+		///     using in your application..
 		/// </summary>
 		// #define SDL_INIT_EVERYTHING 0x0000FFFF
 		public const int SDL_INIT_EVERYTHING = 0x0000FFFF;
@@ -515,23 +520,23 @@ namespace Tao.Sdl {
 		/// <summary>
 		/// 
 		/// </summary>
-		public const Int16 KMOD_CTRL = 
-			(Int16) (SDLMod.KMOD_LCTRL|SDLMod.KMOD_RCTRL);
+		public const short KMOD_CTRL = 
+			(short) (SDLMod.KMOD_LCTRL|SDLMod.KMOD_RCTRL);
 		/// <summary>
 		/// 
 		/// </summary>
-		public const Int16 KMOD_SHIFT = 
-			(Int16) (SDLMod.KMOD_LSHIFT|SDLMod.KMOD_RSHIFT);
+		public const short KMOD_SHIFT = 
+			(short) (SDLMod.KMOD_LSHIFT|SDLMod.KMOD_RSHIFT);
 		/// <summary>
 		/// 
 		/// </summary>
-		public const Int16 KMOD_ALT = 
-			(Int16) (SDLMod.KMOD_LALT|SDLMod.KMOD_RALT);
+		public const short KMOD_ALT = 
+			(short) (SDLMod.KMOD_LALT|SDLMod.KMOD_RALT);
 		/// <summary>
 		/// 
 		/// </summary>
-		public const Int16 KMOD_META = (
-			Int16) (SDLMod.KMOD_LMETA|SDLMod.KMOD_RMETA);
+		public const short KMOD_META = (
+			short) (SDLMod.KMOD_LMETA|SDLMod.KMOD_RMETA);
 		
 		/// <summary>
 		/// Enable/Disable keyboard repeat.  Keyboard repeat defaults to off. 
@@ -1953,19 +1958,19 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// 
 			/// </summary>
-			public Int16 x;
+			public short x;
 			/// <summary>
 			/// 
 			/// </summary>
-			public Int16 y;
+			public short y;
 			/// <summary>
 			/// 
 			/// </summary>
-			public Int16 w;
+			public short w;
 			/// <summary>
 			/// 
 			/// </summary>
-			public Int16 h;
+			public short h;
 		}
 		/// <summary>
 		/// 
@@ -2080,7 +2085,7 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// 
 			/// </summary>
-			public Int16 pitch;
+			public short pitch;
 			/// <summary>
 			/// 
 			/// </summary>
@@ -2157,7 +2162,7 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// Translated character.
 			/// </summary>
-			public Int16 unicode;
+			public short unicode;
 		}
 		/// <summary>
 		/// 
@@ -2299,19 +2304,19 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// The X coordinate of the mouse
 			/// </summary>
-			public Int16 x;
+			public short x;
 			/// <summary>
 			/// The Y coordinate of the mouse
 			/// </summary>
-			public Int16 y;
+			public short y;
 			/// <summary>
 			/// The relative motion in the X direction
 			/// </summary>
-			public Int16 xrel;
+			public short xrel;
 			/// <summary>
 			/// The relative motion in the Y direction
 			/// </summary>
-			public Int16 yrel;
+			public short yrel;
 		}
 		
 		/// <summary>
@@ -2338,11 +2343,11 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// The X coordinate of the mouse at press time
 			/// </summary>
-			public Int16 x;
+			public short x;
 			/// <summary>
 			/// The Y coordinate of the mouse at press time
 			/// </summary>
-			public Int16 y;
+			public short y;
 		}
 		
 		/// <summary>
@@ -2365,7 +2370,7 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// The axis value (range: -32768 to 32767)
 			/// </summary>
-			public Int16 value;
+			public short value;
 		}
 		
 		/// <summary>
@@ -2388,11 +2393,11 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// The relative motion in the X direction
 			/// </summary>
-			public Int16 xrel;
+			public short xrel;
 			/// <summary>
 			/// The relative motion in the Y direction
 			/// </summary>
-			public Int16 yrel;
+			public short yrel;
 		}
 		
 		/// <summary>
@@ -2554,7 +2559,7 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// Unused
 			/// </summary>
-			public Int16 unused;
+			public short unused;
 			/// <summary>
 			/// Length, in frames, of this track
 			/// </summary>
@@ -2712,11 +2717,11 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// The "tip" of the cursor
 			/// </summary>
-			public Int16 hot_x;
+			public short hot_x;
 			/// <summary>
 			/// The "tip" of the cursor
 			/// </summary>
-			public Int16 hot_y;
+			public short hot_y;
 			/// <summary>
 			/// B/W cursor data
 			/// </summary>
@@ -2754,7 +2759,7 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// Audio data format
 			/// </summary>
-			public Int16 format;		
+			public short format;		
 			/// <summary>
 			/// Number of channels: 1 mono, 2 stereo
 			/// </summary>
@@ -2766,11 +2771,11 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// Audio buffer size in samples (power of 2)
 			/// </summary>
-			public Int16 samples;
+			public short samples;
 			/// <summary>
 			/// Necessary for some compile environments
 			/// </summary>
-			public Int16 padding;		
+			public short padding;		
 			/// <summary>
 			/// Audio buffer size in bytes (calculated)
 			/// </summary>
@@ -2804,11 +2809,11 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// Source audio format
 			/// </summary>
-			public Int16 src_format;		/*  */
+			public short src_format;		/*  */
 			/// <summary>
 			/// Target audio format
 			/// </summary>
-			public Int16 dst_format;		
+			public short dst_format;		
 			/// <summary>
 			/// Rate conversion increment
 			/// </summary>
@@ -2834,7 +2839,7 @@ namespace Tao.Sdl {
 			/// </summary>
 			public double len_ratio; 	
 			
-			//public void (*filters[10])(IntPtr cvt, Int16 format);
+			//public void (*filters[10])(IntPtr cvt, short format);
 
 			/// <summary>
 			/// Current audio conversion function
@@ -3980,7 +3985,7 @@ namespace Tao.Sdl {
 		/// <param name="y"></param>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_WarpMouse(Int16 x, Int16 y);
+		public static extern void SDL_WarpMouse(short x, short y);
 		
 		/// <summary>
 		/// Allocate and free an RGB surface (must be called 
@@ -5326,7 +5331,7 @@ namespace Tao.Sdl {
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_BuildAudioCVT(IntPtr cvt,
-			Int16 src_format, Byte src_channels, int src_rate,
+			short src_format, Byte src_channels, int src_rate,
 			Byte dst_format, Byte dst_channels, int dst_rate);
 
 		/// <summary>

@@ -101,24 +101,29 @@ namespace Tao.Sdl {
     /// </remarks>
     #endregion Class Documentation
     public sealed class SdlImage {
+		// --- Fields ---
         #region Private Constants
-        #region String SDL_IMAGE_NATIVE_LIBRARY
-        //#if WIN32
+        #region string SDL_IMAGE_NATIVE_LIBRARY
         /// <summary>
-        ///     Specifies Sdl's native library archive.
+        ///     Specifies SdlImage's native library archive.
         /// </summary>
         /// <remarks>
-        ///     Specifies SDL.dll for Windows.
+        ///     Specifies SDL_image.dll for Windows and libSDL_image.so for Linux.
         /// </remarks>
-        private const String SDL_IMAGE_NATIVE_LIBRARY = "SDL_image";
-        #endregion String SDL_IMAGE_NATIVE_LIBRARY
+#if WIN32
+		private const string SDL_IMAGE_NATIVE_LIBRARY = "SDL_image.dll";
+#elif LINUX
+		private const string SDL_IMAGE_NATIVE_LIBRARY = "libSDL_image.so";
+#endif
+        #endregion string SDL_IMAGE_NATIVE_LIBRARY
 
         #region CallingConvention CALLING_CONVENTION
         /// <summary>
         ///     Specifies the calling convention.
         /// </summary>
         /// <remarks>
-        ///     Specifies <see cref="CallingConvention.Cdecl" /> for Windows.
+        ///     Specifies <see cref="CallingConvention.Cdecl" /> 
+        ///     for Windows and Linux.
         /// </remarks>
         private const CallingConvention CALLING_CONVENTION = 
             CallingConvention.Cdecl;

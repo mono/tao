@@ -58,24 +58,29 @@ namespace Tao.Sdl {
     /// </remarks>
     #endregion Class Documentation
     public sealed class SdlTtf {
+		// --- Fields ---
         #region Private Constants
-        #region String SDL_TTF_NATIVE_LIBRARY
-        //#if WIN32
+        #region string SDL_TTF_NATIVE_LIBRARY
         /// <summary>
-        ///     Specifies Sdl's native library archive.
+        ///     Specifies SdlTtf's native library archive.
         /// </summary>
         /// <remarks>
-        ///     Specifies SDL.dll for Windows.
+        ///     Specifies SDL_ttf.dll for Windows and libSDL_ttf.so for Linux.
         /// </remarks>
-        private const String SDL_TTF_NATIVE_LIBRARY = "SDL_TTF.dll";
-	
-        #endregion String SDL_TTF_NATIVE_LIBRARY
+#if WIN32
+		private const string SDL_TTF_NATIVE_LIBRARY = "SDL_ttf.dll";
+#elif LINUX
+		private const string SDL_TTF_NATIVE_LIBRARY = "libSDL_ttf.so";
+#endif	
+        #endregion string SDL_TTF_NATIVE_LIBRARY
+
         #region CallingConvention CALLING_CONVENTION
         /// <summary>
         ///     Specifies the calling convention.
         /// </summary>
         /// <remarks>
-        ///     Specifies <see cref="CallingConvention.Cdecl" /> for Windows.
+        ///     Specifies <see cref="CallingConvention.Cdecl" /> 
+        ///     for Windows and Linux.
         /// </remarks>
         private const CallingConvention CALLING_CONVENTION = 
             CallingConvention.Cdecl;
@@ -108,7 +113,7 @@ namespace Tao.Sdl {
         /// to be used in a UNICODE string that you are using with the 
         /// SDL_ttf API.
         /// </summary>
-        public const Int32 UNICODE_BOM_NATIVE = 0xFEFF;
+        public const int UNICODE_BOM_NATIVE = 0xFEFF;
         /// <summary>
         /// This allows you to switch byte-order of UNICODE text data to
         ///  swapped order, meaning the reversed mode of your CPU. 
@@ -116,7 +121,7 @@ namespace Tao.Sdl {
         ///   as MSB. This is meant to be used in a UNICODE string 
         ///   that you are using with the SDL_ttf API.
         /// </summary>
-        public const Int32 UNICODE_BOM_SWAPPED = 0xFFFE;
+        public const int UNICODE_BOM_SWAPPED = 0xFFFE;
         #endregion Public Constants
 
         #region Public Structs
@@ -199,7 +204,7 @@ namespace Tao.Sdl {
         [DllImport(SDL_TTF_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
-        public static extern int TTF_ByteSwappedUNICODE(Int32 swapped);
+        public static extern int TTF_ByteSwappedUNICODE(int swapped);
 
         /// <summary>
         /// Initialize the TTF engine - returns 0 if successful, -1 on error
