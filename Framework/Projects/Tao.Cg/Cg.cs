@@ -40,13 +40,6 @@ namespace Tao.Cg {
     #endregion Class Documentation
     public sealed class Cg {
         #region Private Constants
-        #region string CG_INTERNAL
-        /// <summary>
-        ///    Internal Cg indicator.
-        /// </summary>
-        private const string CG_INTERNAL = @"HGypn4SSO1cHzDa3i32EKP2RxZI9c0RS+qOMSMZz4PtWovgNuXNq5Dj9AAKBuSpUv7sdFPTqsol07gXU14kh2sgrpvnVa6VulE6N72aYZcm2PEfcDjuHmoVK/JfDTRJ2/rEGOEBAPUN2JRPpCQhAZhD/wbmKhKdiQ+0qSr/ThW4=";
-        #endregion string CG_INTERNAL
-
         #region string CG_NATIVE_LIBRARY
         /// <summary>
         ///     Specifies Cg's native library archive.

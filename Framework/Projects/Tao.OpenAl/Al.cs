@@ -41,13 +41,6 @@ namespace Tao.OpenAl {
     public sealed class Al {
         // --- Fields ---
         #region Private Constants
-        #region string AL_INTERNAL
-        /// <summary>
-        ///    Internal AL indicator.
-        /// </summary>
-        private const string AL_INTERNAL = @"wndCGMhQxOfYlLlsJUMWzNfps2NUls1RN6Mm6gjuCcoc+3883rnXqQzfaubtFXVDWKkpsrJj8318Ym2AS5EhCqynocjueB3JseKaYkrF4zMHJWg2aUc8FtTfIgVSNIgi3eOj+nw/EtaYjAftwuIoAgwRc0vhu/iDiA3gk3WoSF4=";
-        #endregion string AL_INTERNAL
-
         #region string AL_NATIVE_LIBRARY
         /// <summary>
         ///     Specifies AL's native library archive.

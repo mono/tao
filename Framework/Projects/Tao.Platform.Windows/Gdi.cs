@@ -41,13 +41,6 @@ namespace Tao.Platform.Windows {
     public sealed class Gdi {
         // --- Fields ---
         #region Private Constants
-        #region string GDI_INTERNAL
-        /// <summary>
-        ///    Internal GDI indicator.
-        /// </summary>
-        private const string GDI_INTERNAL = @"kvDEb9ADcrz4BdYMSW0Dna4TNpjxRSPjkhFCcPVs1FcAF4SFNjiEuDmJSbvg6TMY7cftmTVthXPpWKTvL8mY5PHyOIjj/VOmDDUUv+NNIu1HygBbAXz0V9jUTZSqEa9f4kcCxHFWAWUL2MCa4wKwE4OSh8aJXR1mUHLoJzp8ILzGZt+8C7lwzZ8b25ZR0ybG";
-        #endregion string GDI_INTERNAL
-
         #region string GDI_NATIVE_LIBRARY
         /// <summary>
         ///     Specifies GDI's native library archive.

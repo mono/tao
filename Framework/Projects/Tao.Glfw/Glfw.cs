@@ -85,13 +85,6 @@ namespace Tao.Glfw {
     public sealed class Glfw {
         // --- Fields ---
         #region Private Constants
-        #region string GLFW_INTERNAL
-        /// <summary>
-        ///    Internal GLFW indicator.
-        /// </summary>
-        private const string GLFW_INTERNAL = @"9r9tkB6q+mGxX0WWHFzdmUar+T2FJdSJ0vSY+H56dhZ2VTrJVFeFnLoI72+YEbTFIAqrrV3ZoSGN8Psiq/kDNECM9JXW4HYiOqHQzYiX4VKWL0cxixJyWRPw58VSQNMyGH5j+USCeopHybPBxWWHgpCHv8wRPsu6WyB0s+gIDlY=";
-        #endregion string GLFW_INTERNAL
-
         #region string GLFW_NATIVE_LIBRARY
         /// <summary>
         ///     Specifies GLFW's native library archive.

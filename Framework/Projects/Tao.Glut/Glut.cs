@@ -517,13 +517,6 @@ namespace Tao.Glut {
     public sealed class Glut {
         // --- Fields ---
         #region Private Constants
-        #region string GLUT_INTERNAL
-        /// <summary>
-        ///    Internal GLUT indicator.
-        /// </summary>
-        private const string GLUT_INTERNAL = @"G9GF7Pio8fuNZPHFNwe/Nzo08gnxwEPR1W1t7P+7sOoE7fSUD2/JQMAGSC5P3bMXgkSh1dzulLE1jgsTX6DXxByRuuK5NRigMeqRFcxDBrSk4zJZS/x1lUyojlpBohoPv+pepnkefcW/irqEhkkh4tO3Q/zutt13vYvdF9TP3Nc=";
-        #endregion string GLUT_INTERNAL
-
         #region string GLUT_NATIVE_LIBRARY
         /// <summary>
         ///     Specifies GLUT's native library archive.

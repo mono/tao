@@ -41,13 +41,6 @@ namespace Tao.Sdl {
     public sealed class Sdl {
         // --- Fields ---
         #region Private Constants
-        #region string SDL_INTERNAL
-        /// <summary>
-        ///    Internal SDL indicator.
-        /// </summary>
-        private const string SDL_INTERNAL = @"0xiRBlYR0WneFytnIaY2z3uFgmrzetwjOoI2GftZG/aqqB7FuvekTBso540pwibS1rA2WxXfDYJDyEilW/rPAwU0cYb0b4UnN7ip6PmWs2F0jdUvn4Ie2ZtunNaNh5jNRL2UvKEUUE4MNzXFNNvmNIofRkklbj8mhWpPd1xen5Y=";
-        #endregion string SDL_INTERNAL
-
         #region string SDL_NATIVE_LIBRARY
         /// <summary>
         ///     Specifies SDL's native library archive.

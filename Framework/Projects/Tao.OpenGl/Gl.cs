@@ -41,13 +41,6 @@ namespace Tao.OpenGl {
     public sealed class Gl {
         // --- Fields ---
         #region Private Constants
-        #region string GL_INTERNAL
-        /// <summary>
-        ///    Internal GL indicator.
-        /// </summary>
-        private const string GL_INTERNAL = @"6GqbCiiOSsw79XrhFWdiJPmSa/jgy+bYR798nS2WDrmNOsY/0A5Btr4dKIzmdoZLrirm4xdX/fF1HGXCl0DTXgsDXvXEzRPr4pc5TP6vGmpYSy+3oWmrhLbgctmoY3U7mTVZCl2s8WmYLL57QncA7U2I5JSz7/wpqgu/QU8Igh4=";
-        #endregion string GL_INTERNAL
-
         #region string GL_NATIVE_LIBRARY
         /// <summary>
         ///     Specifies GL's native library archive.

@@ -38,13 +38,6 @@ namespace Tao.DevIl {
     public sealed class Il {
         // --- Fields ---
         #region Private Constants
-        #region string IL_INTERNAL
-        /// <summary>
-        ///    Internal IL indicator.
-        /// </summary>
-        private const string IL_INTERNAL = @"8/FlDH+Biq+s7nti7WlgnPL8mt7lGrv/HWaEc8JmsHdDoHeMpCWuXiMVtGfGd/ph1WjIcO5LweTT5qowuFaL5ETuh410IvLPVqOway5nyqY2IoX7JYak5bgT55fSg8oHav86BxPi/gnbOxzKSv0JsXYDIt9mTvWRFJ1aR+8b7IM=";
-        #endregion string IL_INTERNAL
-
         #region string IL_NATIVE_LIBRARY
         /// <summary>
         ///     Specifies DevIl's native library archive.
