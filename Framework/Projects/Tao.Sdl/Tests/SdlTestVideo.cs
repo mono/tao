@@ -575,7 +575,7 @@ namespace Tao.Sdl
 		public void WM_SetIcon()
 		{
 			IntPtr surfacePtr = VideoSetup();
-			Sdl.SDL_WM_SetIcon(Sdl.SDL_LoadBMP("diskette.bmp"), null);
+			Sdl.SDL_WM_SetIcon(Sdl.SDL_LoadBMP("testicon.bmp"), null);
 			Thread.Sleep(sleepTime);
 		}
 	}
