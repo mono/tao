@@ -1721,7 +1721,6 @@ namespace Tao.FreeGlut {
         private static DialsCallback dialsCallback;
         private static DisplayCallback displayCallback;
         private static EntryCallback entryCallback;
-        private static ExitCallback exitCallback;
         private static IdleCallback idleCallback;
         private static JoystickCallback joystickCallback;
         private static KeyboardCallback keyboardCallback;
@@ -1835,13 +1834,6 @@ namespace Tao.FreeGlut {
         /// <seealso cref="glutEntryFunc" />
         public delegate void EntryCallback(int state);
         #endregion EntryCallback(int state)
-
-        #region ExitCallback(int val)
-        /// <summary>
-        ///     Callback (delegate) for use with any method requiring an exit callback.
-        /// </summary>
-        public delegate void ExitCallback(int val);
-        #endregion ExitCallback(int val)
 
         #region IdleCallback()
         /// <summary>
@@ -2174,9 +2166,20 @@ namespace Tao.FreeGlut {
 
         // --- Private Externs ---
         #region Internal Callback Sub-API
+        #region int __glutCreateMenu([In] CreateMenuCallback func)
+        /// <summary>
+        ///     Called from <see cref="glutCreateMenu" />.
+        /// </summary>
+        /// <remarks>
+        ///     <b>This method is not CLS-compliant due to naming conventions.</b>
+        /// </remarks>
+        [DllImport("freeglut.dll", CallingConvention = CALLING_CONVENTION, EntryPoint = "glutCreateMenu"), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        private static extern int __glutCreateMenu([In] CreateMenuCallback func);
+        #endregion int __glutCreateMenu([In] CreateMenuCallback func)
+
         #region __glutDisplayFunc(DisplayCallback func)
         /// <summary>
-        ///     Called from <see cref="glutDisplayFunc"/>.
+        ///     Called from <see cref="glutDisplayFunc" />.
         /// </summary>
         /// <remarks>
         ///     <b>This method is not CLS-compliant due to naming conventions.</b>
@@ -4616,82 +4619,6 @@ namespace Tao.FreeGlut {
         #endregion Overlay Sub-API
 
         #region Menu Sub-API
-        #region int glutCreateMenu([In] CreateMenuCallback func)
-        /// <summary>
-        ///     Creates a new pop-up menu.
-        /// </summary>
-        /// <param name="func">
-        ///     The callback function for the menu that is called when a menu entry from the
-        ///     menu is selected.  The value passed to the callback is determined by the value
-        ///     for the selected menu entry.  See <see cref="CreateMenuCallback" />.
-        /// </param>
-        /// <returns>
-        ///     Returns a unique small integer identifier.  The range of allocated identifiers
-        ///     starts at one.  The menu identifier range is separate from the window
-        ///     identifier range.
-        /// </returns>
-        /// <remarks>
-        ///     <para>
-        ///         <b>glutCreateMenu</b> creates a new pop-up menu and returns a unique small
-        ///         integer identifier.  The range of allocated identifiers starts at one.  The
-        ///         menu identifier range is separate from the window identifier range.
-        ///         Implicitly, the current menu is set to the newly created menu.  This menu
-        ///         identifier can be used when calling <see cref="glutSetMenu" />.
-        ///     </para>
-        ///     <para>
-        ///         When the menu callback is called because a menu entry is selected for the
-        ///         menu, the current menu will be implicitly set to the menu with the selected
-        ///         entry before the callback is made.
-        ///     </para>
-        ///     <para>
-        ///         <b>EXAMPLE</b>
-        ///     </para>
-        ///     <para>
-        ///         Here is a quick example of how to create a GLUT popup menu with two submenus
-        ///         and attach it to the right button of the current window:
-        ///     </para>
-        ///     <para>
-        ///         <code>
-        ///             int submenu1, submenu2;
-        ///
-        ///             submenu1 = Glut.glutCreateMenu(selectMessage);
-        ///             Glut.glutAddMenuEntry("abc", 1);
-        ///             Glut.glutAddMenuEntry("ABC", 2);
-        ///
-        ///             submenu2 = Glut.glutCreateMenu(selectColor);
-        ///             Glut.glutAddMenuEntry("Green", 1);
-        ///             Glut.glutAddMenuEntry("Red", 2);
-        ///             Glut.glutAddMenuEntry("White", 3);
-        ///
-        ///             Glut.glutCreateMenu(selectFont);
-        ///             Glut.glutAddMenuEntry("9 by 15", 0);
-        ///             Glut.glutAddMenuEntry("Times Roman 10", 1);
-        ///             Glut.glutAddMenuEntry("Times Roman 24", 2);
-        ///             Glut.glutAddSubMenu("Messages", submenu1);
-        ///             Glut.glutAddSubMenu("Color", submenu2);
-        ///             Glut.glutAttachMenu(Glut.GLUT_RIGHT_BUTTON);
-        ///         </code>
-        ///     </para>
-        ///     <para>
-        ///         <b>X IMPLEMENTATION NOTES</b>
-        ///     </para>
-        ///     <para>
-        ///         If available, GLUT for X will take advantage of overlay planes for
-        ///         implementing pop-up menus.  The use of overlay planes can eliminate display
-        ///         callbacks when pop-up menus are deactivated.  The SERVER_OVERLAY_VISUALS
-        ///         convention is used to determine if overlay visuals are available.
-        ///     </para>
-        /// </remarks>
-        /// <seealso cref="CreateMenuCallback" />
-        /// <seealso cref="glutAttachMenu" />
-        /// <seealso cref="glutCreateWindow" />
-        /// <seealso cref="glutDestroyMenu" />
-        /// <seealso cref="glutSetMenu" />
-        // GLUTAPI int APIENTRY glutCreateMenu(void (GLUTCALLBACK *func)(int));
-        [DllImport("freeglut.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-        public static extern int glutCreateMenu([In] CreateMenuCallback func);
-        #endregion int glutCreateMenu([In] CreateMenuCallback func)
-
         #region glutDestroyMenu(int menu)
         /// <summary>
         ///     Destroys the specified menu.
@@ -4928,6 +4855,84 @@ namespace Tao.FreeGlut {
         #endregion Menu Sub-API
 
         #region Callback Sub-API
+        #region int glutCreateMenu([In] CreateMenuCallback func)
+        /// <summary>
+        ///     Creates a new pop-up menu.
+        /// </summary>
+        /// <param name="func">
+        ///     The callback function for the menu that is called when a menu entry from the
+        ///     menu is selected.  The value passed to the callback is determined by the value
+        ///     for the selected menu entry.  See <see cref="CreateMenuCallback" />.
+        /// </param>
+        /// <returns>
+        ///     Returns a unique small integer identifier.  The range of allocated identifiers
+        ///     starts at one.  The menu identifier range is separate from the window
+        ///     identifier range.
+        /// </returns>
+        /// <remarks>
+        ///     <para>
+        ///         <b>glutCreateMenu</b> creates a new pop-up menu and returns a unique small
+        ///         integer identifier.  The range of allocated identifiers starts at one.  The
+        ///         menu identifier range is separate from the window identifier range.
+        ///         Implicitly, the current menu is set to the newly created menu.  This menu
+        ///         identifier can be used when calling <see cref="glutSetMenu" />.
+        ///     </para>
+        ///     <para>
+        ///         When the menu callback is called because a menu entry is selected for the
+        ///         menu, the current menu will be implicitly set to the menu with the selected
+        ///         entry before the callback is made.
+        ///     </para>
+        ///     <para>
+        ///         <b>EXAMPLE</b>
+        ///     </para>
+        ///     <para>
+        ///         Here is a quick example of how to create a GLUT popup menu with two submenus
+        ///         and attach it to the right button of the current window:
+        ///     </para>
+        ///     <para>
+        ///         <code>
+        ///             int submenu1, submenu2;
+        ///
+        ///             submenu1 = Glut.glutCreateMenu(selectMessage);
+        ///             Glut.glutAddMenuEntry("abc", 1);
+        ///             Glut.glutAddMenuEntry("ABC", 2);
+        ///
+        ///             submenu2 = Glut.glutCreateMenu(selectColor);
+        ///             Glut.glutAddMenuEntry("Green", 1);
+        ///             Glut.glutAddMenuEntry("Red", 2);
+        ///             Glut.glutAddMenuEntry("White", 3);
+        ///
+        ///             Glut.glutCreateMenu(selectFont);
+        ///             Glut.glutAddMenuEntry("9 by 15", 0);
+        ///             Glut.glutAddMenuEntry("Times Roman 10", 1);
+        ///             Glut.glutAddMenuEntry("Times Roman 24", 2);
+        ///             Glut.glutAddSubMenu("Messages", submenu1);
+        ///             Glut.glutAddSubMenu("Color", submenu2);
+        ///             Glut.glutAttachMenu(Glut.GLUT_RIGHT_BUTTON);
+        ///         </code>
+        ///     </para>
+        ///     <para>
+        ///         <b>X IMPLEMENTATION NOTES</b>
+        ///     </para>
+        ///     <para>
+        ///         If available, GLUT for X will take advantage of overlay planes for
+        ///         implementing pop-up menus.  The use of overlay planes can eliminate display
+        ///         callbacks when pop-up menus are deactivated.  The SERVER_OVERLAY_VISUALS
+        ///         convention is used to determine if overlay visuals are available.
+        ///     </para>
+        /// </remarks>
+        /// <seealso cref="CreateMenuCallback" />
+        /// <seealso cref="glutAttachMenu" />
+        /// <seealso cref="glutCreateWindow" />
+        /// <seealso cref="glutDestroyMenu" />
+        /// <seealso cref="glutSetMenu" />
+        // GLUTAPI int APIENTRY glutCreateMenu(void (GLUTCALLBACK *func)(int));
+        public static int glutCreateMenu([In] CreateMenuCallback func) {
+            createMenuCallback = func;
+            return __glutCreateMenu(createMenuCallback);
+        }
+        #endregion int glutCreateMenu([In] CreateMenuCallback func)
+
         #region glutDisplayFunc([In] DisplayCallback func)
         /// <summary>
         ///     Sets the display callback for the current window.
@@ -8399,76 +8404,264 @@ namespace Tao.FreeGlut {
         #endregion glutMenuDestroyFunc([In] MenuDestroyCallback func)
         #endregion Window Callbacks
 
-
-
-        #region IntPtr glutGetProcAddress(string procName);
+        #region State
+        #region glutSetOption(int optionFlag, int value)
         /// <summary>
-        ///     Gets a process address for the specified process.
+        ///     Sets simple GLUT state represented by integers.
         /// </summary>
-        /// <param name="procName">
-        ///     Process name to retrieve.
+        /// <param name="optionFlag">
+        ///     The option to set.
+        /// </param>
+        /// <param name="value">
+        ///     The value to set for the option.
+        /// </param>
+        [DllImport("freeglut.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void glutSetOption(int optionFlag, int value);
+        #endregion glutSetOption(int optionFlag, int value)
+
+        #region IntPtr glutGetWindowData()
+        /// <summary>
+        ///     Get the user data for the current window.
+        /// </summary>
+        /// <returns>
+        ///     An <see cref="IntPtr" /> associated with the current window as set with <see cref="glutSetWindowData" />.
+        /// </returns>
+        [DllImport("freeglut.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr glutGetWindowData();
+        #endregion IntPtr glutGetWindowData()
+
+        #region glutSetupWindowData(IntPtr data)
+        /// <summary>
+        ///     Set the user data for the current window.
+        /// </summary>
+        /// <param name="data">
+        ///     Arbitrary client-supplied <see cref="IntPtr" />.
+        /// </param>
+        [DllImport("freeglut.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void glutSetupWindowData(IntPtr data);
+        #endregion glutSetupWindowData(IntPtr data)
+
+        #region IntPtr glutGetMenuData()
+        /// <summary>
+        ///     Rerieves user data from a menu.
+        /// </summary>
+        /// <returns>
+        ///     A previously stored arbitrary user data <see cref="IntPtr" /> from the current menu.
+        /// </returns>
+        [DllImport("freeglut.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr glutGetMenuData();
+        #endregion IntPtr glutGetMenuData()
+
+        #region glutSetMenuData(IntPtr data)
+        /// <summary>
+        ///     Stores user data in a menu.
+        /// </summary>
+        /// <param name="data">
+        ///     An arbitrary client <see cref="IntPtr" />.
+        /// </param>
+        [DllImport("freeglut.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void glutSetMenuData(IntPtr data);
+        #endregion glutSetMenuData(IntPtr data)
+        #endregion State
+
+        #region Font
+        #region int glutBitmapHeight(IntPtr font)
+        /// <summary>
+        ///     Returns the height of a given font, in pixels.
+        /// </summary>
+        /// <param name="font">
+        ///     A bitmapped font identifier.
         /// </param>
         /// <returns>
-        ///     The process address.
+        ///     Returns 0 if font is invalid, otherwise, the font's height, in pixels.
         /// </returns>
-        /// <remarks>
-        ///     <para>
-        ///         <b>
-        ///             This isn't an official GLUT function, yet.  It comes from Brian Paul's
-        ///             MESA.  This is only supported by MESA's GLUT implementation.  Available
-        ///             from <a href="http://www.mesa3d.org/">http://www.mesa3d.org</a>.
-        ///         </b>
-        ///     </para>
-        ///     <para>
-        ///         Returns a process address for the specified process.
-        ///     </para>
-        /// </remarks>
-        // GLUTAPI void * GLUTAPIENTRY glutGetProcAddress(const char *procName);
         [DllImport("freeglut.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-        public static extern IntPtr glutGetProcAddress(string procName);
-        #endregion IntPtr glutGetProcAddress(string procName);
+        public static extern int glutBitmapHeight(IntPtr font);
+        #endregion int glutBitmapHeight(IntPtr font)
 
-        #region glutCheckLoop()
+        #region float glutStrokeHeight(IntPtr font)
         /// <summary>
-        ///     Processes the outstanding events/messages and then returns to your program, so,
-        ///     now you are in control and able to craft your own event loop.
+        ///     Returns the height of a given font.
+        /// </summary>
+        /// <param name="font">
+        ///     A GLUT stroked font identifier.
+        /// </param>
+        /// <returns>
+        ///     Returns 0 if fontID is invalid, otherwise, the height of the font in pixels.
+        /// </returns>
+        [DllImport("freeglut.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern float glutStrokeHeight(IntPtr font);
+        #endregion float glutStrokeHeight(IntPtr font)
+
+        #region glutBitmapString(IntPtr font, string str)
+        /// <summary>
+        ///     Draw a string of bitmapped characters.
+        /// </summary>
+        /// <param name="font">
+        ///     A bitmapped font identifier.
+        /// </param>
+        /// <param name="str">
+        ///     The string to draw.
+        /// </param>
+        [DllImport("freeglut.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void glutBitmapString(IntPtr font, string str);
+        #endregion glutBitmapString(IntPtr font, string str)
+
+        #region glutStrokeString(IntPtr font, string str)
+        /// <summary>
+        ///     Draw a string of stroked characters.
+        /// </summary>
+        /// <param name="font">
+        ///     A GLUT stroked font identifier.
+        /// </param>
+        /// <param name="str">
+        ///     The string to draw.
+        /// </param>
+        [DllImport("freeglut.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void glutStrokeString(IntPtr font, string str);
+        #endregion glutStrokeString(IntPtr font, string str)
+        #endregion Font
+
+        #region Geometry
+        #region glutWireRhombicDodecahedron()
+        /// <summary>
+        ///     Draw a wireframe rhombic dodecahedron.
         /// </summary>
         /// <remarks>
-        ///     <para>
-        ///         <b>
-        ///             This isn't an official GLUT function.  This is only supported by GLUT
-        ///             implementations that have added this method.
-        ///         </b>
-        ///     </para>
-        ///     <para>
-        ///         Add new glutCheckLoop entity ... Rob Fletcher R.Fletcher@york.ac.uk, April
-        ///         2002.  Available here:
-        ///         <a href="http://www-users.york.ac.uk/~rpf1/glut.html">
-        ///             http://www-users.york.ac.uk/~rpf1/glut.html
-        ///         </a>
-        ///     </para>
-        ///     <para>
-        ///         <b>EXAMPLE</b>
-        ///     </para>
-        ///     <para>
-        ///         <code>
-        ///             for(;;) {
-        ///                 glutCheckLoop();
-        ///             }
-        ///         </code>
-        ///     </para>
-        ///     <para>
-        ///         Which the smart ones of you will recognise as doing exactly what
-        ///         <see cref="glutMainLoop" /> did.  <see cref="glutMainLoop" /> still exists,
-        ///         and is implemented as above!  All existing source code should behave as
-        ///         before.
-        ///     </para>
+        ///     This function draws a wireframe dodecahedron whose facets are rhombic and whose vertices are at unit radius.
+        ///     No facet lies normal to any coordinate axes. The polyhedron is centered at the origin.
         /// </remarks>
-        /// <seealso cref="glutMainLoop" />
-        // GLUTAPI void APIENTRY glutCheckLoop(void);
         [DllImport("freeglut.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
-        public static extern void glutCheckLoop();
-        #endregion glutCheckLoop()
+        public static extern void glutWireRhombicDodecahedron();
+        #endregion glutWireRhombicDodecahedron()
+
+        #region glutSolidRhombicDodecahedron()
+        /// <summary>
+        ///     Draw a solid rhombic dodecahedron.
+        /// </summary>
+        /// <remarks>
+        ///     This function draws a solid-shaded dodecahedron whose facets are rhombic and whose vertices are at unit radius.
+        ///     No facet lies normal to any coordinate axes. The polyhedron is centered at the origin.
+        /// </remarks>
+        [DllImport("freeglut.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void glutSolidRhombicDodecahedron();
+        #endregion glutSolidRhombicDodecahedron()
+
+        #region glutWireSierpinskiSponge(int levels, double[] offset, double scale)
+        /// <summary>
+        ///     Draw a wireframe Spierspinski's sponge
+        /// </summary>
+        /// <param name="levels">
+        ///     Recursive depth.
+        /// </param>
+        /// <param name="offset">
+        ///     Location vector.
+        /// </param>
+        /// <param name="scale">
+        ///     Relative size.
+        /// </param>
+        /// <remarks>
+        ///     This function recursively draws a few levels of Sierpinski's Sponge in wireframe.
+        ///     If <paramref name="levels" /> is 0, draws 1 tetrahedron. The <paramref name="offset" /> is a translation.
+        ///     The z axis is normal to the base. The sponge is centered at the origin.
+        /// </remarks>
+        [DllImport("freeglut.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void glutWireSierpinskiSponge(int levels, double[] offset, double scale);
+        #endregion glutWireSierpinskiSponge(int levels, double[] offset, double scale)
+
+        #region glutSolidSierpinskiSponge(int levels, double[] offset, double scale)
+        /// <summary>
+        ///     Draw a solid Spierspinski's sponge.
+        /// </summary>
+        /// <param name="levels">
+        ///     Recursive depth.
+        /// </param>
+        /// <param name="offset">
+        ///     Location vector.
+        /// </param>
+        /// <param name="scale">
+        ///     Relative size.
+        /// </param>
+        /// <remarks>
+        ///     This function recursively draws a few levels of a solid-shaded Sierpinski's Sponge. If <paramref name="levels" /> is 0,
+        ///     draws 1 tetrahedron. The <paramref name="offset" /> is a translation. The z axis is normal to the base. The sponge is
+        ///     centered at the origin.
+        /// </remarks>
+        [DllImport("freeglut.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void glutSolidSierpinskiSponge(int levels, double[] offset, double scale);
+        #endregion glutSolidSierpinskiSponge(int levels, double[] offset, double scale)
+
+        #region glutWireCylinder(double radius, double height, int slices, int stacks)
+        /// <summary>
+        ///     Draw a wireframe cylinder.
+        /// </summary>
+        /// <param name="radius">
+        ///     Radius of cylinder.
+        /// </param>
+        /// <param name="height">
+        ///     Z height.
+        /// </param>
+        /// <param name="slices">
+        ///     Number of divisions around the z axis.
+        /// </param>
+        /// <param name="stacks">
+        ///     Number of divisions along the z axis.
+        /// </param>
+        /// <remarks>
+        ///     Draws a wireframe of a cylinder, the center of whose base is at the origin, and whose axis parallels the z axis.
+        /// </remarks>
+        [DllImport("freeglut.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern void glutWireCylinder(double radius, double height, int slices, int stacks);
+        #endregion glutWireCylinder(double radius, double height, int slices, int stacks)
+
+        #region glutSolidCylinder(double radius, double height, int slices, int stacks)
+        /// <summary>
+        ///     Draw a solid cylinder.
+        /// </summary>
+        /// <param name="radius">
+        ///     Radius of cylinder.
+        /// </param>
+        /// <param name="height">
+        ///     Z height.
+        /// </param>
+        /// <param name="slices">
+        ///     Number of divisions around the z axis.
+        /// </param>
+        /// <param name="stacks">
+        ///     Number of divisions along the z axis.
+        /// </param>
+        /// <remarks>
+        ///     Draws a solid of a cylinder, the center of whose base is at the origin, and whose axis parallels the z axis.
+        /// </remarks>
+        [DllImport("freeglut.dll", CallingConvention = CALLING_CONVENTION, ExactSpelling = true), SuppressUnmanagedCodeSecurity]
+        public static extern void glutSolidCylinder(double radius, double height, int slices, int stacks);
+        #endregion glutSolidCylinder(double radius, double height, int slices, int stacks)
+        #endregion Geometry
+
+        #region Extension
+        #region IntPtr glutGetProcAddress(string procName)
+        /// <summary>
+        ///     Determine if an procedure or extension is available.
+        /// </summary>
+        /// <param name="procName">
+        ///     Procedure name.
+        /// </param>
+        /// <returns>
+        ///     <para>
+        ///         Given a function name, searches for the function (or "procedure", hence "Proc") in internal tables.
+        ///         If the function is found, a pointer to the function is returned. If the function is not found,
+        ///         <see cref="IntPtr.Zero" /> is returned.
+        ///     </para>
+        ///     <para>
+        ///         In addition to an internal freeglut table, this function will also consult glX (on X systems) or
+        ///         wgl (on WIN32 and WINCE), if the freeglut tables do not have the requested function. It should
+        ///         return any OpenGL, glX, or wgl function if those functions are available.
+        ///     </para>
+        /// </returns>
+        [DllImport("freeglut.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr glutGetProcAddress(string procName);
+        #endregion IntPtr glutGetProcAddress(string procName)
+        #endregion Extension
         #endregion FreeGLUT Additions
     }
 }

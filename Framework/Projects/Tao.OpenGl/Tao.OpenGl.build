@@ -38,10 +38,10 @@
 
         <!-- On Windows, use ILMerge.  On Linux, just copy. -->
         <if test="${current.runtime.config.net}">
-	    <if test="${not file::up-to-date(framework.build.directory + '/Tao.OpenGlBits.dll', framework.build.directory + '/Tao.OpenGl.dll') or not file::up-to-date(framework.build.directory + '/Tao.OpenGlCore.dll', framework.build.directory + '/Tao.OpenGl.dll')}">
-		<echo message="Running ILMerge..." />
-		<exec program="ILMerge.exe" commandline="/ndebug /out:${framework.build.directory}/Tao.OpenGl.dll ${framework.build.directory}/Tao.OpenGlCore.dll ${framework.build.directory}/Tao.OpenGlBits.dll" />
-	    </if>
+            <if test="${not file::up-to-date(framework.build.directory + '/Tao.OpenGlBits.dll', framework.build.directory + '/Tao.OpenGl.dll') or not file::up-to-date(framework.build.directory + '/Tao.OpenGlCore.dll', framework.build.directory + '/Tao.OpenGl.dll')}">
+                <echo message="Running ILMerge..." />
+                <exec program="ILMerge.exe" commandline="/ndebug /out:${framework.build.directory}/Tao.OpenGl.dll ${framework.build.directory}/Tao.OpenGlCore.dll ${framework.build.directory}/Tao.OpenGlBits.dll" />
+            </if>
         </if>
 
         <if test="${not current.runtime.config.net}">
@@ -55,13 +55,13 @@
     </target>
 
     <target name="clean">
-        <delete file="${framework.build.directory}/${nant.project.name}.dll" failonerror="false" />
-        <delete file="${framework.build.directory}/${nant.project.name}.dll.config" failonerror="false" />
         <delete file="${framework.build.directory}/Tao.OpenGlBits.dll" failonerror="false" />
         <delete file="${framework.build.directory}/Tao.OpenGlBits-Pre.dll" failonerror="false" />
         <delete file="${framework.build.directory}/Tao.OpenGlCore.dll" failonerror="false" />
         <delete file="${framework.build.directory}/Tao.OpenGlCore.dll.config" failonerror="false" />
         <delete file="${framework.build.directory}/Tao.GlPostProcess.exe" failonerror="false" />
+        <delete file="${framework.build.directory}/${nant.project.name}.dll" failonerror="false" />
+        <delete file="${framework.build.directory}/${nant.project.name}.dll.config" failonerror="false" />
         <delete file="${framework.build.directory}/${nant.project.name}.dll.config" failonerror="false" />
         <delete file="${framework.build.directory}/${nant.project.name}.pdb" failonerror="false" />
         <delete file="${framework.build.directory}/${nant.project.name}.xml" failonerror="false" />

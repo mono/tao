@@ -1,5 +1,3 @@
-// TODO: #region these down by GLU version?
-
 #region License
 /*
 MIT License
