@@ -435,7 +435,7 @@ namespace Tao.Sdl {
 		public const Byte SDL_PHYSPAL = 0x02;
 		#endregion SDL_PHYSPAL
 
-		//Where did this come from?? SDL_GL_BOUBLEBUFFER is in SDL_GLattr
+		//Where did this come from?? SDL_GL_DOUBLEBUFFER is in SDL_GLattr
 		//		#region SDL_GL_DOUBLEBUFFER
 		//		/// <summary>
 		//		/// 
@@ -2726,7 +2726,8 @@ namespace Tao.Sdl {
 			/// </summary>
 			public int planes;
 			/// <summary>
-			/// An array of pitches, one for each plane. Pitch is the length of a row in bytes.
+			/// An array of pitches, one for each plane. 
+			/// Pitch is the length of a row in bytes.
 			/// </summary>
 			public short[] pitches;
 			/// <summary>
@@ -4334,7 +4335,7 @@ namespace Tao.Sdl {
 		#endregion int SDL_MUSTLOCK(IntPtr surface)
 
 		// SDL_VideoInit and SDL_VideoQuit -- 
-		//these are private functions and will not be implemented.
+		// these are private functions and will not be implemented.
 
 		#region string SDL_VideoDriverName(string namebuf, int maxlen)
 		/// <summary>
@@ -5837,12 +5838,8 @@ namespace Tao.Sdl {
 		#endregion int SDL_BlitSurface(IntPtr src, IntPtr srcrect, IntPtr dst, IntPtr dstrect)
 
 		//	semi-private --	should not be used and will	not	be implemented.
-		//	extern DECLSPEC	int	SDLCALL	SDL_UpperBlit
-		//										(SDL_Surface *src, SDL_Rect	*srcrect,
-		//										SDL_Surface	*dst, SDL_Rect *dstrect);
-		//	extern DECLSPEC	int	SDLCALL	SDL_LowerBlit
-		//										(SDL_Surface *src, SDL_Rect	*srcrect,
-		//										SDL_Surface	*dst, SDL_Rect *dstrect);
+		//	SDL_UpperBlit									
+		//	SDL_LowerBlit
 
 		#region int SDL_FillRect(IntPtr surface, ref SDL_Rect rect, int color)
 		/// <summary>
@@ -5912,176 +5909,298 @@ namespace Tao.Sdl {
 		public static extern IntPtr SDL_DisplayFormat(IntPtr surface);
 		#endregion IntPtr SDL_DisplayFormat(IntPtr surface)
 
+		#region IntPtr SDL_DisplayFormatAlpha(IntPtr surface)
 		/// <summary>
-		/// This function takes a surface and copies it to a new surface of the
-		/// pixel format and colors of the video framebuffer (if possible),
-		/// suitable for fast alpha blitting onto the display surface.
-		/// The new surface will always have an alpha channel.
-		///
-		/// If you want to take advantage of hardware colorkey or alpha blit
-		/// acceleration, you should set the colorkey and alpha value before
-		/// calling this function.
-		///
-		/// If the conversion fails or runs out of memory, it returns NULL
+		/// Convert a surface to the display format.
 		/// </summary>
+		/// <remarks>
+		/// This function takes a surface and copies it to a new surface of the 
+		/// pixel format and colors of the video framebuffer plus an alpha channel,
+		///  suitable for fast blitting onto the display surface. 
+		///  It calls <see cref="SDL_ConvertSurface"/>.
+		/// <p>If you want to take advantage of hardware colorkey or alpha blit
+		///  acceleration, you should set the colorkey and alpha value before 
+		///  calling this function.</p>
+		/// <p>This function can be used to convert a colourkey to an alpha 
+		/// channel, if the SDL_SRCCOLORKEY flag is set on the surface. The 
+		/// generated surface will then be transparent (alpha=0) where the
+		///  pixels match the colourkey, and opaque (alpha=255) elsewhere.</p>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>SDL_Surface *SDL_DisplayFormatAlpha(SDL_Surface *surface)
+		/// </code></p></remarks>
 		/// <param name="surface"></param>
-		/// <returns></returns>
+		/// <returns>IntPtr to SDL_Surface. 
+		/// If the conversion fails or runs out of memory, 
+		/// it returns NULL</returns>
+		/// <seealso cref="SDL_ConvertSurface"/>
+		/// <seealso cref="SDL_SetAlpha"/>
+		/// <seealso cref="SDL_SetColorKey"/>
+		/// <seealso cref="SDL_DisplayFormat"/>
+		/// <seealso cref="SDL_Surface"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_DisplayFormatAlpha(IntPtr surface);
+		#endregion IntPtr SDL_DisplayFormatAlpha(IntPtr surface)
 
-		/*
-		 * /* This function creates a video output overlay
-   Calling the returned surface an overlay is something of a misnomer because
-   the contents of the display surface underneath the area where the overlay
-   is shown is undefined - it may be overwritten with the converted YUV data.
-*/
-////		extern DECLSPEC SDL_Overlay * SDLCALL SDL_CreateYUVOverlay(int width, int height,
-////										  Uint32 format, SDL_Surface *display)
-
+		#region IntPtr SDL_CreateYUVOverlay(...);
 		/// <summary>
-		/// 
+		/// Create a YUV video overlay.
 		/// </summary>
+		/// <remarks>
+		/// SDL_CreateYUVOverlay creates a YUV overlay of the specified width, 
+		/// height and format (see <see cref="SDL_Overlay"/> for a list of 
+		/// available formats),
+		///  for the provided display. A <see cref="SDL_Overlay"/> 
+		///  structure is returned.
+		/// <p>The term 'overlay' is a misnomer since, unless the overlay is 
+		/// created in hardware, the contents for the display surface underneath
+		///  the area where the overlay is shown will be overwritten when the 
+		///  overlay is displayed.</p>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>SDL_Overlay *SDL_CreateYUVOverlay(int width, int height, Uint32 format, SDL_Surface *display)
+		/// </code></p></remarks>
 		/// <param name="width"></param>
 		/// <param name="height"></param>
 		/// <param name="format"></param>
-		/// <param name="display"></param>
-		/// <returns></returns>
+		/// <param name="display">IntPtr to SDL_Surface</param>
+		/// <returns>IntPtr to SDL_Overlay</returns>
+		/// <seealso cref="SDL_Overlay"/>
+		/// <seealso cref="SDL_DisplayYUVOverlay"/>
+		/// <seealso cref="SDL_FreeYUVOverlay"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_CreateYUVOverlay(int width, int height, int format, IntPtr display);
+		#endregion IntPtr SDL_CreateYUVOverlay(...);
 
-		/* Lock an overlay for direct access, and unlock it when you are done */
+		#region int SDL_LockYUVOverlay(IntPtr overlay)
 		/// <summary>
-		/// 
+		/// Lock an overlay
 		/// </summary>
+		/// <remarks>
+		/// Much the same as <see cref="SDL_LockSurface"/>, 
+		/// SDL_LockYUVOverlay locks the overlay for direct access to pixel data.
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>int SDL_LockYUVOverlay(SDL_Overlay *overlay)
+		/// </code></p></remarks>
 		/// <param name="overlay"></param>
-		/// <returns></returns>
+		/// <returns>Returns 0 on success, or -1 on an error</returns>
+		/// <seealso cref="SDL_UnlockYUVOverlay"/>
+		/// <seealso cref="SDL_CreateYUVOverlay"/>
+		/// <seealso cref="SDL_Overlay"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_LockYUVOverlay(IntPtr overlay);
+		#endregion int SDL_LockYUVOverlay(IntPtr overlay)
 
+		#region void SDL_UnlockYUVOverlay(IntPtr overlay)
 		/// <summary>
-		/// 
+		/// Unlock an overlay.
 		/// </summary>
-		/// <param name="overlay"></param>
+		/// <remarks>
+		/// The opposite to <see cref="SDL_LockYUVOverlay"/>. 
+		/// Unlocks a previously locked overlay. 
+		/// An overlay must be unlocked before it can be displayed.
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>void SDLCALL SDL_UnlockYUVOverlay(SDL_Overlay *overlay)
+		/// </code></p></remarks>
+		/// <param name="overlay">IntPtr to SDL_Overlay</param>
+		/// <seealso cref="SDL_UnlockYUVOverlay"/>
+		/// <seealso cref="SDL_CreateYUVOverlay"/>
+		/// <seealso cref="SDL_Overlay"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_UnlockYUVOverlay(IntPtr overlay);
-//		extern DECLSPEC int SDLCALL SDL_LockYUVOverlay(SDL_Overlay *overlay);
-//		extern DECLSPEC void SDLCALL SDL_UnlockYUVOverlay(SDL_Overlay *overlay);
-//
-//		/* Blit a video overlay to the display surface.
-//		   The contents of the video surface underneath the blit destination are
-//		   not defined.  
-//		   The width and height of the destination rectangle may be different from
-//		   that of the overlay, but currently only 2x scaling is supported.
-//		*/
-//		extern DECLSPEC int SDLCALL SDL_DisplayYUVOverlay(SDL_Overlay *overlay, SDL_Rect *dstrect);
+		#endregion void SDL_UnlockYUVOverlay(IntPtr overlay)
 
+		#region int SDL_DisplayYUVOverlay(IntPtr overlay, IntPtr dstrect)
 		/// <summary>
-		/// 
+		/// Blit the overlay to the display.
 		/// </summary>
-		/// <param name="overlay"></param>
-		/// <param name="dstrect"></param>
-		/// <returns></returns>
+		/// <remarks>
+		/// Blit the overlay to the surface specified when it was <see cref="SDL_CreateYUVOverlay">created</see>. 
+		/// The <see cref="SDL_Rect"/> structure, dstrect, specifies the position and size of the 
+		/// destination. If the dstrect is a larger or smaller than the overlay then
+		///  the overlay will be scaled, this is optimized for 2x scaling.
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>SDL_DisplayYUVOverlay(SDL_Overlay *overlay, SDL_Rect *dstrect)
+		/// </code></p></remarks>
+		/// <param name="overlay">IntPtr to SDL_Overlay</param>
+		/// <param name="dstrect">IntPtr to SDL_Rect</param>
+		/// <returns>Returns 0 on success.</returns>
+		/// <seealso cref="SDL_Overlay"/>
+		/// <seealso cref="SDL_CreateYUVOverlay"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_DisplayYUVOverlay(IntPtr overlay, IntPtr dstrect);
+		#endregion int SDL_DisplayYUVOverlay(IntPtr overlay, IntPtr dstrect)
 
-//		/* Free a video overlay */
-//		extern DECLSPEC void SDLCALL SDL_FreeYUVOverlay(SDL_Overlay *overlay);
+		#region void SDL_FreeYUVOverlay(IntPtr overlay)
 		/// <summary>
-		/// 
+		/// Free a YUV video overlay.
 		/// </summary>
+		/// <remarks>
+		/// Frees an <see cref="SDL_Overlay">overlay</see> created by <see cref="SDL_CreateYUVOverlay"/>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>SDL_FreeYUVOverlay(SDL_Overlay *overlay)
+		/// </code></p></remarks>
 		/// <param name="overlay"></param>
+		/// <seealso cref="SDL_Overlay"/>
+		/// <seealso cref="SDL_DisplayYUVOverlay"/>
+		/// <seealso cref="SDL_CreateYUVOverlay"/>
+		/// SDL_Overlay, SDL_DisplayYUVOverlay, SDL_FreeYUVOverlay
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_FreeYUVOverlay(IntPtr overlay);
-//		/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-//		/* OpenGL support functions.                                                 */
-//		/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-//
-//		/*
-//		 * Dynamically load a GL driver, if SDL is built with dynamic GL.
-//		 *
-//		 * SDL links normally with the OpenGL library on your system by default,
-//		 * but you can compile it to dynamically load the GL driver at runtime.
-//		 * If you do this, you need to retrieve all of the GL functions used in
-//		 * your program from the dynamic library using SDL_GL_GetProcAddress().
-//		 *
-//		 * This is disabled in default builds of SDL.
-//		 */
-//		extern DECLSPEC int SDLCALL SDL_GL_LoadLibrary(const char *path);
+		#endregion void SDL_FreeYUVOverlay(IntPtr overlay)
+
+		#region int SDL_GL_LoadLibrary(string path)
 		/// <summary>
-		/// 
+		/// Specify an OpenGL library.
 		/// </summary>
+		/// <remarks>
+		/// If you wish, you may load the OpenGL library at runtime, this must 
+		/// be done before <see cref="SDL_SetVideoMode"/> is called. 
+		/// The path of the GL 
+		/// library is passed to SDL_GL_LoadLibrary and it returns 0 on 
+		/// success, or -1 on 
+		///  an error. You must then use <see cref="SDL_GL_GetProcAddress"/>
+		///   to retrieve 
+		///  function pointers to GL functions.
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>int SDL_GL_LoadLibrary(const char *path);
+		/// </code></p></remarks>
 		/// <param name="path"></param>
+		/// <returns>Returns 0 on success, or -1 on an error.</returns>
+		/// <seealso cref="SDL_GL_GetProcAddress"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_GL_LoadLibrary(string path);
-//
-//		/*
-//		 * Get the address of a GL function (for extension functions)
-//		 */
-//		extern DECLSPEC void * SDLCALL SDL_GL_GetProcAddress(const char* proc);
-//
+		#endregion int SDL_GL_LoadLibrary(string path)
+
+		#region IntPtr SDL_GL_GetProcAddress(string proc)
 		/// <summary>
-		/// 
+		/// Get the address of a GL function
 		/// </summary>
+		/// <remarks>
+		/// Returns the address of the GL function proc, or NULL if the 
+		/// function is not found. If the GL library is loaded at runtime,
+		///  with SDL_GL_LoadLibrary, then all GL functions must be retrieved
+		///   this way. Usually this is used to retrieve function pointers 
+		///   to OpenGL extensions.
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>void *SDL_GL_GetProcAddress(const char* proc);
+		/// </code></p></remarks>
+		/// <example>
+		/// <code>
+		/// typedef void (*GL_ActiveTextureARB_Func)(unsigned int);
+		///		GL_ActiveTextureARB_Func glActiveTextureARB_ptr = 0;
+		///		int has_multitexture=1;
+		///		.
+		///		.
+		///		.
+		///		/* Get function pointer */
+		///		glActiveTextureARB_ptr=(GL_ActiveTextureARB_Func) SDL_GL_GetProcAddress("glActiveTextureARB");
+		///
+		///		/* Check for a valid function ptr */
+		///		if(!glActiveTextureARB_ptr)
+		///			{
+		///		fprintf(stderr, "Multitexture Extensions not present.\n");
+		///		has_multitexture=0;
+		///	}
+		///	.
+		///	.
+		///	.
+		///	.
+		///	if(has_multitexture)
+		///{
+		///	glActiveTextureARB_ptr(GL_TEXTURE0_ARB);
+		///	.
+		///	.
+		///}
+		///	else
+		///{
+		///	.
+		///	.
+		///}
+		/// </code>
+		/// </example>
 		/// <param name="proc"></param>
+		/// <seealso cref="SDL_GL_LoadLibrary"/>
+		/// <returns>Returns the address of the GL function proc, or NULL if the 
+		/// function is not found.</returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_GL_GetProcAddress(string proc);
+		#endregion IntPtr SDL_GL_GetProcAddress(string proc)
 
-//		 Swap the OpenGL buffers, if double-buffering is supported.
-//		 
-		//		extern DECLSPEC void SDLCALL SDL_GL_SwapBuffers(void);
+		#region void SDL_GL_SwapBuffers()
 		/// <summary>
-		/// Swap the OpenGL buffers, if double-buffering is supported.
+		/// Swap OpenGL framebuffers/Update Display
 		/// </summary>
+		/// <remarks>
+		/// Swap the OpenGL buffers, if double-buffering is supported.
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>void SDL_GL_SwapBuffers(void )
+		/// </code></p></remarks>
+		/// <seealso cref="SDL_SetVideoMode"/>
+		/// <seealso cref="SDL_GL_SetAttribute"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_GL_SwapBuffers();
+		#endregion void SDL_GL_SwapBuffers()
 
+		#region SDL_GL_SetAttribute(SDL_GLattr attr, int val)
 		/// <summary>
-		/// Set an attribute of the OpenGL subsystem before intialization.
-		/// int SDLCALL SDL_GL_SetAttribute(SDL_GLattr attr, int value)
+		/// Set a special SDL/OpenGL attribute.
 		/// </summary>
+		/// <remarks>
+		/// Sets the OpenGL <see cref="SDL_GLattr">attribute</see> attr to value. 
+		/// The attributes you set don't 
+		/// take effect until after a call to <see cref="SDL_SetVideoMode"/>.
+		///  You should use 
+		/// <see cref="SDL_GL_GetAttribute"/> to check the values after a 
+		/// SDL_SetVideoMode call.
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>int SDL_GL_SetAttribute(SDL_GLattr attr, int value);
+		/// </code></p></remarks>
 		/// <param name="attr"></param>
 		/// <param name="val"></param>
-		/// <returns></returns>
+		/// <returns>Returns 0 on success, or -1 on error.</returns>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+		/// <seealso cref="SDL_GLattr"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_GL_SetAttribute(SDL_GLattr attr, 
 			int val);
+		#endregion SDL_GL_SetAttribute(SDL_GLattr attr, int val)
 		
+		#region int SDL_GL_GetAttribute(SDL_GLattr attr, out int val);
 		/// <summary>
-		/// Get an attribute of the OpenGL subsystem from the windowing
-		/// interface, such as glX. This is of course different from getting
-		/// the values from SDL's internal OpenGL subsystem, which only
-		/// stores the values you request before initialization.
-		///
-		/// Developers should track the values they pass into
-		///  SDL_GL_SetAttribute
-		/// themselves if they want to retrieve these values.
-		/// extern DECLSPEC int SDLCALL SDL_GL_GetAttribute(SDL_GLattr attr, int* value);
+		/// Get the value of a special SDL/OpenGL attribute
 		/// </summary>
+		/// <remarks>
+		/// Places the value of the SDL/OpenGL 
+		/// <see cref="SDL_GLattr">attribute</see> attr into value. This is 
+		/// useful after a call to <see cref="SDL_SetVideoMode"/> to check 
+		/// whether your attributes have been 
+		/// <see cref="SDL_GL_SetAttribute">set</see> as you expected.
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>int SDL_GL_GetAttribute(SDLGLattr attr, int *value)
+		/// </code></p>
+		/// </remarks>
 		/// <param name="attr"></param>
 		/// <param name="val"></param>
-		/// <returns></returns>
+		/// <returns>Returns 0 on success, or -1 on an error.</returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_GL_GetAttribute(SDL_GLattr attr, 
 			out int val);
-
-//		/*
-//		 * Internal functions that should not be called unless you have read
-//		 * and understood the source code for these functions.
-//		 */
-//		extern DECLSPEC void SDLCALL SDL_GL_UpdateRects(int numrects, SDL_Rect* rects);
-//		extern DECLSPEC void SDLCALL SDL_GL_Lock(void);
-//		extern DECLSPEC void SDLCALL SDL_GL_Unlock(void);
+		#endregion int SDL_GL_GetAttribute(SDL_GLattr attr, out int val);
+	
+		//	Private functions that should not be called and will not be implmented.
+		//	SDL_GL_UpdateRects
+		//	SDL_GL_Lock
+		//	SDL_GL_Unlock
 
 		#region void SDL_WM_SetCaption(string title, string icon)
 		/// <summary>
@@ -6120,19 +6239,38 @@ namespace Tao.Sdl {
 			out string icon);
 		#endregion void SDL_WM_GetCaption(out string title, out string icon)
 
+		#region void SDL_WM_SetIcon(IntPtr icon, byte[] mask)
 		/// <summary>
 		/// Sets the icon for the display window.
-		/// This function must be called before the first call to 
-		/// SDL_SetVideoMode().
-		/// It takes an icon surface, and a mask in MSB format.
-		/// If 'mask' is NULL, the entire icon surface will be used as the
-		///  icon.
 		/// </summary>
+		/// <remarks>
+		/// Sets the icon for the display window. Win32 icons must be 32x32.
+		/// <p>This function must be called before the first call to 
+		/// <see cref="SDL_SetVideoMode"/>.</p>
+		/// <p>The mask is a bitmask that describes the shape of the icon.
+		///  If mask is NULL, then the shape is determined by the colorkey 
+		///  of icon, if any, or makes the icon rectangular (no transparency)
+		///   otherwise.</p>
+		/// <p>If mask is non-NULL, it points to a bitmap with bits set where
+		///  the corresponding pixel should be visible. The format of the bitmap
+		///   is as follows: Scanlines come in the usual top-down order. Each 
+		///   scanline consists of (width / 8) bytes, rounded up. The most 
+		///   significant bit of each byte represents the leftmost pixel.</p>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>void SDL_WM_SetIcon(SDL_Surface *icon, Uint8 *mask);
+		/// </code></p>
+		/// </remarks>
+		/// <example>
+		/// <code>SDL_WM_SetIcon(SDL_LoadBMP("icon.bmp"), NULL);
+		/// </code></example>
 		/// <param name="icon">Pointer to an SDL_Surface</param>
 		/// <param name="mask"></param>
+		/// <seealso cref="SDL_SetVideoMode"/>
+		/// <seealso cref="SDL_WM_SetCaption"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_WM_SetIcon(IntPtr icon, IntPtr mask);
+		public static extern void SDL_WM_SetIcon(IntPtr icon, byte[] mask);
+		#endregion void SDL_WM_SetIcon(IntPtr icon, byte[] mask)
 		
 		#region int SDL_WM_IconifyWindow()
 		/// <summary>Iconify/Minimise the window</summary>

@@ -535,6 +535,48 @@ namespace Tao.Sdl
 		public void DisplayFormat()
 		{
 		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void DisplayFormatAlpha()
+		{
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void SDL_CreateLockUnlockFreeYUVOverlay()
+		{
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void SDL_DisplayYUVOverlay()
+		{
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void SDL_GL()
+		{
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void WM_SetIcon()
+		{
+			IntPtr surfacePtr = VideoSetup();
+			Sdl.SDL_WM_SetIcon(Sdl.SDL_LoadBMP("diskette.bmp"), null);
+			Thread.Sleep(sleepTime);
+		}
 	}
 	#endregion SDL_video.h
 }
