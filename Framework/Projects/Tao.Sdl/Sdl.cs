@@ -5659,9 +5659,37 @@ namespace Tao.Sdl {
    is shown is undefined - it may be overwritten with the converted YUV data.
 */
 ////		extern DECLSPEC SDL_Overlay * SDLCALL SDL_CreateYUVOverlay(int width, int height,
-////										  Uint32 format, SDL_Surface *display);
-////
-//		/* Lock an overlay for direct access, and unlock it when you are done */
+////										  Uint32 format, SDL_Surface *display)
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="width"></param>
+		/// <param name="height"></param>
+		/// <param name="format"></param>
+		/// <param name="display"></param>
+		/// <returns></returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_CreateYUVOverlay(int width, int height, int format, IntPtr display);
+
+		/* Lock an overlay for direct access, and unlock it when you are done */
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="overlay"></param>
+		/// <returns></returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_LockYUVOverlay(IntPtr overlay);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="overlay"></param>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_UnlockYUVOverlay(IntPtr overlay);
 //		extern DECLSPEC int SDLCALL SDL_LockYUVOverlay(SDL_Overlay *overlay);
 //		extern DECLSPEC void SDLCALL SDL_UnlockYUVOverlay(SDL_Overlay *overlay);
 //
@@ -5672,10 +5700,26 @@ namespace Tao.Sdl {
 //		   that of the overlay, but currently only 2x scaling is supported.
 //		*/
 //		extern DECLSPEC int SDLCALL SDL_DisplayYUVOverlay(SDL_Overlay *overlay, SDL_Rect *dstrect);
-//
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="overlay"></param>
+		/// <param name="dstrect"></param>
+		/// <returns></returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_DisplayYUVOverlay(IntPtr overlay, IntPtr dstrect);
+
 //		/* Free a video overlay */
 //		extern DECLSPEC void SDLCALL SDL_FreeYUVOverlay(SDL_Overlay *overlay);
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="overlay"></param>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_FreeYUVOverlay(IntPtr overlay);
 //		/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 //		/* OpenGL support functions.                                                 */
 //		/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */

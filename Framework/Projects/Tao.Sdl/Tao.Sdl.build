@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <project name="Tao.Sdl">
     <target name="build">
-	<echo message="Build Directory is ${framework.build.directory}" />
-	<mkdir dir="${framework.build.directory}" />	
+	<echo message="Build Directory is ${framework.build.directory}" />	
         <csc target="library" warnaserror="false" unsafe="true" debug="${build.debug}" optimize="${build.optimize}" output="${framework.build.directory}/${nant.project.name}.dll" define="${build.debug.define};${build.platform.define};${build.strong.define}" doc="${framework.build.directory}/${nant.project.name}.xml">
             <sources failonempty="true">
                 <include name="${framework.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />

@@ -224,6 +224,7 @@
     </target>
 
     <target name="build.sdl" description="Builds Tao.Sdl.">
+        <mkdir dir="${framework.build.directory}" />
         <nant buildfile="${framework.projects.directory}/Tao.Sdl/Tao.Sdl.build" target="build" />
     </target>
 
