@@ -65,6 +65,9 @@
 		<File>AssemblyInfo.cs</File>
 		<File>SdlTest.cs</File>
 		<File>SdlTestVideo.cs</File>
+		<File>SdlTestImage.cs</File>
+		<File>SdlTestTtf.cs</File>
+		<File>SdlTestMixer.cs</File>
 	    </Files>
 	</Project>
     </Solution>

@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <project name="Tao.Sdl">
+    <property name="directory.tests" value="${framework.projects.directory}/${nant.project.name}/Tests" />
     <target name="build">
 	<echo message="Build Directory is ${framework.build.directory}" />	
         <csc target="library" warnaserror="false" unsafe="true" debug="${build.debug}" optimize="${build.optimize}" output="${framework.build.directory}/${nant.project.name}.dll" define="${build.debug.define};${build.platform.define};${build.strong.define}" doc="${framework.build.directory}/${nant.project.name}.xml">
@@ -17,6 +18,10 @@
     </target>
 
     <target name="clean">
+		<delete dir="${framework.projects.directory}/${nant.project.name}/bin" failonerror="false"/>
+		<delete dir="${framework.projects.directory}/${nant.project.name}/obj" failonerror="false"/>
+		<delete dir="${directory.tests}/bin" failonerror="false"/>
+		<delete dir="${directory.tests}/obj" failonerror="false"/>
         <delete file="${framework.build.directory}/${nant.project.name}.dll" failonerror="false" />
         <delete file="${framework.build.directory}/${nant.project.name}.dll.config" failonerror="false" />
         <delete file="${framework.build.directory}/${nant.project.name}.pdb" failonerror="false" />

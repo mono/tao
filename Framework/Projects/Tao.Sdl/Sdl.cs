@@ -5236,7 +5236,7 @@ namespace Tao.Sdl {
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_LoadWAV_RW(
-			IntPtr src, int freesrc,  out SDL_AudioSpec spec, 
+			IntPtr src, int freesrc,  out IntPtr spec, 
 			out IntPtr audio_buf, out int audio_len);
 		#endregion IntPtr SDL_LoadWAV_RW(...)
 
@@ -5296,7 +5296,7 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_AudioSpec"/>
 		/// <seealso cref="SDL_OpenAudio"/>
 		/// <seealso cref="SDL_FreeWAV"/>
-		public static IntPtr SDL_LoadWAV(string file, out SDL_AudioSpec spec, out IntPtr audio_buf, out int audio_len)
+		public static IntPtr SDL_LoadWAV(string file, out IntPtr spec, out IntPtr audio_buf, out int audio_len)
 		{
 				IntPtr result = SDL_LoadWAV_RW(SDL_RWFromFile(file, "rb"), 1, out spec,  out audio_buf, out audio_len);
 			Console.WriteLine("audio_len: " + audio_len.ToString());
