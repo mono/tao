@@ -4351,6 +4351,7 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_GetVideoInfo">SDL_GetVideoInfo</seealso>
 		/// <seealso cref="SDL_Rect">SDL_Rect</seealso>
 		/// <seealso cref="SDL_PixelFormat">SDL_PixelFormat</seealso>
+		[CLSCompliant(false)] 
 		public unsafe static SDL_Rect[] SDL_ListModes(IntPtr format, int flags) 
 		{ 
 			IntPtr rectPtr = SDL_ListModesInternal(IntPtr.Zero, flags); 
@@ -4949,109 +4950,222 @@ namespace Tao.Sdl {
 			byte b);
 		#endregion int SDL_MapRGB(IntPtr format, byte r, byte g, byte b)
 		
+		#region int SDL_MapRGBA(IntPtr format, byte r, byte g, byte b, byte a)
 		/// <summary>
-		/// Maps an RGBA quadruple to a pixel value for a given pixel format.
+		/// Map a RGBA color value to a pixel format.
 		/// </summary>
 		/// <remarks>
-		///
+		/// Maps the RGBA color value to the specified pixel format and 
+		/// returns the pixel value as a 32-bit int.
+		/// <p>If the format has a palette (8-bit) the index of the closest 
+		/// matching color in the palette will be returned.</p>
+		/// <p>If the specified pixel format has no alpha component the alpha 
+		/// value will be ignored (as it will be in formats with a palette).</p>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>extern DECLSPEC Uint32 SDLCALL SDL_MapRGBA (SDL_PixelFormat *format, Uint8 r, Uint8 g, Uint8 b, Uint8 a)</code>
+		/// </p>
 		/// </remarks>
 		/// <param name="format"></param>
 		/// <param name="r"></param>
 		/// <param name="g"></param>
 		/// <param name="b"></param>
 		/// <param name="a"></param>
-		/// <returns></returns>
+		/// <returns>A pixel value best approximating the given RGBA 
+		/// color value for a given pixel format. If the pixel format 
+		/// bpp (color depth) is less than 32-bpp then the unused upper 
+		/// bits of the return value can safely be ignored (e.g., with a 
+		/// 16-bpp format the return value can be assigned to a Uint16, 
+		/// and similarly a Uint8 for an 8-bpp format).</returns>
+		/// <seealso cref="SDL_GetRGB">SDL_GetRGB</seealso>
+		/// <seealso cref="SDL_GetRGBA">SDL_GetRGBA</seealso>
+		/// <seealso cref="SDL_MapRGB">SDL_MapRGB</seealso>
+		/// <seealso cref="SDL_PixelFormat">SDL_PixelFormat</seealso> 
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_MapRGBA(IntPtr format, Byte r, Byte g,
-			Byte b, Byte a);
+		public static extern int SDL_MapRGBA(IntPtr format, byte r, byte g,
+			byte b, byte a);
+		#endregion int SDL_MapRGBA(IntPtr format, byte r, byte g, byte b, byte a)
 
+		#region void SDL_GetRGB(int pixel, IntPtr fmt, out byte r, out byte g, out byte b)
 		/// <summary>
-		/// Maps a pixel value into the RGB components for a given pixel 
-		/// format.
+		/// Get RGB values from a pixel in the specified pixel format.
 		/// </summary>
+		/// <remarks>
+		/// Get RGB component values from a pixel stored in the specified pixel format.
+		/// <p>This function uses the entire 8-bit [0..255] range when converting 
+		/// color components from pixel formats with less than 8-bits per RGB component
+		///  (e.g., a completely white pixel in 16-bit RGB565 format would return 
+		///  [0xff, 0xff, 0xff] not [0xf8, 0xfc, 0xf8]).</p>
+		///  <p>Binds to C-function call in SDL_video.h:
+		/// <code>void SDL_GetRGB(Uint32 pixel, SDL_PixelFormat *fmt, Uint8 *r, Uint8 *g, Uint8 *b);</code>
+		/// </p>
+		///  </remarks>
 		/// <param name="pixel"></param>
 		/// <param name="fmt"></param>
 		/// <param name="r"></param>
 		/// <param name="g"></param>
 		/// <param name="b"></param>
+		/// <seealso cref="SDL_GetRGBA">SDL_GetRGBA</seealso>
+		/// <seealso cref="SDL_MapRGB">SDL_MapRGB</seealso>
+		/// <seealso cref="SDL_MapRGBA">SDL_MapRGBA</seealso>
+		/// <seealso cref="SDL_PixelFormat">SDL_PixelFormat</seealso>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_GetRGB(int pixel, IntPtr fmt, 
-			out Byte r, out Byte g, out Byte b);
+			out byte r, out byte g, out byte b);
+		#endregion void SDL_GetRGB(int pixel, IntPtr fmt, out byte r, out byte g, out byte b)
 		
+		#region void SDL_GetRGBA(int pixel, IntPtr fmt, out byte r, out byte g, out byte b, out byte a)
 		/// <summary>
-		/// Maps a pixel value into the RGBA components for a given pixel
-		///  format
+		/// Get RGBA values from a pixel in the specified pixel format.
 		/// </summary>
+		/// <remarks>
+		/// Get RGBA component values from a pixel stored in the specified pixel 
+		/// format.
+		/// <p>This function uses the entire 8-bit [0..255] range when converting 
+		/// color components from pixel formats with less than 8-bits per RGB 
+		/// component (e.g., a completely white pixel in 16-bit RGB565 format would
+		///  return [0xff, 0xff, 0xff] not [0xf8, 0xfc, 0xf8]).</p>
+		/// <p>If the surface has no alpha component, the alpha will be returned 
+		/// as 0xff (100% opaque).</p>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>void SDL_GetRGBA(Uint32 pixel, SDL_PixelFormat *fmt, Uint8 *r, Uint8 *g, Uint8 *b, Uint8 *a)</code>
+		/// </p>
+		/// </remarks>
 		/// <param name="pixel"></param>
 		/// <param name="fmt"></param>
 		/// <param name="r"></param>
 		/// <param name="g"></param>
 		/// <param name="b"></param>
 		/// <param name="a"></param>
+		/// <seealso cref="SDL_GetRGB">SDL_GetRGB</seealso>
+		/// <seealso cref="SDL_MapRGB">SDL_MapRGB</seealso>
+		/// <seealso cref="SDL_MapRGBA">SDL_MapRGBA</seealso>
+		/// <seealso cref="SDL_PixelFormat">SDL_PixelFormat</seealso>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_GetRGBA(int pixel, IntPtr fmt, 
-			out Byte r, out Byte g, out Byte b, out Byte a);
+			out byte r, out byte g, out byte b, out byte a);
+		#endregion void SDL_GetRGBA(int pixel, IntPtr fmt, out byte r, out byte g, out byte b, out byte a)
 
 		#region IntPtr SDL_CreateRGBSurface(...)
 		/// <summary>
-		/// Allocate and free an RGB surface (must be called 
-		/// after SDL_SetVideoMode)
-		/// If the depth is 4 or 8 bits, an empty palette is allocated 
-		/// for the surface.
-		/// If the depth is greater than 8 bits, the pixel format is set 
-		/// using the
-		/// flags '[RGB]mask'.
-		/// If the function runs out of memory, it will return NULL.
+		/// Create an empty SDL_Surface
 		/// </summary>
 		/// <remarks>
-		///The 'flags' tell what kind of surface to create.
-		/// SDL_SWSURFACE means that the surface should be created in 
-		/// system memory.
-		/// SDL_HWSURFACE means that the surface should be created in 
-		/// video memory,
-		/// with the same format as the display surface.  This is useful 
-		/// for surfaces
-		/// that will not change much, to take advantage of hardware
-		///  acceleration
-		/// when being blitted to the display surface.
-		/// SDL_ASYNCBLIT means that SDL will try to perform asynchronous 
-		/// blits with
-		/// this surface, but you must always lock it before accessing the 
-		/// pixels.
-		/// SDL will wait for current blits to finish before returning from 
-		/// the lock.
-		/// SDL_SRCCOLORKEY indicates that the surface will be used for 
-		/// colorkey blits.
-		/// If the hardware supports acceleration of colorkey blits between
-		/// two surfaces in video memory, SDL will try to place the surface in
-		/// video memory. If this isn't possible or if there is no hardware
-		/// acceleration available, the surface will be placed in system 
-		/// memory.
-		/// SDL_SRCALPHA means that the surface will be used for alpha 
-		/// blits and 
-		/// if the hardware supports hardware acceleration of alpha 
-		/// blits between
-		/// two surfaces in video memory, to place the surface in video memory
-		/// if possible, otherwise it will be placed in system memory.
-		/// If the surface is created in video memory, blits will be 
-		/// _much_ faster,
-		/// but the surface format must be identical to the video 
-		/// surface format,
-		/// and the only way to access the pixels member of the surface 
-		/// is to use
-		/// the SDL_LockSurface() and SDL_UnlockSurface() calls.
-		/// If the requested surface actually resides in video memory,
-		///  SDL_HWSURFACE
-		/// will be set in the flags member of the returned surface.  
-		/// If for some reason the surface could not be placed in 
-		/// video memory, 
-		/// it will not have
-		/// the SDL_HWSURFACE flag set, and will be created in system 
-		/// memory instead.
+		/// Allocate an empty surface (must be called after <see cref="SDL_SetVideoMode"/>).
+		/// <p>If depth is 8 bits an empty palette is allocated for the surface, 
+		/// otherwise a 'packed-pixel' <see cref="SDL_PixelFormat"/> is created using the 
+		/// [RGBA]mask's provided (see SDL_PixelFormat). The flags specifies 
+		/// the type of surface that should be created, it is an OR'd combination
+		///  of the following possible values.</p>
+		/// <list type="table">
+		///             <item>
+		///                 <term><see cref="SDL_SWSURFACE" /></term>
+		///                 <description>
+		///                 SDL will create the surface in system memory. 
+		///                 This improves the performance of pixel level access, 
+		///                 however you may not be able to take advantage of 
+		///                 some types of hardware blitting.
+		///                 </description>
+		///             </item>
+		///             <item>
+		///                 <term><see cref="SDL_HWSURFACE" /></term>
+		///                 <description>
+		///                 SDL will attempt to create the surface in
+		///                  video memory. This will allow SDL to take advantage 
+		///                  of Video->Video blits (which are often accelerated).
+		///                  </description>
+		///             </item>
+		///             <item>
+		///                 <term><see cref="SDL_SRCCOLORKEY" /></term>
+		///                 <description>
+		///                 This flag turns on colourkeying for 
+		///                 blits from this surface. If SDL_HWSURFACE is also 
+		///                 specified and colourkeyed blits are hardware-accelerated,
+		///                  then SDL will attempt to place the surface in video 
+		///                  memory. Use <see cref="SDL_SetColorKey"/> 
+		///                  to set or clear this flag
+		///                   after surface creation.
+		///                   </description>
+		///             </item>
+		///             <item>
+		///                 <term><see cref="SDL_SRCALPHA" /></term>
+		///                 <description>
+		///                 This flag turns on alpha-blending for 
+		///                 blits from this surface. If SDL_HWSURFACE is also 
+		///                 specified and alpha-blending blits are 
+		///                 hardware-accelerated, then the surface will be placed 
+		///                 in video memory if possible. Use 
+		///                 <see cref="SDL_SetAlpha"/> to set 
+		///                 or clear this flag after surface creation.
+		///                 </description>
+		///             </item>
+		///         </list>
+		///         <p><b>Note:</b> If an alpha-channel is specified (that is, 
+		///         if Amask is nonzero), then the SDL_SRCALPHA flag is 
+		///         automatically set. You may remove this flag by 
+		///         calling <see cref="SDL_SetAlpha"/> after surface creation.</p>
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>SDL_Surface *SDL_CreateRGBSurface(Uint32 flags, int width, int height, int depth, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask)</code>
+		/// </p>
 		/// </remarks>
+		/// <example>
+		/// /* Create a 32-bit surface with the bytes of each pixel in R,G,B,A order,
+		/// as expected by OpenGL for textures */
+		/// SDL_Surface *surface;
+		/// Uint32 rmask, gmask, bmask, amask;
+		///
+		/// /* SDL interprets each pixel as a 32-bit number, so our masks must depend
+		///   on the endianness (byte order) of the machine */
+		///#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+		///		rmask = 0xff000000;
+		///		gmask = 0x00ff0000;
+		///		bmask = 0x0000ff00;
+		///		amask = 0x000000ff;
+		///#else
+		///    rmask = 0x000000ff;
+		///    gmask = 0x0000ff00;
+		///    bmask = 0x00ff0000;
+		///    amask = 0xff000000;
+		///#endif
+		///
+		///		surface = SDL_CreateRGBSurface(SDL_SWSURFACE, width, height, 32,
+		///		rmask, gmask, bmask, amask);
+		///		if(surface == NULL) 
+		///	{
+		///		fprintf(stderr, "CreateRGBSurface failed: %s\n", SDL_GetError());
+		///		exit(1);
+		///	}
+		/// </example>
+		/// <param name="flags"></param>
+		/// <param name="width"></param>
+		/// <param name="height"></param>
+		/// <param name="depth"></param>
+		/// <param name="Rmask"></param>
+		/// <param name="Gmask"></param>
+		/// <param name="Bmask"></param>
+		/// <param name="Amask"></param>
+		/// <returns>IntPtr to <see cref="SDL_Surface"/>, or NULL upon error.</returns>
+		/// <seealso cref="SDL_CreateRGBSurfaceFrom">SDL_CreateRGBSurfaceFrom</seealso>
+		/// <seealso cref="SDL_FreeSurface">SDL_FreeSurface</seealso>
+		/// <seealso cref="SDL_SetVideoMode">SDL_SetVideoMode</seealso>
+		/// <seealso cref="SDL_LockSurface">SDL_LockSurface</seealso>
+		/// <seealso cref="SDL_PixelFormat">SDL_PixelFormat</seealso>
+		/// <seealso cref="SDL_Surface">SDL_Surface</seealso>
+		/// <seealso cref="SDL_SetAlpha">SDL_SetAlpha</seealso>
+		/// <seealso cref="SDL_SetColorKey">SDL_SetColorKey</seealso>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_CreateRGBSurface(int flags, 
+			int width, int height, int depth, 
+			int Rmask, int Gmask, int Bmask, int Amask);
+		#endregion IntPtr SDL_CreateRGBSurface(...)
+
+		#region IntPtr SDL_AllocSurface(...)
+		/// <summary>
+		/// Same as <see cref="SDL_CreateRGBSurface"/>
+		/// </summary>
 		/// <param name="flags"></param>
 		/// <param name="width"></param>
 		/// <param name="height"></param>
@@ -5061,12 +5175,12 @@ namespace Tao.Sdl {
 		/// <param name="Bmask"></param>
 		/// <param name="Amask"></param>
 		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDL_CreateRGBSurface"),
 		SuppressUnmanagedCodeSecurity]
-		public static extern IntPtr SDL_CreateRGBSurface(int flags, 
+		public static extern IntPtr SDL_AllocSurface(int flags, 
 			int width, int height, int depth, 
 			int Rmask, int Gmask, int Bmask, int Amask);
-		#endregion IntPtr SDL_CreateRGBSurface(...)
+		#endregion IntPtr SDL_AllocSurface(...)
 
 		/// <summary>
 		/// Allocate and free an RGB surface (must be called after
@@ -5140,13 +5254,34 @@ namespace Tao.Sdl {
 			int width, int height, int depth, int pitch, int Rmask, 
 			int Gmask, int Bmask, int Amask);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="surface"></param>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		#region void SDL_FreeSurfaceInternal(IntPtr surface)
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDL_FreeSurface"),
 		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_FreeSurface(IntPtr surface);
+		private static extern void SDL_FreeSurfaceInternal(IntPtr surface);
+		#endregion void SDL_FreeSurface(IntPtr surface)
+
+		#region void SDL_FreeSurface(ref IntPtr surface)
+		/// <summary>
+		/// Frees (deletes) a SDL_Surface
+		/// </summary>
+		/// <remarks>
+		/// Frees the resources used by a previously created <see cref="SDL_Surface"/>.
+		/// If the surface was created using <see cref="SDL_CreateRGBSurfaceFrom"/> 
+		/// then the pixel data is not freed.
+		/// <p>Binds to C-function call in SDL_video.h:
+		/// <code>void SDL_FreeSurface(SDL_Surface *surface)</code>
+		/// </p>
+		/// </remarks>
+		/// <param name="surface"></param>
+		/// <seealso cref="SDL_CreateRGBSurface">SDL_CreateRGBSurface</seealso>
+		/// <seealso cref="SDL_CreateRGBSurfaceFrom">SDL_CreateRGBSurfaceFrom</seealso>
+		public static void SDL_FreeSurface(ref IntPtr surface)
+		{
+			SDL_FreeSurfaceInternal(surface);
+			Marshal.DestroyStructure( surface, typeof(SDL_Surface));
+			surface = IntPtr.Zero;
+		}
+		#endregion void SDL_FreeSurface(ref IntPtr surface)
 
 		/// <summary>
 		/// SDL_LockSurface() sets up a surface for directly accessing 
@@ -5517,7 +5652,6 @@ namespace Tao.Sdl {
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_DisplayFormatAlpha(IntPtr surface);
 
-
 		/*
 		 * /* This function creates a video output overlay
    Calling the returned surface an overlay is something of a misnomer because
@@ -5591,8 +5725,6 @@ namespace Tao.Sdl {
 //		extern DECLSPEC void SDLCALL SDL_GL_UpdateRects(int numrects, SDL_Rect* rects);
 //		extern DECLSPEC void SDLCALL SDL_GL_Lock(void);
 //		extern DECLSPEC void SDLCALL SDL_GL_Unlock(void);
-
-
 
 		#region void SDL_WM_SetCaption(string title, string icon)
 		/// <summary>
