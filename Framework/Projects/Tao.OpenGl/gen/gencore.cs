@@ -542,14 +542,17 @@ public class Driver {
           Output.WriteLine("    public static extern {0} {1} ({2});", frettype, fname, fp.paramString);
         }
       } else {
-        // write the extension pointer holder first (just once)
+        // write the extension pointer holder first (just once), along with
+	// the OpenGLExtensionImport attribute
         Output.WriteLine();
+	Output.WriteLine("    [OpenGLExtensionImport(\"GL_{0}\", \"{1}\")]", name, fentry);
         Output.WriteLine("    public {0} IntPtr ext__GL_{1}__{2} = IntPtr.Zero;",
                          doInstance ? "" : "static", name, fentry);
         Output.WriteLine();
 
         foreach (FuncParams fp in fparams) {
-          // write the OpenGLExtensionImport attribute
+          // write the OpenGLExtensionImport attribute; note that it gets stripped
+	  // out from methods by the postprocessor
           Output.WriteLine("    [OpenGLExtensionImport(\"GL_{0}\", \"{1}\"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute({2})]", name, fentry, fp.isCLSCompliant ? "true" : "false");
           Output.WriteLine("    public {0} {1} {2} ({3}) {{",
                            doInstance ? "" : "static", frettype, fname, fp.paramString);
