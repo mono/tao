@@ -36,7 +36,14 @@ namespace Tao.Sdl {
 	///     Simple DirectMedia Layer binding for .NET, implementing SDL 1.2.7.
 	/// </summary>
 	/// <remarks>
-	///     Binds functions and definitions in SDL.dll or libSDL.so.
+	/// This library is designed to make it easy to write games that run 
+	/// the .NET runtime using the various native high-performance media 
+	/// interfaces, (for video, audio, etc) and presenting a single
+	///  source-code level API to your application. This is a fairly 
+	///  low level API, but using this, completely portable applications 
+	///  can be written with a great deal of flexibility.
+	/// <p>An introduction to SDL can be found online at: http://www.libsdl.org/intro/ </p>
+	/// <p>Binds to functions and definitions in SDL.dll or libSDL.so.</p>
 	/// </remarks>
 	#endregion Class Documentation
 	public sealed class Sdl 
