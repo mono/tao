@@ -15,12 +15,9 @@ The bindings are also CLS-compliant, meaning that they can be used by any
 
 The Tao Framework bindings and example applications are free for commercial
 and non-commercial usage and all source code is provided under the very
-liberal BSD license.  However, any source code and documentation changes,
+liberal MIT-X11 license.  However, any source code and documentation changes,
 corrections, improvements, and additions are requested for the good of all
 Tao Framework users.
-
-Financial donations are kindly requested to support the continuing development
-of current and future libraries.
 
 For more information and resources, visit the Tao Framework web site.
 
