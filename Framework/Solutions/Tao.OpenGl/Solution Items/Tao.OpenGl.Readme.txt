@@ -20,17 +20,15 @@ Hopefully this issue will be resolved soon.
 
 [To be written.  Comments/problems to vladimir@pobox.com .]
 
-In a nutshell, you'll need to fetch the static GlExtensionLoader instance:
+In a nutshell, you'll use the Tao.OpenGl.GlExtensionLoader class.
 
-   GlExtensionLoader gex = GlExtensionLoader.GetInstance();
+To check for support without loading:
 
-then, to check for support without loading:
-
-   bool vboSupported = gex.IsExtensionSupported("GL_ARB_vertex_buffer_object");
+   bool vboSupported = GlExtensionLoader.IsExtensionSupported("GL_ARB_vertex_buffer_object");
 
 or to check and load:
 
-   bool vboSupported = gex.LoadExtension ("GL_ARB_vertex_buffer_object");
+   bool vboSupported = GlExtensionLoader.LoadExtension ("GL_ARB_vertex_buffer_object");
 
 then, just use
 
@@ -44,7 +42,7 @@ Multiple context is supported; you have to create a new ContextGl class:
 
 then pass this as the first argument to IsExtensionSupported/LoadExtension:
 
-   gex.LoadExtension (cgl, "GL_ARB_vertex_buffer_object");
+   GlExtensionLoader.LoadExtension (cgl, "GL_ARB_vertex_buffer_object");
 
 And then call
 
@@ -53,7 +51,9 @@ And then call
 
 It's the application's responsibility to make the appropriate context
 current before calling GlCore or Gl methods on a ContextGl instance.
-   
+
+To load all extensions:
+   GlExtensionLoader.LoadAllExtensions();
 
 Change Log:
 

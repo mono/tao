@@ -168,6 +168,7 @@ public class GlTypeMap {
     "int []",
     "float []",
     "double []",
+    "string",
     "IntPtr"
   };
   static string [] inArrayNonCLSExpansions = new string[] {
@@ -194,7 +195,7 @@ public class GlTypeMap {
     "ref uint",
     "ref float",
     "ref double",
-    "[In] Array",
+    "string",
     "IntPtr"
   };
 #endif

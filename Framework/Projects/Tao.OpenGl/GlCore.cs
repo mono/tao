@@ -40,15 +40,6 @@ namespace Tao.OpenGl {
   // is responsible for loading extensions.
   //
   public class GlExtensionLoader {
-    // Singleton
-    private static GlExtensionLoader loaderInst;
-    public static GlExtensionLoader GetInstance() {
-      if (loaderInst == null) {
-        loaderInst = new GlExtensionLoader();
-      }
-      return loaderInst;
-    }
-
     //
     // Data for a particular context; available extensions,
     // already-loaded extensions, etc.
@@ -123,7 +114,7 @@ namespace Tao.OpenGl {
       return symbol;
     }
 
-    internal GlContextInfo GetContextInfo(object ctx) {
+    internal static GlContextInfo GetContextInfo(object ctx) {
       // use "0" to mean no context
       if (ctx == null)
         ctx = 0;
@@ -188,8 +179,7 @@ namespace Tao.OpenGl {
       throw new NotSupportedException ("Shouldn't get here..");
     }
 
-    protected GlExtensionLoader () {
-      // nothing
+    private GlExtensionLoader () {
     }
 
     //
@@ -198,7 +188,7 @@ namespace Tao.OpenGl {
     // Asks if the extension with the given name is supported
     // in the global static context.
     //
-    public bool IsExtensionSupported (string extname) {
+    public static bool IsExtensionSupported (string extname) {
       return IsExtensionSupported (null, extname);
     }
 
@@ -208,7 +198,7 @@ namespace Tao.OpenGl {
     // Asks if the extension with the given name is supported
     // in the given context.
     //
-    public bool IsExtensionSupported (object contextGl, string extname) {
+    public static bool IsExtensionSupported (object contextGl, string extname) {
       GlContextInfo gci = GetContextInfo(contextGl);
       if (gci.AvailableExtensions.ContainsKey (extname))
         return true;
@@ -221,7 +211,7 @@ namespace Tao.OpenGl {
     // Attempt to load the extension with the specified name into the
     // global static context.
     //
-    public bool LoadExtension (string extname) {
+    public static bool LoadExtension (string extname) {
       return LoadExtension (null, extname, false);
     }
 
@@ -233,7 +223,7 @@ namespace Tao.OpenGl {
     // object passed in ought to be an instance of
     // Tao.OpenGl.ContextGl, or null.
     //
-    public bool LoadExtension (object contextGl, string extname) {
+    public static bool LoadExtension (object contextGl, string extname) {
       return LoadExtension (contextGl, extname, false);
     }
 
@@ -247,7 +237,7 @@ namespace Tao.OpenGl {
     // to obtain function pointers even if the runtime claims that the
     // extension is not supported.
     //
-    public bool LoadExtension (object contextGl, string extname, bool forceLoad) {
+    public static bool LoadExtension (object contextGl, string extname, bool forceLoad) {
       GlContextInfo gci = GetContextInfo(contextGl);
       if (gci.LoadedExtensions.ContainsKey (extname)) {
         return (bool) gci.LoadedExtensions[extname];
@@ -304,10 +294,25 @@ namespace Tao.OpenGl {
     }
 
     //
+    // LoadAllExtensions
+    //
+
+    public static void LoadAllExtensions () {
+      LoadAllExtensions (null);
+    }
+
+    public static void LoadAllExtensions (object contextGl) {
+      GlContextInfo gci = GetContextInfo(contextGl);
+
+      foreach (string ext in gci.AvailableExtensions.Keys)
+	LoadExtension (contextGl, ext, false);
+    }
+
+    //
     // Find the Tao.OpenGl.Gl type
     //
-    Type mStaticGlType;
-    Type StaticGlType {
+    static Type mStaticGlType;
+    static Type StaticGlType {
       get {
         if (mStaticGlType != null)
           return mStaticGlType;

@@ -96,6 +96,7 @@
   <type name="String">
     <!-- DANGER: this breaks badly if a retval is a string,
          e.g. from GetString.  We need to special case that! -->
+    <mapto language="c#" if_return="1" type="IntPtr" />
     <mapto language="c#" type="string" />
   </type>
 
