@@ -34,6 +34,7 @@ public class GlTypeMap {
 
   internal class GlTypeMapEntry {
     public GlTypeMapEntry() {
+      if_return = 0;
       if_out = 0;
       if_array = 0;
       is_generic = 0;
@@ -52,6 +53,7 @@ public class GlTypeMap {
 
     public string type;
     public string nonclstype;
+    public int if_return;
     public int if_out;
     public int if_array;
     public int is_generic;
@@ -112,6 +114,8 @@ public class GlTypeMap {
             GlTypeMapEntry tme = new GlTypeMapEntry();
             tme.type = mapnode.Attributes["type"].Value;
 
+            if (mapnode.Attributes["if_return"] != null)
+              tme.if_return = Convert.ToInt32(mapnode.Attributes["if_return"].Value);
             if (mapnode.Attributes["if_out"] != null)
               tme.if_out = Convert.ToInt32(mapnode.Attributes["if_out"].Value);
             if (mapnode.Attributes["if_array"] != null)
@@ -234,7 +238,8 @@ public class GlTypeMap {
 
     // find the first one that matches
     foreach (GlTypeMapEntry tme in entries) {
-      if ((tme.if_out == 0 || tme.if_out == want_out) &&
+      if (tme.if_return == 0 &&
+	  (tme.if_out == 0 || tme.if_out == want_out) &&
           (tme.if_array == 0 || tme.if_array == want_array))
       {
         // found one
@@ -311,6 +316,9 @@ public class GlTypeMap {
 
     // or not.
     foreach (GlTypeMapEntry tme in entries) {
+      if (tme.if_return == 1)
+	return tme.type;
+
       if ((tme.if_out == 0 || tme.if_out == -1) &&
           (tme.if_array == 0 || tme.if_array == -1))
         return tme.type;

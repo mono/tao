@@ -71,8 +71,8 @@
   <typealias name="ConstVoid" mapto="Void" />
 
   <type name="VoidPointer">
+    <mapto language="c#" if_return="1" type="IntPtr" />
     <mapto language="c#" is_generic="1" type="void" />
-    <mapto language="c#" type="IntPtr" />
   </type>
   <typealias name="ConstVoidPointer" mapto="VoidPointer" />
 
@@ -100,7 +100,7 @@
   </type>
 
   <type name="VertexBufferSize">
-    <mapto language="c#" type="ref int" />
+    <mapto language="c#" type="int" />
   </type>
   <typealias name="VertexBufferSizeARB" mapto="VertexBufferSize" />
 
