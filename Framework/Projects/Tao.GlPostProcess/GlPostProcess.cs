@@ -130,6 +130,10 @@ public class GlPostProcess {
   //
   // It then munges mercilessly.
   //
+
+  // see below for win32 hack
+  static FieldInfo win32SigField;
+
   public static void ProcessType(ModuleBuilder mbuilder, Assembly inputAssembly,
                                  string typeName, bool isInstanceClass)
   {
@@ -286,19 +290,46 @@ public class GlPostProcess {
             // caller
             ilg.Emit(OpCodes.Tailcall);
 
-            // XXX these CallingConvetions should be the "default" ones;
-            // for some reason, the .net runtime borks on CallingConvention.Default
-            // here.
-            // SignatureHelper sh = SignatureHelper.GetMethodSigHelper (mbuilder, mi.ReturnType, methodSig);
-            // ilg.Emit(OpCodes.Calli, sh);
+	    // The .NET 1.1 runtime doesn't let us emit
+	    // CallingConvention.Winapi here, or anything else that
+	    // might mean "Use whatever the default platform calling
+	    // convention is", like p/invoke can have.
+	    //
+	    // However, Mono 1.0 /does/ let us emit Winapi/Default,
+	    // and both .NET 1.1 and Mono handle this as intended
+	    // (stdcall on .NET, cdecl on Mono/Linux).  By my reading
+	    // of ECMA-335 (CLI), 22.2.2, this should be allowed, and
+	    // I'm not sure why MS's impl doesn't allow it.  However,
+	    // the .NET System.Reflection.Emit leaves a lot to be
+	    // desired anyway.
+	    //
+	    // So, the issue is how to emit this.  On WIN32, we simply
+	    // create our own SignatureHelper, and munge the internal
+	    // signature byte.  Fun, eh?
 
-            ilg.EmitCalli(OpCodes.Calli,
 #if !WIN32
-                          CallingConvention.Cdecl,
-#else
-                          CallingConvention.StdCall,
-#endif
+	    // Mono?  Just emit normally.
+            ilg.EmitCalli(OpCodes.Calli,
+                          CallingConvention.Winapi,
                           mi.ReturnType, methodSig);
+#else
+	    // Win32?  Let the fun begin.
+	    if (win32SigField == null)
+	      win32SigField = typeof(SignatureHelper).GetField("m_signature", BindingFlags.Instance | BindingFlags.NonPublic);
+
+            SignatureHelper sh = SignatureHelper.GetMethodSigHelper (mbuilder,
+								     CallingConvention.StdCall,	// lie
+								     mi.ReturnType);
+	    // munge calling convention; the value in the first byte will be 0x2 for StdCall (1 minus
+	    // the CallingConvention enum value).  We set to 0.
+	    Array sigArr = win32SigField.GetValue(sh) as Array;
+	    sigArr.SetValue((byte) 0, 0);
+	    // then add the rest of the args.
+	    foreach (Type t in methodSig)
+	      sh.AddArgument(t);
+
+            ilg.Emit(OpCodes.Calli, sh);
+#endif
 
           }
           ilg.Emit(OpCodes.Ret);
