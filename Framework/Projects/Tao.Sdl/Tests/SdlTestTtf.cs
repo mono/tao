@@ -610,5 +610,5 @@ namespace Tao.Sdl
 			SdlTtf.TTF_Quit();
 		}
 	}
-	#endregion SDL_image.h
+	#endregion SDL_ttf.h
 }
