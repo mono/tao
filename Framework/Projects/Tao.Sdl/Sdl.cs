@@ -140,41 +140,121 @@ namespace Tao.Sdl {
 		#endregion SDL.h
 
 		#region SDL_active.h
+		#region SDL_APPMOUSEFOCUS
 		/// <summary>
 		/// The app has mouse coverage
 		/// </summary>
 		/// <remarks>
 		/// The available application states
 		/// </remarks>
-		public const Byte SDL_APPMOUSEFOCUS = 0x01;
+		public const byte SDL_APPMOUSEFOCUS = 0x01;
+		#endregion SDL_APPMOUSEFOCUS
 
+		#region SDL_APPINPUTFOCUS
 		/// <summary>
 		/// The app has input focus
 		/// </summary>
 		/// <remarks>
 		/// The available application states
 		/// </remarks>
-		public const Byte SDL_APPINPUTFOCUS = 0x02;
+		public const byte SDL_APPINPUTFOCUS = 0x02;
+		#endregion SDL_APPINPUTFOCUS
 
+		#region SDL_APPACTIVE
 		/// <summary>
 		/// The application is active
 		/// </summary>
 		/// <remarks>
 		/// The available application states
 		/// </remarks>
-		public const Byte SDL_APPACTIVE = 0x04;
+		public const byte SDL_APPACTIVE = 0x04;
+		#endregion SDL_APPACTIVE
 		#endregion SDL_active.h
 
-		#region SDL_byteorder.h
+		#region SDL_audio.h
+		#region AUDIO_U8
 		/// <summary>
-		/// 
+		/// Unsigned 8-bit samples.
 		/// </summary>
-		public const int SDL_LIL_ENDIAN = 1234;
+		public const int AUDIO_U8 = 0x0008;
+		#endregion AUDIO_U8
 
+		#region AUDIO_S8
 		/// <summary>
-		/// 
+		/// Signed 8-bit samples.
 		/// </summary>
+		public const int AUDIO_S8 = 0x8008;
+		#endregion AUDIO_S8
+
+		#region AUDIO_U16LSB
+		/// <summary>
+		/// Unsigned 16-bit little-endian samples.
+		/// </summary>
+		public const int AUDIO_U16LSB = 0x0010;
+		#endregion AUDIO_U16LSB
+
+		#region AUDIO_S16LSB
+		/// <summary>
+		/// Signed 16-bit little-endian samples
+		/// </summary>
+		public const int AUDIO_S16LSB	= 0x8010;	
+		#endregion AUDIO_S16LSB
+
+		#region AUDIO_U16MSB
+		/// <summary>
+		/// Unsigned 16-bit big-endian samples
+		/// </summary>
+		public const int AUDIO_U16MSB	= 0x1010;
+		#endregion AUDIO_U16MSB
+
+		#region AUDIO_S16MSB
+		/// <summary>
+		/// Signed 16-bit big-endian samples
+		/// </summary>
+		public const int AUDIO_S16MSB	= 0x9010;
+		#endregion AUDIO_S16MSB
+
+		#region AUDIO_U16
+		/// <summary>
+		/// Unsigned 16-bit little-endian samples
+		/// </summary>
+		public readonly int AUDIO_U16 = AUDIO_U16LSB;
+		#endregion AUDIO_U16
+
+		#region AUDIO_S16
+		/// <summary>
+		/// Signed 16-bit little-endian samples
+		/// </summary>
+		public readonly int AUDIO_S16 = AUDIO_S16LSB;
+		#endregion AUDIO_S16
+
+		#region SDL_MIX_MAXVOLUME
+		/// <summary>
+		/// Full audio volume
+		/// </summary>
+		public const int SDL_MIX_MAXVOLUME = 128;
+		#endregion SDL_MIX_MAXVOLUME
+		#endregion SDL_audio.h
+
+		#region SDL_byteorder.h
+		#region SDL_LIL_ENDIAN
+		/// <summary>
+		/// Little Endian
+		/// </summary>
+		/// <remarks>
+		/// e.g. i386 machines</remarks>
+		public const int SDL_LIL_ENDIAN = 1234;
+		#endregion SDL_LIL_ENDIAN
+
+		#region SDL_BIG_ENDIAN
+		/// <summary>
+		/// Big Endian
+		/// </summary>
+		/// <remarks>
+		/// e.g. Macs
+		/// </remarks>
 		public const int SDL_BIG_ENDIAN = 4321;
+		#endregion SDL_BIG_ENDIAN
 		#endregion SDL_byteorder.h
 		
 		// SDL_copying.h -- none
@@ -183,6 +263,7 @@ namespace Tao.Sdl {
 		// SDL_getenv.h -- none
 		// SDL_main.h -- none
 		// SDL_name.h -- none
+		// SDL_opengl.h -- superceded by Tao.OpenGL
 		// SDL_quit.h -- none
 
 		// TODO: SDL_rwops -- skipped for now, might be useful.
@@ -446,42 +527,7 @@ namespace Tao.Sdl {
 		#endregion SDL_video.h
 
 		#region NOT_DONE
-		/// <summary>
-		/// Unsigned 8-bit samples
-		/// </summary>
-		public const int AUDIO_U8 = 0x0008;
 
-		/// <summary>
-		/// Signed 8-bit samples
-		/// </summary>
-		public const int AUDIO_S8 = 0x8008;
-
-		/// <summary>
-		/// Unsigned 16-bit samples
-		/// </summary>
-		public const int AUDIO_U16LSB = 0x0010;
-
-		/// <summary>
-		/// Signed 16-bit samples
-		/// </summary>
-		public const int AUDIO_S16LSB	= 0x8010;	
-		/// <summary>
-		/// As above, but big-endian byte order
-		/// </summary>
-		public const int AUDIO_U16MSB	= 0x1010;
-		/// <summary>
-		/// As above, but big-endian byte order
-		/// </summary>
-		public const int AUDIO_S16MSB	= 0x9010;
-		/// <summary>
-		/// Audio format flags (defaults to LSB byte order)
-		/// </summary>
-		public int AUDIO_U16 = AUDIO_U16LSB;
-
-		/// <summary>
-		/// Audio format flags (defaults to LSB byte order)
-		/// </summary>
-		public int AUDIO_S16 = AUDIO_S16LSB;
 
 		/// <summary>
 		/// 
@@ -725,11 +771,6 @@ namespace Tao.Sdl {
 		/// 
 		/// </summary>
 		public const int SDL_ENABLE = 1;
-
-		/// <summary>
-		/// Full audio volume
-		/// </summary>
-		public const int SDL_MIX_MAXVOLUME = 128;
 		
 		//The nameless enum from SDL_events.h was moved into a set of const
 		//instead of a C# enum. This makes it work more like the C Code.
@@ -850,6 +891,31 @@ namespace Tao.Sdl {
 		#region Public Enums
 		// SDL.h -- none
 		// SDL_active.h -- none
+
+		#region SDL_audio.h
+		#region SDL_audiostatus
+		/// <summary>
+		/// Get the current audio state
+		/// </summary>
+		/// <seealso cref="SDL_GetAudioStatus"/>
+		public enum SDL_audiostatus 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			SDL_AUDIO_STOPPED = 0,
+			/// <summary>
+			/// 
+			/// </summary>
+			SDL_AUDIO_PLAYING,
+			/// <summary>
+			/// 
+			/// </summary>
+			SDL_AUDIO_PAUSED
+		}
+		#endregion SDL_audiostatus
+		#endregion SDL_audio.h
+
 		// SDL_byteorder.h -- none
 		// SDL_copying.h -- none
 		// SDL_cpuinfo.h -- none
@@ -857,6 +923,7 @@ namespace Tao.Sdl {
 		// SDL_getenv.h -- none
 		// SDL_main.h -- none
 		// SDL_name.h -- none
+		// SDL_opengl.h -- superceded by Tao.OpenGL
 		// SDL_quit.h -- none
 		// SDL_timer.h -- none
 
@@ -2053,24 +2120,6 @@ namespace Tao.Sdl {
 		}
 
 		/// <summary>
-		/// Get the current audio state
-		/// </summary>
-		public enum SDL_audiostatus {
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_AUDIO_STOPPED = 0,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_AUDIO_PLAYING,
-			/// <summary>
-			/// 
-			/// </summary>
-			SDL_AUDIO_PAUSED
-		}
-
-		/// <summary>
 		/// Various event types.
 		/// </summary>
 		public enum SDL_eventaction {
@@ -2093,6 +2142,254 @@ namespace Tao.Sdl {
 		#region Public Structs
 		// SDL.h -- none
 		// SDL_active.h -- none
+
+		#region SDL_audio.h
+		#region SDL_AudioSpec
+		/// <summary>
+		/// Audio Specification Structure
+		/// </summary>
+		/// <remarks>The calculated values in this structure are 
+		/// calculated by SDL_OpenAudio()
+		/// The SDL_AudioSpec structure is used to describe the format of some 
+		/// audio data. This structure is used by SDL_OpenAudio and SDL_LoadWAV.
+		///  While all fields are used by <see cref="SDL_OpenAudio"/> only 
+		///  freq, format, samples
+		///   and channels are used by <see cref="SDL_LoadWAV"/>. 
+		///   We will detail these common members here.
+		///   <p>Marshals C-struct in SDL_audio.h:
+		///   <code>
+		///   typedef struct{
+		///		int freq;
+		///		Uint16 format;
+		///		Uint8 channels;
+		///		Uint8 silence;
+		///		Uint16 samples;
+		///		Uint32 size;
+		///		void (*callback)(void *userdata, Uint8 *stream, int len);
+		///		void *userdata;
+		///	} SDL_AudioSpec;
+		///   </code></p>
+		/// </remarks>
+		/// <seealso cref="SDL_OpenAudio"/>
+		/// <seealso cref="SDL_LoadWAV"/>
+		public struct SDL_AudioSpec 
+		{
+			/// <summary>
+			/// Audio frequency in samples per second
+			/// </summary>
+			/// <remarks>
+			/// The number of samples sent to the sound device every second.
+			///  Common values are 11025, 22050 and 44100. The higher the better.
+			/// </remarks>
+			public int freq;	
+			/// <summary>
+			/// Audio data format.
+			/// </summary>
+			/// <remarks>
+			/// Specifies the size and type of each sample element.
+			/// <list type="table">
+			///             <item>
+			///                 <term><see cref="AUDIO_U8" /></term>
+			///                 <description>Unsigned 8-bit samples</description>
+			///             </item>
+			///             <item>
+			///                 <term><see cref="AUDIO_S8" /></term>
+			///                 <description>Signed 8-bit samples</description>
+			///             </item>
+			///             <item>
+			///                 <term><see cref="AUDIO_U16 or AUDIO_U16LSB" /></term>
+			///                 <description>Unsigned 16-bit little-endian samples</description>
+			///             </item>
+			///             <item>
+			///                 <term><see cref="AUDIO_S16 or AUDIO_S16LSB" /></term>
+			///                 <description>Signed 16-bit little-endian samples</description>
+			///             </item>
+			///             <item>
+			///                 <term><see cref="AUDIO_U16MSB" /></term>
+			///                 <description>Unsigned 16-bit big-endian samples</description>
+			///             </item>
+			///             <item>
+			///                 <term><see cref="AUDIO_S16MSB" /></term>
+			///                 <description>Signed 16-bit big-endian samples</description>
+			///             </item>
+			///             <item>
+			///                 <term><see cref="AUDIO_U16SYS" /></term>
+			///                 <description>Either AUDIO_U16LSB or 
+			///                 AUDIO_U16MSB depending on you systems endianness
+			///                 </description>
+			///             </item>
+			///             <item>
+			///                 <term><see cref="AUDIO_S16SYS" /></term>
+			///                 <description>Either AUDIO_S16LSB or 
+			///                 AUDIO_S16MSB depending on you systems endianness
+			///					</description>
+			///             </item>
+			///         </list>
+			/// </remarks>
+			public short format;		
+			/// <summary>
+			/// Number of channels: 1 mono, 2 stereo.
+			/// </summary>
+			/// <remarks>
+			/// The number of seperate sound channels. 
+			/// 1 is mono (single channel), 2 is stereo (dual channel).
+			/// </remarks>
+			public byte  channels;
+			/// <summary>
+			/// Audio buffer silence value (calculated).
+			/// </summary>
+			public byte  silence;	
+			/// <summary>
+			/// Audio buffer size in samples.
+			/// </summary>
+			/// <remarks>
+			/// When used with <see cref="SDL_OpenAudio"/> this refers 
+			/// to the size of the 
+			/// audio buffer in samples. A sample a chunk of audio data
+			///  of the size specified in format mulitplied by the number
+			///   of channels. When the SDL_AudioSpec is used with 
+			///   <see cref="SDL_LoadWAV"/> samples is set to 4096.
+			/// </remarks>
+			public short samples;
+			/// <summary>
+			/// Necessary for some compile environments. Should not be used
+			/// </summary>
+			public short padding;		
+			/// <summary>
+			/// Audio buffer size in bytes (calculated)
+			/// </summary>
+			public int size;		
+			/// <summary>
+			/// Callback function for filling the audio buffer
+			/// This function is called when the audio device needs more data.
+			/// 'stream' is a pointer to the audio data buffer
+			/// 'len' is the length of that buffer in bytes.
+			/// Once the callback returns, the buffer will no longer be valid.
+			/// Stereo samples are stored in a LRLRLR ordering.
+			/// </summary>
+			/// <param name="userdata"></param>
+			/// <param name="stream"></param>
+			/// <param name="len"></param>
+			public delegate void callback(
+				[ MarshalAs( UnmanagedType.AsAny )] Object userdata, 
+				out byte stream, int len);
+			/// <summary>
+			/// Pointer the user data which is passed to the callback function
+			/// </summary>
+			[ MarshalAs( UnmanagedType.AsAny )]
+			public Object userdata;
+		}
+		#endregion SDL_AudioSpec
+
+		#region SDL_AudioCVT
+		/// <summary>
+		/// Audio Conversion Structure
+		/// </summary>
+		/// <remarks>
+		/// The SDL_AudioCVT is used to convert audio data between different 
+		/// formats. A SDL_AudioCVT structure is created with the 
+		/// <see cref="SDL_BuildAudioCVT"/> function, while the actual
+		///  conversion is done by the SDL_ConvertAudio function.
+		/// <p>Many of the fields in the <see cref="SDL_AudioCVT"/> 
+		/// structure should be considered private and their function
+		///  will not be discussed here.</p>
+		///  <p>
+		///  <code>
+		///  typedef struct{
+		///		int needed;
+		///		Uint16 src_format;
+		///		Uint16 dest_format;
+		///		double rate_incr;
+		///		Uint8 *buf;
+		///		int len;
+		///		int len_cvt;
+		///		int len_mult;
+		///		double len_ratio;
+		///		void (*filters[10])(struct SDL_AudioCVT *cvt, Uint16 format);
+		///								int filter_index;
+		///							} SDL_AudioCVT;
+		///  </code></p>
+		/// </remarks>
+		/// <seealso cref="SDL_BuildAudioCVT"/>
+		/// <seealso cref="SDL_ConvertAudio"/>
+		/// <seealso cref="SDL_AudioSpec"/>
+		public struct SDL_AudioCVT 
+		{
+			/// <summary>
+			/// Set to 1 if conversion possible
+			/// </summary>
+			public int needed;			
+			/// <summary>
+			/// Audio format of the source
+			/// </summary>
+			public short src_format;		
+			/// <summary>
+			/// Audio format of the destination
+			/// </summary>
+			public short dst_format;		
+			/// <summary>
+			/// Rate conversion increment
+			/// </summary>
+			public double rate_incr;	
+			/// <summary>
+			/// Buffer to hold entire audio data
+			/// </summary>
+			/// <remarks>
+			/// This points to the audio data that will be used in the 
+			/// conversion. It is both the source and the destination, 
+			/// which means the converted audio data overwrites the original
+			///  data. It also means that the converted data may be larger 
+			///  than the original data (if you were converting from 8-bit
+			///   to 16-bit, for instance), so you must ensure buf is large
+			///    enough. See below.
+			/// <p>IntPtr to byte</p>
+			/// </remarks>
+			public IntPtr buf;		
+			/// <summary>
+			/// Length of original audio buffer in bytes
+			/// </summary>
+			public int    len;			
+			/// <summary>
+			/// Length of converted audio buffer in bytes (calculated)
+			/// </summary>
+			/// <remarks>
+			/// This is the length of the original audio data in bytes.
+			/// </remarks>
+			public int    len_cvt;	
+			/// <summary>
+			/// buf must be len*len_mult bytes in size(calculated)
+			/// </summary>
+			/// <remarks>
+			/// As explained above, the audio buffer needs to be big enough 
+			/// to store the converted data, which may be bigger than the 
+			/// original audio data. The length of buf should be len*len_mult.
+			/// </remarks>
+			public int    len_mult;	
+			/// <summary>
+			/// Final audio size is len*len_ratio
+			/// </summary>
+			/// <remarks>
+			/// When you have finished converting your audio data, you need 
+			/// to know how much of your audio buffer is valid. len*len_ratio
+			///  is the size of the converted audio data in bytes. This is 
+			///  very similar to len_mult, however when the convert audio 
+			///  data is shorter than the original len_mult would be 1. 
+			///  len_ratio, on the other hand, would be a fractional 
+			///  number between 0 and 1.
+			/// </remarks>
+			public double len_ratio; 	
+			
+			//Pointers to functions needed for this conversion
+			//public void (*filters[10])(IntPtr cvt, short format);
+
+			/// <summary>
+			/// Current audio conversion function
+			/// </summary>
+			public int filter_index;
+		}
+		#endregion SDL_AudioCVT
+		#endregion SDL_audio.h
+
 		// SDL_byteorder.h -- none
 		// SDL_copying.h -- none
 		// SDL_cpuinfo.h -- none
@@ -2100,6 +2397,7 @@ namespace Tao.Sdl {
 		// SDL_getenv.h -- none
 		// SDL_main.h -- none
 		// SDL_name.h -- none
+		// SDL_opengl.h -- superceded by Tao.OpenGL
 		// SDL_quit.h -- none
 		
 		#region SDL_timer.h
@@ -3290,106 +3588,9 @@ namespace Tao.Sdl {
 			public struct WMcursor {
 		}	
 
-		/// <summary>
-		/// The calculated values in this structure are 
-		/// calculated by SDL_OpenAudio()
-		/// </summary>
-		public struct SDL_AudioSpec {
+		
 
-			/// <summary>
-			/// DSP frequency -- samples per second
-			/// </summary>
-			public int freq;	
-			/// <summary>
-			/// Audio data format
-			/// </summary>
-			public short format;		
-			/// <summary>
-			/// Number of channels: 1 mono, 2 stereo
-			/// </summary>
-			public Byte  channels;
-			/// <summary>
-			/// Audio buffer silence value (calculated)
-			/// </summary>
-			public Byte  silence;	
-			/// <summary>
-			/// Audio buffer size in samples (power of 2)
-			/// </summary>
-			public short samples;
-			/// <summary>
-			/// Necessary for some compile environments
-			/// </summary>
-			public short padding;		
-			/// <summary>
-			/// Audio buffer size in bytes (calculated)
-			/// </summary>
-			public int size;		
-			//			/// <summary>
-			//			/// This function is called when the audio device needs more data.
-			//			/// 'stream' is a pointer to the audio data buffer
-			//			/// 'len' is the length of that buffer in bytes.
-			//			/// Once the callback returns, the buffer will no longer be valid.
-			//			/// Stereo samples are stored in a LRLRLR ordering.
-			//			/// </summary>
-			//			/// <param name="userdata"></param>
-			//			/// <param name="stream"></param>
-			//			/// <param name="len"></param>
-			//			public void callback(IntPtr userdata, IntPtr stream, int len)
-			//			{}
-			/// <summary>
-			/// 
-			/// </summary>
-			public IntPtr  userdata;
-		}
-
-		/// <summary>
-		/// A structure to hold a set of audio conversion filters and buffers
-		/// </summary>
-		public struct SDL_AudioCVT {
-			/// <summary>
-			/// Set to 1 if conversion possible
-			/// </summary>
-			public int needed;			/*  */
-			/// <summary>
-			/// Source audio format
-			/// </summary>
-			public short src_format;		/*  */
-			/// <summary>
-			/// Target audio format
-			/// </summary>
-			public short dst_format;		
-			/// <summary>
-			/// Rate conversion increment
-			/// </summary>
-			public double rate_incr;	
-			/// <summary>
-			/// Buffer to hold entire audio data
-			/// </summary>
-			public IntPtr buf;		
-			/// <summary>
-			/// Length of original audio buffer
-			/// </summary>
-			public int    len;			
-			/// <summary>
-			/// Length of converted audio buffer
-			/// </summary>
-			public int    len_cvt;	
-			/// <summary>
-			/// buffer must be len*len_mult big
-			/// </summary>
-			public int    len_mult;	
-			/// <summary>
-			/// Given len, final size is len*len_ratio
-			/// </summary>
-			public double len_ratio; 	
-			
-			//public void (*filters[10])(IntPtr cvt, short format);
-
-			/// <summary>
-			/// Current audio conversion function
-			/// </summary>
-			public int filter_index;
-		}
+		
 		#endregion NOT_DONE
 		#endregion Public Structs
 
@@ -3468,6 +3669,7 @@ namespace Tao.Sdl {
 		public delegate int SDL_NewTimerCallback(int interval);
 		#endregion int SDL_NewTimerCallback(int interval)
 		#endregion SDL_timer.h
+		
 		#endregion Public Delegates
 
 		// --- Public Externs ---
@@ -3782,7 +3984,319 @@ namespace Tao.Sdl {
 		#endregion byte SDL_GetAppState
 		#endregion SDL_active.h
 
-		// SDL_audio.h -- Reorg
+		#region SDL_audio.h
+		#region int AUDIO_U16SYS
+		/// <summary>
+		/// Native audio byte ordering
+		/// </summary>
+		public static int AUDIO_U16SYS 
+		{
+			get 
+			{
+				if (SDL_BYTEORDER == SDL_LIL_ENDIAN) 
+				{
+					return AUDIO_U16LSB;
+				}
+				else 
+				{
+					return AUDIO_U16MSB;
+				}
+			}
+		}
+		#endregion int AUDIO_U16SYS
+
+		#region AUDIO_S16SYS
+		/// <summary>
+		/// Native audio byte ordering
+		/// </summary>
+		public static int AUDIO_S16SYS 
+		{
+			get 
+			{
+				if (SDL_BYTEORDER == SDL_LIL_ENDIAN) 
+				{
+					return AUDIO_S16LSB;
+				}
+				else 
+				{
+					return AUDIO_S16MSB;
+				}
+			}
+		}
+		#endregion AUDIO_S16SYS
+
+		#region int SDL_AudioInit(string driver_name)
+		/// <summary>
+		/// This function is used internally, 
+		/// and should not be used unless you
+		/// have a specific need to specify the audio driver you want to use.
+		/// You should normally use 
+		/// <see cref="SDL_Init"/> or <see cref="SDL_InitSubSystem"/>.
+		/// </summary>
+		/// <param name="driver_name">
+		/// </param>
+		/// <returns></returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_AudioInit(string driver_name);
+		#endregion int SDL_AudioInit(string driver_name)
+
+		#region void SDL_AudioQuit()
+		/// <summary>
+		/// This function is used internally, 
+		/// and should not be used unless you
+		/// have a specific need to specify the audio driver you want to use.
+		/// You should normally use SDL_Init() or SDL_InitSubSystem().
+		/// </summary>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_AudioQuit();
+		#endregion void SDL_AudioQuit()
+
+		#region SDL_AudioDriverName( ref string buf, int maxlen)
+		/// <summary>
+		/// This function fills the given character buffer with the name of the
+		/// current audio driver, and returns a pointer to it if the audio
+		///  driver has	been initialized.  
+		/// </summary>
+		/// <returns>It returns NULL if no driver has been initialized.</returns>
+		/// <param name="buf"></param>
+		/// <param name="maxlen"></param>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern string SDL_AudioDriverName(
+			ref string buf, int maxlen);
+		#endregion SDL_AudioDriverName( ref string buf, int maxlen)
+
+		/// <summary>
+		/// This function opens the audio device with the desired 
+		/// parameters, and
+		///	returns 0 if successful, placing the actual hardware 
+		/// parameters in the
+		/// structure pointed to by 'obtained'.  
+		/// If 'obtained' is NULL, the audio
+		/// data passed to the callback function will be guaranteed 
+		/// to be in the
+		/// requested format, and will be automatically converted to the 
+		/// hardware
+		/// audio format if necessary.  This function returns -1 if it failed 
+		/// to open the audio device, or couldn't set up the audio thread.
+		/// When filling in the desired audio spec structure,
+		/// 'desired->freq' should be the desired audio frequency in 
+		/// samples-per-second.
+		/// 'desired->format' should be the desired audio format.
+		/// 'desired->samples' is the desired size of the audio buffer,
+		///  in samples.
+		/// This number should be a power of two, and may be adjusted 
+		/// by the audio
+		/// driver to a value more suitable for the hardware. 
+		///  Good values seem to
+		/// range between 512 and 8096 inclusive, depending on the 
+		/// application and
+		/// CPU speed.  Smaller values yield faster response time, 
+		/// but can lead
+		/// to underflow if the application is doing heavy processing and 
+		/// cannot
+		/// fill the audio buffer in time.  A stereo sample consists 
+		/// of both right
+		/// and left channels in LR ordering.
+		/// Note that the number of samples is directly related to 
+		/// time by the
+		/// following formula:  ms = (samples*1000)/freq
+		/// 'desired->size' is the size in bytes of the audio buffer, and is
+		/// calculated by SDL_OpenAudio().
+		/// 'desired->silence' is the value used to set the buffer to silence,
+		/// and is calculated by SDL_OpenAudio().
+		/// 'desired->callback' should be set to a function that will be 
+		/// called
+		/// when the audio device is ready for more data.  
+		/// It is passed a pointer
+		/// to the audio buffer, and the length in bytes of the audio buffer.
+		/// This function usually runs in a separate thread, and so you should
+		/// protect data structures that it accesses by calling SDL_LockAudio()
+		/// and SDL_UnlockAudio() in your code.
+		/// 'desired->userdata' is passed as the first parameter to 
+		/// your callback
+		/// function. The audio device starts out playing silence when
+		///  it's opened, and should be enabled for playing by calling
+		///   SDL_PauseAudio(0) when you are ready
+		/// for your audio callback function to be called.  Since the 
+		/// audio driver
+		/// may modify the requested size of the audio buffer,
+		///  you should allocate
+		///any local mixing buffers after you open the audio device.
+		/// </summary>
+		/// <param name="desired"></param>
+		/// <param name="obtained"></param>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_OpenAudio(
+			IntPtr desired, IntPtr obtained);
+
+		/// <summary>
+		/// Get the current audio state
+		/// </summary>
+		/// <returns></returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern SDL_audiostatus SDL_GetAudioStatus();
+
+		/// <summary>
+		/// This function pauses and unpauses the audio callback processing.
+		/// It should be called with a parameter of 0 after opening the audio
+		/// device to start playing sound.  
+		/// This is so you can safely initialize
+		/// data for your callback function after opening the audio device.
+		/// Silence will be written to the audio device during the pause.
+		/// </summary>
+		/// <param name="pause_on"></param>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_PauseAudio(int pause_on);
+
+		/// <summary>
+		/// This function loads a WAVE from the data source, 
+		/// automatically freeing
+		/// that source if 'freesrc' is non-zero.  
+		/// For example, to load a WAVE file,
+		/// you could do:
+		///	SDL_LoadWAV_RW(SDL_RWFromFile("sample.wav", "rb"), 1, ...);
+		///
+		/// If this function succeeds, it returns the given SDL_AudioSpec,
+		/// filled with the audio data format of the wave data, and sets
+		/// 'audio_buf' to a malloc()'d buffer containing the audio data,
+		/// and sets 'audio_len' to the length of that audio buffer, in bytes.
+		/// You need to free the audio buffer with SDL_FreeWAV() when you are 
+		/// done with it.
+		///
+		/// This function returns NULL and sets the SDL error message if the 
+		/// wave file cannot be opened, uses an unknown data format, or is 
+		/// corrupt.  Currently raw and MS-ADPCM WAVE files are supported.
+		/// </summary>
+		/// <param name="audio_buf"></param>
+		/// <param name="audio_len"></param>
+		/// <param name="freesrc"></param>
+		/// <param name="spec"></param>
+		/// <param name="src"></param>
+		/// <returns></returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_LoadWAV_RW(
+			IntPtr src, int freesrc, IntPtr spec, 
+			Byte[] audio_buf, IntPtr audio_len);
+
+
+		//* Compatibility convenience function -- loads a WAV from a file */
+		//#define SDL_LoadWAV(file, spec, audio_buf, audio_len) \
+		//SDL_LoadWAV_RW(SDL_RWFromFile(file, "rb"),1, spec,audio_buf,audio_len)
+
+		/// <summary>
+		/// This function frees data previously allocated with SDL_LoadWAV_RW()
+		/// </summary>
+		/// <param name="audio_buf"></param>
+		/// <returns></returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_FreeWAV(IntPtr audio_buf);
+
+		/// <summary>
+		/// This function takes a source format and rate and a 
+		/// destination format
+		/// and rate, and initializes the 'cvt' structure with 
+		/// information needed
+		/// by SDL_ConvertAudio() to convert a buffer of audio 
+		/// data from one format
+		/// to the other.
+		/// This function returns 0, or -1 if there was an error.
+		/// </summary>
+		/// <param name="cvt"></param>
+		/// <param name="src_format"></param>
+		/// <param name="src_channels"></param>
+		/// <param name="src_rate"></param>
+		/// <param name="dst_format"></param>
+		/// <param name="dst_channels"></param>
+		/// <param name="dst_rate"></param>
+		/// <returns></returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_BuildAudioCVT(IntPtr cvt,
+			short src_format, Byte src_channels, int src_rate,
+			Byte dst_format, Byte dst_channels, int dst_rate);
+
+		/// <summary>
+		/// Once you have initialized the 'cvt' structure using
+		///  SDL_BuildAudioCVT(),
+		/// created an audio buffer cvt->buf, and filled it with 
+		/// cvt->len bytes of
+		/// audio data in the source format, this function will 
+		/// convert it in-place
+		/// to the desired format.
+		/// The data conversion may expand the size of the audio data, 
+		/// so the buffer
+		/// cvt->buf should be allocated after the cvt structure is 
+		/// initialized by
+		/// SDL_BuildAudioCVT(), and should be cvt->len///cvt->len_mult 
+		/// bytes long.
+		/// </summary>
+		/// <param name="cvt"></param>
+		/// <returns></returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_ConvertAudio(IntPtr cvt);
+
+		/// <summary>
+		/// This takes two audio buffers of the playing audio format and mixes
+		/// them, performing addition, volume adjustment, and overflow 
+		/// clipping.
+		/// The volume ranges from 0 - 128, and should be set 
+		/// to SDL_MIX_MAXVOLUME
+		/// for full audio volume.  Note this does not change hardware volume.
+		/// This is provided for convenience -- 
+		/// you can mix your own audio data.
+		/// </summary>		
+		/// <param name="dst"></param>
+		/// <param name="src"></param>
+		/// <param name="len"></param>
+		/// <param name="volume"></param>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_MixAudio(
+			IntPtr dst, IntPtr src, int len, int volume);
+
+		/// <summary>
+		/// The lock manipulated by these functions 
+		/// protects the callback function.
+		/// During a LockAudio/UnlockAudio pair, 
+		/// you can be guaranteed that the
+		/// callback function is not running.  
+		/// Do not call these from the callback
+		/// function or you will cause deadlock.
+		/// </summary>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_LockAudio();
+
+		/// <summary>
+		/// The lock manipulated by these functions protects 
+		/// the callback function.
+		/// During a LockAudio/UnlockAudio pair, you can be guaranteed that the
+		/// callback function is not running. 
+		///  Do not call these from the callback
+		/// function or you will cause deadlock.
+		/// </summary>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_UnlockAudio();
+
+		/// <summary>
+		/// This function shuts down audio processing and 
+		/// closes the audio device.
+		/// </summary>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_CloseAudio();
+		#endregion SDL_audio.h
+
 
 		#region SDL_byteorder.h
 		#region int SDL_BYTEORDER
@@ -4011,6 +4525,7 @@ namespace Tao.Sdl {
 
 		// SDL_main.h -- none
 		// SDL_name.h -- none
+		// SDL_opengl.h -- superceded by Tao.OpenGL
 		// SDL_quit.h -- none
 
 		#region SDL_rwops.h
@@ -6149,7 +6664,7 @@ namespace Tao.Sdl {
 		public static extern void SDL_GL_SwapBuffers();
 		#endregion void SDL_GL_SwapBuffers()
 
-		#region SDL_GL_SetAttribute(SDL_GLattr attr, int val)
+		#region int SDL_GL_SetAttribute(SDL_GLattr attr, int val)
 		/// <summary>
 		/// Set a special SDL/OpenGL attribute.
 		/// </summary>
@@ -6172,7 +6687,7 @@ namespace Tao.Sdl {
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_GL_SetAttribute(SDL_GLattr attr, 
 			int val);
-		#endregion SDL_GL_SetAttribute(SDL_GLattr attr, int val)
+		#endregion int SDL_GL_SetAttribute(SDL_GLattr attr, int val)
 		
 		#region int SDL_GL_GetAttribute(SDL_GLattr attr, out int val);
 		/// <summary>
@@ -6982,297 +7497,8 @@ namespace Tao.Sdl {
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_CDClose(IntPtr cdrom);
 
-		/// <summary>
-		/// Native audio byte ordering
-		/// </summary>
-		public static int AUDIO_U16SYS 
-		{
-			get {
-				if (SDL_BYTEORDER == SDL_LIL_ENDIAN) {
-					return AUDIO_U16LSB;
-				}
-				else {
-					return AUDIO_U16MSB;
-				}
-			}
-		}
 
-		/// <summary>
-		/// Native audio byte ordering
-		/// </summary>
-		public static int AUDIO_S16SYS {
-			get {
-				if (SDL_BYTEORDER == SDL_LIL_ENDIAN) {
-					return AUDIO_S16LSB;
-				}
-				else {
-					return AUDIO_S16MSB;
-				}
-			}
-		}
-
-		/// <summary>
-		/// This function is used internally, 
-		/// and should not be used unless you
-		/// have a specific need to specify the audio driver you want to use.
-		/// You should normally use SDL_Init() or SDL_InitSubSystem().
-		/// </summary>
-		/// <param name="driver_name">
-		/// </param>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_AudioInit(String driver_name);
-
-		/// <summary>
-		/// This function is used internally, 
-		/// and should not be used unless you
-		/// have a specific need to specify the audio driver you want to use.
-		/// You should normally use SDL_Init() or SDL_InitSubSystem().
-		/// </summary>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_AudioQuit();
-
-		/// <summary>
-		/// This function fills the given character buffer with the name of the
-		/// current audio driver, and returns a pointer to it if the audio
-		///  driver has	been initialized.  
-		///  It returns NULL if no driver has been initialized.
-		/// </summary>
-		/// <param name="buf"></param>
-		/// <param name="maxlen"></param>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern String SDL_AudioDriverName(
-			String buf, int maxlen);
-
-		/// <summary>
-		/// This function opens the audio device with the desired 
-		/// parameters, and
-		///	returns 0 if successful, placing the actual hardware 
-		/// parameters in the
-		/// structure pointed to by 'obtained'.  
-		/// If 'obtained' is NULL, the audio
-		/// data passed to the callback function will be guaranteed 
-		/// to be in the
-		/// requested format, and will be automatically converted to the 
-		/// hardware
-		/// audio format if necessary.  This function returns -1 if it failed 
-		/// to open the audio device, or couldn't set up the audio thread.
-		/// When filling in the desired audio spec structure,
-		/// 'desired->freq' should be the desired audio frequency in 
-		/// samples-per-second.
-		/// 'desired->format' should be the desired audio format.
-		/// 'desired->samples' is the desired size of the audio buffer,
-		///  in samples.
-		/// This number should be a power of two, and may be adjusted 
-		/// by the audio
-		/// driver to a value more suitable for the hardware. 
-		///  Good values seem to
-		/// range between 512 and 8096 inclusive, depending on the 
-		/// application and
-		/// CPU speed.  Smaller values yield faster response time, 
-		/// but can lead
-		/// to underflow if the application is doing heavy processing and 
-		/// cannot
-		/// fill the audio buffer in time.  A stereo sample consists 
-		/// of both right
-		/// and left channels in LR ordering.
-		/// Note that the number of samples is directly related to 
-		/// time by the
-		/// following formula:  ms = (samples*1000)/freq
-		/// 'desired->size' is the size in bytes of the audio buffer, and is
-		/// calculated by SDL_OpenAudio().
-		/// 'desired->silence' is the value used to set the buffer to silence,
-		/// and is calculated by SDL_OpenAudio().
-		/// 'desired->callback' should be set to a function that will be 
-		/// called
-		/// when the audio device is ready for more data.  
-		/// It is passed a pointer
-		/// to the audio buffer, and the length in bytes of the audio buffer.
-		/// This function usually runs in a separate thread, and so you should
-		/// protect data structures that it accesses by calling SDL_LockAudio()
-		/// and SDL_UnlockAudio() in your code.
-		/// 'desired->userdata' is passed as the first parameter to 
-		/// your callback
-		/// function. The audio device starts out playing silence when
-		///  it's opened, and should be enabled for playing by calling
-		///   SDL_PauseAudio(0) when you are ready
-		/// for your audio callback function to be called.  Since the 
-		/// audio driver
-		/// may modify the requested size of the audio buffer,
-		///  you should allocate
-		///any local mixing buffers after you open the audio device.
-		/// </summary>
-		/// <param name="desired"></param>
-		/// <param name="obtained"></param>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_OpenAudio(
-			IntPtr desired, IntPtr obtained);
-
-		/// <summary>
-		/// Get the current audio state
-		/// </summary>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern SDL_audiostatus SDL_GetAudioStatus();
-
-		/// <summary>
-		/// This function pauses and unpauses the audio callback processing.
-		/// It should be called with a parameter of 0 after opening the audio
-		/// device to start playing sound.  
-		/// This is so you can safely initialize
-		/// data for your callback function after opening the audio device.
-		/// Silence will be written to the audio device during the pause.
-		/// </summary>
-		/// <param name="pause_on"></param>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_PauseAudio(int pause_on);
-
-		/// <summary>
-		/// This function loads a WAVE from the data source, 
-		/// automatically freeing
-		/// that source if 'freesrc' is non-zero.  
-		/// For example, to load a WAVE file,
-		/// you could do:
-		///	SDL_LoadWAV_RW(SDL_RWFromFile("sample.wav", "rb"), 1, ...);
-		///
-		/// If this function succeeds, it returns the given SDL_AudioSpec,
-		/// filled with the audio data format of the wave data, and sets
-		/// 'audio_buf' to a malloc()'d buffer containing the audio data,
-		/// and sets 'audio_len' to the length of that audio buffer, in bytes.
-		/// You need to free the audio buffer with SDL_FreeWAV() when you are 
-		/// done with it.
-		///
-		/// This function returns NULL and sets the SDL error message if the 
-		/// wave file cannot be opened, uses an unknown data format, or is 
-		/// corrupt.  Currently raw and MS-ADPCM WAVE files are supported.
-		/// </summary>
-		/// <param name="audio_buf"></param>
-		/// <param name="audio_len"></param>
-		/// <param name="freesrc"></param>
-		/// <param name="spec"></param>
-		/// <param name="src"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern IntPtr SDL_LoadWAV_RW(
-			IntPtr src, int freesrc, IntPtr spec, 
-			Byte[] audio_buf, IntPtr audio_len);
-
-
-		//* Compatibility convenience function -- loads a WAV from a file */
-		//#define SDL_LoadWAV(file, spec, audio_buf, audio_len) \
-		//SDL_LoadWAV_RW(SDL_RWFromFile(file, "rb"),1, spec,audio_buf,audio_len)
-
-		/// <summary>
-		/// This function frees data previously allocated with SDL_LoadWAV_RW()
-		/// </summary>
-		/// <param name="audio_buf"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_FreeWAV(IntPtr audio_buf);
-
-		/// <summary>
-		/// This function takes a source format and rate and a 
-		/// destination format
-		/// and rate, and initializes the 'cvt' structure with 
-		/// information needed
-		/// by SDL_ConvertAudio() to convert a buffer of audio 
-		/// data from one format
-		/// to the other.
-		/// This function returns 0, or -1 if there was an error.
-		/// </summary>
-		/// <param name="cvt"></param>
-		/// <param name="src_format"></param>
-		/// <param name="src_channels"></param>
-		/// <param name="src_rate"></param>
-		/// <param name="dst_format"></param>
-		/// <param name="dst_channels"></param>
-		/// <param name="dst_rate"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_BuildAudioCVT(IntPtr cvt,
-			short src_format, Byte src_channels, int src_rate,
-			Byte dst_format, Byte dst_channels, int dst_rate);
-
-		/// <summary>
-		/// Once you have initialized the 'cvt' structure using
-		///  SDL_BuildAudioCVT(),
-		/// created an audio buffer cvt->buf, and filled it with 
-		/// cvt->len bytes of
-		/// audio data in the source format, this function will 
-		/// convert it in-place
-		/// to the desired format.
-		/// The data conversion may expand the size of the audio data, 
-		/// so the buffer
-		/// cvt->buf should be allocated after the cvt structure is 
-		/// initialized by
-		/// SDL_BuildAudioCVT(), and should be cvt->len///cvt->len_mult 
-		/// bytes long.
-		/// </summary>
-		/// <param name="cvt"></param>
-		/// <returns></returns>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_ConvertAudio(IntPtr cvt);
-
-		/// <summary>
-		/// This takes two audio buffers of the playing audio format and mixes
-		/// them, performing addition, volume adjustment, and overflow 
-		/// clipping.
-		/// The volume ranges from 0 - 128, and should be set 
-		/// to SDL_MIX_MAXVOLUME
-		/// for full audio volume.  Note this does not change hardware volume.
-		/// This is provided for convenience -- 
-		/// you can mix your own audio data.
-		/// </summary>		
-		/// <param name="dst"></param>
-		/// <param name="src"></param>
-		/// <param name="len"></param>
-		/// <param name="volume"></param>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_MixAudio(
-			IntPtr dst, IntPtr src, int len, int volume);
-
-		/// <summary>
-		/// The lock manipulated by these functions 
-		/// protects the callback function.
-		/// During a LockAudio/UnlockAudio pair, 
-		/// you can be guaranteed that the
-		/// callback function is not running.  
-		/// Do not call these from the callback
-		/// function or you will cause deadlock.
-		/// </summary>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_LockAudio();
-
-		/// <summary>
-		/// The lock manipulated by these functions protects 
-		/// the callback function.
-		/// During a LockAudio/UnlockAudio pair, you can be guaranteed that the
-		/// callback function is not running. 
-		///  Do not call these from the callback
-		/// function or you will cause deadlock.
-		/// </summary>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_UnlockAudio();
-
-		/// <summary>
-		/// This function shuts down audio processing and 
-		/// closes the audio device.
-		/// </summary>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
-		SuppressUnmanagedCodeSecurity]
-		public static extern void SDL_CloseAudio();
+		
 		#endregion NOT_DONE
 		#endregion Sdl Methods
 	}
