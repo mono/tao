@@ -12,7 +12,7 @@
             </sources>
         </csc>
 
-        <if test="${build.platform.define = 'LINUX'}">
+        <if test="${build.platform.define == 'LINUX'}">
             <!-- le hack -->
             <copy file="${framework.projects.directory}/${nant.project.name}/Tao.GlPostProcess" todir="${framework.build.directory}" />
             <exec program="sed" commandline="-i 's,BASEDIR,${framework.build.directory},' ${framework.build.directory}/Tao.GlPostProcess" />

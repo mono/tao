@@ -1,4 +1,4 @@
-<?xml version="1.0" ?>
+﻿<?xml version="1.0" ?>
 <project name="Tao">
     <!-- global project settings -->
     <property name="project.name" value="Tao" />
@@ -164,11 +164,11 @@
         <call target="build.glcore" />
         <call target="build.glpostprocess" />
         <call target="build.opengl" />
-        <if test="${build.platform.define = 'WIN32'}">
+        <if test="${build.platform.define == 'WIN32'}">
             <call target="build.postprocess" />
             <call target="build.platform.windows" />
         </if>
-        <if test="${build.platform.define = 'LINUX'}">
+        <if test="${build.platform.define == 'LINUX'}">
             <!-- <call target="build.platform.linux" /> -->
         </if>
         <call target="build.glut" />
