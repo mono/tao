@@ -231,10 +231,10 @@
     <target name="clean.framework.all" description="Cleans all of the Tao Framework assemblies.">
         <call target="clean.postprocess" />
         <call target="clean.opengl" />
-        <if test="${build.platform.define = 'LINUX'}">
+        <if test="${build.platform.define == 'LINUX'}">
             <call target="build.platform.linux" />
         </if>
-        <if test="${build.platform.define = 'WIN32'}">
+        <if test="${build.platform.define == 'WIN32'}">
             <call target="build.platform.windows" />
         </if>
         <call target="clean.glut" />
