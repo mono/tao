@@ -200,7 +200,7 @@
         <nant buildfile="${framework.projects.directory}/Tao.OpenGl/Tao.OpenGl.build" target="glcore" />
     </target>
 
-    <target name="build.glfw" depends="build.glfw" description="Builds Tao.Glfw.">
+    <target name="build.glfw" depends="build.opengl" description="Builds Tao.Glfw.">
         <mkdir dir="${framework.build.directory}" />
         <nant buildfile="${framework.projects.directory}/Tao.Glfw/Tao.Glfw.build" target="build" />
     </target>
