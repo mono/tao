@@ -253,10 +253,9 @@ namespace Tao.OpenGl {
       if (contextGl != null) {
         glt = contextGl.GetType();
       } else {
-        Console.WriteLine ("Getting GL type");
         glt = StaticGlType;
         if (glt == null) {
-          Console.WriteLine ("type is null!");
+          Console.WriteLine ("GL type is null!");
         }
       }
 
