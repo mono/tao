@@ -400,11 +400,12 @@ namespace Tao.Sdl {
 		/// Reserved for future use..
 		/// </summary>
 		public const int SDL_EVENT_RESERVED7 = 23;		
-//		/// <summary>
-//		/// Events SDL_USEREVENT through SDL_MAXEVENTS-1 are 
-//		/// for your use.
-//		/// </summary>
-//		public const int SDL_USEREVENT = 24;
+		/// <summary>
+		/// Events SDL_USEREVENT through SDL_MAXEVENTS-1 are 
+		/// for your use.
+		/// </summary>
+		[CLSCompliant(false)] 
+		public const int SDL_USEREVENT = 24;
 
 		/// <summary>
 		/// This last event is only for bounding internal arrays
