@@ -71,7 +71,7 @@
 		<File>SdlTestTtf.cs</File>
 		<File>SdlTestMixer.cs</File>
 		<File>SdlTestGfx.cs</File>
-		<File>Smpegtest.cs</File>
+		<File>SmpegTest.cs</File>
 	    </Files>
 	</Project>
 	<Project name="SdlExamples.Rectangles" path="..\\..\\..\\\Examples\Projects\\SdlExamples.Rectangles" language="C#" type="WinExe" startupObject="SdlExamples.Rectangles">
