@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" ?>
+<?xml version="1.0" ?>
 <project name="Tao">
     <!-- global project settings -->
     <property name="project.name" value="Tao" />
@@ -8,28 +8,32 @@
     <property name="platform.directory" value="Windows" />
     <property name="runtime.directory" value="net-1.1" />
 
-    <!-- global framework directories -->
-    <property name="examples.projects.directory" value="${root.directory}/Examples/Projects" />
-    <property name="examples.solutions.directory" value="${root.directory}/Examples/Solutions" />
-    <property name="examples.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Examples" />
-    <property name="examples.release.directory" value="${root.directory}/Releases/Examples" />
-    <property name="framework.projects.directory" value="${root.directory}/Framework/Projects" />
-    <property name="framework.solutions.directory" value="${root.directory}/Framework/Solutions" />
-    <property name="framework.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework" />
-    <property name="framework.docs.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework.Documentation" />
-    <property name="framework.release.directory" value="${root.directory}/Releases/Framework" />
-    <tstamp verbose="true">
-        <formatter property="timestamp.date" pattern="yyyy.MM.dd"/>
-        <formatter property="timestamp.hour" pattern="HH" />
-    </tstamp>
-
     <!-- default configuration -->
     <property name="build.debug" value="false" />
     <property name="build.debug.define" value="RELEASE;TRACE" />
     <property name="build.optimize" value="true" />
     <property name="build.platform.define" value="WIN32" />
     <property name="build.strong" value="false" />
-    <property name="build.strong.define" value="STRONG" />
+    <property name="build.strong.define" value="" />
+
+    <!-- global framework directories -->
+    <target name="set-global-directories">
+        <property name="examples.projects.directory" value="${root.directory}/Examples/Projects" />
+        <property name="examples.solutions.directory" value="${root.directory}/Examples/Solutions" />
+        <property name="examples.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Examples" />
+        <property name="examples.release.directory" value="${root.directory}/Releases/Examples" />
+        <property name="framework.projects.directory" value="${root.directory}/Framework/Projects" />
+        <property name="framework.solutions.directory" value="${root.directory}/Framework/Solutions" />
+        <property name="framework.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework" />
+        <property name="framework.docs.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework.Documentation" />
+        <property name="framework.release.directory" value="${root.directory}/Releases/Framework" />
+        <tstamp verbose="true">
+            <formatter property="timestamp.date" pattern="yyyy.MM.dd"/>
+            <formatter property="timestamp.hour" pattern="HH" />
+        </tstamp>
+    </target>
+
+    <call target="set-global-directories" />
 
     <!-- configuration targets -->
     <target name="set-debug">
@@ -106,8 +110,7 @@
         <property name="current.runtime.description" value="Microsoft .NET Framework 1.0" />
         <property name="nant.settings.currentframework" value="${current.runtime.config}-${current.runtime.version}" />
         <property name="runtime.directory" value="net-1.0" />
-        <property name="framework.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework" />
-        <property name="framework.docs.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework.Documentation" />
+        <call target="set-global-directories" />
         <call target="set-runtime-configuration-flags" />
     </target>
 
@@ -118,8 +121,7 @@
         <property name="current.runtime.description" value="Microsoft .NET Framework 1.1" />
         <property name="nant.settings.currentframework" value="${current.runtime.config}-${current.runtime.version}" />
         <property name="runtime.directory" value="net-1.1" />
-        <property name="framework.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework" />
-        <property name="framework.docs.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework.Documentation" />
+        <call target="set-global-directories" />
         <call target="set-runtime-configuration-flags" />
     </target>
 
@@ -130,8 +132,7 @@
         <property name="current.runtime.description" value="Mono 1.0" />
         <property name="nant.settings.currentframework" value="${current.runtime.config}-${current.runtime.version}" />
         <property name="runtime.directory" value="mono-1.0" />
-        <property name="framework.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework" />
-        <property name="framework.docs.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework.Documentation" />
+        <call target="set-global-directories" />
         <call target="set-runtime-configuration-flags" />
     </target>
 
@@ -139,16 +140,14 @@
         <echo message="Initializing WIN32 platform." />
         <property name="build.platform.define" value="WIN32" />
         <property name="platform.directory" value="Windows" />
-        <property name="framework.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework" />
-        <property name="framework.docs.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework.Documentation" />
+        <call target="set-global-directories" />
     </target>
 
     <target name="set-platform-linux">
         <echo message="Initializing Linux platform." />
         <property name="build.platform.define" value="LINUX" />
         <property name="platform.directory" value="Linux" />
-        <property name="framework.build.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework" />
-        <property name="framework.docs.directory" value="${root.directory}/Build/${platform.directory}/${runtime.directory}/Framework.Documentation" />
+        <call target="set-global-directories" />
     </target>
 
     <target name="initialize">
@@ -160,7 +159,12 @@
     <target name="build.framework.all" description="Builds all of the Tao Framework assemblies.">
         <call target="build.postprocess" />
         <call target="build.opengl" />
-        <call target="build.platform.windows" />
+        <if test="${build.platform.define = 'WIN32'}">
+            <call target="build.platform.windows" />
+        </if>
+        <if test="${build.platform.define = 'LINUX'}">
+            <!-- <call target="build.platform.linux" /> -->
+        </if>
         <call target="build.glut" />
         <call target="build.glfw" />
         <call target="build.cg" />
