@@ -52,6 +52,14 @@ namespace Tao.Sdl
 		/// <summary>
 		/// 
 		/// </summary>
+		private void QuitAudio()
+		{
+			SdlMixer.Mix_CloseAudio();
+			Sdl.SDL_Quit();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
 		[Test]
 		public void OpenAudio()
 		{
@@ -72,7 +80,7 @@ namespace Tao.Sdl
 			InitAudio();	
 			int results = SdlMixer.Mix_AllocateChannels(16);
 			Assert.AreEqual(results, 16);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -108,7 +116,7 @@ namespace Tao.Sdl
 			InitAudio();		
 			IntPtr resultPtr = SdlMixer.Mix_LoadWAV_RW(Sdl.SDL_RWFromFile("test.wav", "rb"), 1);
 			Assert.IsFalse(resultPtr == IntPtr.Zero);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -119,7 +127,7 @@ namespace Tao.Sdl
 			InitAudio();		
 			IntPtr resultPtr = SdlMixer.Mix_LoadWAV("test.wav");
 			Assert.IsFalse(resultPtr == IntPtr.Zero);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -130,7 +138,7 @@ namespace Tao.Sdl
 			InitAudio();		
 			IntPtr resultPtr = SdlMixer.Mix_LoadMUS("test.wav");
 			Assert.IsFalse(resultPtr == IntPtr.Zero);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -141,7 +149,7 @@ namespace Tao.Sdl
 			InitAudio();		
 			IntPtr resultPtr = SdlMixer.Mix_LoadMUS("test.mp3");
 			Assert.IsFalse(resultPtr == IntPtr.Zero);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -152,7 +160,7 @@ namespace Tao.Sdl
 			InitAudio();		
 			IntPtr resultPtr = SdlMixer.Mix_LoadMUS("test.ogg");
 			Assert.IsFalse(resultPtr == IntPtr.Zero);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 
 		/// <summary>
@@ -174,7 +182,7 @@ namespace Tao.Sdl
 			InitAudio();		
 			IntPtr resultPtr = SdlMixer.Mix_QuickLoad_WAV(Sdl.SDL_RWFromFile("test.wav", "rb"));
 			Assert.IsFalse(resultPtr == IntPtr.Zero);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -185,7 +193,7 @@ namespace Tao.Sdl
 			InitAudio();		
 			IntPtr resultPtr = SdlMixer.Mix_QuickLoad_RAW(Sdl.SDL_RWFromFile("test.wav", "rb"), 1000);
 			Assert.IsFalse(resultPtr == IntPtr.Zero);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -206,7 +214,7 @@ namespace Tao.Sdl
 			InitAudio();		
 			IntPtr wavPtr = Sdl.SDL_RWFromFile("test.wav", "rb");
 			SdlMixer.Mix_FreeMusic(wavPtr);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -219,7 +227,7 @@ namespace Tao.Sdl
 			SdlMixer.Mix_MusicType musicType = SdlMixer.Mix_GetMusicType(resultPtr);
 			Console.WriteLine("musictype:" + musicType);
 			//Assert.IsFalse(resultPtr == IntPtr.Zero);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -316,7 +324,7 @@ namespace Tao.Sdl
 			InitAudio();	
 			int result = SdlMixer.Mix_SetPosition(1, 90, 100);
 			Assert.IsTrue(result != 0);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -327,7 +335,7 @@ namespace Tao.Sdl
 			InitAudio();	
 			int result = SdlMixer.Mix_SetDistance(1, 140);
 			Assert.IsTrue(result != 0);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -338,7 +346,7 @@ namespace Tao.Sdl
 			InitAudio();	
 			int result = SdlMixer.Mix_SetReverseStereo(SdlMixer.MIX_CHANNEL_POST, 1);
 			Assert.IsTrue(result != 0);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -350,7 +358,7 @@ namespace Tao.Sdl
 			int result = SdlMixer.Mix_ReserveChannels(1);
 			//Console.WriteLine("ReserveChannels: " + result.ToString());
 			Assert.IsTrue(result == 1);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -362,7 +370,7 @@ namespace Tao.Sdl
 			int result = SdlMixer.Mix_GroupChannel(1, 1);
 			//Console.WriteLine("ReserveChannels: " + result.ToString());
 			Assert.IsTrue(result == 1);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -374,7 +382,7 @@ namespace Tao.Sdl
 			int result = SdlMixer.Mix_GroupChannels(0, 7, 1);
 			//Console.WriteLine("ReserveChannels: " + result.ToString());
 			Assert.IsTrue(result == 8);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -387,7 +395,7 @@ namespace Tao.Sdl
 			result = SdlMixer.Mix_GroupAvailable(1);
 			//Console.WriteLine("ReserveChannels: " + result.ToString());
 			Assert.IsTrue(result != -1);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -400,7 +408,7 @@ namespace Tao.Sdl
 			result = SdlMixer.Mix_GroupCount(1);
 			//Console.WriteLine("ReserveChannels: " + result.ToString());
 			Assert.IsTrue(result == 1);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -413,7 +421,7 @@ namespace Tao.Sdl
 			result = SdlMixer.Mix_GroupOldest(1);
 			//Console.WriteLine("GroupOldest: " + result.ToString());
 			Assert.IsTrue(result == -1);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -426,7 +434,7 @@ namespace Tao.Sdl
 			result = SdlMixer.Mix_GroupOldest(1);
 			//Console.WriteLine("GroupOldest: " + result.ToString());
 			Assert.IsTrue(result == -1);
-			Sdl.SDL_Quit();
+			QuitAudio();
 		}
 		/// <summary>
 		/// 
@@ -441,6 +449,497 @@ namespace Tao.Sdl
 			Thread.Sleep(500);
 			Console.WriteLine("PlayChannelTimed: " + result.ToString());
 			Assert.IsTrue(result != -1);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void PlayChannel()
+		{
+			InitAudio();	
+			int result = SdlMixer.Mix_GroupChannels(0, 7, 1);
+			IntPtr chunkPtr = SdlMixer.Mix_LoadWAV("test.wav");
+			result = SdlMixer.Mix_PlayChannel(-1, chunkPtr, -1);
+			Thread.Sleep(500);
+			Console.WriteLine("PlayChannel: " + result.ToString());
+			Assert.IsTrue(result != -1);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void PlayMusic()
+		{
+			InitAudio();	
+			int result;
+			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			result = SdlMixer.Mix_PlayMusic( chunkPtr, -1);
+			Console.WriteLine("PlayMusic: " + result.ToString());
+			Assert.IsTrue(result != -1);
+			Thread.Sleep(1000);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void FadeInMusic()
+		{
+			InitAudio();	
+			int result;
+			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			result = SdlMixer.Mix_FadeInMusic( chunkPtr, -1, 2);
+			Console.WriteLine("PlayMusic: " + result.ToString());
+			Assert.IsTrue(result != -1);
+			Thread.Sleep(5000);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void FadeInMusicPos()
+		{
+			InitAudio();	
+			int result;
+			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			result = SdlMixer.Mix_FadeInMusicPos( chunkPtr, -1, 2, 1);
+			Console.WriteLine("PlayMusic: " + result.ToString());
+			Assert.IsTrue(result != -1);
+			Thread.Sleep(5000);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void FadeInChannelTimed()
+		{
+			InitAudio();	
+			int result = SdlMixer.Mix_GroupChannels(0, 7, 1);
+			IntPtr chunkPtr = SdlMixer.Mix_LoadWAV("test.wav");
+			result = SdlMixer.Mix_FadeInChannelTimed(1, chunkPtr, -1, 0,-1);
+			Thread.Sleep(500);
+			Console.WriteLine("PlayChannel: " + result.ToString());
+			Assert.IsTrue(result != -1);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void FadeInChannel()
+		{
+			InitAudio();	
+			int result = SdlMixer.Mix_GroupChannels(0, 7, 1);
+			IntPtr chunkPtr = SdlMixer.Mix_LoadWAV("test.wav");
+			result = SdlMixer.Mix_FadeInChannel(1, chunkPtr, -1, 0);
+			Thread.Sleep(500);
+			Console.WriteLine("PlayChannel: " + result.ToString());
+			Assert.IsTrue(result != -1);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void Volume()
+		{
+			InitAudio();	
+			int result = SdlMixer.Mix_GroupChannels(0, 7, 1);
+			IntPtr chunkPtr = SdlMixer.Mix_LoadWAV("test.wav");
+			result = SdlMixer.Mix_Volume(1, SdlMixer.MIX_MAX_VOLUME);
+			Console.WriteLine("Volume: " + result.ToString());
+			Assert.IsTrue(result == SdlMixer.MIX_MAX_VOLUME);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void VolumeChunk()
+		{
+			InitAudio();	
+			int result = SdlMixer.Mix_GroupChannels(0, 7, 1);
+			IntPtr chunkPtr = SdlMixer.Mix_LoadWAV("test.wav");
+			result = SdlMixer.Mix_VolumeChunk(chunkPtr, SdlMixer.MIX_MAX_VOLUME);
+			Console.WriteLine("Volume: " + result.ToString());
+			Assert.IsTrue(result == SdlMixer.MIX_MAX_VOLUME);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void VolumeMusic()
+		{
+			InitAudio();	
+			int result = SdlMixer.Mix_GroupChannels(0, 7, 1);
+			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			result = SdlMixer.Mix_VolumeMusic(SdlMixer.MIX_MAX_VOLUME);
+			Console.WriteLine("Volume: " + result.ToString());
+			Assert.IsTrue(result == SdlMixer.MIX_MAX_VOLUME);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void HaltChannel()
+		{
+			InitAudio();	
+			int result = SdlMixer.Mix_GroupChannels(0, 7, 1);
+			result = SdlMixer.Mix_HaltChannel(1);
+			//Console.WriteLine("HaltChannel: " + result.ToString());
+			Assert.IsTrue(result == 0);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void HaltGroup()
+		{
+			InitAudio();	
+			int result = SdlMixer.Mix_GroupChannels(0, 7, 1);
+			result = SdlMixer.Mix_HaltGroup(1);
+			//Console.WriteLine("HaltChannel: " + result.ToString());
+			Assert.IsTrue(result == 0);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void HaltMusic()
+		{
+			InitAudio();	
+			int result = SdlMixer.Mix_GroupChannels(0, 7, 1);
+			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			result = SdlMixer.Mix_HaltMusic();
+			Assert.IsTrue(result == 0);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void ExpireChannel()
+		{
+			InitAudio();	
+			int result = SdlMixer.Mix_GroupChannels(0, 7, 1);
+			result = SdlMixer.Mix_ExpireChannel(1, 100);
+			//Console.WriteLine("HaltChannel: " + result.ToString());
+			Assert.IsTrue(result == 1);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void FadeOutChannel()
+		{
+			InitAudio();	
+			int result = SdlMixer.Mix_GroupChannels(0, 7, 1);
+			IntPtr chunkPtr = SdlMixer.Mix_LoadWAV("test.wav");
+			result = SdlMixer.Mix_FadeOutChannel(1, 100);
+			Thread.Sleep(500);
+			Console.WriteLine("PlayChannel: " + result.ToString());
+			Assert.IsTrue(result != -1);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void  FadeOutGroup()
+		{
+			InitAudio();	
+			int result = SdlMixer.Mix_GroupChannel(1, 1);
+			result = SdlMixer.Mix_FadeOutGroup(1, 100);
+			Thread.Sleep(100);
+			//Console.WriteLine("ReserveChannels: " + result.ToString());
+			Assert.IsTrue(result == 1);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void FadeOutMusic()
+		{
+			InitAudio();	
+			int result;
+			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			result = SdlMixer.Mix_PlayMusic( chunkPtr, -1);
+			result = SdlMixer.Mix_FadeOutMusic(1000);
+			Thread.Sleep(2000);
+			Console.WriteLine("PlayMusic: " + result.ToString());
+			Assert.IsTrue(result == 1);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void FadingMusic()
+		{
+			InitAudio();	
+			int result;
+			SdlMixer.Mix_Fading resultFading;
+			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			result = SdlMixer.Mix_PlayMusic( chunkPtr, -1);
+			resultFading = SdlMixer.Mix_FadingMusic();
+			//Console.WriteLine("FadingMusic1: " + resultFading.ToString());
+			Assert.AreEqual(resultFading, SdlMixer.Mix_Fading.MIX_NO_FADING);
+			result = SdlMixer.Mix_FadeOutMusic(1000);
+			resultFading = SdlMixer.Mix_FadingMusic();
+			Assert.AreEqual(resultFading, SdlMixer.Mix_Fading.MIX_FADING_OUT);
+			//Console.WriteLine("FadingMusic2: " + resultFading.ToString());
+			Thread.Sleep(2000);
+			resultFading = SdlMixer.Mix_FadingMusic();
+			Assert.AreEqual(resultFading, SdlMixer.Mix_Fading.MIX_NO_FADING);
+			//Console.WriteLine("FadingMusic: " + resultFading.ToString());
+			Assert.IsTrue(result == 1);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void FadingChannel()
+		{
+			InitAudio();	
+			int result;
+			SdlMixer.Mix_Fading resultFading;
+			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			result = SdlMixer.Mix_PlayChannel(1, chunkPtr, -1);
+			resultFading = SdlMixer.Mix_FadingChannel(1);
+			//Console.WriteLine("FadingMusic1: " + resultFading.ToString());
+			Assert.AreEqual(resultFading, SdlMixer.Mix_Fading.MIX_NO_FADING);
+			result = SdlMixer.Mix_FadeOutChannel(1, 1000);
+			resultFading = SdlMixer.Mix_FadingChannel(1);
+			Assert.AreEqual(resultFading, SdlMixer.Mix_Fading.MIX_FADING_OUT);
+			//Console.WriteLine("FadingMusic2: " + resultFading.ToString());
+			Thread.Sleep(2000);
+			resultFading = SdlMixer.Mix_FadingChannel(1);
+			Assert.AreEqual(resultFading, SdlMixer.Mix_Fading.MIX_NO_FADING);
+			//Console.WriteLine("FadingMusic: " + resultFading.ToString());
+			Assert.IsTrue(result == 1);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void Pause()
+		{
+			InitAudio();	
+			int result;
+			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			result = SdlMixer.Mix_PlayChannel(1, chunkPtr, -1);
+			SdlMixer.Mix_Pause(-1);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void Resume()
+		{
+			InitAudio();	
+			int result;
+			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			result = SdlMixer.Mix_PlayChannel(1, chunkPtr, -1);
+			SdlMixer.Mix_Pause(-1);
+			SdlMixer.Mix_Resume(-1);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not Finished")]
+		public void Paused()
+		{
+			InitAudio();	
+			int result;
+			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			result = SdlMixer.Mix_PlayChannel(1, chunkPtr, -1);
+			SdlMixer.Mix_Pause(1);
+			result = SdlMixer.Mix_Paused(-1);
+			Assert.AreEqual(result, 1);
+			result = SdlMixer.Mix_Paused(-1);
+			Assert.AreEqual(result, 1);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void PauseMusic()
+		{
+			InitAudio();	
+			int result;
+			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			result = SdlMixer.Mix_PlayMusic( chunkPtr, -1);
+			SdlMixer.Mix_PauseMusic();
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void ResumeMusic()
+		{
+			InitAudio();	
+			int result;
+			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			result = SdlMixer.Mix_PlayMusic( chunkPtr, -1);
+			SdlMixer.Mix_PauseMusic();
+			SdlMixer.Mix_ResumeMusic();
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void RewindMusic()
+		{
+			InitAudio();	
+			int result;
+			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.ogg");
+			result = SdlMixer.Mix_PlayMusic( chunkPtr, -1);
+			SdlMixer.Mix_RewindMusic();
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void PausedMusic()
+		{
+			InitAudio();	
+			int result;
+			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			result = SdlMixer.Mix_PlayMusic( chunkPtr, -1);
+			SdlMixer.Mix_PauseMusic();
+			result = SdlMixer.Mix_PausedMusic();
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void SetMusicPosition()
+		{
+			InitAudio();	
+			int result;
+			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			result = SdlMixer.Mix_SetMusicPosition(1000);
+			//Console.WriteLine("PlayMusic: " + result.ToString());
+			Assert.IsTrue(result != -1);
+			Thread.Sleep(5000);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not finished")]
+		public void Playing()
+		{
+			InitAudio();	
+			int result = SdlMixer.Mix_GroupChannels(0, 7, 1);
+			IntPtr chunkPtr = SdlMixer.Mix_LoadWAV("test.wav");
+			result = SdlMixer.Mix_PlayChannel(-1, chunkPtr, -1);
+			Thread.Sleep(500);
+			//Console.WriteLine("PlayChannel: " + result.ToString());
+			result = SdlMixer.Mix_Playing(1);
+			Assert.IsTrue(result != -1);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void PlayingMusic()
+		{
+			InitAudio();	
+			int result;
+			IntPtr chunkPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			result = SdlMixer.Mix_PlayMusic( chunkPtr, -1);
+			Console.WriteLine("PlayMusic: " + result.ToString());
+			result = SdlMixer.Mix_PlayingMusic();
+			Assert.IsTrue(result == 1);
+			Thread.Sleep(1000);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not Finished")]
+		public void SetPlayingCMD()
+		{
+			InitAudio();	
+			int result;
+			//result = SdlMixer.Mix_PlayMusic( chunkPtr, -1);
+			result = SdlMixer.Mix_SetMusicCMD("test");
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not Finished")]
+		public void GetChunk()
+		{
+			InitAudio();	
+			IntPtr resultPtr;
+			//result = SdlMixer.Mix_PlayMusic( chunkPtr, -1);
+			resultPtr= SdlMixer.Mix_GetChunk(1);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not Finished")]
+		public void SetSynchroValue()
+		{
+			InitAudio();	
+			int result;
+			result = SdlMixer.Mix_SetSynchroValue(1);
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		[Ignore("Not Finished")]
+		public void GetSynchroValue()
+		{
+			InitAudio();	
+			int result;
+			result = SdlMixer.Mix_GetSynchroValue();
+			QuitAudio();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void CloseAudio()
+		{
+			InitAudio();	
+			SdlMixer.Mix_CloseAudio();
 			Sdl.SDL_Quit();
 		}
 	}

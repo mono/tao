@@ -1909,12 +1909,9 @@ namespace Tao.Sdl {
             int channel, IntPtr chunk, int loops, int ticks);
 		#endregion int Mix_PlayChannelTimed(...)
 
-		#region 
+		#region int Mix_PlayChannel(int channel, IntPtr chunk, int loops)
         /// <summary>
-        /// Play an audio chunk on a specific channel.
-        /// If the specified channel is -1, play on the first free channel.
-        /// If 'loops' is greater than zero, loop the sound that many times.
-        /// If 'loops' is -1, loop inifinitely (~65000 times).
+        /// Play loop.
         /// </summary>
         /// <remarks>
         /// Play chunk on channel, or if channel is -1, 
@@ -1923,10 +1920,10 @@ namespace Tao.Sdl {
         /// unless stopped by halt, or fade out, or setting a 
         /// new expiration time of less time than it would have 
         /// originally taken to play the loops, or closing the mixer.
-        /// Note: this just calls Mix_PlayChannelTimed() 
-        /// with ticks set to -1. 
+        /// <p>Note: this just calls Mix_PlayChannelTimed() 
+        /// with ticks set to -1.</p>
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_PlayChannel(int channel, Mix_Chunk *chunk, int loops)
 		/// </code>
 		/// </p>
         /// </remarks>
@@ -1946,132 +1943,243 @@ namespace Tao.Sdl {
         /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // play sample on first free unreserved channel
+		///		// play it exactly once through
+		///		// Mix_Chunk *sample; //previously loaded
+		///		if(Mix_PlayChannel(-1, sample, 1)==-1) 
+		///	{
+		///		printf("Mix_PlayChannel: %s\n",Mix_GetError());
+		///		// may be critical error, or maybe just no channels were free.
+		///		// you could allocated another channel in that case...
+		///	}
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
-        public static int Mix_PlayChannel(
-            int channel, IntPtr chunk, int loops) {
+		/// <seealso cref="Mix_PlayChannelTimed"/>
+		/// <seealso cref="Mix_FadeInChannel"/>
+		/// <seealso cref="Mix_HaltChannel"/>
+		/// <seealso cref="Mix_ExpireChannel"/>
+		/// <seealso cref="Mix_ReserveChannels"/>
+        public static int Mix_PlayChannel(int channel, IntPtr chunk, int loops)
+		{
             return Mix_PlayChannelTimed(channel, chunk, loops, -1);
         }
-		#endregion 
+		#endregion int Mix_PlayChannel(int channel, IntPtr chunk, int loops)
 
-		#region 
+		#region int Mix_PlayMusic(IntPtr music, int loops)
         /// <summary>
-        /// 
+        /// Play music, with looping
         /// </summary>
         /// <remarks>
+        /// Play the loaded music loop times through from start to finish. 
+        /// The previous music will be halted, or if fading out it waits
+        ///  (blocking) for that to finish.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_PlayMusic(Mix_Music *music, int loops)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="music"></param>
-        /// <param name="loops"></param>
-        /// <returns></returns>
+        /// <param name="music">
+        /// Pointer to Mix_Music to play.
+        /// </param>
+        /// <param name="loops">
+		/// number of times to play through the music.
+		/// <br>0 plays the music zero times...</br>
+		/// <br>-1 plays the music forever (or as close as it can get to that)</br>
+		/// </param>
+        /// <returns>
+        /// 0 on success, or -1 on errors.
+        /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // play music forever
+		///		// Mix_Music *music; // I assume this has been loaded already
+		///		if(Mix_PlayMusic(music, -1)==-1) 
+		///	{
+		///		printf("Mix_PlayMusic: %s\n", Mix_GetError());
+		///		// well, there's no music, but most games don't break without music...
+		///	}
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_FadeInMusic"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_PlayMusic(IntPtr music, int loops);
-		#endregion 
+		#endregion int Mix_PlayMusic(IntPtr music, int loops)
 
-		#region 
+		#region int Mix_FadeInMusic(IntPtr music, int loops, int ms)
         /// <summary>
-        /// Fade in music or a channel over "ms" milliseconds, 
-        /// same semantics as the "Play" functions
+        /// Play music, with looping, and fade in
         /// </summary>
         /// <remarks>
+		/// Fade in over ms milliseconds of time, the loaded music, 
+		/// playing it loop times through from start to finish.
+		/// The fade in effect only applies to the first loop.
+		/// Any previous music will be halted, or if it is fading out i
+		/// t will wait (blocking) for the fade to complete.
+		/// This function is the same as Mix_FadeInMusicPos(music, loops, ms, 0).
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_FadeInMusic(Mix_Music *music, int loops, int ms)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="music"></param>
-        /// <param name="loops"></param>
-        /// <param name="ms"></param>
-        /// <returns></returns>
+        /// <param name="music">
+        /// Pointer to Mix_Music to play.
+        /// </param>
+        /// <param name="loops">
+		/// number of times to play through the music.
+		/// <br>
+		/// 0 plays the music zero times...
+		/// </br>
+		/// <br>
+		/// -1 plays the music forever (or as close as it can get to that)
+		/// </br>
+		/// </param>
+        /// <param name="ms">
+        /// Milliseconds for the fade-in effect to complete.
+        /// </param>
+        /// <returns>
+        /// 0 on success, or -1 on errors.
+        /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // play music forever, fading in over 2 seconds
+		///		// Mix_Music *music; // I assume this has been loaded already
+		///		if(Mix_FadeInMusic(music, -1, 2000)==-1) 
+		///	{
+		///		printf("Mix_FadeInMusic: %s\n", Mix_GetError());
+		///		// well, there's no music, but most games don't break without music...
+		///	}
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_PlayMusic"/>
+		/// <seealso cref="Mix_FadeInMusicPos"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
-        public static extern int Mix_FadeInMusic(
-            IntPtr music, int loops, int ms);
-		#endregion 
+        public static extern int Mix_FadeInMusic(IntPtr music, int loops, int ms);
+		#endregion int Mix_FadeInMusic(IntPtr music, int loops, int ms)
 
-		#region 
+		#region int Mix_FadeInMusicPos(...)
         /// <summary>
-        /// 
+        /// Play music from a start point, with looping, and fade in
         /// </summary>
         /// <remarks>
+		/// Fade in over ms milliseconds of time, the loaded music, 
+		/// playing it loop times through from start to finish.
+		/// The fade in effect only applies to the first loop. The first
+		///  time the music is played, it posistion will be set to position,
+		///   which means different things for different types of music files,
+		///    see Mix_SetMusicPosition for more info on that. Any previous 
+		///    music will be halted, or if it is fading out it will wait 
+		///    (blocking) for the fade to complete.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_FadeInMusicPos(Mix_Music *music, int loops, int ms, double position)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="music"></param>
-        /// <param name="loops"></param>
-        /// <param name="ms"></param>
-        /// <param name="position"></param>
-        /// <returns></returns>
+        /// <param name="music">
+        /// Pointer to Mix_Music to play.
+        /// </param>
+		/// <param name="loops">
+		/// number of times to play through the music.
+		/// <br>
+		/// 0 plays the music zero times...
+		/// </br>
+		/// <br>
+		/// -1 plays the music forever (or as close as it can get to that)
+		/// </br>
+		/// </param>
+        /// <param name="ms">
+        /// Milliseconds for the fade-in effect to complete.
+        /// </param>
+        /// <param name="position">
+        /// Position to play from, see <see cref="Mix_SetMusicPosition"/> for meaning.
+        /// </param>
+        /// <returns>
+        /// 0 on success, or -1 on errors.
+        /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // play music forever, fading in over 2 seconds
+		///		// Mix_Music *music; // I assume this has been loaded already
+		///		if(Mix_FadeInMusicPos(music, -1, 2000)==-1) 
+		///	{
+		///		printf("Mix_FadeInMusic: %s\n", Mix_GetError());
+		///		// well, there's no music, but most games don't break without music...
+		///	}
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_PlayMusic"/>
+		/// <seealso cref="Mix_FadeInMusic"/>
+		/// <seealso cref="Mix_SetMusicPosition"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_FadeInMusicPos(
             IntPtr music, int loops, int ms, double position);
-		#endregion 
+		#endregion int Mix_FadeInMusicPos(...)
 
-		#region 
+		#region int Mix_FadeInChannelTimed(...)
         /// <summary>
-        /// 
+        /// Play loop with fade in and limit by time
         /// </summary>
         /// <remarks>
+        /// If the sample is long enough and has enough loops then the sample
+        ///  will stop after ticks milliseconds. Otherwise this function 
+        ///  is the same as <see cref="Mix_FadeInChannel"/>.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_FadeInChannelTimed(int channel, Mix_Chunk *chunk, int loops, int ms, int ticks)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="channel"></param>
-        /// <param name="chunk"></param>
-        /// <param name="loops"></param>
-        /// <param name="ms"></param>
-        /// <param name="ticks"></param>
-        /// <returns></returns>
+        /// <param name="channel">
+        /// Channel to play on, or -1 for the first free unreserved channel.
+        /// </param>
+        /// <param name="chunk">
+        /// Sample to play.
+        /// </param>
+        /// <param name="loops">
+        /// Number of loops, -1 is infinite loops.
+        /// </param>
+        /// <param name="ms">
+        /// Milliseconds of time that the fade-in effect should 
+        /// take to go from silence to full volume.
+        /// </param>
+		/// <param name="ticks">Millisecond limit to play sample, at most.
+		/// If not enough loops or the sample chunk is not long enough, 
+		/// then the sample may stop before this timeout occurs.
+		///  -1 means play forever.</param>
+        /// <returns>
+        /// the channel the sample is played on. On any errors, -1 is returned.
+        /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // play sample on first free unreserved channel
+		///		// play it for half a second
+		///		// Mix_Chunk *sample; //previously loaded
+		///		if(Mix_PlayChannelTimed(-1, sample, -1 , 500)==-1) 
+		///	{
+		///		printf("Mix_PlayChannel: %s\n",Mix_GetError());
+		///		// may be critical error, or maybe just no channels were free.
+		///		// you could allocated another channel in that case...
+		///	}
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_PlayChannelTimed"/>
+		/// <seealso cref="Mix_FadeInChannel"/>
+		/// <seealso cref="Mix_HaltChannel"/>
+		/// <seealso cref="Mix_FadingChannel"/>
+		/// <seealso cref="Mix_ReserveChannels"/>
+		/// <seealso cref="Mix_ExpireChannel"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_FadeInChannelTimed(
             int channel, IntPtr chunk, int loops, int ms, int ticks);
-		#endregion 
+		#endregion int Mix_FadeInChannelTimed(...)
 
-		#region 
+		#region int Mix_FadeInChannel(...)
         /// <summary>
         /// Play loop with fade in
         /// </summary>
@@ -2086,10 +2194,10 @@ namespace Tao.Sdl {
         /// unless stopped by halt, or fade out, or setting 
         /// a new expiration time of less time than it would 
         /// have originally taken to play the loops, or closing the mixer.
-        /// Note: this just calls Mix_FadeInChannelTimed() 
+        /// Note: this just calls <see cref="Mix_FadeInChannelTimed"/> 
         /// with ticks set to -1.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_FadeInChannel(int channel, Mix_Chunk *chunk, int loops, int ms)
 		/// </code>
 		/// </p>
         /// </remarks>
@@ -2111,24 +2219,32 @@ namespace Tao.Sdl {
         /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // play sample on first free unreserved channel
+		///		// play it exactly 3 times through
+		///		// fade in over one second
+		///		// Mix_Chunk *sample; //previously loaded
+		///		if(Mix_FadeInChannel(-1, sample, 3, 1000)==-1) 
+		///	{
+		///		printf("Mix_FadeInChannel: %s\n",Mix_GetError());
+		///		// may be critical error, or maybe just no channels were free.
+		///		// you could allocated another channel in that case...
+		///	}
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_PlayChannel"/>
+		/// <seealso cref="Mix_FadeInChannelTimed"/>
+		/// <seealso cref="Mix_FadingChannel"/>
+		/// <seealso cref="Mix_FadeOutChannel"/>
+		/// <seealso cref="Mix_ReserveChannels"/>
         public static int Mix_FadeInChannel(
             int channel, IntPtr chunk, int loops, int ms) {
             return Mix_FadeInChannelTimed(channel, chunk, loops, ms, -1);
         }
-		#endregion 
+		#endregion int Mix_FadeInChannel(...)
 
-		#region 
+		#region int Mix_Volume(int channel, int volume)
         /// <summary>
-        /// Set the volume in the range of 0-128 of a specific 
-        /// channel or chunk.
-        /// If the specified channel is -1, set volume for all channels.
-        /// Returns the original volume.
-        /// If the specified volume is -1, just return the current volume.
+        /// Set the mix volume of a channel
         /// </summary>
         /// <remarks>
         /// Set the volume for any allocated channel. 
@@ -2142,7 +2258,7 @@ namespace Tao.Sdl {
         /// all channels volumes does not affect subsequent 
         /// channel allocations.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_Volume(int channel, int volume)
 		/// </code>
 		/// </p>
         /// </remarks>
@@ -2162,28 +2278,32 @@ namespace Tao.Sdl {
         /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // set channel 1 to half volume
+		///		Mix_Volume(1,MIX_MAX_VOLUME/2);
+		///
+		///		// print the average volume
+		///		printf("Average volume is %d\n",Mix_Volume(-1,-1));
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_VolumeChunk"/>
+		/// <seealso cref="Mix_VolumeMusic"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_Volume(int channel, int volume);
-		#endregion 
+		#endregion int Mix_Volume(int channel, int volume)
 
-		#region 
+		#region int Mix_VolumeChunk(IntPtr chunk, int volume)
         /// <summary>
         /// Set mix volume
         /// </summary>
         /// <remarks>
-        /// Set chunk->volume to volume.
+        /// Set chunk-&gt;volume to volume.
         /// The volume setting will take effect 
         /// when the chunk is used on a channel, 
         /// being mixed into the output.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_VolumeChunk(Mix_Chunk *chunk, int volume)
 		/// </code>
 		/// </p>
         /// </remarks>
@@ -2194,658 +2314,921 @@ namespace Tao.Sdl {
         /// The volume to use from 0 to MIX_MAX_VOLUME(128).
         /// If greater than MIX_MAX_VOLUME,
         /// then it will be set to MIX_MAX_VOLUME.
-        /// If less than 0 then chunk->volume will not be set.
+        /// If less than 0 then chunk-&gt;volume will not be set.
         /// </param>
         /// <returns>
-        /// previous chunk->volume setting. 
+        /// previous chunk-&gt;volume setting. 
         /// if you passed a negative value for volume then this 
         /// volume is still the current volume for the chunk.
         /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // set the sample's volume to 1/2
+		///		// Mix_Chunk *sample;
+		///		int previous_volume;
+		///		previous_volume=Mix_VolumeChunk(sample, MIX_MAX_VOLUME/2);
+		/// 	printf("previous_volume: %d\n", previous_volume);
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_Chunk"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
-        public static extern int Mix_VolumeChunk(
-            IntPtr chunk, int volume);
-		#endregion 
+        public static extern int Mix_VolumeChunk(IntPtr chunk, int volume);
+		#endregion int Mix_VolumeChunk(IntPtr chunk, int volume)
 
-		#region 
+		#region int Mix_VolumeMusic(int volume)
         /// <summary>
-        /// 
+        /// Set music volume
         /// </summary>
 		/// <remarks>
+		/// Set the volume to volume, if it is 0 or greater, and return the 
+		/// previous volume setting. Setting the volume during a fade will 
+		/// not work, the faders use this function to perform their effect! 
+		/// Setting volume while using an external music player set by 
+		/// <see cref="Mix_SetMusicCMD"/> will have no effect, and 
+		/// <see cref="Mix_GetError"/> will 
+		/// show the reason why not.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_VolumeMusic(int volume)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="volume"></param>
-        /// <returns></returns>
+        /// <param name="volume">
+		/// Music volume, from 0 to MIX_MAX_VOLUME(128).
+		/// Values greater than MIX_MAX_VOLUME will use MIX_MAX_VOLUME.
+		/// -1 does not set the volume, but does return the current volume setting.
+		/// </param>
+        /// <returns>
+        /// The previous volume setting.
+        /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // set the music volume to 1/2 maximum, and then check it
+		///		printf("volume was    : %d\n", Mix_VolumeMusic(MIX_MAX_VOLUME/2));
+		///		printf("volume is now : %d\n", Mix_VolumeMusic(-1));
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_FadeInMusic"/>
+		/// <seealso cref="Mix_FadeOutMusic"/>
+		/// <seealso cref="Mix_SetMusicCMD"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_VolumeMusic(int volume);
-		#endregion 
+		#endregion int Mix_VolumeMusic(int volume)
 
-		#region 
+		#region int Mix_HaltChannel(int channel)
         /// <summary>
-        /// Halt playing of a particular channel
+        /// Stop playing on a channel
         /// </summary>
 		/// <remarks>
+		/// Halt channel playback, or all channels if -1 is passed in.
+		/// Any callback set by Mix_ChannelFinished will be called.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_HaltChannel(int channel)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="channel"></param>
-        /// <returns></returns>
+        /// <param name="channel">
+        /// Channel to stop playing, or -1 for all channels.
+        /// </param>
+        /// <returns>
+        /// always returns zero. (kinda silly)
+        /// </returns>
+        /// <example>
+        /// <code>
+		/// // halt playback on all channels
+		/// Mix_HaltChannel(-1);
+        /// </code></example>
+		/// <seealso cref="Mix_ExpireChannel"/>
+		/// <seealso cref="Mix_FadeOutChannel"/>
+		/// <seealso cref="Mix_ChannelFinished"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_HaltChannel(int channel);
-		#endregion 
+		#endregion int Mix_HaltChannel(int channel)
 
-		#region 
+		#region int Mix_HaltGroup(int tag)
         /// <summary>
-        /// 
+		/// Stop a group 
         /// </summary>
 		/// <remarks>
+		/// Halt playback on all channels in group tag.
+		/// Any callback set by Mix_ChannelFinished will be called once for each channel that stops. 
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_HaltGroup(int tag)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="tag"></param>
-        /// <returns></returns>
+        /// <param name="tag">
+		/// Group to fade out.
+		/// NOTE: -1 will NOT halt all channels. Use Mix_HaltChannel(-1) for that instead.
+		/// </param>
+        /// <returns>
+        /// always returns zero. (more silly than <see cref="Mix_HaltChannel"/>) 
+        /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // halt playback on all channels in group 1
+		/// Mix_HaltGroup(1);
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_FadeOutGroup"/>
+		/// <seealso cref="Mix_HaltChannel"/>
+		/// <seealso cref="Mix_ChannelFinished"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_HaltGroup(int tag);
-		#endregion 
+		#endregion int Mix_HaltGroup(int tag)
 
-		#region 
+		#region int Mix_HaltMusic()
         /// <summary>
-        /// 
+        /// Stop music playback
         /// </summary>
 		/// <remarks>
+		/// Halt playback of music. This interrupts music fader effects. 
+		/// Any callback set by Mix_HookMusicFinished will be called 
+		/// when the music stops.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_HaltMusic()
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <returns></returns>
+        /// <returns>always returns zero. (even more silly than Mix_HaltGroup)
+        /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // halt music playback
+		/// Mix_HaltMusic();
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_FadeOutMusic"/>
+		/// <seealso cref="Mix_HookMusicFinished"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_HaltMusic();
-		#endregion 
+		#endregion int Mix_HaltMusic()
 
-		#region 
+		#region int Mix_ExpireChannel(int channel, int ticks)
         /// <summary>
-        /// Change the expiration delay for a particular channel.
-        /// The sample will stop playing after the 'ticks' 
-        /// milliseconds have elapsed,
-        /// or remove the expiration if 'ticks' is -1
+        /// Change the timed stoppage of a channel
         /// </summary>
 		/// <remarks>
+		/// Halt channel playback, or all channels if -1 is passed in,
+		///  after ticks milliseconds. Any callback set by 
+		///  <see cref="Mix_ChannelFinished"/> 
+		///  will be called when the channel expires.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_ExpireChannel(int channel, int ticks)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="channel"></param>
-        /// <param name="ticks"></param>
-        /// <returns></returns>
+        /// <param name="channel">
+        /// Channel to stop playing, or -1 for all channels.
+        /// </param>
+        /// <param name="ticks">
+        /// Milliseconds until channel(s) halt playback. 
+        /// </param>
+        /// <returns>
+        /// Number of channels set to expire. Whether or not they are active.
+        /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // halt playback on all channels in 2 seconds
+		/// Mix_ExpireChannel(-1, 2000);
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_HaltChannel"/>
+		/// <seealso cref="Mix_FadeOutChannel"/>
+		/// <seealso cref="Mix_ChannelFinished"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
-        public static extern int Mix_ExpireChannel(
-            int channel, int ticks);
-		#endregion 
+        public static extern int Mix_ExpireChannel(int channel, int ticks);
+		#endregion int Mix_ExpireChannel(int channel, int ticks)
 
-		#region 
+		#region int Mix_FadeOutChannel(int which, int ms)
         /// <summary>
-        /// Halt a channel, fading it out progressively till it's silent
-        /// The ms parameter indicates the number of milliseconds the fading
-        /// will take.
+        /// Stop playing channel after timed fade out
         /// </summary>
 		/// <remarks>
+		/// Gradually fade out which channel over ms milliseconds starting 
+		/// from now. The channel will be halted after the fade out is 
+		/// completed. Only channels that are playing are set to fade out,
+		///  including paused channels. Any callback set by 
+		///  <see cref="Mix_ChannelFinished"/> will be called when the channel
+		///   finishes fading out.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_FadeOutChannel(int which, int ms)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="which"></param>
-        /// <param name="ms"></param>
-        /// <returns></returns>
+        /// <param name="which">
+        /// Channel to fade out, or -1 to fade all channels out.
+        /// </param>
+        /// <param name="ms">
+        /// Milliseconds of time that the fade-out effect 
+        /// should take to go to silence, starting now.
+        /// </param>
+        /// <returns>The number of channels set to fade out.
+        /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // fade out all channels to finish 3 seconds from now
+		/// printf("starting fade out of %d channels\n", Mix_FadeOutChannel(-1, 3000));
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_FadeInChannel"/>
+		/// <seealso cref="Mix_FadeInChannelTimed"/>
+		/// <seealso cref="Mix_FadingChannel"/>
+		/// <seealso cref="Mix_ChannelFinished"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_FadeOutChannel(int which, int ms);
-		#endregion 
+		#endregion int Mix_FadeOutChannel(int which, int ms)
 
-		#region 
+		#region int Mix_FadeOutGroup(int tag, int ms)
         /// <summary>
-        /// 
+        /// Fade out a group over time
         /// </summary>
 		/// <remarks>
+		/// Gradually fade out channels in group tag over ms milliseconds
+		///  starting from now. The channels will be halted after the fade
+		///   out is completed. Only channels that are playing are set to 
+		///   fade out, including paused channels. Any callback set by 
+		///   <see cref="Mix_ChannelFinished"/> will be called when each 
+		///   channel finishes fading out.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_FadeOutGroup(int tag, int ms)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="tag"></param>
-        /// <param name="ms"></param>
-        /// <returns></returns>
+        /// <param name="tag">
+		/// Group to fade out.
+		/// NOTE: -1 will NOT fade all channels out. 
+		/// Use Mix_FadeOutChannel(-1) for that instead.
+		/// </param>
+        /// <param name="ms">
+        /// Milliseconds of time that the fade-out effect 
+        /// should take to go to silence, starting now.
+        /// </param>
+        /// <returns>
+        /// The number of channels set to fade out.
+        /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // fade out all channels in group 1 to finish 3 seconds from now
+		/// printf("starting fade out of %d channels\n", Mix_FadeOutGroup(1, 3000));
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_HaltGroup"/>
+		/// <seealso cref="Mix_FadeOutChannel"/>
+		/// <seealso cref="Mix_FadingChannel"/>
+		/// <seealso cref="Mix_ChannelFinished"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_FadeOutGroup(int tag, int ms);
-		#endregion 
+		#endregion int Mix_FadeOutGroup(int tag, int ms)
 
-		#region 
+		#region int Mix_FadeOutMusic(int ms)
         /// <summary>
-        /// 
+        /// Stop music, with fade out
         /// </summary>
 		/// <remarks>
+		/// Gradually fade out the music over ms milliseconds starting from 
+		/// now. The music will be halted after the fade out is completed. 
+		/// Only when music is playing and not fading already are set to 
+		/// fade out, including paused channels. Any callback set by 
+		/// <see cref="Mix_HookMusicFinished"/> will be called when 
+		/// the music finishes fading out.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_FadeOutMusic(int ms)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="ms"></param>
-        /// <returns></returns>
+        /// <param name="ms">
+        /// Milliseconds of time that the fade-out effect 
+        /// should take to go to silence, starting now.
+        /// </param>
+        /// <returns>1 on success, 0 on failure.</returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // fade out music to finish 3 seconds from now
+		///		while(!Mix_FadeOutMusic(3000) &amp;&amp; Mix_PlayingMusic()) 
+		///	{
+		///		// wait for any fades to complete
+		///		SDL_Delay(100);
+		///	}
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_HaltMusic"/>
+		/// <seealso cref="Mix_FadingMusic"/>
+		/// <seealso cref="Mix_PlayingMusic"/>
+		/// <seealso cref="Mix_HookMusicFinished"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_FadeOutMusic(int ms);
-		#endregion 
+		#endregion int Mix_FadeOutMusic(int ms)
 
-		#region 
+		#region Mix_Fading Mix_FadingMusic()
         /// <summary>
-        /// Query the fading status of a channel
+        /// Get status of current music fade activity
         /// </summary>
 		/// <remarks>
+		/// Tells you if music is fading in, out, or not at all. 
+		/// Does not tell you if the channel is playing anything, 
+		/// or paused, so you'd need to test that separately.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>Mix_Fading Mix_FadingMusic() 
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <returns></returns>
+        /// <returns>
+        /// the fading status. Never returns an error.
+        /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // check the music fade status
+		///		switch(Mix_FadingMusic()) 
+		///	{
+		///		case MIX_NO_FADING:
+		///		printf("Not fading music.\n");
+		///		break;
+		///		case MIX_FADING_OUT:
+		///		printf("Fading out music.\n");
+		///		break;
+		///		case MIX_FADING_IN:
+		///		printf("Fading in music.\n");
+		///		break;
+		///	}
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_Fading"/>
+		/// <seealso cref="Mix_PausedMusic"/>
+		/// <seealso cref="Mix_PlayingMusic"/>
+		/// <seealso cref="Mix_FadeInMusicPos"/>
+		/// <seealso cref="Mix_FadeOutMusic"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern Mix_Fading Mix_FadingMusic();
-		#endregion 
+		#endregion Mix_Fading Mix_FadingMusic()
 
-		#region 
+		#region Mix_Fading Mix_FadingChannel(int which)
         /// <summary>
-        /// 
+        /// Get the fade status of a channel
         /// </summary>
 		/// <remarks>
+		/// Tells you if which channel is fading in, out, or not. 
+		/// Does not tell you if the channel is playing anything, 
+		/// or paused, so you'd need to test that separately.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>Mix_Fading Mix_FadingChannel(int which)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="which"></param>
-        /// <returns></returns>
+		/// <param name="which">
+		/// Channel to get the fade activity status from.
+		/// -1 is not valid, and will probably crash the program.
+		/// </param>
+        /// <returns>the fading status. Never returns an error.
+        /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // check the fade status on channel 0
+		///		switch(Mix_FadingChannel(0)) 
+		///	{
+		///	case MIX_NO_FADING:
+		///		printf("Not fading.\n");
+		///		break;
+		///		case MIX_FADING_OUT:
+		///		printf("Fading out.\n");
+		///		break;
+		///		case MIX_FADING_IN:
+		///		printf("Fading in.\n");
+		///		break;
+		///	}
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_Fading"/>
+		/// <seealso cref="Mix_Paused"/>
+		/// <seealso cref="Mix_Playing"/>
+		/// <seealso cref="Mix_FadeInChannel"/>
+		/// <seealso cref="Mix_FadeInChannelTimed"/>
+		/// <seealso cref="Mix_FadeOutChannel"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern Mix_Fading Mix_FadingChannel(int which);
-		#endregion 
+		#endregion Mix_Fading Mix_FadingChannel(int which)
 
-		#region 
+		#region void Mix_Pause(int channel)
         /// <summary>
         /// Pause a particular channel
         /// </summary>
 		/// <remarks>
+		/// Pause channel, or all playing channels if -1 is passed in. 
+		/// You may still halt a paused channel.
+		/// Note: Only channels which are actively playing will be paused.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>void Mix_Pause(int channel)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="channel"></param>
+        /// <param name="channel">
+        /// Channel to pause on, or -1 for all channels.
+        /// </param>
 		/// <example>
 		/// <code>
-		/// 
+		/// // pause all sample playback
+		/// Mix_Pause(-1);
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_Resume"/>
+		/// <seealso cref="Mix_Paused"/>
+		/// <seealso cref="Mix_HaltChannel"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_Pause(int channel);
-		#endregion 
+		#endregion void Mix_Pause(int channel)
 
-		#region 
+		#region void Mix_Resume(int channel)
         /// <summary>
-        /// Resume a particular channel
+        /// Resume a paused channel
         /// </summary>
 		/// <remarks>
+		/// Unpause channel, or all playing and 
+		/// paused channels if -1 is passed in.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>void Mix_Resume(int channel)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="channel"></param>
+        /// <param name="channel">
+        /// Channel to resume playing, or -1 for all channels.
+        /// </param>
 		/// <example>
 		/// <code>
-		/// 
+		/// // resume playback on all previously active channels
+		/// Mix_Resume(-1);
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_Pause"/>
+		/// <seealso cref="Mix_Paused"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_Resume(int channel);
-		#endregion 
+		#endregion void Mix_Resume(int channel)
 
-		#region 
+		#region int Mix_Paused(int channel)
         /// <summary>
-        /// 
+        /// Get the pause status of a channel
         /// </summary>
 		/// <remarks>
+		/// Tells you if channel is paused, or not.
+		/// Note: Does not check if the channel has been halted 
+		/// after it was paused, which may seem a little weird.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_Paused(int channel)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="channel"></param>
-        /// <returns></returns>
+        /// <param name="channel">
+		/// Channel to test whether it is paused or not.
+		/// -1 will tell you how many channels are paused.
+		/// </param>
+        /// <returns>
+        /// Zero if the channel is not paused. Otherwise if you passed in -1,
+        ///  the number of paused channels is returned. If you passed in a 
+        ///  specific channel, then 1 is returned if it is paused.
+        /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // check the pause status on all channels
+		/// printf("%d channels are paused\n", Mix_Paused(-1));
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_Playing"/>
+		/// <seealso cref="Mix_Pause"/>
+		/// <seealso cref="Mix_Resume"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_Paused(int channel);
-		#endregion 
+		#endregion int Mix_Paused(int channel)
 
-		#region 
+		#region void Mix_PauseMusic()
         /// <summary>
-        /// Pause the music stream
+        /// Pause music
         /// </summary>
 		/// <remarks>
+		/// Pause the music playback. You may halt paused music.
+		/// Note: Music can only be paused if it is actively playing.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>void Mix_PauseMusic()
 		/// </code>
 		/// </p>
 		/// </remarks>
 		/// <example>
 		/// <code>
-		/// 
+		/// // pause music playback
+		/// Mix_PauseMusic();
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_ResumeMusic"/>
+		/// <seealso cref="Mix_PausedMusic"/>
+		/// <seealso cref="Mix_HaltMusic"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_PauseMusic();
-		#endregion 
+		#endregion void Mix_PauseMusic()
 
-		#region 
+		#region void Mix_ResumeMusic()
         /// <summary>
-        /// Resume the music stream
+        /// Resume paused music
         /// </summary>
         /// <remarks>
+        /// Unpause the music. This is safe to use on halted, 
+        /// paused, and already playing music.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>void Mix_ResumeMusic() 
 		/// </code>
 		/// </p>
         /// </remarks>
 		/// <example>
 		/// <code>
-		/// 
+		/// // resume music playback
+		/// Mix_ResumeMusic();
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_PauseMusic"/>
+		/// <seealso cref="Mix_PausedMusic"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_ResumeMusic();
-		#endregion 
+		#endregion void Mix_ResumeMusic()
 
-		#region 
+		#region void Mix_RewindMusic()
         /// <summary>
-        /// 
+        /// Rewind music to beginning
         /// </summary>
         /// <remarks>
+        /// Rewind the music to the start. This is safe to use on halted, 
+        /// paused, and already playing music. It is not useful to rewind
+        ///  the music immediately after starting playback, because it 
+        ///  starts at the beginning by default.
+        ///  <p>This function only works for these streams: 
+        ///  MOD, OGG, MP3, Native MIDI.</p>
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>void Mix_RewindMusic() 
 		/// </code>
 		/// </p>
 		/// </remarks>
 		/// <example>
 		/// <code>
-		/// 
+		/// // rewind music playback to the start
+		/// Mix_RewindMusic();
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_PlayMusic"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_RewindMusic();
-		#endregion 
+		#endregion void Mix_RewindMusic()
 
-		#region 
+		#region int Mix_PausedMusic()
         /// <summary>
-        /// 
+        /// Test whether music is paused
         /// </summary>
         /// <remarks>
+		/// Tells you if music is paused, or not.
+		/// Note: Does not check if the music was been halted 
+		/// after it was paused, which may seem a little weird.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_PausedMusic()
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <returns></returns>
+        /// <returns>
+        /// Zero if music is not paused. 1 if it is paused. 
+        /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // check the music pause status
+		/// printf("music is%s paused\n", Mix_PausedMusic()?"":" not");
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_PlayingMusic"/>
+		/// <seealso cref="Mix_PauseMusic"/>
+		/// <seealso cref="Mix_ResumeMusic"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_PausedMusic();
-		#endregion 
+		#endregion int Mix_PausedMusic()
 
-		#region 
+		#region int Mix_SetMusicPosition(double position)
         /// <summary>
-        /// Set the current position in the music stream.
-        /// This returns 0 if successful, or -1 if it failed or 
-        /// isn't implemented.
-        /// This function is only implemented for MOD music formats 
-        /// (set pattern order number) and for OGG music 
-        /// (set position in seconds), at the moment.
+        /// Set position of playback in stream.
         /// </summary>
         /// <remarks>
+        /// Set the position of the currently playing music. 
+        /// The position takes different meanings for different music sources.
+        /// It only works on the music sources listed below.
+        /// <code>
+		/// MOD 
+		/// The double is cast to Uint16 and used for a pattern number in the module.
+		/// Passing zero is similar to rewinding the song. 
+		/// OGG 
+		/// Jumps to position seconds from the beginning of the song. 
+		/// MP3 
+		/// Jumps to position seconds from the current position in the stream.
+		/// </code>
+		/// So you may want to call Mix_RewindMusic before this.
+		/// Does not go in reverse...negative values do nothing.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_SetMusicPosition(double position)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="position"></param>
-        /// <returns></returns>
+        /// <param name="position">Position to play from.</param>
+        /// <returns>
+        /// 0 on success, or -1 if the codec doesn't support this function. 
+        /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // skip one minute into the song, from the start
+		/// // this assumes you are playing an MP3
+		///		Mix_RewindMusic();
+		///		if(Mix_SetMusicPosition(60.0)==-1) 
+		///	{
+		///		printf("Mix_SetMusicPosition: %s\n", Mix_GetError());
+		///	}
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_FadeInMusicPos"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_SetMusicPosition(double position);
-		#endregion 
+		#endregion int Mix_SetMusicPosition(double position)
 
-		#region 
+		#region int Mix_Playing(int channel)
         /// <summary>
-        /// Check the status of a specific channel.
-        /// If the specified channel is -1, check all channels.
+        /// Get the active playing status of a channel
         /// </summary>
         /// <remarks>
+		/// Tells you if channel is playing, or not.
+		/// Note: Does not check if the channel has been paused.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_Playing(int channel)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="channel"></param>
-        /// <returns></returns>
+        /// <param name="channel">
+		/// Channel to test whether it is playing or not.
+		/// -1 will tell you how many channels are playing.
+		/// </param>
+        /// <returns>
+        /// Zero if the channel is not playing. Otherwise if you passed in -1, 
+        /// the number of channels playing is returned. If you passed in a 
+        /// specific channel, then 1 is returned if it is playing.</returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // check how many channels are playing samples
+		/// printf("%d channels are playing\n", Mix_Playing(-1));
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_Paused"/>
+		/// <seealso cref="Mix_Fading"/>
+		/// <seealso cref="Mix_PlayChannel"/>
+		/// <seealso cref="Mix_Pause"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_Playing(int channel);
-		#endregion 
+		#endregion int Mix_Playing(int channel)
 
-		#region 
+		#region int Mix_PlayingMusic()
         /// <summary>
-        /// 
+        /// Test whether music is playing
         /// </summary>
         /// <remarks>
+		/// Tells you if music is actively playing, or not.
+		/// Note: Does not check if the channel has been paused.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_PlayingMusic() 
 		/// </code>
 		/// </p>
 		/// </remarks>
         /// <returns></returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // check if music is playing
+		/// printf("music is%s playing.\n", Mix_PlayingMusic()?"":" not");
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_PausedMusic"/>
+		/// <seealso cref="Mix_FadingMusic"/>
+		/// <seealso cref="Mix_PlayMusic"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_PlayingMusic();
-		#endregion 
+		#endregion int Mix_PlayingMusic()
 
-		#region 
+		#region int Mix_SetMusicCMD(string command)
         /// <summary>
-        /// Stop music and set external music playback command
+        /// Use external program for music playback
         /// </summary>
         /// <remarks>
+		/// Setup a command line music player to use to play music. 
+		/// Any music playing will be halted. The music file to play 
+		/// is set by calling <see cref="Mix_LoadMUS"/>(filename), 
+		/// and the filename is appended as the last argument on the 
+		/// commandline. This allows you to reuse the music command 
+		/// to play multiple files. The command will be sent signals 
+		/// SIGTERM to halt, SIGSTOP to pause, and SIGCONT to resume. 
+		/// The command program should react correctly to those signals
+		///  for it to function properly with SDL_Mixer. 
+		///  <see cref="Mix_VolumeMusic"/> has no effect when using an 
+		///  external music player, and <see cref="Mix_GetError"/> will 
+		///  have an error code set. You should set the music volume in 
+		///  the music player's command if the music player supports that.
+		///   Looping music works, by calling the command again when the 
+		///   previous music player process has ended. Playing music 
+		///   through a command uses a forked process to execute the music command.
+		/// <p>To use the internal music players set the command to NULL.</p>
+		/// <p>NOTE: External music is not mixed by SDL_mixer, 
+		/// so no post-processing hooks will be for music.</p>
+		/// <p>NOTE: Playing music through an external command may not work 
+		/// if the sound driver does not support multiple openings of the 
+		/// audio device, since SDL_Mixer already has the audio device 
+		/// open for playing samples through channels.</p>
+		/// <p>NOTE: Commands are not totally portable, so be careful.</p>
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_SetMusicCMD(const char *command)
 		/// </code>
 		/// </p>
 		/// </remarks>
-        /// <param name="command"></param>
-        /// <returns></returns>
+        /// <param name="command">
+		/// System command to play the music. Should be a complete command,
+		///  as if typed in to the command line, but it should expect the 
+		///  filename to be added as the last argument.
+		/// NULL will turn off using an external command for music, 
+		/// returning to the internal music playing functionality.
+        /// </param>
+        /// <returns>
+        /// 0 on success, or -1 on any errors, such as running out of memory.
+        /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // use mpg123 to play music
+		///		Mix_Music *music=NULL;
+		///		if(Mix_SetMusicCMD("mpg123 -q")==-1) 
+		///	{
+		///		perror("Mix_SetMusicCMD");
+		///	} 
+		///	else 
+		///{
+		///	// play some mp3 file
+		///	music=Mix_LoadMUS("music.mp3");
+		///	if(music) 
+		///{
+		///	Mix_PlayMusic(music,1);
+		///}
+		///}
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_PlayMusic"/>
+		/// <seealso cref="Mix_VolumeMusic"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
-        public static extern int Mix_SetMusicCMD(String command);
-		#endregion 
+        public static extern int Mix_SetMusicCMD(string command);
+		#endregion int Mix_SetMusicCMD(string command)
 
-		#region 
+		#region int Mix_SetSynchroValue(int value)
         /// <summary>
         /// Synchro value is set by MikMod from modules while playing
         /// </summary>
         /// <remarks>
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_SetSynchroValue(int value)
 		/// </code>
 		/// </p>
 		/// </remarks>
         /// <param name="value"></param>
         /// <returns></returns>
-		/// <example>
-		/// <code>
-		/// 
-		/// </code>
-		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_GetSynchroValue"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_SetSynchroValue(int value);
-		#endregion 
+		#endregion int Mix_SetSynchroValue(int value)
 
-		#region 
+		#region int Mix_GetSynchroValue()
         /// <summary>
-        /// 
+        /// Synchro value is set by MikMod from modules while playing
         /// </summary>
         /// <remarks>
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>int Mix_GetSynchroValue(void)
 		/// </code>
 		/// </p>
         /// </remarks>
         /// <returns></returns>
-		/// <example>
-		/// <code>
-		/// 
-		/// </code>
-		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_SetSynchroValue"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern int Mix_GetSynchroValue();
-		#endregion 
+		#endregion int Mix_GetSynchroValue()
 
-		#region 
+		#region IntPtr Mix_GetChunk(int channel)
         /// <summary>
-        /// Get the Mix_Chunk currently associated with a mixer channel
-        /// Returns NULL if it's an invalid channel, 
-        /// or there's no chunk associated.
+        /// Get the sample playing on a channel
         /// </summary>
         /// <remarks>
+		/// Get the most recent sample chunk pointer played on channel. 
+		/// This pointer may be currently playing, or just the last used.
+		/// Note: The actual chunk may have been freed, so this pointer 
+		/// may not be valid anymore.
 		/// <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>Mix_Chunk *Mix_GetChunk(int channel)
 		/// </code>
 		/// </p>
         /// </remarks>
-        /// <param name="channel"></param>
-        /// <returns></returns>
+        /// <param name="channel">
+		/// Channel to get the current Mix_Chunk playing.
+		/// -1 is not valid, but will not crash the program.
+		/// </param>
+        /// <returns>
+        /// Pointer to the Mix_Chunk. NULL is returned if the channel is not 
+        /// allocated, or if the channel has not played any samples yet.
+        /// </returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// // get the last chunk used by channel 0
+		/// printf("Mix_Chunk* last in use on channel 0 was: %08p\n", Mix_GetChunk(0));
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_Chunk"/>
+		/// <seealso cref="Mix_Playing"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr Mix_GetChunk(int channel);
-		#endregion 
+		#endregion IntPtr Mix_GetChunk(int channel)
 
-		#region 
+		#region void Mix_CloseAudio()
         /// <summary>
-        /// Close the mixer, halting all playing audio
+        /// Close sound mixer
         /// </summary>
         /// <remarks>
-        /// Shutdown and cleanup the mixer API.
+        /// <p>Shutdown and cleanup the mixer API.</p>
         /// After calling this all audio is stopped, 
         /// the device is closed, and the SDL_mixer functions 
         /// should not be used. You may, of course, 
         /// use Mix_OpenAudio to start 
         /// the functionality again.
-        /// Note: This function doesn't do anything until you
+        /// <p>Note: This function doesn't do anything until you
         /// have called it the same number of times that you called
-        ///  Mix_OpenAudio. You may use Mix_QuerySpec to find out how many
+        ///  <see cref="Mix_OpenAudio"/>. You may use 
+        ///  <see cref="Mix_QuerySpec"/> to find out how many
         ///   times Mix_CloseAudio needs to be called before the device is
-        ///    actually closed.
+        ///    actually closed.</p>
 		///    <p>Binds to C-function in SDL_mixer.h
-		/// <code>
+		/// <code>void Mix_CloseAudio()
 		/// </code>
 		/// </p>
         /// </remarks>
         /// <returns></returns>
 		/// <example>
 		/// <code>
-		/// 
+		/// Mix_CloseAudio();
+		/// // you could SDL_Quit(); here...or not.
 		/// </code>
 		/// </example>
-		/// <seealso cref="Mix_"/>
-		/// <seealso cref="Mix_"/>
+		/// <seealso cref="Mix_OpenAudio"/>
+		/// <seealso cref="Mix_QuerySpec"/>
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION), 
         SuppressUnmanagedCodeSecurity]
         public static extern void Mix_CloseAudio();
-		#endregion 
+		#endregion void Mix_CloseAudio()
 
 		#region void Mix_SetError(string message)
 		/// <summary>
