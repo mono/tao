@@ -66,7 +66,7 @@ SOFTWARE.
 #endregion Original Credits / License
 
 using System;
-using Tao.Glut;
+using Tao.FreeGlut;
 using Tao.OpenGl;
 
 namespace Redbook {

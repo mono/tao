@@ -35,7 +35,7 @@ using System.Drawing.Imaging;
 using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
-using Tao.Glut;
+using Tao.FreeGlut;
 using Tao.OpenAl;
 using Tao.OpenGl;
 

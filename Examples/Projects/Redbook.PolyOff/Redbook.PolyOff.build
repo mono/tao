@@ -4,7 +4,7 @@
         <echo message="Build Directory is ${examples.build.directory}" />
         <csc target="exe" warnaserror="false" unsafe="false" debug="${build.debug}" optimize="${build.optimize}" output="${examples.build.directory}/${nant.project.name}.exe" define="${build.debug.define};">
             <references basedir="${framework.build.directory}">
-                <include name="Tao.Glut.dll" />
+                <include name="Tao.FreeGlut.dll" />
                 <include name="Tao.OpenGl.dll" />
             </references>
             <sources failonempty="true">

@@ -32,7 +32,7 @@ SOFTWARE.
 using System;
 using System.IO;
 using System.Text;
-using Tao.Glut;
+using Tao.FreeGlut;
 using Tao.OpenAl;
 using Tao.OpenGl;
 
