@@ -4908,7 +4908,7 @@ namespace Tao.Sdl {
 		/// <returns></returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_GL_GetAttribute(int attr, 
+		public static extern int SDL_GL_GetAttribute(SDL_GLattr attr, 
 			out int val);
 		
 		/// <summary>
