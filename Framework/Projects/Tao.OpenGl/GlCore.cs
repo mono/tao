@@ -276,7 +276,7 @@ namespace Tao.OpenGl {
           if (((IntPtr) fi.GetValue(contextGl)) != IntPtr.Zero)
             continue;
 
-          Console.WriteLine ("Loading " + oglext.EntryPoint + " for " + extname);
+          //Console.WriteLine ("Loading " + oglext.EntryPoint + " for " + extname);
           IntPtr procaddr = GetProcAddress (oglext.EntryPoint);
           if (procaddr == IntPtr.Zero) {
             Console.WriteLine ("OpenGL claimed that '{0}' was supported, but couldn't find '{1}' entry point",
