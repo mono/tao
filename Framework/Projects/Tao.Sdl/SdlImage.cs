@@ -1216,7 +1216,7 @@ namespace Tao.Sdl {
 		/// </code></example>
 		/// <param name="message"></param>
 		/// <seealso cref="IMG_GetError"/>
-		public void IMG_SetError(string message)
+		public static void IMG_SetError(string message)
 		{
 			Sdl.SDL_SetError(message);
 		}
@@ -1243,7 +1243,7 @@ namespace Tao.Sdl {
 		///  occured.
 		///  </returns>
 		/// <seealso cref="IMG_SetError"/>
-		public string IMG_GetError()
+		public static string IMG_GetError()
 		{
 			return Sdl.SDL_GetError();
 		}
