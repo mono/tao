@@ -605,6 +605,7 @@
 
     <target name="clean.sdlexamples" description="Cleans SdlExamples.">
         <nant buildfile="${examples.projects.directory}/SdlExamples.Rectangles/SdlExamples.Rectangles.build" target="clean" />
+        <nant buildfile="${examples.projects.directory}/SdlExamples.GfxPrimitives/SdlExamples.GfxPrimitives.build" target="clean" />
     </target>
 
     <target name="documentation" description="Creates documentation.">
