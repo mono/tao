@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright ©2003-2004 Randy Ridge
+Copyright ©2003-2004 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -32,13 +32,13 @@ using System.Security;
 using System.Security.Permissions;
 
 [assembly: AllowPartiallyTrustedCallers]
-[assembly: AssemblyCompany("Randy Ridge http://www.taoframework.com")]
+[assembly: AssemblyCompany("http://www.taoframework.com")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
 #else
 [assembly: AssemblyConfiguration("Retail")]
 #endif
-[assembly: AssemblyCopyright("©2003-2004 Randy Ridge.  All rights reserved.")]
+[assembly: AssemblyCopyright("©2003-2004 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.DevIl")]
 [assembly: AssemblyDelaySign(false)]
@@ -47,8 +47,8 @@ using System.Security.Permissions;
 #elif LINUX
 [assembly: AssemblyDescription("Tao Framework DevIL Binding For .NET (Linux)")]
 #endif
-[assembly: AssemblyFileVersion("1.6.6.1")]
-[assembly: AssemblyInformationalVersion("1.6.6.1")]
+[assembly: AssemblyFileVersion("1.6.6.2")]
+[assembly: AssemblyInformationalVersion("1.6.6.2")]
 #if STRONG
 [assembly: AssemblyKeyFile(@"..\..\Solutions\Tao.DevIl\Solution Items\Tao.DevIl.snk")]
 #else
@@ -65,8 +65,8 @@ using System.Security.Permissions;
 #elif LINUX
 [assembly: AssemblyTitle("Tao Framework DevIL Binding For .NET (Linux)")]
 #endif
-[assembly: AssemblyTrademark("Randy Ridge")]
-[assembly: AssemblyVersion("1.6.6.1")]
+[assembly: AssemblyTrademark("http://www.taoframework.com")]
+[assembly: AssemblyVersion("1.6.6.2")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]

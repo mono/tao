@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright ©2003-2004 Randy Ridge
+Copyright ©2003-2004 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -32,19 +32,19 @@ using System.Security;
 using System.Security.Permissions;
 
 [assembly: AllowPartiallyTrustedCallers]
-[assembly: AssemblyCompany("Randy Ridge http://www.taoframework.com")]
+[assembly: AssemblyCompany("http://www.taoframework.com")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
 #else
 [assembly: AssemblyConfiguration("Retail")]
 #endif
-[assembly: AssemblyCopyright("©2003-2004 Randy Ridge.  All rights reserved.")]
+[assembly: AssemblyCopyright("©2003-2004 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.Platform.Linux")]
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyDescription("Tao Framework Linux Platform API Binding For .NET")]
-[assembly: AssemblyFileVersion("1.0.0.1")]
-[assembly: AssemblyInformationalVersion("1.0.0.1")]
+[assembly: AssemblyFileVersion("1.0.0.2")]
+[assembly: AssemblyInformationalVersion("1.0.0.2")]
 #if STRONG
 [assembly: AssemblyKeyFile(@"..\..\Solutions\Tao.Platform.Linux\Solution Items\Tao.Platform.Linux.snk")]
 #else
@@ -57,8 +57,8 @@ using System.Security.Permissions;
 [assembly: AssemblyProduct("Tao.Platform.Linux.dll")]
 #endif
 [assembly: AssemblyTitle("Tao Framework Linux Platform API Binding For .NET")]
-[assembly: AssemblyTrademark("Randy Ridge")]
-[assembly: AssemblyVersion("1.0.0.1")]
+[assembly: AssemblyTrademark("http://www.taoframework.com")]
+[assembly: AssemblyVersion("1.0.0.2")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]

@@ -1,11 +1,14 @@
 <?xml version="1.0"?>
 <project name="Tao.OpenGl">
-    <!-- We stick Glu in with GlCore.  If we're building on Windows, we can use ILMerge (see
-         http://research.microsoft.com/~mbarnett/ilmerge.aspx); it doesn't work on Linux. -->
+
+    <!-- *** WARNING ***
+         If we're building on Windows, we can use ILMerge (see http://research.microsoft.com/~mbarnett/ilmerge.aspx); it doesn't work on Linux.
+    -->
 
     <target name="glcore">
         <csc target="library" warnaserror="false" unsafe="true" debug="${build.debug}" optimize="${build.optimize}" output="${framework.build.directory}/Tao.OpenGlCore.dll" define="${build.debug.define};${build.platform.define};${build.strong.define}">
             <sources failonempty="true">
+                <include name="${framework.projects.directory}/${nant.project.name}/AssemblyInfo.cs" />
                 <include name="${framework.projects.directory}/${nant.project.name}/GlCore.cs" />
                 <include name="${framework.projects.directory}/${nant.project.name}/Glu.cs" />
             </sources>
@@ -53,6 +56,13 @@
 
     <target name="clean">
         <delete file="${framework.build.directory}/${nant.project.name}.dll" failonerror="false" />
+        <delete file="${framework.build.directory}/${nant.project.name}.dll.config" failonerror="false" />
+        <delete file="${framework.build.directory}/Tao.OpenGlBits.dll" failonerror="false" />
+        <delete file="${framework.build.directory}/Tao.OpenGlBits-Pre.dll" failonerror="false" />
+        <delete file="${framework.build.directory}/Tao.OpenGlCore.dll" failonerror="false" />
+        <delete file="${framework.build.directory}/Tao.OpenGlCore.dll.config" failonerror="false" />
+        <delete file="${framework.build.directory}/Tao.GlPostProcess.exe" failonerror="false" />
+        <delete file="${framework.build.directory}/${nant.project.name}.dll.config" failonerror="false" />
         <delete file="${framework.build.directory}/${nant.project.name}.pdb" failonerror="false" />
         <delete file="${framework.build.directory}/${nant.project.name}.xml" failonerror="false" />
         <delete file="${framework.build.directory}/${nant.project.name}.License.txt" failonerror="false" />

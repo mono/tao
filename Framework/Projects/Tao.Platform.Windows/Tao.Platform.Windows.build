@@ -42,6 +42,7 @@
 
     <target name="clean">
         <delete file="${framework.build.directory}/${nant.project.name}.dll" failonerror="false" />
+        <delete file="${framework.build.directory}/${nant.project.name}.dll.config" failonerror="false" />
         <delete file="${framework.build.directory}/${nant.project.name}.pdb" failonerror="false" />
         <delete file="${framework.build.directory}/${nant.project.name}.xml" failonerror="false" />
         <delete file="${framework.build.directory}/${nant.project.name}.License.txt" failonerror="false" />

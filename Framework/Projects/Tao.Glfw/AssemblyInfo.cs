@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright ©2003-2004 Randy Ridge
+Copyright ©2003-2004 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -32,13 +32,13 @@ using System.Security;
 using System.Security.Permissions;
 
 [assembly: AllowPartiallyTrustedCallers]
-[assembly: AssemblyCompany("Randy Ridge http://www.taoframework.com")]
+[assembly: AssemblyCompany("http://www.taoframework.com")]
 #if DEBUG
 [assembly: AssemblyConfiguration("Debug")]
 #else
 [assembly: AssemblyConfiguration("Retail")]
 #endif
-[assembly: AssemblyCopyright("©2003-2004 Randy Ridge.  All rights reserved.")]
+[assembly: AssemblyCopyright("©2003-2004 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.Glfw")]
 [assembly: AssemblyDelaySign(false)]
@@ -47,8 +47,8 @@ using System.Security.Permissions;
 #elif LINUX
 [assembly: AssemblyDescription("Tao Framework GLFW Binding For .NET (Linux)")]
 #endif
-[assembly: AssemblyFileVersion("2.4.2.1")]
-[assembly: AssemblyInformationalVersion("2.4.2.1")]
+[assembly: AssemblyFileVersion("2.4.2.2")]
+[assembly: AssemblyInformationalVersion("2.4.2.2")]
 #if STRONG
 [assembly: AssemblyKeyFile(@"..\..\Solutions\Tao.Glfw\Solution Items\Tao.Glfw.snk")]
 #else
@@ -65,8 +65,8 @@ using System.Security.Permissions;
 #elif LINUX
 [assembly: AssemblyTitle("Tao Framework GLFW Binding For .NET (Linux)")]
 #endif
-[assembly: AssemblyTrademark("Randy Ridge")]
-[assembly: AssemblyVersion("2.4.2.1")]
+[assembly: AssemblyTrademark("http://www.taoframework.com")]
+[assembly: AssemblyVersion("2.4.2.2")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]

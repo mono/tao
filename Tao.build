@@ -10,11 +10,11 @@
 
     <!-- default configuration -->
     <property name="build.debug" value="false" />
-    <property name="build.debug.define" value="RELEASE;TRACE" />
+    <property name="build.debug.define" value="DEBUG;TRACE" />
     <property name="build.optimize" value="true" />
     <property name="build.platform.define" value="WIN32" />
     <property name="build.strong" value="false" />
-    <property name="build.strong.define" value="" />
+    <property name="build.strong.define" value="TRACE" />
 
     <!-- global framework directories -->
     <target name="set-global-directories">
@@ -231,18 +231,13 @@
     <target name="clean.framework.all" description="Cleans all of the Tao Framework assemblies.">
         <call target="clean.postprocess" />
         <call target="clean.opengl" />
-        <if test="${build.platform.define == 'LINUX'}">
-            <call target="build.platform.linux" />
-        </if>
-        <if test="${build.platform.define == 'WIN32'}">
-            <call target="build.platform.windows" />
-        </if>
         <call target="clean.glut" />
         <call target="clean.glfw" />
         <call target="clean.cg" />
         <call target="clean.devil" />
         <call target="clean.openal" />
         <call target="clean.sdl" />
+        <call target="clean.platform.windows" />
     </target>
 
     <target name="clean.cg" description="Cleans Tao.Cg.">
