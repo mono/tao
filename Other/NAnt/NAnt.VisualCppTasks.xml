@@ -482,18 +482,23 @@
         </member>
         <member name="T:NAnt.VisualCpp.Tasks.RcTask">
             <summary>
-            Compiles resources using <c>rc.exe</c>, Microsoft's Win32 resource compiler.
+            Compiles resources using <c>rc.exe</c>, Microsoft's Win32 resource 
+            compiler.
             </summary>
             <example>
-              <para>Compile <c>text.rc</c> using the default options.</para>
+              <para>
+              Compile <c>text.rc</c> to <c>text.res</c> using the default options.
+              </para>
               <code>
                 <![CDATA[
-            <rc rcfile="text.rc"/>
+            <rc rcfile="text.rc" output="text.res" />
                 ]]>
               </code>
             </example>
             <example>
-              <para>Compile <c>text.rc</c>, passing an additional option.</para>
+              <para>
+              Compile <c>text.rc</c>, passing an additional option.
+              </para>
               <code>
                 <![CDATA[
             <rc rcfile="text.rc" options="/r"/>
@@ -504,6 +509,11 @@
         <member name="M:NAnt.VisualCpp.Tasks.RcTask.ExecuteTask">
             <summary>
             Compile the resource file
+            </summary>
+        </member>
+        <member name="M:NAnt.VisualCpp.Tasks.RcTask.NeedsCompiling">
+            <summary>
+            Determines if the resource need compiling.
             </summary>
         </member>
         <member name="P:NAnt.VisualCpp.Tasks.RcTask.Options">

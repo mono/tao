@@ -653,6 +653,15 @@
             the output directory.
             </remarks>
         </member>
+        <member name="M:NAnt.VSNet.Project.CopyFile(System.IO.FileInfo,System.IO.FileInfo,NAnt.Core.Task)">
+            <summary>
+            Copies the specified file if the destination file does not exist, or
+            the source file has been modified since it was previously copied.
+            </summary>
+            <param name="srcFile">The file to copy.</param>
+            <param name="destFile">The destination file.</param>
+            <param name="parent">The <see cref="T:NAnt.Core.Task"/> in which context the operation will be performed.</param>
+        </member>
         <member name="F:NAnt.VSNet.Project._sourceFiles">
             <summary>
             Holds a case-insensitive list of source files.
@@ -941,6 +950,23 @@
             exist.
             </returns>
         </member>
+        <member name="M:NAnt.VSNet.Reference.ExtractTypeLibPath(System.String)">
+            <summary>
+            Extracts the path of the type library or the file containing the type 
+            libary.
+            </summary>
+            <remarks>
+            <para>
+            If the path refers to a DLL, then it is possible that the DLL
+            contains more than one type library resource.  The number of the 
+            resource is appended to the Win32 value.
+            </para>
+            <para>
+            We required the path to the DLL without the trailing resource 
+            identifier.
+            </para>
+            </remarks>
+        </member>
         <member name="M:NAnt.VSNet.Reference.EvaluateMacro(System.Text.RegularExpressions.Match)">
             <summary>
             Is called each time a regular expression match is found during a 
@@ -1004,7 +1030,8 @@
         </member>
         <member name="P:NAnt.VSNet.Reference.Project">
             <summary>
-            Gets the project which is referenced by this <see cref="T:NAnt.VSNet.Reference"/>.
+            Gets or sets the project which is referenced by this 
+            <see cref="T:NAnt.VSNet.Reference"/>.
             </summary>
             <value>
             The project which is referenced by this <see cref="T:NAnt.VSNet.Reference"/>, or
