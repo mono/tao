@@ -93,7 +93,7 @@ namespace Tao.Sdl
 		[Test]
 		public void DriverName()
 		{
-			string buffer ="";
+			string buffer="";
 			string driverName = Sdl.SDL_VideoDriverName(buffer, 100);
 			Assert.IsNotNull(driverName);
 		}
@@ -439,6 +439,23 @@ namespace Tao.Sdl
 			Assert.AreEqual(g, 255);
 			Assert.AreEqual(b, 0);
 			Assert.AreEqual(a, 255);
+			Sdl.SDL_FreeSurface(ref surfacePtr);
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
+		public void SDL_GrabInput()
+		{
+			IntPtr surfacePtr = VideoSetup();
+			int result = Sdl.SDL_WM_GrabInput(Sdl.SDL_GrabMode.SDL_GRAB_ON);
+			Assert.AreEqual(result, (int)Sdl.SDL_GrabMode.SDL_GRAB_ON);
+			result = Sdl.SDL_WM_GrabInput(Sdl.SDL_GrabMode.SDL_GRAB_QUERY);
+			Assert.AreEqual(result, (int)Sdl.SDL_GrabMode.SDL_GRAB_ON);
+			result = Sdl.SDL_WM_GrabInput(Sdl.SDL_GrabMode.SDL_GRAB_OFF);
+			Assert.AreEqual(result, (int)Sdl.SDL_GrabMode.SDL_GRAB_OFF);
+			result = Sdl.SDL_WM_GrabInput(Sdl.SDL_GrabMode.SDL_GRAB_QUERY);
+			Assert.AreEqual(result, (int)Sdl.SDL_GrabMode.SDL_GRAB_OFF);
 			Sdl.SDL_FreeSurface(ref surfacePtr);
 		}
 		#endregion SDL_video.h
