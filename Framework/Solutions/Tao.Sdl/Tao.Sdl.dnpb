@@ -100,7 +100,7 @@
 		<File>Rectangles.cs</File>
 	    </Files>
 	</Project>
-<Project name="SdlExamples.SmpegPlayer" path="..\\..\\..\\\Examples\Projects\\SdlExamples.SmpegPlayer" language="C#" type="WinExe" startupObject="SdlExamples.SmpegPlayer">
+	<Project name="SdlExamples.SmpegPlayer" path="..\\..\\..\\\Examples\Projects\\SdlExamples.SmpegPlayer" language="C#" type="WinExe" startupObject="SdlExamples.SmpegPlayer">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -126,7 +126,7 @@
 		<File>SmpegPlayer.cs</File>
 	    </Files>
 	</Project>
-<Project name="SdlExamples.GfxPrimitives" path="..\\..\\..\\\Examples\Projects\\SdlExamples.GfxPrimitives" language="C#" type="WinExe" startupObject="SdlExamples.GfxPrimitives">
+	<Project name="SdlExamples.GfxPrimitives" path="..\\..\\..\\\Examples\Projects\\SdlExamples.GfxPrimitives" language="C#" type="WinExe" startupObject="SdlExamples.GfxPrimitives">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -152,5 +152,16 @@
 		<File>GfxPrimitives.cs</File>
 	    </Files>
 	</Project>
+	<Project name="Tao.PostProcess" path="..\\..\\Projects\\Tao.PostProcess\\" language="C#" type="Exe">
+	    <Reference name="System" />
+            <Files>
+                <File>AssemblyInfo.cs</File>
+                <File>AppMain.cs</File>
+                <File>BuildProcessor.cs</File>
+                <File>Options.cs</File>
+                <File>ReleaseBuildProcessor.cs</File>
+                <File>UsageHelp.cs</File>
+            </Files>
+        </Project>
     </Solution>
 </DNPreBuild>

@@ -638,10 +638,10 @@
                 <include name="${framework.build.directory}/*.dll" />
                 <include name="${framework.build.directory}/*.dll.config" />
                 <include name="${framework.build.directory}/*.txt" />
-                <excludes name="${framework.build.directory}/Tao.OpenGlBits*" />
-                <excludes name="${framework.build.directory}/Tao.OpenGlCore*" />
-                <excludes name="${framework.build.directory}/Tao.PostProcess.*" />
-                <excludes name="${framework.build.directory}/Tao.GlPostProcess.*" />
+                <exclude name="${framework.build.directory}/Tao.OpenGlBits*" />
+                <exclude name="${framework.build.directory}/Tao.OpenGlCore*" />
+                <exclude name="${framework.build.directory}/Tao.PostProcess.*" />
+                <exclude name="${framework.build.directory}/Tao.GlPostProcess.*" />
             </fileset>
         </zip>
     </target>
@@ -653,14 +653,14 @@
                 <include name="${root.directory}/*.build" />
                 <include name="${root.directory}/*.txt" />
                 <include name="${framework.projects.directory}/**" />
-                <excludes name="${framework.projects.directory}/**/bin/*" />
-                <excludes name="${framework.projects.directory}/**/obj/*" />
-                <excludes name="${framework.projects.directory}/**/*.dll" />
-                <excludes name="${framework.projects.directory}/**/*.dll.config" />
-                <excludes name="${framework.projects.directory}/**/*.exe" />
-                <excludes name="${framework.projects.directory}/**/*.pdb" />
-                <excludes name="${framework.projects.directory}/**/*.xml" />
-                <excludes name="${framework.projects.directory}/**/_sgbak/*" />
+                <exclude name="${framework.projects.directory}/**/bin/*" />
+                <exclude name="${framework.projects.directory}/**/obj/*" />
+                <exclude name="${framework.projects.directory}/**/*.dll" />
+                <exclude name="${framework.projects.directory}/**/*.dll.config" />
+                <exclude name="${framework.projects.directory}/**/*.exe" />
+                <exclude name="${framework.projects.directory}/**/*.pdb" />
+                <exclude name="${framework.projects.directory}/**/*.xml" />
+                <exclude name="${framework.projects.directory}/**/_sgbak/*" />
             </fileset>
         </zip>
     </target>
@@ -675,10 +675,24 @@
     </target>
 
     <target name="zip.documentation.html" description="Create .ZIP file of HTML Documentation files.">
+        <mkdir dir="${framework.release.directory}" />
         <zip zipfile="${framework.release.directory}/Tao.Framework.${timestamp.date}.${timestamp.hour}.${platform.directory}.${runtime.directory}.Html.Docs.zip">
             <fileset basedir="${framework.docs.directory}">
                 <include name="${framework.docs.directory}/*.*" />
-                <excludes name="${framework.docs.directory}/*.chm" />
+                <exclude name="${framework.docs.directory}/*.chm" />
+            </fileset>
+        </zip>
+    </target>
+    <target name="zip.all" description="Create .ZIP file of everything.">
+        <mkdir dir="${framework.release.directory}" />
+	<zip zipfile="${framework.release.directory}/Tao.Framework.${timestamp.date}.${timestamp.hour}.${platform.directory}.${runtime.directory}.all.zip">
+	    <fileset prefix="tao" basedir="${root.directory}">
+		<include name="${root.directory}/**" />
+                <exclude name="${root.directory}/**/bin/*" />
+                <exclude name="${root.directory}/**/obj/*" />
+                <exclude name="${root.directory}/**/*.pdb" />
+                <exclude name="${root.directory}/**/*.xml" />
+                <exclude name="${root.directory}/**/_sgbak/*" />
             </fileset>
         </zip>
     </target>

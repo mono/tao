@@ -32,10 +32,10 @@
     </target>
 
     <target name="clean">
-		<delete dir="${framework.projects.directory}/${nant.project.name}/bin" failonerror="false"/>
-		<delete dir="${framework.projects.directory}/${nant.project.name}/obj" failonerror="false"/>
-		<delete dir="${directory.tests}/bin" failonerror="false"/>
-		<delete dir="${directory.tests}/obj" failonerror="false"/>
+	<delete dir="${framework.projects.directory}/${nant.project.name}/bin" failonerror="false"/>
+	<delete dir="${framework.projects.directory}/${nant.project.name}/obj" failonerror="false"/>
+	<delete dir="${directory.tests}/bin" failonerror="false"/>
+	<delete dir="${directory.tests}/obj" failonerror="false"/>
         <delete file="${framework.build.directory}/${nant.project.name}.dll" failonerror="false" />
         <delete file="${framework.build.directory}/${nant.project.name}.dll.config" failonerror="false" />
         <delete file="${framework.build.directory}/${nant.project.name}.pdb" failonerror="false" />

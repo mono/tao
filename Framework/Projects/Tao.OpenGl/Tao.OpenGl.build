@@ -67,5 +67,7 @@
         <delete file="${framework.build.directory}/${nant.project.name}.xml" failonerror="false" />
         <delete file="${framework.build.directory}/${nant.project.name}.License.txt" failonerror="false" />
         <delete file="${framework.build.directory}/${nant.project.name}.Readme.txt" failonerror="false" />
+	<delete dir="${framework.projects.directory}/${nant.project.name}/bin" failonerror="false"/>
+	<delete dir="${framework.projects.directory}/${nant.project.name}/obj" failonerror="false"/>
     </target>
 </project>
