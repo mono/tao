@@ -35,6 +35,8 @@
 		<File>SdlImage.cs</File>
 		<File>SdlMixer.cs</File>
 		<File>SdlTtf.cs</File>
+		<File>SdlGfx.cs</File>
+		<File>Smpeg.cs</File>
 	    </Files>
 	</Project>
 	<Project name="Tao.Sdl.Tests" path="..\\..\\Projects\\Tao.Sdl\\Tests" language="C#" type="Library">
@@ -68,6 +70,8 @@
 		<File>SdlTestImage.cs</File>
 		<File>SdlTestTtf.cs</File>
 		<File>SdlTestMixer.cs</File>
+		<File>SdlTestGfx.cs</File>
+		<File>Smpegtest.cs</File>
 	    </Files>
 	</Project>
 	<Project name="SdlExamples.Rectangles" path="..\\..\\..\\\Examples\Projects\\SdlExamples.Rectangles" language="C#" type="WinExe" startupObject="SdlExamples.Rectangles">
@@ -94,6 +98,32 @@
 	    <Files>
 		<File>AssemblyInfo.cs</File>
 		<File>Rectangles.cs</File>
+	    </Files>
+	</Project>
+<Project name="SdlExamples.GfxPrimitives" path="..\\..\\..\\\Examples\Projects\\SdlExamples.GfxPrimitives" language="C#" type="WinExe" startupObject="SdlExamples.GfxPrimitives">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.Sdl" />
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>GfxPrimitives.cs</File>
 	    </Files>
 	</Project>
     </Solution>

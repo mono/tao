@@ -150,6 +150,7 @@ namespace Tao.Sdl {
 		///		SMPEG_FilterDestroy destroy;
 		///	}
 		/// </code></p></remarks>
+		[CLSCompliant(false)]
 		public struct SMPEG_Filter
 		{
 			/// <summary>
@@ -583,30 +584,153 @@ namespace Tao.Sdl {
 		public static extern void SMPEG_setvolume( IntPtr mpeg, int volume );
 		#endregion void SMPEG_setvolume( IntPtr mpeg, int volume )
 
-//
-//		/* Set the destination surface for MPEG video playback
-//		   'surfLock' is a mutex used to synchronize access to 'dst', and can be NULL.
-//		   'callback' is a function called when an area of 'dst' needs to be updated.
-//		   If 'callback' is NULL, the default function (SDL_UpdateRect) will be used.
-//		*/
-//		extern DECLSPEC void SMPEG_setdisplay(SMPEG* mpeg, SDL_Surface* dst, SDL_mutex* surfLock,
-//							SMPEG_DisplayCallback callback);
-//
-//		/* Set or clear looping play on an SMPEG object */
-//		extern DECLSPEC void SMPEG_loop( SMPEG* mpeg, int repeat );
-//
-//		/* Scale pixel display on an SMPEG object */
-//		extern DECLSPEC void SMPEG_scaleXY( SMPEG* mpeg, int width, int height );
-//		extern DECLSPEC void SMPEG_scale( SMPEG* mpeg, int scale );
-//		/* */
-//#define SMPEG_double(mpeg, on) \
-//		SMPEG_scale(mpeg, (on) ? 2 : 1)
-//
-//		/* Move the video display area within the destination surface */
-//		extern DECLSPEC void SMPEG_move( SMPEG* mpeg, int x, int y );
-//
-//		/* Set the region of the video to be shown */
-//		extern DECLSPEC void SMPEG_setdisplayregion(SMPEG* mpeg, int x, int y, int w, int h);
+		#region void SMPEG_setdisplay(...)
+		/// <summary>
+		/// Set the destination surface for MPEG video playback
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to a C-function call in smpeg.h
+		/// <code>
+		/// void SMPEG_setdisplay(SMPEG* mpeg, SDL_Surface* dst, SDL_mutex* surfLock, SMPEG_DisplayCallback callback);
+		/// </code></p></remarks>
+		/// <param name="mpeg">Handle to MPEG file.</param>
+		/// <param name="dst"></param>
+		/// <param name="surfLock">
+		/// 'surfLock' is a mutex used to synchronize access to 'dst', 
+		/// and can be NULL.
+		/// </param>
+		/// <param name="callback">
+		/// 'callback' is a function called when an area of 'dst' needs 
+		/// to be updated.
+		///  If 'callback' is NULL, the default function (SDL_UpdateRect) 
+		///  will be used.
+		///  </param>
+		[DllImport(SMPEG_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION), 
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SMPEG_setdisplay(
+			IntPtr mpeg, IntPtr dst, IntPtr surfLock, 
+			SMPEG_DisplayCallback callback);
+		#endregion void SMPEG_setdisplay(...)
+
+		#region void SMPEG_loop( IntPtr mpeg, int repeat )
+		/// <summary>
+		/// Set or clear looping play on an SMPEG object
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to a C-function call in smpeg.h
+		/// <code>
+		/// void SMPEG_loop( SMPEG* mpeg, int repeat )
+		/// </code></p></remarks>
+		/// <param name="mpeg">Handle to MPEG file.</param>
+		/// <param name="repeat"></param>
+		[DllImport(SMPEG_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION), 
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SMPEG_loop( IntPtr mpeg, int repeat );
+		#endregion void SMPEG_loop( IntPtr mpeg, int repeat )
+
+		#region void SMPEG_scaleXY( IntPtr mpeg, int width, int height )
+		/// <summary>
+		/// Scale pixel display on an SMPEG object
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to a C-function call in smpeg.h
+		/// <code>
+		/// void SMPEG_scaleXY( SMPEG* mpeg, int width, int height )
+		/// </code></p></remarks>
+		/// <param name="mpeg">Handle to MPEG file.</param>
+		/// <param name="width"></param>
+		/// <param name="height"></param>
+		[DllImport(SMPEG_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION), 
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SMPEG_scaleXY( IntPtr mpeg, int width, int height );
+		#endregion void SMPEG_scaleXY( IntPtr mpeg, int width, int height )
+
+		#region void SMPEG_scale( IntPtr mpeg, int scale )
+		/// <summary>
+		/// Scale pixel display on an SMPEG object
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to a C-function call in smpeg.h
+		/// <code>
+		/// void SMPEG_scale( SMPEG* mpeg, int scale )
+		/// </code></p></remarks>
+		/// <param name="mpeg">Handle to MPEG file.</param>
+		/// <param name="scale"></param>
+		[DllImport(SMPEG_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION), 
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SMPEG_scale( IntPtr mpeg, int scale );
+		#endregion void SMPEG_scale( IntPtr mpeg, int scale )
+
+		#region void SMPEG_double( IntPtr mpeg, int on )
+		/// <summary>
+		/// Scale pixel display on an SMPEG object
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to a C-function call in smpeg.h
+		/// <code>
+		/// #define SMPEG_double(mpeg, on) \
+		///		SMPEG_scale(mpeg, (on) ? 2 : 1)
+		/// </code></p></remarks>
+		/// <param name="mpeg">Handle to MPEG file.</param>
+		/// <param name="on"></param>
+		public void SMPEG_double( IntPtr mpeg, int on )
+		{
+			if (on != 0)
+			{
+				Smpeg.SMPEG_scale(mpeg, 2);
+			}
+			else
+			{
+				Smpeg.SMPEG_scale(mpeg, 1);
+			}
+		}
+		#endregion void SMPEG_double( IntPtr mpeg, int on )
+
+		#region void SMPEG_move( IntPtr mpeg, int x, int y )
+		/// <summary>
+		/// Move the video display area within the destination surface
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to a C-function call in smpeg.h
+		/// <code>
+		/// void SMPEG_move( SMPEG* mpeg, int x, int y )
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="mpeg">Handle to MPEG file.</param>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		[DllImport(SMPEG_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION), 
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SMPEG_move( IntPtr mpeg, int x, int y );
+		#endregion void SMPEG_move( IntPtr mpeg, int x, int y )
+
+		#region void SMPEG_setdisplayregion(IntPtr mpeg, int x, int y, int w, int h)
+		/// <summary>
+		/// Set the region of the video to be shown
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to a C-function call in smpeg.h
+		/// <code>
+		/// void SMPEG_setdisplayregion(SMPEG* mpeg, int x, int y, int w, int h)
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="mpeg">Handle to MPEG file.</param>
+		/// <param name="h"></param>
+		/// <param name="w"></param>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		[DllImport(SMPEG_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION), 
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SMPEG_setdisplayregion(IntPtr mpeg, int x, int y, int w, int h);
+		#endregion void SMPEG_setdisplayregion(IntPtr mpeg, int x, int y, int w, int h)
 
 		#region void SMPEG_play( IntPtr mpeg )
 		/// <summary>
@@ -748,9 +872,25 @@ namespace Tao.Sdl {
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SMPEG_renderFinal( IntPtr mpeg, IntPtr dst, int x, int y );
 		#endregion void SMPEG_renderFinal( IntPtr mpeg, IntPtr dst, int x, int y )
-//
-//		/* Set video filter */
-//		extern DECLSPEC SMPEG_Filter * SMPEG_filter( SMPEG* mpeg, SMPEG_Filter * filter );
+
+		#region IntPtr SMPEG_filter( IntPtr mpeg, IntPtr filter )
+		/// <summary>
+		/// Set video filter
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to a C-function call in smpeg.h
+		/// <code>
+		/// SMPEG_Filter * SMPEG_filter( SMPEG* mpeg, SMPEG_Filter * filter )
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="mpeg">Handle to MPEG file.</param>
+		/// <param name="filter">IntPtr to SPEG_Filter</param>
+		[DllImport(SMPEG_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION), 
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SMPEG_filter( IntPtr mpeg, IntPtr filter );
+		#endregion IntPtr SMPEG_filter( IntPtr mpeg, IntPtr filter )
 
 		#region string SMPEG_geterror( IntPtr mpeg )
 		/// <summary>
@@ -772,23 +912,94 @@ namespace Tao.Sdl {
 		SuppressUnmanagedCodeSecurity]
 		public static extern string SMPEG_error( IntPtr mpeg );
 		#endregion string SMPEG_error( IntPtr mpeg )
-//
-//		/* Exported callback function for audio playback.
-//		   The function takes a buffer and the amount of data to fill, and returns
-//		   the amount of data in bytes that was actually written.  This will be the
-//		   amount requested unless the MPEG audio has finished.
-//		*/
-//		extern DECLSPEC int SMPEG_playAudio( SMPEG *mpeg, Uint8 *stream, int len );
-//
-//		/* Wrapper for SMPEG_playAudio() that can be passed to SDL and SDL_mixer
-//		*/
-//		extern DECLSPEC void SMPEG_playAudioSDL( void *mpeg, Uint8 *stream, int len );
-//
-//		/* Get the best SDL audio spec for the audio stream */
-//		extern DECLSPEC int SMPEG_wantedSpec( SMPEG *mpeg, SDL_AudioSpec *wanted );
-//
-//		/* Inform SMPEG of the actual SDL audio spec used for sound playback */
-//		extern DECLSPEC void SMPEG_actualSpec( SMPEG *mpeg, SDL_AudioSpec *spec );
+
+		#region int SMPEG_playAudio( IntPtr mpeg, byte[] stream, int len )
+		/// <summary>
+		/// Exported callback function for audio playback.
+		/// </summary>
+		/// <remarks>
+		/// The function takes a buffer and the amount of data to fill, and returns
+		///		   the amount of data in bytes that was actually written.  This will be the
+		///		   amount requested unless the MPEG audio has finished.
+		/// <p>Binds to a C-function call in smpeg.h
+		/// <code>
+		/// int SMPEG_playAudio( SMPEG *mpeg, Uint8 *stream, int len )
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="mpeg">Handle to MPEG file.</param>
+		/// <param name="stream">Bytestream of data</param>
+		/// <param name="len">Amount of data to fill</param>
+		/// <returns>Amount of data in bytes that was actually written</returns>
+		[DllImport(SMPEG_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION), 
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SMPEG_playAudio( IntPtr mpeg, byte[] stream, int len );
+		#endregion int SMPEG_playAudio( IntPtr mpeg, byte[] stream, int len )
+
+		#region void SMPEG_playAudioSDL( object mpeg, byte[] stream, int len )
+		/// <summary>
+		/// Wrapper for SMPEG_playAudio() that can be passed to SDL and SDL_mixer. 
+		/// Exported callback function for audio playback.
+		/// </summary>
+		/// <remarks>
+		/// The function takes a buffer and the amount of data to fill, and returns
+		///		   the amount of data in bytes that was actually written.  This will be the
+		///		   amount requested unless the MPEG audio has finished.
+		/// <p>Binds to a C-function call in smpeg.h
+		/// <code>
+		/// void SMPEG_playAudioSDL( void *mpeg, Uint8 *stream, int len )
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="mpeg">MPEG object.</param>
+		/// <param name="stream">Bytestream of data</param>
+		/// <param name="len">Amount of data to fill</param>
+		[DllImport(SMPEG_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION), 
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SMPEG_playAudioSDL( object mpeg, byte[] stream, int len );
+		#endregion void SMPEG_playAudioSDL( object mpeg, byte[] stream, int len )
+
+		#region int SMPEG_wantedSpec( IntPtr mpeg, IntPtr wanted )
+		/// <summary>
+		/// Get the best SDL audio spec for the audio stream 
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to a C-function call in smpeg.h
+		/// <code>
+		/// int SMPEG_wantedSpec( SMPEG *mpeg, SDL_AudioSpec *wanted )
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="mpeg">MPEG object.</param>
+		/// <param name="wanted">SDL_AudioSpec</param>
+		/// <returns></returns>
+		[DllImport(SMPEG_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION), 
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SMPEG_wantedSpec( IntPtr mpeg, IntPtr wanted );
+		#endregion int SMPEG_wantedSpec( IntPtr mpeg, IntPtr wanted )
+
+		#region void SMPEG_actualSpec( IntPtr mpeg, IntPtr spec )
+		/// <summary>
+		/// Inform SMPEG of the actual SDL audio spec used for sound playback
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to a C-function call in smpeg.h
+		/// <code>
+		/// void SMPEG_actualSpec( SMPEG *mpeg, SDL_AudioSpec *spec )
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="mpeg">MPEG object.</param>
+		/// <param name="spec">SDL_AudioSpec</param>
+		/// <returns></returns>
+		[DllImport(SMPEG_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION), 
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SMPEG_actualSpec( IntPtr mpeg, IntPtr spec );
+		#endregion void SMPEG_actualSpec( IntPtr mpeg, IntPtr spec )
 		#endregion smpeg.h
 		#endregion Smpeg Methods
     }
