@@ -630,6 +630,7 @@
     </target>
 
     <target name="zip.binaries" description="Create .ZIP file of binary files.">
+        <mkdir dir="${framework.release.directory}" />
         <zip zipfile="${framework.release.directory}/Tao.Framework.${timestamp.date}.${timestamp.hour}.${platform.directory}.${runtime.directory}.zip">
             <fileset basedir="${framework.build.directory}">
                 <include name="${framework.build.directory}/*.dll" />
@@ -644,6 +645,7 @@
     </target>
 
     <target name="zip.source" description="Create .ZIP file of the sources.">
+        <mkdir dir="${framework.release.directory}" />
         <zip zipfile="${framework.release.directory}/Tao.Framework.${timestamp.date}.${timestamp.hour}.${platform.directory}.${runtime.directory}.src.zip">
             <fileset basedir="${root.directory}">
                 <include name="${root.directory}/*.build" />
@@ -662,6 +664,7 @@
     </target>
 
     <target name="zip.documentation.chm" description="Create .ZIP file of CHM Documentation files.">
+        <mkdir dir="${framework.release.directory}" />
         <zip zipfile="${framework.release.directory}/Tao.Framework.${timestamp.date}.${timestamp.hour}.${platform.directory}.${runtime.directory}.Chm.Docs.zip">
             <fileset basedir="${framework.docs.directory}">
                 <include name="${framework.docs.directory}/*.chm" />
