@@ -69,7 +69,7 @@ namespace Tao.Sdl
 				bpp, 
 				flags);
 			Assert.IsNotNull(surfacePtr);
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		}
 
 		/// <summary>
@@ -124,9 +124,10 @@ namespace Tao.Sdl
 			Assert.IsTrue(rgbSurface.w == width);
 			Assert.IsTrue(rgbSurface.h == height);
 			//Sdl.SDL_FreeSurface(surfacePtr);
-			Sdl.SDL_FreeSurface(ref rgbSurfacePtr);
-			Assert.AreEqual(rgbSurfacePtr, IntPtr.Zero);
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(rgbSurfacePtr);
+			//Sdl.SDL_FreeSurfaceInternal(rgbSurfacePtr);
+			Assert.AreEqual(IntPtr.Zero, rgbSurfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		}
 
 		/// <summary>
@@ -155,7 +156,7 @@ namespace Tao.Sdl
 			
 			Assert.AreEqual(resultFlip, 0); 
 			Thread.Sleep(sleepTime);
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		}
 		/// <summary>
 		/// 
@@ -167,7 +168,7 @@ namespace Tao.Sdl
 			int status = Sdl.SDL_MUSTLOCK(surfacePtr);
 			//Console.WriteLine("MUSTLOCK: " + status.ToString());
 			Assert.IsTrue(status == 0);
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		}
 		/// <summary>
 		/// 
@@ -178,8 +179,8 @@ namespace Tao.Sdl
 			IntPtr surfacePtr = VideoSetup();
 			IntPtr videoPtr = Sdl.SDL_GetVideoSurface();
 			Assert.IsNotNull(videoPtr);
-			Sdl.SDL_FreeSurface(ref videoPtr);
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(videoPtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		 }
 		/// <summary>
 		/// 
@@ -189,7 +190,7 @@ namespace Tao.Sdl
 		{
 			IntPtr videoInfoPtr = Sdl.SDL_GetVideoInfo();
 			Assert.IsNotNull(videoInfoPtr);
-			Sdl.SDL_FreeSurface(ref videoInfoPtr);
+			Sdl.SDL_FreeSurface(videoInfoPtr);
 		}
 		/// <summary>
 		/// 
@@ -200,7 +201,7 @@ namespace Tao.Sdl
 			//TODO: Must figure out a real test for this method.
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_UpdateRect(surfacePtr, 0, 0, 0, 0);
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		}
 		/// <summary>
 		/// 
@@ -217,7 +218,7 @@ namespace Tao.Sdl
 									   new Sdl.SDL_Rect(150,150,150,150)
 								   };
 			Sdl.SDL_UpdateRects(surfacePtr, rects.Length, rects);
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		}
 		/// <summary>
 		/// 
@@ -231,7 +232,7 @@ namespace Tao.Sdl
 			Thread.Sleep(sleepTime);
 			resultSetGamma = Sdl.SDL_SetGamma(1,1,1);
 			Assert.AreEqual(resultSetGamma, 0); 
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		}
 		/// <summary>
 		/// 
@@ -246,7 +247,7 @@ namespace Tao.Sdl
 			Sdl.SDL_WM_GetCaption(out title, out iconText);
 			Assert.AreEqual(title, "Hi There");
 			Assert.AreEqual(iconText, "Hello");
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		}
 		/// <summary>
 		/// 
@@ -258,7 +259,7 @@ namespace Tao.Sdl
 			int result = Sdl.SDL_WM_IconifyWindow();
 			Assert.AreEqual(result, 1);
 			Thread.Sleep(sleepTime);
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		}
 		/// <summary>
 		/// 
@@ -280,7 +281,7 @@ namespace Tao.Sdl
 #else
 			Assert.AreEqual(result, 1);
 #endif
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 			
 		}
 		/// <summary>
@@ -321,7 +322,7 @@ namespace Tao.Sdl
 			IntPtr surfacePtr = VideoSetup();
 			int resultSetColors = Sdl.SDL_SetColors(surfacePtr, colors, 0, 255);
 			Assert.AreEqual(resultSetColors, 0); 
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		}
 		/// <summary>
 		/// 
@@ -339,7 +340,7 @@ namespace Tao.Sdl
 			IntPtr surfacePtr = VideoSetup();
 			int resultSetPalette = Sdl.SDL_SetPalette(surfacePtr, Sdl.SDL_LOGPAL|Sdl.SDL_PHYSPAL,  colors, 0, 255);
 			Assert.AreEqual(resultSetPalette, 0); 
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		}
 		/// <summary>
 		/// 
@@ -374,7 +375,7 @@ namespace Tao.Sdl
 			int result = Sdl.SDL_MapRGB(surfaceFormatPtr, 255, 255, 0);
 			Assert.AreEqual(surfaceFormat.BitsPerPixel, 16);
 			Assert.AreEqual(result, 65504);
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		}
 		/// <summary>
 		/// 
@@ -392,7 +393,7 @@ namespace Tao.Sdl
 			int result = Sdl.SDL_MapRGBA(surfaceFormatPtr, 255, 255, 0, 0);
 			Assert.AreEqual(surfaceFormat.BitsPerPixel, 16);
 			Assert.AreEqual(result, 65504);
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		}
 		/// <summary>
 		/// 
@@ -415,7 +416,7 @@ namespace Tao.Sdl
 			Assert.AreEqual(r, 255);
 			Assert.AreEqual(g, 255);
 			Assert.AreEqual(b, 0);
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		}
 		/// <summary>
 		/// 
@@ -440,7 +441,7 @@ namespace Tao.Sdl
 			Assert.AreEqual(g, 255);
 			Assert.AreEqual(b, 0);
 			Assert.AreEqual(a, 255);
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		}
 		/// <summary>
 		/// 
@@ -457,7 +458,7 @@ namespace Tao.Sdl
 			Assert.AreEqual(result, (int)Sdl.SDL_GRAB_OFF);
 			result = Sdl.SDL_WM_GrabInput(Sdl.SDL_GRAB_QUERY);
 			Assert.AreEqual(result, (int)Sdl.SDL_GRAB_OFF);
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		}
 		/// <summary>
 		/// 
@@ -494,7 +495,7 @@ namespace Tao.Sdl
 			Thread.Sleep(sleepTime);
 			result = Sdl.SDL_SaveBMP(surfacePtr, "testScreen.bmp");
 			Assert.AreEqual(result, 0);
-			Sdl.SDL_FreeSurface(ref surfacePtr);
+			Sdl.SDL_FreeSurface(surfacePtr);
 		}
 		/// <summary>
 		/// 

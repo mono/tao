@@ -79,7 +79,7 @@ namespace SdlExamples
 
 			Random rand = new Random();
 			
-			string musicFile = "Data/SdlExamples.Reactangles.sound.ogg";
+			string musicFile = "Data/SdlExamples.Rectangles.sound.ogg";
 
 			Sdl.SDL_Event evt;
 
@@ -98,7 +98,16 @@ namespace SdlExamples
 					2, 
 					1024);
 				IntPtr chunkPtr = SdlMixer.Mix_LoadMUS(musicFile);
-				result = SdlMixer.Mix_PlayMusic( chunkPtr, -1);
+
+				SdlMixer.MusicFinishedDelegate musicStopped = 
+					new SdlMixer.MusicFinishedDelegate(this.musicHasStopped);
+				SdlMixer.Mix_HookMusicFinished(musicStopped);
+
+				result = SdlMixer.Mix_PlayMusic( chunkPtr, 1);
+				if (result == -1)
+				{
+					Console.WriteLine("Music Error: " + Sdl.SDL_GetError());
+				}
 
 				int rmask = 0x00000000;
 				int gmask = 0x00ff0000;
@@ -170,6 +179,11 @@ namespace SdlExamples
 			}
 		}
 		#endregion Run()
+
+		private void musicHasStopped()
+		{
+			Console.WriteLine("The Music has stopped!");
+		}
 
 		#region Main()
 		[STAThread]

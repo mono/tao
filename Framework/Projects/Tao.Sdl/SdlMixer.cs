@@ -1159,8 +1159,7 @@ namespace Tao.Sdl {
         [DllImport(SDL_MIXER_NATIVE_LIBRARY, 
              CallingConvention=CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
-        public static extern void Mix_HookMusicFinished(
-            MusicFinishedDelegate music_finished);
+		public static extern void Mix_HookMusicFinished(MusicFinishedDelegate music_finished);
 		#endregion void Mix_HookMusicFinished(MusicFinishedDelegate music_finished)
 
 		#region IntPtr Mix_GetMusicHookData()

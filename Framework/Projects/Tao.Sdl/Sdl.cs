@@ -8926,13 +8926,7 @@ namespace Tao.Sdl {
 			int Gmask, int Bmask, int Amask);
 		#endregion IntPtr SDL_CreateRGBSurfaceFrom(...)
 
-		#region void SDL_FreeSurfaceInternal(IntPtr surface)
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDL_FreeSurface"),
-		SuppressUnmanagedCodeSecurity]
-		private static extern void SDL_FreeSurfaceInternal(IntPtr surface);
-		#endregion void SDL_FreeSurface(IntPtr surface)
-
-		#region void SDL_FreeSurface(ref IntPtr surface)
+		#region void SDL_FreeSurface(IntPtr surface)
 		/// <summary>
 		/// Frees (deletes) a SDL_Surface
 		/// </summary>
@@ -8947,13 +8941,33 @@ namespace Tao.Sdl {
 		/// <param name="surface"></param>
 		/// <seealso cref="SDL_CreateRGBSurface">SDL_CreateRGBSurface</seealso>
 		/// <seealso cref="SDL_CreateRGBSurfaceFrom">SDL_CreateRGBSurfaceFrom</seealso>
-		public static void SDL_FreeSurface(ref IntPtr surface)
-		{
-			SDL_FreeSurfaceInternal(surface);
-			Marshal.DestroyStructure( surface, typeof(SDL_Surface));
-			surface = IntPtr.Zero;
-		}
-		#endregion void SDL_FreeSurface(ref IntPtr surface)
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_FreeSurface(IntPtr surface);
+		#endregion void SDL_FreeSurface(IntPtr surface)
+
+//		#region void SDL_FreeSurface(ref IntPtr surface)
+//		/// <summary>
+//		/// Frees (deletes) a SDL_Surface
+//		/// </summary>
+//		/// <remarks>
+//		/// Frees the resources used by a previously created <see cref="SDL_Surface"/>.
+//		/// If the surface was created using <see cref="SDL_CreateRGBSurfaceFrom"/> 
+//		/// then the pixel data is not freed.
+//		/// <p>Binds to C-function call in SDL_video.h:
+//		/// <code>void SDL_FreeSurface(SDL_Surface *surface)</code>
+//		/// </p>
+//		/// </remarks>
+//		/// <param name="surface"></param>
+//		/// <seealso cref="SDL_CreateRGBSurface">SDL_CreateRGBSurface</seealso>
+//		/// <seealso cref="SDL_CreateRGBSurfaceFrom">SDL_CreateRGBSurfaceFrom</seealso>
+//		public static void SDL_FreeSurface(ref IntPtr surface)
+//		{
+//			Marshal.DestroyStructure( surface, typeof(SDL_Surface));
+//			SDL_FreeSurfaceInternal(surface);
+//			surface = IntPtr.Zero;
+//		}
+//		#endregion void SDL_FreeSurface(ref IntPtr surface)
 
 		#region int SDL_LockSurface(IntPtr surface)
 		/// <summary>
