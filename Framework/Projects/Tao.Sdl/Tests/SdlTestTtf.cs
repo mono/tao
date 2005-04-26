@@ -70,9 +70,9 @@ namespace Tao.Sdl
 		{
 			Sdl.SDL_version version = SdlTtf.TTF_Linked_Version();
 			//Console.WriteLine("Ttf version: " + version.ToString());
-			Assert.AreEqual(version.major.ToString() 
+			Assert.AreEqual("2.0.7", version.major.ToString() 
 				+ "." + version.minor.ToString() 
-				+ "." + version.patch.ToString(), "2.0.6");
+				+ "." + version.patch.ToString());
 			this.Quit();
 		}
 		/// <summary>
@@ -104,7 +104,7 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 10);
 			Assert.IsFalse(fontPtr == IntPtr.Zero);
 			this.Quit();
 		}
@@ -116,7 +116,7 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFontIndex("Vera.ttf", 10, 0);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFontIndex("../../FreeSans.ttf", 10, 0);
 			Assert.IsFalse(fontPtr == IntPtr.Zero);
 			this.Quit();
 		}
@@ -128,7 +128,7 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFontRW(Sdl.SDL_RWFromFile("Vera.ttf", "rb"), 1, 12);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFontRW(Sdl.SDL_RWFromFile("../../FreeSans.ttf", "rb"), 1, 12);
 			Assert.IsFalse(fontPtr == IntPtr.Zero);
 			this.Quit();
 		}
@@ -140,7 +140,7 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFontIndexRW(Sdl.SDL_RWFromFile("Vera.ttf", "rb"), 1, 12, 0);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFontIndexRW(Sdl.SDL_RWFromFile("../../FreeSans.ttf", "rb"), 1, 12, 0);
 			Assert.IsFalse(fontPtr == IntPtr.Zero);
 			this.Quit();
 		}
@@ -152,7 +152,7 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFontIndexRW(Sdl.SDL_RWFromFile("Vera.ttf", "rb"), 1, 12, 0);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFontIndexRW(Sdl.SDL_RWFromFile("../../FreeSans.ttf", "rb"), 1, 12, 0);
 			SdlTtf.TTF_CloseFont(fontPtr);
 			this.Quit();
 		}
@@ -164,7 +164,7 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 10);
 			SdlTtf.TTF_SetFontStyle(fontPtr, SdlTtf.TTF_STYLE_BOLD|SdlTtf.TTF_STYLE_ITALIC);
 			Assert.AreEqual(SdlTtf.TTF_STYLE_BOLD|SdlTtf.TTF_STYLE_ITALIC, SdlTtf.TTF_GetFontStyle(fontPtr));
 			this.Quit();
@@ -173,12 +173,12 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
-		[Ignore("For some reason, the FontHeight returns back 3pt higher that what was pased by OpenFont")]
+		[Ignore("For some reason, the FontHeight returns back 3pt higher that what was passed by OpenFont")]
 		public void FontHeight()
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 9);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 9);
 			Assert.AreEqual(SdlTtf.TTF_FontHeight(fontPtr), 12);
 			this.Quit();
 		}
@@ -190,8 +190,8 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
-			Assert.AreEqual(SdlTtf.TTF_FontAscent(fontPtr), 10);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 10);
+			Assert.AreEqual(12, SdlTtf.TTF_FontAscent(fontPtr));
 			//Console.WriteLine("FontAscent:" + result.ToString());
 			this.Quit();
 		}
@@ -203,8 +203,8 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
-			Assert.AreEqual(SdlTtf.TTF_FontDescent(fontPtr), -2);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 10);
+			Assert.AreEqual(-4, SdlTtf.TTF_FontDescent(fontPtr));
 			//Console.WriteLine("FontDescent:" + SdlTtf.TTF_FontDescent(fontPtr).ToString());
 			this.Quit();
 		}
@@ -216,8 +216,8 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
-			Assert.AreEqual(SdlTtf.TTF_FontLineSkip(fontPtr), 14);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 10);
+			Assert.AreEqual(17, SdlTtf.TTF_FontLineSkip(fontPtr));
 			//Console.WriteLine("FontLineSkip:" + SdlTtf.TTF_FontLineSkip(fontPtr).ToString());
 			this.Quit();
 		}
@@ -229,7 +229,7 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 10);
 			Assert.AreEqual(SdlTtf.TTF_FontFaces(fontPtr), 4294967297);
 			//Console.WriteLine("FontFaces:" + SdlTtf.TTF_FontFaces(fontPtr).ToString());
 			this.Quit();
@@ -242,9 +242,9 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 12);
 			Assert.AreEqual(SdlTtf.TTF_FontFaceIsFixedWidth(fontPtr), 0);
-			IntPtr fontPtrMono = SdlTtf.TTF_OpenFont("VeraMono.ttf", 10);
+			IntPtr fontPtrMono = SdlTtf.TTF_OpenFont("../../FreeMono.ttf", 12);
 			Assert.IsTrue(SdlTtf.TTF_FontFaceIsFixedWidth(fontPtrMono) != 0);
 			//Console.WriteLine("FontFaceIsFixedWidth:" + 
 			//	SdlTtf.TTF_FontFaceIsFixedWidth(fontPtrMono).ToString());
@@ -259,9 +259,9 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 10);
 			//Console.WriteLine("FontFaceFamily:" + SdlTtf.TTF_FontFaceFamilyName(fontPtr).ToString());
-			Assert.AreEqual(SdlTtf.TTF_FontFaceFamilyName(fontPtr).ToString(), "Bitstream Vera Sans");
+			Assert.AreEqual(SdlTtf.TTF_FontFaceFamilyName(fontPtr).ToString(), "FreeSans");
 			this.Quit();
 		}
 		/// <summary>
@@ -273,7 +273,7 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 10);
 			//Console.WriteLine("FontFaceStyleName:" + SdlTtf.TTF_FontFaceStyleName(fontPtr).ToString());
 			Assert.AreEqual(SdlTtf.TTF_FontFaceStyleName(fontPtr).ToString(), "Roman");
 			this.Quit();
@@ -286,7 +286,7 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 12);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 12);
 			int minx;
 			int miny;
 			int maxx;
@@ -295,11 +295,11 @@ namespace Tao.Sdl
 			int result;
 
 			result = SdlTtf.TTF_GlyphMetrics(fontPtr, 1 , out minx, out maxx,out  miny, out maxy, out advance);
-			Assert.AreEqual(minx, 1);
-			Assert.AreEqual(maxx, 7);
-			Assert.AreEqual(miny, -3);
-			Assert.AreEqual(maxy, 8);
-			Assert.AreEqual(advance, 7);
+			Assert.AreEqual(-1, minx);
+			Assert.AreEqual(4, maxx);
+			Assert.AreEqual(0, miny);
+			Assert.AreEqual(8, maxy);
+			Assert.AreEqual(5, advance);
 //			Console.WriteLine("minx: " + minx.ToString());
 //			Console.WriteLine("maxx: " + maxx.ToString());
 //			Console.WriteLine("miny: " + miny.ToString());
@@ -315,14 +315,14 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 10);
 			int w; 
 			int h;
 			int result = SdlTtf.TTF_SizeText(fontPtr, "hello", out w, out h);
 //			Console.WriteLine("w: " + w.ToString());
 //			Console.WriteLine("h: " + h.ToString());
 			Assert.AreEqual(w, 6);
-			Assert.AreEqual(h, 13);
+			Assert.AreEqual(17, h);
 			this.Quit();
 		}
 		/// <summary>
@@ -333,14 +333,14 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 10);
 			int w; 
 			int h;
 			int result = SdlTtf.TTF_SizeUTF8(fontPtr, "hello", out w, out h);
 						Console.WriteLine("w: " + w.ToString());
 						Console.WriteLine("h: " + h.ToString());
 			Assert.AreEqual(w, 6);
-			Assert.AreEqual(h, 13);
+			Assert.AreEqual(17, h);
 			this.Quit();
 		}
 		/// <summary>
@@ -351,14 +351,14 @@ namespace Tao.Sdl
 		{
 			this.Quit();
 			this.Init();
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 10);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 10);
 			int w; 
 			int h;
 			int result = SdlTtf.TTF_SizeUNICODE(fontPtr, "hello", out w, out h);
 						Console.WriteLine("w: " + w.ToString());
 						Console.WriteLine("h: " + h.ToString());
 			Assert.AreEqual(w, 22);
-			Assert.AreEqual(h, 13);
+			Assert.AreEqual(17, h);
 			this.Quit();
 		}
 		/// <summary>
@@ -372,7 +372,7 @@ namespace Tao.Sdl
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 24);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 24);
 			Sdl.SDL_Color color = new Sdl.SDL_Color(254, 0, 0);
 			IntPtr fontSurfacePtr = SdlTtf.TTF_RenderText_Solid(fontPtr, "hello", color);
 			Assert.IsFalse(fontSurfacePtr == IntPtr.Zero);
@@ -393,7 +393,7 @@ namespace Tao.Sdl
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 24);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 24);
 			Sdl.SDL_Color color = new Sdl.SDL_Color(254, 0, 0);
 			IntPtr fontSurfacePtr = SdlTtf.TTF_RenderUTF8_Solid(fontPtr, "hello", color);
 			Assert.IsFalse(fontSurfacePtr == IntPtr.Zero);
@@ -414,7 +414,7 @@ namespace Tao.Sdl
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 24);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 24);
 			Sdl.SDL_Color color = new Sdl.SDL_Color(254, 0, 0);
 			IntPtr fontSurfacePtr = SdlTtf.TTF_RenderUNICODE_Solid(fontPtr, "hello", color);
 			Assert.IsFalse(fontSurfacePtr == IntPtr.Zero);
@@ -435,7 +435,7 @@ namespace Tao.Sdl
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 24);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 24);
 			Sdl.SDL_Color color = new Sdl.SDL_Color(254, 0, 0);
 			IntPtr fontSurfacePtr = SdlTtf.TTF_RenderGlyph_Solid(fontPtr, 1000, color);
 			Assert.IsFalse(fontSurfacePtr == IntPtr.Zero);
@@ -456,7 +456,7 @@ namespace Tao.Sdl
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 24);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 24);
 			Sdl.SDL_Color colorfg = new Sdl.SDL_Color(254, 0, 0);
 			Sdl.SDL_Color colorbg = new Sdl.SDL_Color(0, 254, 0);
 			IntPtr fontSurfacePtr = SdlTtf.TTF_RenderText_Shaded(fontPtr, "hello", colorfg, colorbg);
@@ -478,7 +478,7 @@ namespace Tao.Sdl
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 24);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 24);
 			Sdl.SDL_Color colorfg = new Sdl.SDL_Color(254, 0, 0);
 			Sdl.SDL_Color colorbg = new Sdl.SDL_Color(0, 254, 0);
 			IntPtr fontSurfacePtr = SdlTtf.TTF_RenderUTF8_Shaded(fontPtr, "hello", colorfg, colorbg);
@@ -500,7 +500,7 @@ namespace Tao.Sdl
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 24);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 24);
 			Sdl.SDL_Color colorfg = new Sdl.SDL_Color(254, 0, 0);
 			Sdl.SDL_Color colorbg = new Sdl.SDL_Color(0, 254, 0);
 			IntPtr fontSurfacePtr = SdlTtf.TTF_RenderUNICODE_Shaded(fontPtr, "hello", colorfg, colorbg);
@@ -522,7 +522,7 @@ namespace Tao.Sdl
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 24);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 24);
 			Sdl.SDL_Color colorfg = new Sdl.SDL_Color(254, 0, 0);
 			Sdl.SDL_Color colorbg = new Sdl.SDL_Color(0, 254, 0);
 			IntPtr fontSurfacePtr = SdlTtf.TTF_RenderGlyph_Shaded(fontPtr, 1000, colorfg, colorbg);
@@ -544,7 +544,7 @@ namespace Tao.Sdl
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 24);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 24);
 			Sdl.SDL_Color colorfg = new Sdl.SDL_Color(254, 0, 0);
 			IntPtr fontSurfacePtr = SdlTtf.TTF_RenderText_Blended(fontPtr, "hello", colorfg);
 			Assert.IsFalse(fontSurfacePtr == IntPtr.Zero);
@@ -565,7 +565,7 @@ namespace Tao.Sdl
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 24);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 24);
 			Sdl.SDL_Color colorfg = new Sdl.SDL_Color(254, 0, 0);
 			IntPtr fontSurfacePtr = SdlTtf.TTF_RenderUTF8_Blended(fontPtr, "hello", colorfg);
 			Assert.IsFalse(fontSurfacePtr == IntPtr.Zero);
@@ -586,7 +586,7 @@ namespace Tao.Sdl
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 24);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 24);
 			Sdl.SDL_Color colorfg = new Sdl.SDL_Color(254, 0, 0);
 			IntPtr fontSurfacePtr = SdlTtf.TTF_RenderUNICODE_Blended(fontPtr, "hello", colorfg);
 			Assert.IsFalse(fontSurfacePtr == IntPtr.Zero);
@@ -607,7 +607,7 @@ namespace Tao.Sdl
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_Rect rect1 = new Sdl.SDL_Rect(0,0,400,400);
 			Sdl.SDL_Rect rect2 = new Sdl.SDL_Rect(0,0,400,400);
-			IntPtr fontPtr = SdlTtf.TTF_OpenFont("Vera.ttf", 24);
+			IntPtr fontPtr = SdlTtf.TTF_OpenFont("../../FreeSans.ttf", 12);
 			Sdl.SDL_Color colorfg = new Sdl.SDL_Color(254, 0, 0);
 			IntPtr fontSurfacePtr = SdlTtf.TTF_RenderGlyph_Blended(fontPtr, 1000, colorfg);
 			Assert.IsFalse(fontSurfacePtr == IntPtr.Zero);
