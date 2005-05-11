@@ -4561,7 +4561,7 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// Hardware-specific surface info
 			/// </summary>
-			private IntPtr hwdata;
+			public IntPtr hwdata;
 			/// <summary>
 			/// surface clip rectangle
 			/// </summary>
@@ -4569,19 +4569,19 @@ namespace Tao.Sdl {
 			/// <summary>
 			/// 
 			/// </summary>
-			private int unused1;
+			public int unused1;
 			/// <summary>
 			/// Allow recursive locks
 			/// </summary>
-			private int locked;
+			public int locked;
 			/// <summary>
 			/// info for fast blit mapping to other surfaces
 			/// </summary>
-			private IntPtr map;
+			public IntPtr map;
 			/// <summary>
 			/// format version, bumped at every change to invalidate blit maps
 			/// </summary>
-			private int format_version;
+			public int format_version;
 			/// <summary>
 			/// Reference count -- used when freeing surface
 			/// </summary>
