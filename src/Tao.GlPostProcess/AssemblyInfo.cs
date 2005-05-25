@@ -1,7 +1,9 @@
 #region License
 /*
 MIT License
-Copyright ©2004 Vladimir Vukicevic <vladimir@pobox.com>
+Copyright (C)2004-2005 Vladimir Vukicevic <vladimir@pobox.com>
+Copyright (C)2004-2005 Tao Framework Team
+http://www.taoframework.com
 
 All rights reserved.
 
@@ -37,7 +39,7 @@ using System.Security.Permissions;
 #else
 [assembly: AssemblyConfiguration("Retail")]
 #endif
-[assembly: AssemblyCopyright("©2004 Vladimir Vukicevic..  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright ©2003-2005 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.GlPostProcess")]
 [assembly: AssemblyDelaySign(false)]
@@ -45,7 +47,7 @@ using System.Security.Permissions;
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: AssemblyInformationalVersion("1.0.0.0")]
 #if STRONG
-[assembly: AssemblyKeyFile(@"..\..\Solutions\Tao.GlPostProcess\Solution Items\Tao.GlPostProcess.snk")]
+[assembly: AssemblyKeyFile(@"Tao.GlPostProcess.snk")]
 #else
 [assembly: AssemblyKeyFile("")]
 #endif
@@ -56,7 +58,7 @@ using System.Security.Permissions;
 [assembly: AssemblyProduct("Tao.GlPostProcess.exe")]
 #endif
 [assembly: AssemblyTitle("Tao.GlPostProcess")]
-[assembly: AssemblyTrademark("Vladimir Vukicevic")]
+[assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]

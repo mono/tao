@@ -6,6 +6,7 @@ include $(DEPTH)/config.mk
 PROGRAM = Tao.GlPostProcess
 
 SRCS = \
+	AssemblyInfo.cs \
 	GlPostProcess.cs \
 	$(NULL)
 
