@@ -50,7 +50,7 @@ using System.Security.Permissions;
 [assembly: AssemblyFileVersion("1.5.0.3")]
 [assembly: AssemblyInformationalVersion("1.5.0.3")]
 #if STRONG
-[assembly: AssemblyKeyFile(@"..\..\Solutions\Tao.OpenGl\Solution Items\Tao.OpenGl.snk")]
+[assembly: AssemblyKeyFile(@"Tao.OpenGl.snk")]
 #else
 [assembly: AssemblyKeyFile("")]
 #endif
