@@ -52,7 +52,7 @@ for k in enumhash.keys():
             val = val[3:]
         val = enumhash[val]
 
-    if (val < 0):
+    if (val < 0 or val > 0x7fffffff):
         print "    public const int %s = unchecked((int) 0x%08x);" % (prefix + k, val)
     else:
         print "    public const int %s = 0x%08x;" % (prefix + k, val)

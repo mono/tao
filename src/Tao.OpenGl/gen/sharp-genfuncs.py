@@ -34,10 +34,12 @@ class SpecFunction:
     # keep reading and handing props until we get a blank line
     while 1:
       line = fp.readline()
-      if line == '\n':
-        break
       line.strip()
+      if line == '':
+        break
       props = line.split()
+      if len(props) == 0:
+        break
       if props[0] == 'return':
         self.rettype = props[1]
       elif props[0] == 'category':
@@ -133,9 +135,14 @@ def __main__():
     
     categories[func.category].append(func)
 
+  """ # MS did not update the opengl32.dll after version 1.2
   core_gl = ['1_1', 'VERSION_1_2', 'VERSION_1_3', 'VERSION_1_4', 'VERSION_1_5',
              'display-list', 'drawing', 'drawing-control', 'feedback', 'framebuf',
              'misc', 'modeling', 'pixel-op', 'pixel-rw', 'state-req', 'xform']
+  """
+  core_gl = ['1_1', 'VERSION_1_2', 'display-list', 'drawing', 'drawing-control', 
+             'feedback', 'framebuf', 'misc', 'modeling', 'pixel-op', 'pixel-rw', 
+             'state-req', 'xform']
 
   catkeys = categories.keys()
   

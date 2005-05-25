@@ -1,3 +1,4 @@
+// -*- Mode: csharp; tab-width: 40; indent-tabs-mode: nil; c-basic-offset: 2 -*-
 //
 //  GlExtensionLoader
 //
@@ -67,6 +68,39 @@ namespace Tao.OpenGl {
         string [] exts = extstr.Split(' ');
         foreach (string ext in exts) {
           AvailableExtensions[ext] = true;
+        }
+
+        IntPtr verstrptr = glGetString(0x1F02); // GL_VERSION
+        if (verstrptr == IntPtr.Zero)
+          return;               // this shoudn't happen
+		
+        string verstr = Marshal.PtrToStringAnsi (verstrptr).Trim(new char[] {' '});
+
+        if( verstr.StartsWith("1.3") ) 
+        {
+          AvailableExtensions["GL_VERSION_1_2"] = true;
+          AvailableExtensions["GL_VERSION_1_3"] = true;
+        }
+        else if( verstr.StartsWith("1.4") ) 
+        {
+          AvailableExtensions["GL_VERSION_1_2"] = true;
+          AvailableExtensions["GL_VERSION_1_3"] = true;
+          AvailableExtensions["GL_VERSION_1_4"] = true;
+        }
+        else if( verstr.StartsWith("1.5") ) 
+        {
+          AvailableExtensions["GL_VERSION_1_2"] = true;
+          AvailableExtensions["GL_VERSION_1_3"] = true;
+          AvailableExtensions["GL_VERSION_1_4"] = true;
+          AvailableExtensions["GL_VERSION_1_5"] = true;
+        }
+        else if( verstr.StartsWith("2") )
+        {
+          AvailableExtensions["GL_VERSION_1_2"] = true;
+          AvailableExtensions["GL_VERSION_1_3"] = true;
+          AvailableExtensions["GL_VERSION_1_4"] = true;
+          AvailableExtensions["GL_VERSION_1_5"] = true;
+          AvailableExtensions["GL_VERSION_2_0"] = true;
         }
       }
     }
@@ -152,7 +186,7 @@ namespace Tao.OpenGl {
           result = wglGetProcAddress(s);
           gpaPlatform = GetProcAddressPlatform.Windows;
           return result;
-        } catch (Exception e) {
+        } catch (Exception) {
         }
 
         // AGL? (before X11, since GLX might exist on OSX)
@@ -160,7 +194,7 @@ namespace Tao.OpenGl {
           result = aglGetProcAddress(s);
           gpaPlatform = GetProcAddressPlatform.OSX;
           return result;
-        } catch (Exception e) {
+        } catch (Exception) {
         }
 
         // X11?
@@ -168,16 +202,16 @@ namespace Tao.OpenGl {
           result = glxGetProcAddress(s);
           gpaPlatform = GetProcAddressPlatform.X11;
           return result;
-        } catch (Exception e) {
+        } catch (Exception) {
         }
 
-	// X11 ARB?
-	try {
-	  result = glxGetProcAddressARB(s);
-	  gpaPlatform = GetProcAddressPlatform.X11_ARB;
-	  return result;
-	} catch (Exception e) {
-	}
+        // X11 ARB?
+        try {
+          result = glxGetProcAddressARB(s);
+          gpaPlatform = GetProcAddressPlatform.X11_ARB;
+          return result;
+        } catch (Exception) {
+        }
 
         // Ack!
         throw new NotSupportedException ("Can't figure out how to call GetProcAddress on this platform!");
@@ -188,7 +222,7 @@ namespace Tao.OpenGl {
       } else if (gpaPlatform == GetProcAddressPlatform.X11) {
         return glxGetProcAddress(s);
       } else if (gpaPlatform == GetProcAddressPlatform.X11_ARB) {
-	return glxGetProcAddressARB(s);
+        return glxGetProcAddressARB(s);
       }
 
       throw new NotSupportedException ("Shouldn't get here..");
@@ -317,9 +351,9 @@ namespace Tao.OpenGl {
 
     public static void LoadAllExtensions (object contextGl) {
       GlContextInfo gci = GetContextInfo(contextGl);
-
+      
       foreach (string ext in gci.AvailableExtensions.Keys)
-	LoadExtension (contextGl, ext, false);
+        LoadExtension (contextGl, ext, false);
     }
 
     //
