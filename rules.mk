@@ -78,7 +78,7 @@ $(LIBRARY_DEST)/$(LIBRARY).dll: $(LIBRARY)-pre.dll.pp.il
 	$(ILASM) /dll $< /out:$@
 
 $(LIBRARY)-pre.dll.pp.il: $(PROGRAM_DEST)/Tao.PostProcess.exe $(LIBRARY)-pre.dll.il
-	$(RUN_EXE) $(PROGRAM_DEST)/Tao.PostProcess.exe $< $@ /R /Y
+	$(RUN_EXE) $(PROGRAM_DEST)/Tao.PostProcess.exe $(LIBRARY)-pre.dll.il $(LIBRARY)-pre.dll.pp.il /R /Y
 
 $(LIBRARY)-pre.dll.il: $(LIBRARY)-pre.dll
 	$(ILDASM) $< > $@
