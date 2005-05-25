@@ -3,7 +3,7 @@
 ## Config file for .NET 1.1
 ##
 
-CSC = csc
+CSC = csc /nologo
 CSFLAGS = /D:WIN32
 ILDASM = ildasm /text
 ILASM = ilasm
