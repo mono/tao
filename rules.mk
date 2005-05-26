@@ -73,9 +73,17 @@ $(LIBRARY_DEST)/$(LIBRARY).dll: $(SRCS)
 
 else
 
-# Postprocess
+# Postprocess; note that the initially-compiled library must have the same
+# name as the resulting library -- ilasm doesn't change the .assembly name
+# embedded in the assembly.
+ifneq (,$(STRONG))
+ STRONGFLAG = /key:$(LIBRARY).snk
+else
+ STRONGFLAG =
+endif
+
 $(LIBRARY_DEST)/$(LIBRARY).dll: $(LIBRARY)-pre.dll.pp.il
-	$(ILASM) /dll $< /out:$@
+	$(ILASM) $(STRONGFLAG) /dll $< /out:$@
 
 $(LIBRARY)-pre.dll.pp.il: $(PROGRAM_DEST)/Tao.PostProcess.exe $(LIBRARY)-pre.dll.il
 	$(RUN_EXE) $(PROGRAM_DEST)/Tao.PostProcess.exe $(LIBRARY)-pre.dll.il $(LIBRARY)-pre.dll.pp.il /R /Y

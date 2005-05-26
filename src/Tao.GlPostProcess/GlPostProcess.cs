@@ -11,6 +11,7 @@
 
 
 using System;
+using System.IO;
 using System.Collections;
 using System.Reflection;
 using System.Reflection.Emit;
@@ -40,19 +41,22 @@ namespace Tao
 		/// <param name="args"></param>
 		public static void Main(string [] args) 
 		{
-			if (args.Length < 3 || args.Length > 4) 
+			if (args.Length < 4 || args.Length > 5) 
 			{
-				Console.WriteLine ("Usage: GlPostProcess.exe in.dll out.dll Tao.OpenGl.Gl [Tao.OpenGl.ContextGl]");
+				Console.WriteLine ("Usage: GlPostProcess.exe in.dll out.dll Tao.OpenGl.snk Tao.OpenGl.Gl [Tao.OpenGl.ContextGl]");
 				return;
 			}
 
 			string inName = args[0];
 			string outName = args[1];
-			string typeName = args[2];
+			string typeName = args[3];
+			string snkFile = null;
+			if (args[2] != "")
+				snkFile = args[2];
 			string instanceTypeName = null;
 
-			if (args.Length == 4)
-				instanceTypeName = args[3];
+			if (args.Length == 5)
+				instanceTypeName = args[4];
 
 			string outDir = System.IO.Path.GetDirectoryName(outName);
 			string outDll = System.IO.Path.GetFileName(outName);
@@ -71,6 +75,9 @@ namespace Tao
 
 			AssemblyName outAsName = new AssemblyName();
 			outAsName.Name = outNameBase;
+			if (snkFile != null)
+				outAsName.KeyPair = new StrongNameKeyPair(File.Open(snkFile, FileMode.Open, FileAccess.Read));
+
 			// create a dynamic assembly
 			AssemblyBuilder abuilder = AppDomain.CurrentDomain.DefineDynamicAssembly
 				(outAsName, AssemblyBuilderAccess.Save, outDir != null && outDir.Length > 0 ? outDir : null,

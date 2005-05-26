@@ -23,8 +23,14 @@ include $(DEPTH)/rules.mk
 
 gl_build: $(LIBRARY_DEST)/Tao.OpenGl.dll
 
+ifneq (,$(STRONG))
+ SNKFILE = $(LIBRARY).snk
+else
+ SNKFILE=
+endif
+
 $(LIBRARY_DEST)/Tao.OpenGl.dll: Tao.OpenGl-pre.dll
-	$(RUN_EXE) $(PROGRAM_DEST)/Tao.GlPostProcess.exe $< $@ Tao.OpenGl.Gl Tao.OpenGl.ContextGl
+	$(RUN_EXE) $(PROGRAM_DEST)/Tao.GlPostProcess.exe $< $@ "$(SNKFILE)" Tao.OpenGl.Gl Tao.OpenGl.ContextGl
 
 Tao.OpenGl-pre.dll: $(SRCS)
 	$(CSC) /target:library $(CSFLAGS) /out:$@ $^ /lib:$(LIBRARY_DEST) $(REFFLAGS)
