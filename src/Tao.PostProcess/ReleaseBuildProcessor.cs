@@ -265,5 +265,36 @@ namespace Tao.PostProcess {
             return fileContent;
         }
         #endregion string ModifyCdeclDelegates()
+
+	#region string FixAssemblyName(string fileContent)
+        /// <summary>
+        ///     Modifies any .assembly 'Foo-pre' to be .assembly 'Foo',
+        ///     which will be the name on the resulting -pre
+        /// </summary>
+        /// <param name="fileContent">
+        ///     The content to modify.
+        /// </param>
+        /// <returns>
+        ///     The modified content.
+        /// </returns>
+        protected override string FixAssemblyName(string fileContent) {
+          Regex localPreAssembly = new Regex(@"\.assembly '(.*)-pre'", RegexOptions.Compiled);
+          int startPos = -1;
+          int matchLen = -1;
+          StringBuilder builder = new StringBuilder(fileContent);
+
+          Match startMatch = localPreAssembly.Match(builder.ToString());
+          while (startMatch.Success) {
+		Console.WriteLine("Match: {0} {1}\n", startMatch.Groups[1].Index, startMatch.Groups[1].Length);
+            startPos = startMatch.Groups[1].Index;
+            matchLen = startMatch.Groups[1].Length;
+            builder = builder.Remove(startPos + matchLen, 4);
+
+            startMatch = localPreAssembly.Match(builder.ToString());
+          }
+
+          return builder.ToString();
+        }
+        #endregion FixAssemblyName(string fileContent)
     }
 }

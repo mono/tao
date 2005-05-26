@@ -120,6 +120,20 @@ namespace Tao.PostProcess {
         #endregion Dispose(bool isDisposing)
 
         // --- Protected Abstract Methods ---
+        #region string FixAssemblyName()
+        /// <summary>
+        ///     Modifies any .assembly 'Foo-pre' to be .assembly 'Foo',
+        ///     which will be the name on the resulting -pre
+        /// </summary>
+        /// <param name="fileContent">
+        ///     The content to modify.
+        /// </param>
+        /// <returns>
+        ///     The modified content.
+        /// </returns>
+        protected abstract string FixAssemblyName(string fileContent);
+        #endregion FixAssemblyName()
+
         #region string InjectMsil()
         /// <summary>
         ///     Injects supplied MSIL into a method's body.
@@ -165,6 +179,7 @@ namespace Tao.PostProcess {
                 throw new ObjectDisposedException("Object has been disposed.");
             }
 
+	    content = FixAssemblyName(content);
             content = ModifyCdeclDelegates(content);
             content = InjectMsil(content);
 
