@@ -1,0 +1,44 @@
+
+** For the latest information, please visit http://www.mono-project.com/Tao
+
+There are two ways of building Tao; one requiring GNU make, and a win32-only
+batch file build.  Please contact the tao mailing list with any problems;
+see http://lists.ximian.com/mailman/listinfo/tao-list .
+
+1. Using GNU make
+=================
+
+This is the preferred way to build Tao; however, it does require that GNU make
+and a minimal toolset (cp, mkdir) be installed.  A minimal cygwin install
+should be sufficient.
+
+The build has two steps:
+
+* Config file selection.  Type "make help" to see the options:
+
+% make help
+Use "make [targetname]" to configure the build
+valid targets:
+  net-1.1        .NET 1.1
+  mono-1.1       Mono 1.1
+
+other variables:
+  MONODIR        Location to find mono install, mcs will be used from $MONODIR/bin
+
+Selecting one build involves typing "make net-1.1", e.g.:
+
+% make net-1.1
+rm -f config.mk; cp config/net-1-1.mk config.mk
+config.mk installed; re-run make.
+
+* Building.  Simply type "make".  The resulting DLLs will be placed in dist/bin,
+and examples will be in dist/clean. If you wish to strongname the assemblies (as is
+recommended), build with "make STRONG=1".
+
+2. Using batch files
+====================
+
+Two batch files are provided, "build.bat" and "buildstrong.bat".  The second
+is equivalent to the first, except that it builds strong named assemblies.
+
+

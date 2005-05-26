@@ -89,7 +89,7 @@ $(LIBRARY)-pre.dll.pp.il: $(PROGRAM_DEST)/Tao.PostProcess.exe $(LIBRARY)-pre.dll
 	$(RUN_EXE) $(PROGRAM_DEST)/Tao.PostProcess.exe $(LIBRARY)-pre.dll.il $(LIBRARY)-pre.dll.pp.il /R /Y
 
 $(LIBRARY)-pre.dll.il: $(LIBRARY)-pre.dll
-	$(ILDASM) $< > $@
+	$(ILDASM) /OUT=$@ $<
 
 $(LIBRARY)-pre.dll: $(SRCS)
 	$(CSC) /target:library $(CSFLAGS) /out:$@ $^ /lib:$(LIBRARY_DEST) $(REFFLAGS)

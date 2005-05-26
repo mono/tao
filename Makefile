@@ -8,6 +8,9 @@ DIRS = src examples
 EXIT_ON_ERROR := set -e;
 
 all:
+	$(MAKE) -C . build
+
+build:
 	@if [ ! -f config.mk ] ; then echo "No config.mk found; try make help."; exit 1; fi
 	@$(EXIT_ON_ERROR) \
 	for d in $(DIRS); do \
