@@ -50,7 +50,7 @@ using System.Security.Permissions;
 [assembly: AssemblyFileVersion("1.2.8.0")]
 [assembly: AssemblyInformationalVersion("1.2.8.0")]
 #if STRONG
-[assembly: AssemblyKeyFile(@"..\..\Solutions\Tao.Sdl\Solution Items\Tao.Sdl.snk")]
+[assembly: AssemblyKeyFile(@"Tao.Sdl.snk")]
 #else
 [assembly: AssemblyKeyFile("")]
 #endif

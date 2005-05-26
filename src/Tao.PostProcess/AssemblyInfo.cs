@@ -45,7 +45,7 @@ using System.Security.Permissions;
 [assembly: AssemblyFileVersion("1.0.0.2")]
 [assembly: AssemblyInformationalVersion("1.0.0.2")]
 #if STRONG
-[assembly: AssemblyKeyFile(@"..\..\Solutions\Tao.PostProcess\Solution Items\Tao.PostProcess.snk")]
+[assembly: AssemblyKeyFile(@"Tao.PostProcess.snk")]
 #else
 [assembly: AssemblyKeyFile("")]
 #endif

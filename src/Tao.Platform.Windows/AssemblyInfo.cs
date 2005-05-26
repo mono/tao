@@ -46,7 +46,7 @@ using System.Security.Permissions;
 [assembly: AssemblyFileVersion("1.0.0.3")]
 [assembly: AssemblyInformationalVersion("1.0.0.3")]
 #if STRONG
-[assembly: AssemblyKeyFile(@"..\..\Solutions\Tao.Platform.Windows\Solution Items\Tao.Platform.Windows.snk")]
+[assembly: AssemblyKeyFile(@"Tao.Platform.Windows.snk")]
 #else
 [assembly: AssemblyKeyFile("")]
 #endif
