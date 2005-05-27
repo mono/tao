@@ -600,7 +600,7 @@ namespace Tao.Platform.Windows {
         /// </remarks>
         // <seealso cref="User.MessageBeep" />
         // WINBASEAPI BOOL WINAPI Beep(IN DWORD dwFreq, IN DWORD dwDuration);
-        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true, SetLastError=true), SuppressUnmanagedCodeSecurity]
+        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern bool Beep(int frequency, int duration);
         #endregion bool Beep(int frequency, int duration)
 
@@ -655,7 +655,7 @@ namespace Tao.Platform.Windows {
         // <seealso cref="DllMain" />
         // <seealso cref="FreeLibraryAndExitThread" />
         // WINBASEAPI BOOL WINAPI FreeLibrary(IN OUT HMODULE hLibModule);
-        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true, SetLastError=true), SuppressUnmanagedCodeSecurity]
+        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern bool FreeLibrary(IntPtr moduleHandle);
         #endregion bool FreeLibrary(IntPtr moduleHandle)
 
@@ -874,7 +874,7 @@ namespace Tao.Platform.Windows {
         /// <seealso cref="GetModuleHandle" />
         /// <seealso cref="LoadLibrary" />
         // WINBASEAPI FARPROC WINAPI GetProcAddress(IN HMODULE hModule, IN LPCSTR lpProcName);
-        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, CharSet=CharSet.Ansi, ExactSpelling=true, SetLastError=true), SuppressUnmanagedCodeSecurity]
+        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, CharSet=CharSet.Ansi, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr GetProcAddress(IntPtr module, string processName);
         #endregion IntPtr GetProcAddress(IntPtr module, string processName)
 
@@ -915,7 +915,7 @@ namespace Tao.Platform.Windows {
         /// </remarks>
         /// <seealso cref="SetProcessWorkingSetSize" />
         // WINBASEAPI BOOL WINAPI GetProcessWorkingSetSize(IN HANDLE hProcess, OUT PSIZE_T lpMinimumWorkingSetSize, OUT PSIZE_T lpMaximumWorkingSetSize);
-        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true, SetLastError=true), SuppressUnmanagedCodeSecurity]
+        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern bool GetProcessWorkingSetSize(IntPtr process, out int minimumWorkingSetSize, out int maximumWorkingSetSize);
         #endregion bool GetProcessWorkingSetSize(IntPtr process, out int minimumWorkingSetSize, out int maximumWorkingSetSize)
 
@@ -986,7 +986,7 @@ namespace Tao.Platform.Windows {
         /// <seealso cref="SYSTEM_INFO" />
         // <seealso cref="GetNativeSystemInfo" />
         // WINBASEAPI VOID WINAPI GetSystemInfo(OUT LPSYSTEM_INFO lpSystemInfo);
-        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void GetSystemInfo(out SYSTEM_INFO systemInfo);
         #endregion GetSystemInfo(out SYSTEM_INFO systemInfo)
 
@@ -1076,7 +1076,7 @@ namespace Tao.Platform.Windows {
         ///         HKEY_PERFORMANCE_DATA.  The value returned is an 8-byte value.
         ///     </para>
         /// </remarks>
-        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int GetTickCount();
         #endregion int GetTickCount()
 
@@ -1199,7 +1199,7 @@ namespace Tao.Platform.Windows {
         /// <seealso cref="MEMORYSTATUS" />
         // <seealso cref="GlobalMemoryStatusEx" />
         // WINBASEAPI VOID WINAPI GlobalMemoryStatus(IN OUT LPMEMORYSTATUS lpBuffer);
-        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void GlobalMemoryStatus(out MEMORYSTATUS buffer);
         #endregion GlobalMemoryStatus(out MEMORYSTATUS buffer)
 
@@ -1299,7 +1299,7 @@ namespace Tao.Platform.Windows {
         ///     </para>
         /// </returns>
         // WINBASEAPI BOOL WINAPI IsProcessorFeaturePresent(IN DWORD ProcessorFeature);
-        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool IsProcessorFeaturePresent(int processorFeature);
         #endregion bool IsProcessorFeaturePresent(int processorFeature)
 
@@ -1497,7 +1497,7 @@ namespace Tao.Platform.Windows {
         /// </remarks>
         /// <seealso cref="QueryPerformanceCounterFast" />
         /// <seealso cref="QueryPerformanceFrequency" />
-        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true, SetLastError=true), SuppressUnmanagedCodeSecurity]
+        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern bool QueryPerformanceCounter(out long performanceCount);
         #endregion bool QueryPerformanceCounter(out long performanceCount)
 
@@ -1532,7 +1532,7 @@ namespace Tao.Platform.Windows {
         /// </remarks>
         /// <seealso cref="QueryPerformanceCounter" />
         /// <seealso cref="QueryPerformanceFrequency" />
-        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="QueryPerformanceCounter", ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="QueryPerformanceCounter"), SuppressUnmanagedCodeSecurity]
         public static extern int QueryPerformanceCounterFast(out long performanceCount);
         #endregion int QueryPerformanceCounterFast(out long performanceCount)
 
@@ -1564,7 +1564,7 @@ namespace Tao.Platform.Windows {
         ///     processor speed.
         /// </remarks>
         /// <seealso cref="QueryPerformanceCounter" />
-        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true, SetLastError=true), SuppressUnmanagedCodeSecurity]
+        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern bool QueryPerformanceFrequency(out long frequency);
         #endregion #region bool QueryPerformanceFrequency(out long frequency)
 
@@ -1745,7 +1745,7 @@ namespace Tao.Platform.Windows {
         /// <seealso cref="GetProcessWorkingSetSize" />
         // <seealso cref="VirtualLock" />
         // WINBASEAPI BOOL WINAPI SetProcessWorkingSetSize(IN HANDLE hProcess, IN SIZE_T dwMinimumWorkingSetSize, IN SIZE_T dwMaximumWorkingSetSize);
-        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true, SetLastError=true), SuppressUnmanagedCodeSecurity]
+        [DllImport(KERNEL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern bool SetProcessWorkingSetSize(IntPtr process, int minimumWorkingSetSize, int maximumWorkingSetSize);
         #endregion bool SetProcessWorkingSetSize(IntPtr process, int minimumWorkingSetSize, int maximumWorkingSetSize)
     }

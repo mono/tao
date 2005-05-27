@@ -936,7 +936,7 @@ namespace Tao.Platform.Windows {
         /// <seealso cref="GetTextFace" />
         /// <seealso cref="GetWindowDC" />
         // WINUSERAPI HDC WINAPI GetDC(IN HWND hWnd);
-        [DllImport(USER_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true, SetLastError=true), SuppressUnmanagedCodeSecurity]
+        [DllImport(USER_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr GetDC(IntPtr windowHandle);
         #endregion IntPtr GetDC(IntPtr windowHandle)
 
@@ -986,7 +986,7 @@ namespace Tao.Platform.Windows {
         /// <seealso cref="GetDC" />
         /// <seealso cref="GetWindowDC" />
         // WINUSERAPI int WINAPI ReleaseDC(IN HWND hWnd, IN HDC hDC);
-        [DllImport(USER_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport(USER_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ReleaseDC(IntPtr windowHandle, IntPtr deviceContext);
         #endregion bool ReleaseDC(IntPtr windowHandle, IntPtr deviceContext)
     }

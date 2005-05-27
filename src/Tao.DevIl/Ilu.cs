@@ -274,7 +274,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILboolean ILAPIENTRY iluAlienify(ILvoid);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluAlienify();
         #endregion bool iluAlienify();
 
@@ -284,7 +284,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Iter"></param>
         // ILAPI ILboolean ILAPIENTRY iluBlurAvg(ILuint Iter);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluBlurAvg(int Iter);
         #endregion bool iluBlurAvg(int Iter);
 
@@ -294,7 +294,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Iter"></param>
         // ILAPI ILboolean ILAPIENTRY iluBlurGaussian(ILuint Iter);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluBlurGaussian(int Iter);
         #endregion bool iluBlurGaussian(int Iter);
 
@@ -303,7 +303,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILboolean ILAPIENTRY iluBuildMipmaps(ILvoid);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluBuildMipmaps();
         #endregion bool iluBuildMipmaps();
 
@@ -312,7 +312,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILuint ILAPIENTRY iluColoursUsed(ILvoid);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int iluColoursUsed();
         #endregion int iluColoursUsed();
 
@@ -322,7 +322,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Comp"></param>
         // ILAPI ILboolean ILAPIENTRY iluCompareImage(ILuint Comp);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluCompareImage(int Comp);
         #endregion bool iluCompareImage(int Comp);
 
@@ -332,7 +332,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Contrast"></param>
         // ILAPI ILboolean ILAPIENTRY iluContrast(ILfloat Contrast);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluContrast(float Contrast);
         #endregion bool iluContrast(float Contrast);
 
@@ -347,7 +347,7 @@ namespace Tao.DevIl {
         /// <param name="Height"></param>
         /// <param name="Depth"></param>
         // ILAPI ILboolean ILAPIENTRY iluCrop(ILuint XOff, ILuint YOff, ILuint ZOff, ILuint Width, ILuint Height, ILuint Depth);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluCrop(int XOff, int YOff, int ZOff, int Width, int Height, int Depth);
         #endregion bool iluCrop(int XOff, int YOff, int ZOff, int Width, int Height, int Depth);
 
@@ -357,7 +357,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Id"></param>
         // ILAPI ILvoid ILAPIENTRY iluDeleteImage(ILuint Id);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void iluDeleteImage(int Id);
         #endregion iluDeleteImage(int Id);
 
@@ -366,7 +366,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILboolean ILAPIENTRY iluEdgeDetectE(ILvoid);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluEdgeDetectE();
         #endregion bool iluEdgeDetectE();
 
@@ -375,7 +375,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILboolean ILAPIENTRY iluEdgeDetectP(ILvoid);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluEdgeDetectP();
         #endregion bool iluEdgeDetectP();
 
@@ -384,7 +384,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILboolean ILAPIENTRY iluEdgeDetectS(ILvoid);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluEdgeDetectS();
         #endregion bool iluEdgeDetectS();
 
@@ -393,7 +393,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILboolean ILAPIENTRY iluEmboss(ILvoid);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluEmboss();
         #endregion bool iluEmboss();
 
@@ -405,7 +405,7 @@ namespace Tao.DevIl {
         /// <param name="Height"></param>
         /// <param name="Depth"></param>
         // ILAPI ILboolean ILAPIENTRY iluEnlargeCanvas(ILuint Width, ILuint Height, ILuint Depth);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluEnlargeCanvas(int Width, int Height, int Depth);
         #endregion bool iluEnlargeCanvas(int Width, int Height, int Depth);
 
@@ -417,7 +417,7 @@ namespace Tao.DevIl {
         /// <param name="YDim"></param>
         /// <param name="ZDim"></param>
         // ILAPI ILboolean ILAPIENTRY iluEnlargeImage(ILfloat XDim, ILfloat YDim, ILfloat ZDim);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluEnlargeImage(float XDim, float YDim, float ZDim);
         #endregion bool iluEnlargeImage(float XDim, float YDim, float ZDim);
 
@@ -426,7 +426,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILboolean ILAPIENTRY iluEqualize(ILvoid);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluEqualize();
         #endregion bool iluEqualize();
 
@@ -436,7 +436,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Error"></param>
         // ILAPI ILstring ILAPIENTRY iluErrorString(ILenum Error);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern string iluErrorString(int Error);
         #endregion string iluErrorString(int Error);
 
@@ -445,7 +445,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILboolean ILAPIENTRY iluFlipImage(ILvoid);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluFlipImage();
         #endregion bool iluFlipImage();
 
@@ -455,7 +455,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Gamma"></param>
         // ILAPI ILboolean ILAPIENTRY iluGammaCorrect(ILfloat Gamma);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluGammaCorrect(float Gamma);
         #endregion bool iluGammaCorrect(float Gamma);
 
@@ -464,7 +464,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILuint ILAPIENTRY iluGenImage(ILvoid);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int iluGenImage();
         #endregion int iluGenImage();
 
@@ -474,7 +474,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Info"></param>
         // ILAPI ILvoid ILAPIENTRY iluGetImageInfo(ILinfo* Info);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void iluGetImageInfo(ref ILinfo Info);
         #endregion iluGetImageInfo(ref ILinfo Info);
 
@@ -484,7 +484,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Mode"></param>
         // ILAPI ILint ILAPIENTRY iluGetInteger(ILenum Mode);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int iluGetInteger(int Mode);
         #endregion int iluGetInteger(int Mode);
 
@@ -495,7 +495,7 @@ namespace Tao.DevIl {
         /// <param name="Mode"></param>
         /// <param name="Param"></param>
         // ILAPI ILvoid ILAPIENTRY iluGetIntegerv(ILenum Mode, ILint* Param);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void iluGetIntegerv(int Mode, ref int Param);
         #endregion iluGetIntegerv(int Mode, ref int Param);
 
@@ -505,7 +505,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="StringName"></param>
         // ILAPI ILstring ILAPIENTRY iluGetString(ILenum StringName);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern string iluGetString(int StringName);
         #endregion string iluGetString(int StringName);
 
@@ -516,7 +516,7 @@ namespace Tao.DevIl {
         /// <param name="PName"></param>
         /// <param name="Param"></param>
         // ILAPI ILvoid ILAPIENTRY iluImageParameter(ILenum PName, ILenum Param);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void iluImageParameter(int PName, int Param);
         #endregion iluImageParameter(int PName, int Param);
 
@@ -525,7 +525,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILvoid ILAPIENTRY iluInit(ILvoid);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void iluInit();
         #endregion iluInit();
 
@@ -534,7 +534,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILboolean ILAPIENTRY iluInvertAlpha(ILvoid);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluInvertAlpha();
         #endregion bool iluInvertAlpha();
 
@@ -544,7 +544,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="FileName"></param>
         // ILAPI ILuint ILAPIENTRY iluLoadImage(ILstring FileName);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int iluLoadImage(string FileName);
         #endregion int iluLoadImage(string FileName);
 
@@ -553,7 +553,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILboolean ILAPIENTRY iluMirror(ILvoid);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluMirror();
         #endregion bool iluMirror();
 
@@ -562,7 +562,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILboolean ILAPIENTRY iluNegative(ILvoid);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluNegative();
         #endregion bool iluNegative();
 
@@ -572,7 +572,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Tolerance"></param>
         // ILAPI ILboolean ILAPIENTRY iluNoisify(ILclampf Tolerance);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluNoisify(float Tolerance);
         #endregion bool iluNoisify(float Tolerance);
 
@@ -582,7 +582,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="PixSize"></param>
         // ILAPI ILboolean ILAPIENTRY iluPixelize(ILuint PixSize);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluPixelize(int PixSize);
         #endregion bool iluPixelize(int PixSize);
 
@@ -593,7 +593,7 @@ namespace Tao.DevIl {
         /// <param name="Points"></param>
         /// <param name="n"></param>
         // ILAPI ILvoid ILAPIENTRY iluRegionfv(ILpointf* Points, ILuint n);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void iluRegionfv(ILpointf[] Points, int n);
         #endregion iluRegionfv(ILpointf[] Points, int n);
 
@@ -604,7 +604,7 @@ namespace Tao.DevIl {
         /// <param name="Points"></param>
         /// <param name="n"></param>
         // ILAPI ILvoid ILAPIENTRY iluRegioniv(ILpointi* Points, ILuint n);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void iluRegioniv(ILpointi[] Points, int n);
         #endregion iluRegioniv(ILpointi[] Points, int n);
 
@@ -617,7 +617,7 @@ namespace Tao.DevIl {
         /// <param name="Blue"></param>
         /// <param name="Tolerance"></param>
         // ILAPI ILboolean ILAPIENTRY iluReplaceColour(ILubyte Red, ILubyte Green, ILubyte Blue, ILfloat Tolerance);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluReplaceColour(byte Red, byte Green, byte Blue, float Tolerance);
         #endregion bool iluReplaceColour(byte Red, byte Green, byte Blue, float Tolerance);
 
@@ -627,7 +627,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Angle"></param>
         // ILAPI ILboolean ILAPIENTRY iluRotate(ILfloat Angle);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluRotate(float Angle);
         #endregion bool iluRotate(float Angle);
 
@@ -640,7 +640,7 @@ namespace Tao.DevIl {
         /// <param name="z"></param>
         /// <param name="Angle"></param>
         // ILAPI ILboolean ILAPIENTRY iluRotate3D(ILfloat x, ILfloat y, ILfloat z, ILfloat Angle);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluRotate3D(float x, float y, float z, float Angle);
         #endregion bool iluRotate3D(float x, float y, float z, float Angle);
 
@@ -650,7 +650,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Saturation"></param>
         // ILAPI ILboolean ILAPIENTRY iluSaturate1f(ILfloat Saturation);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluSaturate1f(float Saturation);
         #endregion bool iluSaturate1f(float Saturation);
 
@@ -663,7 +663,7 @@ namespace Tao.DevIl {
         /// <param name="b"></param>
         /// <param name="Saturation"></param>
         // ILAPI ILboolean ILAPIENTRY iluSaturate4f(ILfloat r, ILfloat g, ILfloat b, ILfloat Saturation);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluSaturate4f(float r, float g, float b, float Saturation);
         #endregion bool iluSaturate4f(float r, float g, float b, float Saturation);
 
@@ -675,7 +675,7 @@ namespace Tao.DevIl {
         /// <param name="Height"></param>
         /// <param name="Depth"></param>
         // ILAPI ILboolean ILAPIENTRY iluScale(ILuint Width, ILuint Height, ILuint Depth);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluScale(int Width, int Height, int Depth);
         #endregion bool iluScale(int Width, int Height, int Depth);
 
@@ -687,7 +687,7 @@ namespace Tao.DevIl {
         /// <param name="g"></param>
         /// <param name="b"></param>
         // ILAPI ILboolean ILAPIENTRY iluScaleColours(ILfloat r, ILfloat g, ILfloat b);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluScaleColours(float r, float g, float b);
         #endregion bool iluScaleColours(float r, float g, float b);
 
@@ -698,7 +698,7 @@ namespace Tao.DevIl {
         /// <param name="Factor"></param>
         /// <param name="Iter"></param>
         // ILAPI ILboolean ILAPIENTRY iluSharpen(ILfloat Factor, ILuint Iter);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluSharpen(float Factor, int Iter);
         #endregion bool iluSharpen(float Factor, int Iter);
 
@@ -707,7 +707,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILboolean ILAPIENTRY iluSwapColours(ILvoid);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluSwapColours();
         #endregion bool iluSwapColours();
 
@@ -717,7 +717,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Angle"></param>
         // ILAPI ILboolean ILAPIENTRY iluWave(ILfloat Angle);
-        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("ilu.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool iluWave(float Angle);
         #endregion bool iluWave(float Angle);
         #endregion Externs

@@ -3503,7 +3503,7 @@ namespace Tao.Cg {
         ///     A handle to the newly created Cg context.
         /// </returns>
         // CGDLL_API CGcontext cgCreateContext(void);
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr cgCreateContext();
         #endregion IntPtr cgCreateContext()
 
@@ -3515,7 +3515,7 @@ namespace Tao.Cg {
         ///     Handle to the Cg context to destroy.
         /// </param>
         // CGDLL_API void cgDestroyContext(CGcontext ctx);
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgDestroyContext(IntPtr context);
         #endregion cgDestroyContext(IntPtr context)
 
@@ -3530,7 +3530,7 @@ namespace Tao.Cg {
         ///     CG_TRUE if valid, CG_FALSE otherwise.
         /// </returns>
         // CGDLL_API CGbool cgIsContext(CGcontext ctx);
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgIsContext(IntPtr context);
         #endregion int cgIsContext(IntPtr context)
 
@@ -3575,7 +3575,7 @@ namespace Tao.Cg {
         ///     Handle to a new program within the same context.
         /// </returns>
         // CGDLL_API CGprogram cgCopyProgram(CGprogram program);
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr cgCopyProgram(IntPtr program);
         #endregion IntPtr cgCopyProgram(IntPtr program)
 
@@ -3605,7 +3605,7 @@ namespace Tao.Cg {
         ///     Handle to the newly created Cg program.
         /// </returns>
         // CGDLL_API CGprogram cgCreateProgram(CGcontext ctx, CGenum program_type, const char *program, CGprofile profile, const char *entry, const char **args);
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr cgCreateProgram(IntPtr context, int type, string source, int profile, string entry, string[] args);
         #endregion IntPtr cgCreateProgram(IntPtr context, int type, string source, int profile, string entry, string[] args)
 
@@ -3635,7 +3635,7 @@ namespace Tao.Cg {
         ///     Handle to the newly created Cg program.
         /// </returns>
         // CGDLL_API CGprogram cgCreateProgramFromFile(CGcontext ctx, CGenum program_type, const char *program_file, CGprofile profile, const char *entry, const char **args);
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr cgCreateProgramFromFile(IntPtr context, int type, string file, int profile, string entry, string[] args);
         #endregion IntPtr cgCreateProgramFromFile(IntPtr context, int type, string file, int profile, string entry, string[] args)
 
@@ -3647,7 +3647,7 @@ namespace Tao.Cg {
         ///     Handle to the program to destroy.
         /// </param>
         // CGDLL_API void cgDestroyProgram(CGprogram program);
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgDestroyProgram(IntPtr program);
         #endregion void cgDestroyProgram(IntPtr program)
 
@@ -3696,7 +3696,7 @@ namespace Tao.Cg {
         /// <returns>
         ///     The program or null if no programs available.
         /// </returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr cgGetFirstProgram(IntPtr context);
         #endregion IntPtr cgGetFirstProgram(IntPtr context)
 
@@ -3710,7 +3710,7 @@ namespace Tao.Cg {
         /// <returns>
         ///     Next program in context's internal sequence of programs.
         /// </returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr cgGetNextProgram(IntPtr current);
         #endregion IntPtr cgGetNextProgram(IntPtr current)
 
@@ -3724,7 +3724,7 @@ namespace Tao.Cg {
         /// <returns>
         ///     The context a given program belongs to.
         /// </returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr cgGetProgramContext(IntPtr prog);
         #endregion IntPtr cgGetProgramContext(IntPtr prog)
 
@@ -3738,7 +3738,7 @@ namespace Tao.Cg {
         /// <returns>
         ///     CG_TRUE if prog references a valid program object.
         /// </returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool cgIsProgram(IntPtr prog);
         #endregion bool cgIsProgram(IntPtr prog)
 
@@ -3749,7 +3749,7 @@ namespace Tao.Cg {
         /// <param name="prog">
         ///     The program to be compiled or inspected.
         /// </param>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgCompileProgram(IntPtr prog);
         #endregion void cgCompileProgram(IntPtr prog)
 
@@ -3760,7 +3760,7 @@ namespace Tao.Cg {
         /// <param name="param">Id of the parameter to query.</param>
         /// <returns>Enum value representing the parameter's data type.</returns>
         // CGDLL_API CGtype cgGetParameterType(CGparameter param);
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGetParameterType(IntPtr param);
         #endregion cgGetParameterType(IntPtr param)
         
@@ -3774,7 +3774,7 @@ namespace Tao.Cg {
         /// <returns>
         ///     CG_TRUE if specified program has been compiled.
         /// </returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool cgIsProgramCompiled(IntPtr prog);
         #endregion bool cgIsProgramCompiled(IntPtr prog)
 
@@ -3788,7 +3788,7 @@ namespace Tao.Cg {
         /// <returns>
         ///     The profile enumeration or CG_PROFILE_UNKNOWN if compilation failed.
         /// </returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGetProgramProfile(IntPtr prog);
         #endregion int cgGetProgramProfile(IntPtr prog)
         #endregion Program Functions
@@ -3805,7 +3805,7 @@ namespace Tao.Cg {
         ///     Enum value containing the integral representation of the profile.
         /// </returns>
         // CGDLL_API CGprofile cgGetProfile(const char *profile_string);
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGetProfile(string profile);
         #endregion int cgGetProfile(string profile)
         #endregion Profile Functions
@@ -3821,7 +3821,7 @@ namespace Tao.Cg {
         /// <param name="parameter">
         /// The name of the parameter to return.
         /// </param>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr cgGetNamedParameter(IntPtr program, string parameter);
         #endregion IntPtr cgGetNamedParameter(IntPtr program, string parameter)
 
@@ -3843,7 +3843,7 @@ namespace Tao.Cg {
         ///    Handle to the first Cg parameter in the specified program.
         /// </returns>
         // CGDLL_API CGparameter cgGetFirstLeafParameter(CGprogram prog, CGenum name_space);
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr cgGetFirstLeafParameter(IntPtr program, int nameSpace);
         #endregion IntPtr cgGetFirstLeafParameter(IntPtr program, int nameSpace)
 
@@ -3854,7 +3854,7 @@ namespace Tao.Cg {
         /// <param name="currentParam">Current Cg parameter.</param>
         /// <returns>Handle to the next param after the current program, null if the current is the last param.</returns>
         // CGDLL_API CGparameter cgGetNextLeafParameter(CGparameter current);
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr cgGetNextLeafParameter(IntPtr currentParam);
         #endregion IntPtr cgGetNextLeafParameter(IntPtr currentParam)
 
@@ -3865,7 +3865,7 @@ namespace Tao.Cg {
         /// <param name="param">Id of the parameter to query.</param>
         /// <returns>Enum value representing the parameter's direction.</returns>
         // CGDLL_API CGenum cgGetParameterDirection(CGparameter param);
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGetParameterDirection(IntPtr param);
         #endregion cgGetParameterDirection(IntPtr param)
 
@@ -3905,7 +3905,7 @@ namespace Tao.Cg {
         ///    Index of the specified parameter according to its type and variability.
         /// </returns>
         // CGDLL_API unsigned long cgGetParameterResourceIndex(CGparameter param);
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGetParameterResourceIndex(IntPtr param);
         #endregion int cgGetParameterResourceIndex(IntPtr param)
 
@@ -3916,7 +3916,7 @@ namespace Tao.Cg {
         /// <param name="param">Handle of the program to query.</param>
         /// <returns>Enum stating the variability of the program.</returns>
         // CGDLL_API CGenum cgGetParameterVariability(CGparameter param);
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGetParameterVariability(IntPtr param);
         #endregion cgGetParameterVariability(IntPtr param)
 
@@ -3930,7 +3930,7 @@ namespace Tao.Cg {
         /// <param name="param">Handle to the Cg parameter.</param>
         /// <returns>True if the param is being used, false if not.</returns>
         // CGDLL_API CGbool cgIsParameterReferenced(CGparameter param);
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgIsParameterReferenced(IntPtr param);
         #endregion int cgIsParameterReferenced(IntPtr param)
 
@@ -3940,7 +3940,7 @@ namespace Tao.Cg {
         /// </summary>
         /// <param name="param">Parameter to retreive resource from</param>
         /// <returns>Resource of a given parameter.</returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGetParameterResource(IntPtr param);
         #endregion int cgGetParameterResource(IntPtr param)
 
@@ -3950,7 +3950,7 @@ namespace Tao.Cg {
         /// </summary>
         /// <param name="param">Parameter to retreive base resource from</param>
         /// <returns>Base resource of a given parameter.</returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGetParameterBaseResource(IntPtr param);
         #endregion int cgGetParameterBaseResource(IntPtr param)
 
@@ -3961,7 +3961,7 @@ namespace Tao.Cg {
         /// <param name="prog">The program to retreive the first program from.</param>
         /// <param name="name_space">Namespace of the parameter to iterate through.</param>
         /// <returns>First parameter in specified program.</returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr cgGetFirstParameter(IntPtr prog, int name_space);
         #endregion IntPtr cgGetFirstParameter(IntPtr prog, int name_space)
 
@@ -3971,7 +3971,7 @@ namespace Tao.Cg {
         /// </summary>
         /// <param name="currentParam">The current parameter.</param>
         /// <returns>The next parameter in the program's internal sequence of parameters.</returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr cgGetNextParameter(IntPtr currentParam);
         #endregion IntPtr cgGetNextParameter(IntPtr currentParam)
 
@@ -3981,7 +3981,7 @@ namespace Tao.Cg {
         /// </summary>
         /// <param name="param">The struct parameter to get child parameter from.</param>
         /// <returns>First child parameter in specified struct parameter.</returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr cgGetFirstStructParameter(IntPtr param);
         #endregion IntPtr cgGetFirstStructParameter(IntPtr param)
 
@@ -3992,7 +3992,7 @@ namespace Tao.Cg {
         /// <param name="aparam">Array parameter.</param>
         /// <param name="index">Index into the array.</param>
         /// <returns>Parameter of array param specified by the index.</returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr cgGetArrayParameter(IntPtr aparam, int index);
         #endregion IntPtr cgGetArrayParameter(IntPtr aparam, int index)
 
@@ -4002,7 +4002,7 @@ namespace Tao.Cg {
         /// </summary>
         /// <param name="param">Parameter.</param>
         /// <returns>Dimension of the specified parameter.</returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGetArrayDimension(IntPtr param);
         #endregion int cgGetArrayDimension(IntPtr param)
 
@@ -4013,7 +4013,7 @@ namespace Tao.Cg {
         /// <param name="param">Parameter.</param>
         /// <param name="dimension">The dimension whose size will be returned.</param>
         /// <returns>Size of specified parameters dimension.</returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGetArraySize(IntPtr param, int dimension);
         #endregion int cgGetArraySize(IntPtr param, int dimension)
 
@@ -4023,7 +4023,7 @@ namespace Tao.Cg {
         /// </summary>
         /// <param name="param">Parameter to retreive it's parent program.</param>
         /// <returns>A program given parameter belongs to.</returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr cgGetParameterProgram(IntPtr param);
         #endregion IntPtr cgGetParameterProgram(IntPtr param)
 
@@ -4033,7 +4033,7 @@ namespace Tao.Cg {
         /// </summary>
         /// <param name="param">Parameter.</param>
         /// <returns>CG_TRUE ig parameter is valid Cg parameter object.</returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool cgIsParameter(IntPtr param);
         #endregion bool cgIsParameter(IntPtr param)
 
@@ -4060,7 +4060,7 @@ namespace Tao.Cg {
         /// <param name="value_type">CG_CONSTANT or CG?DEFAULT</param>
         /// <param name="nvalues">Array of integers indicating the number of values in parameters.</param>
         /// <returns>Array of double values.</returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern double[] cgGetParameterValues(IntPtr param, int value_type, int[] nvalues);
         #endregion double[] cgGetParameterValues(IntPtr param, int value_type, int[] nvalues)
 
@@ -4072,7 +4072,7 @@ namespace Tao.Cg {
         /// <param name="value_type">CG_CONSTANT or CG?DEFAULT</param>
         /// <param name="nvalues">Array of integers indicating the number of values in parameters.</param>
         /// <returns>Array of double values.</returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern double* cgGetParameterValues(IntPtr param, int value_type, int* nvalues);
         #endregion double* cgGetParameterValues(IntPtr param, int value_type, int* nvalues)
 
@@ -4084,7 +4084,7 @@ namespace Tao.Cg {
         /// <param name="value_type">CG_CONSTANT or CG?DEFAULT</param>
         /// <param name="nvalues">Array of integers indicating the number of values in parameters.</param>
         /// <returns>Array of double values.</returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr cgGetParameterValues(IntPtr param, int value_type, IntPtr nvalues);
         #endregion IntPtr cgGetParameterValues(IntPtr param, int value_type, IntPtr nvalues)
         #endregion double[] cgGetParameterValues(IntPtr param, int value_type, int[] nvalues)
@@ -4095,7 +4095,7 @@ namespace Tao.Cg {
         /// </summary>
         /// <param name="param">Parameter to retreive it's ordinal number.</param>
         /// <returns>Parameter's ordinal number.</returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGetParameterOrdinalNumber(IntPtr param);
         #endregion int cgGetParameterOrdinalNumber(IntPtr param)
         #endregion Parameter Functions
@@ -4122,7 +4122,7 @@ namespace Tao.Cg {
         /// </summary>
         /// <param name="resource_name">Resource's name.</param>
         /// <returns>Resource enumerant.</returns>
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGetResource(string resource_name);
         #endregion int cgGetResource(string resource_name)
 
@@ -4137,7 +4137,7 @@ namespace Tao.Cg {
         /// </summary>
         /// <returns>Error enum.</returns>
         //CGDLL_API CGerror cgGetError(void);
-        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport("cg.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGetError();
         #endregion int cgGetError()
 

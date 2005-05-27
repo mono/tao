@@ -437,7 +437,7 @@ namespace Tao.Platform.Windows {
         /// </remarks>
         /// <seealso cref="timeEndPeriod" />
         // WINMMAPI MMRESULT WINAPI timeBeginPeriod(IN UINT uPeriod);
-        [DllImport(WINMM_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport(WINMM_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern Int32 timeBeginPeriod(Int32 period);
         #endregion timeBeginPeriod(Int32 period)
 
@@ -468,7 +468,7 @@ namespace Tao.Platform.Windows {
         /// </remarks>
         /// <seealso cref="timeBeginPeriod" />
         // WINMMAPI MMRESULT WINAPI timeEndPeriod(IN UINT uPeriod)
-        [DllImport(WINMM_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport(WINMM_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern Int32 timeEndPeriod(Int32 period);
         #endregion timeEndPeriod(Int32 period)
 
@@ -522,7 +522,7 @@ namespace Tao.Platform.Windows {
         // <seealso cref="MMTIME" />
         // <seealso cref="timeGetSystemTime" />
         // WINMMAPI DWORD WINAPI timeGetTime(void);
-        [DllImport(WINMM_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, ExactSpelling=true), SuppressUnmanagedCodeSecurity]
+        [DllImport(WINMM_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern Int32 timeGetTime();
         #endregion Int32 timeGetTime()
     }
