@@ -1,2 +1,2 @@
 @ECHO OFF
-..\..\Other\dnpb\dnpb.exe /clean /target vs2003 /file ..\..\Tao.dnpb
+.\other\dnpb\dnpb.exe /clean vs2003 /file Tao.dnpb
