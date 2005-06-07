@@ -49,6 +49,7 @@ using System;
 using System.Threading;
 using Tao.Sdl;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace SdlExamples 
 {
@@ -95,13 +96,18 @@ namespace SdlExamples
 			SdlMixer.Mix_OpenAudio(SdlMixer.MIX_DEFAULT_FREQUENCY, unchecked(Sdl.AUDIO_S16LSB), 2, 1024);
 			Smpeg.SMPEG_Info info = new Smpeg.SMPEG_Info();
 
+			string filepath = @"../../";
+			if (File.Exists("Data/SdlExamples.SmpegPlayer.mpg"))
+			{
+				filepath = "";
+			}
 
 			//SdlMixer.MixFunctionDelegate audioMixer = new SdlMixer.MixFunctionDelegate(this.player);
 			//int freq;
 			//short format;
 			//int channels;
 			SdlMixer.Mix_CloseAudio();
-			IntPtr intPtr = Smpeg.SMPEG_new("Data/SdlExamples.SmpegPlayer.mpg", out info, 1); 
+			IntPtr intPtr = Smpeg.SMPEG_new(filepath + "Data/SdlExamples.SmpegPlayer.mpg", out info, 1); 
 			//Smpeg.SMPEG_enableaudio(intPtr, 0);
 			//SdlMixer.Mix_QuerySpec(out freq, out unchecked(format), out channels);
 			//Sdl.SDL_AudioSpec audiofmt = new Tao.Sdl.Sdl.SDL_AudioSpec();

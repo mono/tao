@@ -47,6 +47,7 @@ SOFTWARE.
 
 using System;
 using Tao.Sdl;
+using System.IO;
 using System.Runtime.InteropServices;
 
 namespace SdlExamples 
@@ -80,7 +81,13 @@ namespace SdlExamples
 
 			Random rand = new Random();
 			
-			string musicFile = "Data/SdlExamples.Rectangles.sound.ogg";
+			string filepath = @"../../";
+			if (File.Exists("Data/SdlExamples.SmpegPlayer.mpg"))
+			{
+				filepath = "";
+			}
+
+			string musicFile = filepath + "Data/SdlExamples.Rectangles.sound.ogg";
 
 			Sdl.SDL_Event evt;
 
