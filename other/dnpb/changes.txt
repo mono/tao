@@ -3,6 +3,19 @@
 + = Addition
 ! = Bug Fix
 
+[ January 3, 2004 - 1.1 ]
+	! Replaced regex use for more efficient manual parsing to allow use on non-windows platforms with Mono which has Regex problems
+	+ Added the checkOsVars attribute to the root element for enabling interpolation for Enviroment variables in the form ${var}, otherwise no checking is performed for efficiency-sake
+	* Make the version attribute on the root element optional as it isn't used and not needed since the schema url contains the version
+
+[ December 30, 2004 - 1.1 ]
+    ! Applied Leed's fix for SharpDevelop references
+    + Rewrote much of the processing for better validation and without the use of a temp file
+    + Added support for configurations at the project level which are named All.  They now apply changes to all Solution level defined configs
+	* Changed all spaces into tabs
+	+ Added support for the None build action
+	* Replaced all sequence's in the XML schema for all's because the order doesn't matter since the xml file is loaded into an XmlDocument
+	
 [ December 25, 2004 - 1.0 ]
     + Added the /removedir option for cleaning directories like obj before file releases
     + Changed WriteTempXml() and the new DeleteTempXml() methods to be compiled only in DEBUG builds
