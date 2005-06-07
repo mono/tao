@@ -864,6 +864,13 @@ namespace Tao.Platform.Windows {
         public static extern int ChangeDisplaySettings(IntPtr devMode, int flags);
         #endregion int ChangeDisplaySettings(IntPtr devMode, int flags)
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="deviceName"></param>
+		/// <param name="modeNumber"></param>
+		/// <param name="devMode"></param>
+		/// <returns></returns>
         [DllImport(USER_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, CharSet=CharSet.Auto, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern bool EnumDisplaySettings(string deviceName, int modeNumber, out Gdi.DEVMODE devMode);
 

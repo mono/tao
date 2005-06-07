@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<DNPreBuild xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.3.xsd" version="1.3">
+<DNPreBuild xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.4.xsd" version="1.4">
     <Solution name="Tao.Glfw">
         <Configuration name="Debug">
             <Options>
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
                 <OutputPath>bin\Debug</OutputPath>
-		<XmlDocFile>Tao.FreeGlut.xml</XmlDocFile>
+		<XmlDocFile>Tao.Glfw.xml</XmlDocFile>
 		<AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>true</DebugInformation>
             </Options>
@@ -16,7 +16,7 @@
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
 		<OutputPath>bin\Release</OutputPath>
-		<XmlDocFile>Tao.FreeGlut.xml</XmlDocFile>
+		<XmlDocFile>Tao.Glfw.xml</XmlDocFile>
 		<AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>false</DebugInformation>
             </Options>
@@ -33,6 +33,65 @@
             <Files>
                 <File>AssemblyInfo.cs</File>
                 <File>Glfw.cs</File>
+            </Files>
+	</Project>
+	<Project name="Tao.OpenGl.ExtensionLoader" path="..//Tao.OpenGl.ExtensionLoader" language="C#" type="Library">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" />
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>GlExtensionLoader.cs</File>
+	    </Files>
+	</Project>
+	<Project name="Tao.OpenGl" path="..//Tao.OpenGl" language="C#" type="Library" >
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>ContextGl.cs</File>
+		<File>Gl.cs</File>
+	    </Files>
+	</Project>
+<Project name="Tao.OpenGl.Glu" path="..//Tao.OpenGl.Glu" language="C#" type="Library">
+	    <Reference name="System" />
+            <Files>
+                <File>AssemblyInfo.cs</File>
+                <File>Glu.cs</File>
             </Files>
         </Project>
     </Solution>

@@ -274,6 +274,9 @@ namespace Tao.Platform.Windows {
 
         // --- Public Methods ---
         #region DestroyContexts()
+		/// <summary>
+		/// 
+		/// </summary>
         public void DestroyContexts() {
             if(renderingContext != IntPtr.Zero) {
                 Wgl.wglMakeCurrent(IntPtr.Zero, IntPtr.Zero);
@@ -375,6 +378,9 @@ namespace Tao.Platform.Windows {
         #endregion InitializeContexts()
 
         #region MakeCurrent()
+		/// <summary>
+		/// 
+		/// </summary>
         public void MakeCurrent() {
             // Are we not able to activate the rending context?
             //if(deviceContext == IntPtr.Zero || renderingContext == IntPtr.Zero || !Wgl.wglMakeCurrent(deviceContext, renderingContext)) {
@@ -386,6 +392,9 @@ namespace Tao.Platform.Windows {
         #endregion MakeCurrent()
 
         #region SwapBuffers()
+		/// <summary>
+		/// 
+		/// </summary>
         public void SwapBuffers() {
             Gdi.SwapBuffersFast(deviceContext);
         }

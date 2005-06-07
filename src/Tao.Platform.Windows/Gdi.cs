@@ -1354,6 +1354,8 @@ namespace Tao.Platform.Windows {
         /// <seealso cref="DescribePixelFormat" />
         /// <seealso cref="GetPixelFormat" />
         /// <seealso cref="SetPixelFormat" />
+        /// <param name="deviceContext"></param>
+        /// <param name="pixelFormatDescriptor"></param>
         [DllImport(GDI_NATIVE_LIBRARY, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern int ChoosePixelFormat(IntPtr deviceContext, ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor);
         #endregion int ChoosePixelFormat(HDC hdc, PIXELFORMATDESCRIPTOR* ppfd)
@@ -1461,6 +1463,9 @@ namespace Tao.Platform.Windows {
         /// <seealso cref="ChoosePixelFormat" />
         /// <seealso cref="DescribePixelFormat" />
         /// <seealso cref="GetPixelFormat" />
+        /// <param name="deviceContext"></param>
+        /// <param name="pixelFormat"></param>
+        /// <param name="pixelFormatDescriptor"></param>
         public static bool SetPixelFormat(IntPtr deviceContext, int pixelFormat, ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
             Kernel.LoadLibrary("opengl32.dll");
             return _SetPixelFormat(deviceContext, pixelFormat, ref pixelFormatDescriptor);
