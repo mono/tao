@@ -1216,7 +1216,10 @@ namespace Tao.Sdl
 		#region SDL_rotozoom.h
 		#region IntPtr rotozoomSurface(...)
 		/// <summary>
-		///
+		/// Rotates and zoomes a 32bit or 8bit 'src' surface to newly created 'dst' surface.
+ 		/// 'angle' is the rotation in degrees. 'zoom' a scaling factor. If 'smooth' is 1
+		/// then the destination 32bit surface is anti-aliased. If the surface is not 8bit
+		/// or 32bit RGBA/ABGR it will be converted into a 32bit RGBA format on the fly.
 		/// </summary>
 		/// <param name="src"></param>
 		/// <param name="angle"></param>
@@ -1230,9 +1233,9 @@ namespace Tao.Sdl
 			IntPtr src, double angle, double zoom, int smooth);
 		#endregion IntPtr rotozoomSurface(...)
 
-		#region IntPtr rotozoomSurfaceSize(...)
+		#region void rotozoomSurfaceSize(...)
 		/// <summary>
-		///
+		/// Returns the size of the target surface for a rotozoomSurface() call
 		/// </summary>
 		/// <param name="width"></param>
 		/// <param name="height"></param>
@@ -1244,14 +1247,37 @@ namespace Tao.Sdl
 		[DllImport(SDL_GFX_NATIVE_LIBRARY,
 			 CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern IntPtr rotozoomSurfaceSize(
+		public static extern void rotozoomSurfaceSize(
 			int width, int height, double angle,
 			double zoom, out int dstwidth, out int dstheight);
-		#endregion IntPtr rotozoomSurfaceSize(...)
+		#endregion void rotozoomSurfaceSize(...)
+
+		#region void rotozoomSurfaceSizeXY(...)
+		/// <summary>
+		/// Returns the size of the target surface for a rotozoomSurface() call
+		/// </summary>
+		/// <param name="width"></param>
+		/// <param name="height"></param>
+		/// <param name="angle"></param>
+		/// <param name="zoomx"></param>
+		/// <param name="zoomy"></param>
+		/// <param name="dstheight"></param>
+		/// <param name="dstwidth"></param>
+		/// <returns></returns>
+		[DllImport(SDL_GFX_NATIVE_LIBRARY,
+			 CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void rotozoomSurfaceSizeXY(
+			int width, int height, double angle,
+			double zoomx, double zoomy, out int dstwidth, out int dstheight);
+		#endregion void rotozoomSurfaceSizeXY(...)
 
 		#region IntPtr zoomSurface(...)
 		/// <summary>
-		///
+		/// Zooms a 32bit or 8bit 'src' surface to newly created 'dst' surface.
+		/// 'zoomx' and 'zoomy' are scaling factors for width and height. If 'smooth' is 1
+		/// then the destination 32bit surface is anti-aliased. If the surface is not 8bit
+		/// or 32bit RGBA/ABGR it will be converted into a 32bit RGBA format on the fly.
 		/// </summary>
 		/// <param name="src"></param>
 		/// <param name="zoomx"></param>
@@ -1265,9 +1291,9 @@ namespace Tao.Sdl
 			IntPtr src, double zoomx, double zoomy, int smooth);
 		#endregion IntPtr zoomSurface(...)
 
-		#region IntPtr zoomSurfaceSize(...)
+		#region void zoomSurfaceSize(...)
 		/// <summary>
-		///
+		/// Returns the size of the target surface for a zoomSurface() call
 		/// </summary>
 		/// <param name="width"></param>
 		/// <param name="height"></param>
@@ -1279,10 +1305,10 @@ namespace Tao.Sdl
 		[DllImport(SDL_GFX_NATIVE_LIBRARY,
 			 CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern IntPtr zoomSurfaceSize(
+		public static extern void zoomSurfaceSize(
 			int width, int height,
 			double zoomx, double zoomy, out int dstwidth, out int dstheight);
-		#endregion IntPtr zoomSurfaceSize(...)
+		#endregion void zoomSurfaceSize(...)
 		#endregion SDL_rotozoom.h
 
 		#region SDL_framerate.h

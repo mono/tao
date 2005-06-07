@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DNPreBuild xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.3.xsd" version="1.3">
+    <Solution name="Tao.Platform.Windows">
+        <Configuration name="Debug">
+            <Options>
+                <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+                <OptimizeCode>false</OptimizeCode>
+                <OutputPath>bin\Debug</OutputPath>
+		<XmlDocFile>Tao.Platform.Windows.xml</XmlDocFile>
+		<AllowUnsafe>true</AllowUnsafe>
+                <DebugInformation>true</DebugInformation>
+            </Options>
+        </Configuration>
+        <Configuration name="Release">
+            <Options>
+                <CompilerDefines>TRACE;WIN32</CompilerDefines>
+                <OptimizeCode>true</OptimizeCode>
+                <OutputPath>bin\Release</OutputPath>
+                <XmlDocFile>Tao.Platform.Windows.xml</XmlDocFile>
+		<AllowUnsafe>true</AllowUnsafe>
+                <DebugInformation>false</DebugInformation>
+            </Options>
+        </Configuration>
+        <Files>
+            <File>Tao.Platform.Windows.License.txt</File>
+            <File>Tao.Platform.Windows.Readme.txt</File>
+            <File>Tao.Platform.Windows.snk</File>
+            <File>Tao.Platform.Windows.dll.config</File>
+            <File>TaoButton.jpg</File>
+        </Files>
+	<Project name="Tao.Platform.Windows" path="." language="C#" type="Library">
+	    <Reference name="System" />
+	    <Reference name="System.Drawing" />
+	    <Reference name="System.Windows.Forms" />
+	    <Reference name="Tao.OpenGl" />
+            <Files>
+                <File>AssemblyInfo.cs</File>
+                <File>Gdi.cs</File>
+                <File>IlasmAttribute.cs</File>
+                <File>Kernel.cs</File>
+                <File>SimpleOpenGlControl.cs</File>
+                <File>User.cs</File>
+                <File>Wgl.cs</File>
+                <File>Winmm.cs</File>
+                <File>WinNt.cs</File>
+            </Files>
+        </Project>
+    </Solution>
+</DNPreBuild>

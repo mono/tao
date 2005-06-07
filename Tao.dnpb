@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DNPreBuild xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.3.xsd" version="1.3">
+    <Process>src\Tao.Cg\Tao.Cg.dnpb</Process>
+    <Process>src\Tao.DevIl\Tao.DevIl.dnpb</Process>
+    <Process>src\Tao.FreeGlut\Tao.FreeGlut.dnpb</Process>
+    <Process>src\Tao.Glfw\Tao.Glfw.dnpb</Process>
+    <Process>src\Tao.GlPostProcess\Tao.GlPostProcess.dnpb</Process>
+    <Process>src\Tao.Ode\Tao.Ode.dnpb</Process>
+    <Process>src\Tao.OpenAl\Tao.OpenAl.dnpb</Process>
+    <Process>src\Tao.OpenGl\Tao.OpenGl.dnpb</Process>
+    <Process>src\Tao.OpenGl.Glu\Tao.OpenGl.Glu.dnpb</Process>
+    <Process>src\Tao.Platform.Windows\Tao.Platform.Windows.dnpb</Process>
+    <Process>src\Tao.PostProcess\Tao.PostProcess.dnpb</Process>
+    <Process>src\Tao.Sdl\Tao.Sdl.dnpb</Process>
+</DNPreBuild>

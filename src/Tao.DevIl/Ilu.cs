@@ -807,6 +807,9 @@ namespace Tao.DevIl {
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct ILpointf {
+		/// <summary>
+		/// 
+		/// </summary>
         public float x, y;
     }
 
@@ -815,6 +818,9 @@ namespace Tao.DevIl {
     /// </summary>
     [StructLayout(LayoutKind.Sequential)]
     public struct ILpointi {
+		/// <summary>
+		/// 
+		/// </summary>
         public int x, y;
     }
     #endregion Public Structs

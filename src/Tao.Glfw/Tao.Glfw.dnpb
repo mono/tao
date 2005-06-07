@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DNPreBuild xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.3.xsd" version="1.3">
+    <Solution name="Tao.Glfw">
+        <Configuration name="Debug">
+            <Options>
+                <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+                <OptimizeCode>false</OptimizeCode>
+                <OutputPath>bin\Debug</OutputPath>
+		<XmlDocFile>Tao.FreeGlut.xml</XmlDocFile>
+		<AllowUnsafe>true</AllowUnsafe>
+                <DebugInformation>true</DebugInformation>
+            </Options>
+        </Configuration>
+        <Configuration name="Release">
+            <Options>
+                <CompilerDefines>TRACE;WIN32</CompilerDefines>
+                <OptimizeCode>true</OptimizeCode>
+		<OutputPath>bin\Release</OutputPath>
+		<XmlDocFile>Tao.FreeGlut.xml</XmlDocFile>
+		<AllowUnsafe>true</AllowUnsafe>
+                <DebugInformation>false</DebugInformation>
+            </Options>
+        </Configuration>
+        <Files>
+            <File>Tao.Glfw.License.txt</File>
+            <File>Tao.Glfw.Readme.txt</File>
+            <File>Tao.Glfw.snk</File>
+            <File>Tao.Glfw.dll.config</File>
+        </Files>
+	<Project name="Tao.Glfw" path="." language="C#" type="Library">
+	    <Reference name="System" />
+	    <Reference name="Tao.OpenGl" />
+            <Files>
+                <File>AssemblyInfo.cs</File>
+                <File>Glfw.cs</File>
+            </Files>
+        </Project>
+    </Solution>
+</DNPreBuild>
