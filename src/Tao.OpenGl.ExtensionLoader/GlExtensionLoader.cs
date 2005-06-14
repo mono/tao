@@ -93,7 +93,11 @@ namespace Tao.OpenGl {
 		
         string verstr = Marshal.PtrToStringAnsi (verstrptr).Trim(new char[] {' '});
 
-        if( verstr.StartsWith("1.3") ) 
+        if( verstr.StartsWith("1.2") ) 
+        {
+          AvailableExtensions["GL_VERSION_1_2"] = true;
+        }
+        else if( verstr.StartsWith("1.3") ) 
         {
           AvailableExtensions["GL_VERSION_1_2"] = true;
           AvailableExtensions["GL_VERSION_1_3"] = true;

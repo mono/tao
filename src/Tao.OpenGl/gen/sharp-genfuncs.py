@@ -140,7 +140,7 @@ def __main__():
              'display-list', 'drawing', 'drawing-control', 'feedback', 'framebuf',
              'misc', 'modeling', 'pixel-op', 'pixel-rw', 'state-req', 'xform']
   """
-  core_gl = ['1_1', 'VERSION_1_2', 'display-list', 'drawing', 'drawing-control', 
+  core_gl = ['1_1', 'display-list', 'drawing', 'drawing-control', 
              'feedback', 'framebuf', 'misc', 'modeling', 'pixel-op', 'pixel-rw', 
              'state-req', 'xform']
 

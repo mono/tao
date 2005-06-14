@@ -4204,1605 +4204,6 @@ public sealed class Gl {
     [DllImport("opengl32.dll", EntryPoint="glPushClientAttrib"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
     public static extern void glPushClientAttrib (uint mask);
 
-    [DllImport("opengl32.dll", EntryPoint="glBlendColor"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glBlendColor (float red, float green, float blue, float alpha);
-
-    [DllImport("opengl32.dll", EntryPoint="glBlendEquation"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glBlendEquation (int mode);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, bool [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, bool [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, bool [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, bool [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, byte [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, byte [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, byte [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, byte [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, short [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, short [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, short [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, short [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, int [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, int [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, int [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, int [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, float [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, float [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, float [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, float [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, double [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, double [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, double [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, double [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, string indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, string indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, string indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, string indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, IntPtr indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, IntPtr indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, IntPtr indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, IntPtr indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, ref sbyte indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref sbyte indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref sbyte indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref sbyte indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, sbyte [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, sbyte [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, sbyte [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, sbyte [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, sbyte [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, sbyte [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, sbyte [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, sbyte [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, sbyte [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, sbyte [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, sbyte [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, sbyte [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, ref ushort indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref ushort indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref ushort indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref ushort indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, ushort [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, ushort [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, ushort [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ushort [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, ushort [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, ushort [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, ushort [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ushort [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, ushort [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, ushort [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, ushort [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ushort [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, ref uint indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref uint indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref uint indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref uint indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, uint [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, uint [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, uint [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, uint [] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, uint [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, uint [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, uint [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, uint [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, uint [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, uint [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, uint [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, uint [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, ref bool indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref bool indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref bool indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref bool indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, bool [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, bool [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, bool [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, bool [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, bool [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, bool [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, bool [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, bool [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, ref byte indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref byte indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref byte indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref byte indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, byte [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, byte [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, byte [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, byte [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, byte [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, byte [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, byte [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, byte [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, ref short indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref short indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref short indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref short indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, short [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, short [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, short [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, short [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, short [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, short [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, short [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, short [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, ref int indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref int indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref int indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref int indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, int [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, int [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, int [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, int [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, int [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, int [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, int [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, int [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, ref float indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref float indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref float indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref float indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, float [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, float [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, float [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, float [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, float [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, float [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, float [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, float [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, ref double indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref double indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref double indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref double indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, double [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, double [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, double [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, double [,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, int end, int count, int type, double [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, int end, int count, int type, double [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, int start, uint end, int count, int type, double [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glDrawRangeElements (int mode, uint start, uint end, int count, int type, double [,,] indices);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, bool [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, byte [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, short [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, int [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, float [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, double [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, string table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, IntPtr table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, ref sbyte table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, sbyte [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, sbyte [,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, sbyte [,,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, ref ushort table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, ushort [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, ushort [,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, ushort [,,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, ref uint table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, uint [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, uint [,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, uint [,,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, ref bool table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, bool [,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, bool [,,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, ref byte table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, byte [,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, byte [,,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, ref short table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, short [,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, short [,,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, ref int table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, int [,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, int [,,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, ref float table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, float [,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, float [,,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, ref double table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, double [,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorTable (int target, int internalformat, int width, int format, int type, double [,,] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTableParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorTableParameterfv (int target, int pname, ref float arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTableParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorTableParameterfv (int target, int pname, float [] arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTableParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorTableParameteriv (int target, int pname, ref int arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorTableParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorTableParameteriv (int target, int pname, int [] arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glCopyColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glCopyColorTable (int target, int internalformat, int x, int y, int width);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetColorTable (int target, int format, int type, [Out] bool [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetColorTable (int target, int format, int type, [Out] byte [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetColorTable (int target, int format, int type, [Out] short [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetColorTable (int target, int format, int type, [Out] int [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetColorTable (int target, int format, int type, [Out] float [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetColorTable (int target, int format, int type, [Out] double [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetColorTable (int target, int format, int type, IntPtr table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetColorTable (int target, int format, int type, out bool table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetColorTable (int target, int format, int type, out byte table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetColorTable (int target, int format, int type, out short table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetColorTable (int target, int format, int type, out int table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetColorTable (int target, int format, int type, out float table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetColorTable (int target, int format, int type, out double table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetColorTable (int target, int format, int type, out sbyte table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetColorTable (int target, int format, int type, [Out] sbyte [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetColorTable (int target, int format, int type, out ushort table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetColorTable (int target, int format, int type, [Out] ushort [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetColorTable (int target, int format, int type, out uint table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetColorTable (int target, int format, int type, [Out] uint [] table);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTableParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetColorTableParameterfv (int target, int pname, out float arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTableParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetColorTableParameterfv (int target, int pname, [Out] float [] arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTableParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetColorTableParameteriv (int target, int pname, out int arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetColorTableParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetColorTableParameteriv (int target, int pname, [Out] int [] arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, bool [] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, byte [] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, short [] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, int [] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, float [] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, double [] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, string data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, IntPtr data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, ref sbyte data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, sbyte [] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, sbyte [,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, sbyte [,,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, ref ushort data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, ushort [] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, ushort [,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, ushort [,,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, ref uint data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, uint [] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, uint [,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, uint [,,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, ref bool data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, bool [,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, bool [,,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, ref byte data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, byte [,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, byte [,,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, ref short data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, short [,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, short [,,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, ref int data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, int [,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, int [,,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, ref float data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, float [,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, float [,,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, ref double data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, double [,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glColorSubTable (int target, int start, int count, int format, int type, double [,,] data);
-
-    [DllImport("opengl32.dll", EntryPoint="glCopyColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glCopyColorSubTable (int target, int start, int x, int y, int width);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, bool [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, byte [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, short [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, int [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, float [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, double [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, string image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, IntPtr image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref sbyte image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, sbyte [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, sbyte [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, sbyte [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref ushort image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ushort [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ushort [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ushort [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref uint image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, uint [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, uint [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, uint [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref bool image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, bool [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, bool [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref byte image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, byte [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, byte [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref short image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, short [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, short [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref int image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, int [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, int [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref float image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, float [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, float [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref double image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, double [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, double [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, bool [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, byte [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, short [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, int [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, float [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, double [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, string image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, IntPtr image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref sbyte image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, sbyte [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, sbyte [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, sbyte [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref ushort image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ushort [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ushort [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ushort [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref uint image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, uint [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, uint [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, uint [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref bool image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, bool [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, bool [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref byte image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, byte [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, byte [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref short image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, short [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, short [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref int image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, int [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, int [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref float image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, float [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, float [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref double image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, double [,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, double [,,] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionParameterf"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionParameterf (int target, int pname, float arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionParameterfv (int target, int pname, ref float arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionParameterfv (int target, int pname, float [] arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionParameteri"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionParameteri (int target, int pname, int arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionParameteriv (int target, int pname, ref int arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glConvolutionParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glConvolutionParameteriv (int target, int pname, int [] arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glCopyConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glCopyConvolutionFilter1D (int target, int internalformat, int x, int y, int width);
-
-    [DllImport("opengl32.dll", EntryPoint="glCopyConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glCopyConvolutionFilter2D (int target, int internalformat, int x, int y, int width, int height);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, [Out] bool [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, [Out] byte [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, [Out] short [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, [Out] int [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, [Out] float [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, [Out] double [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, IntPtr image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, out bool image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, out byte image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, out short image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, out int image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, out float image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, out double image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, out sbyte image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, [Out] sbyte [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, out ushort image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, [Out] ushort [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, out uint image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetConvolutionFilter (int target, int format, int type, [Out] uint [] image);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetConvolutionParameterfv (int target, int pname, out float arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetConvolutionParameterfv (int target, int pname, [Out] float [] arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetConvolutionParameteriv (int target, int pname, out int arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetConvolutionParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetConvolutionParameteriv (int target, int pname, [Out] int [] arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, [Out] bool [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, [Out] bool [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, [Out] byte [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, [Out] byte [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, [Out] short [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, [Out] short [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, [Out] int [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, [Out] int [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, [Out] float [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, [Out] float [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, [Out] double [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, [Out] double [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, IntPtr values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, IntPtr values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, out bool values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, out bool values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, out byte values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, out byte values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, out short values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, out short values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, out int values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, out int values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, out float values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, out float values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, out double values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, out double values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, out sbyte values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, out sbyte values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, [Out] sbyte [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, [Out] sbyte [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, out ushort values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, out ushort values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, [Out] ushort [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, [Out] ushort [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, out uint values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, out uint values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, int reset, int format, int type, [Out] uint [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetHistogram (int target, bool reset, int format, int type, [Out] uint [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogramParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetHistogramParameterfv (int target, int pname, out float arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogramParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetHistogramParameterfv (int target, int pname, [Out] float [] arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogramParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetHistogramParameteriv (int target, int pname, out int arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetHistogramParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetHistogramParameteriv (int target, int pname, [Out] int [] arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, [Out] bool [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, [Out] bool [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, [Out] byte [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, [Out] byte [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, [Out] short [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, [Out] short [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, [Out] int [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, [Out] int [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, [Out] float [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, [Out] float [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, [Out] double [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, [Out] double [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, IntPtr values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, IntPtr values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, out bool values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, out bool values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, out byte values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, out byte values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, out short values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, out short values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, out int values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, out int values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, out float values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, out float values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, out double values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, out double values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, out sbyte values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, out sbyte values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, [Out] sbyte [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, [Out] sbyte [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, out ushort values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, out ushort values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, [Out] ushort [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, [Out] ushort [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, out uint values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, out uint values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, int reset, int format, int type, [Out] uint [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glGetMinmax (int target, bool reset, int format, int type, [Out] uint [] values);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmaxParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetMinmaxParameterfv (int target, int pname, out float arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmaxParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetMinmaxParameterfv (int target, int pname, [Out] float [] arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmaxParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetMinmaxParameteriv (int target, int pname, out int arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glGetMinmaxParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glGetMinmaxParameteriv (int target, int pname, [Out] int [] arg_params);
-
-    [DllImport("opengl32.dll", EntryPoint="glHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glHistogram (int target, int width, int internalformat, int sink);
-
-    [DllImport("opengl32.dll", EntryPoint="glHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glHistogram (int target, int width, int internalformat, bool sink);
-
-    [DllImport("opengl32.dll", EntryPoint="glMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glMinmax (int target, int internalformat, int sink);
-
-    [DllImport("opengl32.dll", EntryPoint="glMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glMinmax (int target, int internalformat, bool sink);
-
-    [DllImport("opengl32.dll", EntryPoint="glResetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glResetHistogram (int target);
-
-    [DllImport("opengl32.dll", EntryPoint="glResetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glResetMinmax (int target);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, bool [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, byte [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, short [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, int [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, float [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, double [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, string pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntPtr pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref sbyte pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, sbyte [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, sbyte [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, sbyte [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref ushort pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ushort [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ushort [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ushort [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref uint pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, uint [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, uint [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, uint [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref bool pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, bool [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, bool [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref byte pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, byte [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, byte [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref short pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, short [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, short [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref int pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, int [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, int [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref float pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, float [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, float [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref double pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, double [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, double [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, bool [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, byte [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, string pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref sbyte pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, sbyte [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, sbyte [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, sbyte [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref ushort pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ushort [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ushort [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ushort [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref uint pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, uint [] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, uint [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, uint [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref bool pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, bool [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, bool [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref byte pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, byte [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, byte [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref short pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref int pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref float pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref double pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double [,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static extern void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double [,,] pixels);
-
-    [DllImport("opengl32.dll", EntryPoint="glCopyTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static extern void glCopyTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height);
-
     [DllImport("opengl32.dll", EntryPoint="glNewList"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
     public static extern void glNewList (int list, int mode);
 
@@ -35493,6 +33894,2282 @@ public sealed class Gl {
     }
     [OpenGLExtensionImport("GL_SUN_vertex", "glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
     public static void glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN (uint [] rc, float [] tc, float [] c, float [] n, float [] v) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glBlendColor")]
+    public static IntPtr ext__GL_VERSION_1_2__glBlendColor = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glBlendColor"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glBlendColor (float red, float green, float blue, float alpha) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glBlendEquation")]
+    public static IntPtr ext__GL_VERSION_1_2__glBlendEquation = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glBlendEquation"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glBlendEquation (int mode) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements")]
+    public static IntPtr ext__GL_VERSION_1_2__glDrawRangeElements = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, bool [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, bool [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, bool [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, bool [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, byte [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, byte [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, byte [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, byte [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, short [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, short [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, short [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, short [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, int [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, int [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, int [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, int [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, float [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, float [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, float [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, float [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, double [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, double [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, double [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, double [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, string indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, string indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, string indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, string indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, IntPtr indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, IntPtr indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, IntPtr indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, IntPtr indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, ref sbyte indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref sbyte indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref sbyte indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref sbyte indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, sbyte [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, sbyte [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, sbyte [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, sbyte [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, sbyte [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, sbyte [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, sbyte [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, sbyte [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, sbyte [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, sbyte [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, sbyte [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, sbyte [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, ref ushort indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref ushort indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref ushort indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref ushort indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, ushort [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, ushort [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, ushort [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ushort [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, ushort [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, ushort [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, ushort [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ushort [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, ushort [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, ushort [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, ushort [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ushort [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, ref uint indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref uint indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref uint indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref uint indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, uint [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, uint [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, uint [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, uint [] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, uint [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, uint [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, uint [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, uint [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, uint [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, uint [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, uint [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, uint [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, ref bool indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref bool indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref bool indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref bool indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, bool [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, bool [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, bool [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, bool [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, bool [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, bool [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, bool [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, bool [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, ref byte indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref byte indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref byte indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref byte indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, byte [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, byte [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, byte [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, byte [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, byte [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, byte [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, byte [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, byte [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, ref short indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref short indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref short indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref short indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, short [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, short [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, short [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, short [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, short [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, short [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, short [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, short [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, ref int indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref int indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref int indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref int indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, int [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, int [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, int [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, int [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, int [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, int [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, int [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, int [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, ref float indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref float indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref float indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref float indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, float [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, float [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, float [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, float [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, float [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, float [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, float [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, float [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, ref double indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, ref double indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, ref double indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, ref double indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, double [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, double [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, double [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, double [,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, int end, int count, int type, double [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, int end, int count, int type, double [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, int start, uint end, int count, int type, double [,,] indices) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glDrawRangeElements"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glDrawRangeElements (int mode, uint start, uint end, int count, int type, double [,,] indices) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable")]
+    public static IntPtr ext__GL_VERSION_1_2__glColorTable = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, bool [] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, byte [] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, short [] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, int [] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, float [] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, double [] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, string table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, IntPtr table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, ref sbyte table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, sbyte [] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, sbyte [,] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, sbyte [,,] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, ref ushort table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, ushort [] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, ushort [,] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, ushort [,,] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, ref uint table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, uint [] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, uint [,] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, uint [,,] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, ref bool table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, bool [,] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, bool [,,] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, ref byte table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, byte [,] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, byte [,,] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, ref short table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, short [,] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, short [,,] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, ref int table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, int [,] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, int [,,] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, ref float table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, float [,] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, float [,,] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, ref double table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, double [,] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorTable (int target, int internalformat, int width, int format, int type, double [,,] table) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTableParameterfv")]
+    public static IntPtr ext__GL_VERSION_1_2__glColorTableParameterfv = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTableParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorTableParameterfv (int target, int pname, ref float arg_params) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTableParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorTableParameterfv (int target, int pname, float [] arg_params) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTableParameteriv")]
+    public static IntPtr ext__GL_VERSION_1_2__glColorTableParameteriv = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTableParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorTableParameteriv (int target, int pname, ref int arg_params) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorTableParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorTableParameteriv (int target, int pname, int [] arg_params) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glCopyColorTable")]
+    public static IntPtr ext__GL_VERSION_1_2__glCopyColorTable = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glCopyColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glCopyColorTable (int target, int internalformat, int x, int y, int width) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable")]
+    public static IntPtr ext__GL_VERSION_1_2__glGetColorTable = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetColorTable (int target, int format, int type, [Out] bool [] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetColorTable (int target, int format, int type, [Out] byte [] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetColorTable (int target, int format, int type, [Out] short [] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetColorTable (int target, int format, int type, [Out] int [] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetColorTable (int target, int format, int type, [Out] float [] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetColorTable (int target, int format, int type, [Out] double [] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetColorTable (int target, int format, int type, IntPtr table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetColorTable (int target, int format, int type, out bool table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetColorTable (int target, int format, int type, out byte table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetColorTable (int target, int format, int type, out short table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetColorTable (int target, int format, int type, out int table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetColorTable (int target, int format, int type, out float table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetColorTable (int target, int format, int type, out double table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetColorTable (int target, int format, int type, out sbyte table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetColorTable (int target, int format, int type, [Out] sbyte [] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetColorTable (int target, int format, int type, out ushort table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetColorTable (int target, int format, int type, [Out] ushort [] table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetColorTable (int target, int format, int type, out uint table) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetColorTable (int target, int format, int type, [Out] uint [] table) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTableParameterfv")]
+    public static IntPtr ext__GL_VERSION_1_2__glGetColorTableParameterfv = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTableParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetColorTableParameterfv (int target, int pname, out float arg_params) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTableParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetColorTableParameterfv (int target, int pname, [Out] float [] arg_params) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTableParameteriv")]
+    public static IntPtr ext__GL_VERSION_1_2__glGetColorTableParameteriv = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTableParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetColorTableParameteriv (int target, int pname, out int arg_params) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetColorTableParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetColorTableParameteriv (int target, int pname, [Out] int [] arg_params) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable")]
+    public static IntPtr ext__GL_VERSION_1_2__glColorSubTable = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, bool [] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, byte [] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, short [] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, int [] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, float [] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, double [] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, string data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, IntPtr data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, ref sbyte data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, sbyte [] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, sbyte [,] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, sbyte [,,] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, ref ushort data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, ushort [] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, ushort [,] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, ushort [,,] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, ref uint data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, uint [] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, uint [,] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, uint [,,] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, ref bool data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, bool [,] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, bool [,,] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, ref byte data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, byte [,] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, byte [,,] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, ref short data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, short [,] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, short [,,] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, ref int data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, int [,] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, int [,,] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, ref float data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, float [,] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, float [,,] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, ref double data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, double [,] data) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glColorSubTable (int target, int start, int count, int format, int type, double [,,] data) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glCopyColorSubTable")]
+    public static IntPtr ext__GL_VERSION_1_2__glCopyColorSubTable = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glCopyColorSubTable"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glCopyColorSubTable (int target, int start, int x, int y, int width) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D")]
+    public static IntPtr ext__GL_VERSION_1_2__glConvolutionFilter1D = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, bool [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, byte [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, short [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, int [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, float [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, double [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, string image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, IntPtr image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref sbyte image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, sbyte [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, sbyte [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, sbyte [,,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref ushort image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ushort [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ushort [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ushort [,,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref uint image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, uint [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, uint [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, uint [,,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref bool image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, bool [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, bool [,,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref byte image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, byte [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, byte [,,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref short image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, short [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, short [,,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref int image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, int [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, int [,,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref float image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, float [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, float [,,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, ref double image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, double [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter1D (int target, int internalformat, int width, int format, int type, double [,,] image) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D")]
+    public static IntPtr ext__GL_VERSION_1_2__glConvolutionFilter2D = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, bool [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, byte [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, short [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, int [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, float [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, double [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, string image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, IntPtr image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref sbyte image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, sbyte [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, sbyte [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, sbyte [,,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref ushort image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ushort [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ushort [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ushort [,,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref uint image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, uint [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, uint [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, uint [,,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref bool image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, bool [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, bool [,,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref byte image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, byte [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, byte [,,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref short image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, short [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, short [,,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref int image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, int [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, int [,,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref float image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, float [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, float [,,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, ref double image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, double [,] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glConvolutionFilter2D (int target, int internalformat, int width, int height, int format, int type, double [,,] image) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionParameterf")]
+    public static IntPtr ext__GL_VERSION_1_2__glConvolutionParameterf = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionParameterf"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionParameterf (int target, int pname, float arg_params) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionParameterfv")]
+    public static IntPtr ext__GL_VERSION_1_2__glConvolutionParameterfv = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionParameterfv (int target, int pname, ref float arg_params) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionParameterfv (int target, int pname, float [] arg_params) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionParameteri")]
+    public static IntPtr ext__GL_VERSION_1_2__glConvolutionParameteri = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionParameteri"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionParameteri (int target, int pname, int arg_params) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionParameteriv")]
+    public static IntPtr ext__GL_VERSION_1_2__glConvolutionParameteriv = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionParameteriv (int target, int pname, ref int arg_params) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glConvolutionParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glConvolutionParameteriv (int target, int pname, int [] arg_params) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glCopyConvolutionFilter1D")]
+    public static IntPtr ext__GL_VERSION_1_2__glCopyConvolutionFilter1D = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glCopyConvolutionFilter1D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glCopyConvolutionFilter1D (int target, int internalformat, int x, int y, int width) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glCopyConvolutionFilter2D")]
+    public static IntPtr ext__GL_VERSION_1_2__glCopyConvolutionFilter2D = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glCopyConvolutionFilter2D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glCopyConvolutionFilter2D (int target, int internalformat, int x, int y, int width, int height) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter")]
+    public static IntPtr ext__GL_VERSION_1_2__glGetConvolutionFilter = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetConvolutionFilter (int target, int format, int type, [Out] bool [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetConvolutionFilter (int target, int format, int type, [Out] byte [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetConvolutionFilter (int target, int format, int type, [Out] short [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetConvolutionFilter (int target, int format, int type, [Out] int [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetConvolutionFilter (int target, int format, int type, [Out] float [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetConvolutionFilter (int target, int format, int type, [Out] double [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetConvolutionFilter (int target, int format, int type, IntPtr image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetConvolutionFilter (int target, int format, int type, out bool image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetConvolutionFilter (int target, int format, int type, out byte image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetConvolutionFilter (int target, int format, int type, out short image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetConvolutionFilter (int target, int format, int type, out int image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetConvolutionFilter (int target, int format, int type, out float image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetConvolutionFilter (int target, int format, int type, out double image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetConvolutionFilter (int target, int format, int type, out sbyte image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetConvolutionFilter (int target, int format, int type, [Out] sbyte [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetConvolutionFilter (int target, int format, int type, out ushort image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetConvolutionFilter (int target, int format, int type, [Out] ushort [] image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetConvolutionFilter (int target, int format, int type, out uint image) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionFilter"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetConvolutionFilter (int target, int format, int type, [Out] uint [] image) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionParameterfv")]
+    public static IntPtr ext__GL_VERSION_1_2__glGetConvolutionParameterfv = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetConvolutionParameterfv (int target, int pname, out float arg_params) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetConvolutionParameterfv (int target, int pname, [Out] float [] arg_params) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionParameteriv")]
+    public static IntPtr ext__GL_VERSION_1_2__glGetConvolutionParameteriv = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetConvolutionParameteriv (int target, int pname, out int arg_params) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetConvolutionParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetConvolutionParameteriv (int target, int pname, [Out] int [] arg_params) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram")]
+    public static IntPtr ext__GL_VERSION_1_2__glGetHistogram = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetHistogram (int target, int reset, int format, int type, [Out] bool [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, [Out] bool [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetHistogram (int target, int reset, int format, int type, [Out] byte [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, [Out] byte [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetHistogram (int target, int reset, int format, int type, [Out] short [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, [Out] short [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetHistogram (int target, int reset, int format, int type, [Out] int [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, [Out] int [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetHistogram (int target, int reset, int format, int type, [Out] float [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, [Out] float [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetHistogram (int target, int reset, int format, int type, [Out] double [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, [Out] double [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetHistogram (int target, int reset, int format, int type, IntPtr values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, IntPtr values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, int reset, int format, int type, out bool values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, out bool values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, int reset, int format, int type, out byte values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, out byte values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, int reset, int format, int type, out short values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, out short values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, int reset, int format, int type, out int values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, out int values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, int reset, int format, int type, out float values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, out float values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, int reset, int format, int type, out double values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, out double values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, int reset, int format, int type, out sbyte values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, out sbyte values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, int reset, int format, int type, [Out] sbyte [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, [Out] sbyte [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, int reset, int format, int type, out ushort values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, out ushort values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, int reset, int format, int type, [Out] ushort [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, [Out] ushort [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, int reset, int format, int type, out uint values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, out uint values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, int reset, int format, int type, [Out] uint [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetHistogram (int target, bool reset, int format, int type, [Out] uint [] values) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogramParameterfv")]
+    public static IntPtr ext__GL_VERSION_1_2__glGetHistogramParameterfv = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogramParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetHistogramParameterfv (int target, int pname, out float arg_params) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogramParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetHistogramParameterfv (int target, int pname, [Out] float [] arg_params) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogramParameteriv")]
+    public static IntPtr ext__GL_VERSION_1_2__glGetHistogramParameteriv = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogramParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetHistogramParameteriv (int target, int pname, out int arg_params) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetHistogramParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetHistogramParameteriv (int target, int pname, [Out] int [] arg_params) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax")]
+    public static IntPtr ext__GL_VERSION_1_2__glGetMinmax = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetMinmax (int target, int reset, int format, int type, [Out] bool [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, [Out] bool [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetMinmax (int target, int reset, int format, int type, [Out] byte [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, [Out] byte [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetMinmax (int target, int reset, int format, int type, [Out] short [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, [Out] short [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetMinmax (int target, int reset, int format, int type, [Out] int [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, [Out] int [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetMinmax (int target, int reset, int format, int type, [Out] float [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, [Out] float [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetMinmax (int target, int reset, int format, int type, [Out] double [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, [Out] double [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetMinmax (int target, int reset, int format, int type, IntPtr values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, IntPtr values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, int reset, int format, int type, out bool values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, out bool values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, int reset, int format, int type, out byte values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, out byte values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, int reset, int format, int type, out short values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, out short values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, int reset, int format, int type, out int values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, out int values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, int reset, int format, int type, out float values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, out float values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, int reset, int format, int type, out double values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, out double values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, int reset, int format, int type, out sbyte values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, out sbyte values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, int reset, int format, int type, [Out] sbyte [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, [Out] sbyte [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, int reset, int format, int type, out ushort values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, out ushort values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, int reset, int format, int type, [Out] ushort [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, [Out] ushort [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, int reset, int format, int type, out uint values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, out uint values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, int reset, int format, int type, [Out] uint [] values) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glGetMinmax (int target, bool reset, int format, int type, [Out] uint [] values) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmaxParameterfv")]
+    public static IntPtr ext__GL_VERSION_1_2__glGetMinmaxParameterfv = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmaxParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetMinmaxParameterfv (int target, int pname, out float arg_params) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmaxParameterfv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetMinmaxParameterfv (int target, int pname, [Out] float [] arg_params) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmaxParameteriv")]
+    public static IntPtr ext__GL_VERSION_1_2__glGetMinmaxParameteriv = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmaxParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetMinmaxParameteriv (int target, int pname, out int arg_params) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glGetMinmaxParameteriv"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glGetMinmaxParameteriv (int target, int pname, [Out] int [] arg_params) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glHistogram")]
+    public static IntPtr ext__GL_VERSION_1_2__glHistogram = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glHistogram (int target, int width, int internalformat, int sink) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glHistogram (int target, int width, int internalformat, bool sink) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glMinmax")]
+    public static IntPtr ext__GL_VERSION_1_2__glMinmax = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glMinmax (int target, int internalformat, int sink) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glMinmax (int target, int internalformat, bool sink) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glResetHistogram")]
+    public static IntPtr ext__GL_VERSION_1_2__glResetHistogram = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glResetHistogram"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glResetHistogram (int target) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glResetMinmax")]
+    public static IntPtr ext__GL_VERSION_1_2__glResetMinmax = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glResetMinmax"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glResetMinmax (int target) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D")]
+    public static IntPtr ext__GL_VERSION_1_2__glTexImage3D = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, bool [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, byte [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, short [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, int [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, float [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, double [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, string pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, IntPtr pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref sbyte pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, sbyte [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, sbyte [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, sbyte [,,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref ushort pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ushort [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ushort [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ushort [,,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref uint pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, uint [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, uint [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, uint [,,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref bool pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, bool [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, bool [,,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref byte pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, byte [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, byte [,,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref short pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, short [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, short [,,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref int pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, int [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, int [,,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref float pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, float [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, float [,,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, ref double pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, double [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexImage3D (int target, int level, int internalformat, int width, int height, int depth, int border, int format, int type, double [,,] pixels) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D")]
+    public static IntPtr ext__GL_VERSION_1_2__glTexSubImage3D = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, bool [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, byte [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, string pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, IntPtr pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref sbyte pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, sbyte [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, sbyte [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, sbyte [,,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref ushort pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ushort [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ushort [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ushort [,,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref uint pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, uint [] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, uint [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, uint [,,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref bool pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, bool [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, bool [,,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref byte pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, byte [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, byte [,,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref short pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, short [,,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref int pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, int [,,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref float pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, float [,,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, ref double pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double [,] pixels) {
+      throw new NotImplementedException();
+    }
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
+    public static void glTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int width, int height, int depth, int format, int type, double [,,] pixels) {
+      throw new NotImplementedException();
+    }
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glCopyTexSubImage3D")]
+    public static IntPtr ext__GL_VERSION_1_2__glCopyTexSubImage3D = IntPtr.Zero;
+
+    [OpenGLExtensionImport("GL_VERSION_1_2", "glCopyTexSubImage3D"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
+    public static void glCopyTexSubImage3D (int target, int level, int xoffset, int yoffset, int zoffset, int x, int y, int width, int height) {
       throw new NotImplementedException();
     }
 
