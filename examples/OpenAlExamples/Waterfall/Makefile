@@ -25,7 +25,7 @@ EXAMPLE_DATA = \
 	Data/OpenAlExamples.Waterfall.Wood.bmp \
 	$(NULL)
 
-CSFLAGS += /unsafe
+CSFLAGS += /target:winexe
 
 REFS = \
 	Tao.OpenAl.dll \

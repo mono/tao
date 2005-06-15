@@ -11,7 +11,7 @@ SRCS = \
 	ListModes.cs \
 	$(NULL)
 
-CSFLAGS += /unsafe
+CSFLAGS += /target:exe
 
 REFS = \
 	Tao.OpenGl.dll \

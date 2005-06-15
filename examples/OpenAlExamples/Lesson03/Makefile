@@ -17,7 +17,7 @@ EXAMPLE_DATA = \
 	Data/OpenAlExamples.Lesson03.Gun2.wav \
 	$(NULL)
 
-CSFLAGS += /unsafe
+CSFLAGS += /target:exe
 
 REFS = \
 	Tao.OpenAl.dll \

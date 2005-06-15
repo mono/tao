@@ -15,7 +15,7 @@ EXAMPLE_DATA = \
 	Data/SdlExamples.Rectangles.sound.ogg \
 	$(NULL)
 
-CSFLAGS += /unsafe
+CSFLAGS += /target:winexe
 
 REFS = \
 	Tao.Sdl.dll \

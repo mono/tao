@@ -11,7 +11,7 @@ SRCS = \
 	Lorenz3d.cs \
 	$(NULL)
 
-CSFLAGS += /unsafe
+CSFLAGS += /target:winexe
 
 REFS = \
 	Tao.OpenGl.dll \

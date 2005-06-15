@@ -11,7 +11,16 @@ SRCS = \
 	Lesson21.cs \
 	$(NULL)
 
-CSFLAGS += /unsafe
+EXAMPLE_DATA = \
+	Data/NeHe.Lesson21.Complete.wav \
+	Data/NeHe.Lesson21.Die.wav \
+	Data/NeHe.Lesson21.Font.bmp \
+	Data/NeHe.Lesson21.Freeze.wav \
+	Data/NeHe.Lesson21.Hourglass.wav \
+	Data/NeHe.Lesson21.Image.bmp \
+	$(NULL)
+
+CSFLAGS += /target:winexe
 
 REFS = \
 	Tao.OpenGl.dll \

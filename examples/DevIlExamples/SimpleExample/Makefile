@@ -15,6 +15,8 @@ EXAMPLE_DATA = \
 	Data/yinyangblue.gif \
 	$(NULL)
 
+CSFLAGS += /target:exe
+
 REFS = \
 	Tao.DevIl.dll \
 	$(NULL)

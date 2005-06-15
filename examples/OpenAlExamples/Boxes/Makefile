@@ -17,7 +17,7 @@ EXAMPLE_DATA = \
 	Data/OpenAlExamples.Boxes.C.wav \
 	$(NULL)
 
-CSFLAGS += /unsafe
+CSFLAGS += /target:winexe
 
 REFS = \
 	Tao.OpenAl.dll \

@@ -20,7 +20,7 @@ EXAMPLE_DATA = \
 	Data/OpenAlExamples.Lesson05.Waterdrop.wav \
 	$(NULL)
 
-CSFLAGS += /unsafe
+CSFLAGS += /target:exe
 
 REFS = \
 	Tao.OpenAl.dll \

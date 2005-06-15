@@ -136,7 +136,7 @@ endif
 $(EXAMPLE): $(EXAMPLE_DEST) $(EXAMPLE_DEST)/$(EXAMPLE_TARGET).exe
 
 $(EXAMPLE_DEST)/$(EXAMPLE_TARGET).exe: $(SRCS)
-	$(CSC) /target:exe $(CSFLAGS) /out:$@ $^ /lib:$(LIBRARY_DEST) $(REFFLAGS)
+	$(CSC) $(CSFLAGS) /out:$@ $^ /lib:$(LIBRARY_DEST) $(REFFLAGS)
 
 clean::
 	rm -f $(EXAMPLE_DEST)/$(EXAMPLE_TARGET).exe

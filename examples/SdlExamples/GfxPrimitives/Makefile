@@ -11,7 +11,7 @@ SRCS = \
 	GfxPrimitives.cs \
 	$(NULL)
 
-CSFLAGS += /unsafe
+CSFLAGS += /target:winexe
 
 REFS = \
 	Tao.Sdl.dll \

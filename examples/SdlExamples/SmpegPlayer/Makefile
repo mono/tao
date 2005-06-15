@@ -15,7 +15,7 @@ EXAMPLE_DATA = \
 	Data/SdlExamples.SmpegPlayer.mpg \
 	$(NULL)
 
-CSFLAGS += /unsafe
+CSFLAGS += /target:winexe
 
 REFS = \
 	Tao.Sdl.dll \

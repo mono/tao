@@ -11,7 +11,13 @@ SRCS = \
 	Lesson25.cs \
 	$(NULL)
 
-CSFLAGS += /unsafe
+EXAMPLE_DATA = \
+	Data/NeHe.Lesson25.Sphere.txt \
+	Data/NeHe.Lesson25.Torus.txt \
+	Data/NeHe.Lesson25.Tube.txt \
+	$(NULL)
+
+CSFLAGS += /target:winexe
 
 REFS = \
 	Tao.OpenGl.dll \

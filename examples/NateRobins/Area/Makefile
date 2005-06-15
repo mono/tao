@@ -11,7 +11,7 @@ SRCS = \
 	Area.cs \
 	$(NULL)
 
-CSFLAGS += /unsafe
+CSFLAGS += /target:winexe
 
 REFS = \
 	Tao.OpenGl.dll \

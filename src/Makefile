@@ -12,11 +12,11 @@ DIRS = \
 	Tao.OpenGl.Glu \
 	Tao.Cg \
 	Tao.DevIl \
+	Tao.PostProcess \
 	Tao.FreeGlut \
 	Tao.Glfw \
 	Tao.Ode \
 	Tao.OpenAl \
-	Tao.PostProcess \
 	Tao.Sdl \
 	Tao.Platform.Windows \
 	$(NULL)
