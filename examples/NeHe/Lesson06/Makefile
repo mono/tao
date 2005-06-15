@@ -12,7 +12,7 @@ SRCS = \
 	$(NULL)
 
 EXAMPLE_DATA = \
-	Data/NeHe.Lesson06.Nehe.bmp \
+	Data/NeHe.Lesson06.NeHe.bmp \
 	$(NULL)
 
 CSFLAGS += /target:winexe
