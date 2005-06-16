@@ -17,6 +17,7 @@ REFFLAGS := $(REFS:%=$(REFFLAG):%)
 PROGRAM_DEST = $(DESTDIR)/bin
 LIBRARY_DEST = $(DESTDIR)/bin
 EXAMPLE_DEST = $(DESTDIR)/examples
+OBJ_DEST     = $(DEPTH)/obj
 
 ifdef RUN_WITH_MONO
  RUN_EXE = mono
@@ -34,7 +35,7 @@ all::
 clean::
 	$(LOOP_OVER_DIRS)
 
-build: $(LIBRARY) $(PROGRAM) $(EXAMPLE) $(EXTRA_LIB_DIST) $(EXAMPLE_DATA) $(LIBRARY_DEST) $(EXAMPLE_DEST) $(EXAMPLE_DEST)/Data
+build: $(LIBRARY) $(PROGRAM) $(EXAMPLE) $(EXTRA_LIB_DIST) $(EXAMPLE_DATA) $(LIBRARY_DEST) $(EXAMPLE_DEST) $(EXAMPLE_DEST)/Data $(OBJ_DEST)
 	@for f in $(EXTRA_LIB_DIST); do \
 		cp $$f $(LIBRARY_DEST); \
 	done
@@ -83,19 +84,19 @@ else
 endif
 
 $(LIBRARY_DEST)/$(LIBRARY).dll: $(LIBRARY)-pre.dll.pp.il
-	$(ILASM) $(STRONGFLAG) /dll $< /out:$@
+	$(ILASM) $(STRONGFLAG) /dll $(OBJ_DEST)/$< /out:$@
 
 $(LIBRARY)-pre.dll.pp.il: $(PROGRAM_DEST)/Tao.PostProcess.exe $(LIBRARY)-pre.dll.il
-	$(RUN_EXE) $(PROGRAM_DEST)/Tao.PostProcess.exe $(LIBRARY)-pre.dll.il $(LIBRARY)-pre.dll.pp.il /R /Y
+	$(RUN_EXE) $(PROGRAM_DEST)/Tao.PostProcess.exe $(OBJ_DEST)/$(LIBRARY)-pre.dll.il $(OBJ_DEST)/$(LIBRARY)-pre.dll.pp.il /R /Y
 
 $(LIBRARY)-pre.dll.il: $(LIBRARY)-pre.dll
-	$(ILDASM) /OUT=$@ $<
+	$(ILDASM) /OUT=$(OBJ_DEST)/$@ $(OBJ_DEST)/$<
 
 $(LIBRARY)-pre.dll: $(SRCS)
-	$(CSC) /target:library $(CSFLAGS) /out:$@ $^ /lib:$(LIBRARY_DEST) $(REFFLAGS)
+	$(CSC) /target:library $(CSFLAGS) /out:$(OBJ_DEST)/$@ $^ /lib:$(LIBRARY_DEST) $(REFFLAGS)
 
 clean::
-	rm -f $(LIBRARY)-pre*
+	rm -f $(OBJ_DEST)/$(LIBRARY)-pre*
 
 endif # POSTPROCESS_LIBRARY
 endif # !WIN32
@@ -166,4 +167,7 @@ $(EXAMPLE_DEST):
 
 $(EXAMPLE_DEST)/Data:
 	mkdir -p $(EXAMPLE_DEST)/Data
+
+$(OBJ_DEST):
+	mkdir -p $(OBJ_DEST)
 

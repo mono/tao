@@ -30,10 +30,10 @@ else
 endif
 
 $(LIBRARY_DEST)/Tao.OpenGl.dll: Tao.OpenGl-pre.dll
-	$(RUN_EXE) $(PROGRAM_DEST)/Tao.GlPostProcess.exe $< $@ "$(SNKFILE)" Tao.OpenGl.Gl Tao.OpenGl.ContextGl
+	$(RUN_EXE) $(PROGRAM_DEST)/Tao.GlPostProcess.exe $(OBJ_DEST)/$< $@ "$(SNKFILE)" Tao.OpenGl.Gl Tao.OpenGl.ContextGl
 
 Tao.OpenGl-pre.dll: $(SRCS)
-	$(CSC) /target:library $(CSFLAGS) /out:$@ $^ /lib:$(LIBRARY_DEST) $(REFFLAGS)
+	$(CSC) /target:library $(CSFLAGS) /out:$(OBJ_DEST)/$@ $^ /lib:$(LIBRARY_DEST) $(REFFLAGS)
 
 clean::
-	rm -f Tao.OpenGl-pre.dll
+	rm -f $(OBJ_DEST)/Tao.OpenGl-pre.dll
