@@ -27,6 +27,7 @@ SOFTWARE.
 
 using System;
 using System.Collections;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security;
 
@@ -73,6 +74,12 @@ namespace Tao.Sdl {
 
 		private const int BYTE_SIZE = 8;
 		#endregion Private Constants
+
+		#region Private Methods
+		// OS X compatibility.
+		[DllImport("/System/Library/Frameworks/Cocoa.framework/Cocoa", EntryPoint="NSApplicationLoad")]
+		private static extern void NSApplicationLoad();
+		#endregion Private Methods
 
 		#region Public Constants
 		#region SDL.h
@@ -4790,6 +4797,9 @@ namespace Tao.Sdl {
 		#endregion Public Structs
 
 		#region Private Static Fields
+		// Private pointers to NSAutoreleasePool class for Cocoa# on OS X.
+		// Used for <see cref="SDL_Init"/> and <see cref="SDL_InitSubSystem"/>.
+		private static object pool;
 
 		/// <summary>
 		///		Private byte array holding the internal keyboard state.
@@ -4899,6 +4909,10 @@ namespace Tao.Sdl {
 		#region Sdl Methods
 		#region SDL.h
 		#region int SDL_Init(int flags)
+		// Called from SDL_Init
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDL_Init"), SuppressUnmanagedCodeSecurity]
+		private static extern int __SDL_Init(int flags);
+
 		/// <summary>
 		///     Initializes SDL and the specified subsystems.
 		/// </summary>
@@ -4963,11 +4977,24 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <seealso cref="SDL_InitSubSystem" />
 		/// <seealso cref="SDL_Quit" />
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_Init(int flags);
+		public static int SDL_Init(int flags) 
+		{
+		    	//Mac OSX code
+			Assembly af = Assembly.LoadWithPartialName("Apple.Foundation");
+			if (af != null) {
+				System.Type NSAutoreleasePool = af.GetType("NSAutoreleasePool");
+				pool = af.CreateInstance("Apple.Foundation.NSAutoreleasePool");
+				pool.GetType().GetMethod("init").Invoke(pool, null);
+				NSApplicationLoad();
+			}
+			return __SDL_Init(flags);
+		}
 		#endregion int SDL_Init(int flags)
-
 		#region int SDL_InitSubSystem(int flags)
+        	// Called from SDL_InitSubSystem
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDL_InitSubSystem"), SuppressUnmanagedCodeSecurity]
+		private static extern int __SDL_InitSubSystem(int flags);
+
 		/// <summary>
 		///     Initializes specified subsystems.
 		/// </summary>
@@ -5031,8 +5058,18 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_Quit" />
 		/// <seealso cref="SDL_QuitSubSystem" />
 		/// 
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_InitSubSystem(int flags);
+		public static int SDL_InitSubSystem(int flags) 
+		{
+		    	// Mac OSX code
+			Assembly af = Assembly.LoadWithPartialName("Apple.Foundation");
+			if (af != null) {
+				System.Type NSAutoreleasePool = af.GetType("NSAutoreleasePool");
+				pool = af.CreateInstance("Apple.Foundation.NSAutoreleasePool");
+				pool.GetType().GetMethod("init").Invoke(pool, null);
+				NSApplicationLoad();
+			}
+			return __SDL_InitSubSystem(flags);
+		}
 		#endregion int SDL_InitSubSystem(int flags)
 
 		#region SDL_QuitSubSystem(int flags)

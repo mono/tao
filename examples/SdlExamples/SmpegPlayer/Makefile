@@ -3,8 +3,8 @@ DEPTH = ../../..
 
 include $(DEPTH)/config.mk
 
-EXAMPLE = SdlExamples
-EXAMPLE_CATEGORY = SmpegPlayer
+EXAMPLE = SmpegPlayer
+EXAMPLE_CATEGORY = SdlExamples
 
 SRCS = \
 	AssemblyInfo.cs \
