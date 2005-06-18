@@ -10,6 +10,6 @@ SRCS = \
 	Cg.cs \
 	$(NULL)
 
-CSFLAGS += /unsafe
+CSFLAGS += /unsafe /doc:$(LIBRARY_DEST)/$(LIBRARY).xml
 
 include $(DEPTH)/rules.mk

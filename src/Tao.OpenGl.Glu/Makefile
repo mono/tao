@@ -14,6 +14,6 @@ REFS = \
 	Tao.OpenGl.dll \
 	$(NULL)
 
-CSFLAGS += /unsafe
+CSFLAGS += /unsafe /doc:$(LIBRARY_DEST)/$(LIBRARY).xml
 
 include $(DEPTH)/rules.mk

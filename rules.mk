@@ -105,7 +105,7 @@ $(LIBRARY_DEST)/$(LIBRARY).dll.config: $(LIBRARY).dll.config
 	cp -f $^ $@
 
 clean::
-	rm -f $(LIBRARY_DEST)/$(LIBRARY).dll $(LIBRARY_DEST)/$(LIBRARY).dll.config
+	rm -f $(LIBRARY_DEST)/$(LIBRARY).dll $(LIBRARY_DEST)/$(LIBRARY).dll.config $(LIBRARY_DEST)/$(LIBRARY).xml 
 endif
 
 ##

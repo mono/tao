@@ -71,6 +71,7 @@
 	    <Files>
 		<File>AssemblyInfo.cs</File>
 		<File>Glut.cs</File>
+		<File>DelegateCallingConventionCdeclAttribute.cs</File>
 	    </Files>
 	</Project>
 	<Project name="Tao.OpenGl.ExtensionLoader" path="..\\Tao.OpenGl.ExtensionLoader" language="C#" type="Library">

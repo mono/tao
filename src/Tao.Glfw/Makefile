@@ -14,4 +14,6 @@ REFS = \
 	Tao.OpenGl.dll \
 	$(NULL)
 
+CSFLAGS += /doc:$(LIBRARY_DEST)/$(LIBRARY).xml
+
 include $(DEPTH)/rules.mk

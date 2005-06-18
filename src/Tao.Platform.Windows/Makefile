@@ -18,7 +18,7 @@ SRCS = \
 	Winmm.cs \
 	$(NULL)
 
-CSFLAGS += /unsafe
+CSFLAGS += /unsafe /doc:$(LIBRARY_DEST)/$(LIBRARY).xml
 
 REFS = \
 	System.Drawing.dll \
