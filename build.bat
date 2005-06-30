@@ -7,6 +7,7 @@ echo src
 chdir "src"
 echo src/Tao.OpenGl.ExtensionLoader
 chdir "Tao.OpenGl.ExtensionLoader"
+csc /nologo /target:library /D:WIN32 /doc:..\..\dist\bin\Tao.OpenGl.ExtensionLoader.xml /out:..\..\dist\bin\Tao.OpenGl.ExtensionLoader.dll AssemblyInfo.cs GlExtensionLoader.cs /lib:..\..\dist\bin 
 copy /y Tao.OpenGl.ExtensionLoader.dll.config ..\..\dist\bin\Tao.OpenGl.ExtensionLoader.dll.config
 chdir ..
 echo src/Tao.GlPostProcess
