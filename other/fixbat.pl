@@ -21,6 +21,7 @@ print "REM built from make using fixbat.pl, see other/fixbat.pl\r\n";
 print "mkdir dist\r\n";
 print "mkdir dist\\bin\r\n";
 print "mkdir dist\\examples\r\n";
+print "mkdir obj\r\n";
 
 while (<>) {
   chop;
