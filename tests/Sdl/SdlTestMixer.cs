@@ -109,7 +109,7 @@ namespace Tao.Sdl
 		public void LoadWAV_RW()
 		{
 			InitAudio();		
-			IntPtr resultPtr = SdlMixer.Mix_LoadWAV_RW(Sdl.SDL_RWFromFile("test.wav", "rb"), 1);
+			IntPtr resultPtr = SdlMixer.Mix_LoadWAV_RW(Sdl.SDL_RWFromFile("../../test.wav", "rb"), 1);
 			Assert.IsFalse(resultPtr == IntPtr.Zero);
 			QuitAudio();
 		}
@@ -120,7 +120,7 @@ namespace Tao.Sdl
 		public void LoadWAV()
 		{
 			InitAudio();		
-			IntPtr resultPtr = SdlMixer.Mix_LoadWAV("test.wav");
+			IntPtr resultPtr = SdlMixer.Mix_LoadWAV("../../test.wav");
 			Assert.IsFalse(resultPtr == IntPtr.Zero);
 			QuitAudio();
 		}
@@ -131,7 +131,7 @@ namespace Tao.Sdl
 		public void LoadMUSwav()
 		{
 			InitAudio();		
-			IntPtr resultPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			IntPtr resultPtr = SdlMixer.Mix_LoadMUS("../../test.wav");
 			Assert.IsFalse(resultPtr == IntPtr.Zero);
 			QuitAudio();
 		}
@@ -142,7 +142,7 @@ namespace Tao.Sdl
 		public void LoadMUSmp3()
 		{
 			InitAudio();		
-			IntPtr resultPtr = SdlMixer.Mix_LoadMUS("test.mp3");
+			IntPtr resultPtr = SdlMixer.Mix_LoadMUS("../../test.mp3");
 			Assert.IsFalse(resultPtr == IntPtr.Zero);
 			QuitAudio();
 		}
@@ -153,7 +153,7 @@ namespace Tao.Sdl
 		public void LoadMUSOGG()
 		{
 			InitAudio();		
-			IntPtr resultPtr = SdlMixer.Mix_LoadMUS("test.ogg");
+			IntPtr resultPtr = SdlMixer.Mix_LoadMUS("../../test.ogg");
 			Assert.IsFalse(resultPtr == IntPtr.Zero);
 			QuitAudio();
 		}
@@ -175,7 +175,7 @@ namespace Tao.Sdl
 		public void QuickLoad_WAV()
 		{
 			InitAudio();		
-			IntPtr resultPtr = SdlMixer.Mix_QuickLoad_WAV(Sdl.SDL_RWFromFile("test.wav", "rb"));
+			IntPtr resultPtr = SdlMixer.Mix_QuickLoad_WAV(Sdl.SDL_RWFromFile("../../test.wav", "rb"));
 			Assert.IsFalse(resultPtr == IntPtr.Zero);
 			QuitAudio();
 		}
@@ -186,7 +186,7 @@ namespace Tao.Sdl
 		public void QuickLoad_RAW()
 		{
 			InitAudio();		
-			IntPtr resultPtr = SdlMixer.Mix_QuickLoad_RAW(Sdl.SDL_RWFromFile("test.wav", "rb"), 1000);
+			IntPtr resultPtr = SdlMixer.Mix_QuickLoad_RAW(Sdl.SDL_RWFromFile("../../test.wav", "rb"), 1000);
 			Assert.IsFalse(resultPtr == IntPtr.Zero);
 			QuitAudio();
 		}
@@ -197,7 +197,7 @@ namespace Tao.Sdl
 		public void FreeChunk()
 		{
 			InitAudio();		
-			IntPtr wavPtr = Sdl.SDL_RWFromFile("test.wav", "rb");
+			IntPtr wavPtr = Sdl.SDL_RWFromFile("../../test.wav", "rb");
 			SdlMixer.Mix_FreeChunk(wavPtr);
 			QuitAudio();
 		}
@@ -208,7 +208,7 @@ namespace Tao.Sdl
 		public void FreeMusic()
 		{
 			InitAudio();		
-			IntPtr wavPtr = Sdl.SDL_RWFromFile("test.wav", "rb");
+			IntPtr wavPtr = Sdl.SDL_RWFromFile("../../test.wav", "rb");
 			SdlMixer.Mix_FreeMusic(wavPtr);
 			QuitAudio();
 		}
@@ -219,7 +219,7 @@ namespace Tao.Sdl
 		public void GetMusicType()
 		{
 			InitAudio();	
-			IntPtr resultPtr = SdlMixer.Mix_LoadMUS("test.wav");
+			IntPtr resultPtr = SdlMixer.Mix_LoadMUS("../../test.wav");
 			int musicType = SdlMixer.Mix_GetMusicType(resultPtr);
 			Console.WriteLine("musictype:" + musicType);
 			//Assert.IsFalse(resultPtr == IntPtr.Zero);

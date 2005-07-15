@@ -72,7 +72,7 @@ namespace Tao.Sdl
 
 			//IntPtr intPtr = Smpeg.SMPEG_new("test.mpg", out info, 0); 
 			//IntPtr intPtr = Sdl.SDL_RWFromFile("test.mpg", "rb");
-			IntPtr intPtr = Smpeg.SMPEG_new("test.mpg", out info, 0); 
+			IntPtr intPtr = Smpeg.SMPEG_new("../../test.mpg", out info, 0); 
 			Console.WriteLine("Smpeg_error: " + Smpeg.SMPEG_error(intPtr));
 			Assert.IsFalse(intPtr == IntPtr.Zero);
 			this.Quit();
@@ -87,7 +87,7 @@ namespace Tao.Sdl
 
 			//IntPtr intPtr = Smpeg.SMPEG_new("test.mpg", out info, 0); 
 			//IntPtr intPtr = Sdl.SDL_RWFromFile("test.mpg", "rb");
-			IntPtr intPtr = Smpeg.SMPEG_new_rwops(Sdl.SDL_RWFromFile("test.mpg", "rb"), out info, 0); 
+			IntPtr intPtr = Smpeg.SMPEG_new_rwops(Sdl.SDL_RWFromFile("../../test.mpg", "rb"), out info, 0); 
 			Console.WriteLine("Smpeg_error: " + Smpeg.SMPEG_error(intPtr));
 			Assert.IsFalse(intPtr == IntPtr.Zero);
 			this.Quit();
@@ -109,7 +109,7 @@ namespace Tao.Sdl
 
 			//IntPtr intPtr = Smpeg.SMPEG_new("test.mpg", out info, 0); 
 			//IntPtr intPtr = Sdl.SDL_RWFromFile("test.mpg", "rb");
-			IntPtr intPtr = Smpeg.SMPEG_new("test.mpg", out info, 0); 
+			IntPtr intPtr = Smpeg.SMPEG_new("../../test.mpg", out info, 0); 
 			Console.WriteLine("Smpeg_error: " + Smpeg.SMPEG_error(intPtr));
 			Assert.IsFalse(intPtr == IntPtr.Zero);
 			Smpeg.SMPEG_enableaudio(intPtr, 1);
