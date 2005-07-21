@@ -10,6 +10,6 @@ SRCS = \
 	Ode.cs \
 	$(NULL)
 
-CSFLAGS += /unsafe /doc:$(LIBRARY_DEST)/$(LIBRARY).xml
+CSFLAGS += /unsafe /doc:$(DOC_DEST)/$(LIBRARY).xml
 
 include $(DEPTH)/rules.mk

@@ -47,6 +47,7 @@ namespace Tao.Sdl {
 	/// <p>Binds to functions and definitions in SDL.dll or libSDL.so.</p>
 	/// </remarks>
 	#endregion Class Documentation
+	[SuppressUnmanagedCodeSecurityAttribute()]
 	public sealed class Sdl 
 	{
 		#region Private Constants

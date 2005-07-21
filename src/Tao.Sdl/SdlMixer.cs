@@ -95,6 +95,7 @@ namespace Tao.Sdl {
     ///	functions and other SDL_mixer audio hooks. </code>
     /// </remarks>
     #endregion Class Documentation
+	[SuppressUnmanagedCodeSecurityAttribute()]
     public sealed class SdlMixer 
 	{
         #region Private Constants

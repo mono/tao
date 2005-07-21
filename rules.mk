@@ -17,6 +17,7 @@ REFFLAGS := $(REFS:%=$(REFFLAG):%)
 PROGRAM_DEST = $(DESTDIR)/bin
 LIBRARY_DEST = $(DESTDIR)/bin
 EXAMPLE_DEST = $(DESTDIR)/examples
+DOC_DEST     = $(DESTDIR)/doc
 OBJ_DEST     = $(DEPTH)/obj
 
 ifdef RUN_WITH_MONO
@@ -35,7 +36,7 @@ all::
 clean::
 	$(LOOP_OVER_DIRS)
 
-build: $(OBJ_DEST) $(LIBRARY) $(PROGRAM) $(EXAMPLE) $(EXTRA_LIB_DIST) $(EXAMPLE_DATA) $(LIBRARY_DEST) $(EXAMPLE_DEST) $(EXAMPLE_DEST)/Data 
+build: $(OBJ_DEST) $(LIBRARY) $(PROGRAM) $(EXAMPLE) $(EXTRA_LIB_DIST) $(EXAMPLE_DATA) $(DOC_DEST) $(LIBRARY_DEST) $(EXAMPLE_DEST) $(EXAMPLE_DEST)/Data 
 	@for f in $(EXTRA_LIB_DIST); do \
 		cp $$f $(LIBRARY_DEST); \
 	done
@@ -171,3 +172,5 @@ $(EXAMPLE_DEST)/Data:
 $(OBJ_DEST):
 	mkdir -p $(OBJ_DEST)
 
+$(DOC_DEST):
+	mkdir -p $(DOC_DEST)

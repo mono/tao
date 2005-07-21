@@ -100,6 +100,7 @@ namespace Tao.Sdl {
     ///	</code>
     /// </remarks>
     #endregion Class Documentation
+	[SuppressUnmanagedCodeSecurityAttribute()]
     public sealed class SdlImage 
 	{
         #region Private Constants

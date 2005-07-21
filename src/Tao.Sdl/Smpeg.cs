@@ -39,6 +39,7 @@ namespace Tao.Sdl {
     /// <remarks>
     /// </remarks>
     #endregion Class Documentation
+	[SuppressUnmanagedCodeSecurityAttribute()]
     public sealed class Smpeg 
 	{
         #region Private Constants

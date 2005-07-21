@@ -12,6 +12,6 @@ SRCS = \
 	Ilut.cs \
 	$(NULL)
 
-CSFLAGS += /doc:$(LIBRARY_DEST)/$(LIBRARY).xml
+CSFLAGS += /doc:$(DOC_DEST)/$(LIBRARY).xml
 
 include $(DEPTH)/rules.mk

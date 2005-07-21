@@ -48,6 +48,7 @@ namespace Tao.Sdl
 	/// MMX image filters (SDL_imageFilter.h)</p>
 	/// </summary>
 	#endregion Class Documentation
+	[SuppressUnmanagedCodeSecurityAttribute()]
 	public sealed class SdlGfx
 	{
 		#region Private Constants
