@@ -5,6 +5,7 @@ include $(DEPTH)/config.mk
 
 LIBRARY = Tao.Platform.Windows
 POSTPROCESS_LIBRARY = 1
+DOCS = 1
 
 SRCS = \
 	AssemblyInfo.cs \

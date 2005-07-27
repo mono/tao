@@ -4,6 +4,7 @@ DEPTH = ../..
 include $(DEPTH)/config.mk
 
 LIBRARY = Tao.FreeGlut
+DOCS = 1
 POSTPROCESS_LIBRARY = 1
 
 SRCS = \

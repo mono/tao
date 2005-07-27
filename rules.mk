@@ -19,6 +19,7 @@ LIBRARY_DEST = $(DESTDIR)/bin
 EXAMPLE_DEST = $(DESTDIR)/examples
 DOC_DEST     = $(DESTDIR)/doc
 OBJ_DEST     = $(DEPTH)/obj
+DOC_OBJ_DEST = $(OBJ_DEST)/doc
 
 ifdef RUN_WITH_MONO
  RUN_EXE = mono
@@ -34,6 +35,9 @@ all::
 	$(MAKE) build
 
 clean::
+	$(LOOP_OVER_DIRS)
+
+docs::
 	$(LOOP_OVER_DIRS)
 
 build: $(OBJ_DEST) $(LIBRARY) $(PROGRAM) $(EXAMPLE) $(EXTRA_LIB_DIST) $(EXAMPLE_DATA) $(DOC_DEST) $(LIBRARY_DEST) $(EXAMPLE_DEST) $(EXAMPLE_DEST)/Data 
@@ -106,7 +110,16 @@ $(LIBRARY_DEST)/$(LIBRARY).dll.config: $(LIBRARY).dll.config
 	cp -f $^ $@
 
 clean::
-	rm -f $(LIBRARY_DEST)/$(LIBRARY).dll $(LIBRARY_DEST)/$(LIBRARY).dll.config $(LIBRARY_DEST)/$(LIBRARY).xml 
+	rm -f $(LIBRARY_DEST)/$(LIBRARY).dll $(LIBRARY_DEST)/$(LIBRARY).dll.config $(DOC_DEST)/$(LIBRARY).xml $(DOC_DEST)/$(LIBRARY).chm $(OBJ_DEST)/*.chm
+	rm -rf $(DOC_OBJ_DEST)
+
+
+docs::
+ifneq (,$(DOCS))
+	$(NDOC) -project=$(LIBRARY).ndoc
+	cp -f $(DOC_OBJ_DEST)/$(LIBRARY).chm $(DOC_DEST)/$(LIBRARY).chm
+endif
+
 endif
 
 ##
@@ -150,7 +163,6 @@ clean::
 	rm -f $(EXAMPLE_DATA_FILES:%=$(EXAMPLE_DEST)/Data/%)
 endif
 
-
 ##
 ## Rules for creating output dirs
 ##
@@ -171,6 +183,9 @@ $(EXAMPLE_DEST)/Data:
 
 $(OBJ_DEST):
 	mkdir -p $(OBJ_DEST)
+	
+$(DOC_OBJ_DEST):
+	mkdir -p $(OBJ_DEST)/doc
 
 $(DOC_DEST):
 	mkdir -p $(DOC_DEST)

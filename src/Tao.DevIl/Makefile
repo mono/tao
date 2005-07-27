@@ -5,6 +5,8 @@ include $(DEPTH)/config.mk
 
 LIBRARY = Tao.DevIl
 
+DOCS = 1
+
 SRCS = \
 	AssemblyInfo.cs \
 	Il.cs \

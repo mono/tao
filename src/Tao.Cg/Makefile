@@ -4,6 +4,7 @@ DEPTH = ../..
 include $(DEPTH)/config.mk
 
 LIBRARY = Tao.Cg
+DOCS = 1
 
 SRCS = \
 	AssemblyInfo.cs \

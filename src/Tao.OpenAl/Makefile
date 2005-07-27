@@ -4,6 +4,7 @@ DEPTH = ../..
 include $(DEPTH)/config.mk
 
 LIBRARY = Tao.OpenAl
+DOCS = 1
 
 SRCS = \
 	AssemblyInfo.cs \

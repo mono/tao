@@ -45,3 +45,9 @@ clean:
 	for d in $(DIRS); do \
 		$(MAKE) -C $$d $@; \
 	done
+
+docs:
+	@$(EXIT_ON_ERROR) \
+	for d in $(DIRS); do \
+		$(MAKE) -C $$d $@; \
+	done
