@@ -233,7 +233,7 @@ Function AddManagedDLL
   Exch
   Exch $R1
  
-  nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.432\GacUtil.exe" /i "$R0" /f'
+  call GACInstall
   WriteRegStr HKLM "SOFTWARE\Microsoft\.NETFramework\AssemblyFolders\$R1" "" "$R0"
   WriteRegStr HKCU "SOFTWARE\Microsoft\.NETFramework\AssemblyFolders\$R1" "" "$R0"
   WriteRegStr HKLM "SOFTWARE\Microsoft\VisualStudio\7.1\AssemblyFolders\$R1" "" "$R0"
@@ -393,6 +393,17 @@ Function CreateExampleShortcuts
 	Push $example_dir
 	Push $filename
   	call AddExampleToStartMenu
+	FindNext $file_handle $filename
+  	Goto loop
+  done:
+
+FunctionEnd
+
+Function GACInstall
+  FindFirst $file_handle $filename $INSTDIR\dist\bin\*.dll
+  loop:
+	StrCmp $filename "" done
+	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /i "$INSTDIR\dist\bin\$filename" /f'
 	FindNext $file_handle $filename
   	Goto loop
   done:
