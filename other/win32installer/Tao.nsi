@@ -246,7 +246,9 @@ Function un.DeleteManagedDLLKey
   Exch $R0
   Exch
   Exch $R1
- 
+  
+  Call un.GACUnInstall
+  
   DeleteRegKey HKLM "SOFTWARE\Microsoft\.NETFramework\AssemblyFolders\$R1" 
   DeleteRegKey HKCU "SOFTWARE\Microsoft\.NETFramework\AssemblyFolders\$R1" 
   DeleteRegKey HKLM "SOFTWARE\Microsoft\VisualStudio\7.1\AssemblyFolders\$R1"
@@ -294,7 +296,6 @@ Section Uninstall
   SetOutPath "$DESKTOP"
   
   RMDir /r "$SMPROGRAMS\Tao"
-  RMDir /r "$INSTDIR"
   
   DeleteRegKey ${PRODUCT_UNINST_ROOT_KEY} "${PRODUCT_UNINST_KEY}"
   DeleteRegKey HKLM "${PRODUCT_DIR_REGKEY}"
@@ -302,6 +303,8 @@ Section Uninstall
   Push "Tao"
   Push $INSTDIR\bin\assemblies
   Call un.DeleteManagedDLLKey
+  
+  RMDir /r "$INSTDIR"
 SectionEnd
 
 ; GetWindowsVersion, taken from NSIS help, modified for our purposes
@@ -404,6 +407,17 @@ Function GACInstall
   loop:
 	StrCmp $filename "" done
 	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /i "$INSTDIR\dist\bin\$filename" /f'
+	FindNext $file_handle $filename
+  	Goto loop
+  done:
+
+FunctionEnd
+
+Function un.GACUnInstall
+  FindFirst $file_handle $filename $INSTDIR\dist\bin\*.dll
+  loop:
+	StrCmp $filename "" done
+	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "$INSTDIR\dist\bin\$filename" '
 	FindNext $file_handle $filename
   	Goto loop
   done:
