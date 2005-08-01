@@ -1,5 +1,5 @@
-Tao.Ode 0.5.0.0
-Copyright ©2003-2005 Tao Framework Team
+Tao.Ode 0.5.0.1
+Copyright ï¿½2003-2005 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -8,5 +8,8 @@ Tao.Ode is an ODE API binding for .NET, implementing ODE 0.5.
 
 Change Log:
 
+0.5.0.1 - July 24, 2005:
+	Merge in changes from cody (Sebastian Kotulla)
+	
 0.5.0.0 - November 28, 2004:
     Initial release.

@@ -1,0 +1,3 @@
+Randy Ridge - Original author of Tao Ode bindings
+cody (Sebastian Kotulla) - submitter of new expanded ODE bindings to the TAO project
+Terry L. Triplett - Integration of cody bindings with original Tao bindings
