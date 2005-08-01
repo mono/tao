@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright ©2003-2005 Tao Framework Team
+Copyright ï¿½2003-2005 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -104,11 +104,11 @@ namespace OdeExamples {
             // Run the simulation loop for 2 seconds
             while(time < 2) {
                 // Get the body's current position
-                float[] position = Ode.dBodyGetPosition(body);
+                Ode.dVector3 position = Ode.dBodyGetPosition(body);
 
                 // Get the body's current linear velocity
-                float[] velocity = Ode.dBodyGetLinearVel(body);
-
+				Ode.dVector3 velocity = Ode.dBodyGetLinearVel(body);
+				
                 // Print out the 'time', the body's position, and its velocity
                 Console.WriteLine("{0:0.00} sec: pos=({1:0.00}, {2:0.00}, {3:0.00})  vel={4:0.00}, {5:0.00}, {6:0.00})",
                     time, position[0], position[1], position[2], velocity[0], velocity[1], velocity[2]);
