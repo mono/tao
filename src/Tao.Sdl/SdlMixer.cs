@@ -106,7 +106,7 @@ namespace Tao.Sdl {
         /// <remarks>
         ///     Specifies SDL_mixer.dll everywhere; will be mapped via .config for mono.
         /// </remarks>
-        private const string SDL_MIXER_NATIVE_LIBRARY = "SDL_mixer.dll";
+        private const string SDL_MIXER_NATIVE_LIBRARY = "SDL_mixer";
         #endregion string SDL_MIXER_NATIVE_LIBRARY
 
         #region CallingConvention CALLING_CONVENTION
