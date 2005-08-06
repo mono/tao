@@ -7807,7 +7807,36 @@ namespace Tao.Sdl {
 		#endregion IntPtr SDL_RWFromMem(byte[] mem, int size)
 		#endregion SDL_rwops.h
 
-		// SDL_syswm.h -- TODO
+		#region SDL_syswm.h
+		/// <summary>
+		///	Gives you custom hooks into the window manager information.
+		/// </summary>
+		/// <remarks>
+		/// This function gives you custom hooks into the window manager information.
+		/// It fills the structure pointed to by 'info' with custom information and
+		/// returns 1 if the function is implemented.  If it's not implemented, or
+		/// the version member of the 'info' structure is invalid, it returns 0. 
+		/// 
+		/// You typically use this function like this:
+		/// SDL_SysWMInfo info;
+		/// SDL_VERSION(&amp;info.version);
+		/// if ( SDL_GetWMInfo(&amp;info) ) { ... }
+		///	<p>
+		/// <code>extern DECLSPEC int SDLCALL SDL_GetWMInfo(SDL_SysWMinfo *info)</code>
+		///	</p>
+		/// </remarks>
+		/// <param name="info">
+		/// 	IntPtr to SDL_SysWminfo struct
+		/// </param>
+		/// <returns>It fills the structure pointed to by 'info' 
+		/// with custom information and
+		/// returns 1 if the function is implemented.  If it's not implemented, or
+		/// the version member of the 'info' structure is invalid, it returns 0.
+		/// </returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_GetWMInfo(IntPtr info);
+		#endregion SDL_syswm.h
+
 		// SDL_thread.h -- skipped. Superceded by System.Threading class
 
 		#region SDL_timer.h
