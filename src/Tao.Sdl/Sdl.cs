@@ -7826,7 +7826,7 @@ namespace Tao.Sdl {
 		///	</p>
 		/// </remarks>
 		/// <param name="info">
-		/// 	IntPtr to SDL_SysWminfo struct
+		/// 	IntPtr to SDL_SysWMinfo struct
 		/// </param>
 		/// <returns>It fills the structure pointed to by 'info' 
 		/// with custom information and
@@ -7834,7 +7834,7 @@ namespace Tao.Sdl {
 		/// the version member of the 'info' structure is invalid, it returns 0.
 		/// </returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_GetWMInfo(IntPtr info);
+		public static extern int SDL_GetWMInfo(ref SDL_SysWMinfo info);
 		#endregion SDL_syswm.h
 
 		// SDL_thread.h -- skipped. Superceded by System.Threading class
