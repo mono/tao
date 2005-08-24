@@ -6,6 +6,10 @@ using System.Runtime.InteropServices;
 
 namespace Tao.Sdl
 {
+	#region SDL_syswm.h
+
+	#endregion SDL_syswm.h
+
 	#region SDL_video.h
 	/// <summary>
 	/// SDL Tests.
@@ -54,6 +58,14 @@ namespace Tao.Sdl
 				flags);
 			Assert.IsNotNull(surfacePtr);
 			return surfacePtr;
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		private IntPtr VideoSetupOpenGl()
+		{
+			flags |= Sdl.SDL_OPENGL;
+			return this.VideoSetup();
 		}
 		/// <summary>
 		/// 
@@ -583,6 +595,24 @@ namespace Tao.Sdl
 			IntPtr surfacePtr = VideoSetup();
 			Sdl.SDL_WM_SetIcon(Sdl.SDL_LoadBMP("testicon.bmp"), null);
 			Thread.Sleep(sleepTime);
+		}
+		/// <summary>
+		/// Tests to ensure that WindowManager correctly returns the info struct.
+		/// </summary>
+		[Test] 
+		public void GetWMinfo()
+		{
+			IntPtr surfacePtr = VideoSetup();
+			Sdl.SDL_SysWMinfo_Windows info;
+			int result = Sdl.SDL_GetWMInfo(out info);
+			Console.WriteLine("result: " + result);
+			System.Console.WriteLine("{0} {1} {2}", info.version.ToString(), info.window, info.hglrc);
+
+//			IntPtr info = IntPtr.Zero;
+//			int result = Sdl.SDL_GetWMInfo(out info);
+//			Console.WriteLine("result: " + result);
+//			Sdl.SDL_SysWMinfo_Windows infoStruct = (Sdl.SDL_SysWMinfo_Windows)Marshal.PtrToStructure(info, typeof(Sdl.SDL_SysWMinfo_Windows));
+//			System.Console.WriteLine("{0}", infoStruct);
 		}
 	}
 	#endregion SDL_video.h

@@ -31,7 +31,8 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace Tao.Sdl {
+namespace Tao.Sdl 
+{
 	#region Class Documentation
 	/// <summary>
 	///     Simple DirectMedia Layer binding for .NET, implementing SDL 1.2.8.
@@ -1054,15 +1055,15 @@ namespace Tao.Sdl {
 
 		#region SDL_keysym.h
 		#region SDLKey
-//		/// <summary>
-//		/// What we really want is a mapping of every raw key on the keyboard.
-//		/// To support international keyboards, we use the range 0xA1 - 0xFF
-//		/// as international virtual keycodes.  
-//		/// We'll follow in the footsteps of X11...
-//		/// The keyboard syms have been cleverly chosen to map to ASCII
-//		/// </summary>
-//		//public enum SDLKey 
-//		//{
+		//		/// <summary>
+		//		/// What we really want is a mapping of every raw key on the keyboard.
+		//		/// To support international keyboards, we use the range 0xA1 - 0xFF
+		//		/// as international virtual keycodes.  
+		//		/// We'll follow in the footsteps of X11...
+		//		/// The keyboard syms have been cleverly chosen to map to ASCII
+		//		/// </summary>
+		//		//public enum SDLKey 
+		//		//{
 		/// <summary>
 		/// 
 		/// </summary>
@@ -2123,7 +2124,14 @@ namespace Tao.Sdl {
 		// SDL_opengl.h -- skipped. superceded by Tao.OpenGL
 		// SDL_quit.h -- none
 		// SDL_rwops -- skipped for now, might be useful.
-		// SDL_syswm.h -- TODO
+
+		#region SDL_syswm.h
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_SYSWM_X11 = 0;
+		#endregion SDL_syswm.h
+
 		// SDL_thread.h -- Skipped. Superceded by System.Threading class
 		// SDL_timer.h -- none
 
@@ -2428,7 +2436,7 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_OpenAudio"/>
 		/// <seealso cref="SDL_LoadWAV"/>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
-		public struct SDL_AudioSpec 
+			public struct SDL_AudioSpec 
 		{
 			/// <summary>
 			/// Audio frequency in samples per second
@@ -3758,7 +3766,7 @@ namespace Tao.Sdl {
 		///			</p>
 		///			</remarks>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
-		public struct SDL_Joystick
+			public struct SDL_Joystick
 		{
 			/// <summary>
 			/// Device index
@@ -3827,7 +3835,7 @@ namespace Tao.Sdl {
 		/// 
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
-		public struct balldelta
+			public struct balldelta
 		{
 			/// <summary>
 			/// 
@@ -3845,7 +3853,7 @@ namespace Tao.Sdl {
 		/// 
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
-		public struct joystick_hwdata
+			public struct joystick_hwdata
 		{
 			/// <summary>
 			/// 
@@ -4032,10 +4040,249 @@ namespace Tao.Sdl {
 		// SDL_rwops -- skipped for now, might be useful.
 		
 		#region SDL_syswm.h
+		#region SDL_SysWMmsg_Unix
+		/// <summary>
+		/// The UNIX custom event structure. TODO
+		/// </summary>
+		/// <remarks>
+		/// <p>Struct in SDL_syswm.h
+		/// <code>
+		/// struct SDL_SysWMmsg {
+		///		SDL_version version;
+		///		SDL_SYSWM_TYPE subsystem;
+		///		union 
+		///		{
+		///		XEvent xevent;
+		/// 	} event;
+		/// };		
+		/// </code>
+		/// </p>
+		/// </remarks>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_SysWMmsg_Unix
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			public SDL_version version;
+			/// <summary>
+			/// 
+			/// </summary>
+			public int subsystem;
+			//TODO
+		}
+		#endregion SDL_SysWMmsg_Unix
+
+		#region SDL_SysWMinfo_Unix
+		/// <summary>
+		/// The UNIX custom window manager information structure. TODO
+		/// </summary>
+		/// <remarks>
+		/// When this structure is returned, it holds information about which
+		/// low level system it is using, and will be one of SDL_SYSWM_TYPE.
+		/// <p>Struct in SDL_syswm.h
+		/// <code>
+		/// struct SDL_SysWMinfo {
+		///		SDL_version version;
+		///		SDL_SYSWM_TYPE subsystem;
+		///		union 
+		///		{
+		///		struct 
+		///		{
+		///			Display *display;	/* The X11 display */
+		///			Window window;		/* The X11 display window */
+		///			/* These locking functions should be called around
+		///					   any X11 functions using the display variable.
+		///					   They lock the event thread, so should not be
+		///			   called around event functions or from event filters.
+		///			 */
+		///			void (*lock_func)(void);
+		///			void (*unlock_func)(void);
+		///
+		///			/* Introduced in SDL 1.0.2 */
+		///			Window fswindow;	/* The X11 fullscreen window */
+		///			Window wmwindow;	/* The X11 managed input window */
+		///		} x11;
+		///	 } info;
+		/// } SDL_SysWMinfo;		
+		/// </code>
+		/// </p>
+		/// </remarks>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_SysWMinfo_Unix
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			public SDL_version version;
+			/// <summary>
+			/// 
+			/// </summary>
+			public int subsystem;
+		}
+		#endregion SDL_SysWMinfo_Unix
+
+		#region SDL_SysWMmsg_Windows
+		/// <summary>
+		/// The Windows custom event structure. TODO
+		/// </summary>
+		/// <remarks>
+		/// <p>Struct in SDL_syswm.h
+		/// <code>
+		/// struct SDL_SysWMmsg {
+		///	SDL_version version;
+		///	HWND hwnd;
+		///	UINT msg;
+		///	WPARAM wParam;
+		///	LPARAM lParam;
+		/// };		
+		/// </code>
+		/// </p>
+		/// </remarks>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_SysWMmsg_Windows
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			public SDL_version version;
+			/// <summary>
+			/// The window for the message
+			/// </summary>
+			public int hwnd;
+			/// <summary>
+			/// The type of message
+			/// </summary>
+			public int msg;
+			/// <summary>
+			/// WORD message parameter
+			/// </summary>
+			public int wParam;
+			/// <summary>
+			/// LONG message parameter
+			/// </summary>
+			public IntPtr lParam;
+		}
+		#endregion SDL_SysWMmsg_Windows
+
+		#region SDL_SysWMinfo_Windows
+		/// <summary>
+		/// The Windows custom window manager information structure. TODO
+		/// </summary>
+		/// <remarks>
+		/// <p>Struct in SDL_syswm.h
+		/// <code>
+		/// struct SDL_SysWMinfo {
+		///	SDL_version version;
+		///	HWND window;
+		///	HGLRC hglrc;
+		/// } SDL_SysWMinfo;		
+		/// </code>
+		/// </p>
+		/// </remarks>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_SysWMinfo_Windows
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			public Sdl.SDL_version version;
+			/// <summary>
+			/// The Win32 display window
+			/// </summary>
+			public int window;
+			/// <summary>
+			/// The OpenGL context, if any
+			/// </summary>
+			public int hglrc;
+		}
+		#endregion SDL_SysWMinfo_Windows
+
+		#region SDL_SysWMmsg_RiscOS
+		/// <summary>
+		/// RISC OS custom event structure
+		/// </summary>
+		/// <remarks>
+		/// <p>Struct in SDL_syswm.h
+		/// <code>
+		/// struct SDL_SysWMmsg {
+		///	SDL_version version;
+		///	int eventCode;
+		/// int pollBlock[64];
+		/// };		
+		/// </code>
+		/// </p>
+		/// </remarks>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_SysWMmsg_RiscOS
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			public SDL_version version;
+			/// <summary>
+			/// The window for the message
+			/// </summary>
+			public int eventCode;
+			/// <summary>
+			/// The window for the message
+			/// </summary>
+			public int[] pollBlock;
+		}
+		#endregion SDL_SysWMmsg_RiscOS
+
+		#region SDL_SysWMinfo_RiscOS
+		/// <summary>
+		/// The RISCOS custom window manager information structure 
+		/// </summary>
+		/// <remarks>
+		/// <p>Struct in SDL_syswm.h
+		/// <code>
+		/// struct SDL_SysWMinfo {
+		///	SDL_version version;
+		///	int wimpVersion;
+		/// int taskHandle;
+		/// int window;
+		/// };		
+		/// </code>
+		/// </p>
+		/// </remarks>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_SysWMinfo_RiscOS
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			public SDL_version version;
+			/// <summary>
+			/// Wimp version running under
+			/// </summary>
+			public int wimpVersion;
+			/// <summary>
+			/// The RISCOS task handle
+			/// </summary>
+			public int taskHandle;
+			/// <summary>
+			/// 
+			/// </summary>
+			public int window;
+		}
+		#endregion SDL_SysWMinfo_RiscOS
+
 		#region SDL_SysWMmsg
 		/// <summary>
-		/// 
+		/// The generic custom event structure
 		/// </summary>
+		/// <remarks>
+		/// <p>Struct in SDL_syswm.h
+		/// <code>
+		/// struct SDL_SysWMmsg {
+		///	SDL_version version;
+		///	int data;
+		/// };		
+		/// </code>
+		/// </p>
+		/// </remarks>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
 			public struct SDL_SysWMmsg
 		{
@@ -4052,8 +4299,18 @@ namespace Tao.Sdl {
 
 		#region SDL_SysWMinfo
 		/// <summary>
-		/// 
+		/// The generic custom window manager information structure 
 		/// </summary>
+		/// <remarks>
+		/// <p>Struct in SDL_syswm.h
+		/// <code>
+		/// struct SDL_SysWMinfo {
+		///	SDL_version version;
+		///	int data;
+		/// };		
+		/// </code>
+		/// </p>
+		/// </remarks>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
 			public struct SDL_SysWMinfo
 		{
@@ -4093,7 +4350,8 @@ namespace Tao.Sdl {
 		/// Structure to hold version number of the SDL library
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
-		public struct SDL_version {
+			public struct SDL_version 
+		{
 			/// <summary>
 			/// Major version
 			/// </summary>
@@ -4131,7 +4389,8 @@ namespace Tao.Sdl {
 		/// <see cref="SDL_BlitSurface"/>
 		/// <see cref="SDL_UpdateRect"/>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
-		public struct SDL_Rect {
+			public struct SDL_Rect 
+		{
 			/// <summary>
 			/// x position of the upper-left corner of the rectangle.
 			/// </summary>
@@ -4186,7 +4445,8 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_SetColors" />
 		/// <seealso cref="SDL_Palette" />
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
-		public struct SDL_Color {
+			public struct SDL_Color 
+		{
 			/// <summary>
 			/// Red Intensity
 			/// </summary>
@@ -4238,7 +4498,8 @@ namespace Tao.Sdl {
 		/// <see cref="SDL_SetColors"/>
 		/// <see cref="SDL_SetPalette"/>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]	
-		public struct SDL_Palette {
+			public struct SDL_Palette 
+		{
 			/// <summary>
 			/// Number of colors used in this palette
 			/// </summary>
@@ -4531,7 +4792,8 @@ namespace Tao.Sdl {
 		/// SDL_PREALLOC Surface uses preallocated memory</code>
 		/// </remarks>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
-		public struct SDL_Surface {
+			public struct SDL_Surface 
+		{
 			/// <summary>
 			/// Surface flags
 			/// </summary>
@@ -4608,7 +4870,7 @@ namespace Tao.Sdl {
 		/// <see cref="SDL_GetVideoInfo"/>
 		/// <see cref="SDL_PixelFormat"/>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
-		public struct SDL_VideoInfo 
+			public struct SDL_VideoInfo 
 		{
 			/// <summary>
 			/// 
@@ -4756,7 +5018,7 @@ namespace Tao.Sdl {
 		/// <see cref="SDL_UnlockYUVOverlay"/>
 		/// <see cref="SDL_FreeYUVOverlay"/>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
-		public struct SDL_Overlay
+			public struct SDL_Overlay
 		{
 			/// <summary>
 			/// Overlay format (see below)
@@ -4849,7 +5111,7 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_SetEventFilter" />
 		/// <seealso cref="SDL_GetEventFilter" />
 		[DelegateCallingConventionCdecl]
-		public delegate int SDL_EventFilter([Out] SDL_Event evt);
+			public delegate int SDL_EventFilter([Out] SDL_Event evt);
 		#endregion int SDL_EventFilter([Out] SDL_Event evt)
 		#endregion SDL_events.h
 
@@ -4872,7 +5134,7 @@ namespace Tao.Sdl {
 		/// </remarks>
 		/// <seealso cref="SDL_SetTimer" />
 		[DelegateCallingConventionCdecl]
-		public delegate int SDL_TimerCallback(int interval);
+			public delegate int SDL_TimerCallback(int interval);
 		#endregion int SDL_TimerCallback(int interval)
 
 		#region int SDL_NewTimerCallback(int interval)
@@ -4902,7 +5164,7 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_AddTimer" />
 		/// <seealso cref="SDL_RemoveTimer" />
 		[DelegateCallingConventionCdecl]
-		public delegate int SDL_NewTimerCallback(int interval);
+			public delegate int SDL_NewTimerCallback(int interval);
 		#endregion int SDL_NewTimerCallback(int interval)
 		#endregion SDL_timer.h		
 		#endregion Public Delegates
@@ -4980,9 +5242,10 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_Quit" />
 		public static int SDL_Init(int flags) 
 		{
-		    	//Mac OSX code
+			//Mac OSX code
 			Assembly af = Assembly.LoadWithPartialName("Apple.Foundation");
-			if (af != null) {
+			if (af != null) 
+			{
 				System.Type NSAutoreleasePool = af.GetType("NSAutoreleasePool");
 				pool = af.CreateInstance("Apple.Foundation.NSAutoreleasePool");
 				pool.GetType().GetMethod("init").Invoke(pool, null);
@@ -4992,7 +5255,7 @@ namespace Tao.Sdl {
 		}
 		#endregion int SDL_Init(int flags)
 		#region int SDL_InitSubSystem(int flags)
-        	// Called from SDL_InitSubSystem
+		// Called from SDL_InitSubSystem
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDL_InitSubSystem"), SuppressUnmanagedCodeSecurity]
 		private static extern int __SDL_InitSubSystem(int flags);
 
@@ -5061,9 +5324,10 @@ namespace Tao.Sdl {
 		/// 
 		public static int SDL_InitSubSystem(int flags) 
 		{
-		    	// Mac OSX code
+			// Mac OSX code
 			Assembly af = Assembly.LoadWithPartialName("Apple.Foundation");
-			if (af != null) {
+			if (af != null) 
+			{
 				System.Type NSAutoreleasePool = af.GetType("NSAutoreleasePool");
 				pool = af.CreateInstance("Apple.Foundation.NSAutoreleasePool");
 				pool.GetType().GetMethod("init").Invoke(pool, null);
@@ -5650,7 +5914,7 @@ namespace Tao.Sdl {
 		/// <seealso cref="SDL_FreeWAV"/>
 		public static IntPtr SDL_LoadWAV(string file, out IntPtr spec, out IntPtr audio_buf, out int audio_len)
 		{
-				IntPtr result = SDL_LoadWAV_RW(SDL_RWFromFile(file, "rb"), 1, out spec,  out audio_buf, out audio_len);
+			IntPtr result = SDL_LoadWAV_RW(SDL_RWFromFile(file, "rb"), 1, out spec,  out audio_buf, out audio_len);
 			Console.WriteLine("audio_len: " + audio_len.ToString());
 			return result;
 
@@ -6027,7 +6291,7 @@ namespace Tao.Sdl {
 		/// <seealso cref="CD_FPS"/>
 		public static int MSF_TO_FRAMES(int M, int S, int F)
 		{
-				return (M * 60 * CD_FPS) + (S * CD_FPS) + F;
+			return (M * 60 * CD_FPS) + (S * CD_FPS) + F;
 		}
 		#endregion int MSF_TO_FRAMES(int M, int S, int F)
 
@@ -7821,20 +8085,108 @@ namespace Tao.Sdl {
 		/// SDL_SysWMInfo info;
 		/// SDL_VERSION(&amp;info.version);
 		/// if ( SDL_GetWMInfo(&amp;info) ) { ... }
-		///	<p>
+		/// <p>Binds to C-function call in SDL_rwops.h:
 		/// <code>extern DECLSPEC int SDLCALL SDL_GetWMInfo(SDL_SysWMinfo *info)</code>
 		///	</p>
 		/// </remarks>
 		/// <param name="info">
 		/// 	IntPtr to SDL_SysWMinfo struct
 		/// </param>
-		/// <returns>It fills the structure pointed to by 'info' 
+		/// <returns>
+		/// It fills the structure pointed to by 'info' 
 		/// with custom information and
 		/// returns 1 if the function is implemented.  If it's not implemented, or
 		/// the version member of the 'info' structure is invalid, it returns 0.
 		/// </returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_GetWMInfo(ref object info);
+		public static extern int SDL_GetWMInfo(out Sdl.SDL_SysWMinfo_Unix info);
+
+		/// <summary>
+		///	Gives you custom hooks into the window manager information.
+		/// </summary>
+		/// <remarks>
+		/// This function gives you custom hooks into the window manager information.
+		/// It fills the structure pointed to by 'info' with custom information and
+		/// returns 1 if the function is implemented.  If it's not implemented, or
+		/// the version member of the 'info' structure is invalid, it returns 0. 
+		/// 
+		/// You typically use this function like this:
+		/// SDL_SysWMInfo info;
+		/// SDL_VERSION(&amp;info.version);
+		/// if ( SDL_GetWMInfo(&amp;info) ) { ... }
+		/// <p>Binds to C-function call in SDL_rwops.h:
+		/// <code>extern DECLSPEC int SDLCALL SDL_GetWMInfo(SDL_SysWMinfo *info)</code>
+		///	</p>
+		/// </remarks>
+		/// <param name="info">
+		/// 	IntPtr to SDL_SysWMinfo struct
+		/// </param>
+		/// <returns>
+		/// It fills the structure pointed to by 'info' 
+		/// with custom information and
+		/// returns 1 if the function is implemented.  If it's not implemented, or
+		/// the version member of the 'info' structure is invalid, it returns 0.
+		/// </returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_GetWMInfo(out Sdl.SDL_SysWMinfo_Windows info);
+
+		/// <summary>
+		///	Gives you custom hooks into the window manager information.
+		/// </summary>
+		/// <remarks>
+		/// This function gives you custom hooks into the window manager information.
+		/// It fills the structure pointed to by 'info' with custom information and
+		/// returns 1 if the function is implemented.  If it's not implemented, or
+		/// the version member of the 'info' structure is invalid, it returns 0. 
+		/// 
+		/// You typically use this function like this:
+		/// SDL_SysWMInfo info;
+		/// SDL_VERSION(&amp;info.version);
+		/// if ( SDL_GetWMInfo(&amp;info) ) { ... }
+		/// <p>Binds to C-function call in SDL_rwops.h:
+		/// <code>extern DECLSPEC int SDLCALL SDL_GetWMInfo(SDL_SysWMinfo *info)</code>
+		///	</p>
+		/// </remarks>
+		/// <param name="info">
+		/// 	IntPtr to SDL_SysWMinfo struct
+		/// </param>
+		/// <returns>
+		/// It fills the structure pointed to by 'info' 
+		/// with custom information and
+		/// returns 1 if the function is implemented.  If it's not implemented, or
+		/// the version member of the 'info' structure is invalid, it returns 0.
+		/// </returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_GetWMInfo(out Sdl.SDL_SysWMinfo_RiscOS info);
+
+		/// <summary>
+		///	Gives you custom hooks into the window manager information.
+		/// </summary>
+		/// <remarks>
+		/// This function gives you custom hooks into the window manager information.
+		/// It fills the structure pointed to by 'info' with custom information and
+		/// returns 1 if the function is implemented.  If it's not implemented, or
+		/// the version member of the 'info' structure is invalid, it returns 0. 
+		/// 
+		/// You typically use this function like this:
+		/// SDL_SysWMInfo info;
+		/// SDL_VERSION(&amp;info.version);
+		/// if ( SDL_GetWMInfo(&amp;info) ) { ... }
+		/// <p>Binds to C-function call in SDL_rwops.h:
+		/// <code>extern DECLSPEC int SDLCALL SDL_GetWMInfo(SDL_SysWMinfo *info)</code>
+		///	</p>
+		/// </remarks>
+		/// <param name="info">
+		/// 	IntPtr to SDL_SysWMinfo struct
+		/// </param>
+		/// <returns>
+		/// It fills the structure pointed to by 'info' 
+		/// with custom information and
+		/// returns 1 if the function is implemented.  If it's not implemented, or
+		/// the version member of the 'info' structure is invalid, it returns 0.
+		/// </returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_GetWMInfo(out Sdl.SDL_SysWMinfo info);
 		#endregion SDL_syswm.h
 
 		// SDL_thread.h -- skipped. Superceded by System.Threading class
@@ -8642,7 +8994,7 @@ namespace Tao.Sdl {
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_GetGammaRamp([In,Out] short[] red, 
 			[In,Out] short[] green,
-			 [In,Out] short[] blue);
+			[In,Out] short[] blue);
 		#endregion int SDL_GetGammaRamp(...)
 
 		#region int SDL_SetColors(...)
@@ -9147,28 +9499,28 @@ namespace Tao.Sdl {
 		public static extern void SDL_FreeSurface(IntPtr surface);
 		#endregion void SDL_FreeSurface(IntPtr surface)
 
-//		#region void SDL_FreeSurface(ref IntPtr surface)
-//		/// <summary>
-//		/// Frees (deletes) a SDL_Surface
-//		/// </summary>
-//		/// <remarks>
-//		/// Frees the resources used by a previously created <see cref="SDL_Surface"/>.
-//		/// If the surface was created using <see cref="SDL_CreateRGBSurfaceFrom"/> 
-//		/// then the pixel data is not freed.
-//		/// <p>Binds to C-function call in SDL_video.h:
-//		/// <code>void SDL_FreeSurface(SDL_Surface *surface)</code>
-//		/// </p>
-//		/// </remarks>
-//		/// <param name="surface"></param>
-//		/// <seealso cref="SDL_CreateRGBSurface">SDL_CreateRGBSurface</seealso>
-//		/// <seealso cref="SDL_CreateRGBSurfaceFrom">SDL_CreateRGBSurfaceFrom</seealso>
-//		public static void SDL_FreeSurface(ref IntPtr surface)
-//		{
-//			Marshal.DestroyStructure( surface, typeof(SDL_Surface));
-//			SDL_FreeSurfaceInternal(surface);
-//			surface = IntPtr.Zero;
-//		}
-//		#endregion void SDL_FreeSurface(ref IntPtr surface)
+		//		#region void SDL_FreeSurface(ref IntPtr surface)
+		//		/// <summary>
+		//		/// Frees (deletes) a SDL_Surface
+		//		/// </summary>
+		//		/// <remarks>
+		//		/// Frees the resources used by a previously created <see cref="SDL_Surface"/>.
+		//		/// If the surface was created using <see cref="SDL_CreateRGBSurfaceFrom"/> 
+		//		/// then the pixel data is not freed.
+		//		/// <p>Binds to C-function call in SDL_video.h:
+		//		/// <code>void SDL_FreeSurface(SDL_Surface *surface)</code>
+		//		/// </p>
+		//		/// </remarks>
+		//		/// <param name="surface"></param>
+		//		/// <seealso cref="SDL_CreateRGBSurface">SDL_CreateRGBSurface</seealso>
+		//		/// <seealso cref="SDL_CreateRGBSurfaceFrom">SDL_CreateRGBSurfaceFrom</seealso>
+		//		public static void SDL_FreeSurface(ref IntPtr surface)
+		//		{
+		//			Marshal.DestroyStructure( surface, typeof(SDL_Surface));
+		//			SDL_FreeSurfaceInternal(surface);
+		//			surface = IntPtr.Zero;
+		//		}
+		//		#endregion void SDL_FreeSurface(ref IntPtr surface)
 
 		#region int SDL_LockSurface(IntPtr surface)
 		/// <summary>
