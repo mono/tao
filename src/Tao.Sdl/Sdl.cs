@@ -4445,7 +4445,7 @@ namespace Tao.Sdl
 		/// <seealso cref="SDL_SetColors" />
 		/// <seealso cref="SDL_Palette" />
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_Color 
+			public struct SDL_Color
 		{
 			/// <summary>
 			/// Red Intensity
@@ -4476,6 +4476,13 @@ namespace Tao.Sdl
 				this.g = g;
 				this.b = b;
 				this.unused = 0;
+			}
+			public SDL_Color( byte r, byte g, byte b, byte a)
+			{
+				this.r = r;
+				this.g = g;
+				this.b = b;
+				this.unused = a;
 			}
 		}
 		#endregion SDL_Color
