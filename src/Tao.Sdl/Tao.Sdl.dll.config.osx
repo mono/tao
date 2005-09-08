@@ -1,0 +1,8 @@
+<configuration>
+    <dllmap dll="SDL" target="libSDL.dylib" />
+    <dllmap dll="SDL_image" target="libSDL_image.dylib" />
+    <dllmap dll="SDL_mixer" target="libSDL_mixer.dylib" />
+    <dllmap dll="SDL_ttf" target="libSDL_ttf.dylib" />
+    <dllmap dll="smpeg" target="libsmpeg.dylib" />
+    <dllmap dll="SDL_gfx" target="libSDL_gfx.dylib" />
+</configuration>
