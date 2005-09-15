@@ -4477,6 +4477,13 @@ namespace Tao.Sdl
 				this.b = b;
 				this.unused = 0;
 			}
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="r"></param>
+			/// <param name="g"></param>
+			/// <param name="b"></param>
+			/// <param name="a"></param>
 			public SDL_Color( byte r, byte g, byte b, byte a)
 			{
 				this.r = r;

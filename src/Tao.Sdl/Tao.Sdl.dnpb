@@ -35,6 +35,7 @@
 		<File>SdlImage.cs</File>
 		<File>SdlMixer.cs</File>
 		<File>SdlTtf.cs</File>
+		<File>SdlNet.cs</File>
 		<File>SdlGfx.cs</File>
 		<File>Smpeg.cs</File>
 		<File>DelegateCallingConventionCdeclAttribute.cs</File>
