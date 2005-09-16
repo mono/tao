@@ -1,8 +1,11 @@
 <configuration>
-    <dllmap dll="SDL" target="libSDL.dylib" />
-    <dllmap dll="SDL_image" target="libSDL_image.dylib" />
-    <dllmap dll="SDL_mixer" target="libSDL_mixer.dylib" />
-    <dllmap dll="SDL_ttf" target="libSDL_ttf.dylib" />
-    <dllmap dll="smpeg" target="libsmpeg.dylib" />
-    <dllmap dll="SDL_gfx" target="libSDL_gfx.dylib" />
+	<dllmap dll="SDL" target="/Library/Frameworks/SDL.framework/SDL" />
+	<dllmap dll="SDL_mixer" target="/Library/Frameworks/SDL_mixer.framework/SDL_mixer" />
+	<dllmap dll="SDL_image" target="/Library/Frameworks/SDL_image.framework/SDL_image" />
+	<dllmap dll="SDL_ttf" target="/Library/Frameworks/SDL_ttf.framework/SDL_ttf" />
+	<dllmap dll="smpeg" target="libsmpeg.dylib" />
+	<dllmap dll="SDL_gfx" target="libSDL_gfx.dylib" />
+	<dllmap dll="libCocoaSharpGlue.dylib" target="/Library/Frameworks/Mono.framework/Libraries/libCocoaSharpGlue.dylib" />
+	<dllmap dll="opengl32.dll" target="/System/Library/Frameworks/OpenGL.framework/OpenGL" />
+	<dllmap dll="glu32.dll" target="/System/Library/Frameworks/OpenGL.framework/Libraries/libGLU.dylib" />
 </configuration>

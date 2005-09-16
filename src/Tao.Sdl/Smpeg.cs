@@ -30,41 +30,42 @@ using System.Reflection;
 using System.Security;
 using System.Runtime.InteropServices;
 
-namespace Tao.Sdl {
-    #region Class Documentation
-    /// <summary>
-    /// SMPEG bindings for .NET. 
-    /// <p></p>
-    /// </summary>
-    /// <remarks>
-    /// </remarks>
-    #endregion Class Documentation
+namespace Tao.Sdl 
+{
+	#region Class Documentation
+	/// <summary>
+	/// SMPEG bindings for .NET. 
+	/// <p></p>
+	/// </summary>
+	/// <remarks>
+	/// </remarks>
+	#endregion Class Documentation
 	[SuppressUnmanagedCodeSecurityAttribute()]
-    public sealed class Smpeg 
+	public sealed class Smpeg 
 	{
-        #region Private Constants
-        #region string SMPEG_NATIVE_LIBRARY
-        /// <summary>
-        ///     Specifies Smpeg's native library archive.
-        /// </summary>
-        /// <remarks>
-        ///     Specifies smpeg.dll everywhere; will be mapped via .config for mono.
-        /// </remarks>
-        private const string SMPEG_NATIVE_LIBRARY = "smpeg";
-        #endregion string SMPEG_NATIVE_LIBRARY
+		#region Private Constants
+		#region string SMPEG_NATIVE_LIBRARY
+		/// <summary>
+		///     Specifies Smpeg's native library archive.
+		/// </summary>
+		/// <remarks>
+		///     Specifies smpeg.dll everywhere; will be mapped via .config for mono.
+		/// </remarks>
+		private const string SMPEG_NATIVE_LIBRARY = "smpeg";
+		#endregion string SMPEG_NATIVE_LIBRARY
 
-        #region CallingConvention CALLING_CONVENTION
-        /// <summary>
-        ///     Specifies the calling convention.
-        /// </summary>
-        /// <remarks>
-        ///     Specifies <see cref="CallingConvention.Cdecl" /> 
-        ///     for Windows and Linux.
-        /// </remarks>
-        private const CallingConvention CALLING_CONVENTION = 
-            CallingConvention.Cdecl;
-        #endregion CallingConvention CALLING_CONVENTION
-        #endregion Private Constants
+		#region CallingConvention CALLING_CONVENTION
+		/// <summary>
+		///     Specifies the calling convention.
+		/// </summary>
+		/// <remarks>
+		///     Specifies <see cref="CallingConvention.Cdecl" /> 
+		///     for Windows and Linux.
+		/// </remarks>
+		private const CallingConvention CALLING_CONVENTION = 
+			CallingConvention.Cdecl;
+		#endregion CallingConvention CALLING_CONVENTION
+		#endregion Private Constants
 
 		#region Public Constants
 		#region MPEGfilter.h
@@ -148,7 +149,7 @@ namespace Tao.Sdl {
 		///	}
 		/// </code></p></remarks>
 		[CLSCompliant(false)]
-		public struct SMPEG_Filter
+			public struct SMPEG_Filter
 		{
 			/// <summary>
 			/// 
@@ -251,13 +252,13 @@ namespace Tao.Sdl {
 
 		#region Constructors & Destructors
 		#region Smpeg()
-        /// <summary>
-        /// Prevents instantiation.
-        /// </summary>
-        private Smpeg() 
+		/// <summary>
+		/// Prevents instantiation.
+		/// </summary>
+		private Smpeg() 
 		{
-        }
-        #endregion Smpeg()
+		}
+		#endregion Smpeg()
 		#endregion Constructors & Destructors
 
 		#region Public Delegates
@@ -272,7 +273,7 @@ namespace Tao.Sdl {
 		/// typedef void (* SMPEG_FilterCallback)( SDL_Overlay * dest, SDL_Overlay * source, SDL_Rect * region, SMPEG_FilterInfo * filter_info, void * data );
 		/// </code></p></remarks>
 		[DelegateCallingConventionCdecl]
-		public delegate void SMPEG_FilterCallback(IntPtr dest, IntPtr source, out Sdl.SDL_Rect region, IntPtr filter_info, object data);
+			public delegate void SMPEG_FilterCallback(IntPtr dest, IntPtr source, out Sdl.SDL_Rect region, IntPtr filter_info, object data);
 		#endregion void SMPEG_FilterCallback(...)
 
 		#region void SMPEG_FilterDestroy(IntPtr filter)
@@ -285,7 +286,7 @@ namespace Tao.Sdl {
 		/// typedef void (* SMPEG_FilterDestroy)( struct SMPEG_Filter * filter )
 		/// </code></p></remarks>
 		[DelegateCallingConventionCdecl]
-		public delegate void SMPEG_FilterDestroy(IntPtr filter);
+			public delegate void SMPEG_FilterDestroy(IntPtr filter);
 		#endregion void SMPEG_FilterDestroy(IntPtr filter)
 		#endregion MPEGfilter.h
 
@@ -302,7 +303,7 @@ namespace Tao.Sdl {
 		/// </p>
 		/// </remarks>
 		[DelegateCallingConventionCdecl]
-		public delegate void SMPEG_DisplayCallback(
+			public delegate void SMPEG_DisplayCallback(
 			IntPtr dst, int x, int y, int w, int h);
 		#endregion void SMPEG_DisplayCallback(...)
 		#endregion smpeg.h
@@ -1005,5 +1006,5 @@ namespace Tao.Sdl {
 		#endregion void SMPEG_actualSpec( IntPtr mpeg, ref Sdl.SDL_AudioSpec spec )
 		#endregion smpeg.h
 		#endregion Smpeg Methods
-    }
+	}
 }

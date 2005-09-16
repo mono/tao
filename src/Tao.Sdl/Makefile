@@ -13,6 +13,7 @@ SRCS = \
 	SdlImage.cs \
 	SdlMixer.cs \
 	SdlTtf.cs \
+	SdlNet.cs \
 	SdlGfx.cs \
 	Smpeg.cs \
 	DelegateCallingConventionCdeclAttribute.cs \

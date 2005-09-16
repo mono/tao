@@ -1218,7 +1218,7 @@ namespace Tao.Sdl
 		#region IntPtr rotozoomSurface(...)
 		/// <summary>
 		/// Rotates and zoomes a 32bit or 8bit 'src' surface to newly created 'dst' surface.
- 		/// 'angle' is the rotation in degrees. 'zoom' a scaling factor. If 'smooth' is 1
+		/// 'angle' is the rotation in degrees. 'zoom' a scaling factor. If 'smooth' is 1
 		/// then the destination 32bit surface is anti-aliased. If the surface is not 8bit
 		/// or 32bit RGBA/ABGR it will be converted into a 32bit RGBA format on the fly.
 		/// </summary>
