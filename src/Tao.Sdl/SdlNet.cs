@@ -135,6 +135,16 @@ namespace Tao.Sdl
 		/// It also helps keep track of a packets sending/receiving 
 		/// settings and status. The channels concept helps prioritize,
 		///  or segregate differring types of data packets.
+		/// <p>Binds to C-function call in SDL_net.h:
+		/// <code>
+		/// typedef struct {
+		/// 	int channel;
+		/// 	Uint8 *data;
+		/// 	int len;
+		/// 	int maxlen;
+		/// 	int status;
+		/// 	IPaddress address;
+		/// } UDPpacket;
 		/// </remarks>
 		/// <seealso cref="UDPsocket"/>
 		/// <seealso cref="IPaddress"/>
@@ -176,7 +186,6 @@ namespace Tao.Sdl
 			/// </summary>
 			public IPaddress address;
 		}
-		
 		#endregion UDPpacket
 		
 		#region TCPsocket
@@ -226,10 +235,10 @@ namespace Tao.Sdl
 		/// This is an opaque data type used for socket sets. 
 		/// This is a pointer, and so it could be NULL at times. 
 		/// NULL would indicate no socket set has been created.
-		/// </remarks>remarks>
 		/// <code>
 		/// typedef struct _SDLNet_SocketSet *SDLNet_SocketSet
 		/// </code>
+		/// </remarks>
 		/// <seealso cref="TCPsocket"/>
 		/// <seealso cref="UDPsocket"/>
 		public struct SDLNet_SocketSet
@@ -249,12 +258,12 @@ namespace Tao.Sdl
 		/// the ready will be set according to activity on the socket. 
 		/// This is the only real use for this type, as it doesn't 
 		/// help you know what type of socket it is.
-		/// </remarks>
 		/// <code>
 		/// typedef struct {
 		///     int ready;
 		/// } *SDLNet_GenericSocket;
 		/// </code>
+		/// </remarks>
 		/// <seealso cref="TCPsocket"/>
 		/// <seealso cref="UDPsocket"/>
 		public struct SDLNet_GenericSocket
