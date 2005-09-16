@@ -145,6 +145,8 @@ namespace Tao.Sdl
 		/// 	int status;
 		/// 	IPaddress address;
 		/// } UDPpacket;
+		/// </code>
+		/// </p>
 		/// </remarks>
 		/// <seealso cref="UDPsocket"/>
 		/// <seealso cref="IPaddress"/>
