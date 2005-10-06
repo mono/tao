@@ -4,7 +4,7 @@
 !define PRODUCT_VERSION "1.2.0"
 !define PRODUCT_BUILD "1"
 !define PRODUCT_PUBLISHER "Tao"
-!define PRODUCT_WEB_SITE "http://http://www.mono-project.com/Tao"
+!define PRODUCT_WEB_SITE "http://www.mono-project.com/Tao"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\Tao"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\Tao"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
