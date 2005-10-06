@@ -142,10 +142,10 @@ SectionEnd
 
 Section "Runtime" SecRuntime
   SetOverwrite ifnewer
-  SetOutPath "$INSTDIR\dist\bin"
-  File /r /x .svn ..\..\dist\bin\*.*
+  SetOutPath "$INSTDIR\bin"
+  File /r /x .svn /x *.config ..\..\dist\bin\*.*
   
-  SetOutPath "$INSTDIR\source\lib\win32deps"
+  SetOutPath "$INSTDIR\lib\win32deps"
   File /r /x .svn ..\..\lib\win32deps\*.*
 
   ;Store installation folder
@@ -160,19 +160,19 @@ Section "Runtime" SecRuntime
   !insertmacro MUI_INSTALLOPTIONS_READ $INI_VALUE "runtime.ini" "Field 2" "State"
   StrCmp $INI_VALUE "1" "" +4
   Push "Tao"
-  Push $INSTDIR\dist\bin
+  Push $INSTDIR\bin
   Call AddManagedDLL
 SectionEnd
 
 Section "Examples" SecExamples
   SetOverwrite ifnewer
 
-  SetOutPath "$INSTDIR\dist\examples"
-  File /r /x obj ..\..\dist\examples\*.*
-  File /r /x .svn ..\..\dist\bin\*.dll
-
   SetOutPath "$INSTDIR\source\examples"
   File /r /x obj /x bin /x .svn ..\..\examples\*.*
+  
+  SetOutPath "$INSTDIR\examples"
+  File /r /x obj ..\..\dist\examples\*.*
+  File /r /x .svn ..\..\dist\bin\*.dll
 
   CreateDirectory "$SMPROGRAMS\Tao"
   CreateDirectory "$SMPROGRAMS\Tao\Examples"
@@ -187,6 +187,9 @@ Section "Examples" SecExamples
   call CreateExampleShortcuts
   CreateDirectory "$SMPROGRAMS\Tao\Examples\NateRobbins"
   StrCpy $example_dir "NateRobbins"
+  call CreateExampleShortcuts
+  CreateDirectory "$SMPROGRAMS\Tao\Examples\NeHe"
+  StrCpy $example_dir "NeHe"
   call CreateExampleShortcuts
   CreateDirectory "$SMPROGRAMS\Tao\Examples\OdeExamples"
   StrCpy $example_dir "OdeExamples"
@@ -211,6 +214,9 @@ Section "Documentation" SecDocs
   SetOutPath "$INSTDIR\doc"
   File /r ..\..\dist\doc\*.chm
   File /r ..\..\dist\doc\*.xml
+  
+  CreateDirectory "$SMPROGRAMS\Tao\Documentation"
+  call CreateDocShortcuts
 
   ;Store installation folder
   WriteRegStr HKCU "Software\Tao" "" $INSTDIR
@@ -384,12 +390,12 @@ Function AddExampleToStartMenu
     Pop $0 ; link
     Pop $1 ; dir
     Pop $2 ; file
-    IfFileExists $INSTDIR\dist\examples\$2 0 +2
-      CreateShortCut $SMPROGRAMS\Tao\Examples\$1\$0.lnk $INSTDIR\dist\examples\$2
+    IfFileExists $INSTDIR\examples\$2 0 +2
+      CreateShortCut $SMPROGRAMS\Tao\Examples\$1\$0.lnk $INSTDIR\examples\$2
 FunctionEnd
 
 Function CreateExampleShortcuts
-  FindFirst $file_handle $filename $INSTDIR\dist\examples\$example_dir.*.exe
+  FindFirst $file_handle $filename $INSTDIR\examples\$example_dir.*.exe
   loop:
 	StrCmp $filename "" done
   	Push $filename
@@ -402,11 +408,31 @@ Function CreateExampleShortcuts
 
 FunctionEnd
 
-Function GACInstall
-  FindFirst $file_handle $filename $INSTDIR\dist\bin\*.dll
+Function CreateDocShortcuts
+  FindFirst $file_handle $filename $INSTDIR\doc\*.chm
   loop:
 	StrCmp $filename "" done
-	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /i "$INSTDIR\dist\bin\$filename" /f'
+  	Push $filename
+	Push $filename
+  	call AddDocToStartMenu
+	FindNext $file_handle $filename
+  	Goto loop
+  done:
+
+FunctionEnd
+
+Function AddDocToStartMenu
+    Pop $0 ; link
+    Pop $1 ; file
+    IfFileExists $INSTDIR\doc\$1 0 +2
+      CreateShortCut $SMPROGRAMS\Tao\Documentation\$0.lnk $INSTDIR\doc\$1
+FunctionEnd
+
+Function GACInstall
+  FindFirst $file_handle $filename $INSTDIR\bin\*.dll
+  loop:
+	StrCmp $filename "" done
+	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /i "$INSTDIR\bin\$filename" /f'
 	FindNext $file_handle $filename
   	Goto loop
   done:
