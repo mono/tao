@@ -35,7 +35,7 @@ namespace Tao.Sdl
 {
 	#region Class Documentation
 	/// <summary>
-	///     Simple DirectMedia Layer binding for .NET, implementing SDL 1.2.8.
+	///     Simple DirectMedia Layer binding for .NET, implementing SDL 1.2.9.
 	/// </summary>
 	/// <remarks>
 	/// This library is designed to make it easy to write games that run 
