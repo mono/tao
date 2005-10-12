@@ -9669,7 +9669,7 @@ namespace Tao.Sdl
 		/// <returns>Returns 0 if successful or -1 if there was an error.</returns>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		private static extern int SDL_SaveBMP_RW(IntPtr surface, IntPtr dst,
+		public static extern int SDL_SaveBMP_RW(IntPtr surface, IntPtr dst,
 			int freedst);
 		#endregion int SDL_SaveBMP_RW(IntPtr surface, IntPtr dst, int freedst)
 
