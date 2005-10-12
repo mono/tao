@@ -25,25 +25,25 @@ namespace Tao.OpenGl {
   // address of the function, whereas the method is only used before
   // postprocessing to tie a particular method with a particular extension.
   //
-	/// <summary>
-	/// 
-	/// </summary>
+  /// <summary>
+  /// 
+  /// </summary>
   [AttributeUsage(AttributeTargets.Field | AttributeTargets.Method)]
   public class OpenGLExtensionImport : Attribute {
-	  /// <summary>
-	  /// 
-	  /// </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     public string ExtensionName;
-	  /// <summary>
-	  /// 
-	  /// </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     public string EntryPoint;
 
-	  /// <summary>
-	  /// 
-	  /// </summary>
-	  /// <param name="ExtensionName"></param>
-	  /// <param name="EntryPoint"></param>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="ExtensionName"></param>
+    /// <param name="EntryPoint"></param>
     public OpenGLExtensionImport (string ExtensionName, string EntryPoint) {
       this.ExtensionName = ExtensionName;
       this.EntryPoint = EntryPoint;
@@ -54,9 +54,9 @@ namespace Tao.OpenGl {
   // The GlExtensionLoader singleton, available through GetInstance(),
   // is responsible for loading extensions.
   //
-	/// <summary>
-	/// 
-	/// </summary>
+  /// <summary>
+  /// 
+  /// </summary>
   public class GlExtensionLoader {
     //
     // Data for a particular context; available extensions,
@@ -90,7 +90,7 @@ namespace Tao.OpenGl {
         IntPtr verstrptr = glGetString(0x1F02); // GL_VERSION
         if (verstrptr == IntPtr.Zero)
           return;               // this shoudn't happen
-		
+    
         string verstr = Marshal.PtrToStringAnsi (verstrptr).Trim(new char[] {' '});
 
         if( verstr.StartsWith("1.2") ) 
@@ -198,11 +198,11 @@ namespace Tao.OpenGl {
 
     static GetProcAddressPlatform gpaPlatform = GetProcAddressPlatform.Unknown;
 
-	  /// <summary>
-	  /// 
-	  /// </summary>
-	  /// <param name="s"></param>
-	  /// <returns></returns>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="s"></param>
+    /// <returns></returns>
     public static IntPtr GetProcAddress(string s) {
       if (gpaPlatform == GetProcAddressPlatform.Unknown) {
         IntPtr result = IntPtr.Zero;
@@ -257,33 +257,23 @@ namespace Tao.OpenGl {
     private GlExtensionLoader () {
     }
 
-    //
-    // IsExtensionSupported
-    //
-    // Asks if the extension with the given name is supported
-    // in the global static context.
-    //
-	  /// <summary>
-	  /// 
-	  /// </summary>
-	  /// <param name="extname"></param>
-	  /// <returns></returns>
+    /// <summary>
+    /// Returns trueif the extension with the given name is supported
+    /// in the global static context.
+    /// </summary>
+    /// <param name="extname">The extension name.</param>
+    /// <returns></returns>
     public static bool IsExtensionSupported (string extname) {
       return IsExtensionSupported (null, extname);
     }
 
-    //
-    // IsExtensionSupported
-    //
-    // Asks if the extension with the given name is supported
-    // in the given context.
-    //
-	  /// <summary>
-	  /// 
-	  /// </summary>
-	  /// <param name="contextGl"></param>
-	  /// <param name="extname"></param>
-	  /// <returns></returns>
+    /// <summary>
+    /// Returns true if the extension with the given name is supported
+    /// in the given context.
+    /// </summary>
+    /// <param name="contextGl">The context which to query.</param>
+    /// <param name="extname">The extension name.</param>
+    /// <returns></returns>
     public static bool IsExtensionSupported (object contextGl, string extname) {
       GlContextInfo gci = GetContextInfo(contextGl);
       if (gci.AvailableExtensions.ContainsKey (extname))
@@ -291,17 +281,12 @@ namespace Tao.OpenGl {
       return false;
     }
 
-    //
-    // LoadExtension
-    //
-    // Attempt to load the extension with the specified name into the
-    // global static context.
-    //
-	  /// <summary>
-	  /// 
-	  /// </summary>
-	  /// <param name="extname"></param>
-	  /// <returns></returns>
+    /// <summary>
+    /// Attempt to load the extension with the specified name into the
+    /// global static context.  Returns true on success.
+    /// </summary>
+    /// <param name="extname">The extension name.</param>
+    /// <returns></returns>
     public static bool LoadExtension (string extname) {
       return LoadExtension (null, extname, false);
     }
@@ -314,12 +299,12 @@ namespace Tao.OpenGl {
     // object passed in ought to be an instance of
     // Tao.OpenGl.ContextGl, or null.
     //
-	  /// <summary>
-	  /// 
-	  /// </summary>
-	  /// <param name="contextGl"></param>
-	  /// <param name="extname"></param>
-	  /// <returns></returns>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="contextGl"></param>
+    /// <param name="extname"></param>
+    /// <returns></returns>
     public static bool LoadExtension (object contextGl, string extname) {
       return LoadExtension (contextGl, extname, false);
     }
@@ -334,13 +319,13 @@ namespace Tao.OpenGl {
     // to obtain function pointers even if the runtime claims that the
     // extension is not supported.
     //
-	  /// <summary>
-	  /// 
-	  /// </summary>
-	  /// <param name="contextGl"></param>
-	  /// <param name="extname"></param>
-	  /// <param name="forceLoad"></param>
-	  /// <returns></returns>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="contextGl"></param>
+    /// <param name="extname"></param>
+    /// <param name="forceLoad"></param>
+    /// <returns></returns>
     public static bool LoadExtension (object contextGl, string extname, bool forceLoad) {
       GlContextInfo gci = GetContextInfo(contextGl);
       if (gci.LoadedExtensions.ContainsKey (extname)) {
@@ -400,17 +385,17 @@ namespace Tao.OpenGl {
     // LoadAllExtensions
     //
 
-	  /// <summary>
-	  /// 
-	  /// </summary>
+    /// <summary>
+    /// 
+    /// </summary>
     public static void LoadAllExtensions () {
       LoadAllExtensions (null);
     }
 
-	  /// <summary>
-	  /// 
-	  /// </summary>
-	  /// <param name="contextGl"></param>
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="contextGl"></param>
     public static void LoadAllExtensions (object contextGl) {
       GlContextInfo gci = GetContextInfo(contextGl);
       

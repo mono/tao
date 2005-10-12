@@ -8273,35 +8273,19 @@ public sealed class Gl {
     public static IntPtr ext__GL_ARB_shader_objects__glGetInfoLogARB = IntPtr.Zero;
 
     [OpenGLExtensionImport("GL_ARB_shader_objects", "glGetInfoLogARB"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static void glGetInfoLogARB (int obj, int maxLength, out int length, out IntPtr infoLog) {
+    public static void glGetInfoLogARB (int obj, int maxLength, out int length, IntPtr infoLog) {
       throw new NotImplementedException();
     }
     [OpenGLExtensionImport("GL_ARB_shader_objects", "glGetInfoLogARB"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static void glGetInfoLogARB (uint obj, int maxLength, out int length, out IntPtr infoLog) {
+    public static void glGetInfoLogARB (uint obj, int maxLength, out int length, IntPtr infoLog) {
       throw new NotImplementedException();
     }
     [OpenGLExtensionImport("GL_ARB_shader_objects", "glGetInfoLogARB"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static void glGetInfoLogARB (int obj, int maxLength, [Out] int [] length, out IntPtr infoLog) {
+    public static void glGetInfoLogARB (int obj, int maxLength, [Out] int [] length, IntPtr infoLog) {
       throw new NotImplementedException();
     }
     [OpenGLExtensionImport("GL_ARB_shader_objects", "glGetInfoLogARB"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static void glGetInfoLogARB (uint obj, int maxLength, [Out] int [] length, out IntPtr infoLog) {
-      throw new NotImplementedException();
-    }
-    [OpenGLExtensionImport("GL_ARB_shader_objects", "glGetInfoLogARB"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static void glGetInfoLogARB (int obj, int maxLength, out int length, [Out] IntPtr [] infoLog) {
-      throw new NotImplementedException();
-    }
-    [OpenGLExtensionImport("GL_ARB_shader_objects", "glGetInfoLogARB"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static void glGetInfoLogARB (uint obj, int maxLength, out int length, [Out] IntPtr [] infoLog) {
-      throw new NotImplementedException();
-    }
-    [OpenGLExtensionImport("GL_ARB_shader_objects", "glGetInfoLogARB"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(true)]
-    public static void glGetInfoLogARB (int obj, int maxLength, [Out] int [] length, [Out] IntPtr [] infoLog) {
-      throw new NotImplementedException();
-    }
-    [OpenGLExtensionImport("GL_ARB_shader_objects", "glGetInfoLogARB"), SuppressUnmanagedCodeSecurity, CLSCompliantAttribute(false)]
-    public static void glGetInfoLogARB (uint obj, int maxLength, [Out] int [] length, [Out] IntPtr [] infoLog) {
+    public static void glGetInfoLogARB (uint obj, int maxLength, [Out] int [] length, IntPtr infoLog) {
       throw new NotImplementedException();
     }
 

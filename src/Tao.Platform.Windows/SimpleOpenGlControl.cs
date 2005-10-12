@@ -238,9 +238,13 @@ namespace Tao.Platform.Windows {
         ///     Loads the bitmap from the assembly's manifest resource.
         /// </summary>
         private void InitializeBackground() {
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            using(Stream imageStream = assembly.GetManifestResourceStream("TaoButton.jpg")) {
-                this.BackgroundImage = (Image) Bitmap.FromStream(imageStream);
+            try {
+                Assembly assembly = Assembly.GetExecutingAssembly();
+                using(Stream imageStream = assembly.GetManifestResourceStream("TaoButton.jpg")) {
+                    this.BackgroundImage = (Image) Bitmap.FromStream(imageStream);
+                }
+            } catch (System.Exception e) {
+                this.BackgroundImage = null;
             }
         }
         #endregion InitializeBackground()
@@ -409,7 +413,8 @@ namespace Tao.Platform.Windows {
         protected override void OnPaint(PaintEventArgs e) {
             if(this.DesignMode) {
                 e.Graphics.Clear(this.BackColor);
-                e.Graphics.DrawImage(this.BackgroundImage, this.ClientRectangle, 0, 0, this.BackgroundImage.Width, this.BackgroundImage.Height, GraphicsUnit.Pixel);
+                if (this.BackgroundImage != null)
+                    e.Graphics.DrawImage(this.BackgroundImage, this.ClientRectangle, 0, 0, this.BackgroundImage.Width, this.BackgroundImage.Height, GraphicsUnit.Pixel);
                 e.Graphics.Flush();
                 return;
             }

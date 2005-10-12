@@ -261,15 +261,23 @@ public class GlTypeMap {
 
           if (want_array == 1) {
             if (want_out == 1) {
-              // an out array
-	      if (target != null) {
-		param.nativetypes.Add("out " + target);
-		param.nativetypes.Add("[Out] " + target + " []");
+	      if (tme.if_out == 1) {
+		// let the param handle whether it wants "out" or not
+		if (target != null)
+		  param.nativetypes.Add(target);
+		if (nonclstarget != null)
+		  param.nonclstypes.Add(nonclstarget);
+	      } else {
+		// an out array
+		if (target != null) {
+		  param.nativetypes.Add("out " + target);
+		  param.nativetypes.Add("[Out] " + target + " []");
+		}
+		if (nonclstarget != null) {
+		  param.nonclstypes.Add("out " + nonclstarget);
+		  param.nonclstypes.Add("[Out] " + nonclstarget + " []");
+		}
 	      }
-              if (nonclstarget != null) {
-                param.nonclstypes.Add("out " + nonclstarget);
-                param.nonclstypes.Add("[Out] " + nonclstarget + " []");
-              }
             } else {
               // an in array
 	      if (target != null) {
@@ -283,11 +291,19 @@ public class GlTypeMap {
             }
           } else {
             if (want_out == 1) {
-              // an out value
-	      if (target != null)
-		param.nativetypes.Add("out " + target);
-              if (nonclstarget != null)
-                param.nonclstypes.Add("out " + nonclstarget);
+	      if (tme.if_out == 1) {
+		// let the param handle whether it wants "out" or not
+		if (target != null)
+		  param.nativetypes.Add(target);
+		if (nonclstarget != null)
+		  param.nonclstypes.Add(nonclstarget);
+	      } else {
+		// an out value
+		if (target != null)
+		  param.nativetypes.Add("out " + target);
+		if (nonclstarget != null)
+		  param.nonclstypes.Add("out " + nonclstarget);
+	      }
             } else {
               // an in value
 	      if (target != null)
