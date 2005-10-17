@@ -2971,6 +2971,7 @@ namespace Tao.Sdl
 		/// <code>
 		/// typedef struct{
 		///		Uint8 type;
+		///		Uint8 which;
 		///		Uint8 state;
 		///		Uint16 x, y;
 		///		Sint16 xrel, yrel;
