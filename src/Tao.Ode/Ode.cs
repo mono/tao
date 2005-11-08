@@ -203,12 +203,12 @@ namespace Tao.Ode {
 			/// <summary>
 			/// The contact position in global coordinates.
 			/// </summary>
-			dVector3 pos;
+			public dVector3 pos;
 			
 			/// <summary>
 			/// A unit length vector that is, generally speaking, perpendicular to the contact surface.
 			/// </summary>
-			dVector3 normal;
+			public dVector3 normal;
 			
 			/// <summary>
 			/// The depth to which the two bodies inter-penetrate each other. 
@@ -217,12 +217,12 @@ namespace Tao.Ode {
 			/// not perfectly accurate and will often step the bodies too far so that 
 			/// the depth is nonzero.
 			/// </summary>
-			dReal depth;
+			public dReal depth;
 			
 			/// <summary>
 			/// The geometry objects that collided.
 			/// </summary>
-			dGeomID g1,g2;
+			public dGeomID g1,g2;
 		};
 		
 		/// <summary>
@@ -274,7 +274,7 @@ namespace Tao.Ode {
 			/// 					a force limit).
 			/// dContactApprox1		Equivalent to both dContactApprox1_1 and dContactApprox1_2.
 			/// </summary>
-			int mode;
+			public int mode;
 			
 			/// <summary>
 			/// Coulomb friction coefficient. 
@@ -285,14 +285,14 @@ namespace Tao.Ode {
 			/// 
 			/// This must always be set.
 			/// </summary>
-			dReal mu;
+			public dReal mu;
 			
 			/// <summary>
 			/// Optional Coulomb friction coefficient for friction direction 2 (0..dInfinity). 
 			/// 
 			/// This is only set if the corresponding flag is set in mode.
 			/// </summary>
-			dReal mu2;
+			public dReal mu2;
 			
 			/// <summary>
 			/// Restitution parameter (0..1). 
@@ -300,7 +300,7 @@ namespace Tao.Ode {
 			/// 
 			/// This is only set if the corresponding flag is set in mode.
 			/// </summary>
-			dReal bounce;
+			public dReal bounce;
 			
 			/// <summary>
 			/// Restitution parameter (0..1). 
@@ -308,35 +308,35 @@ namespace Tao.Ode {
 			/// 
 			/// This is only set if the corresponding flag is set in mode.
 			/// </summary>
-			dReal bounce_vel;
+			public dReal bounce_vel;
 			
 			/// <summary>
 			/// Contact normal ``softness'' parameter. 
 			/// 
 			/// This is only set if the corresponding flag is set in mode.
 			/// </summary>
-			dReal soft_erp;
+			public dReal soft_erp;
 			
 			/// <summary>
 			/// Contact normal ``softness'' parameter. 
 			/// 
 			/// This is only set if the corresponding flag is set in mode.
 			/// </summary>
-			dReal soft_cfm;
+			public dReal soft_cfm;
 			
 			/// <summary>
 			/// Surface velocity in friction directions 1 (in m/s). 
 			/// 
 			/// Only set if the corresponding flags are set in mode.
 			/// </summary>
-			dReal motion1;
+			public dReal motion1;
 			
 			/// <summary>
 			/// Surface velocity in friction directions 1 (in m/s). 
 			/// 
 			/// Only set if the corresponding flags are set in mode.
 			/// </summary>
-			dReal motion2;
+			public dReal motion2;
 			
 			/// <summary>
 			/// The coefficients of force-dependent-slip (FDS) for friction directions 1 and 2. 
@@ -372,7 +372,7 @@ namespace Tao.Ode {
 			///	Note that FDS is quite separate from the sticking/slipping effects of Coulomb friction - both 
 			/// modes can be used together at a single contact point. 
 			/// </summary>
-			dReal slip1,slip2;
+			public dReal slip1,slip2;
 		};
 		
 		
@@ -386,9 +386,9 @@ namespace Tao.Ode {
 				geom = _geom;
 				fdir1 = _fdir1;
 			}
-			dSurfaceParameters surface;
-			dContactGeom geom;
-			dVector3 fdir1;
+			public dSurfaceParameters surface;
+			public dContactGeom geom;
+			public dVector3 fdir1;
 		};
 		
 		[StructLayout(LayoutKind.Sequential)]
