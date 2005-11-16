@@ -29,7 +29,8 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace Tao.Ode {
+namespace Tao.Ode 
+{
 	#region Aliases
 	// TODO: Make dReal precision controllable at compile time - the ode lib can be compiled with either single or double precision
 	using dReal=System.Single;
@@ -48,7 +49,8 @@ namespace Tao.Ode {
 	///     Open Dynamics Engine 0.5 (ODE - http://ode.org) bindings for .NET.
 	/// </summary>
 	#endregion Class Documentation
- 	public sealed class Ode {
+	public sealed class Ode 
+	{
 		#region Private Constants
 		#region string ODE_NATIVE_LIBRARY
 		/// <summary>
@@ -76,10 +78,26 @@ namespace Tao.Ode {
 		
 		#region Public Constants
 		#region Error Numbers
-		public enum dError : int {
+		/// <summary>
+		/// 
+		/// </summary>
+		public enum dError : int 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
 			d_ERR_UNKNOWN = 0,		/* unknown error */
+			/// <summary>
+			/// 
+			/// </summary>
 			d_ERR_IASSERT=1,		/* internal assertion failed */
+			/// <summary>
+			/// 
+			/// </summary>
 			d_ERR_UASSERT=2,		/* user assertion failed */
+			/// <summary>
+			/// 
+			/// </summary>
 			d_ERR_LCP=3				/* user assertion failed */
 		};
 		#endregion Error Numbers
@@ -97,23 +115,67 @@ namespace Tao.Ode {
 		public const dReal dInfinity=dReal.MaxValue;
 		
 		#region Joint Type Numbers
-		public enum dJointTypes : int {
+		/// <summary>
+		/// 
+		/// </summary>
+		public enum dJointTypes : int 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
 			dJointTypeNone = 0,		/* or "unknown" */
+			/// <summary>
+			/// 
+			/// </summary>
 			dJointTypeBall=1,
+			/// <summary>
+			/// 
+			/// </summary>
 			dJointTypeHinge=2,
+			/// <summary>
+			/// 
+			/// </summary>
 			dJointTypeSlider=3,
+			/// <summary>
+			/// 
+			/// </summary>
 			dJointTypeContact=4,
+			/// <summary>
+			/// 
+			/// </summary>
 			dJointTypeUniversal=5,
+			/// <summary>
+			/// 
+			/// </summary>
 			dJointTypeHinge2=6,
+			/// <summary>
+			/// 
+			/// </summary>
 			dJointTypeFixed=7,
+			/// <summary>
+			/// 
+			/// </summary>
 			dJointTypeNull=8,
+			/// <summary>
+			/// 
+			/// </summary>
 			dJointTypeAMotor=9
 		}
 		#endregion Joint Type Numbers
 		
 		#region Angular Motor Mode Numbers
-		public enum dAMotorMode : int {
+		/// <summary>
+		/// 
+		/// </summary>
+		public enum dAMotorMode : int 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
 			dAMotorUser = 0,
+			/// <summary>
+			/// 
+			/// </summary>
 			dAMotorEuler = 1
 		}
 		#endregion Angular Motor Mode Numbers
@@ -125,54 +187,147 @@ namespace Tao.Ode {
 		/// <summary>
 		/// class numbers - each geometry object needs a unique number 
 		/// </summary>
-		public enum dClassNumbers : int {
+		public enum dClassNumbers : int 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
 			dSphereClass = 0,
+			/// <summary>
+			/// 
+			/// </summary>
 			dBoxClass = 1,
+			/// <summary>
+			/// 
+			/// </summary>
 			dCCylinderClass = 2,
+			/// <summary>
+			/// 
+			/// </summary>
 			dCylinderClass = 3,
+			/// <summary>
+			/// 
+			/// </summary>
 			dPlaneClass = 4,
+			/// <summary>
+			/// 
+			/// </summary>
 			dRayClass = 5,
+			/// <summary>
+			/// 
+			/// </summary>
 			dGeomTransformClass = 6,
+			/// <summary>
+			/// 
+			/// </summary>
 			dTriMeshClass = 7,
+			/// <summary>
+			/// 
+			/// </summary>
 			dFirstSpaceClass = 8,
+			/// <summary>
+			/// 
+			/// </summary>
 			dSimpleSpaceClass = dFirstSpaceClass,
+			/// <summary>
+			/// 
+			/// </summary>
 			dHashSpaceClass = 9,
+			/// <summary>
+			/// 
+			/// </summary>
 			dQuadTreeSpaceClass = 10,
+			/// <summary>
+			/// 
+			/// </summary>
 			dLastSpaceClass = dQuadTreeSpaceClass,
+			/// <summary>
+			/// 
+			/// </summary>
 			dFirstUserClass = 11,
+			/// <summary>
+			/// 
+			/// </summary>
 			dLastUserClass = dFirstUserClass + dMaxUserClasses - 1,
+			/// <summary>
+			/// 
+			/// </summary>
 			dGeomNumClasses=dLastUserClass + 1
 		}
 		#endregion Class Numbers
 		
 		#region Contact Flags
+		/// <summary>
+		/// 
+		/// </summary>
 		[FlagsAttribute]
-		public enum dContactFlags : int {
+			public enum dContactFlags : int 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
 			dContactMu2			= 0x001,
+			/// <summary>
+			/// 
+			/// </summary>
 			dContactFDir1		= 0x002,
+			/// <summary>
+			/// 
+			/// </summary>
 			dContactBounce		= 0x004,
+			/// <summary>
+			/// 
+			/// </summary>
 			dContactSoftERP		= 0x008,
+			/// <summary>
+			/// 
+			/// </summary>
 			dContactSoftCFM		= 0x010,
+			/// <summary>
+			/// 
+			/// </summary>
 			dContactMotion1		= 0x020,
+			/// <summary>
+			/// 
+			/// </summary>
 			dContactMotion2		= 0x040,
+			/// <summary>
+			/// 
+			/// </summary>
 			dContactSlip1		= 0x080,
+			/// <summary>
+			/// 
+			/// </summary>
 			dContactSlip2		= 0x100,
 			
+			/// <summary>
+			/// 
+			/// </summary>
 			dContactApprox0		= 0x0000,
+			/// <summary>
+			/// 
+			/// </summary>
 			dContactApprox1_1	= 0x1000,
+			/// <summary>
+			/// 
+			/// </summary>
 			dContactApprox1_2	= 0x2000,
+			/// <summary>
+			/// 
+			/// </summary>
 			dContactApprox1		= 0x3000
 		}
 		#endregion Contact Flags
 		#endregion Public Constants
 		
-        #region Ode()
-        /// <summary>
-        ///     Empty constructor - prevents instantiation.
-        /// </summary>
-        private Ode() {
-        }
-        #endregion Ode()
+		#region Ode()
+		/// <summary>
+		///     Empty constructor - prevents instantiation.
+		/// </summary>
+		private Ode() 
+		{
+		}
+		#endregion Ode()
 		
 		#region Public Structs
 		/// <summary>
@@ -184,14 +339,31 @@ namespace Tao.Ode {
 		/// I - 3x3 inertia tensor in body frame, about POR
 		/// </remarks>
 		[StructLayout(LayoutKind.Sequential)]
-		public struct dMass {
-			public dMass(dReal _mass, dVector4 _c, dMatrix3 _I) {
+			public struct dMass 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="_mass"></param>
+			/// <param name="_c"></param>
+			/// <param name="_I"></param>
+			public dMass(dReal _mass, dVector4 _c, dMatrix3 _I) 
+			{
 				mass = _mass;
 				c = _c;
 				I = _I;
 			}
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal mass;
+			/// <summary>
+			/// 
+			/// </summary>
 			public dVector4 c;
+			/// <summary>
+			/// 
+			/// </summary>
 			public dMatrix3 I;
 		};
 		
@@ -199,7 +371,8 @@ namespace Tao.Ode {
 		/// Contact info set by collision functions
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-		public struct dContactGeom {
+			public struct dContactGeom 
+		{
 			/// <summary>
 			/// The contact position in global coordinates.
 			/// </summary>
@@ -229,8 +402,13 @@ namespace Tao.Ode {
 		/// Defines the properties of the colliding surfaces
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-		public struct dSurfaceParameters {
-			public dSurfaceParameters(int _mode, dReal _mu, dReal _mu2, dReal _bounce, dReal _bounce_vel, dReal _soft_erp, dReal _soft_cfm, dReal _motion1, dReal _motion2, dReal _slip1, dReal _slip2) {
+			public struct dSurfaceParameters 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			public dSurfaceParameters(int _mode, dReal _mu, dReal _mu2, dReal _bounce, dReal _bounce_vel, dReal _soft_erp, dReal _soft_cfm, dReal _motion1, dReal _motion2, dReal _slip1, dReal _slip2) 
+			{
 				mode = _mode;
 				mu = _mu;
 				mu2 = _mu2;
@@ -380,35 +558,71 @@ namespace Tao.Ode {
 		/// Contact structure used by contact joint
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-		public struct dContact {
-			public dContact(dSurfaceParameters _surface, dContactGeom _geom, dVector3 _fdir1) {
+			public struct dContact 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="_surface"></param>
+			/// <param name="_geom"></param>
+			/// <param name="_fdir1"></param>
+			public dContact(dSurfaceParameters _surface, dContactGeom _geom, dVector3 _fdir1) 
+			{
 				surface = _surface;
 				geom = _geom;
 				fdir1 = _fdir1;
 			}
+			/// <summary>
+			/// 
+			/// </summary>
 			public dSurfaceParameters surface;
+			/// <summary>
+			/// 
+			/// </summary>
 			public dContactGeom geom;
+			/// <summary>
+			/// 
+			/// </summary>
 			public dVector3 fdir1;
 		};
 		
+		/// <summary>
+		/// 
+		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-		public struct dVector3 {
-			public dVector3(dReal x, dReal y, dReal z) {
+			public struct dVector3 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="x"></param>
+			/// <param name="y"></param>
+			/// <param name="z"></param>
+			public dVector3(dReal x, dReal y, dReal z) 
+			{
 				X = x;
 				Y = y;
 				Z = z;
 			}
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal X,Y,Z;
-			// Indexer to support use of array syntax as found in ODE examples
-			// X = 0, Y = 1, Z = 2
-			public dReal this[int index] {
+			/// <summary>
+			/// Indexer to support use of array syntax as found in ODE examples
+			/// X = 0, Y = 1, Z = 2
+			/// </summary>
+			public dReal this[int index] 
+			{
 				get
 				{
-					if ( index < 0 || index > 2 ) {
+					if ( index < 0 || index > 2 ) 
+					{
 						throw new ArgumentOutOfRangeException("Index out of range");
 					}
 					dReal retVal = 0;
-					switch ( index ) {
+					switch ( index ) 
+					{
 						case 0:
 							retVal = X;
 							break;
@@ -423,10 +637,12 @@ namespace Tao.Ode {
 				}
 				set
 				{
-					if ( index < 0 || index > 2 ) {
+					if ( index < 0 || index > 2 ) 
+					{
 						throw new ArgumentOutOfRangeException("Index out of range");
 					}
-					switch ( index ) {
+					switch ( index ) 
+					{
 						case 0:
 							X = value;
 							break;
@@ -441,25 +657,45 @@ namespace Tao.Ode {
 			}
 		};
 		
+		/// <summary>
+		/// 
+		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-		public struct dVector4 {
-			public dVector4(dReal x, dReal y, dReal z, dReal w) {
+			public struct dVector4 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="x"></param>
+			/// <param name="y"></param>
+			/// <param name="z"></param>
+			/// <param name="w"></param>
+			public dVector4(dReal x, dReal y, dReal z, dReal w) 
+			{
 				X = x;
 				Y = y;
 				Z = z;
 				W = w;
 			}
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal X,Y,Z,W;
-			// Indexer to support use of array syntax as found in ODE examples
-			// X = 0, Y = 1, Z = 2, W = 3
-			public dReal this[int index] {
+			/// <summary>
+			/// Indexer to support use of array syntax as found in ODE examples
+			/// X = 0, Y = 1, Z = 2, W = 3
+			/// </summary>
+			public dReal this[int index] 
+			{
 				get
 				{
-					if ( index < 0 || index > 3 ) {
+					if ( index < 0 || index > 3 ) 
+					{
 						throw new ArgumentOutOfRangeException("Index out of range");
 					}
 					dReal retVal = 0;
-					switch ( index ) {
+					switch ( index ) 
+					{
 						case 0:
 							retVal = X;
 							break;
@@ -477,10 +713,12 @@ namespace Tao.Ode {
 				}
 				set
 				{
-					if ( index < 0 || index > 3 ) {
+					if ( index < 0 || index > 3 ) 
+					{
 						throw new ArgumentOutOfRangeException("Index out of range");
 					}
-					switch ( index ) {
+					switch ( index ) 
+					{
 						case 0:
 							X = value;
 							break;
@@ -499,25 +737,46 @@ namespace Tao.Ode {
 			}
 		};
 		
+		/// <summary>
+		/// 
+		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-		public struct dQuaternion {
-			public dQuaternion(dReal x, dReal y, dReal z, dReal w) {
+			public struct dQuaternion 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="x"></param>
+			/// <param name="y"></param>
+			/// <param name="z"></param>
+			/// <param name="w"></param>
+			public dQuaternion(dReal x, dReal y, dReal z, dReal w) 
+			{
 				X = x;
 				Y = y;
 				Z = z;
 				W = w;
 			}
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal W,X,Y,Z;
-			// Indexer to support use of array syntax as found in ODE examples
-			// X = 0, Y = 1, Z = 2, W = 3
-			public dReal this[int index] {
+
+			/// <summary>
+			/// Indexer to support use of array syntax as found in ODE examples
+			/// X = 0, Y = 1, Z = 2, W = 3
+			/// </summary>
+			public dReal this[int index] 
+			{
 				get
 				{
-					if ( index < 0 || index > 3 ) {
+					if ( index < 0 || index > 3 ) 
+					{
 						throw new ArgumentOutOfRangeException("Index out of range");
 					}
 					dReal retVal = 0;
-					switch ( index ) {
+					switch ( index ) 
+					{
 						case 0:
 							retVal = X;
 							break;
@@ -535,10 +794,12 @@ namespace Tao.Ode {
 				}
 				set
 				{
-					if ( index < 0 || index > 3 ) {
+					if ( index < 0 || index > 3 ) 
+					{
 						throw new ArgumentOutOfRangeException("Index out of range");
 					}
-					switch ( index ) {
+					switch ( index ) 
+					{
 						case 0:
 							X = value;
 							break;
@@ -556,9 +817,23 @@ namespace Tao.Ode {
 			}
 		};
 		
+		/// <summary>
+		/// 
+		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-		public struct Aabb {
-			public Aabb(dReal _minx, dReal _maxx, dReal _miny, dReal _maxy, dReal _minz, dReal _maxz) {
+			public struct Aabb 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="_minx"></param>
+			/// <param name="_maxx"></param>
+			/// <param name="_miny"></param>
+			/// <param name="_maxy"></param>
+			/// <param name="_minz"></param>
+			/// <param name="_maxz"></param>
+			public Aabb(dReal _minx, dReal _maxx, dReal _miny, dReal _maxy, dReal _minz, dReal _maxz) 
+			{
 				minx = _minx;
 				maxx = _maxx;
 				miny = _miny;
@@ -566,12 +841,24 @@ namespace Tao.Ode {
 				minz = _minz;
 				maxz = _maxz;
 			}
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal minx, maxx, miny, maxy, minz, maxz;
 		}
 		
+		/// <summary>
+		/// 
+		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-		public struct dMatrix3 {
-			public dMatrix3(dReal[] values) {
+			public struct dMatrix3 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="values"></param>
+			public dMatrix3(dReal[] values) 
+			{
 				M00 = values[0];
 				M01 = values[1];
 				M02 = values[2];
@@ -585,15 +872,33 @@ namespace Tao.Ode {
 				M22 = values[10];
 				M23 = values[11];
 			}
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal M00,M01,M02,M03;
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal M10,M11,M12,M13;
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal M20,M21,M22,M23;
 			// TODO: Add an indexer to allow access to members using array syntax.  Eg. Matrix3[1,2] instead of Matrix3.M12
 		};
 		
+		/// <summary>
+		/// 
+		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-		public struct dMatrix4 {
-			public dMatrix4(dReal[] values) {
+			public struct dMatrix4 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="values"></param>
+			public dMatrix4(dReal[] values) 
+			{
 				M00 = values[0];
 				M01 = values[1];
 				M02 = values[2];
@@ -611,9 +916,21 @@ namespace Tao.Ode {
 				M32 = values[14];
 				M33 = values[15];
 			}
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal M00,M01,M02,M03;
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal M10,M11,M12,M13;
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal M20,M21,M22,M23;
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal M30,M31,M32,M33;
 			
 			//TODO: Add indexer - see todo in Matrix3
@@ -663,8 +980,13 @@ namespace Tao.Ode {
 		/// would complicate things.
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-		public struct dJointFeedback {
-			public dJointFeedback(dVector3 _f1, dVector3 _t1, dVector3 _f2, dVector3 _t2) {
+			public struct dJointFeedback 
+		{
+			/// <summary>
+			/// 
+			/// </summary>
+			public dJointFeedback(dVector3 _f1, dVector3 _t1, dVector3 _f2, dVector3 _t2) 
+			{
 				f1 = _f1;
 				t1 = _t1;
 				f2 = _f2;
@@ -1161,7 +1483,8 @@ namespace Tao.Ode {
 		/// </summary>
 		/// <returns>A dVector3</returns>
 		/// <param name="body">A  dBodyID</param>
-		public static dVector3 dBodyGetPosition(dBodyID body) {
+		public static dVector3 dBodyGetPosition(dBodyID body) 
+		{
 			unsafe
 			{
 				dVector3 *v=(dVector3*)dBodyGetPosition_(body);
@@ -1179,7 +1502,8 @@ namespace Tao.Ode {
 		/// </summary>
 		/// <returns>A dMatrix3</returns>
 		/// <param name="body">A  dBodyID</param>
-		public static dMatrix3 dBodyGetRotation(dBodyID body) {
+		public static dMatrix3 dBodyGetRotation(dBodyID body) 
+		{
 			unsafe
 			{
 				dMatrix3 *m=(dMatrix3*)dBodyGetRotation_(body);
@@ -1197,7 +1521,8 @@ namespace Tao.Ode {
 		/// <returns>A dQuaternion</returns>
 		/// <param name="body">A  dBodyID</param>
 		/// TODO: This seems to be unfinished.  Need completion and testing.
-		public static dQuaternion dBodyGetQuaternion(dBodyID body) {
+		public static dQuaternion dBodyGetQuaternion(dBodyID body) 
+		{
 			unsafe
 			{
 				dQuaternion *q=(dQuaternion*)dBodyGetQuaternion_(body);
@@ -1215,7 +1540,8 @@ namespace Tao.Ode {
 		/// </summary>
 		/// <returns>A dVector3</returns>
 		/// <param name="body">A  dBodyID</param>
-		public static dVector3 dBodyGetLinearVel(dBodyID body) {
+		public static dVector3 dBodyGetLinearVel(dBodyID body) 
+		{
 			unsafe
 			{
 				dVector3 *v=(dVector3*)dBodyGetLinearVel_(body);
@@ -1232,7 +1558,8 @@ namespace Tao.Ode {
 		/// </summary>
 		/// <returns>A dVector3</returns>
 		/// <param name="body">A  dBodyID</param>
-		public static dVector3 dBodyGetAngularVel(dBodyID body) {
+		public static dVector3 dBodyGetAngularVel(dBodyID body) 
+		{
 			unsafe
 			{
 				dVector3 *v=(dVector3*)dBodyGetAngularVel_(body);
@@ -1340,7 +1667,7 @@ namespace Tao.Ode {
 		/// <param name="pz">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyAddForceAtPos(dBodyID body, dReal fx, dReal fy, dReal fz,
-													 dReal px, dReal py, dReal pz);
+			dReal px, dReal py, dReal pz);
 		/// <summary>
 		/// Add force to a body using absolute coordinates at specified relative position.
 		///
@@ -1360,7 +1687,7 @@ namespace Tao.Ode {
 		/// <param name="pz">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyAddForceAtRelPos(dBodyID body, dReal fx, dReal fy, dReal fz,
-														dReal px, dReal py, dReal pz);
+			dReal px, dReal py, dReal pz);
 		
 		/// <summary>
 		/// Add force to a body using body-relative coordinates at specified absolute position.
@@ -1381,7 +1708,7 @@ namespace Tao.Ode {
 		/// <param name="pz">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyAddRelForceAtPos(dBodyID body, dReal fx, dReal fy, dReal fz,
-														dReal px, dReal py, dReal pz);
+			dReal px, dReal py, dReal pz);
 		
 		/// <summary>
 		/// Add force to a body using body-relative coordinates at specified relative position.
@@ -1402,7 +1729,7 @@ namespace Tao.Ode {
 		/// <param name="pz">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyAddRelForceAtRelPos(dBodyID body, dReal fx, dReal fy, dReal fz,
-														   dReal px, dReal py, dReal pz);
+			dReal px, dReal py, dReal pz);
 		
 		[DllImport(ODE_NATIVE_LIBRARY,EntryPoint="dBodyGetForce")]
 		private extern unsafe static dReal *dBodyGetForce_(dBodyID body);
@@ -1415,7 +1742,8 @@ namespace Tao.Ode {
 		/// </remarks>
 		/// <returns>A dVector3</returns>
 		/// <param name="body">A  dBodyID</param>
-		public static dVector3 dBodyGetForce(dBodyID body) {
+		public static dVector3 dBodyGetForce(dBodyID body) 
+		{
 			unsafe
 			{
 				dVector3 *v=(dVector3*)dBodyGetForce_(body);
@@ -1434,7 +1762,8 @@ namespace Tao.Ode {
 		/// </remarks>
 		/// <returns>A dVector3</returns>
 		/// <param name="body">A  dBodyID</param>
-		public static dVector3 dBodyGetTorque(dBodyID body) {
+		public static dVector3 dBodyGetTorque(dBodyID body) 
+		{
 			unsafe
 			{
 				dVector3 *v=(dVector3*)dBodyGetTorque_(body);
@@ -1477,7 +1806,7 @@ namespace Tao.Ode {
 		/// <param name="result">A  dVector3</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyGetRelPointPos(dBodyID body, dReal px, dReal py, dReal pz,
-													  ref dVector3 result);
+			ref dVector3 result);
 		
 		/// <summary>
 		/// Take a point on a body (px,py,pz) and return that point's velocity in body-relative coordinates (in result).
@@ -1489,7 +1818,7 @@ namespace Tao.Ode {
 		/// <param name="result">A  dVector3</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyGetRelPointVel(dBodyID body, dReal px, dReal py, dReal pz,
-													  ref dVector3  result);
+			ref dVector3  result);
 		
 		/// <summary>
 		/// Take a point on a body (px,py,pz) and return that point's position in absolute coordinates (in result).
@@ -1501,7 +1830,7 @@ namespace Tao.Ode {
 		/// <param name="result">A  dVector3</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyGetPointVel(dBodyID body, dReal px, dReal py, dReal pz,
-												   ref dVector3  result);
+			ref dVector3  result);
 		
 		/// <summary>
 		/// This is the inverse of dBodyGetRelPointPos.
@@ -1515,7 +1844,7 @@ namespace Tao.Ode {
 		/// <param name="result">A  dVector3</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyGetPosRelPoint(dBodyID body, dReal px, dReal py, dReal pz,
-													  ref dVector3  result);
+			ref dVector3  result);
 		
 		/// <summary>
 		/// Given a vector expressed in the body coordinate system (x,y,z), rotate it to the world coordinate system (result).
@@ -1527,7 +1856,7 @@ namespace Tao.Ode {
 		/// <param name="result">A  dVector3</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyVectorToWorld(dBodyID body, dReal px, dReal py, dReal pz,
-													 ref dVector3  result);
+			ref dVector3  result);
 		
 		/// <summary>
 		/// Given a vector expressed in the world coordinate system (x,y,z), rotate it to the body coordinate system (result).
@@ -1539,7 +1868,7 @@ namespace Tao.Ode {
 		/// <param name="result">A  dVector3</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyVectorFromWorld(dBodyID body, dReal px, dReal py, dReal pz,
-													   ref dVector3  result);
+			ref dVector3  result);
 		#endregion Body utility functions
 		#region Miscellaneous Body Functions
 		/// <summary>
@@ -1667,26 +1996,26 @@ namespace Tao.Ode {
 		public extern static int dBodyGetGravityMode(dBodyID b);
 		#endregion Miscellaneous Body Functions
 		#region Body automatic enabling and disabling functions
-		/// Every body can be enabled or disabled.
-		/// Enabled bodies participate in the simulation, while disabled bodies are
-		/// turned off and do not get updated during a simulation step.
-		/// New bodies are always created in the enabled state.
-		/// A disabled body that is connected through a joint to an enabled body will
-		/// be automatically re-enabled at the next simulation step.
-		/// Disabled bodies do not consume CPU time, therefore to speed up the
-		/// simulation bodies should be disabled when they come to rest.
-		/// This can be done automatically with the auto-disable feature.
-		/// If a body has its auto-disable flag turned on, it will automatically
-		/// disable itself when
-		/// 	1. 	it has been idle for a given number of simulation steps.
-		/// 	2. 	it has also been idle for a given amount of simulation time.
-		///
-		/// A body is considered to be idle when the magnitudes of both its linear
-		/// velocity and angular velocity are below given thresholds.
-		/// Thus, every body has five auto-disable parameters:
-		/// 	an enabled flag, a idle step count, an idle time, and linear/angular velocity thresholds.
-		/// Newly created bodies get these parameters from world.
-		/// The following functions set and get the enable/disable parameters of a body.
+		// Every body can be enabled or disabled.
+		// Enabled bodies participate in the simulation, while disabled bodies are
+		// turned off and do not get updated during a simulation step.
+		// New bodies are always created in the enabled state.
+		// A disabled body that is connected through a joint to an enabled body will
+		// be automatically re-enabled at the next simulation step.
+		// Disabled bodies do not consume CPU time, therefore to speed up the
+		// simulation bodies should be disabled when they come to rest.
+		// This can be done automatically with the auto-disable feature.
+		// If a body has its auto-disable flag turned on, it will automatically
+		// disable itself when
+		// 	1. 	it has been idle for a given number of simulation steps.
+		// 	2. 	it has also been idle for a given amount of simulation time.
+		//
+		// A body is considered to be idle when the magnitudes of both its linear
+		// velocity and angular velocity are below given thresholds.
+		// Thus, every body has five auto-disable parameters:
+		// 	an enabled flag, a idle step count, an idle time, and linear/angular velocity thresholds.
+		// Newly created bodies get these parameters from world.
+		// The following functions set and get the enable/disable parameters of a body.
 		
 		/// <summary>
 		/// Manually enable a body.
@@ -1913,6 +2242,7 @@ namespace Tao.Ode {
 		/// <returns>A dJointID</returns>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="group">A  dJointGroupID</param>
+		/// <param name="contact"></param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dJointID dJointCreateContact(dWorldID world, dJointGroupID group, ref dContact contact);
 		
@@ -2186,7 +2516,8 @@ namespace Tao.Ode {
 		/// </summary>
 		/// <returns>A dJointFeedback</returns>
 		/// <param name="body">A  dBodyID</param>
-		public static dJointFeedback dJointGetFeedback(dBodyID body) {
+		public static dJointFeedback dJointGetFeedback(dBodyID body) 
+		{
 			unsafe
 			{
 				dJointFeedback *v=(dJointFeedback*)dJointGetFeedback_(body);
@@ -2683,18 +3014,38 @@ namespace Tao.Ode {
 		public extern static void dJointAddUniversalTorques(dJointID joint, dReal torque1, dReal torque2);
 		
 		// TODO: Document this - not found in ode docs
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="joint"></param>
+		/// <returns></returns>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetUniversalAngle1(dJointID joint);
 		
 		// TODO: Document this - not found in ode docs
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="joint"></param>
+		/// <returns></returns>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetUniversalAngle2(dJointID joint);
 		
 		// TODO: Document this - not found in ode docs
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="joint"></param>
+		/// <returns></returns>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetUniversalAngle1Rate(dJointID joint);
 		
 		// TODO: Document this - not found in ode docs
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="joint"></param>
+		/// <returns></returns>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetUniversalAngle2Rate(dJointID joint);
 		#endregion Universal Joint functions
@@ -2789,7 +3140,7 @@ namespace Tao.Ode {
 		/// <param name="z">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetAMotorAxis(dJointID joint, int anum, int rel,
-													  dReal x, dReal y, dReal z);
+			dReal x, dReal y, dReal z);
 		
 		/// <summary>
 		/// Get the specified AMotor axis.
@@ -2921,9 +3272,9 @@ namespace Tao.Ode {
 		/// <param name="I23">An element of the inertia matrix</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetParameters(ref dMass mass, dReal themass,
-													 dReal cgx, dReal cgy, dReal cgz,
-													 dReal I11, dReal I22, dReal I33,
-													 dReal I12, dReal I13, dReal I23);
+			dReal cgx, dReal cgy, dReal cgz,
+			dReal I11, dReal I22, dReal I33,
+			dReal I12, dReal I13, dReal I23);
 		
 		/// <summary>
 		/// Set the mass parameters to represent a sphere of the given radius and density, with
@@ -2959,7 +3310,7 @@ namespace Tao.Ode {
 		/// <param name="length">The length of the cylinder (not counting the spherical cap)</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetCappedCylinder(ref dMass mass, dReal density, int direction,
-														 dReal radius, dReal length);
+			dReal radius, dReal length);
 		
 		/* TLT comment:
 		 Calls dMassSetCappedCylinder and dMassAdjust internally.
@@ -2980,7 +3331,7 @@ namespace Tao.Ode {
 		/// <param name="length">The length of the cylinder (not counting the spherical cap)</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetCappedCylinderTotal(ref dMass mass, dReal total_mass, int direction,
-															  dReal radius, dReal length);
+			dReal radius, dReal length);
 		
 		/// <summary>
 		/// Set the mass parameters to represent a flat-ended cylinder of the given parameters and density, with
@@ -2996,7 +3347,7 @@ namespace Tao.Ode {
 		/// <param name="length">The length of the cylinder</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetCylinder(ref dMass mass, dReal density, int direction,
-												   dReal radius, dReal length);
+			dReal radius, dReal length);
 		
 		/// <summary>
 		/// Set the mass parameters to represent a flat-ended cylinder of the given parameters and total mass, with
@@ -3012,7 +3363,7 @@ namespace Tao.Ode {
 		/// <param name="length">The length of the cylinder</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetCylinderTotal(ref dMass mass, dReal total_mass, int direction,
-														dReal radius, dReal length);
+			dReal radius, dReal length);
 		
 		/// <summary>
 		/// Set the mass parameters to represent a box of the given dimensions and density, with
@@ -3025,7 +3376,7 @@ namespace Tao.Ode {
 		/// <param name="lz">The side length of the box along the z axis</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetBox(ref dMass mass, dReal density,
-											  dReal lx, dReal ly, dReal lz);
+			dReal lx, dReal ly, dReal lz);
 		
 		/// <summary>
 		/// Set the mass parameters to represent a box of the given dimensions and total mass, with
@@ -3038,7 +3389,7 @@ namespace Tao.Ode {
 		/// <param name="lz">The side length of the box along the z axis</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetBoxTotal(ref dMass mass, dReal total_mass,
-												   dReal lx, dReal ly, dReal lz);
+			dReal lx, dReal ly, dReal lz);
 		
 		/// <summary>
 		/// Given mass parameters for some object, adjust them so the total mass is now newmass
@@ -3221,7 +3572,8 @@ namespace Tao.Ode {
 		/// </summary>
 		/// <returns>A dVector3</returns>
 		/// <param name="body">A  dBodyID</param>
-		public static dVector3 dGeomGetPosition(dBodyID body) {
+		public static dVector3 dGeomGetPosition(dBodyID body) 
+		{
 			unsafe
 			{
 				dVector3 *v=(dVector3*)dGeomGetPosition_(body);
@@ -3245,7 +3597,8 @@ namespace Tao.Ode {
 		/// </summary>
 		/// <returns>A dVector3</returns>
 		/// <param name="body">A  dBodyID</param>
-		public static dVector3 dGeomGetRotation(dBodyID body) {
+		public static dVector3 dGeomGetRotation(dBodyID body) 
+		{
 			unsafe
 			{
 				dVector3 *v=(dVector3*)dGeomGetRotation_(body);
@@ -3367,6 +3720,7 @@ namespace Tao.Ode {
 		///
 		/// Note this is NOT CLS-compliant (due to the use of ulong to hold the 32-bit bitfield)
 		/// TODO: Implement a CLS-compliant work-around or justify why not
+		/// </summary>
 		/// <returns>An ulong</returns>
 		/// <param name="geom">A  dGeomID</param>
 		[CLSCompliant(false)]
@@ -3476,7 +3830,7 @@ namespace Tao.Ode {
 		/// <param name="skip">An int</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dCollide(dGeomID o1, dGeomID o2, int flags, [In,Out]dContactGeom[] contacts,
-										  int skip);
+			int skip);
 		
 		/// <summary>
 		/// This determines which pairs of geoms in a space may potentially intersect,
@@ -3546,7 +3900,7 @@ namespace Tao.Ode {
 		/// <param name="callback">A  dNearCallback</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dSpaceCollide2(dGeomID o1, dGeomID o2, IntPtr data,
-												 dNearCallback callback);
+			dNearCallback callback);
 		#endregion Collision Detection
 		
 		#region Sphere class
@@ -3813,7 +4167,7 @@ namespace Tao.Ode {
 		/// <param name="dz">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomRaySet(dGeomID ray, dReal px, dReal py, dReal pz,
-											  dReal dx, dReal dy, dReal dz);
+			dReal dx, dReal dy, dReal dz);
 		
 		/// <summary>
 		/// Get the starting position (start) and direction (dir) of the ray. 
@@ -4005,8 +4359,8 @@ namespace Tao.Ode {
 		/// <param name="cp2">A  dVector3</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dClosestLineSegmentPoints(ref dVector3 a1, ref dVector3 a2,
-															ref dVector3 b1, ref dVector3 b2,
-															ref dVector3 cp1, ref dVector3 cp2);
+			ref dVector3 b1, ref dVector3 b2,
+			ref dVector3 cp1, ref dVector3 cp2);
 		
 		/// <summary>
 		/// Given boxes (p1,R1,side1) and (p2,R2,side2), return 1 if they intersect 
@@ -4022,8 +4376,8 @@ namespace Tao.Ode {
 		/// <param name="side2">A  dVector3</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dBoxTouchesBox(ref dVector3 _p1, ref dMatrix3 R1,
-												ref dVector3 side1, ref dVector3 _p2,
-												ref dMatrix3 R2, ref dVector3 side2);
+			ref dVector3 side1, ref dVector3 _p2,
+			ref dMatrix3 R2, ref dVector3 side2);
 		
 		/// <summary>
 		/// This function can be used as the AABB-getting function in a geometry class, 
@@ -4214,7 +4568,13 @@ namespace Tao.Ode {
 		#endregion Space functions
 		
 		#region TriMesh functions
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int TRIMESH_FACE_NORMALS=1;
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int TRIMESH_LAST_TRANSFORMATION=2;
 		
 		/// <summary>
@@ -4296,18 +4656,18 @@ namespace Tao.Ode {
 		/// trimesh object. For example,
 		///		dTriMeshDataID TriMeshData;
 		///		TriMeshData = dGeomTriMeshGetTriMeshDataID (
-        ///			Bodies[BodyIndex].GeomID);
+		///			Bodies[BodyIndex].GeomID);
 		///
 		///		// as long as dReal == floats
 		///		dGeomTriMeshDataBuildSingle (TriMeshData,
-        ///			// Vertices
-        ///			Bodies[BodyIndex].VertexPositions,
-        ///			3*sizeof(dReal), (int) numVertices,
-        ///			// Faces
-        ///			Bodies[BodyIndex].TriangleIndices,
-        ///			(int) NumTriangles, 3*sizeof(unsigned int),
-        ///			// Normals
-        ///			Bodies[BodyIndex].FaceNormals);
+		///			// Vertices
+		///			Bodies[BodyIndex].VertexPositions,
+		///			3*sizeof(dReal), (int) numVertices,
+		///			// Faces
+		///			Bodies[BodyIndex].TriangleIndices,
+		///			(int) NumTriangles, 3*sizeof(unsigned int),
+		///			// Normals
+		///			Bodies[BodyIndex].FaceNormals);
 		/// 
 		///	This pre-calculation saves some time during evaluation of the contacts, 
 		/// but isn't necessary. If you don't want to calculate the face normals 
@@ -4325,8 +4685,8 @@ namespace Tao.Ode {
 		/// <param name="TriStride">An int</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshDataBuildSingle(dTriMeshDataID g,
-															  dVector3[] Vertices, int VertexStride, int VertexCount,
-															  int[] Indices, int IndexCount, int TriStride);
+			dVector3[] Vertices, int VertexStride, int VertexCount,
+			int[] Indices, int IndexCount, int TriStride);
 		
 		/// <summary>
 		/// Build Trimesh data with single precision used in vertex data.
@@ -4343,9 +4703,9 @@ namespace Tao.Ode {
 		/// <param name="Normals">A  dVector3[]</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshDataBuildSingle1(dTriMeshDataID g,
-															   dVector3[] Vertices, int VertexStride, int VertexCount,
-															   int[] Indices, int IndexCount, int TriStride,
-															   dVector3[] Normals);
+			dVector3[] Vertices, int VertexStride, int VertexCount,
+			int[] Indices, int IndexCount, int TriStride,
+			dVector3[] Normals);
 		
 		/// <summary>
 		/// Build Trimesh data with double precision used in vertex data.
@@ -4359,8 +4719,8 @@ namespace Tao.Ode {
 		/// <param name="TriStride">An int</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshDataBuildDouble(dTriMeshDataID g,
-															  dVector3 Vertices,  int VertexStride, int VertexCount,
-															  int[] Indices, int IndexCount, int TriStride);
+			dVector3 Vertices,  int VertexStride, int VertexCount,
+			int[] Indices, int IndexCount, int TriStride);
 		
 		/// <summary>
 		/// Build Trimesh data with double precision used in vertex data.
@@ -4377,9 +4737,9 @@ namespace Tao.Ode {
 		/// <param name="Normals">A  dVector3[]</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshDataBuildDouble1(dTriMeshDataID g,
-															   dVector3[] Vertices,  int VertexStride, int VertexCount,
-															   int[] Indices, int IndexCount, int TriStride,
-															   dVector3[] Normals);
+			dVector3[] Vertices,  int VertexStride, int VertexCount,
+			int[] Indices, int IndexCount, int TriStride,
+			dVector3[] Normals);
 		
 		/// <summary>
 		/// Simple trimesh build function provided for convenience.
@@ -4397,8 +4757,8 @@ namespace Tao.Ode {
 		/// <param name="IndexCount">An int</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshDataBuildSimple(dTriMeshDataID g,
-															  dVector3[] Vertices, int VertexCount,
-															  int[] Indices, int IndexCount);
+			dVector3[] Vertices, int VertexCount,
+			int[] Indices, int IndexCount);
 		
 		/// <summary>
 		/// Simple trimesh build function provided for convenience.
@@ -4418,9 +4778,9 @@ namespace Tao.Ode {
 		/// <param name="Normals">A  dVector3[]</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshDataBuildSimple1(dTriMeshDataID g,
-															   dVector3[] Vertices, int VertexCount,
-															   int[] Indices, int IndexCount,
-															   dVector3[] Normals);
+			dVector3[] Vertices, int VertexCount,
+			int[] Indices, int IndexCount,
+			dVector3[] Normals);
 		#endregion Trimesh data filling functions
 		#region Trimesh callback functions
 		/// <summary>
