@@ -108,6 +108,9 @@ namespace Tao.DevIl
 		public const int ILUT_DIRECT3D8	= 3;
 		#endregion ILUT_DIRECT3D8
 		#region ILUT_DIRECT3D9
+		/// <summary>
+		/// 
+		/// </summary>
 		public const int ILUT_DIRECT3D9	= 4;
 		#endregion
 		#endregion RenderingApis
@@ -300,7 +303,7 @@ namespace Tao.DevIl
 		/// <remarks>
 		/// <b>ilutDisable</b> disables a mode specified by Mode.
 		/// </remarks>
-		/// <param name="Mode">Mode to disable.</param>    
+		/// <param name="mode">Mode to disable.</param>    
 		// ILAPI ILboolean ILAPIENTRY ilutDisable(ILenum Mode);
 		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern bool ilutDisable(int mode);
@@ -368,8 +371,8 @@ namespace Tao.DevIl
 		/// The <b>ilutInit</b> function initializes ILUT.
 		/// </summary>
 		/// <remarks><b>ilutInit</b> starts ILUT and must be called prior to using ILUT.</remarks>
-		/// <seealso cref="ilInit"/>
-		/// <seealso cref="iluInit"/>
+		/// <seealso cref="Il.ilInit"/>
+		/// <seealso cref="Ilu.iluInit"/>
 		// ILAPI ILvoid ILAPIENTRY ilutInit(ILvoid);
 		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern void ilutInit();
@@ -434,8 +437,8 @@ namespace Tao.DevIl
 		/// <summary>
 		/// The <b>ilutGLBindTexImage</b> function binds an image to a generated OpenGL texture.
 		/// </summary>
-		/// <seealso cref="ilGenImages"/>
-		/// <seealso cref="ilBindImage"/>
+		/// <seealso cref="Il.ilGenImages"/>
+		/// <seealso cref="Il.ilBindImage"/>
 		/// <seealso cref="ilutOglBuildMipmaps"/>
 		/// <seealso cref="ilutOglScreen"/>
 		/// <seealso cref="ilutGLTexImage"/>
@@ -449,8 +452,8 @@ namespace Tao.DevIl
 		///The <b>ilutGLBindMipmaps</b> function binds an image to an OpenGL texture and creates mipmaps.
 		/// </summary>
 		/// <remarks><b>ilutGLBindMipmaps</b> generates a texture via glGenTextures, binds the current OpenIL image to it, generates mipmaps via gluBuild2DMipmaps and returns the texture name. This function is a more general purpose version of <see cref="ilutOglBindTexImage"/>.</remarks>
-		/// <seealso cref="ilGenImages"/>
-		/// <seealso cref="ilBindImage"/>
+		/// <seealso cref="Il.ilGenImages"/>
+		/// <seealso cref="Il.ilBindImage"/>
 		/// <seealso cref="ilutOglBuildMipmaps"/>
 		/// <seealso cref="ilutGLBindTexImage"/>
 		// ILAPI GLuint ILAPIENTRY ilutGLBindMipmaps(ILvoid);
@@ -463,8 +466,8 @@ namespace Tao.DevIl
 		///The <b>ilutGLBuildMipmaps</b> function creates mipmaps from an image for OpenGL to use.
 		/// </summary>
 		/// <remarks><b>ilutGLBuildMipmaps</b> generates mipmaps via gluBuild2DMipmaps from an image. This function is similar to <see cref="ilutGLTexImage"/> but creates mipmaps.</remarks>
-		/// <seealso cref="ilGenImages"/>
-		/// <seealso cref="ilBindImage"/>
+		/// <seealso cref="Il.ilGenImages"/>
+		/// <seealso cref="Il.ilBindImage"/>
 		/// <seealso cref="ilutGLBindMipmaps"/>
 		// ILAPI ILboolean ILAPIENTRY ilutGLBuildMipmaps(ILvoid);
 		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
@@ -477,7 +480,7 @@ namespace Tao.DevIl
 		/// </summary>
 		/// <param name="FileName">Name of the image file to load.</param>
 		/// <remarks><b>ilutGLLoadImage</b> loads an image directly to an OpenGL texture, skipping the use of OpenIL image names.</remarks>
-		/// <seealso cref="ilLoadImage"/>
+		/// <seealso cref="Il.ilLoadImage"/>
 		/// <seealso cref="ilutWinLoadImage"/>
 		// ILAPI GLuint ILAPIENTRY ilutGLLoadImage(const ILstring FileName);
 		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
@@ -489,8 +492,8 @@ namespace Tao.DevIl
 		///The <b>ilutGLScreen</b> function takes a screenshot of the current OpenGL window.
 		/// </summary>
 		/// <remarks><b>ilutGLScreen</b> copies the current OpenGL window contents to the current bound image, effectively taking a screenshot. The new image attributes are that of the current OpenGL window's.</remarks>
-		/// <seealso cref="ilGenImages"/>
-		/// <seealso cref="ilBindImage"/>
+		/// <seealso cref="Il.ilGenImages"/>
+		/// <seealso cref="Il.ilBindImage"/>
 		/// <seealso cref="ilutGLScreenie"/>
 		// ILAPI ILboolean ILAPIENTRY ilutGLScreen(ILvoid);
 		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
@@ -502,8 +505,8 @@ namespace Tao.DevIl
 		///The <b>ilutGLScreen</b> function takes a screenie of the current OpenGL window.
 		/// </summary>
 		/// <remarks><b>ilutGLScreen</b> copies the current OpenGL window contents to a temporary image, effectively taking a screenshot. The screenshot image is then saved to disk as screen0.tga - screen127.tga (the lowest name it can find). This is just a convenience function that uses <see cref="ilutGLScreen"/>.</remarks>
-		/// <seealso cref="ilGenImages"/>
-		/// <seealso cref="ilBindImage"/>
+		/// <seealso cref="Il.ilGenImages"/>
+		/// <seealso cref="Il.ilBindImage"/>
 		/// <seealso cref="ilutGLScreen"/>
 		// ILAPI ILboolean ILAPIENTRY ilutGLScreenie(ILvoid);
 		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
@@ -535,11 +538,11 @@ namespace Tao.DevIl
 		/// <summary>
 		///The <b>ilutGLTexImage</b> function binds an image to an OpenGL texture.
 		/// </summary>
-		/// <param name="Level">Texture level to place the image at. 0 is the base image level, and anything lower is a mipmap. Use <see cref="ilActiveMipmap"/> to access OpenIL's mipmaps.</param>
+		/// <param name="Level">Texture level to place the image at. 0 is the base image level, and anything lower is a mipmap. Use <see cref="Il.ilActiveMipmap"/> to access OpenIL's mipmaps.</param>
 		/// <remarks><b>ilutGLTexImage</b> simply calls glTexImage2D with the current bound image's data and attributes.</remarks>
-		/// <seealso cref="ilGenImages"/>
-		/// <seealso cref="ilBindImage"/>
-		/// <seealso cref="ilActiveMipmap"/>
+		/// <seealso cref="Il.ilGenImages"/>
+		/// <seealso cref="Il.ilBindImage"/>
+		/// <seealso cref="Il.ilActiveMipmap"/>
 		/// <seealso cref="ilutOglBindTexImage"/>
 		/// <seealso cref="ilutOglBuildMipmaps"/>
 		/// <seealso cref="ilutOglScreen"/>
@@ -557,8 +560,8 @@ namespace Tao.DevIl
 		/// </summary>
 		/// <param name="flags">Flags to be used with SDL_CreateRGBSurface. Please refer to the SDL documentation for more information.</param>
 		/// <remarks><b>ilutConvertToSDLSurface</b> creates a SDL_Surface copy of the currently bound image, for direct use in SDL.</remarks>
-		/// <seealso cref="ilGenImages"/>
-		/// <seealso cref="ilBindImage"/>
+		/// <seealso cref="Il.ilGenImages"/>
+		/// <seealso cref="Il.ilBindImage"/>
 		// ILAPI SDL_Surface* ILAPIENTRY ilutConvertToSDLSurface(unsigned int flags);
 		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr ilutConvertToSDLSurface(int flags);
@@ -570,10 +573,10 @@ namespace Tao.DevIl
 		/// </summary>
 		/// <param name="FileName">Name of the image file to load.</param>
 		/// <remarks><b>ilutSDLSurfaceLoadImage</b> loads an image directly to a SDL_Surface, skipping the use of DevIL image names.</remarks>
-		/// <seealso cref="ilGenImages"/>
-		/// <seealso cref="ilBindImage"/>
+		/// <seealso cref="Il.ilGenImages"/>
+		/// <seealso cref="Il.ilBindImage"/>
 		/// <seealso cref="ilutConvertToSDLSurface"/>
-		/// <seealso cref="ilLoadImage"/>
+		/// <seealso cref="Il.ilLoadImage"/>
 		// ILAPI SDL_Surface*	ILAPIENTRY ilutSDLSurfaceLoadImage(const ILstring FileName);
 		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr ilutSDLSurfaceLoadImage(string FileName);

@@ -32,6 +32,7 @@
             <Files>
                 <File>AssemblyInfo.cs</File>
                 <File>Cg.cs</File>
+                <File>CgGl.cs</File>
             </Files>
         </Project>
     </Solution>
