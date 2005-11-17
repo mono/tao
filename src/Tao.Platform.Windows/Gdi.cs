@@ -1144,11 +1144,11 @@ namespace Tao.Platform.Windows {
         /// The <b>ChoosePixelFormat</b> function attempts to match an appropriate pixel format supported by a device context
         /// to a given pixel format specification.
         /// </summary>
-        /// <param name="hdc">
+        /// <param name="deviceContext">
         /// Specifies the device context that the function examines to determine the best match for the pixel format
         /// descriptor pointed to by <i>ppfd</i>.
         /// </param>
-        /// <param name="ppfd">
+        /// <param name="pixelFormatDescriptor">
         /// <para>
         ///		Pointer to a <see cref="Gdi.PIXELFORMATDESCRIPTOR" /> structure that specifies the requested pixel format.
         ///		In this context, the members of the <b>PIXELFORMATDESCRIPTOR</b> structure that <i>ppfd</i>
