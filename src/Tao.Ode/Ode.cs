@@ -163,6 +163,109 @@ namespace Tao.Ode
 		}
 		#endregion Joint Type Numbers
 		
+		#region Joint Parameter Names
+		/// <summary>
+		/// Definition of Joint limit and motor parameter names
+		/// If a particular parameter is not implemented by a given joint, setting it will have no effect.
+		/// 
+		/// These parameter names can be optionally followed by a digit (2 or 3) to indicate the second or third set of parameters, e.g. for the second axis in a hinge-2 joint, or the third axis in an AMotor joint. A constant dParamGroup is also defined such that: dParamXi = dParamX + dParamGroup * (i-1)
+		/// </summary>
+		/// <remarks>
+
+		/// Implemented via a macro in Ode's common.h
+		/// Translated into actual constants here following inspection of common.h
+		/// A change in the Ode macro could require these values to be updated
+		/// </remarks>
+		public enum dJointParams : int
+		{
+
+			#region Parameters for first axis
+			/// <summary>
+			/// Low stop angle or position. Setting this to -dInfinity (the default value) turns off the low stop. For rotational joints, this stop must be greater than - pi to be effective.
+			/// </summary>
+			dParamLoStop = 0,
+			
+			/// <summary>
+			/// High stop angle or position. Setting this to dInfinity (the default value) turns off the high stop. For rotational joints, this stop must be less than pi to be effective. If the high stop is less than the low stop then both stops will be ineffective.
+			/// </summary>
+			dParamHiStop = 1,
+			
+			/// <summary>
+			/// Desired motor velocity (this will be an angular or linear velocity).
+			/// </summary>
+			dParamVel = 2,
+			
+			/// <summary>
+			/// The maximum force or torque that the motor will use to achieve the desired velocity. This must always be greater than or equal to zero. Setting this to zero (the default value) turns off the motor.
+			/// </summary>
+			dParamFMax = 3,
+			
+			/// <summary>
+			/// The current joint stop/motor implementation has a small problem: when the joint is at one stop and the motor is set to move it away from the stop, too much force may be applied for one time step, causing a ``jumping'' motion. This fudge factor is used to scale this excess force. It should have a value between zero and one (the default value). If the jumping motion is too visible in a joint, the value can be reduced. Making this value too small can prevent the motor from being able to move the joint away from a stop.
+			/// </summary>
+			dParamFudgeFactor = 4,
+			
+			/// <summary>
+			/// The bouncyness of the stops. This is a restitution parameter in the range 0..1. 0 means the stops are not bouncy at all, 1 means maximum bouncyness.
+			/// </summary>
+			dParamBounce = 5,
+			
+			/// <summary>
+			/// The constraint force mixing (CFM) value used when not at a stop.
+			/// </summary>
+			dParamCFM = 6,
+			
+			/// <summary>
+			/// The error reduction parameter (ERP) used by the stops.
+			/// </summary>
+			dParamStopERP = 7,
+			
+			/// <summary>
+			/// The constraint force mixing (CFM) value used by the stops. Together with the ERP value this can be used to get spongy or soft stops. Note that this is intended for unpowered joints, it does not really work as expected when a powered joint reaches its limit.
+			/// </summary>
+			dParamStopCFM = 8,
+
+			/// <summary>
+			/// Suspension error reduction parameter (ERP). Currently this is only implemented on the hinge-2 joint.
+			/// </summary>
+			dParamSuspensionERP = 9,
+			
+			/// <summary>
+			/// Suspension constraint force mixing (CFM) value. Currently this is only implemented on the hinge-2 joint.
+			/// </summary>
+			dParamSuspensionCFM = 10,
+			#endregion Parameters for first axis
+			
+			#region Parameters for second axis
+			dParamLoStop2 = 0x100 + 0,
+			dParamHiStop2 = 0x100 + 1,
+			dParamVel2 = 0x100 + 2,
+			dParamFMax2 = 0x100 + 3,
+			dParamFudgeFactor2 = 0x100 + 4,
+			dParamBounce2 = 0x100 + 5,
+			dParamCFM2 = 0x100 + 6,
+			dParamStopERP2 = 0x100 + 7,
+			dParamStopCFM2 = 0x100 + 8,
+			dParamSuspensionERP2 = 0x100 + 9,
+			dParamSuspensionCFM2 = 0x100 + 10,
+			#endregion Parameters for second axis
+			
+			#region Parameters for third axis
+			dParamLoStop3 = 0x200 + 0,
+			dParamHiStop3 = 0x200 + 1,
+			dParamVel3 = 0x200 + 2,
+			dParamFMax3 = 0x200 + 3,
+			dParamFudgeFactor3 = 0x200 + 4,
+			dParamBounce3 = 0x200 + 5,
+			dParamCFM3 = 0x200 + 6,
+			dParamStopERP3 = 0x200 + 7,
+			dParamStopCFM3 = 0x200 + 8,
+			dParamSuspensionERP3 = 0x200 + 9,
+			dParamSuspensionCFM3 = 0x200 + 10,
+			#endregion Parameters for third axis
+		}
+		#endregion Joint Parameter Names
+		
 		#region Angular Motor Mode Numbers
 		/// <summary>
 		/// 
@@ -2671,7 +2774,7 @@ namespace Tao.Ode
 		/// <param name="parameter">An int</param>
 		/// <param name="value">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dJointSetHingeParam(dJointID joint, int parameter, dReal value);
+		public extern static void dJointSetHingeParam(dJointID joint, dJointParams parameter, dReal value);
 		
 		/// <summary>
 		/// Get limit/motor parameters for a hinge joint
@@ -2680,7 +2783,7 @@ namespace Tao.Ode
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="parameter">An int</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static dReal dJointGetHingeParam(dJointID joint, int parameter);
+		public extern static dReal dJointGetHingeParam(dJointID joint, dJointParams parameter);
 		
 		/// <summary>
 		/// Applies the torque about the hinge axis.
@@ -2744,7 +2847,7 @@ namespace Tao.Ode
 		/// <param name="parameter">An int</param>
 		/// <param name="value">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dJointSetSliderParam(dJointID joint, int parameter, dReal value);
+		public extern static void dJointSetSliderParam(dJointID joint, dJointParams parameter, dReal value);
 		
 		/// <summary>
 		/// Get limit/motor parameters for a slider joint
@@ -2755,7 +2858,7 @@ namespace Tao.Ode
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="parameter">An int</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static dReal dJointGetSliderParam(dJointID joint, int parameter);
+		public extern static dReal dJointGetSliderParam(dJointID joint, dJointParams parameter);
 		
 		/// <summary>
 		/// Applies the given force in the slider's direction.
@@ -2880,7 +2983,7 @@ namespace Tao.Ode
 		/// <param name="parameter">An int</param>
 		/// <param name="value">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dJointSetHinge2Param(dJointID joint, int parameter, dReal value);
+		public extern static void dJointSetHinge2Param(dJointID joint, dJointParams parameter, dReal value);
 		
 		/// <summary>
 		/// Get limit/motor parameters for a hinge-2 joint
@@ -2891,7 +2994,7 @@ namespace Tao.Ode
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="parameter">An int</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static dReal dJointGetHinge2Param(dJointID joint, int parameter);
+		public extern static dReal dJointGetHinge2Param(dJointID joint, dJointParams parameter);
 		
 		/// <summary>
 		/// Applies torque1 about the hinge2's axis 1, and torque2 about the hinge2's axis 2.
@@ -2988,7 +3091,7 @@ namespace Tao.Ode
 		/// <param name="parameter">An int</param>
 		/// <param name="value">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dJointSetUniversalParam(dJointID joint, int parameter, dReal value);
+		public extern static void dJointSetUniversalParam(dJointID joint, dJointParams parameter, dReal value);
 		
 		/// <summary>
 		/// Get limit/motor parameters for a universal joint
@@ -2999,7 +3102,7 @@ namespace Tao.Ode
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="parameter">An int</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static dReal dJointGetUniversalParam(dJointID joint, int parameter);
+		public extern static dReal dJointGetUniversalParam(dJointID joint, dJointParams parameter);
 		
 		/// <summary>
 		/// Applies torque1 about the universal's axis 1, and torque2 about the universal's axis 2.
@@ -3210,7 +3313,7 @@ namespace Tao.Ode
 		/// <param name="parameter">An int</param>
 		/// <param name="value">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dJointSetAMotorParam(dJointID joint, int parameter, dReal value);
+		public extern static void dJointSetAMotorParam(dJointID joint, dJointParams parameter, dReal value);
 		
 		/// <summary>
 		/// Get limit/motor parameters for a an angular motor joint
@@ -3221,7 +3324,7 @@ namespace Tao.Ode
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="parameter">An int</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static dReal dJointGetAMotorParam(dJointID joint, int parameter);
+		public extern static dReal dJointGetAMotorParam(dJointID joint, dJointParams parameter);
 		
 		/// <summary>
 		/// Applies torque0 about the AMotor's axis 0,
