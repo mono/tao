@@ -1,7 +1,7 @@
 #region License
 /*
  MIT License
- Copyright ©2003-2005 Tao Framework Team
+ Copyright 2003-2005 Tao Framework Team
  http://www.taoframework.com
  All rights reserved.
  
@@ -5049,6 +5049,131 @@ namespace Tao.Ode
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshGetPoint(dGeomID g, int Index, dReal u, dReal v, ref dVector3 Out);
 		#endregion TriMesh functions
+
+		#region Rotation Functions
+		
+		/// <summary>
+		/// Set R to the identity matrix (i.e. no rotation).
+		/// </summary>
+		/// <param name="R">A dMatrix3</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dRSetIdentity(out dMatrix3 R);
+
+		/// <summary>
+		/// Compute the rotation matrix R as a rotation of angle radians along the axis (ax,ay,az).
+		/// </summary>
+		/// <param name="R">A dMatrix3</param>
+		/// <param name="ax">A dReal</param>
+		/// <param name="ay">A dReal</param>
+		/// <param name="az">A dReal</param>
+		/// <param name="angle">A dReal</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dRFromAxisAndAngle (out dMatrix3 R, dReal ax, dReal ay, dReal az, dReal angle);
+
+		/// <summary>
+		/// Compute the rotation matrix R from the three Euler rotation angles.
+		/// </summary>
+		/// <param name="R">A dMatrix3</param>
+		/// <param name="phi">A dReal</param>
+		/// <param name="theta">A dReal</param>
+		/// <param name="psi">A dReal</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dRFromEulerAngles (out dMatrix3 R, dReal phi, dReal theta, dReal psi);
+
+		/// <summary>
+		/// Compute the rotation matrix R from the two vectors `a' (ax,ay,az) and `b' (bx,by,bz). `a' and `b' are the desired x and y axes of the rotated coordinate system. If necessary, `a' and `b' will be made unit length, and `b' will be projected so that it is perpendicular to `a'. The desired z axis is the cross product of `a' and `b'.
+		/// </summary>
+		/// <param name="R">A dMatrix3</param>
+		/// <param name="ax">A dReal</param>
+		/// <param name="ay">A dReal</param>
+		/// <param name="az">A dReal</param>
+		/// <param name="bx">A dReal</param>
+		/// <param name="by">A dReal</param>
+		/// <param name="bz">A dReal</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dRFrom2Axes (out dMatrix3 R, dReal ax, dReal ay, dReal az, dReal bx, dReal by, dReal bz);
+
+		/// <summary>
+		/// Set q to the identity rotation (i.e. no rotation).
+		/// </summary>
+		/// <param name="q">A dQuaternion</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dQSetIdentity (out dQuaternion q);
+
+		/// <summary>
+		/// Compute q as a rotation of angle radians along the axis (ax,ay,az).
+		/// </summary>
+		/// <param name="q">A dQuaternion</param>
+		/// <param name="ax">A dReal</param>
+		/// <param name="ay">A dReal</param>
+		/// <param name="az">A dReal</param>
+		/// <param name="angle">A dReal</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dQFromAxisAndAngle (out dQuaternion q, dReal ax, dReal ay, dReal az, dReal angle);
+
+		/// <summary>
+		/// Set qa = qb*qc. This is that same as qa = rotation qc followed by rotation qb. The 0/1/2 versions are analogous to the multiply functions, i.e. 1 uses the inverse of qb, and 2 uses the inverse of qc. Option 3 uses the inverse of both.
+		/// </summary>
+		/// <param name="qa">A dQuaternion</param>
+		/// <param name="qb">A returning dQuaternion</param>
+		/// <param name="qc">A returning dQuaternion</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dQMultiply0 (out dQuaternion qa, ref dQuaternion qb, ref dQuaternion qc);
+
+		/// <summary>
+		/// Set qa = qb*qc. This is that same as qa = rotation qc followed by rotation qb. The 0/1/2 versions are analogous to the multiply functions, i.e. 1 uses the inverse of qb, and 2 uses the inverse of qc. Option 3 uses the inverse of both.
+		/// </summary>
+		/// <param name="qa">A dQuaternion</param>
+		/// <param name="qb">A returning dQuaternion</param>
+		/// <param name="qc">A returning dQuaternion</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dQMultiply1 (out dQuaternion qa, ref dQuaternion qb, ref dQuaternion qc);
+
+		/// <summary>
+		/// Set qa = qb*qc. This is that same as qa = rotation qc followed by rotation qb. The 0/1/2 versions are analogous to the multiply functions, i.e. 1 uses the inverse of qb, and 2 uses the inverse of qc. Option 3 uses the inverse of both.
+		/// </summary>
+		/// <param name="qa">A dQuaternion</param>
+		/// <param name="qb">A returning dQuaternion</param>
+		/// <param name="qc">A returning dQuaternion</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dQMultiply2 (out dQuaternion qa, ref dQuaternion qb, ref dQuaternion qc);
+
+		/// <summary>
+		/// Set qa = qb*qc. This is that same as qa = rotation qc followed by rotation qb. The 0/1/2 versions are analogous to the multiply functions, i.e. 1 uses the inverse of qb, and 2 uses the inverse of qc. Option 3 uses the inverse of both.
+		/// </summary>
+		/// <param name="qa">A dQuaternion</param>
+		/// <param name="qb">A returning dQuaternion</param>
+		/// <param name="qc">A returning dQuaternion</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dQMultiply3 (out dQuaternion qa, ref dQuaternion qb, ref dQuaternion qc);
+
+		/// <summary>
+		/// Convert quaternion q to rotation matrix R.
+		/// </summary>
+		/// <param name="q">A dQuaternion</param>
+		/// <param name="R">A dMatrix3</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dQtoR (ref dQuaternion q, dMatrix3 R);
+
+		/// <summary>
+		/// Convert rotation matrix R to quaternion q.
+		/// </summary>
+		/// <param name="R">A dMatrix3</param>
+		/// <param name="q">A dQuaternion</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dRtoQ (ref dMatrix3 R, dQuaternion q);
+
+		/// <summary>
+		/// Given an existing orientation q and an angular velocity vector w, return in dq the resulting dq/dt.
+		/// </summary>
+		/// <param name="w">A dVector3</param>
+		/// <param name="q">A dQuaternion</param>
+		/// <param name="dq">A dVector4</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dWtoDQ (ref dVector3 w, ref dQuaternion q, dVector4 dq);
+
+		#endregion Rotation Functions
+
 		#endregion Public Externs
 	}
 }
