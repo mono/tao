@@ -3674,12 +3674,12 @@ namespace Tao.Ode
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
 		/// <returns>A dVector3</returns>
-		/// <param name="body">A  dBodyID</param>
-		public static dVector3 dGeomGetPosition(dBodyID body) 
+		/// <param name="geom">A  dGeomID</param>
+		public static dVector3 dGeomGetPosition(dGeomID geom) 
 		{
 			unsafe
 			{
-				dVector3 *v=(dVector3*)dGeomGetPosition_(body);
+				dVector3 *v=(dVector3*)dGeomGetPosition_(geom);
 				return *v;
 			}
 		}
@@ -3699,7 +3699,7 @@ namespace Tao.Ode
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
 		/// <returns>A dMatrix3</returns>
-		/// <param name="body">A  dBodyID</param>
+		/// <param name="geom">A  dGeomID</param>
 		public static dMatrix3 dGeomGetRotation(dGeomID geom) 
 		{
 			unsafe
