@@ -3687,25 +3687,25 @@ namespace Tao.Ode
 		[DllImport(ODE_NATIVE_LIBRARY,EntryPoint="dGeomGetRotation")]
 		private extern unsafe static dReal *dGeomGetRotation_(dGeomID geom);
 		/// <summary>
-		/// Return the geom's rotation vector.
+		/// Return the geom's rotation matrix.
 		/// 
 		/// In native ODE, the returned values are pointers to internal data 
-		/// structures, so the vectors are valid until any changes are made to the 
+		/// structures, so the matrices are valid until any changes are made to the 
 		/// geom. 
 		/// 
-		/// If the geom is attached to a body, the body's rotation vector will be 
+		/// If the geom is attached to a body, the body's rotation matrix will be 
 		/// returned, i.e. the result will be identical to calling dBodyGetRotation.
 		/// 
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
-		/// <returns>A dVector3</returns>
+		/// <returns>A dMatrix3</returns>
 		/// <param name="body">A  dBodyID</param>
-		public static dVector3 dGeomGetRotation(dBodyID body) 
+		public static dMatrix3 dGeomGetRotation(dGeomID geom) 
 		{
 			unsafe
 			{
-				dVector3 *v=(dVector3*)dGeomGetRotation_(body);
-				return *v;
+				dMatrix3 *m=(dMatrix3*)dGeomGetRotation_(geom);
+				return *m;
 			}
 		}
 		
