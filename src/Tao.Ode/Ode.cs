@@ -5170,7 +5170,7 @@ namespace Tao.Ode
 		/// <param name="q">A dQuaternion</param>
 		/// <param name="dq">A dVector4</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dWtoDQ (ref dVector3 w, ref dQuaternion q, dVector4 dq);
+		public extern static void dWtoDQ (ref dVector3 w, ref dQuaternion q, out dVector4 dq);
 
 		#endregion Rotation Functions
 
