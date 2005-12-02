@@ -5153,7 +5153,7 @@ namespace Tao.Ode
 		/// <param name="q">A dQuaternion</param>
 		/// <param name="R">A dMatrix3</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dQtoR (ref dQuaternion q, dMatrix3 R);
+		public extern static void dQtoR (ref dQuaternion q, out dMatrix3 R);
 
 		/// <summary>
 		/// Convert rotation matrix R to quaternion q.
@@ -5161,7 +5161,7 @@ namespace Tao.Ode
 		/// <param name="R">A dMatrix3</param>
 		/// <param name="q">A dQuaternion</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dRtoQ (ref dMatrix3 R, dQuaternion q);
+		public extern static void dRtoQ (ref dMatrix3 R, out dQuaternion q);
 
 		/// <summary>
 		/// Given an existing orientation q and an angular velocity vector w, return in dq the resulting dq/dt.
