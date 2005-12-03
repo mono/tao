@@ -1112,10 +1112,6 @@ namespace Tao.Ode
 		[StructLayout(LayoutKind.Sequential)]
 			public struct dMatrix4 
 		{
-			/// <summary>
-			/// 
-			/// </summary>
-			/// <param name="values"></param>
 			public dMatrix4(dReal[] values) 
 			{
 				M00 = values[0];
@@ -1135,24 +1131,170 @@ namespace Tao.Ode
 				M32 = values[14];
 				M33 = values[15];
 			}
-			/// <summary>
-			/// 
-			/// </summary>
+
 			public dReal M00,M01,M02,M03;
-			/// <summary>
-			/// 
-			/// </summary>
 			public dReal M10,M11,M12,M13;
-			/// <summary>
-			/// 
-			/// </summary>
 			public dReal M20,M21,M22,M23;
-			/// <summary>
-			/// 
-			/// </summary>
 			public dReal M30,M31,M32,M33;
 			
-			//TODO: Add indexer - see todo in Matrix3
+			public dReal this[int index]
+			{
+				get
+				{
+					switch(index)
+					{
+						case  0: return M00;
+						case  1: return M01;
+						case  2: return M02;
+						case  3: return M03;
+						case  4: return M10;
+						case  5: return M11;
+						case  6: return M12;
+						case  7: return M13;
+						case  8: return M20;
+						case  9: return M21;
+						case 10: return M22;
+						case 11: return M23;
+						case 12: return M30;
+						case 13: return M31;
+						case 14: return M32;
+						case 15: return M33;
+						default: throw new ArgumentOutOfRangeException("index", index, "Must be between 0 and 15");
+					}
+				}
+				set
+				{
+					switch(index)
+					{
+						case  0: M00 = value;
+							break;
+						case  1: M01 = value; 
+							break;
+						case  2: M02 = value; 
+							break;
+						case  3: M03 = value; 
+							break;
+						case  4: M10 = value; 
+							break;
+						case  5: M11 = value; 
+							break;
+						case  6: M12 = value; 
+							break;
+						case  7: M13 = value; 
+							break;
+						case  8: M20 = value; 
+							break;
+						case  9: M21 = value; 
+							break;
+						case 10: M22 = value; 
+							break;
+						case 11: M23 = value; 
+							break;
+						case 12: M30 = value; 
+							break;
+						case 13: M31 = value; 
+							break;
+						case 14: M32 = value; 
+							break;
+						case 15: M33 = value; 
+							break;
+						default: throw new ArgumentOutOfRangeException("index", index, "Must be between 0 and 15");
+					}
+				}
+			}				
+			public dReal this[int x, int y]
+			{
+				get
+				{
+					switch(x)
+					{
+						case 0:
+							switch(y)
+							{
+								case 0: return M00;
+								case 1: return M01;
+								case 2: return M02;
+								case 3: return M03;
+								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");									
+							}
+						case 1:
+							switch(y)
+							{
+								case 0: return M10;
+								case 1: return M11;
+								case 2: return M12;
+								case 3: return M13;
+								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");									
+							}
+						case 2:
+							switch(y)
+							{
+								case 0: return M20;
+								case 1: return M21;
+								case 2: return M22;
+								case 3: return M23;
+								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");									
+							}
+						case 3:
+							switch(y)
+							{
+								case 0: return M30;
+								case 1: return M31;
+								case 2: return M32;
+								case 3: return M33;
+								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");									
+							}
+						default: throw new ArgumentOutOfRangeException("x", x, "X value must be between 0 and 3");
+					}
+				}
+				set
+				{
+					switch(x)
+					{
+						case 0:
+							switch(y)
+							{
+								case 0: M00 = value; break;
+								case 1: M01 = value; break;
+								case 2: M02 = value; break;
+								case 3: M03 = value; break;
+								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");
+							}
+							break;
+						case 1:
+							switch(y)
+							{
+								case 0: M10 = value; break;
+								case 1: M11 = value; break;
+								case 2: M12 = value; break;
+								case 3: M13 = value; break;
+								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");
+							}
+							break;
+						case 2:
+							switch(y)
+							{
+								case 0: M20 = value; break;
+								case 1: M21 = value; break;
+								case 2: M22 = value; break;
+								case 3: M23 = value; break;
+								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");
+							}
+							break;
+						case 3:
+							switch(y)
+							{
+								case 0: M30 = value; break;
+								case 1: M31 = value; break;
+								case 2: M32 = value; break;
+								case 3: M33 = value; break;
+								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");
+							}
+							break;
+						default: throw new ArgumentOutOfRangeException("x", x, "X value must be between 0 and 3");
+					}
+				}
+			}
 		};
 		
 		// TODO: Should there be a dMatrix6 here to complete the set of arrays found in ODE's common.h?
