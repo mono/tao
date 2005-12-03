@@ -1104,7 +1104,6 @@ namespace Tao.Ode
 					}
 				}
 			}
-		}
 	};
 	
 		/// <summary>
