@@ -369,8 +369,10 @@ namespace Tao.Sdl
 		/// printf("Oh My Goodness, an error : %s", SDLNet_GetError());
 		/// </code>
 		/// </example>
-		[DllImport(SDL_NET_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern string SDLNet_GetError();
+		public static string SDLNet_GetError()
+		{
+			return Sdl.SDL_GetError();
+		}
 		#endregion string SDLNet_GetError()
 
 		#region void SDLNet_SetError(string message)
@@ -385,8 +387,10 @@ namespace Tao.Sdl
 		/// <param name="message">
 		/// The error message to set.
 		/// </param>
-		[DllImport(SDL_NET_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern void SDLNet_SetError(string message);
+		public static void SDLNet_SetError(string message)
+		{
+			Sdl.SDL_SetError(message);
+		}
 		#endregion void SDLNet_SetError(string message)
 		
 		#region void SDLNet_Write16(short value, IntPtr area)
