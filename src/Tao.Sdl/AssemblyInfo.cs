@@ -47,8 +47,8 @@ using System.Security.Permissions;
 #elif LINUX
 [assembly: AssemblyDescription("Tao Framework SDL Binding For .NET (Linux)")]
 #endif
-[assembly: AssemblyFileVersion("1.2.8.1")]
-[assembly: AssemblyInformationalVersion("1.2.8.1")]
+[assembly: AssemblyFileVersion("1.2.9.0")]
+[assembly: AssemblyInformationalVersion("1.2.9.0")]
 #if STRONG
 [assembly: AssemblyKeyFile(@"Tao.Sdl.snk")]
 #else
