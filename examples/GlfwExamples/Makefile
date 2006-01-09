@@ -8,6 +8,7 @@ DIRS = \
 	Gears \
 	KeyTest \
 	ListModes \
+	Pong \
 	Triangle \
 	$(NULL)
 
