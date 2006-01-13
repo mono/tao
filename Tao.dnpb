@@ -6,4 +6,5 @@
     <Process>src\Tao.OpenAl\Tao.OpenAl.dnpb</Process>
     <Process>src\Tao.FreeGlut\Tao.FreeGlut.dnpb</Process>
     <Process>src\Tao.Sdl\Tao.Sdl.dnpb</Process>
+    <Process>src\Tao.PhysFs\Tao.PhysFs.dnpb</Process>
 </DNPreBuild>
