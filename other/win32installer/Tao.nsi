@@ -203,6 +203,9 @@ Section "Examples" SecExamples
   CreateDirectory "$SMPROGRAMS\Tao\Examples\SdlExamples"
   StrCpy $example_dir "SdlExamples"
   call CreateExampleShortcuts
+  CreateDirectory "$SMPROGRAMS\Tao\Examples\PhysFsExamples"
+  StrCpy $example_dir "PhysFsExamples"
+  call CreateExampleShortcuts
 
   ;Store installation folder
   WriteRegStr HKCU "Software\Tao" "" $INSTDIR
@@ -451,5 +454,6 @@ Function un.GACUnInstall
 	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.OpenGl.Glu"'
 	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.Platform.Windows"'
 	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.Sdl"'
+	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.PhysFs"'
 FunctionEnd
 

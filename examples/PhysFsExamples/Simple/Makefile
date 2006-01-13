@@ -10,6 +10,10 @@ SRCS = \
 	AssemblyInfo.cs \
 	Simple.cs \
 	$(NULL)
+	
+EXAMPLE_DATA = \
+	Data/myzip.zip \
+	$(NULL)
 
 REFS = \
 	Tao.PhysFs.dll \
