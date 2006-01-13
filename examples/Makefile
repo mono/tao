@@ -13,6 +13,7 @@ DIRS = \
 	OpenAlExamples \
 	Redbook \
 	SdlExamples \
+	PhysFsExamples \
 	$(NULL)
 
 include $(DEPTH)/rules.mk

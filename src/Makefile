@@ -19,6 +19,7 @@ DIRS = \
 	Tao.OpenAl \
 	Tao.Sdl \
 	Tao.Platform.Windows \
+	Tao.PhysFs \
 	$(NULL)
 
 include $(DEPTH)/rules.mk
