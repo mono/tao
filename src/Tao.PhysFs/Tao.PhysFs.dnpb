@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<DNPreBuild xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.4.xsd" version="1.4">
+    <Solution name="Tao.PhysFs">
+        <Configuration name="Debug">
+            <Options>
+                <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+                <OptimizeCode>false</OptimizeCode>
+                <OutputPath>bin\Debug</OutputPath>
+                <XmlDocFile>Tao.PhysFs.xml</XmlDocFile>
+                <AllowUnsafe>true</AllowUnsafe>
+                <DebugInformation>true</DebugInformation>
+            </Options>
+        </Configuration>
+        <Configuration name="Release">
+            <Options>
+                <CompilerDefines>TRACE;WIN32</CompilerDefines>
+                <OptimizeCode>true</OptimizeCode>
+                <OutputPath>bin\Release</OutputPath>
+                <XmlDocFile>Tao.PhysFs.xml</XmlDocFile>
+                <AllowUnsafe>true</AllowUnsafe>
+                <DebugInformation>false</DebugInformation>
+            </Options>
+        </Configuration>
+        <Files>
+            <File>Tao.PhysFs.License.txt</File>
+            <File>Tao.PhysFs.Readme.txt</File>
+            <File>Tao.PhysFs.snk</File>
+	    <File>Tao.PhysFs.dll.config</File>
+        </Files>
+	<Project name="Tao.PhysFs" path="." language="C#" type="Library">
+	    <Reference name="System" />
+            <Files>
+                <File>AssemblyInfo.cs</File>
+                <File>Fs.cs</File>
+            </Files>
+	</Project>
+	<Project name="PhysFsExamples.Simple" path="..\\..\\examples\\PhysFsExamples\\Simple" language="C#" type="Exe" startupObject="PhysFsExamples.Simple">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <XmlDocFile>PhysFsExamples.Simple.xml</XmlDocFile>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <XmlDocFile>PhysFsExamples.Simple.xml</XmlDocFile>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.PhysFs" />
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>Simple.cs</File>
+	    </Files>
+	</Project>
+    </Solution>
+</DNPreBuild>

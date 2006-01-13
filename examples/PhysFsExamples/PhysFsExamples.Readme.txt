@@ -1,0 +1,20 @@
+PhysFsExamples
+Copyright ©2003-2005 Tao Framework Team
+http://www.taoframework.com
+All rights reserved.
+
+These are various PhysFs examples.
+
+Rob Loach (http://www.robloach.net)
+
+
+Todo:
+
+Myzip.zip
+    Better implementation of @"..\..\Data\myzip.zip" in Simple example
+
+
+Change Log:
+
+1.0.0.0 - January 12, 2006
+    Initial release.
