@@ -8084,6 +8084,93 @@ namespace Tao.Sdl
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr SDL_RWFromMem(byte[] mem, int size);
 		#endregion IntPtr SDL_RWFromMem(byte[] mem, int size)
+
+		#region IntPtr SDL_RWFromFP(IntPtr fp, int autoclose)
+		/// <summary>
+		/// SDL_RWFromFP creates a new SDL_RWops structure from a file pointer, opened with stdio. If autoclose is nonzero, the file will be automatically closed when the RWops structure is closed.
+		/// </summary>
+		/// <remarks>This is not available under Win32, since files opened in an application on that platform cannot be used by a dynamically linked library.</remarks>
+		/// <param name="fp"></param>
+		/// <param name="autoclose"></param>
+		/// <returns>Returns pointer to a new RWops structure, or NULL if it fails.</returns>
+		/// <example>
+		/// <code>
+		/// FILE *fp;
+		/// SDL_RWops *rw;
+		/// 
+		/// fp = fopen("myfile.dat", "rb");
+		/// rw = SDL_RWFromFP(fp, 1);
+		/// 
+		/// // Do things with rw...
+		/// SDL_RWclose(rw); // Automatically does an fclose(fp)
+		/// </code></example>
+		/// <seealso cref="SDL_RWFromFile"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_RWFromFP(IntPtr fp, int autoclose);
+		#endregion IntPtr SDL_RWFromFP(IntPtr fp, int autoclose)
+
+		#region IntPtr SDL_RWFromConstMem(IntPtr mem, int size)
+		/// <summary>
+		/// Prepares a constant memory area for use with RWops.
+		/// </summary>
+		/// <remarks><see cref="SDL_RWFromConstMem"/> sets up a RWops struct based on a memory area of a certain size. It assumes the memory area is not writable.</remarks>
+		/// <param name="mem"></param>
+		/// <param name="size"></param>
+		/// <returns>Returns a pointer to a new RWops struct, or NULL if it fails.</returns>
+		/// <example>
+		/// <code>
+		/// char bitmap[] = {
+		///		66, 77, 86, 2, 0, 0, 0, 0 ...
+		///	}
+		///	 SDL_RWops *rw;
+		///	 SDL_Surface *img;
+		///	 
+		///	 rw = SDL_RWFromConstMem(bitmap, sizeof(bitmap));
+		///	 img = SDL_LoadBMP_RW(rw, 1); // Automatically frees the RWops struct for us
+		///	 
+		///	 //Do something with img...
+		/// </code></example>
+		/// <seealso cref="SDL_RWFromMem"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_RWFromConstMem(IntPtr mem, int size);
+		#endregion IntPtr SDL_RWFromConstMem(IntPtr mem, int size)
+
+		#region IntPtr SDL_AllocRW()
+		/// <summary>
+		/// Allocates an empty, unpopulated SDL_RWops structure.
+		/// </summary>
+		/// <remarks>SDL_AllocRW allocates an empty, unpopulated SDL_RWops structure. You must fill out the fields yourself.</remarks>
+		/// <returns>Returns a pointer to the allocated memory on success, or NULL on error.
+		/// <p>You must free any memory allocated with <see cref="SDL_AllocRW"/> with <see cref="SDL_FreeRW"/>. Depending on your operating system and compiler, there may be a difference between the malloc() and free() your program uses and the versions SDL calls internally. Trying to mix the two can cause crashing such as segmentation faults.</p></returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_AllocRW();
+		#endregion IntPtr SDL_AllocRW()
+
+		#region void SDL_FreeRW(IntPtr context)
+		/// <summary>
+		/// Frees an SDL_RWops structure allocated by <see cref="SDL_AllocRW"/>.
+		/// </summary>
+		/// <remarks><see cref="SDL_FreeRW"/> frees an SDL_RWops structure previously allocated by <see cref="SDL_AllocRW"/>. Only use it on memory allocated by <see cref="SDL_AllocRW"/>. Any extra memory allocated during creation of the RWops is not freed by <see cref="SDL_FreeRW"/>; the programmer must be responsible for it.</remarks>
+		/// <param name="context"></param>
+		/// <example>
+		/// <code>
+		/// #include "SDL_rwops.h"
+		/// void dumb_example()
+		/// {
+		///     SDL_RWops *rw=SDL_AllocRW();
+		///     if(rw==NULL) return;
+		///     SDL_FreeRW(rw);
+		/// }
+		/// </code></example>
+		/// <seealso cref="SDL_AllocRW"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_FreeRW(IntPtr context);
+		#endregion void SDL_FreeRW(IntPtr context);
+
 		#endregion SDL_rwops.h
 
 		#region SDL_syswm.h
