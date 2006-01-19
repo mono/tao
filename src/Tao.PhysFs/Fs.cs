@@ -70,7 +70,7 @@ namespace Tao.PhysFs
 		/// the ".config" file mechanism.  Kudos to the Mono team for this
 		/// simple yet elegant solution.
 		/// </remarks>
-		private const string PHYSFS_NATIVE_LIBRARY = "PHYSFS";
+		private const string PHYSFS_NATIVE_LIBRARY = "physfs.dll";
 		#endregion string PHYSFS_NATIVE_LIBRARY
 		
 		#region CallingConvention CALLING_CONVENTION

@@ -49,7 +49,7 @@ namespace Tao.Sdl
 		///     Specifies SDL_net.dll everywhere; will be mapped via 
 		///     .config for mono.
 		/// </remarks>
-		private const string SDL_NET_NATIVE_LIBRARY = "SDL_net";
+		private const string SDL_NET_NATIVE_LIBRARY = "SDL_net.dll";
 		#endregion string SDL_NET_NATIVE_LIBRARY
 
 		#region CallingConvention CALLING_CONVENTION

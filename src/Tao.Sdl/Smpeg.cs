@@ -51,7 +51,7 @@ namespace Tao.Sdl
 		/// <remarks>
 		///     Specifies smpeg.dll everywhere; will be mapped via .config for mono.
 		/// </remarks>
-		private const string SMPEG_NATIVE_LIBRARY = "smpeg";
+		private const string SMPEG_NATIVE_LIBRARY = "smpeg.dll";
 		#endregion string SMPEG_NATIVE_LIBRARY
 
 		#region CallingConvention CALLING_CONVENTION

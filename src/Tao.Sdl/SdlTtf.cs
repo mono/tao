@@ -73,7 +73,7 @@ namespace Tao.Sdl
 		/// <remarks>
 		///     Specifies SDL_ttf.dll everywhere; will be mapped via .config for mono.
 		/// </remarks>
-		private const string SDL_TTF_NATIVE_LIBRARY = "SDL_ttf";
+		private const string SDL_TTF_NATIVE_LIBRARY = "SDL_ttf.dll";
 		#endregion string SDL_TTF_NATIVE_LIBRARY
 
 		#region CallingConvention CALLING_CONVENTION

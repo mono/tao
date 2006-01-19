@@ -112,7 +112,7 @@ namespace Tao.Sdl
 		/// <remarks>
 		///     Specifies SDL_image.dll everywhere; will be mapped via .config for mono.
 		/// </remarks>
-		private const string SDL_IMAGE_NATIVE_LIBRARY = "SDL_image";
+		private const string SDL_IMAGE_NATIVE_LIBRARY = "SDL_image.dll";
 
 		#endregion string SDL_IMAGE_NATIVE_LIBRARY
 
