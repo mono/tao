@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright �2003-2005 Tao Framework Team
+Copyright 2003-2005 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -38,13 +38,13 @@ using System.Security.Permissions;
 #else
 [assembly: AssemblyConfiguration("Retail")]
 #endif
-[assembly: AssemblyCopyright("Copyright �2003-2005 Tao Framework Team.  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright 2003-2005 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.Ode")]
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyDescription("Tao Framework ODE Binding For .NET")]
-[assembly: AssemblyFileVersion("0.5.0.1")]
-[assembly: AssemblyInformationalVersion("0.5.0.1")]
+[assembly: AssemblyFileVersion("0.5.0.2")]
+[assembly: AssemblyInformationalVersion("0.5.0.2")]
 #if STRONG
 [assembly: AssemblyKeyFile(@"Tao.Ode.snk")]
 #else
@@ -58,7 +58,7 @@ using System.Security.Permissions;
 #endif
 [assembly: AssemblyTitle("Tao Framework ODE Binding For .NET")]
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
-[assembly: AssemblyVersion("0.5.0.1")]
+[assembly: AssemblyVersion("0.5.0.2")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]

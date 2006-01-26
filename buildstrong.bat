@@ -55,7 +55,10 @@ copy /y Tao.Glfw.dll.config ..\..\dist\bin\Tao.Glfw.dll.config
 chdir ..
 echo src/Tao.Ode
 chdir "Tao.Ode"
-csc /nologo /target:library /D:WIN32 /unsafe /doc:..\..\dist\bin\Tao.Ode.xml /d:STRONG /out:..\..\dist\bin\Tao.Ode.dll AssemblyInfo.cs Ode.cs /lib:..\..\dist\bin 
+csc /nologo /target:library /D:WIN32 /unsafe /doc:..\..\dist\bin\Tao.Ode.xml /d:STRONG /out:..\..\obj\Tao.Ode-pre.dll AssemblyInfo.cs Ode.cs DelegateCallingConventionCdeclAttribute.cs /lib:..\..\dist\bin 
+ildasm /text /OUT=..\..\obj\Tao.Ode-pre.dll.il ..\..\obj\Tao.Ode-pre.dll
+..\..\dist\bin\Tao.PostProcess.exe ..\..\obj\Tao.Ode-pre.dll.il ..\..\obj\Tao.Ode-pre.dll.pp.il /R /Y
+ilasm /key:Tao.Ode.snk /dll ..\..\obj\Tao.Ode-pre.dll.pp.il /out:..\..\dist\bin\Tao.Ode.dll
 copy /y Tao.Ode.dll.config ..\..\dist\bin\Tao.Ode.dll.config
 chdir ..
 echo src/Tao.OpenAl
