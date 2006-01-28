@@ -8,6 +8,11 @@ Tao.Ode is an ODE API binding for .NET, implementing ODE 0.5.
 
 Change Log:
 
+0.5.0.2 - Jan 25, 2006:
+	Version bump.  Various bug fixes and changes made over the recent
+	months, the most significant being that collision callbacks should
+	now be working.
+
 0.5.0.1 - July 24, 2005:
 	Merge in changes from cody (Sebastian Kotulla)
 	
