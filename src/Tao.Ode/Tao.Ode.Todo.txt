@@ -1,35 +1,42 @@
+Issues
+------
+
 Single/Double precision:
-   Currently the code is configured for single precision, so can only be run against a single precision Ode library.
-   The Tao binding can be configured for double precision by changing the value of the dReal alias to System.Double
-   but this hasn't been tested.
-   What really needs to be worked out is a reasonable way to deal with the fact that there can be at least 2 versions
-   of the ODE library.  For example: 
-   -  Compile 2 versions of Tao.Ode (Tao.Ode.Single.dll and Tao.Ode.Double.dll) as part of normal build?
-   -  Control precision at compile time with appropriate #ifdef statements?
+	Currently the code is configured for single precision, so can only be 
+	run against a single precision Ode library.
+	Tao.Ode binding can be configured for double precision by changing the 
+	value of the dReal alias to System.Double and recompiling, but this 
+	hasn't been tested extensively.
+	What needs to be worked out is a reasonable way to deal with the fact 
+	that there can be at least 2 versions of the ODE library.  
+	Possible solutions:
+	-	Compile 2 versions of Tao.Ode (Tao.Ode.Single.dll and 
+		Tao.Ode.Double.dll) as part of normal build
+	-	Target a single assembly (Tao.Ode.dll) but control precision 
+		at compile time with appropriate #ifdef statements.
+	-	Your solution here - let me know on the Tao mailing list
    
-# Start codynotes   
-# Original notes from cody (Sebastian Kotulla) for his implementation of the bindings
-# All apply as of 7-21-05
+Trimesh collision functions:
+	See codynotes below
+	
+# ---- Start codynotes ----
+# Excerpts from original notes by cody (Sebastian Kotulla) for his 
+# implementation of the bindings
+# Notes will be removed as issues are dealt with or clarified above.
+# Last update: Jan 28, 2006
 
 TriMeshData:
-  The trimesh functions take a pointer to mesh data and store the pointer internally, they dont copy the memory. 
-  This was one of the crash problems i guess. 
-  Right now my workaround is to pin the memory (at least this is what i intended, look at the OdeTriMeshData class).
-
-Callbacks (OdeSpace, OdeGeom):
-  They get called but then raise a exception somewhere, i still dont know the reason.
+	The trimesh functions take a pointer to mesh data and store the 
+	pointer internally, they dont copy the memory. 
+	This was one of the crash problems i guess. 
+  	Right now my workaround is to pin the memory (at least this is what 
+	i intended, look at the OdeTriMeshData class).
+	TLT NOTE: Not in Tao Subversion repository.
 
 OdeGeom.Collide:
-  crashes sometimes when trimeshes are used, dont know why...
-  even when it works there is a chance that trimeshes intersect with each other.
+	crashes sometimes when trimeshes are used, dont know why...
+	even when it works there is a chance that trimeshes intersect 
+	with each other.
 
-Matrix stuff:
-  - not tested, probably wrong element order.
-  - helper functions missing
-  - objects rotate in the wrong direction, can be solved by inverting the quaternions, 
-  - probably a problem of my graphics code, not the binding.
-
-this works:
-  collision detection with boxes, planes, spheres without the use of callbacks. 
 # End codynotes
 
