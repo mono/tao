@@ -197,14 +197,14 @@ Section "Examples" SecExamples
   CreateDirectory "$SMPROGRAMS\Tao\Examples\OpenAlExamples"
   StrCpy $example_dir "OpenAlExamples"
   call CreateExampleShortcuts
+  CreateDirectory "$SMPROGRAMS\Tao\Examples\PhysFsExamples"
+  StrCpy $example_dir "PhysFsExamples"
+  call CreateExampleShortcuts
   CreateDirectory "$SMPROGRAMS\Tao\Examples\Redbook"
   StrCpy $example_dir "Redbook"
   call CreateExampleShortcuts
   CreateDirectory "$SMPROGRAMS\Tao\Examples\SdlExamples"
   StrCpy $example_dir "SdlExamples"
-  call CreateExampleShortcuts
-  CreateDirectory "$SMPROGRAMS\Tao\Examples\PhysFsExamples"
-  StrCpy $example_dir "PhysFsExamples"
   call CreateExampleShortcuts
 
   ;Store installation folder

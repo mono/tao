@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<DNPreBuild xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.4.xsd" version="1.4">
+<Prebuild xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.6.xsd" version="1.6">
     <Solution name="Tao.OpenGl">
 	<Configuration name="Debug">
 	    <Options>
@@ -72,4 +72,4 @@
         </Project>
 
     </Solution>
-</DNPreBuild>
+</Prebuild>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<DNPreBuild xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.4.xsd" version="1.4">
-    <Solution name="Tao.DevIl">
+<Prebuild xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.6.xsd" version="1.6">
+    <Solution name="Tao.OpenGl.Glu">
         <Configuration name="Debug">
             <Options>
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
                 <OutputPath>bin\Debug</OutputPath>
-                <XmlDocFile>Tao.DevIl.xml</XmlDocFile>
+		<AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>true</DebugInformation>
             </Options>
         </Configuration>
@@ -15,24 +15,20 @@
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
                 <OutputPath>bin\Release</OutputPath>
-                <XmlDocFile>Tao.DevIl.xml</XmlDocFile>
+		<AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>false</DebugInformation>
             </Options>
         </Configuration>
         <Files>
-            <File>Tao.DevIl.License.txt</File>
-            <File>Tao.DevIl.Readme.txt</File>
-            <File>Tao.DevIl.snk</File>
-            <File>Tao.DevIl.dll.config</File>
+            <File>Tao.OpenGl.Glu.snk</File>
+            <File>Tao.OpenGl.Glu.dll.config</File>
         </Files>
-	<Project name="Tao.DevIl" path="." language="C#" type="Library">
+	<Project name="Tao.OpenGl.Glu" path="." language="C#" type="Library">
 	    <Reference name="System" />
             <Files>
                 <File>AssemblyInfo.cs</File>
-                <File>Il.cs</File>
-                <File>Ilu.cs</File>
-                <File>Ilut.cs</File>
+                <File>Glu.cs</File>
             </Files>
         </Project>
     </Solution>
-</DNPreBuild>
+</Prebuild>

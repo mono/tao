@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<DNPreBuild xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.4.xsd" version="1.4">
-    <Solution name="Tao.OpenAl">
+<Prebuild xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.6.xsd" version="1.6">
+    <Solution name="Tao.DevIl">
         <Configuration name="Debug">
             <Options>
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
                 <OutputPath>bin\Debug</OutputPath>
-		<XmlDocFile>Tao.OpenAl.xml</XmlDocFile>
-		<AllowUnsafe>true</AllowUnsafe>
+                <XmlDocFile>Tao.DevIl.xml</XmlDocFile>
                 <DebugInformation>true</DebugInformation>
             </Options>
         </Configuration>
@@ -16,25 +15,24 @@
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
                 <OutputPath>bin\Release</OutputPath>
-                <XmlDocFile>Tao.OpenAl.xml</XmlDocFile>
-		<AllowUnsafe>true</AllowUnsafe>
+                <XmlDocFile>Tao.DevIl.xml</XmlDocFile>
                 <DebugInformation>false</DebugInformation>
             </Options>
         </Configuration>
         <Files>
-            <File>Tao.OpenAl.License.txt</File>
-            <File>Tao.OpenAl.Readme.txt</File>
-            <File>Tao.OpenAl.snk</File>
-            <File>Tao.OpenAl.dll.config</File>
+            <File>Tao.DevIl.License.txt</File>
+            <File>Tao.DevIl.Readme.txt</File>
+            <File>Tao.DevIl.snk</File>
+            <File>Tao.DevIl.dll.config</File>
         </Files>
-	<Project name="Tao.OpenAl" path="." language="C#" type="Library">
+	<Project name="Tao.DevIl" path="." language="C#" type="Library">
 	    <Reference name="System" />
             <Files>
                 <File>AssemblyInfo.cs</File>
-                <File>Al.cs</File>
-                <File>Alc.cs</File>
-                <File>Alut.cs</File>
+                <File>Il.cs</File>
+                <File>Ilu.cs</File>
+                <File>Ilut.cs</File>
             </Files>
         </Project>
     </Solution>
-</DNPreBuild>
+</Prebuild>
