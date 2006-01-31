@@ -70,9 +70,10 @@ namespace Tao.Ode
 		///     Specifies the calling convention used for the binding.
 		/// </summary>
 		/// <remarks>
-		///     Specifies <see cref="CallingConvention.Winapi" />.
+		///     Specifies <see cref="CallingConvention.Cdecl" />
+		///     for the bindings.
 		/// </remarks>
-		private const CallingConvention CALLING_CONVENTION = CallingConvention.Winapi;
+		private const CallingConvention CALLING_CONVENTION = CallingConvention.Cdecl;
 		#endregion CallingConvention CALLING_CONVENTION
 		#endregion Private Constants
 		
@@ -171,7 +172,6 @@ namespace Tao.Ode
 		/// These parameter names can be optionally followed by a digit (2 or 3) to indicate the second or third set of parameters, e.g. for the second axis in a hinge-2 joint, or the third axis in an AMotor joint. A constant dParamGroup is also defined such that: dParamXi = dParamX + dParamGroup * (i-1)
 		/// </summary>
 		/// <remarks>
-
 		/// Implemented via a macro in Ode's common.h
 		/// Translated into actual constants here following inspection of common.h
 		/// A change in the Ode macro could require these values to be updated
