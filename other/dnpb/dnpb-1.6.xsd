@@ -120,6 +120,20 @@
 				<xs:element name="OptimizeCode" type="xs:boolean" minOccurs="0" />
 				<xs:element name="CheckUnderflowOverflow" type="xs:boolean" minOccurs="0" />
 				<xs:element name="AllowUnsafe" type="xs:boolean" minOccurs="0" />
+				<xs:element name="PreBuildEvent" type="xs:string" minOccurs="0" />
+				<xs:element name="PostBuildEvent" type="xs:string" minOccurs="0" />
+				<xs:element name="RunPostBuildEvent" minOccurs="0" default="OnBuildSuccess">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:enumeration value="OnBuildSuccess" />
+							<xs:enumeration value="Always" />
+							<xs:enumeration value="OnOutputUpdated" />
+				 		</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="RunScript" type="xs:string" minOccurs="0" />
+				<xs:element name="PreBuildEventArgs" type="xs:string" minOccurs="0" />
+				<xs:element name="PostBuildEventArgs" type="xs:string" minOccurs="0" />
 				<xs:element name="WarningLevel" minOccurs="0">
 					<xs:simpleType>
 						<xs:restriction base="xs:integer">
@@ -171,6 +185,7 @@
 								<xs:enumeration value="Code" />
 								<xs:enumeration value="Component" />
 								<xs:enumeration value="Form" />
+								<xs:enumeration value="UserControl" />
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:attribute>
@@ -180,6 +195,9 @@
 	</xs:element>
 	<xs:element name="Match">
 		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="Exclude" minOccurs="0" />
+			</xs:sequence>
 			<xs:attribute name="path" type="xs:string" />
 			<xs:attribute name="pattern" type="xs:string" use="required" />
 			<xs:attribute name="recurse" type="xs:boolean" default="false" />
@@ -206,4 +224,9 @@
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
+		<xs:element name="Exclude">
+			<xs:complexType>
+				<xs:attribute name="name" type="xs:string" use="required" />
+			</xs:complexType>
+		</xs:element>
 </xs:schema>
