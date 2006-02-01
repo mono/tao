@@ -80,7 +80,7 @@ namespace Tao.PhysFs
 		/// <remarks>
 		///     Specifies <see cref="CallingConvention.Winapi" />.
 		/// </remarks>
-		private const CallingConvention CALLING_CONVENTION = CallingConvention.Winapi;
+		private const CallingConvention CALLING_CONVENTION = CallingConvention.Cdecl;
 		#endregion CallingConvention CALLING_CONVENTION
 		#endregion Private Constants
 

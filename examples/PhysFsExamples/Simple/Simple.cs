@@ -61,7 +61,7 @@ namespace PhysFsExamples
 			 * should always try to pass something in here. Unix-like systems such as Linux 
 			 * _need_ to pass argv[0] from main() in here.
 			 */
-			Fs.PHYSFS_init(null);
+			Fs.PHYSFS_init("init");
 
 			/*
 			 * After you have it initialized, then you need to set up any archives that 
