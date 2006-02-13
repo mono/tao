@@ -4,7 +4,6 @@
 	<dllmap dll="SDL_image.dll" target="/Library/Frameworks/SDL_image.framework/SDL_image" />
 	<dllmap dll="SDL_ttf.dll" target="/Library/Frameworks/SDL_ttf.framework/SDL_ttf" />
 	<dllmap dll="SDL_net.dll" target="/Library/Frameworks/SDL_net.framework/SDL_net" />
-	<dllmap dll="smpeg.dll" target="libsmpeg.dylib" />
-	<dllmap dll="SDL_gfx.dll" target="libSDL_gfx.dylib" />
-	<dllmap dll="libCocoaSharpGlue.dylib" target="/Library/Frameworks/Mono.framework/Libraries/libCocoaSharpGlue.dylib" />
+	<dllmap dll="smpeg.dll" target="/Library/Frameworks/smpeg.framework/smpeg" />
+	<dllmap dll="SDL_gfx.dll" target="/Library/Frameworks/SDL_gfx.framework/SDL_gfx" />
 </configuration>
