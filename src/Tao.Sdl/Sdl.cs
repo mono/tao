@@ -5258,12 +5258,11 @@ namespace Tao.Sdl
 		public static int SDL_Init(int flags) 
 		{
 			//Mac OSX code
-			Assembly af = Assembly.LoadWithPartialName("Apple.Foundation");
+			Assembly af = Assembly.LoadWithPartialName("cocoa-sharp");
 			if (af != null) 
 			{
-				System.Type NSAutoreleasePool = af.GetType("NSAutoreleasePool");
-				pool = af.CreateInstance("Apple.Foundation.NSAutoreleasePool");
-				pool.GetType().GetMethod("init").Invoke(pool, null);
+				pool = af.CreateInstance("Cocoa.AutoreleasePool");
+				pool.GetType().GetMethod("Initialize").Invoke(pool, null);
 				NSApplicationLoad();
 			}
 			return __SDL_Init(flags);
@@ -5340,12 +5339,11 @@ namespace Tao.Sdl
 		public static int SDL_InitSubSystem(int flags) 
 		{
 			// Mac OSX code
-			Assembly af = Assembly.LoadWithPartialName("Apple.Foundation");
+			Assembly af = Assembly.LoadWithPartialName("cocoa-sharp");
 			if (af != null) 
 			{
-				System.Type NSAutoreleasePool = af.GetType("NSAutoreleasePool");
-				pool = af.CreateInstance("Apple.Foundation.NSAutoreleasePool");
-				pool.GetType().GetMethod("init").Invoke(pool, null);
+				pool = af.CreateInstance("Cocoa.AutoreleasePool");
+				pool.GetType().GetMethod("Initialize").Invoke(pool, null);
 				NSApplicationLoad();
 			}
 			return __SDL_InitSubSystem(flags);
