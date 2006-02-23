@@ -5075,9 +5075,9 @@ namespace Tao.Sdl
 		#endregion Public Structs
 
 		#region Private Static Fields
-		// Private pointers to NSAutoreleasePool class for Cocoa# on OS X.
+		// Private pointers to NSApplication class for Cocoa# on OS X.
 		// Used for <see cref="SDL_Init"/> and <see cref="SDL_InitSubSystem"/>.
-		private static object pool;
+		private static object obj;
 
 		/// <summary>
 		///		Private byte array holding the internal keyboard state.
@@ -5261,8 +5261,7 @@ namespace Tao.Sdl
 			Assembly af = Assembly.LoadWithPartialName("cocoa-sharp");
 			if (af != null) 
 			{
-				pool = af.CreateInstance("Cocoa.AutoreleasePool");
-				pool.GetType().GetMethod("Initialize").Invoke(pool, null);
+				obj = af.GetType("Cocoa.Application").InvokeMember("Init", BindingFlags.Static | BindingFlags.InvokeMethod, null, obj, null);
 				NSApplicationLoad();
 			}
 			return __SDL_Init(flags);
@@ -5342,8 +5341,7 @@ namespace Tao.Sdl
 			Assembly af = Assembly.LoadWithPartialName("cocoa-sharp");
 			if (af != null) 
 			{
-				pool = af.CreateInstance("Cocoa.AutoreleasePool");
-				pool.GetType().GetMethod("Initialize").Invoke(pool, null);
+				obj = af.GetType("Cocoa.Application").InvokeMember("Init", BindingFlags.Static | BindingFlags.InvokeMethod, null, obj, null);
 				NSApplicationLoad();
 			}
 			return __SDL_InitSubSystem(flags);
