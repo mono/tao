@@ -6,9 +6,11 @@
 [ xxx xx, 2006 - 1.3 ]
 	+ Added MonoDevelop target.
 	+ Added NAnt target.
+	+ Lots of fixes to all targets.
 	* Cleaned up the code using FXCop.
 	* Updated schema to 1.6 to fix a typo and add a new parameter.
 	* jendave is now the maintainer of the project. RobLoach has been added as a developer.
+	* Removed references to 'dnpb'.
 
 [ August 5, 2004 - 1.2 ]
 	+ Added Visual Studio Express (vs2005express) target contributed by Borrillis and modified for use with different languages

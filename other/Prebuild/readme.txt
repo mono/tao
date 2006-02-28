@@ -1,146 +1,116 @@
-<h2 align="center">.NET Pre-Build Instructions</h2>
-<br>
-.NET Pre-Build is an XML-driven pre-build tool allowing developers to easily 
-generate project or make files for major IDE's and .NET development tools 
-including: Visual Studio 2003, Visual Studio 2002, SharpDevelop, MonoDevelop, 
-and NAnt.
-<br>
-<br>
-<hr>
-<h3 align="center">Overview</h3>
-<br>
-.NET Prebuild can either be run from the command line to generate the project 
-and make files or you can execute the included batch (*.bat) and Unix Shell 
-script (*.sh) files. It uses an XML file (prebuild.xml by default) to define 
-what projects will be generated and what their configuration, references, and 
-files will be.
-<br>
-<br>
-<hr>
-<h3 align="center">Currented Supported Development Tools</h3>
-The development tools which .NET Prebuild is currently capable of targeting are 
-listed below with their associated batch and shell script files.
-<ul>
-	<li>
-		Visual Studio .NET 2003 (VS2003.bat)</li>
-	<li>
-		Visual Studio .NET 2002 (VS2002.bat)</li>
-	<li>
-		SharpDevelop (SharpDevelop.bat) - http://www.icsharpcode.net/OpenSource/SD/</li>
-	<li>
-		MonoDevelop (MonoDevelop.sh) - http://www.monodevelop.com/</li>
-</ul>
-<br>
-MonoDevelop uses the same project files as SharpDevelop as it is a Unix port 
-for it using the open-source implementation of the .NET Framework, Mono. A Unix 
-Shell script is provided for it though, as this is far more appropriate. Visual 
-Studio .NET 2005 and the Visual Express IDE's can import Visual Studio .NET 
-2003 files, but native support for it will come later. NAnt and Makefiles are 
-currently not supported, but will are on the roadmap as well.
-<br>
-<br>
-<hr>
-<h3 align="center">Command Line Syntax</h3>
-Example:<br />
->dnpb /target vs2003 /log ../PrebuildLog.txt<br />
-<br />
-<br />
-This will generate the project files for Visual Studio.NET 2003 and place the 
-redirect the log to a file named PrebuildLog.txt in the parent directory
-<br />
-<br />
-The syntax structure is as below, where commandParameter is optional depending 
-on the command and you can provide several option-value pairs. Note: </i>The 
-'&lt;' signified the command line, do not actually enter this manually.</i> <tt>
-	<pre>
->dnpb /[option] [value]
+Prebuild Instructions
+
+Prebuild is an XML-driven pre-build tool allowing developers to easily generate project or make files for major IDE's and .NET development tools including: Visual Studio 2005, Visual Studio 2003, Visual Studio 2002, SharpDevelop, MonoDevelop, and NAnt.
+
+_________________________________________________________________________________
+Overview
+
+Prebuild can be either be run from the command line to generate the project and make files or you can execute the included batch (*.bat) and Unix Shell script (*.sh) files.
+The Prebuild file
+
+_________________________________________________________________________________
+The currently supported developement tools and their associated batch and shell script files.
+
+Visual Studio .NET 2005 (VS2005.bat)
+Visual Studio .NET 2003 (VS2003.bat)
+Visual Studio .NET 2002 (VS2002.bat)
+SharpDevelop (SharpDevelop.bat) - http://www.icsharpcode.net/OpenSource/SD/
+MonoDevelop (MonoDevelop.sh) - http://www.monodevelop.com/
+NAnt (nant.sh and nant.bat) - http://nant.sourceforge.net/
+
+Notes:
+A Unix Shell script is provided for MonoDevelop, as this is more appropriate than a windows batch file.
+Visual Studio .NET 2005 and the Visual Express IDE's can import solutions from older versions of Visual Studio .NET.
+Makefiles are not currently supported.
+
+_________________________________________________________________________________
+Command Line Syntax:
  
->dnpb /target vs2003 /pause
- 
->dnpb /target vs2003 /log ../Log.txt /pause /ppo /file ProjectConfig.xml
- 
->dnpb /target sharpdev /log
- 
->dnpb /clean
- 
->dnpb /clean vs2003
-</pre>
-</tt>
-<br>
-<hr />
-<h3 align="center">Command Line Options</h3>
-<br />
-/usage - Shows the help information on how to use .NET Pre-Build and what the 
-different options are and what they do
-<br />
-<br />
-/clean - The project files generated for the target type specified as a 
-parameter for this option will be deleted. If no value is specified or if 'all' 
-is specified, then project files for all the target types will be deleted.
-<br />
-<br />
-/target - Specified the name of the development tool for which project or make 
-files will be generated. Possible parameter values include: vs2003, vs2002, 
-sharpdev
-<br />
-<br />
-/file - Specifies the name of the XML which defines what files are to be 
-referenced by the generated project files as well as configures the options for 
-them. If not specified, prebuild.xml will be used as the default.
-<br />
-<br />
-/log - Specified the log file that should be written to for build errors. If 
-this option is not specified, no log file is generated, but if just no value is 
-specified, then the defaul filename will be used for the log (DNPreBuild.log).
-<br />
-<br />
-/ppo - Preprocesses the xml file to test for syntax errors or problems but 
-doesn't generate the files
-<br />
-<br />
-/pause - Shows the console until you press a key so that you can view the 
-messages written while performing the specified actions. This allows you to 
-check if an errors occurred and - if so - what it was.
-<br />
-<br />
-/showtargets - Shows a list of all the targets that can be specified as values 
-for the /clean and /target commands.
-<br />
-<br>
-<hr />
-<h3 align="center">Example Batch Files and Shell Scripts</h3>
-<i>Common batch and shell script files are included with .NET Prebuild source and 
-	file releases.</i>
-<h4>MonoDevelop</h4>
-<pre>
+Example:
+>Prebuild /target vs2003
+
+This will generate the project files for Visual Studio.NET 2003 and place the redirect the log to a file named PrebuildLog.txt in the parent directory
+
+
+The syntax structure is as below, where commandParameter is optional depending on the command and you can provide several option-value pairs.
+Note: The '>' signified the command line, do not actually enter this manually
+
+>Prebuild /<option> <commandParameter>
+
+>Prebuild /target vs2003 /pause
+
+>Prebuild /target vs2003 /log ../Log.txt /pause /ppo /file ProjectConfig.xml
+
+>Prebuild /target sharpdev /log
+
+>Prebuild /removedir obj|bin
+
+>Prebuild /target vs2003 /allowedgroups Group1|Group2
+
+>Prebuild /clean
+
+>Prebuild /clean vs2003
+
+_________________________________________________________________________________
+Command Line Options:
+
+/usage  - Shows the help information on how to use Prebuild and what the different options are and what they do
+
+/clean - The project files generated for the target type specified as a parameter for this option will be deleted.  If no value is specified or if 'all' is specified, then project files for all the target types will be deleted.
+
+/target - Specified the name of the development tool for which project or make files will be generated.  Possible parameter values include:  vs2003, vs2002, sharpdev
+
+/file - Specifies the name of the XML which defines what files are to be referenced by the generated project files as well as configures the options for them.  If not specified, prebuild.xml will be used as the default.
+
+/log - Specified the log file that should be written to for build errors.  If this option is not specified, no log file is generated, but if just no value is specified, then the defaul filename will be used for the log (DNPreBuild.log).
+
+/ppo - Preprocesses the xml file to test for syntax errors or problems but doesn't generate the files
+
+/pause - Shows the console until you press a key so that you can view the messages written while performing the specified actions.
+This allows you to check if an errors occurred and - if so - what it was.
+
+/showtargets - Shows a list of all the targets that can be specified as values for the /clean and /target commands.
+
+/allowedgroups - This is followed by a pipe-delimited list of project group filter flags (eg. Group1|Group2) allow optional filtering of all projects that dont have at least one of these flags
+
+/removedir - This is followed by a pipe-delimited list of directory names that will be deleted while recursivly searching the directory of the prebuild application and its child directories (eg. use obj|bin to delete all output and temporary directories before file releases)
+
+_________________________________________________________________________________
+Example Batch Files and Shell Scripts
+
+NOTE: Common batch and shell script files are included with Prebuild source and file releases.
+______________________________
+MonoDevelop
+
 #!/bin/sh
 # Generates a combine (.cmbx) and a set of project files (.prjx) 
 # for MonoDevelop, a Mono port of SharpDevelop (http://icsharpcode.net/OpenSource/SD/Default.aspx)
-./dnpb /target sharpdev /pause
-</pre>
-<h4>Visual Studio .NET 2003</h4>
-<pre>
+./Prebuild /target sharpdev /pause
+
+______________________________
+Visual Studio .NET 2003
+
 @rem Generates a solution (.sln) and a set of project files (.csproj) 
 @rem for Microsoft Visual Studio .NET 2002
-dnpb /target vs2003 /pause
-</pre>
-<br />
-<i>Text after lines that start with @rem are comments and are not evaluated. You 
-	can also place pause on the last line instead of specifing the /pause command.</i>
-<br />
-<br>
-<hr />
-<h3 align="center">Example XML Configuration File</h3>
-<br />
-<i>XML Comments (&lt;!-- Comment --&gt;) are used to markup the prebuild.xml file 
-	with notes.</i>
-<br />
-<br />
-<br />
-<pre><xmp>
+Prebuild /target vs2003 /pause
+
+Notes:
+Text after lines that start with @rem are comments and are not evaluated
+You can also place pause on the last line instead of specifing the /pause command.
+
+________________________________________________________________________________
+Example XML Configuration File
+
+Note:
+XML Comments (<!-- Comment -->) are used to markup the prebuild.xml file with notes
+The below file may be out-of-date, however the RealmForge Prebuild file serves as an up-to-date and extensive example.
+It can be viewed using Tigris.org's WebSVN (http://realmforge.tigris.org/source/browse/realmforge/trunk/src/prebuild.xml) by just clicking on the "view file" link for the latest revision.
+
+_________________________________
+
 <?xml version="1.0" encoding="utf-8"?>
-    <!--The version of the XML schema specified in the version and xmlns attributes should match the one for which the version of dnpb.exe used was compiled for.  In this example it is the version 1.3 schema, you can find the XSD schema file at the url specified in the xmlns attribute. -->
-<DNPreBuild version="1.3" xmlns="http://dnpb.sourceforge.net/schemas/dnpb-1.3.xsd">
+    <!--The version of the XML schema specified in the version and xmlns attributes should match the one for which the version of Prebuild.exe used was compiled for.  In this example it is the version 1.3 schema, you can find the XSD schema file at the url specified in the xmlns attribute. -->
+<DNPreBuild version="1.5" xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.6.xsd">
 	<Solution name="RealmForge"> <!--The title and file name for the solution, combine, workspace, or project group (depending on what development tool you are using)-->
                        <!--Configurations found as children of Solution are used as templates for the configurations found in the project, this allows you to avoid writing the same options in each project (and maintaining each of these).  You can provide defaults and then override them in the configurations defined for each project. All options are optional.-->
 		<Configuration name="Debug">
@@ -155,7 +125,7 @@ dnpb /target vs2003 /pause
 				<CheckUnderflowOverflow>false</CheckUnderflowOverflow>
 				<AllowUnsafe>false</AllowUnsafe>
 				<WarningLevel>4</WarningLevel>   
-				<!--The filter for the number of warnings or errors shown and the tolerance level as to what is an error. This is value from 0 to 4 where 4 is the most strict (least tolerent).-->
+				<!-The filter for the number of warnings or errors shown and the tolerance level as to what is an error. This is value from 0 to 4 where 4 is the most strict (least tolerent).-->
 
 				<WarningsAsErrors>false</WarningsAsErrors>
 				<SupressWarnings>1591;219;1573;1572;168</SupressWarnings> 
@@ -187,6 +157,7 @@ dnpb /target vs2003 /pause
 				<BaseAddress>285212672</BaseAddress>
 				<FileAlignment>4096</FileAlignment>
 				<NoStdLib>false</NoStdLib>
+				<GenerateXmlDocFile>true</GenerateXmlDocFile>
 				<XmlDocFile>Docs.xml</XmlDocFile>				
 			</Options>
 		</Configuration>
@@ -250,4 +221,3 @@ dnpb /target vs2003 /pause
 		
 	</Solution>
 </DNPreBuild>
-</xmp></pre>
