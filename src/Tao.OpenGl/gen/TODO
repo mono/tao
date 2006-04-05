@@ -1,7 +1,0 @@
-
-* Map[12][df] takes a 'points' param which is a 'Coord[FD] in array
-[COMPSIZE(target/stride/order)]'.  We map CoordF/CoordD to
-GLfloat/GLdouble now.  For these, however, we should also be
-generating float [,] and float [,,] as well as plain float [,].
-
-Also true for SGIX_polynomial_ffd DeformationMap3[fd]SGIX/etc.
