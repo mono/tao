@@ -5130,6 +5130,16 @@ namespace Tao.Sdl
 		#endregion int SDL_EventFilter([Out] SDL_Event evt)
 		#endregion SDL_events.h
 
+		#region SDL_thread.h
+		#region int ThreadDelegate()
+		/// <summary>
+		/// int (SDLCALL *fn)(void *)
+		/// </summary>
+		[DelegateCallingConventionCdecl]
+			public delegate int ThreadDelegate();
+		#endregion int ThreadDelegate()
+		#endregion SDL_thread.h
+
 		#region SDL_timer.h
 		#region int SDL_TimerCallback(int interval)
 		/// <summary>
@@ -8039,7 +8049,354 @@ namespace Tao.Sdl
 		}
 		#endregion SDL_mouse.h
 
-		// SDL_mutex.h -- Skipped. Superceded by System.Threading class
+		#region SDL_mutex.h
+		#region IntPtr SDL_CreateMutex()
+		/// <summary>
+		///     Create a mutex, initialized unlocked
+		/// </summary>
+		/// <returns>
+		///     IntPtr to mutex
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>extern DECLSPEC SDL_mutex * SDLCALL SDL_CreateMutex(void)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_CreateMutex();
+		#endregion IntPtr SDL_CreateMutex()
+
+		#region int SDL_mutexP(IntPtr mutex)
+		/// <summary>
+		///     Lock the mutex  (Returns 0, or -1 on error)
+		/// </summary>
+		/// <returns>
+		///     Lock the mutex  (Returns 0, or -1 on error)
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>extern DECLSPEC int SDLCALL SDL_mutexP(SDL_mutex *mutex)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_mutexP(IntPtr mutex);
+		#endregion int SDL_mutexP(IntPtr mutex)
+
+		#region int SDL_LockMutex(IntPtr m)
+		/// <summary>
+		///     Lock the mutex  (Returns 0, or -1 on error)
+		/// </summary>
+		/// <returns>
+		///     Lock the mutex  (Returns 0, or -1 on error)
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>#define SDL_LockMutex(m)	SDL_mutexP(m)</code>
+		///     </p>
+		/// </remarks>
+		public static int SDL_LockMutex(IntPtr m)
+		{
+			return SDL_mutexP(m);
+		}
+		#endregion int SDL_LockMutex(IntPtr m)
+
+		#region int SDL_mutexV(IntPtr mutex)
+		/// <summary>
+		///     Unlock the mutex  (Returns 0, or -1 on error)
+		/// </summary>
+		/// <returns>
+		///     Unlock the mutex  (Returns 0, or -1 on error)
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>extern DECLSPEC int SDLCALL SDL_mutexV(SDL_mutex *mutex)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_mutexV(IntPtr mutex);
+		#endregion int SDL_mutexV(IntPtr mutex)
+
+		#region int SDL_UnlockMutex(IntPtr m)
+		/// <summary>
+		///     Unlock the mutex  (Returns 0, or -1 on error)
+		/// </summary>
+		/// <returns>
+		///     unlock the mutex  (Returns 0, or -1 on error)
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>#define SDL_UnlockMutex(m)	SDL_mutexP(m)</code>
+		///     </p>
+		/// </remarks>
+		public static int SDL_UnlockMutex(IntPtr m)
+		{
+			return SDL_mutexV(m);
+		}
+		#endregion int SDL_UnlockMutex(IntPtr m)
+
+		#region void SDL_DestroyMutex(IntPtr mutex)
+		/// <summary>
+		///     Destroy a mutex
+		/// </summary>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>extern DECLSPEC void SDLCALL SDL_DestroyMutex(SDL_mutex *mutex)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_DestroyMutex(IntPtr mutex);
+		#endregion void SDL_DestroyMutex(IntPtr mutex)
+
+		#region IntPtr SDL_CreateSemaphore(int initial_value)
+		/// <summary>
+		///     Create a semaphore, initialized with value, returns NULL on failure.
+		/// </summary>
+		/// <returns>
+		/// Create a semaphore, initialized with value, returns NULL on failure.
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>extern DECLSPEC SDL_sem * SDLCALL SDL_CreateSemaphore(Uint32 initial_value)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_CreateSemaphore(int initial_value);
+		#endregion IntPtr SDL_CreateSemaphore(int initial_value)
+
+		#region void SDL_DestroySemaphore(IntPtr sem)
+		/// <summary>
+		/// Destroy a semaphore
+		/// </summary>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>extern DECLSPEC void SDLCALL SDL_DestroySemaphore(SDL_sem *sem)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_DestroySemaphore(IntPtr sem);
+		#endregion void SDL_DestroySemaphore(IntPtr sem)
+
+		#region int SDL_SemWait(IntPtr sem)
+		/// <summary>
+		/// This function suspends the calling thread until the semaphore pointed 
+		/// to by sem has a positive count. 
+		/// It then atomically decreases the semaphore count.
+		/// </summary>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>extern DECLSPEC int SDLCALL SDL_SemWait(SDL_sem *sem)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_SemWait(IntPtr sem);
+		#endregion int SDL_SemWait(IntPtr sem)
+
+		#region int SDL_SemTryWait(IntPtr sem)
+		/// <summary>
+		/// Non-blocking variant of SDL_SemWait(), 
+		/// returns 0 if the wait succeeds, 
+		/// SDL_MUTEX_TIMEDOUT if the wait would block, and -1 on error.
+		/// </summary>
+		/// <returns>
+		/// Non-blocking variant of SDL_SemWait(), 
+		/// returns 0 if the wait succeeds,
+		/// SDL_MUTEX_TIMEDOUT if the wait would block, and -1 on error.
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>extern DECLSPEC int SDLCALL SDL_SemTryWait(SDL_sem *sem)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_SemtryWait(IntPtr sem);
+		#endregion int SDL_SemTryWait(IntPtr sem)
+
+		#region int SDL_SemWaitTimeout(IntPtr sem, int ms)
+		/// <summary>
+		/// Variant of SDL_SemWait() with a timeout in milliseconds, returns 0 if
+		/// the wait succeeds, SDL_MUTEX_TIMEDOUT if the wait does not succeed in
+		/// the allotted time, and -1 on error.
+		/// On some platforms this function is implemented by looping with a delay
+		/// of 1 ms, and so should be avoided if possible.
+		/// </summary>
+		/// <returns>
+		/// Variant of SDL_SemWait() with a timeout in milliseconds, returns 0 if
+		/// the wait succeeds, SDL_MUTEX_TIMEDOUT if the wait does not succeed in
+		/// the allotted time, and -1 on error.
+		/// On some platforms this function is implemented by looping with a delay
+		/// of 1 ms, and so should be avoided if possible.
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>extern DECLSPEC int SDLCALL SDL_SemWaitTimeout(SDL_sem *sem, Uint32 ms)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_SemWaitTimeout(IntPtr sem, int ms);
+		#endregion int SDL_SemWaitTimeout(IntPtr sem, int ms)
+
+		#region int SDL_SemPost(IntPtr sem)
+		/// <summary>
+		/// Atomically increases the semaphore's count (not blocking), 
+		/// returns 0, or -1 on error.
+		/// </summary>
+		/// <returns>
+		/// Atomically increases the semaphore's count (not blocking), 
+		/// returns 0, or -1 on error.
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>extern DECLSPEC int SDLCALL SDL_SemPost(SDL_sem *sem)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_SemPost(IntPtr sem);
+		#endregion int SDL_SemPost(IntPtr sem)
+
+		#region int SDL_SemValue(IntPtr sem)
+		/// <summary>
+		/// Returns the current count of the semaphore
+		/// </summary>
+		/// <returns>
+		/// Returns the current count of the semaphore
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>extern DECLSPEC Uint32 SDLCALL SDL_SemValue(SDL_sem *sem)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_SemValue(IntPtr sem);
+		#endregion int SDL_SemValue(IntPtr sem)
+
+		#region IntPtr SDL_CreateCond()
+		/// <summary>
+		/// Create a condition variable
+		/// </summary>
+		/// <returns>
+		/// intPtr to variable
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>extern DECLSPEC SDL_cond * SDLCALL SDL_CreateCond(void)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_CreateCond();
+		#endregion IntPtr SDL_CreateCond()
+
+		#region void SDL_DestroyCond(IntPtr cond)
+		/// <summary>
+		/// Destroy a condition variable
+		/// </summary>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>extern DECLSPEC void SDLCALL SDL_DestroyCond(SDL_cond *cond)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_DestroyCond(IntPtr cond);
+		#endregion void SDL_DestroyCond(IntPtr cond)
+
+		#region int SDL_CondSignal(IntPtr cond)
+		/// <summary>
+		/// Restart one of the threads that are waiting on the condition variable,
+		/// returns 0 or -1 on error.
+		/// </summary>
+		/// <returns>
+		/// Restart one of the threads that are waiting on the condition variable,
+		/// returns 0 or -1 on error.
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>extern DECLSPEC int SDLCALL SDL_CondSignal(SDL_cond *cond)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_CondSignal(IntPtr cond);
+		#endregion int SDL_CondSignal(IntPtr cond)
+
+		#region int SDL_CondBroadcast(IntPtr cond)
+		/// <summary>
+		/// Restart all threads that are waiting on the condition variable, 
+		/// returns 0 or -1 on error.
+		/// </summary>
+		/// <returns>
+		/// Restart all threads that are waiting on the condition variable,
+		/// returns 0 or -1 on error.
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>extern DECLSPEC int SDLCALL SDL_CondBroadcast(SDL_cond *cond)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_CondBroadcast(IntPtr cond);
+		#endregion int SDL_CondBroadcast(IntPtr cond)
+
+		#region int SDL_CondWait(IntPtr cond, IntPtr mut)
+		/// <summary>
+		/// Wait on the condition variable, unlocking the provided mutex.
+		/// The mutex must be locked before entering this function!
+		/// Returns 0 when it is signaled, or -1 on error.
+		/// </summary>
+		/// <returns>
+		/// Wait on the condition variable, unlocking the provided mutex.
+		/// The mutex must be locked before entering this function!
+		/// Returns 0 when it is signaled, or -1 on error.
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>extern DECLSPEC int SDLCALL SDL_CondWait(SDL_cond *cond, SDL_mutex *mut)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_CondWait(IntPtr cond, IntPtr mut);
+		#endregion int SDL_CondWait(IntPtr cond, IntPtr mut)
+
+		#region int SDL_CondWaitTimeout(IntPtr cond, IntPtr mutex, int ms)
+		/// <summary>
+		/// Waits for at most 'ms' milliseconds, and returns 0 if the condition 
+		/// variable is signaled, SDL_MUTEX_TIMEDOUT if the condition is not
+		/// signaled in the allotted time, and -1 on error.
+		/// On some platforms this function is implemented by looping with a delay
+		/// of 1 ms, and so should be avoided if possible.
+		/// </summary>
+		/// <returns>
+		/// returns 0 if the condition 
+		/// variable is signaled, SDL_MUTEX_TIMEDOUT if the condition is not
+		/// signaled in the allotted time, and -1 on error
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mutex.h:
+		///     <code>extern DECLSPEC int SDLCALL SDL_CondWaitTimeout(SDL_cond *cond, SDL_mutex *mutex, Uint32 ms)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_CondWaitTimeout(IntPtr cond, IntPtr mutex, int ms);
+		#endregion int SDL_CondWaitTimeout(IntPtr cond, IntPtr mutex, int ms)
+
+		#endregion SDL_mutex.h
+
 		// SDL_name.h -- none
 		// SDL_opengl.h -- superceded by Tao.OpenGL
 		// SDL_quit.h -- none
@@ -8287,7 +8644,90 @@ namespace Tao.Sdl
 		public static extern int SDL_GetWMInfo(out Sdl.SDL_SysWMinfo info);
 		#endregion SDL_syswm.h
 
-		// SDL_thread.h -- skipped. Superceded by System.Threading class
+		#region SDL_thread.h
+		#region IntPtr SDL_CreateThread(ThreadDelegate fn, object data)
+		/// <summary>
+		///     Create thread
+		/// </summary>
+		/// <returns>
+		///     IntPtr to SDL_Thread struct
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_thread.h:
+		///     <code>extern DECLSPEC SDL_Thread * SDLCALL SDL_CreateThread(int (SDLCALL *fn)(void *), void *data)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_CreateThread(ThreadDelegate fn, object data);
+		#endregion IntPtr SDL_CreateThread(ThreadDelegate fn, object data)
+
+		#region int SDL_ThreadID()
+		/// <summary>
+		///     Get the 32-bit thread identifier for the current thread
+		/// </summary>
+		/// <returns>
+		///     ID
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_thread.h:
+		///     <code>extern DECLSPEC Uint32 SDLCALL SDL_ThreadID(void)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_ThreadID();
+		#endregion int SDL_ThreadID()
+
+		#region int SDL_GetThreadID(IntPtr thread)
+		/// <summary>
+		///     Get the 32-bit thread identifier for the specified thread,
+		///		equivalent to SDL_ThreadID() if the specified thread is NULL.
+		/// </summary>
+		/// <returns>
+		///     ID
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_thread.h:
+		///     <code>extern DECLSPEC Uint32 SDLCALL SDL_GetThreadID(SDL_Thread *thread)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_GetThreadID(IntPtr thread);
+		#endregion int SDL_GetThreadID(IntPtr thread)
+
+		#region void SDL_WaitThread(IntPtr thread, out int status)
+		/// <summary>
+		///     Wait for a thread to finish.
+		///     The return code for the thread function is placed in the area
+		///     pointed to by 'status', if 'status' is not NULL.
+		/// </summary>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_thread.h:
+		///     <code>extern DECLSPEC void SDLCALL SDL_WaitThread(SDL_Thread *thread, int *status)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_WaitThread(IntPtr thread, out int status);
+		#endregion void SDL_WaitThread(IntPtr thread, out int status)
+
+		#region void SDL_KillThread(IntPtr thread)
+		/// <summary>
+		///     Forcefully kill a thread without worrying about its state
+		/// </summary>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_thread.h:
+		///     <code>extern DECLSPEC void SDLCALL SDL_KillThread(SDL_Thread *thread)</code>
+		///     </p>
+		/// </remarks>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_KillThread(IntPtr thread);
+		#endregion void SDL_KillThread(IntPtr thread)
+
+		#endregion SDL_thread.h
 
 		#region SDL_timer.h
 		#region int SDL_GetTicks()
