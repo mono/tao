@@ -47,8 +47,20 @@ namespace Tao.DevIl
 		/// <remarks>
 		///     Specifies <see cref="CallingConvention.Winapi" />.
 		/// </remarks>
-		private const CallingConvention CALLING_CONVENTION = CallingConvention.Winapi;
-		#endregion CallingConvention CALLING_CONVENTION
+        private const CallingConvention CALLING_CONVENTION = CallingConvention.Winapi;
+        #endregion CallingConvention CALLING_CONVENTION
+        #region string ILUT_NATIVE_LIBRARY
+        /// <summary>
+        /// Specifies the DevIL ILUT native library used in the bindings
+        /// </summary>
+        /// <remarks>
+        /// The Windows dll is specified here universally - note that
+        /// under Mono the non-windows native library can be mapped using
+        /// the ".config" file mechanism.  Kudos to the Mono team for this
+        /// simple yet elegant solution.
+        /// </remarks>
+        private const string ILUT_NATIVE_LIBRARY = "ilut.dll";
+        #endregion string ILUT_NATIVE_LIBRARY
 		#endregion Private Constants
 
 		#region Public Constants
@@ -271,15 +283,188 @@ namespace Tao.DevIl
         
 		// --- Externs ---
 		#region Externs
-		#region int ilutRenderer(int Renderer);
-		/// <summary>
+
+        #region Bitmap Functions
+        #region IntPtr ilutConvertToHBitmap(IntPtr HDC);
+        /// <summary>
+        /// ilutConvertToHBitmap creates a Windows bitmap handle (HBITMAP) copy of the current image, for direct use in Windows.
+        /// </summary>
+        /// <param name="HDC">The ilutGetBoolean returns the value of a selected mode.</param>
+        /// <returns></returns>
+        /// <seealso cref="Il.ilBindImage"/>
+        /// <seealso cref="Il.ilGenImages(int, out int)"/>
+        /// <seealso cref="Ilut.ilutGetHPal"/>
+        /// <remarks><para>Errors</para>
+        /// <para>ILUT_INVALID_ENUM: stant or an out of range value.</para>
+        /// <para>ILUT_INVALID_PARAM: An invalid parameter was passed to a function, such as a NULL pointer.</para></remarks>
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr ilutConvertToHBitmap(IntPtr HDC);
+        #endregion IntPtr ilutConvertToHBitmap(IntPtr HDC);
+
+        #region IntPtr ilutSetHBitmap(IntPtr Bitmap);
+        /// <summary>
+        /// Copies Bitmap to the current bound image in a format OpenIL can understand.
+        /// </summary>
+        /// <remarks>The image can then be used just as if you had loaded an image via ilLoadImage. This function is the opposite of ilutConvertToHBitmap.</remarks>
+        /// <param name="Bitmap">Bitmap to copy to the current bound image.</param>
+        /// <returns></returns>
+        /// <seealso cref="Il.ilBindImage"/>
+        /// <seealso cref="Il.ilLoadImage"/>
+        /// <seealso cref="ilutConvertToHBitmap"/>
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr ilutSetHBitmap(IntPtr Bitmap);
+        #endregion IntPtr ilutSetHBitmap(IntPtr Bitmap);
+
+        #region IntPtr ilutWinLoadImage(string filename, IntPtr hDC);
+        /// <summary>
+        /// loads an image directly to a Win32 HBITMAP, skipping the use of OpenIL image names.
+        /// </summary>
+        /// <param name="filename">Name of the image to load</param>
+        /// <param name="hDC">Device context the bitmap should reside in</param>
+        /// <returns></returns>
+        /// <seealso cref="Il.ilLoadImage"/>
+        /// <seealso cref="ilutGLLoadImage"/>
+        /// <seealso cref="ilutWinSaveImage"/>
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr ilutWinLoadImage(string filename, IntPtr hDC);
+        #endregion IntPtr ilutWinLoadImage(string filename, IntPtr hDC);
+
+        #region IntPtr ilutWinSaveImage(string filename, IntPtr bitmap );
+        /// <summary>
+        /// Saves Bitmap to FileName. This function is the complement of ilutWinLoadImage.
+        /// </summary>
+        /// <param name="filename">Name of the image file to save to</param>
+        /// <param name="bitmap">Win32 HBITMAP to save from</param>
+        /// <returns></returns>
+        /// <seealso cref="Il.ilSaveImage"/>
+        /// <seealso cref="ilutWinLoadImage"/>
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr ilutWinSaveImage(string filename, IntPtr bitmap);
+        #endregion IntPtr ilutWinSaveImage(string filename, IntPtr bitmap );
+
+        #region IntPtr ilutGetBmpInfo(IntPtr Mode);
+        /// <summary>
+        /// ilutGetBmpInfo fills a BITMAPINFO struct with the current image's information. 
+        /// </summary>
+        /// <remarks>The BITMAPINFO struct is used commonly used in Windows applications.
+        /// <para>Errors</para><para>ILUT_ILLEGAL_OPERATION: The operation attempted is not allowable in the current state. The function returns with no ill side effects. </para></remarks>
+        /// <param name="Mode">BITMAPINFO struct pointer to be filled.</param>
+        /// <seealso cref="Il.ilBindImage"/>
+        /// <seealso cref="Il.ilGenImages(int, out int)"/>
+        /// <returns></returns>
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr ilutGetBmpInfo(IntPtr Mode);
+        #endregion IntPtr ilutGetBmpInfo(IntPtr Mode);
+
+
+        #endregion Bitmap Functions
+
+        #region Direct3D Functions
+        #region void ilutD3D8MipFunc(int NumLevels);
+        /// <summary>
+        /// Changes the number of miplevels specified whenever creating a Direct3D 8 texture. The default value is 0, which means that all mipmap levels are created.
+        /// </summary>
+        /// <param name="NumLevels">Number of miplevels to use with all D3D8 texture-generation functions. The default is 0.</param>
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void ilutD3D8MipFunc(int NumLevels);
+        #endregion void ilutD3D8MipFunc(int NumLevels);
+
+        #region void ilutD3D8MipFunc();
+        /// <summary>
+        /// Changes the number of miplevels specified whenever creating a Direct3D 8 texture.
+        /// </summary>
+        /// <remarks>NumLevels defaults to 0.</remarks>
+        public static void ilutD3D8MipFunc()
+        {
+            ilutD3D8MipFunc(0);
+        }
+        #endregion void ilutD3D8MipFunc();
+
+        #region bool ilutD3D8TexFromFileHandle(IntPtr Device, IntPtr File, IntPtr Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="File"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern bool ilutD3D8TexFromFileHandle(IntPtr Device, IntPtr File, IntPtr Texture);
+        #endregion bool ilutD3D8TexFromFileHandle(IntPtr Device, IntPtr File, IntPtr Texture);
+
+        #region bool ilutD3D8TexFromFileInMemory(IntPtr Device, IntPtr Lump, int Size, IntPtr Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="Lump"></param>
+        /// <param name="Size"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern bool ilutD3D8TexFromFileInMemory(IntPtr Device, IntPtr Lump, int Size, IntPtr Texture);
+        #endregion bool ilutD3D8TexFromFileInMemory(IntPtr Device, IntPtr Lump, int Size, IntPtr Texture);
+
+        #region IntPtr ilutD3D8VolTexFromFile(IntPtr Device, string FileName, IntPtr Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="FileName"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr ilutD3D8VolTexFromFile(IntPtr Device, string FileName, IntPtr Texture);
+        #endregion IntPtr ilutD3D8VolTexFromFile(IntPtr Device, string FileName, IntPtr Texture);
+
+        #region bool ilutD3D8VolTexFromFileHandle(IntPtr Device, IntPtr File, IntPtr Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="File"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern bool ilutD3D8VolTexFromFileHandle(IntPtr Device, IntPtr File, IntPtr Texture);
+        #endregion bool ilutD3D8VolTexFromFileHandle(IntPtr Device, IntPtr File, IntPtr Texture);
+
+        #region bool ilutD3D8VolTexFromFileInMemory(IntPtr Device, IntPtr Lump, int Size, IntPtr Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="Lump"></param>
+        /// <param name="Size"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern bool ilutD3D8VolTexFromFileInMemory(IntPtr Device, IntPtr Lump, int Size, IntPtr Texture);
+        #endregion bool ilutD3D8VolTexFromFileInMemory(IntPtr Device, IntPtr Lump, int Size, IntPtr Texture);
+
+        #region IntPtr ilutD3D8VolumeTexture(IntPtr Device);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <returns></returns>
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr ilutD3D8VolumeTexture(IntPtr Device);
+        #endregion IntPtr ilutD3D8VolumeTexture(IntPtr Device);
+
+
+
+        #endregion Direct3D Functions
+
+        #region int ilutRenderer(int Renderer);
+        /// <summary>
 		/// The <b>ilutRenderer</b> function initializes the renderer to use OpenILUT with.
 		/// </summary>
 		/// <param name="Renderer">Renderer enum of the renderer to switch to. Accepted values are: <see cref="ILUT_OPENGL"/>, <see cref="ILUT_ALLEGRO"/> and <see cref="ILUT_DIRECTX"/>.</param>
 		/// <returns></returns>
 		/// <remarks><b>ilutRenderer</b> switches the renderer OpenILUT uses and sets OpenILUT to use it. Note that the availability of these #define's is determined by whether their respective <see cref="ILUT_USE_X"/> #define is uncommented. For example, if <see cref="ILUT_USE_OPENGL"/> is undefined in ilut.h, <see cref="ILUT_OPENGL"/> will not be available.</remarks>  
 		// ILAPI ILboolean ILAPIENTRY ilutRenderer(ILenum Renderer);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern int ilutRenderer(int Renderer);
 		#endregion int ilutRenderer(int Renderer);
         
@@ -292,10 +477,29 @@ namespace Tao.DevIl
 		/// </remarks>	
 		/// <param name="Mode">Mode to enable.</param>        
 		// ILAPI ILboolean ILAPIENTRY ilutEnable(ILenum Mode);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern bool ilutEnable(int Mode);
 		#endregion bool ilutEnable(int Mode);
-        
+
+        #region bool ilutLoadResource(IntPtr hInst, int ID, string ResourceType, int Type);
+        /// <summary>
+        /// ilutLoadResource is a Windows-specific function that loads a resource as the current bound image. 
+        /// </summary>
+        /// <remarks>This feature allows you to have images directly in your .exe and not worry whether a particular file is present on the user's harddrive. An alternative, more portable solution is to use ilSave with IL_CHEAD as the Type parameter.
+        /// <para>Errors</para><para>ILUT_ILLEGAL_OPERATION: The operation attempted is not allowable in the current state. The function returns with no ill side effects. </para></remarks>
+        /// <param name="hInst">The application-s HINSTANCE</param>
+        /// <param name="ID">The resource identifier of the resource to be loaded</param>
+        /// <param name="ResourceType">The type of user-defined resource (name used when creating)</param>
+        /// <param name="Type">The type of image to be loaded. Use IL_TYPE_UNKNOWN to let OpenIL determine the type</param>
+        /// <seealso cref="Il.ilBindImage"/>
+        /// <seealso cref="Il.ilGenImages(int, out int)"/>
+        /// <seealso cref="Il.ilSave"/>
+        /// <seealso cref="ilutGetWinClipboard"/>
+        /// <returns></returns>
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern bool ilutLoadResource(IntPtr hInst, int ID, string ResourceType, int Type);
+        #endregion bool ilutLoadResource(IntPtr hInst, int ID, string ResourceType, int Type);
+
 		#region bool ilutDisable(int Mode);
 		/// <summary>
 		/// Disable an ILUT state.
@@ -305,7 +509,7 @@ namespace Tao.DevIl
 		/// </remarks>
 		/// <param name="mode">Mode to disable.</param>    
 		// ILAPI ILboolean ILAPIENTRY ilutDisable(ILenum Mode);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern bool ilutDisable(int mode);
 		#endregion bool ilutDisable(int Mode);
         
@@ -315,7 +519,7 @@ namespace Tao.DevIl
 		/// </summary>
 		/// <param name="Mode">The mode value to be returned.</param>
 		// ILAPI ILboolean ILAPIENTRY ilutGetBoolean(ILenum Mode);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern bool ilutGetBoolean(int Mode);
 		#endregion bool ilutGetBoolean(int Mode);
         
@@ -326,17 +530,40 @@ namespace Tao.DevIl
 		/// <param name="Mode">The mode value to be returned.</param>
 		/// <param name="Param">The value is stored here instead of returned.</param>
 		// ILAPI ILvoid ILAPIENTRY ilutGetBooleanv(ILenum Mode, ILboolean *Param);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern void ilutGetBooleanv(int Mode, IntPtr Param);
 		#endregion void ilutGetBooleanv(int Mode, IntPtr Param);
-        
-		#region int ilutGetInteger(int Mode);
-		/// <summary>
+
+        #region IntPtr ilutGetHPal();
+        /// <summary>
+        /// The ilutGetHPal function returns a Windows-friendly palette. If the current bound image has a palette, ilutGetHPal returns a Windows-compatible copy of the current image's palette in HPAL format.
+        /// </summary>
+        /// <returns></returns>
+        // HPALETTE ilutGetHPal( ILvoid );
+        // TODO: Implement and test ilutGetHPal.
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr ilutGetHPal();
+        #endregion IntPtr ilutGetHPal();
+
+        #region void ilutSetHPal(IntPtr Pal);
+        /// <summary>
+        /// ilutSetHPal sets the current iamge's palette from a logical Windows palette handle specified in Pal.
+        /// </summary>
+        /// <remarks> If the current image is not colour-indexed, the palette is still loaded, though it will never be used.</remarks>
+        /// <param name="Pal">A Windows palette to set the palette from</param>
+        // ILboolean ilutSetHPal( HPALETTE Pal );
+        // TODO: Implement and test ilutSetHPal.
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void ilutSetHPal(IntPtr Pal);
+        #endregion void ilutSetHPal(IntPtr Pal);
+
+        #region int ilutGetInteger(int Mode);
+        /// <summary>
 		///This function returns the value of a selected mode.	
 		/// </summary>
 		/// <param name="Mode">The mode value to be returned.</param>
 		// ILAPI ILint ILAPIENTRY ilutGetInteger(ILenum Mode);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern int ilutGetInteger(int Mode);
 		#endregion int ilutGetInteger(int Mode);
         
@@ -347,9 +574,21 @@ namespace Tao.DevIl
 		/// <param name="Mode">The mode value to be returned.</param>
 		/// <param name="Param">The value is stored here instead of returned.</param>
 		// ILAPI ILvoid ILAPIENTRY ilutGetIntegerv(ILenum Mode, ILint *Param);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern void ilutGetIntegerv(int Mode, IntPtr Param);
 		#endregion void ilutGetIntegerv(int Mode, IntPtr Param);
+
+        #region void ilutGetPaddedData();
+        /// <summary>
+        /// Gets a copy of the current image's data, but pads it to be DWORD-aligned, just how Windows likes it.
+        /// </summary>
+        /// <remarks>Almost all Windows functions that use images expect the images to be DWORD-aligned. The caller is responsible for freeing the memory returned by ilutGetPaddedData.
+        /// <para>Errors</para><para>ILUT_ILLEGAL_OPERATION: The operation attempted is not allowable in the current state. The function returns with no ill side effects. </para></remarks>
+        /// <seealso cref="Il.ilBindImage"/>
+        /// <seealso cref="Il.ilGenImages(int, out int)"/>
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void ilutGetPaddedData();
+        #endregion void ilutGetPaddedData();
         
 		#region string ilutGetString(int StringName);
 		/// <summary>
@@ -362,19 +601,45 @@ namespace Tao.DevIl
 		/// <para><b>ILUT_VERSION</b> - Use ilutGetInteger with ILUT_VERSION_NUM to check for version differences instead.</para>
 		/// </remarks>
 		// ILAPI const ILstring ILAPIENTRY ilutGetString(ILenum StringName);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern string ilutGetString(int StringName);
 		#endregion string ilutGetString(int StringName);
         
+        #region bool ilutGetWinClipboard();
+        /// <summary>
+        /// Copies the contents of the Windows clipboard to the current bound image, resizing as necessary.
+        /// </summary>
+        /// <seealso cref="Il.ilBindImage"/>
+        /// <seealso cref="Il.ilGenImages(int, out int)"/>
+        /// <seealso cref="ilutSetWinClipboard"/>
+        /// <remarks><para>Errors</para><para>ILUT_ILLEGAL_OPERATION: The operation attempted is not allowable in the current state. The function returns with no ill side effects.</para></remarks> 
+        /// <returns></returns>
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern bool ilutGetWinClipboard();
+        #endregion bool ilutGetWinClipboard();
+
+        #region bool ilutSetWinClipboard();
+        /// <summary>
+        /// Copies the current bound image to the Windows clipboard.
+        /// </summary>
+        /// <returns></returns>
+        /// <remarks><para>Errors</para><para>ILUT_ILLEGAL_OPERATION: The operation attempted is not allowable in the current state. The function returns with no ill side effects.</para></remarks> 
+        /// <seealso cref="Il.ilBindImage"/>
+        /// <seealso cref="Il.ilGenImages(int, out int)"/>
+        /// <seealso cref="ilutGetWinClipboard"/>
+        [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern bool ilutSetWinClipboard();
+        #endregion bool ilutSetWinClipboard();
+
 		#region void ilutInit();
 		/// <summary>
 		/// The <b>ilutInit</b> function initializes ILUT.
 		/// </summary>
 		/// <remarks><b>ilutInit</b> starts ILUT and must be called prior to using ILUT.</remarks>
 		/// <seealso cref="Il.ilInit"/>
-		/// <seealso cref="Ilu.iluInit"/>
+        /// <seealso cref="Ilu.iluInit"/>
 		// ILAPI ILvoid ILAPIENTRY ilutInit(ILvoid);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern void ilutInit();
 		#endregion void ilutInit();
         
@@ -384,7 +649,7 @@ namespace Tao.DevIl
 		/// </summary>
 		/// <param name="Mode">An enum indicating an ilut mode.</param>
 		// ILAPI ILboolean ILAPIENTRY ilutIsDisabled(ILenum Mode);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern bool ilutIsDisabled(int Mode);
 		#endregion bool ilutIsDisabled(int Mode);
         
@@ -394,7 +659,7 @@ namespace Tao.DevIl
 		/// </summary>
 		/// <param name="Mode">An enum indicating an ilut mode.</param>
 		// ILAPI ILboolean ILAPIENTRY ilutIsEnabled(ILenum Mode);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern bool ilutIsEnabled(int Mode);
 		#endregion bool ilutIsEnabled(int Mode);
         
@@ -404,7 +669,7 @@ namespace Tao.DevIl
 		/// </summary>
 		/// <remarks><b>ilutPopAttrib</b> pops the last pushed stack entry off the stack and copies the bits specified when pushed by <see cref="ilutPushAttrib"/> to the previous set of states.</remarks>
 		// ILAPI ILvoid ILAPIENTRY ilutPopAttrib(ILvoid);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern void ilutPopAttrib();
 		#endregion void ilutPopAttrib();
         
@@ -416,7 +681,7 @@ namespace Tao.DevIl
 		/// <remarks><b>ilutPushAttrib</b> pushes a new set of modes and attributes onto the state stack, allowing for "a fresh start".</remarks>
 		/// <seealso cref="ilutPopAttrib"/>
 		// ILAPI ILvoid ILAPIENTRY ilutPushAttrib(ILuint Bits);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern void ilutPushAttrib(int Bits);
 		#endregion void ilutPushAttrib(int Bits);
         
@@ -428,7 +693,7 @@ namespace Tao.DevIl
 		/// <param name="Param">The value to set the mode with.</param>
 		/// <remarks><b>ilutSetInteger</b> is <see cref="ilutGetInteger"/>'s counterpart.</remarks>
 		// ILAPI ILvoid ILAPIENTRY ilutSetInteger(ILenum Mode, ILint Param);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern void ilutSetInteger(int Mode, int Param);
 		#endregion void ilutSetInteger(int Mode, int Param);
         
@@ -437,13 +702,13 @@ namespace Tao.DevIl
 		/// <summary>
 		/// The <b>ilutGLBindTexImage</b> function binds an image to a generated OpenGL texture.
 		/// </summary>
-		/// <seealso cref="Il.ilGenImages"/>
+		/// <seealso cref="Il.ilGenImages(int, out int)"/>
 		/// <seealso cref="Il.ilBindImage"/>
-		/// <seealso cref="ilutOglBuildMipmaps"/>
-		/// <seealso cref="ilutOglScreen"/>
+		/// <seealso cref="ilutGLBuildMipmaps"/>
+		/// <seealso cref="ilutGLScreen"/>
 		/// <seealso cref="ilutGLTexImage"/>
 		// ILAPI ILboolean ILAPIENTRY ilutGLTexImage(GLuint Level);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern int ilutGLBindTexImage();
 		#endregion int ilutGLBindTexImage();
         
@@ -451,13 +716,13 @@ namespace Tao.DevIl
 		/// <summary>
 		///The <b>ilutGLBindMipmaps</b> function binds an image to an OpenGL texture and creates mipmaps.
 		/// </summary>
-		/// <remarks><b>ilutGLBindMipmaps</b> generates a texture via glGenTextures, binds the current OpenIL image to it, generates mipmaps via gluBuild2DMipmaps and returns the texture name. This function is a more general purpose version of <see cref="ilutOglBindTexImage"/>.</remarks>
-		/// <seealso cref="Il.ilGenImages"/>
+		/// <remarks><b>ilutGLBindMipmaps</b> generates a texture via glGenTextures, binds the current OpenIL image to it, generates mipmaps via gluBuild2DMipmaps and returns the texture name. This function is a more general purpose version of <see cref="ilutGLBindTexImage"/>.</remarks>
+        /// <seealso cref="Il.ilGenImages(int, out int)"/>
 		/// <seealso cref="Il.ilBindImage"/>
-		/// <seealso cref="ilutOglBuildMipmaps"/>
+		/// <seealso cref="ilutGLBuildMipmaps"/>
 		/// <seealso cref="ilutGLBindTexImage"/>
 		// ILAPI GLuint ILAPIENTRY ilutGLBindMipmaps(ILvoid);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern int ilutGLBindMipmaps();
 		#endregion int ilutGLBindMipmaps();
         
@@ -466,11 +731,11 @@ namespace Tao.DevIl
 		///The <b>ilutGLBuildMipmaps</b> function creates mipmaps from an image for OpenGL to use.
 		/// </summary>
 		/// <remarks><b>ilutGLBuildMipmaps</b> generates mipmaps via gluBuild2DMipmaps from an image. This function is similar to <see cref="ilutGLTexImage"/> but creates mipmaps.</remarks>
-		/// <seealso cref="Il.ilGenImages"/>
+        /// <seealso cref="Il.ilGenImages(int, out int)"/>
 		/// <seealso cref="Il.ilBindImage"/>
 		/// <seealso cref="ilutGLBindMipmaps"/>
 		// ILAPI ILboolean ILAPIENTRY ilutGLBuildMipmaps(ILvoid);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern bool ilutGLBuildMipmaps();
 		#endregion bool ilutGLBuildMipmaps();
         
@@ -483,7 +748,7 @@ namespace Tao.DevIl
 		/// <seealso cref="Il.ilLoadImage"/>
 		/// <seealso cref="ilutWinLoadImage"/>
 		// ILAPI GLuint ILAPIENTRY ilutGLLoadImage(const ILstring FileName);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern bool ilutGLLoadImage(string FileName);
 		#endregion bool ilutGLLoadImage(string FileName);
         
@@ -492,11 +757,11 @@ namespace Tao.DevIl
 		///The <b>ilutGLScreen</b> function takes a screenshot of the current OpenGL window.
 		/// </summary>
 		/// <remarks><b>ilutGLScreen</b> copies the current OpenGL window contents to the current bound image, effectively taking a screenshot. The new image attributes are that of the current OpenGL window's.</remarks>
-		/// <seealso cref="Il.ilGenImages"/>
+        /// <seealso cref="Il.ilGenImages(int, out int)"/>
 		/// <seealso cref="Il.ilBindImage"/>
 		/// <seealso cref="ilutGLScreenie"/>
 		// ILAPI ILboolean ILAPIENTRY ilutGLScreen(ILvoid);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern bool ilutGLScreen();
 		#endregion bool ilutGLScreen();
         
@@ -505,11 +770,11 @@ namespace Tao.DevIl
 		///The <b>ilutGLScreen</b> function takes a screenie of the current OpenGL window.
 		/// </summary>
 		/// <remarks><b>ilutGLScreen</b> copies the current OpenGL window contents to a temporary image, effectively taking a screenshot. The screenshot image is then saved to disk as screen0.tga - screen127.tga (the lowest name it can find). This is just a convenience function that uses <see cref="ilutGLScreen"/>.</remarks>
-		/// <seealso cref="Il.ilGenImages"/>
+        /// <seealso cref="Il.ilGenImages(int, out int)"/>
 		/// <seealso cref="Il.ilBindImage"/>
 		/// <seealso cref="ilutGLScreen"/>
 		// ILAPI ILboolean ILAPIENTRY ilutGLScreenie(ILvoid);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern bool ilutGLScreenie();
 		#endregion bool ilutGLScreenie();
         
@@ -520,7 +785,7 @@ namespace Tao.DevIl
 		/// <param name="FileName"></param>
 		/// <param name="TexID"></param>
 		// ILAPI ILboolean ILAPIENTRY ilutGLSaveImage(const ILstring FileName, GLuint TexID);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern bool ilutGLSaveImage(string FileName, int TexID);
 		#endregion bool ilutGLSaveImage(string FileName, int TexID);
         
@@ -530,7 +795,7 @@ namespace Tao.DevIl
 		/// </summary>
 		/// <param name="TexID"></param>
 		// ILAPI ILboolean ILAPIENTRY ilutGLSetTex(GLuint TexID);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern bool ilutGLSetTex(int TexID);
 		#endregion bool ilutGLSetTex(int TexID);
         
@@ -540,30 +805,32 @@ namespace Tao.DevIl
 		/// </summary>
 		/// <param name="Level">Texture level to place the image at. 0 is the base image level, and anything lower is a mipmap. Use <see cref="Il.ilActiveMipmap"/> to access OpenIL's mipmaps.</param>
 		/// <remarks><b>ilutGLTexImage</b> simply calls glTexImage2D with the current bound image's data and attributes.</remarks>
-		/// <seealso cref="Il.ilGenImages"/>
+        /// <seealso cref="Il.ilGenImages(int, out int)"/>
 		/// <seealso cref="Il.ilBindImage"/>
 		/// <seealso cref="Il.ilActiveMipmap"/>
-		/// <seealso cref="ilutOglBindTexImage"/>
-		/// <seealso cref="ilutOglBuildMipmaps"/>
-		/// <seealso cref="ilutOglScreen"/>
+		/// <seealso cref="ilutGLBindTexImage"/>
+		/// <seealso cref="ilutGLBuildMipmaps"/>
+		/// <seealso cref="ilutGLScreen"/>
 		/// <seealso cref="ilutGLScreenie"/>
 		// ILAPI ILboolean ILAPIENTRY ilutGLTexImage(GLuint Level);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern bool ilutGLTexImage(int Level);
 		#endregion bool ilutGLTexImage(int Level);
 		#endregion OpenGL Functions
         
 		#region SDL Functions
-		#region IntPtr ilutConvertToSDLSurface(int flags);
-		/// <summary>
+
+
+        #region IntPtr ilutConvertToSDLSurface(int flags);
+        /// <summary>
 		///The <b>ilutConvertToSDLSurface</b> function returns an SDL-compatible version of the currently bound image.
 		/// </summary>
 		/// <param name="flags">Flags to be used with SDL_CreateRGBSurface. Please refer to the SDL documentation for more information.</param>
 		/// <remarks><b>ilutConvertToSDLSurface</b> creates a SDL_Surface copy of the currently bound image, for direct use in SDL.</remarks>
-		/// <seealso cref="Il.ilGenImages"/>
+        /// <seealso cref="Il.ilGenImages(int, out int)"/>
 		/// <seealso cref="Il.ilBindImage"/>
 		// ILAPI SDL_Surface* ILAPIENTRY ilutConvertToSDLSurface(unsigned int flags);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr ilutConvertToSDLSurface(int flags);
 		#endregion IntPtr ilutConvertToSDLSurface(int flags);
         
@@ -573,12 +840,12 @@ namespace Tao.DevIl
 		/// </summary>
 		/// <param name="FileName">Name of the image file to load.</param>
 		/// <remarks><b>ilutSDLSurfaceLoadImage</b> loads an image directly to a SDL_Surface, skipping the use of DevIL image names.</remarks>
-		/// <seealso cref="Il.ilGenImages"/>
+        /// <seealso cref="Il.ilGenImages(int, out int)"/>
 		/// <seealso cref="Il.ilBindImage"/>
 		/// <seealso cref="ilutConvertToSDLSurface"/>
 		/// <seealso cref="Il.ilLoadImage"/>
 		// ILAPI SDL_Surface*	ILAPIENTRY ilutSDLSurfaceLoadImage(const ILstring FileName);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr ilutSDLSurfaceLoadImage(string FileName);
 		#endregion IntPtr ilutSDLSurfaceLoadImage(string FileName);
         
@@ -588,7 +855,7 @@ namespace Tao.DevIl
 		/// </summary>
 		/// <param name="Bitmap"></param>
 		// ILAPI ILboolean ILAPIENTRY ilutSDLSurfaceFromBitmap(SDL_Surface *Bitmap);
-		[DllImport("ilut.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern bool ilutSDLSurfaceFromBitmap(IntPtr Bitmap);
 		#endregion bool ilutSDLSurfaceFromBitmap(IntPtr Bitmap);
 		#endregion SDL Functions

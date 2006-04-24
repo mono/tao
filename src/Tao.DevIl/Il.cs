@@ -47,6 +47,18 @@ namespace Tao.DevIl {
         /// </remarks>
         private const CallingConvention CALLING_CONVENTION = CallingConvention.Winapi;
         #endregion CallingConvention CALLING_CONVENTION
+        #region string DEVIL_NATIVE_LIBRARY
+		/// <summary>
+		/// Specifies the DevIL native library used in the bindings
+		/// </summary>
+		/// <remarks>
+		/// The Windows dll is specified here universally - note that
+		/// under Mono the non-windows native library can be mapped using
+		/// the ".config" file mechanism.  Kudos to the Mono team for this
+		/// simple yet elegant solution.
+		/// </remarks>
+        private const string DEVIL_NATIVE_LIBRARY = "devil.dll";
+        #endregion string DEVIL_NATIVE_LIBRARY
         #endregion Private Constants
 
         #region Public Constants
@@ -1733,19 +1745,19 @@ namespace Tao.DevIl {
         ///         <b>ERRORS</b>
         ///     </para>
         ///     <para>
-        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages(int, out int)" />
         ///         and <see cref="ilBindImage" /> before calling this function.  Number could have also been too high.
         ///     </para>
         ///     <para>
         ///         <see cref="IL_INTERNAL_ERROR " /> is set if there's an internal DevIL error.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="ilGenImages" />
+        /// <seealso cref="ilGenImages(int, out int)" />
         /// <seealso cref="ilBindImage" />
         /// <seealso cref="ilActiveMipmap" />
         /// <seealso cref="ilActiveLayer" />
         // ILAPI ILboolean ILAPIENTRY ilActiveImage(ILuint Number);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilActiveImage(int Number);
         #endregion bool ilActiveImage(int Number);
 
@@ -1764,19 +1776,19 @@ namespace Tao.DevIl {
         ///         <b>ERRORS</b>
         ///     </para>
         ///     <para>
-        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages(int, out int)" />
         ///         and <see cref="ilBindImage" /> before calling this function.  Number could have also been too high.
         ///     </para>
         ///     <para>
         ///         <see cref="IL_INTERNAL_ERROR " /> is set if there's an internal DevIL error.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="ilGenImages" />
+        /// <seealso cref="ilGenImages(int, out int)" />
         /// <seealso cref="ilBindImage" />
         /// <seealso cref="ilActiveImage" />
         /// <seealso cref="ilActiveMipmap" />
         // ILAPI ILboolean ILAPIENTRY ilActiveLayer(ILuint Number);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilActiveLayer(int Number);
         #endregion bool ilActiveLayer(int Number);
 
@@ -1797,20 +1809,20 @@ namespace Tao.DevIl {
         ///         <b>ERRORS</b>
         ///     </para>
         ///     <para>
-        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages(int, out int)" />
         ///         and <see cref="ilBindImage" /> before calling this function.  Number could have also been too high.
         ///     </para>
         ///     <para>
         ///         <see cref="IL_INTERNAL_ERROR " /> is set if there's an internal DevIL error.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="ilGenImages" />
+        /// <seealso cref="ilGenImages(int, out int)" />
         /// <seealso cref="ilBindImage" />
         /// <seealso cref="ilActiveImage" />
         /// <seealso cref="ilActiveLayer" />
         /// <seealso cref="Ilu.iluBuildMipmaps" />
         // ILAPI ILboolean ILAPIENTRY ilActiveMipmap(ILuint Number);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilActiveMipmap(int Number);
         #endregion bool ilActiveMipmap(int Number);
 
@@ -1820,7 +1832,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="FileName"></param>
         // ILAPI ILboolean ILAPIENTRY ilApplyPal(ILstring FileName);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilApplyPal(string FileName);
         #endregion bool ilApplyPal(string FileName);
 
@@ -1845,7 +1857,7 @@ namespace Tao.DevIl {
         ///         <b>ERRORS</b>
         ///     </para>
         ///     <para>
-        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages(int, out int)" />
         ///         and <see cref="ilBindImage" /> before calling this function.  Number could have also been too high.
         ///     </para>
         ///     <para>
@@ -1856,10 +1868,10 @@ namespace Tao.DevIl {
         ///         was <c>null</c>.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="ilGenImages" />
+        /// <seealso cref="ilGenImages(int, out int)" />
         /// <seealso cref="ilBindImage" />
         // ILAPI ILboolean ILAPIENTRY ilApplyProfile(ILstring InProfile, ILstring OutProfile);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilApplyProfile(string InProfile, string OutProfile);
         #endregion bool ilApplyProfile(string InProfile, string OutProfile);
 
@@ -1883,16 +1895,16 @@ namespace Tao.DevIl {
         ///         <b>ERRORS</b>
         ///     </para>
         ///     <para>
-        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if <see cref="ilGenImages" /> was never called beforehand,
-        ///         <paramref name="Image" /> is out of bounds or the image name has been deleted via <see cref="ilDeleteImages" />.
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if <see cref="ilGenImages(int, out int)" /> was never called beforehand,
+        ///         <paramref name="Image" /> is out of bounds or the image name has been deleted via <see cref="ilDeleteImages(int, ref int)" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="ilGenImages" />
-        /// <seealso cref="ilDeleteImages" />
+        /// <seealso cref="ilGenImages(int, out int)" />
+        /// <seealso cref="ilDeleteImages(int, ref int)" />
         /// <seealso cref="ilDefaultImage" />
         /// <seealso cref="ilGetError" />
         // ILAPI ILvoid ILAPIENTRY ilBindImage(ILuint Image);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilBindImage(int Image);
         #endregion ilBindImage(int Image);
 
@@ -1911,7 +1923,7 @@ namespace Tao.DevIl {
         /// <param name="Height"></param>
         /// <param name="Depth"></param>
         // ILAPI ILboolean ILAPIENTRY ilBlit(ILuint Source, ILint DestX, ILint DestY, ILint DestZ, ILuint SrcX, ILuint SrcY, ILuint SrcZ, ILuint Width, ILuint Height, ILuint Depth);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilBlit(int Source, int DestX, int DestY, int DestZ, int SrcX, int SrcY, int SrcZ, int Width, int Height, int Depth);
         #endregion bool ilBlit(int Source, int DestX, int DestY, int DestZ, int SrcX, int SrcY, int SrcZ, int Width, int Height, int Depth);
 
@@ -1939,7 +1951,7 @@ namespace Tao.DevIl {
         /// <seealso cref="Ilu.iluRotate" />
         /// <seealso cref="Ilu.iluEnlargeCanvas" />
         // ILAPI ILvoid ILAPIENTRY ilClearColour(ILclampf Red, ILclampf Green, ILclampf Blue, ILclampf Alpha);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilClearColour(float Red, float Green, float Blue, float Alpha);
         #endregion ilClearColour(float Red, float Green, float Blue, float Alpha);
 
@@ -1967,7 +1979,7 @@ namespace Tao.DevIl {
         /// <seealso cref="Ilu.iluRotate" />
         /// <seealso cref="Ilu.iluEnlargeCanvas" />
         // ILAPI ILvoid ILAPIENTRY ilClearColour(ILclampf Red, ILclampf Green, ILclampf Blue, ILclampf Alpha);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION, EntryPoint="ilClearColour"), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="ilClearColour"), SuppressUnmanagedCodeSecurity]
         public static extern void ilClearColor(float Red, float Green, float Blue, float Alpha);
         #endregion ilClearColor(float Red, float Green, float Blue, float Alpha);
 
@@ -1985,15 +1997,15 @@ namespace Tao.DevIl {
         ///         <b>ERRORS</b>
         ///     </para>
         ///     <para>
-        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages(int, out int)" />
         ///         and <see cref="ilBindImage" /> before calling this function.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="ilGenImages" />
+        /// <seealso cref="ilGenImages(int, out int)" />
         /// <seealso cref="ilBindImage" />
         /// <seealso cref="ilClearColor" />
         // ILAPI ILboolean ILAPIENTRY ilClearImage(ILvoid);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilClearImage();
         #endregion bool ilClearImage();
 
@@ -2011,18 +2023,18 @@ namespace Tao.DevIl {
         ///         <b>ERRORS</b>
         ///     </para>
         ///     <para>
-        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages(int, out int)" />
         ///         and <see cref="ilBindImage" /> before calling this function.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="ilGenImages" />
+        /// <seealso cref="ilGenImages(int, out int)" />
         /// <seealso cref="ilBindImage" />
         /// <seealso cref="ilCopyImage" />
         /// <seealso cref="ilActiveImage" />
         /// <seealso cref="ilActiveLayer" />
         /// <seealso cref="ilActiveMipmap" />
         // ILAPI ILuint ILAPIENTRY ilCloneCurImage(ILvoid);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int ilCloneCurImage();
         #endregion int ilCloneCurImage();
 
@@ -2032,7 +2044,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Mode"></param>
         // ILAPI ILboolean ILAPIENTRY ilCompressFunc(ILenum Mode);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilCompressFunc(int Mode);
         #endregion bool ilCompressFunc(int Mode);
 
@@ -2059,7 +2071,7 @@ namespace Tao.DevIl {
         ///         <b>ERRORS</b>
         ///     </para>
         ///     <para>
-        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages(int, out int)" />
         ///         and <see cref="ilBindImage" /> before calling this function.
         ///     </para>
         ///     <para>
@@ -2070,32 +2082,17 @@ namespace Tao.DevIl {
         ///         <see cref="IL_OUT_OF_MEMORY" /> is set if DevIL could not allocate memory for the converted image data.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="ilGenImages" />
+        /// <seealso cref="ilGenImages(int, out int)" />
         /// <seealso cref="ilBindImage" />
         /// <seealso cref="ilGetBoolean" />
-        /// <seealso cref="ilGetBooleanv" />
+        /// <seealso cref="ilGetBooleanv(int, out bool)" />
         /// <seealso cref="ilGetInteger" />
-        /// <seealso cref="ilGetIntegerv" />
+        /// <seealso cref="ilGetIntegerv(int, out int)" />
         /// <seealso cref="ilConvertPal" />
         // ILAPI ILboolean ILAPIENTRY ilConvertImage(ILenum DestFormat, ILenum DestType);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilConvertImage(int DestFormat, int DestType);
         #endregion bool ilConvertImage(int DestFormat, int DestType);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         #region bool ilConvertPal(int DestFormat);
         /// <summary>
@@ -2103,7 +2100,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="DestFormat"></param>
         // ILAPI ILboolean ILAPIENTRY ilConvertPal(ILenum DestFormat);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilConvertPal(int DestFormat);
         #endregion bool ilConvertPal(int DestFormat);
 
@@ -2113,7 +2110,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Src"></param>
         // ILAPI ILboolean ILAPIENTRY ilCopyImage(ILuint Src);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilCopyImage(int Src);
         #endregion bool ilCopyImage(int Src);
 
@@ -2131,7 +2128,7 @@ namespace Tao.DevIl {
         /// <param name="Type"></param>
         /// <param name="Data"></param>
         // ILAPI ILuint ILAPIENTRY ilCopyPixels(ILuint XOff, ILuint YOff, ILuint ZOff, ILuint Width, ILuint Height, ILuint Depth, ILenum Format, ILenum Type, ILvoid* Data);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int ilCopyPixels(int XOff, int YOff, int ZOff, int Width, int Height, int Depth, int Format, int Type, IntPtr Data);
         #endregion int ilCopyPixels(int XOff, int YOff, int ZOff, int Width, int Height, int Depth, int Format, int Type, IntPtr Data);
 
@@ -2149,7 +2146,7 @@ namespace Tao.DevIl {
         /// <param name="Type"></param>
         /// <param name="Data"></param>
         // ILAPI ILuint ILAPIENTRY ilCopyPixels(ILuint XOff, ILuint YOff, ILuint ZOff, ILuint Width, ILuint Height, ILuint Depth, ILenum Format, ILenum Type, ILvoid* Data);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int ilCopyPixels(int XOff, int YOff, int ZOff, int Width, int Height, int Depth, int Format, int Type, byte[] Data);
         #endregion int ilCopyPixels(int XOff, int YOff, int ZOff, int Width, int Height, int Depth, int Format, int Type, byte[] Data);
 
@@ -2160,7 +2157,7 @@ namespace Tao.DevIl {
         /// <param name="Type"></param>
         /// <param name="Num"></param>
         // ILAPI ILuint ILAPIENTRY ilCreateSubImage(ILenum Type, ILuint Num);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int ilCreateSubImage(int Type, int Num);
         #endregion int ilCreateSubImage(int Type, int Num);
 
@@ -2169,7 +2166,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILboolean ILAPIENTRY ilDefaultImage(ILvoid);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilDefaultImage();
         #endregion bool ilDefaultImage();
 
@@ -2180,7 +2177,7 @@ namespace Tao.DevIl {
         /// <param name="Num"></param>
         /// <param name="Images"></param>
         // ILAPI ILvoid ILAPIENTRY ilDeleteImages(ILsizei Num, ILuint* Images);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilDeleteImages(int Num, ref int Images);
         #endregion ilDeleteImages(int Num, ref int Images);
 
@@ -2191,7 +2188,7 @@ namespace Tao.DevIl {
         /// <param name="Num"></param>
         /// <param name="Images"></param>
         // ILAPI ILvoid ILAPIENTRY ilDeleteImages(ILsizei Num, ILuint* Images);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilDeleteImages(int Num, int[] Images);
         #endregion ilDeleteImages(int Num, int[] Images);
 
@@ -2201,7 +2198,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Mode"></param>
         // ILAPI ILboolean ILAPIENTRY ilDisable(ILenum Mode);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilDisable(int Mode);
         #endregion bool ilDisable(int Mode);
 
@@ -2211,7 +2208,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Mode"></param>
         // ILAPI ILboolean ILAPIENTRY ilEnable(ILenum Mode);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilEnable(int Mode);
         #endregion bool ilEnable(int Mode);
 
@@ -2221,7 +2218,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Mode"></param>
         // ILAPI ILboolean ILAPIENTRY ilFormatFunc(ILenum Mode);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilFormatFunc(int Mode);
         #endregion bool ilFormatFunc(int Mode);
 
@@ -2232,7 +2229,7 @@ namespace Tao.DevIl {
         /// <param name="Num"></param>
         /// <param name="Images"></param>
         // ILAPI ILvoid ILAPIENTRY ilGenImages(ILsizei Num, ILuint* Images);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilGenImages(int Num, out int Images);
         #endregion ilGenImages(int Num, out int Images);
 
@@ -2243,7 +2240,7 @@ namespace Tao.DevIl {
         /// <param name="Num"></param>
         /// <param name="Images"></param>
         // ILAPI ILvoid ILAPIENTRY ilGenImages(ILsizei Num, ILuint* Images);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilGenImages(int Num, [Out] int[] Images);
         #endregion ilGenImages(int Num, [Out] int[] Images);
 
@@ -2253,7 +2250,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Type"></param>
         // ILAPI ILubyte* ILAPIENTRY ilGetAlpha(ILenum Type);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr ilGetAlpha(int Type);
         #endregion IntPtr ilGetAlpha(int Type);
 
@@ -2263,7 +2260,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Mode"></param>
         // ILAPI ILboolean ILAPIENTRY ilGetBoolean(ILenum Mode);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilGetBoolean(int Mode);
         #endregion bool ilGetBoolean(int Mode);
 
@@ -2274,7 +2271,7 @@ namespace Tao.DevIl {
         /// <param name="Mode"></param>
         /// <param name="Param"></param>
         // ILAPI ILvoid ILAPIENTRY ilGetBooleanv(ILenum Mode, ILboolean* Param);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilGetBooleanv(int Mode, out bool Param);
         #endregion ilGetBooleanv(int Mode, out bool Param);
 
@@ -2285,7 +2282,7 @@ namespace Tao.DevIl {
         /// <param name="Mode"></param>
         /// <param name="Param"></param>
         // ILAPI ILvoid ILAPIENTRY ilGetBooleanv(ILenum Mode, ILboolean* Param);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilGetBooleanv(int Mode, [Out] bool[] Param);
         #endregion ilGetBooleanv(int Mode, [Out] bool[] Param);
 
@@ -2294,7 +2291,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILubyte* ILAPIENTRY ilGetData(ILvoid);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr ilGetData();
         #endregion IntPtr ilGetData();
 
@@ -2306,7 +2303,7 @@ namespace Tao.DevIl {
         /// <param name="BufferSize"></param>
         /// <param name="DXTCFormat"></param>
         // ILAPI ILuint ILAPIENTRY ilGetDXTCData(ILvoid* Buffer, ILuint BufferSize, ILenum DXTCFormat);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int ilGetDXTCData(IntPtr Buffer, int BufferSize, int DXTCFormat);
         #endregion int ilGetDXTCData(IntPtr Buffer, int BufferSize, int DXTCFormat);
 
@@ -2318,7 +2315,7 @@ namespace Tao.DevIl {
         /// <param name="BufferSize"></param>
         /// <param name="DXTCFormat"></param>
         // ILAPI ILuint ILAPIENTRY ilGetDXTCData(ILvoid* Buffer, ILuint BufferSize, ILenum DXTCFormat);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int ilGetDXTCData(byte[] Buffer, int BufferSize, int DXTCFormat);
         #endregion int ilGetDXTCData(byte[] Buffer, int BufferSize, int DXTCFormat);
 
@@ -2327,7 +2324,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILenum ILAPIENTRY ilGetError(ILvoid);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int ilGetError();
         #endregion int ilGetError();
 
@@ -2337,7 +2334,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Mode"></param>
         // ILAPI ILint ILAPIENTRY ilGetInteger(ILenum Mode);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int ilGetInteger(int Mode);
         #endregion int ilGetInteger(int Mode);
 
@@ -2348,7 +2345,7 @@ namespace Tao.DevIl {
         /// <param name="Mode"></param>
         /// <param name="Param"></param>
         // ILAPI ILvoid ILAPIENTRY ilGetIntegerv(ILenum Mode, ILint* Param);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilGetIntegerv(int Mode, out int Param);
         #endregion ilGetIntegerv(int Mode, out int Param);
 
@@ -2359,7 +2356,7 @@ namespace Tao.DevIl {
         /// <param name="Mode"></param>
         /// <param name="Param"></param>
         // ILAPI ILvoid ILAPIENTRY ilGetIntegerv(ILenum Mode, ILint* Param);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilGetIntegerv(int Mode, [Out] int[] Param);
         #endregion ilGetIntegerv(int Mode, [Out] int[] Param);
 
@@ -2368,7 +2365,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILuint ILAPIENTRY ilGetLumpPos(ILvoid);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int ilGetLumpPos();
         #endregion int ilGetLumpPos();
 
@@ -2377,7 +2374,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILubyte* ILAPIENTRY ilGetPalette(ILvoid);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr ilGetPalette();
         #endregion IntPtr ilGetPalette();
 
@@ -2387,7 +2384,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="StringName"></param>
         // ILAPI ILstring ILAPIENTRY ilGetString(ILenum StringName);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern string ilGetString(int StringName);
         #endregion string ilGetString(int StringName);
 
@@ -2398,7 +2395,7 @@ namespace Tao.DevIl {
         /// <param name="Target"></param>
         /// <param name="Mode"></param>
         // ILAPI ILvoid ILAPIENTRY ilHint(ILenum Target, ILenum Mode);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilHint(int Target, int Mode);
         #endregion ilHint(int Target, int Mode);
 
@@ -2407,7 +2404,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILvoid ILAPIENTRY ilInit(ILvoid);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilInit();
         #endregion ilInit();
 
@@ -2417,7 +2414,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Mode"></param>
         // ILAPI ILboolean ILAPIENTRY ilIsDisabled(ILenum Mode);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilIsDisabled(int Mode);
         #endregion bool ilIsDisabled(int Mode);
 
@@ -2427,7 +2424,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Mode"></param>
         // ILAPI ILboolean ILAPIENTRY ilIsEnabled(ILenum Mode);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilIsEnabled(int Mode);
         #endregion bool ilIsEnabled(int Mode);
 
@@ -2437,7 +2434,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Image"></param>
         // ILAPI ILboolean ILAPIENTRY ilIsImage(ILuint Image);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilIsImage(int Image);
         #endregion bool ilIsImage(int Image);
 
@@ -2448,7 +2445,7 @@ namespace Tao.DevIl {
         /// <param name="Type"></param>
         /// <param name="FileName"></param>
         // ILAPI ILboolean ILAPIENTRY ilIsValid(ILenum Type, ILstring FileName);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilIsValid(int Type, string FileName);
         #endregion bool ilIsValid(int Type, string FileName);
 
@@ -2460,7 +2457,7 @@ namespace Tao.DevIl {
         /// <param name="Lump"></param>
         /// <param name="Size"></param>
         // ILAPI ILboolean ILAPIENTRY ilIsValidL(ILenum Type, ILvoid* Lump, ILuint Size);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilIsValidL(int Type, IntPtr Lump, int Size);
         #endregion bool ilIsValidL(int Type, IntPtr Lump, int Size);
 
@@ -2472,7 +2469,7 @@ namespace Tao.DevIl {
         /// <param name="Lump"></param>
         /// <param name="Size"></param>
         // ILAPI ILboolean ILAPIENTRY ilIsValidL(ILenum Type, ILvoid* Lump, ILuint Size);
-        [DllImport("devil.dll", CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilIsValidL(int Type, byte[] Lump, int Size);
         #endregion bool ilIsValidL(int Type, byte[] Lump, int Size);
 
@@ -2485,7 +2482,7 @@ namespace Tao.DevIl {
         /// <param name="Blue"></param>
         /// <param name="Alpha"></param>
         // ILAPI ILvoid ILAPIENTRY ilKeyColour(ILclampf Red, ILclampf Green, ILclampf Blue, ILclampf Alpha);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilKeyColour(float Red, float Green, float Blue, float Alpha);
         #endregion ilKeyColour(float Red, float Green, float Blue, float Alpha);
 
@@ -2496,7 +2493,7 @@ namespace Tao.DevIl {
         /// <param name="Type"></param>
         /// <param name="FileName"></param>
         // ILAPI ILboolean ILAPIENTRY ilLoad(ILenum Type, ILstring FileName);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilLoad(int Type, string FileName);
         #endregion bool ilLoad(int Type, string FileName);
 
@@ -2507,7 +2504,7 @@ namespace Tao.DevIl {
         /// <param name="Type"></param>
         /// <param name="FileName"></param>
         // ILAPI ILboolean ILAPIENTRY ilLoad(ILenum Type, ILstring FileName);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilLoadF(int Type, string FileName);
         #endregion bool ilLoadF(int Type, string FileName);
 
@@ -2517,7 +2514,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="FileName"></param>
         // ILAPI ILboolean ILAPIENTRY ilLoadImage(ILstring FileName);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilLoadImage(string FileName);
         #endregion bool ilLoadImage(string FileName);
 
@@ -2529,7 +2526,7 @@ namespace Tao.DevIl {
         /// <param name="Lump"></param>
         /// <param name="Size"></param>
         // ILAPI ILboolean ILAPIENTRY ilLoadL(ILenum Type, ILvoid* Lump, ILuint Size);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilLoadL(int Type, IntPtr Lump, int Size);
         #endregion bool ilLoadL(int Type, IntPtr Lump, int Size);
 
@@ -2541,7 +2538,7 @@ namespace Tao.DevIl {
         /// <param name="Lump"></param>
         /// <param name="Size"></param>
         // ILAPI ILboolean ILAPIENTRY ilLoadL(ILenum Type, ILvoid* Lump, ILuint Size);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilLoadL(int Type, byte[] Lump, int Size);
         #endregion bool ilLoadL(int Type, byte[] Lump, int Size);
 
@@ -2551,7 +2548,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="FileName"></param>
         // ILAPI ILboolean ILAPIENTRY ilLoadPal(ILstring FileName);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilLoadPal(string FileName);
         #endregion bool ilLoadPal(string FileName);
 
@@ -2560,7 +2557,7 @@ namespace Tao.DevIl {
         /// 
         /// </summary>
         /// <param name="AlphaValue"></param>
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilModAlpha(int AlphaValue);
         #endregion ilModAlpha(int AlphaValue)
 
@@ -2570,7 +2567,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Mode"></param>
         // ILAPI ILboolean ILAPIENTRY ilOriginFunc(ILenum Mode);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilOriginFunc(int Mode);
         #endregion bool ilOriginFunc(int Mode);
 
@@ -2583,7 +2580,7 @@ namespace Tao.DevIl {
         /// <param name="YCoord"></param>
         /// <param name="ZCoord"></param>
         // ILAPI ILboolean ILAPIENTRY ilOverlayImage(ILuint Source, ILint XCoord, ILint YCoord, ILint ZCoord);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilOverlayImage(int Source, int XCoord, int YCoord, int ZCoord);
         #endregion bool ilOverlayImage(int Source, int XCoord, int YCoord, int ZCoord);
 
@@ -2592,7 +2589,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILvoid ILAPIENTRY ilPopAttrib(ILvoid);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilPopAttrib();
         #endregion ilPopAttrib();
 
@@ -2602,7 +2599,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Bits"></param>
         // ILAPI ILvoid ILAPIENTRY ilPushAttrib(ILuint Bits);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilPushAttrib(int Bits);
         #endregion ilPushAttrib(int Bits);
 
@@ -2612,7 +2609,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Format"></param>
         // ILAPI ILvoid ILAPIENTRY ilRegisterFormat(ILenum Format);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilRegisterFormat(int Format);
         #endregion ilRegisterFormat(int Format);
 
@@ -2641,7 +2638,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Num"></param>
         // ILAPI ILboolean ILAPIENTRY ilRegisterMipNum(ILuint Num);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilRegisterMipNum(int Num);
         #endregion bool ilRegisterMipNum(int Num);
 
@@ -2651,7 +2648,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Num"></param>
         // ILAPI ILboolean ILAPIENTRY ilRegisterNumImages(ILuint Num);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilRegisterNumImages(int Num);
         #endregion bool ilRegisterNumImages(int Num);
 
@@ -2661,7 +2658,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Origin"></param>
         // ILAPI ILvoid ILAPIENTRY ilRegisterOrigin(ILenum Origin);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilRegisterOrigin(int Origin);
         #endregion ilRegisterOrigin(int Origin);
 
@@ -2673,7 +2670,7 @@ namespace Tao.DevIl {
         /// <param name="Size"></param>
         /// <param name="Type"></param>
         // ILAPI ILvoid ILAPIENTRY ilRegisterPal(ILvoid* Pal, ILuint Size, ILenum Type);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilRegisterPal(IntPtr Pal, int Size, int Type);
         #endregion ilRegisterPal(IntPtr Pal, int Size, int Type);
 
@@ -2683,7 +2680,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Type"></param>
         // ILAPI ILvoid ILAPIENTRY ilRegisterType(ILenum Type);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilRegisterType(int Type);
         #endregion ilRegisterType(int Type);
 
@@ -2693,7 +2690,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Ext"></param>
         // ILAPI ILboolean ILAPIENTRY ilRemoveLoad(ILstring Ext);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilRemoveLoad(string Ext);
         #endregion bool ilRemoveLoad(string Ext);
 
@@ -2703,7 +2700,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Ext"></param>
         // ILAPI ILboolean ILAPIENTRY ilRemoveSave(ILstring Ext);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilRemoveSave(string Ext);
         #endregion bool ilRemoveSave(string Ext);
 
@@ -2712,7 +2709,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILvoid ILAPIENTRY ilResetMemory(ILvoid);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilResetMemory();
         #endregion ilResetMemory();
 
@@ -2721,7 +2718,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILvoid ILAPIENTRY ilResetRead(ILvoid);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilResetRead();
         #endregion ilResetRead();
 
@@ -2730,7 +2727,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILvoid ILAPIENTRY ilResetWrite(ILvoid);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilResetWrite();
         #endregion ilResetWrite();
 
@@ -2741,7 +2738,7 @@ namespace Tao.DevIl {
         /// <param name="Type"></param>
         /// <param name="FileName"></param>
         // ILAPI ILboolean ILAPIENTRY ilSave(ILenum Type, ILstring FileName);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilSave(int Type, string FileName);
         #endregion bool ilSave(int Type, string FileName);
 
@@ -2751,7 +2748,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="FileName"></param>
         // ILAPI ILboolean ILAPIENTRY ilSaveImage(ILstring FileName);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilSaveImage(string FileName);
         #endregion bool ilSaveImage(string FileName);
 
@@ -2763,7 +2760,7 @@ namespace Tao.DevIl {
         /// <param name="Lump"></param>
         /// <param name="Size"></param>
         // ILAPI ILuint ILAPIENTRY ilSaveL(ILenum Type, ILvoid* Lump, ILuint Size);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int ilSaveL(int Type, IntPtr Lump, int Size);
         #endregion int ilSaveL(int Type, IntPtr Lump, int Size);
 
@@ -2773,7 +2770,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="FileName"></param>
         // ILAPI ILboolean ILAPIENTRY ilSavePal(ILstring FileName);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilSavePal(string FileName);
         #endregion bool ilSavePal(string FileName);
 
@@ -2782,7 +2779,7 @@ namespace Tao.DevIl {
         /// 
         /// </summary>
         /// <param name="AlphaValue"></param>
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilSetAlpha(int AlphaValue);
         #endregion ilSetAlpha(int AlphaValue)
 
@@ -2792,7 +2789,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Data"></param>
         // ILAPI ILboolean ILAPIENTRY ilSetData(ILvoid* Data);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilSetData(IntPtr Data);
         #endregion bool ilSetData(IntPtr Data);
 
@@ -2802,7 +2799,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Duration"></param>
         // ILAPI ILboolean ILAPIENTRY ilSetDuration(ILuint Duration);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilSetDuration(int Duration);
         #endregion bool ilSetDuration(int Duration);
 
@@ -2813,7 +2810,7 @@ namespace Tao.DevIl {
         /// <param name="Mode"></param>
         /// <param name="Param"></param>
         // ILAPI ILvoid ILAPIENTRY ilSetInteger(ILenum Mode, ILint Param);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilSetInteger(int Mode, int Param);
         #endregion ilSetInteger(int Mode, int Param);
 
@@ -2831,18 +2828,20 @@ namespace Tao.DevIl {
         /// <param name="Type"></param>
         /// <param name="Data"></param>
         // ILAPI ILvoid ILAPIENTRY ilSetPixels(ILint XOff, ILint YOff, ILint ZOff, ILuint Width, ILuint Height, ILuint Depth, ILenum Format, ILenum Type, ILvoid* Data);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilSetPixels(int XOff, int YOff, int ZOff, int Width, int Height, int Depth, int Format, int Type, IntPtr Data);
         #endregion ilSetPixels(int XOff, int YOff, int ZOff, int Width, int Height, int Depth, int Format, int Type, IntPtr Data);
 
         #region ilSetString(int Mode, string String);
         /// <summary>
-        ///
+        /// ilSetString gives DevIL users the option to set strings in certain file formats that have fields for strings, making DevIL highly customizable. Choose one of the acceptable parameters for Mode and specify any string you want. If the string is too long, it will be truncated when writing to the file.
         /// </summary>
-        /// <param name="Mode"></param>
-        /// <param name="String"></param>
+        /// <param name="Mode">Specifies the string to be set.</param>
+        /// <param name="String">String to use for setting a string field of a specified image format.</param>
+        /// <remarks><para><b>Modes</b></para><para>IL_PNG_AUTHNAME_STRING, IL_PNG_DESCRIPTION_STRING, IL_PNG_TITLE_STRING, IL_TGA_AUTHCOMMENT_STRING, IL_TGA_AUTHNAME_STRING, IL_TGA_ID_STRING, IL_TIF_AUTHNAME_STRING, IL_TIF_DESCRIPTION_STRING, IL_TIF_DOCUMENTNAME_STRING, IL_TIF_HOSTCOMPUTER_STRING</para>
+        /// <para><b>Errors</b></para><para>IL_INVALID_ENUM: Mode was an invalid enum.</para><para>IL_INVALID_PARAM: String was NULL.</para></remarks>
         // ILAPI ILvoid ILAPIENTRY ilSetString(ILenum Mode, char* String);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilSetString(int Mode, string String);
         #endregion ilSetString(int Mode, string String);
 
@@ -2851,7 +2850,7 @@ namespace Tao.DevIl {
         ///
         /// </summary>
         // ILAPI ILvoid ILAPIENTRY ilShutDown(ILvoid);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilShutDown();
         #endregion ilShutDown();
 
@@ -2867,7 +2866,7 @@ namespace Tao.DevIl {
         /// <param name="Type"></param>
         /// <param name="Data"></param>
         // ILAPI ILboolean ILAPIENTRY ilTexImage(ILuint Width, ILuint Height, ILuint Depth, ILubyte Bpp, ILenum Format, ILenum Type, ILvoid* Data);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilTexImage(int Width, int Height, int Depth, byte Bpp, int Format, int Type, IntPtr Data);
         #endregion bool ilTexImage(int Width, int Height, int Depth, byte Bpp, int Format, int Type, IntPtr Data);
 
@@ -2883,7 +2882,7 @@ namespace Tao.DevIl {
         /// <param name="Type"></param>
         /// <param name="Data"></param>
         // ILAPI ILboolean ILAPIENTRY ilTexImage(ILuint Width, ILuint Height, ILuint Depth, ILubyte Bpp, ILenum Format, ILenum Type, ILvoid* Data);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilTexImage(int Width, int Height, int Depth, byte Bpp, int Format, int Type, byte[] Data);
         #endregion bool ilTexImage(int Width, int Height, int Depth, byte Bpp, int Format, int Type, byte[] Data);
 
@@ -2893,7 +2892,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="Mode"></param>
         // ILAPI ILboolean ILAPIENTRY ilTypeFunc(ILenum Mode);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilTypeFunc(int Mode);
         #endregion bool ilTypeFunc(int Mode);
 
@@ -2907,7 +2906,7 @@ namespace Tao.DevIl {
         /// <param name="Depth"></param>
         /// <param name="Bpp"></param>
         // ILAPI ILboolean ILAPIENTRY ilLoadData(ILstring FileName, ILuint Width, ILuint Height, ILuint Depth, ILubyte Bpp);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilLoadData(string FileName, int Width, int Height, int Depth, byte Bpp);
         #endregion bool ilLoadData(string FileName, int Width, int Height, int Depth, byte Bpp);
 
@@ -2922,7 +2921,7 @@ namespace Tao.DevIl {
         /// <param name="Depth"></param>
         /// <param name="Bpp"></param>
         // ILAPI ILboolean ILAPIENTRY ilLoadDataL(ILvoid* Lump, ILuint Size, ILuint Width, ILuint Height, ILuint Depth, ILubyte Bpp);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilLoadDataL(IntPtr Lump, int Size, int Width, int Height, int Depth, byte Bpp);
         #endregion bool ilLoadDataL(IntPtr Lump, int Size, int Width, int Height, int Depth, byte Bpp);
 
@@ -2932,7 +2931,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="FileName"></param>
         // ILAPI ILboolean ILAPIENTRY ilSaveData(ILstring FileName);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilSaveData(string FileName);
         #endregion bool ilSaveData(string FileName);
 
@@ -2942,7 +2941,7 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="JpegDecompressorPtr"></param>
         // ILAPI ILboolean ILAPIENTRY ilLoadFromJpegStruct(ILvoid* JpegDecompressorPtr);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilLoadFromJpegStruct(IntPtr JpegDecompressorPtr);
         #endregion bool ilLoadFromJpegStruct(IntPtr JpegDecompressorPtr);
 
@@ -2952,9 +2951,75 @@ namespace Tao.DevIl {
         /// </summary>
         /// <param name="JpegCompressorPtr"></param>
         // ILAPI ILboolean ILAPIENTRY ilSaveFromJpegStruct(ILvoid* JpegCompressorPtr);
-        [DllImport("devil.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ilSaveFromJpegStruct(IntPtr JpegCompressorPtr);
         #endregion bool ilSaveFromJpegStruct(IntPtr JpegCompressorPtr);
+
+        #region bool ilSaveF(int Type, IntPtr File);
+        /// <summary>
+        /// ilSaveF saves an image to a previously opened file
+        /// </summary>
+        /// <param name="Type">Image format</param>
+        /// <param name="File">Pointer to a previous opened file</param>
+        /// <remarks><para><b>Types</b></para><para>IL_BMP: Save the image as a Microsoft bitmap (.bmp).</para><para>IL_CHEAD: Save a C Header style image.</para><para>IL_JPG: Save the image as a Jpeg (.jpg).</para><para>IL_PNM: Save a Portable AnyMap (.pbm, .pgm or .ppm).</para><para>IL_PSD: Save a PhotoShop (.psd) file.</para><para>IL_SGI: Save an SGI (.bw, .rgb, .rgba or .sgi).</para><para>IL_TGA: Save a TrueVision Targa.</para><para>IL_TYPE_UNKNOWN: Tells OpenIL to try to determine the type of image present in FileName, File or Lump. </para>
+        /// <para><b>Errors</b></para>
+        /// <para>IL_COULD_NOT_OPEN_FILE: The file pointed to by FileName could not be opened. Either the file does not exist or is in use by another process.</para>
+        /// <para>IL_ILLEGAL_OPERATION: There is currently no image bound. Use ilGenImages and ilBindImage before calling this function. </para>
+        /// <para>IL_INVALID_ENUM: Type was of an invalid value.</para>
+        /// <para>IL_INVALID_PARAM: FileName or Type was NULL.</para>
+        /// <para>IL_LIB_JPEG_ERROR: Error occurred when trying to save a jpeg.</para>
+        /// <para>IL_LIB_PNG_ERROR: Error occurred when trying to save a png. </para></remarks>
+        /// <returns></returns>
+        /// <seealso cref="ilBindImage"/>
+        /// <seealso cref="ilGenImages(int, out int)"/>
+        /// <seealso cref="ilLoadImage"/>
+        /// <seealso cref="ilSave"/>
+        /// <seealso cref="ilSaveImage"/>
+        // /// <seealso cref="ilSetFileCallbacks"/>
+        // ILboolean ilSaveF(ILenum Type, ILHANDLE File);
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern bool ilSaveF(int Type, IntPtr File);
+        #endregion bool ilSaveF(int Type, IntPtr File);
+
+        #region void ilSetMemory(Delegate AllocFunc, Delegate FreeFunc);
+        /*
+        /// <summary>
+        /// ilSetMemory was created to let DevIL users override the default memory allocation and deallocation functions present in DevIL. This support can be useful if you are using your own optimized memory handler or anything similar.
+        /// </summary>
+        /// <param name="AllocFunc">Specifies a function to override DevIL's allocation function.</param>
+        /// <param name="FreeFunc">Specifies a function to override DevIL's deallocation function.</param>
+        /// <remarks>
+        /// <para><b>Errors</b></para>
+        /// <para>IL_INVALID_PARAM: Either AllocFunc or FreeFunc is NULL.</para>
+        /// </remarks>
+        // ILvoid ilSetMemory(mAlloc AllocFunc, mFree FreeFunc );
+        // TODO: Implement and test the function.
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void ilSetMemory(Delegate AllocFunc, Delegate FreeFunc);
+        */
+        #endregion void ilSetMemory(Delegate AllocFunc, Delegate FreeFunc);
+
+        #region void ilSetWrite(IntPtr Open, IntPtr Close, IntPtr Putc, IntPtr Seek, IntPtr Tell, IntPtr Write);
+        /*
+        /// <summary>
+        /// ilSetWrite allows you to override the default DevIL saving functions with your own. You are virtually unlimited in how your functions work, as long as they have the same behaviour as DevIL's default saving functions. All the functions work on the ILHANDLE type, which is a just a void pointer.
+        /// </summary>
+        /// <param name="Open">Pointer to a function to open a file.</param>
+        /// <param name="Close">Pointer to a function to close a file.</param>
+        /// <param name="Putc">Pointer to a function to write one byte to a file.</param>
+        /// <param name="Seek">Pointer to a function to change position in a file.</param>
+        /// <param name="Tell">Pointer to a function to report the position in a file.</param>
+        /// <param name="Write">Pointer to a function to write multiple bytes to a file.</param>
+        /// <seealso cref="ilResetRead"/>
+        /// <seealso cref="ilResetWrite"/>
+        /// <seealso cref="ilSetRead"/>
+        // ILvoid ilSetWrite( fOpenWProc Open, fCloseWProc Close, fPutcProc Putc, fSeekWProc Seek, fTellRProc Tell, fWriteProc Write );
+        // TODO: Implement and test the function.
+        [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void ilSetWrite(IntPtr Open, IntPtr Close, IntPtr Putc, IntPtr Seek, IntPtr Tell, IntPtr Write);
+        */
+        #endregion void ilSetWrite(IntPtr Open, IntPtr Close, IntPtr Putc, IntPtr Seek, IntPtr Tell, IntPtr Write);
+
         #endregion Externs
     }
 }
