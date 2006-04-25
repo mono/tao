@@ -43,8 +43,8 @@ using System.Security.Permissions;
 [assembly: AssemblyDefaultAlias("Tao.Glfw")]
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyDescription("Tao Framework GLFW Binding For .NET")]
-[assembly: AssemblyFileVersion("2.4.2.1")]
-[assembly: AssemblyInformationalVersion("2.4.2.1")]
+[assembly: AssemblyFileVersion("2.5.0.0")]
+[assembly: AssemblyInformationalVersion("2.5.0.0")]
 #if STRONG
 [assembly: AssemblyKeyFile(@"Tao.Glfw.snk")]
 #else
@@ -58,7 +58,7 @@ using System.Security.Permissions;
 #endif
 [assembly: AssemblyTitle("Tao Framework GLFW Binding For .NET")]
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
-[assembly: AssemblyVersion("2.4.2.1")]
+[assembly: AssemblyVersion("2.5.0.0")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]

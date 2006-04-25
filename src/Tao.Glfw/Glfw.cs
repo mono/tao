@@ -33,7 +33,7 @@ using Tao.OpenGl;
 namespace Tao.Glfw {
     #region Class Documentation
     /// <summary>
-    ///     GLFW (OpenGL Framework) binding for .NET, implementing GLFW 2.4.2.
+    ///     GLFW (OpenGL Framework) binding for .NET, implementing GLFW 2.5.0.
     /// </summary>
     /// <remarks>
     ///     <para>
@@ -83,8 +83,27 @@ namespace Tao.Glfw {
     /// </remarks>
     #endregion Class Documentation
     public sealed class Glfw {
+
+		#region Private Constants
+
+		#region string GLFW_NATIVE_LIBRARY
+		/// <summary>
+		/// Specifies the GLFW native library used in the bindings
+		/// </summary>
+		/// <remarks>
+		/// The Windows dll is specified here universally - note that
+		/// under Mono the non-windows native library can be mapped using
+		/// the ".config" file mechanism.  Kudos to the Mono team for this
+		/// simple yet elegant solution.
+		/// </remarks>
+		private const string GLFW_NATIVE_LIBRARY = "glfw.dll";
+		#endregion string GLFW_NATIVE_LIBRARY
+
+		#endregion Private Constants
+
         // --- Fields ---
         #region Public Constants
+
         #region Version
         #region GLFW_VERSION_MAJOR
         /// <summary>
@@ -98,16 +117,16 @@ namespace Tao.Glfw {
         /// <summary>
         ///     Minor version number.
         /// </summary>
-        // #define GLFW_VERSION_MINOR 4
-        public const int GLFW_VERSION_MINOR = 4;
+        // #define GLFW_VERSION_MINOR 5
+        public const int GLFW_VERSION_MINOR = 5;
         #endregion GLFW_VERSION_MINOR
 
         #region GLFW_VERSION_REVISION
         /// <summary>
         ///     Revision version number.
         /// </summary>
-        // #define GLFW_VERSION_REVISION 2
-        public const int GLFW_VERSION_REVISION = 2;
+        // #define GLFW_VERSION_REVISION 0
+        public const int GLFW_VERSION_REVISION = 0;
         #endregion GLFW_VERSION_REVISION
         #endregion Version
 
@@ -660,36 +679,101 @@ namespace Tao.Glfw {
         #endregion Keyboard Keys
 
         #region Mouse Buttons
+
+		#region GLFW_MOUSE_BUTTON_1
+		/// <summary>
+		///		Mouse identifier 1.
+		/// </summary>
+		// #define GLFW_MOUSE_BUTTON_1 0
+		public const int GLFW_MOUSE_BUTTON_1 = 0;
+		#endregion GLFW_MOUSE_BUTTON_1
+
+		#region GLFW_MOUSE_BUTTON_2
+		/// <summary>
+		/// 	Mouse identifier 2.
+		/// </summary>
+		// #define GLFW_MOUSE_BUTTON_2 1
+		public const int GLFW_MOUSE_BUTTON_2 = 1;
+		#endregion GLFW_MOUSE_BUTTON_2
+
+		#region GLFW_MOUSE_BUTTON_3
+		/// <summary>
+		/// 	Mouse identifier 3.
+		/// </summary>
+		// #define GLFW_MOUSE_BUTTON_3 2
+		public const int GLFW_MOUSE_BUTTON_3 = 2;
+		#endregion GLFW_MOUSE_BUTTON_3
+
+		#region GLFW_MOUSE_BUTTON_4
+		/// <summary>
+		/// 	Mouse identifier 4.
+		/// </summary>
+		// #define GLFW_MOUSE_BUTTON_4 3
+		public const int GLFW_MOUSE_BUTTON_4 = 3;
+		#endregion GLFW_MOUSE_BUTTON_4
+
+		#region GLFW_MOUSE_BUTTON_5
+		/// <summary>
+		/// 	Mouse identifier 5.
+		/// </summary>
+		// #define GLFW_MOUSE_BUTTON_5 4
+		public const int GLFW_MOUSE_BUTTON_5 = 4;
+		#endregion GLFW_MOUSE_BUTTON_5
+
+		#region GLFW_MOUSE_BUTTON_6
+		/// <summary>
+		/// 	Mouse identifier 6.
+		/// </summary>
+		// #define GLFW_MOUSE_BUTTON_6 5
+		public const int GLFW_MOUSE_BUTTON_6 = 5;
+		#endregion GLFW_MOUSE_BUTTON_6
+
+		#region GLFW_MOUSE_BUTTON_7
+		/// <summary>
+		/// 	Mouse identifier 7.
+		/// </summary>
+		// #define GLFW_MOUSE_BUTTON_7 6
+		public const int GLFW_MOUSE_BUTTON_7 = 6;
+		#endregion GLFW_MOUSE_BUTTON_7
+
+		#region GLFW_MOUSE_BUTTON_8
+		/// <summary>
+		/// 	Mouse identifier 8.
+		/// </summary>
+		// #define GLFW_MOUSE_BUTTON_8 7
+		public const int GLFW_MOUSE_BUTTON_8 = 7;
+		#endregion GLFW_MOUSE_BUTTON_8
+
         #region GLFW_MOUSE_BUTTON_LEFT
         /// <summary>
         ///     Left mouse button.
         /// </summary>
-        // #define GLFW_MOUSE_BUTTON_LEFT 0
-        public const int GLFW_MOUSE_BUTTON_LEFT = 0;
+        // #define GLFW_MOUSE_BUTTON_LEFT GLFW_MOUSE_BUTTON_1
+        public const int GLFW_MOUSE_BUTTON_LEFT = GLFW_MOUSE_BUTTON_1;
         #endregion GLFW_MOUSE_BUTTON_LEFT
 
         #region GLFW_MOUSE_BUTTON_RIGHT
         /// <summary>
         ///     Right mouse button.
         /// </summary>
-        // #define GLFW_MOUSE_BUTTON_RIGHT 1
-        public const int GLFW_MOUSE_BUTTON_RIGHT = 1;
+        // #define GLFW_MOUSE_BUTTON_RIGHT GLFW_MOUSE_BUTTON_2
+        public const int GLFW_MOUSE_BUTTON_RIGHT = GLFW_MOUSE_BUTTON_2;
         #endregion GLFW_MOUSE_BUTTON_RIGHT
 
         #region GLFW_MOUSE_BUTTON_MIDDLE
         /// <summary>
         ///     Middle mouse button.
         /// </summary>
-        // #define GLFW_MOUSE_BUTTON_MIDDLE 2
-        public const int GLFW_MOUSE_BUTTON_MIDDLE = 2;
+        // #define GLFW_MOUSE_BUTTON_MIDDLE GLFW_MOUSE_BUTTON_3
+        public const int GLFW_MOUSE_BUTTON_MIDDLE = GLFW_MOUSE_BUTTON_3;
         #endregion GLFW_MOUSE_BUTTON_MIDDLE
 
         #region GLFW_MOUSE_BUTTON_LAST
         /// <summary>
         ///     Delineates the last mouse button.
         /// </summary>
-        // #define GLFW_MOUSE_BUTTON_LAST GLFW_MOUSE_BUTTON_MIDDLE
-        public const int GLFW_MOUSE_BUTTON_LAST = GLFW_MOUSE_BUTTON_MIDDLE;
+        // #define GLFW_MOUSE_BUTTON_LAST GLFW_MOUSE_BUTTON_8
+        public const int GLFW_MOUSE_BUTTON_LAST = GLFW_MOUSE_BUTTON_8;
         #endregion GLFW_MOUSE_BUTTON_LAST
         #endregion Mouse Buttons
 
@@ -1129,9 +1213,11 @@ namespace Tao.Glfw {
         // #define GLFW_INFINITY 100000.0
         public const double GLFW_INFINITY = 100000;
         #endregion Time
+
         #endregion Public Constants
 
         #region Public Structs
+
         #region GLFWvidmode
         /// <summary>
         ///     Video mode.
@@ -1227,9 +1313,11 @@ namespace Tao.Glfw {
             #endregion byte[] Data
         }
         #endregion GLFWimage
+
         #endregion Public Structs
 
         #region Public Delegates
+
         #region GLFWwindowsizefun(int width, int height)
         /// <summary>
         ///     Callback function that will be called every time the window size changes.
@@ -1237,6 +1325,22 @@ namespace Tao.Glfw {
         // typedef void (GLFWCALL * GLFWwindowsizefun)(int,int);
         public delegate void GLFWwindowsizefun(int width, int height);
         #endregion GLFWwindowsizefun(int width, int height)
+
+		#region GLFWwindowclosefun()
+		/// <summary>
+		///     Callback function that will be called every time the window closes.
+		/// </summary>
+		// typedef void (GLFWCALL * GLFWwindowclosefun)(void);
+		public delegate void GLFWwindowclosefun();
+		#endregion GLFWwindowclosefun()
+
+		#region GLFWwindowrefreshfun()
+		/// <summary>
+		///     Callback function that will be called every time the window refreshes.
+		/// </summary>
+		// typedef void (GLFWCALL * GLFWwindowrefreshfun)(void);
+		public delegate void GLFWwindowrefreshfun();
+		#endregion GLFWwindowrefreshfun()
 
         #region GLFWmousebuttonfun(int button, int action)
         /// <summary>
@@ -1280,13 +1384,15 @@ namespace Tao.Glfw {
         public delegate void GLFWcharfun(int character, int action);
         #endregion GLFWcharfun(int character, int action)
 
-        // TODO: Damn void* delegate!
+		#region void GLFWthreadfun(IntPtr arg)
+        // TODO: Test the damn void* delegate!
+        /// <summary>
+        ///     Callback function that acts as the entry point for the new thread.
+        /// </summary>
+        // typedef void (GLFWCALL * GLFWthreadfun)(void *);
+        public delegate void GLFWthreadfun(IntPtr arg);
+		#endregion void GLFWthreadfun(IntPtr arg)
 
-//        /// <summary>
-//        ///     Callback function that acts as the entry point for the new thread.
-//        /// </summary>
-//        // typedef void (GLFWCALL * GLFWthreadfun)(void *);
-//        public delegate void GLFWthreadfun(byte arg);
         #endregion Public Delegates
 
         // --- Constructors & Destructors ---
@@ -1294,12 +1400,14 @@ namespace Tao.Glfw {
         /// <summary>
         ///     Prevents instantiation.
         /// </summary>
-        private Glfw() {
+        private Glfw() 
+		{
         }
         #endregion Glfw()
 
         // --- Public Externs ---
         #region Initialization, Termination, and Version Querying
+
         #region int glfwInit()
         /// <summary>
         ///     Initializes GLFW.
@@ -1317,7 +1425,7 @@ namespace Tao.Glfw {
         ///     </para>
         /// </remarks>
         // GLFWAPI int GLFWAPIENTRY glfwInit(void);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern int glfwInit();
         #endregion int glfwInit()
 
@@ -1330,7 +1438,7 @@ namespace Tao.Glfw {
         ///     threads.  This function must be called before a program exits.
         /// </remarks>
         // GLFWAPI void GLFWAPIENTRY glfwTerminate(void);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern void glfwTerminate();
         #endregion glfwTerminate()
 
@@ -1348,9 +1456,10 @@ namespace Tao.Glfw {
         ///     Pointer to an integer that will hold the revision.
         /// </param>
         // GLFWAPI void GLFWAPIENTRY glfwGetVersion(int *major, int *minor, int *rev);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern void glfwGetVersion(out int major, out int minor, out int revision);
         #endregion glfwGetVersion(out int major, out int minor, out int revision)
+
         #endregion Initialization, Termination, and Version Querying
 
         #region Window Handling
@@ -1432,7 +1541,7 @@ namespace Tao.Glfw {
         ///     </para>
         /// </remarks>
         // GLFWAPI int GLFWAPIENTRY glfwOpenWindow(int width, int height, int redbits, int greenbits, int bluebits, int alphabits, int depthbits, int stencilbits, int mode);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern int glfwOpenWindow(int width, int height, int redBits, int greenBits, int blueBits, int alphaBits, int depthBits, int stencilBits, int mode);
         #endregion int glfwOpenWindow(int width, int height, int redBits, int greenBits, int blueBits, int alphaBits, int depthBits, int stencilBits, int mode)
 
@@ -1459,394 +1568,609 @@ namespace Tao.Glfw {
         ///     </para>
         /// </remarks>
         // GLFWAPI void GLFWAPIENTRY glfwOpenWindowHint(int target, int hint);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern void glfwOpenWindowHint(int target, int hint);
         #endregion glfwOpenWindowHint(int target, int hint)
 
         #region glfwCloseWindow()
         /// <summary>
-        /// 
+        ///		The function closes an opened window and destroys the associated OpenGL context.
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwCloseWindow(void);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern void glfwCloseWindow();
         #endregion glfwCloseWindow()
 
-        /// <summary>
-        /// 
-        /// </summary>
+		#region glfwSetWindowTitle(string title)
+		/// <summary>
+		///		Changes the title of the opened window.
+		/// </summary>
+		/// <param name="title">
+		///		Pointer to a null terminated ISO 8859-1 (8-bit Latin 1) string that holds the title of the window.
+		///	</param>
+		/// <remarks>
+		///		<para>
+		///			The title property of a window is often used in situations other than for the window title, such as the title of an application icon when it is in iconified state.
+		///		</para>
+		///	</remarks>
         // GLFWAPI void GLFWAPIENTRY glfwSetWindowTitle(const char *title);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwSetWindowTitle(string title);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwSetWindowTitle(string title);
+		#endregion glfwSetWindowTitle(string title)
 
+		#region glfwGetWindowSize(out int width, out int height)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwGetWindowSize(int *width, int *height);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern void glfwGetWindowSize(out int width, out int height);
+		#endregion glfwGetWindowSize(out int width, out int height)
 
+		#region glfwSetWindowSize(int width, int height)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwSetWindowSize(int width, int height);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern void glfwSetWindowSize(int width, int height);
+		#endregion glfwSetWindowSize(int width, int height)
 
+		#region glfwSetWindowPos(int x, int y)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwSetWindowPos(int x, int y);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwSetWindowPos(int x, int y);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwSetWindowPos(int x, int y);
+		#endregion glfwSetWindowPos(int x, int y)
 
+		#region glfwIconifyWindow()
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwIconifyWindow(void);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwIconifyWindow();
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwIconifyWindow();
+		#endregion glfwIconifyWindow()
 
+		#region glfwRestoreWindow()
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwRestoreWindow(void);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern void glfwRestoreWindow();
+		#endregion glfwRestoreWindow()
 
+		#region glfwSwapBuffers()
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwSwapBuffers(void);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern void glfwSwapBuffers();
+		#endregion glfwSwapBuffers()
 
+		#region glfwSwapInterval(int interval)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwSwapInterval(int interval);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwSwapInterval(int interval);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwSwapInterval(int interval);
+		#endregion glfwSwapInterval(int interval)
 
+		#region int glfwGetWindowParam(int param)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI int GLFWAPIENTRY glfwGetWindowParam(int param);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern int glfwGetWindowParam(int param);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern int glfwGetWindowParam(int param);
+		#endregion int glfwGetWindowParam(int param)
 
+		#region glfwSetWindowSizeCallback(GLFWwindowsizefun cbfun)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwSetWindowSizeCallback(GLFWwindowsizefun cbfun);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern void glfwSetWindowSizeCallback(GLFWwindowsizefun cbfun);
+		#endregion glfwSetWindowSizeCallback(GLFWwindowsizefun cbfun)
+
+		#region glfwSetWindowCloseCallback(GLFWwindowclosefun cbfun)
+		/// <summary>
+		///		Selects which function to be called upon a window close event.
+		/// </summary>
+		/// <remarks>
+		///		<para>
+		///			A window has to be opened for this function to have any effect.
+		///		</para>
+		///		<para>
+		///			Window close events are recorded continuously, but only reported when glfwPollEvents, glfwWaitEvents or glfwSwapBuffers is called.
+		///		</para>
+		///		<para>
+		///			The OpenGLTM context is still valid when this function is called.
+		///		</para>
+		///		<para>
+		///			Note that the window close callback function is not called when glfwCloseWindow is called, but only when the close request comes from the window manager.
+		///		</para>
+		///		<para>
+		///			Do not call glfwCloseWindow from a window close callback function. Close the window by returning GL_TRUE from the function.
+		///		</para>
+		///	</remarks>
+		/// <param name="cbfun">
+		///		Pointer to a callback function that will be called when a user requests that the window should be closed.
+		///	</param>
+		// GLFWAPI void GLFWAPIENTRY glfwSetWindowCloseCallback( GLFWwindowclosefun cbfun );
+		[DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwSetWindowCloseCallback(GLFWwindowclosefun cbfun);
+		#endregion glfwSetWindowCloseCallback(GLFWwindowclosefun cbfun)
+
+		#region glfwSetWindowRefreshCallback(GLFWwindowrefreshfun cbfun)
+		/// <summary>
+		///		The function selects which function to be called upon a window refresh event, which occurs when any part of the window client area has been damaged, and needs to be repainted (for instance, if a part of the window that was previously occluded by another window has become visible).
+		/// </summary>
+		/// <remarks>
+		///		<para>
+		///			A window has to be opened for this function to have any effect.
+		///		</para>
+		///		<para>
+		///			Window refresh events are recorded continuously, but only reported when glfwPollEvents, glfwWaitEvents or glfwSwapBuffers is called.
+		///		</para>
+		///	</remarks>
+		/// <param name="cbfun">
+		///		Pointer to a callback function that will be called when the window client area needs to be refreshed.
+		///	</param>
+		// GLFWAPI void GLFWAPIENTRY glfwSetWindowRefreshCallback( GLFWwindowrefreshfun cbfun );
+		[DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwSetWindowRefreshCallback(GLFWwindowrefreshfun cbfun);
+		#endregion glfwSetWindowRefreshCallback(GLFWwindowrefreshfun cbfun)
+
         #endregion Window Handling
 
         #region Video Mode
+
+		#region int glfwGetVideoModes([Out] GLFWvidmode[] list, int maxcount)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI int GLFWAPIENTRY glfwGetVideoModes(GLFWvidmode *list, int maxcount);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern int glfwGetVideoModes([Out] GLFWvidmode[] list, int maxcount);
+		#endregion int glfwGetVideoModes([Out] GLFWvidmode[] list, int maxcount)
 
+		#region glfwGetDesktopMode(out GLFWvidmode mode)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwGetDesktopMode(GLFWvidmode *mode);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwGetDesktopMode(out GLFWvidmode mode);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwGetDesktopMode(out GLFWvidmode mode);
+		#endregion glfwGetDesktopMode(out GLFWvidmode mode)
+
         #endregion Video Mode
 
         #region Input Handling
+
+		#region void glfwPollEvents()
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwPollEvents(void);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwPollEvents();
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwPollEvents();
+		#endregion void glfwPollEvents()
 
+		#region void glfwWaitEvents()
+		/// <summary>
+		/// 
+		/// </summary>
+		// GLFWAPI void GLFWAPIENTRY glfwWaitEvents(void);
+		[DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwWaitEvents();
+		#endregion void glfwWaitEvents()
+
+		#region int glfwGetKey(int key)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI int GLFWAPIENTRY glfwGetKey(int key);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern int glfwGetKey(int key);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern int glfwGetKey(int key);
+		#endregion int glfwGetKey(int key)
 
+		#region int glfwGetMouseButton(int button)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI int GLFWAPIENTRY glfwGetMouseButton(int button);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern int glfwGetMouseButton(int button);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern int glfwGetMouseButton(int button);
+		#endregion int glfwGetMouseButton(int button)
 
+		#region void glfwGetMousePos(out int xPosition, out int yPosition)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwGetMousePos(int *xpos, int *ypos);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwGetMousePos(out int xPosition, out int yPosition);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwGetMousePos(out int xPosition, out int yPosition);
+		#endregion void glfwGetMousePos(out int xPosition, out int yPosition)
 
+		#region void glfwSetMousePos(int xPosition, int yPosition)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwSetMousePos(int xpos, int ypos);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern void glfwSetMousePos(int xPosition, int yPosition);
+		#endregion void glfwSetMousePos(int xPosition, int yPosition)
 
+		#region int glfwGetMouseWheel()
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI int GLFWAPIENTRY glfwGetMouseWheel(void);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern int glfwGetMouseWheel();
+		#endregion int glfwGetMouseWheel()
 
+		#region void glfwSetMouseWheel(int position)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwSetMouseWheel(int pos);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern void glfwSetMouseWheel(int position);
+		#endregion void glfwSetMouseWheel(int position)
 
+		#region void glfwSetKeyCallback(GLFWkeyfun cbfun)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwSetKeyCallback(GLFWkeyfun cbfun);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwSetKeyCallback(GLFWkeyfun cbfun);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwSetKeyCallback(GLFWkeyfun cbfun);
+		#endregion void glfwSetKeyCallback(GLFWkeyfun cbfun)
 
+		#region void glfwSetCharCallback(GLFWcharfun cbfun)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwSetCharCallback(GLFWcharfun cbfun);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwSetCharCallback(GLFWcharfun cbfun);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwSetCharCallback(GLFWcharfun cbfun);
+		#endregion void glfwSetCharCallback(GLFWcharfun cbfun)
 
+		#region void glfwSetMouseButtonCallback(GLFWmousebuttonfun cbfun)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwSetMouseButtonCallback(GLFWmousebuttonfun cbfun);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwSetMouseButtonCallback(GLFWmousebuttonfun cbfun);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwSetMouseButtonCallback(GLFWmousebuttonfun cbfun);
+		#endregion void glfwSetMouseButtonCallback(GLFWmousebuttonfun cbfun)
 
+		#region void glfwSetMousePosCallback(GLFWmouseposfun cbfun)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwSetMousePosCallback(GLFWmouseposfun cbfun);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwSetMousePosCallback(GLFWmouseposfun cbfun);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwSetMousePosCallback(GLFWmouseposfun cbfun);
+		#endregion void glfwSetMousePosCallback(GLFWmouseposfun cbfun)
 
+		#region void glfwSetMouseWheelCallback(GLFWmousewheelfun cbfun)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwSetMouseWheelCallback(GLFWmousewheelfun cbfun);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern void glfwSetMouseWheelCallback(GLFWmousewheelfun cbfun);
+		#endregion void glfwSetMouseWheelCallback(GLFWmousewheelfun cbfun)
 
+		#region int glfwGetJoystickParam(int joystick, int parameter)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI int GLFWAPIENTRY glfwGetJoystickParam(int joy, int param);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern int glfwGetJoystickParam(int joystick, int parameter);
+		#endregion int glfwGetJoystickParam(int joystick, int parameter)
 
+		#region int glfwGetJoystickPos(int joy, out float position, int numberOfAxes)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI int GLFWAPIENTRY glfwGetJoystickPos(int joy, float *pos, int numaxes);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern int glfwGetJoystickPos(int joy, out float position, int numberOfAxes);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern int glfwGetJoystickPos(int joy, out float position, int numberOfAxes);
+		#endregion int glfwGetJoystickPos(int joy, out float position, int numberOfAxes)
 
+		#region int glfwGetJoystickButtons(int joystick, [Out] byte[] buttons, int numberOfButtons)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI int GLFWAPIENTRY glfwGetJoystickButtons(int joy, unsigned char *buttons, int numbuttons);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern int glfwGetJoystickButtons(int joystick, [Out] byte[] buttons, int numberOfButtons);
+		#endregion int glfwGetJoystickButtons(int joystick, [Out] byte[] buttons, int numberOfButtons)
+
         #endregion Input Handling
 
         #region Time
+
+		#region extern double glfwGetTime()
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI double GLFWAPIENTRY glfwGetTime(void);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern double glfwGetTime();
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern double glfwGetTime();
+		#endregion extern double glfwGetTime()
 
+		#region void glfwSetTime(double time)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwSetTime(double time);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwSetTime(double time);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwSetTime(double time);
+		#endregion void glfwSetTime(double time)
 
+		#region void glfwSleep(double time)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwSleep(double time);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwSleep(double time);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwSleep(double time);
+		#endregion void glfwSleep(double time)
+
         #endregion Time
 
         #region Extension Support
+
+		#region int glfwExtensionSupported(string extension)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI int GLFWAPIENTRY glfwExtensionSupported(const char *extension);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern int glfwExtensionSupported(string extension);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern int glfwExtensionSupported(string extension);
+		#endregion int glfwExtensionSupported(string extension)
 
+		#region IntPtr glfwGetProcAddress(string procName)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void* GLFWAPIENTRY glfwGetProcAddress(const char *procname);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern IntPtr glfwGetProcAddress(string procName);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr glfwGetProcAddress(string procName);
+		#endregion IntPtr glfwGetProcAddress(string procName)
 
+		#region void glfwGetGLVersion(out int major, out int minor, out int revision)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwGetGLVersion(int *major, int *minor, int *rev);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern void glfwGetGLVersion(out int major, out int minor, out int revision);
+		#endregion void glfwGetGLVersion(out int major, out int minor, out int revision)
+
         #endregion Extension Support
 
         #region Threading Support
-        // TODO: Damn void* delegate.
-        // GLFWAPI GLFWthread GLFWAPIENTRY glfwCreateThread(GLFWthreadfun fun, void *arg);
-//        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-//        public static extern int glfwCreateThread(GLFWthreadfun fun, 
 
+		#region int glfwCreateThread(GLFWthreadfun fun, IntPtr arg)
+        // TODO: Test the damn void* delegate.
+		/// <summary>
+		///		The function creates a new thread, which executes within the same
+		///		address space as the calling process. The thread entry point is
+		///		specified with the fun argument.
+		/// </summary>
+		/// <param name="fun">
+		///		A pointer to a function that acts as the entry point for the new
+		///		thread.
+		///	</param>
+		/// <param name="arg">
+		///		An arbitrary argument for the thread. arg will be passed as the
+		///		argument to the thread function pointed to by fun. For instance,
+		///		arg can point to data that is to be processed by the thread.
+		///	</param>
+		/// <returns>
+		///		The function returns a thread identification number if the thread
+		///		was created successfully. This number is always positive. If the
+		///		function fails, a negative number is returned.
+		///	</returns>
+		///	<remarks>
+		///		<para>
+		///			Once the thread function fun returns, the thread dies.
+		///		</para>
+		///		<para>
+		///			Even if the function returns a positive thread ID, indicating
+		///			that the thread was created successfully, the thread may be
+		///			unable to execute, for instance if the thread start address
+		///			is not a valid thread entry point.
+		///		</para>
+		///	</remarks>
+        //GLFWAPI GLFWthread GLFWAPIENTRY glfwCreateThread(GLFWthreadfun fun, void *arg);
+		[DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern int glfwCreateThread(GLFWthreadfun fun, IntPtr arg);
+		#endregion int glfwCreateThread(GLFWthreadfun fun, IntPtr arg)
+
+		#region void glfwDestroyThread(int id)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwDestroyThread(GLFWthread ID);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwDestroyThread(int id);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwDestroyThread(int id);
+		#endregion void glfwDestroyThread(int id)
 
+		#region int glfwWaitThread(int id, int waitMode)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI int GLFWAPIENTRY glfwWaitThread(GLFWthread ID, int waitmode);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern int glfwWaitThread(int id, int waitMode);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern int glfwWaitThread(int id, int waitMode);
+		#endregion int glfwWaitThread(int id, int waitMode)
 
+		#region int glfwGetThreadID()
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI GLFWthread GLFWAPIENTRY glfwGetThreadID(void);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern int glfwGetThreadID();
+		#endregion int glfwGetThreadID()
 
+		#region IntPtr glfwCreateMutex()
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI GLFWmutex GLFWAPIENTRY glfwCreateMutex(void);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr glfwCreateMutex();
+		#endregion IntPtr glfwCreateMutex()
 
+		#region void glfwDestroyMutex([In] IntPtr mutex)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwDestroyMutex(GLFWmutex mutex);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwDestroyMutex([In] IntPtr mutex);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwDestroyMutex([In] IntPtr mutex);
+		#endregion void glfwDestroyMutex([In] IntPtr mutex)
 
+		#region void glfwLockMutex([In] IntPtr mutex)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwLockMutex(GLFWmutex mutex);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwLockMutex([In] IntPtr mutex);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwLockMutex([In] IntPtr mutex);
+		#endregion void glfwLockMutex([In] IntPtr mutex)
 
+		#region void glfwUnlockMutex([In] IntPtr mutex)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwUnlockMutex(GLFWmutex mutex);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwUnlockMutex([In] IntPtr mutex);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwUnlockMutex([In] IntPtr mutex);
+		#endregion void glfwUnlockMutex([In] IntPtr mutex)
 
+		#region IntPtr glfwCreateCond()
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI GLFWcond GLFWAPIENTRY glfwCreateCond(void);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern IntPtr glfwCreateCond();
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr glfwCreateCond();
+		#endregion IntPtr glfwCreateCond()
 
+		#region IntPtr glfwDestroyCond([In] IntPtr cond)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwDestroyCond(GLFWcond cond);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern IntPtr glfwDestroyCond([In] IntPtr cond);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr glfwDestroyCond([In] IntPtr cond);
+		#endregion IntPtr glfwDestroyCond([In] IntPtr cond)
 
+		#region void glfwWaitCond([In] IntPtr cond, [In] IntPtr mutex, double timeout)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwWaitCond(GLFWcond cond, GLFWmutex mutex, double timeout);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwWaitCond([In] IntPtr cond, [In] IntPtr mutex, double timeout);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwWaitCond([In] IntPtr cond, [In] IntPtr mutex, double timeout);
+		#endregion void glfwWaitCond([In] IntPtr cond, [In] IntPtr mutex, double timeout)
 
+		#region void glfwSignalCond([In] IntPtr cond)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwSignalCond(GLFWcond cond);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwSignalCond([In] IntPtr cond);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwSignalCond([In] IntPtr cond);
+		#endregion void glfwSignalCond([In] IntPtr cond)
 
+		#region void glfwBroadcastCond([In] IntPtr cond)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwBroadcastCond(GLFWcond cond);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwBroadcastCond([In] IntPtr cond);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwBroadcastCond([In] IntPtr cond);
+		#endregion void glfwBroadcastCond([In] IntPtr cond)
 
+		#region int glfwGetNumberOfProcessors()
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI int GLFWAPIENTRY glfwGetNumberOfProcessors(void);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern int glfwGetNumberOfProcessors();
+		#endregion int glfwGetNumberOfProcessors()
+
         #endregion Threading Support
 
         #region Enable/Disable
+
+		#region void glfwEnable(int token)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwEnable(int token);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwEnable(int token);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwEnable(int token);
+		#endregion void glfwEnable(int token)
 
+		#region void glfwDisable(int token)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwDisable(int token);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
-        public static extern void glfwDisable(int token);
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+		public static extern void glfwDisable(int token);
+		#endregion void glfwDisable(int token)
+
         #endregion Enable/Disable
 
         #region Image/Texture I/O Support
+
+		#region int glfwReadImage(string name, out GLFWimage image, int flags)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI int GLFWAPIENTRY glfwReadImage(const char *name, GLFWimage *img, int flags);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern int glfwReadImage(string name, out GLFWimage image, int flags);
+		#endregion int glfwReadImage(string name, out GLFWimage image, int flags)
 
+		#region void glfwFreeImage(ref GLFWimage image)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI void GLFWAPIENTRY glfwFreeImage(GLFWimage *img);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern void glfwFreeImage(ref GLFWimage image);
+		#endregion void glfwFreeImage(ref GLFWimage image)
 
+		#region int glfwLoadTexture2D(string name, int flags)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI int GLFWAPIENTRY glfwLoadTexture2D(const char *name, int flags);
-        [DllImport("glfw.dll"), SuppressUnmanagedCodeSecurity]
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern int glfwLoadTexture2D(string name, int flags);
+		#endregion int glfwLoadTexture2D(string name, int flags)
+
         #endregion Image/Texture I/O Support
     }
 }
