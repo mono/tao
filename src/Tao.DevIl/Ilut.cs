@@ -739,7 +739,7 @@ namespace Tao.DevIl
 		public static extern bool ilutGLBuildMipmaps();
 		#endregion bool ilutGLBuildMipmaps();
         
-		#region bool ilutGLLoadImage(string FileName);
+		#region int ilutGLLoadImage(string FileName);
 		/// <summary>
 		///The <b>ilutGLLoadImage</b> function loads an image to an OpenGL texture.
 		/// </summary>
@@ -749,8 +749,8 @@ namespace Tao.DevIl
 		/// <seealso cref="ilutWinLoadImage"/>
 		// ILAPI GLuint ILAPIENTRY ilutGLLoadImage(const ILstring FileName);
 		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern bool ilutGLLoadImage(string FileName);
-		#endregion bool ilutGLLoadImage(string FileName);
+		public static extern int ilutGLLoadImage(string FileName);
+		#endregion int ilutGLLoadImage(string FileName);
         
 		#region bool ilutGLScreen();
 		/// <summary>
