@@ -798,8 +798,20 @@ namespace Tao.Sdl
 		public static extern IntPtr Mix_LoadMUS(string file);
 		#endregion IntPtr Mix_LoadMUS(string file)
 
-		// Mix_Music * Mix_LoadMUS_RW(SDL_RWOps *rw); is not part of the public api 
-		// and will not be implemented
+		#region IntPtr Mix_LoadMUS_RW(IntPtr rw)
+		/// <summary>
+		/// Load a music file from an SDL_RWop object (Ogg and MikMod specific currently)
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_mixer.h
+		/// <code>Mix_Music *Mix_LoadMUS_RW(SDL_RWops *rw)
+		/// </code></p>
+		/// </remarks>
+		[DllImport(SDL_MIXER_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr Mix_LoadMUS_RW(IntPtr rw);
+		#endregion IntPtr Mix_LoadMUS_RW(IntPtr rw)
 
 		#region IntPtr Mix_QuickLoad_WAV(IntPtr mem)
 		/// <summary>

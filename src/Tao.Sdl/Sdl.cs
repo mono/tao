@@ -250,7 +250,7 @@ namespace Tao.Sdl
 		#endregion SDL_MIX_MAXVOLUME
 		#endregion SDL_audio.h
 
-		#region SDL_byteorder.h
+		#region SDL_endian.h
 		#region SDL_LIL_ENDIAN
 		/// <summary>
 		/// Little Endian
@@ -269,7 +269,7 @@ namespace Tao.Sdl
 		/// </remarks>
 		public const int SDL_BIG_ENDIAN = 4321;
 		#endregion SDL_BIG_ENDIAN
-		#endregion SDL_byteorder.h
+		#endregion SDL_endian.h
 		
 		#region SDL_cdrom.h
 		#region SDL_MAX_TRACKS
@@ -433,6 +433,10 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		public const int SDL_KEYUPMASK = 1 << SDL_KEYUP;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_KEYEVENTMASK = (1 << SDL_KEYUP | 1 << SDL_KEYDOWN);
 		/// <summary>
 		/// 
 		/// </summary>
@@ -678,12 +682,12 @@ namespace Tao.Sdl
 		#endregion TIMER_RESOLUTION
 		#endregion SDL_timer.h
 
-		#region SDL_types.h
+		#region SDL_events.h
 		/// <summary>
 		/// Button in pressed state.
 		/// </summary>
 		/// <remarks>
-		/// SDL_types.h defines SDL_PRESSED and <see cref="SDL_RELEASED"/>
+		/// SDL_events.h defines SDL_PRESSED and <see cref="SDL_RELEASED"/>
 		///  in a nameless enum. Defining SDL_PRESSED as a const works 
 		///  better for Tao.SDL purposes</remarks>
 		///  <seealso cref="SDL_RELEASED"/>
@@ -692,12 +696,12 @@ namespace Tao.Sdl
 		/// Button in released state.
 		/// </summary>
 		/// <remarks>
-		/// SDL_types.h defines <see cref="SDL_PRESSED"/> and SDL_RELEASED
+		/// SDL_events.h defines <see cref="SDL_PRESSED"/> and SDL_RELEASED
 		///  in a nameless enum. Defining SDL_RELEASED as a const works 
 		///  better for Tao.SDL purposes</remarks>
 		///  <seealso cref="SDL_PRESSED"/>
 		public const byte SDL_RELEASED = 0x00;
-		#endregion SDL_types.h
+		#endregion SDL_events.h
 
 		// SDL_version -- none
 
@@ -2363,6 +2367,32 @@ namespace Tao.Sdl
 		/// <seealso cref="SDL_GL_SetAttribute"/>
 		/// <seealso cref="SDL_GL_GetAttribute"/>
 		public const int SDL_GL_MULTISAMPLESAMPLES = 14;
+		/// <summary>
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// </summary>
+		/// <remarks>
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode. These attributes a set and read 
+		/// with <see cref="SDL_GL_SetAttribute"/> and 
+		/// <see cref="SDL_GL_GetAttribute"/>.
+		/// </remarks>
+		/// <seealso cref="SDL_GL_SetAttribute"/>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+		public const int SDL_GL_ACCELERATED_VISUAL = 15;
+		/// <summary>
+		/// Public enumeration for setting the OpenGL window Attributes
+		/// </summary>
+		/// <remarks>
+		/// While you can set most OpenGL attributes normally, 
+		/// the attributes list above must be known before SDL 
+		/// sets the video mode. These attributes a set and read 
+		/// with <see cref="SDL_GL_SetAttribute"/> and 
+		/// <see cref="SDL_GL_GetAttribute"/>.
+		/// </remarks>
+		/// <seealso cref="SDL_GL_SetAttribute"/>
+		/// <seealso cref="SDL_GL_GetAttribute"/>
+    		public const int SDL_GL_SWAP_CONTROL = 16;
 		#endregion SDL_GLattr
 
 		#region SDL_GrabMode
@@ -4914,6 +4944,16 @@ namespace Tao.Sdl
 			public IntPtr vfmt;
 
 			/// <summary>
+			///  Value: The current video mode width
+			/// </summary>
+			public int current_w;
+
+			/// <summary>
+			///  Value: The current video mode height
+			/// </summary>
+			public int current_h;
+
+			/// <summary>
 			/// Is it possible to create hardware surfaces?
 			/// </summary>
 			public int hw_available
@@ -6658,7 +6698,7 @@ namespace Tao.Sdl
 		/// </summary>
 		/// <remarks>
 		/// <p>Binds to C-function call in SDL_cpuinfo.h:
-		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_HasRDTSC()</code>
+		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_HasRDTSC(void)</code>
 		///     </p>
 		/// </remarks>
 		/// <returns>Returns SDL_TRUE if the CPU has the RDTSC instruction.</returns>
@@ -6672,7 +6712,7 @@ namespace Tao.Sdl
 		/// </summary>
 		/// <remarks>
 		/// <p>Binds to C-function call in SDL_cpuinfo.h:
-		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_HasMMX()</code>
+		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_HasMMX(void)</code>
 		///     </p>
 		/// </remarks>
 		/// <returns>Returns SDL_TRUE if the CPU has MMX features.</returns>
@@ -6686,7 +6726,7 @@ namespace Tao.Sdl
 		/// </summary>
 		/// <remarks>
 		/// <p>Binds to C-function call in SDL_cpuinfo.h:
-		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_HasMMXExt()</code>
+		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_HasMMXExt(void)</code>
 		///     </p>
 		/// </remarks>
 		/// <returns>Returns SDL_TRUE if the CPU has MMX Ext. features.</returns>
@@ -6700,7 +6740,7 @@ namespace Tao.Sdl
 		/// </summary>
 		/// <remarks>
 		/// <p>Binds to C-function call in SDL_cpuinfo.h:
-		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_SDL_Has3DNow()</code>
+		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_SDL_Has3DNow(void)</code>
 		///     </p>
 		/// </remarks>
 		/// <returns>Returns SDL_TRUE if the CPU has 3DNow features.</returns>
@@ -6714,7 +6754,7 @@ namespace Tao.Sdl
 		/// </summary>
 		/// <remarks>
 		/// <p>Binds to C-function call in SDL_cpuinfo.h:
-		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_SDL_HasSSE()</code>
+		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_SDL_HasSSE(void)</code>
 		///     </p>
 		/// </remarks>
 		/// <returns>Returns SDL_TRUE if the CPU has SSE features.</returns>
@@ -6728,7 +6768,7 @@ namespace Tao.Sdl
 		/// </summary>
 		/// <remarks>
 		/// <p>Binds to C-function call in SDL_cpuinfo.h:
-		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_SDL_HasSSE2()</code>
+		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_SDL_HasSSE2void()</code>
 		///     </p>
 		/// </remarks>
 		/// <returns>Returns SDL_TRUE if the CPU has SSE2 features.</returns>
@@ -6742,7 +6782,7 @@ namespace Tao.Sdl
 		/// </summary>
 		/// <remarks>
 		/// <p>Binds to C-function call in SDL_cpuinfo.h:
-		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_SDL_HasAltiVec()</code>
+		///     <code>extern DECLSPEC SDL_bool SDLCALL SDL_SDL_HasAltiVec(void)</code>
 		///     </p>
 		/// </remarks>
 		/// <returns>Returns SDL_TRUE if the CPU has AltiVec features.</returns>
@@ -7622,6 +7662,31 @@ namespace Tao.Sdl
 			int delay);
 		#endregion int SDL_EnableKeyRepeat(int rate, int delay)
 
+		#region int SDL_GetKeyRepeat(out int rate, out int delay)
+		/// <summary>
+		/// Get keyboard repeat rate. 
+		/// </summary>
+		/// <remarks>
+		/// Gets the keyboard repeat rate. 
+		/// delay specifies how long the key must be pressed before it 
+		/// begins repeating, it then repeats at the speed specified by 
+		/// interval. Both delay and interval are expressed in milliseconds.
+		/// <p>Setting delay to 0 disables key repeating completely. Good 
+		/// default values are SDL_DEFAULT_REPEAT_DELAY and 
+		/// SDL_DEFAULT_REPEAT_INTERVAL.</p>
+		///<p>Binds to C-function in SDL_keyboard.h
+		///<code>int SDL_GetKeyRepeat(int delay, int interval);
+		///</code></p>
+		/// </remarks>
+		/// <param name="rate"></param>
+		/// <param name="delay"></param>
+		/// <returns>Returns 0 on success and -1 on failure.</returns>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_GetKeyRepeat(out int rate, 
+			out int delay);
+		#endregion int SDL_GetKeyRepeat(out int rate, out int delay)
+
 		#region IntPtr SDL_GetKeyStateInternal(out int numkeys)
 		/// <summary>
 		/// Get a snapshot of the current keyboard state. 
@@ -8045,7 +8110,7 @@ namespace Tao.Sdl
 		/// <returns></returns>
 		public static byte SDL_BUTTON(byte x)
 		{
-			return (byte)(Sdl.SDL_PRESSED<<(x-1));
+			return (byte)(1<<(x-1));
 		}
 		#endregion SDL_mouse.h
 

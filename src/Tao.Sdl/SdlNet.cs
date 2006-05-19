@@ -293,6 +293,35 @@ namespace Tao.Sdl
 		
 		#region SdlNet Methods
 		#region General
+		#region IntPtr SDLNet_Linked_VersionInternal()
+		//     const SDL_version * SDLNet_Linked_Version(void)
+		[DllImport(SDL_NET_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDLNet_Linked_Version"), SuppressUnmanagedCodeSecurity]
+		private static extern IntPtr SDLNet_Linked_VersionInternal();
+		#endregion IntPtr SDLNet_Linked_VersionInternal()
+
+		#region SDL_version SDLNet_Linked_Version() 
+		/// <summary>
+		///     Using this you can compare the runtime version to the 
+		/// version that you compiled with.
+		/// </summary>
+		/// <returns>
+		///     This function gets the version of the dynamically 
+		/// linked SDL_net library in an <see cref="Sdl.SDL_version"/> struct.
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_net.h:
+		///     <code>const SDL_version * SDLNet_Linked_Version(void)</code>
+		///     </p>
+		/// </remarks>
+		public static Sdl.SDL_version SDLNet_Linked_Version() 
+		{ 
+			return (Sdl.SDL_version)Marshal.PtrToStructure(
+				SDLNet_Linked_VersionInternal(), 
+				typeof(Sdl.SDL_version)); 
+		} 
+		#endregion SDL_version SDLNet_Linked_Version()
+
 		#region int SDLNet_Init()
 		/// <summary>
 		/// Initialize the network API.
@@ -767,7 +796,7 @@ namespace Tao.Sdl
 		/// This routine is not used for server sockets.
 		/// <p>Binds to C-function call in SDL_net.h:
 		///     <code>
-		///     extern DECLSPEC int SDLCALL SDLNet_TCP_Send(TCPsocket sock, void *data, int len)
+		///     extern DECLSPEC int SDLCALL SDLNet_TCP_Send(TCPsocket sock, const void *data, int len)
 		///     </code>
 		/// </p>
 		/// </remarks>

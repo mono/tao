@@ -421,6 +421,42 @@ namespace Tao.Sdl
 		public static extern IntPtr IMG_isXPM(IntPtr src);
 		#endregion IntPtr IMG_isXPM(IntPtr src)
 
+		#region IntPtr IMG_isXV(IntPtr src)
+		/// <summary>
+		/// Test for valid, supported XV file.
+		/// </summary>
+		/// <remarks>
+		/// If the XV format is supported, 
+		/// then the image data is tested to see if it is readable as a XV,
+		///  otherwise it returns false (Zero). 
+		///  <p>Binds to C-function in SDL_image.h
+		/// <code>
+		/// int IMG_isXV(SDL_RWops *src)
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <param name="src"></param>
+		/// <returns>
+		/// 1 if the image is a XV and the XV format support is
+		///  compiled into SDL_image. 0 is returned otherwise. 
+		/// </returns>
+		/// <example>
+		/// <code>
+		/// // Test sample.xv to see if it is a XV
+		///		SDL_RWops *rwop;
+		///		rwop=SDL_RWFromFile("sample.xv", "rb");
+		///		if(IMG_isXPM(rwop))
+		///		printf("sample.xpm is a XV file.\n");
+		///		else
+		///		printf("sample.xpm is not a XV file, or XV support is not available.\n");
+		/// </code></example>
+		/// <seealso cref="IMG_LoadTyped_RW"/>
+		[DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr IMG_isXV(IntPtr src);
+		#endregion IntPtr IMG_isXV(IntPtr src)
+
 		#region IntPtr IMG_isXCF(IntPtr src)
 		/// <summary>
 		/// Test for valid, supported XCF file.
@@ -847,6 +883,49 @@ namespace Tao.Sdl
 		SuppressUnmanagedCodeSecurity]
 		public static extern IntPtr IMG_LoadXCF_RW(IntPtr src);
 		#endregion IntPtr IMG_LoadXCF_RW(IntPtr src)
+
+		#region IntPtr IMG_LoadXV_RW(IntPtr src)
+		/// <summary>
+		/// Load a .XV image.
+		/// </summary>
+		/// <param name="src">
+		/// The XV image is loaded from this
+		/// </param>
+		/// <returns>
+		/// a pointer to the image as a new SDL_Surface. 
+		/// NULL is returned on errors, like if XV is not supported, 
+		/// or a read error. 
+		/// </returns>
+		/// <remarks>
+		/// Load src as a XV image for use as a surface, 
+		/// if XV support is compiled into the SDL_image library. 
+		/// <p>Binds to C-function in SDL_image.h
+		/// <code>
+		/// SDL_Surface *IMG_LoadXV_RW(SDL_RWops *src)
+		/// </code>
+		/// </p>
+		/// </remarks>
+		/// <example>
+		/// <code>
+		/// // load sample.xv into image
+		///		SDL_Surface *image;
+		///		SDL_RWops *rwop;
+		///		rwop=SDL_RWFromFile("sample.xv", "rb");
+		///		image=IMG_LoadXV_RW(rwop);
+		///		if(!image) 
+		///	{
+		///		printf("IMG_LoadXV_RW: %s\n", IMG_GetError());
+		///		// handle error
+		///	}
+		/// </code>
+		/// </example>
+		/// <seealso cref="IMG_LoadTyped_RW"/>
+		/// <seealso cref="IMG_isXV"/>
+		[DllImport(SDL_IMAGE_NATIVE_LIBRARY, 
+			 CallingConvention=CALLING_CONVENTION), 
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr IMG_LoadXV_RW(IntPtr src);
+		#endregion IntPtr IMG_LoadXV_RW(IntPtr src)
 		
 		#region IntPtr IMG_LoadPCX_RW(IntPtr src)
 		/// <summary>

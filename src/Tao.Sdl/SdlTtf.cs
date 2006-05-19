@@ -34,6 +34,7 @@ namespace Tao.Sdl
 {
 	#region Class Documentation
 	/// <summary>
+	/// This library supports Sdl_ttf 2.0.8.
 	/// This library is a wrapper around the excellent FreeType 1.2 library,
 	///  available at: http://www.freetype.org
 	/// <p>
