@@ -189,7 +189,7 @@ namespace Tao.Sdl
 		/// Structure to hold version number of the SMPEG library
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SMPEG_version 
+		public struct SMPEG_version 
 		{
 			/// <summary>
 			/// Major version
@@ -419,7 +419,7 @@ namespace Tao.Sdl
 		/// version of the SMPEG library.
 		/// </summary>
 		/// <returns>
-		///     This function returns a <see cref="Sdl.SMPEG_version"/> struct containing the
+		///     This function returns a <see cref="Smpeg.SMPEG_version"/> struct containing the
 		///     compiled version number
 		/// </returns>
 		/// <remarks>
@@ -433,13 +433,14 @@ namespace Tao.Sdl
 		/// }</code>
 		///     </p>
 		/// </remarks>
+		[CLSCompliant(false)]
 		public static Smpeg.SMPEG_version SMPEG_VERSION() 
 		{ 
 			Smpeg.SMPEG_version smpegVersion = new Smpeg.SMPEG_version();
 			smpegVersion.major = SMPEG_MAJOR_VERSION;
 			smpegVersion.minor = SMPEG_MINOR_VERSION;
 			smpegVersion.patch = SMPEG_PATCHLEVEL;
-			return sdlVersion;
+			return smpegVersion;
 		} 
 		#endregion SDL_version SMPEG_VERSION() 
 

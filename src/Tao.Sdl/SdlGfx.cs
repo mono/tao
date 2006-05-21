@@ -76,7 +76,23 @@ namespace Tao.Sdl
 		#endregion Private Constants
 
 		#region Public Constants
-		// SDL_gfxPrimitives.h -- none
+		#region SDL_gfxPrimitives.h
+		// Not implementing M_PI since it is in System.Math
+		// #define M_PI	3.141592654
+
+		/// <summary>
+		/// Major Version
+		/// </summary>
+		public const int SDL_GFXPRIMITIVES_MAJOR = 2;
+		/// <summary>
+		/// Minor Version
+		/// </summary>
+		public const int SDL_GFXPRIMITIVES_MINOR = 0;
+		/// <summary>
+		/// Micro Version
+		/// </summary>
+		public const int SDL_GFXPRIMITIVES_MICRO = 13;
+		#endregion SDL_gfxPrimitives.h
 
 		#region SDL_rotozoom.h
 		/// <summary>
@@ -1699,7 +1715,7 @@ namespace Tao.Sdl
 		public static extern int SDL_imageFilterBitNegation(byte[] Src1, byte[] Dest, int length);
 		#endregion int SDL_imageFilterBitNegation(byte[] Src1, byte[] Dest, int length)
 
-		#region int SDL_imageFilterAddByte(byte[] Src1, byte[] Dest, int length, byte C)
+		#region int SDL_imageFilterAddByte(byte[] Src1, byte[] Dest, int length, char C)
 		/// <summary>
 		/// SDL_imageFilterAddByte: D = saturation255(S + C)
 		/// </summary>
@@ -1717,8 +1733,29 @@ namespace Tao.Sdl
 		[DllImport(SDL_GFX_NATIVE_LIBRARY,
 			 CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_imageFilterAddByte(byte[] Src1, byte[] Dest, int length, byte C);
-		#endregion int SDL_imageFilterAddByte(byte[] Src1, byte[] Dest, int length, byte C)
+		public static extern int SDL_imageFilterAddByte(byte[] Src1, byte[] Dest, int length, char C);
+		#endregion int SDL_imageFilterAddByte(byte[] Src1, byte[] Dest, int length, char C)
+
+		#region int SDL_imageFilterAddUint(byte[] Src1, byte[] Dest, int length, int C)
+		/// <summary>
+		/// SDL_imageFilterAddByte: D = saturation255(S + C)
+		/// </summary>
+		/// <remarks>
+		/// Binds to C-function call in SDL_imageFilter.h.
+		/// <code>
+		/// int SDL_imageFilterAddUint(unsigned char *Src1, unsigned char *Dest, int length, unsigned int C)
+		/// </code>
+		/// </remarks>
+		/// <param name="Src1">Array of bytes</param>
+		/// <param name="Dest">Array of bytes returned after operation.</param>
+		/// <param name="C">Byte to add</param>
+		/// <param name="length">Size of array</param>
+		/// <returns>Returns 0 for success and -1 for Error.</returns>
+		[DllImport(SDL_GFX_NATIVE_LIBRARY,
+			 CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_imageFilterAddUint(byte[] Src1, byte[] Dest, int length, int C);
+		#endregion int SDL_imageFilterAddUint(byte[] Src1, byte[] Dest, int length, int C)
 
 		#region int SDL_imageFilterAddBytetoHalf(byte[] Src1, byte[] Dest, int length, byte C)
 		/// <summary>
