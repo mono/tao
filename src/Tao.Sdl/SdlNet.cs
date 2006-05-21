@@ -67,27 +67,39 @@ namespace Tao.Sdl
 		
 		#region Public Constants
 		/// <summary>
+		/// Major Version
+		/// </summary>
+		public const int SDL_NET_MAJOR_VERSION = 1;
+		/// <summary>
+		/// Minor Version
+		/// </summary>
+		public const int SDL_NET_MINOR_VERSION = 2;
+		/// <summary>
+		/// Patch Version
+		/// </summary>
+		public const int SDL_NET_PATCHLEVEL = 6;
+		/// <summary>
 		/// Used for listening on all network interfaces.
 		/// </summary>
-		public const Byte INADDR_ANY = unchecked((Byte)0x00000000);
+		public const byte INADDR_ANY = unchecked((byte)0x00000000);
 		/// <summary>
 		/// Which has limited applications.
 		/// </summary>
-		public const Byte INADDR_NONE = unchecked((Byte)0xFFFFFFFF);
+		public const byte INADDR_NONE = unchecked((byte)0xFFFFFFFF);
 		/// <summary>
 		/// Used as destination when sending a message to all clients on 
 		/// a subnet that allows broadcasts.
 		/// </summary>
-		public const Byte INADDR_BROADCAST = unchecked((Byte)0xFFFFFFFF);
+		public const byte INADDR_BROADCAST = unchecked((byte)0xFFFFFFFF);
 		/// <summary>
 		/// The maximum number of channels on a UDP socket.
 		/// </summary>
-		public const Byte SDLNET_MAX_UDPCHANNELS = 32;
+		public const byte SDLNET_MAX_UDPCHANNELS = 32;
 		/// <summary>
 		/// The maximum number of addresses bound to a single UDP socket
 		///  channel.
 		/// </summary>
-		public const Byte SDLNET_MAX_UDPADDRESSES = 4;
+		public const byte SDLNET_MAX_UDPADDRESSES = 4;
 		#endregion Public Constants
 		
 		#region Public Structs
@@ -293,6 +305,36 @@ namespace Tao.Sdl
 		
 		#region SdlNet Methods
 		#region General
+		#region SDL_version SDL_NET_VERSION() 
+		/// <summary>
+		/// This method can be used to fill a version structure with the compile-time
+		/// version of the SDL_net library.
+		/// </summary>
+		/// <returns>
+		///     This function returns a <see cref="Sdl.SDL_version"/> struct containing the
+		///     compiled version number
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_net.h:
+		///     <code>#define SDL_NET_VERSION(X)
+		/// {
+		/// (X)->major = SDL_NET_MAJOR_VERSION;
+		/// (X)->minor = SDL_NET_MINOR_VERSION;
+		/// (X)->patch = SDL_NET_PATCHLEVEL;
+		/// }</code>
+		///     </p>
+		/// </remarks>
+		public static Sdl.SDL_version SDL_NET_VERSION() 
+		{ 
+			Sdl.SDL_version sdlVersion = new Sdl.SDL_version();
+			sdlVersion.major = SDL_NET_MAJOR_VERSION;
+			sdlVersion.minor = SDL_NET_MINOR_VERSION;
+			sdlVersion.patch = SDL_NET_PATCHLEVEL;
+			return sdlVersion;
+		} 
+		#endregion SDL_version SDL_NET_VERSION() 
+
 		#region IntPtr SDLNet_Linked_VersionInternal()
 		//     const SDL_version * SDLNet_Linked_Version(void)
 		[DllImport(SDL_NET_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDLNet_Linked_Version"), SuppressUnmanagedCodeSecurity]
@@ -2191,5 +2233,98 @@ namespace Tao.Sdl
 		#endregion void SDLNet_FreeSocketSet(SDLNet_SocketSet set)
 		#endregion Socket Sets		
 		#endregion SdlNet Methods
+
+		// Not Yet implemented
+//		/* Inline macro functions to read/write network data */
+//
+//		/* Warning, some systems have data access alignment restrictions */
+//#if defined(sparc) || defined(mips)
+//#define SDL_DATA_ALIGNED	1
+//#endif
+//#ifndef SDL_DATA_ALIGNED
+//#define SDL_DATA_ALIGNED	0
+//#endif
+//
+//		/* Write a 16 bit value to network packet buffer */
+//#if !SDL_DATA_ALIGNED
+//#define SDLNet_Write16(value, areap)	\
+//		(*(Uint16 *)(areap) = SDL_SwapBE16(value))
+//#else
+//#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+//#define SDLNet_Write16(value, areap)	\
+//do 					\
+//{					\
+//	Uint8 *area = (Uint8 *)(areap);	\
+//	area[0] = (value >>  8) & 0xFF;	\
+//	area[1] =  value        & 0xFF;	\
+//} while ( 0 )
+//#else
+//#define SDLNet_Write16(value, areap)	\
+//do 					\
+//{					\
+//	Uint8 *area = (Uint8 *)(areap);	\
+//	area[1] = (value >>  8) & 0xFF;	\
+//	area[0] =  value        & 0xFF;	\
+//} while ( 0 )
+//#endif
+//#endif /* !SDL_DATA_ALIGNED */
+//
+//		/* Write a 32 bit value to network packet buffer */
+//#if !SDL_DATA_ALIGNED
+//#define SDLNet_Write32(value, areap) 	\
+//		*(Uint32 *)(areap) = SDL_SwapBE32(value);
+//#else
+//#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+//#define SDLNet_Write32(value, areap) 	\
+//do					\
+//{					\
+//	Uint8 *area = (Uint8 *)(areap);	\
+//	area[0] = (value >> 24) & 0xFF;	\
+//	area[1] = (value >> 16) & 0xFF;	\
+//	area[2] = (value >>  8) & 0xFF;	\
+//	area[3] =  value       & 0xFF;	\
+//} while ( 0 )
+//#else
+//#define SDLNet_Write32(value, areap) 	\
+//do					\
+//{					\
+//	Uint8 *area = (Uint8 *)(areap);	\
+//	area[3] = (value >> 24) & 0xFF;	\
+//	area[2] = (value >> 16) & 0xFF;	\
+//	area[1] = (value >>  8) & 0xFF;	\
+//	area[0] =  value       & 0xFF;	\
+//} while ( 0 )
+//#endif
+//#endif /* !SDL_DATA_ALIGNED */
+//
+//		/* Read a 16 bit value from network packet buffer */
+//#if !SDL_DATA_ALIGNED
+//#define SDLNet_Read16(areap) 		\
+//		(SDL_SwapBE16(*(Uint16 *)(areap)))
+//#else
+//#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+//#define SDLNet_Read16(areap) 		\
+//	((((Uint8 *)areap)[0] <<  8) | ((Uint8 *)areap)[1] <<  0)
+//#else
+//#define SDLNet_Read16(areap) 		\
+//	((((Uint8 *)areap)[1] <<  8) | ((Uint8 *)areap)[0] <<  0)
+//#endif
+//#endif /* !SDL_DATA_ALIGNED */
+//
+//		/* Read a 32 bit value from network packet buffer */
+//#if !SDL_DATA_ALIGNED
+//#define SDLNet_Read32(areap) 		\
+//		(SDL_SwapBE32(*(Uint32 *)(areap)))
+//#else
+//#if SDL_BYTEORDER == SDL_BIG_ENDIAN
+//#define SDLNet_Read32(areap) 		\
+//	((((Uint8 *)areap)[0] << 24) | (((Uint8 *)areap)[1] << 16) | \
+//	 (((Uint8 *)areap)[2] <<  8) |  ((Uint8 *)areap)[3] <<  0)
+//#else
+//#define SDLNet_Read32(areap) 		\
+//	((((Uint8 *)areap)[3] << 24) | (((Uint8 *)areap)[2] << 16) | \
+//	 (((Uint8 *)areap)[1] <<  8) |  ((Uint8 *)areap)[0] <<  0)
+//#endif
+//#endif /* !SDL_DATA_ALIGNED */
 	}
 }

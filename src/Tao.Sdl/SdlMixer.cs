@@ -125,6 +125,18 @@ namespace Tao.Sdl
 
 		#region Public Constants
 		/// <summary>
+		/// Major Version
+		/// </summary>
+		public const int MIX_MAJOR_VERSION = 1;
+		/// <summary>
+		/// Minor Version
+		/// </summary>
+		public const int MIX_MINOR_VERSION = 2;
+		/// <summary>
+		/// Patch Version
+		/// </summary>
+		public const int MIX_PATCHLEVEL = 7;
+		/// <summary>
 		/// The default mixer has this many simultaneous mixing 
 		/// channels after the first call to Mix_OpenAudio.
 		/// </summary>
@@ -153,7 +165,6 @@ namespace Tao.Sdl
 				}
 			}
 		}
-
 
 		/// <summary>
 		/// Stereo sound is a good default.
@@ -269,7 +280,7 @@ namespace Tao.Sdl
 		///  and the volume to use when mixing the sample. 
 		///  <p>Struct in SDL_mixer.h
 		///  <code>
-		///  typedef struct {
+		///  typedef struct Mix_Chunk {
 		///		int allocated;
 		///		Uint8 *abuf;
 		///		Uint32 alen;
@@ -417,6 +428,36 @@ namespace Tao.Sdl
 		#endregion Public Delegates
 		
 		#region SdlMixer Methods
+		#region SDL_version MIX_VERSION() 
+		/// <summary>
+		/// This method can be used to fill a version structure with the compile-time
+		/// version of the SDL_mixer library.
+		/// </summary>
+		/// <returns>
+		///     This function returns a <see cref="Sdl.SDL_version"/> struct containing the
+		///     compiled version number
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_mixer.h:
+		///     <code>#define SDL_MIX_VERSION(X)
+		/// {
+		/// (X)->major = SDL_MIX_MAJOR_VERSION;
+		/// (X)->minor = SDL_MIX_MINOR_VERSION;
+		/// (X)->patch = SDL_MIX_PATCHLEVEL;
+		/// }</code>
+		///     </p>
+		/// </remarks>
+		public static Sdl.SDL_version MIX_VERSION() 
+		{ 
+			Sdl.SDL_version sdlVersion = new Sdl.SDL_version();
+			sdlVersion.major = MIX_MAJOR_VERSION;
+			sdlVersion.minor = MIX_MINOR_VERSION;
+			sdlVersion.patch = MIX_PATCHLEVEL;
+			return sdlVersion;
+		} 
+		#endregion SDL_version MIX_VERSION() 
+
 		#region IntPtr Mix_Linked_VersionInternal()
 		//     const SDL_version * Mix_Linked_Version(void)
 		[DllImport(SDL_MIXER_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="Mix_Linked_Version"), SuppressUnmanagedCodeSecurity]
@@ -943,7 +984,7 @@ namespace Tao.Sdl
 		public static extern void Mix_FreeChunk(IntPtr chunk);
 		#endregion void Mix_FreeChunk(IntPtr chunk)
 
-		#region Mix_FreeMusic(IntPtr music)
+		#region void Mix_FreeMusic(IntPtr music)
 		/// <summary>
 		/// Free a Mix_Music
 		/// </summary>
@@ -970,7 +1011,7 @@ namespace Tao.Sdl
 			 CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void Mix_FreeMusic(IntPtr music);
-		#endregion Mix_FreeMusic(IntPtr music)
+		#endregion void Mix_FreeMusic(IntPtr music)
 
 		#region Mix_MusicType Mix_GetMusicType(IntPtr music)
 		/// <summary>
@@ -3283,8 +3324,8 @@ namespace Tao.Sdl
 		/// <remarks>
 		/// This is the same as SDL_GetError, which returns the last error set 
 		/// as a string which you may use to tell the user what happened when 
-		/// an error status has been returned from an SDL_ttf function call.
-		/// <p>Binds to C-function in SDL_ttf.h
+		/// an error status has been returned from an SDL_mixer function call.
+		/// <p>Binds to C-function in SDL_mixer.h
 		/// <code>
 		/// char *Mix_GetError() 
 		/// </code>

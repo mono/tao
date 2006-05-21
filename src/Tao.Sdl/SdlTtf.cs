@@ -92,24 +92,36 @@ namespace Tao.Sdl
 		
 		#region Public Constants
 		/// <summary>
+		/// Major Version
+		/// </summary>
+		public const int TTF_MAJOR_VERSION = 2;
+		/// <summary>
+		/// Minor Version
+		/// </summary>
+		public const int TTF_MINOR_VERSION = 0;
+		/// <summary>
+		/// Patch Version
+		/// </summary>
+		public const int TTF_PATCHLEVEL = 8;
+		/// <summary>
 		/// Used to indicate regular, normal, plain rendering style.
 		/// </summary>
-		public const Byte TTF_STYLE_NORMAL = 0x00;
+		public const byte TTF_STYLE_NORMAL = 0x00;
 		/// <summary>
 		/// Used to indicate bold rendering style. 
 		/// This is used a bitmask along with other styles.
 		/// </summary>
-		public const Byte TTF_STYLE_BOLD = 0x01;
+		public const byte TTF_STYLE_BOLD = 0x01;
 		/// <summary>
 		/// Used to indicate italicized rendering style. 
 		/// This is used a bitmask along with other styles.
 		/// </summary>
-		public const Byte TTF_STYLE_ITALIC = 0x02;
+		public const byte TTF_STYLE_ITALIC = 0x02;
 		/// <summary>
 		/// Used to indicate underlined rendering style. 
 		/// This is used a bitmask along with other styles.
 		/// </summary>
-		public const Byte TTF_STYLE_UNDERLINE = 0x04;
+		public const byte TTF_STYLE_UNDERLINE = 0x04;
 		/// <summary>
 		/// This allows you to switch byte-order of UNICODE text data 
 		/// to native order, meaning the mode of your CPU. This is meant
@@ -162,6 +174,36 @@ namespace Tao.Sdl
 		#endregion Constructors & Destructors
 		
 		#region SdlTtf Methods
+		#region SDL_version TTF_VERSION() 
+		/// <summary>
+		/// This method can be used to fill a version structure with the compile-time
+		/// version of the SDL_ttf library.
+		/// </summary>
+		/// <returns>
+		///     This function returns a <see cref="Sdl.SDL_version"/> struct containing the
+		///     compiled version number
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_ttf.h:
+		///     <code>#define SDL_TTF_VERSION(X)
+		/// {
+		/// (X)->major = SDL_TTF_MAJOR_VERSION;
+		/// (X)->minor = SDL_TTF_MINOR_VERSION;
+		/// (X)->patch = SDL_TTF_PATCHLEVEL;
+		/// }</code>
+		///     </p>
+		/// </remarks>
+		public static Sdl.SDL_version TTF_VERSION() 
+		{ 
+			Sdl.SDL_version sdlVersion = new Sdl.SDL_version();
+			sdlVersion.major = TTF_MAJOR_VERSION;
+			sdlVersion.minor = TTF_MINOR_VERSION;
+			sdlVersion.patch = TTF_PATCHLEVEL;
+			return sdlVersion;
+		} 
+		#endregion SDL_version TTF_VERSION() 
+
 		#region IntPtr TTF_Linked_VersionInternal()
 		//     const SDL_version * TTF_Linked_Version(void)
 		[DllImport(SDL_TTF_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="TTF_Linked_Version"), SuppressUnmanagedCodeSecurity]

@@ -128,6 +128,21 @@ namespace Tao.Sdl
 			CallingConvention.Cdecl;
 		#endregion CallingConvention CALLING_CONVENTION
 		#endregion Private Constants
+	
+		#region Public Constants
+		/// <summary>
+		/// Major Version
+		/// </summary>
+		public const int SDL_IMAGE_MAJOR_VERSION = 1;
+		/// <summary>
+		/// Minor Version
+		/// </summary>
+		public const int SDL_IMAGE_MINOR_VERSION = 2;
+		/// <summary>
+		/// Patch Version
+		/// </summary>
+		public const int SDL_IMAGE_PATCHLEVEL = 5;
+		#endregion Public Constants
 
 		#region Constructors & Destructors
 		#region SdlImage()
@@ -141,6 +156,65 @@ namespace Tao.Sdl
 		#endregion Constructors & Destructors
 		
 		#region SdlImage Methods
+		#region SDL_version SDL_IMAGE_VERSION() 
+		/// <summary>
+		/// This method can be used to fill a version structure with the compile-time
+		/// version of the SDL_image library.
+		/// </summary>
+		/// <returns>
+		///     This function returns a <see cref="Sdl.SDL_version"/> struct containing the
+		///     compiled version number
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_image.h:
+		///     <code>#define SDL_IMAGE_VERSION(X)
+		/// {
+		/// (X)->major = SDL_IMAGE_MAJOR_VERSION;
+		/// (X)->minor = SDL_IMAGE_MINOR_VERSION;
+		/// (X)->patch = SDL_IMAGE_PATCHLEVEL;
+		/// }</code>
+		///     </p>
+		/// </remarks>
+		public static Sdl.SDL_version SDL_IMAGE_VERSION() 
+		{ 
+			Sdl.SDL_version sdlVersion = new Sdl.SDL_version();
+			sdlVersion.major = SDL_IMAGE_MAJOR_VERSION;
+			sdlVersion.minor = SDL_IMAGE_MINOR_VERSION;
+			sdlVersion.patch = SDL_IMAGE_PATCHLEVEL;
+			return sdlVersion;
+		} 
+		#endregion SDL_version SDL_IMAGE_VERSION() 
+
+		#region IntPtr IMG_Linked_VersionInternal()
+		//     const SDL_version * IMG_Linked_Version(void)
+		[DllImport(SDL_IMAGE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="IMG_Linked_Version"), SuppressUnmanagedCodeSecurity]
+		private static extern IntPtr IMG_Linked_VersionInternal();
+		#endregion IntPtr IMG_Linked_VersionInternal()
+
+		#region SDL_version IMG_Linked_Version() 
+		/// <summary>
+		///     Using this you can compare the runtime version to the 
+		/// version that you compiled with.
+		/// </summary>
+		/// <returns>
+		///     This function gets the version of the dynamically 
+		/// linked SDL_image library in an <see cref="Sdl.SDL_version"/> struct.
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_image.h:
+		///     <code>const SDL_version * IMG_Linked_Version(void)</code>
+		///     </p>
+		/// </remarks>
+		public static Sdl.SDL_version IMG_Linked_Version() 
+		{ 
+			return (Sdl.SDL_version)Marshal.PtrToStructure(
+				IMG_Linked_VersionInternal(), 
+				typeof(Sdl.SDL_version)); 
+		} 
+		#endregion SDL_version IMG_Linked_Version() 
+
 		#region IntPtr IMG_LoadTyped_RW(IntPtr src, int freesrc, string type)
 		/// <summary>
 		/// Load an image from an SDL data source.
@@ -445,7 +519,7 @@ namespace Tao.Sdl
 		/// // Test sample.xv to see if it is a XV
 		///		SDL_RWops *rwop;
 		///		rwop=SDL_RWFromFile("sample.xv", "rb");
-		///		if(IMG_isXPM(rwop))
+		///		if(IMG_isXV(rwop))
 		///		printf("sample.xpm is a XV file.\n");
 		///		else
 		///		printf("sample.xpm is not a XV file, or XV support is not available.\n");

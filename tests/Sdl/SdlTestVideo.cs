@@ -206,6 +206,11 @@ namespace Tao.Sdl
 			Sdl.SDL_VideoInfo videoInfo = (Sdl.SDL_VideoInfo)
 				Marshal.PtrToStructure(videoInfoPtr, 
 				typeof(Sdl.SDL_VideoInfo));
+			Console.WriteLine(videoInfo.hw_available);
+			Console.WriteLine(videoInfo.wm_available);
+			Console.WriteLine(videoInfo.video_mem);
+			Console.WriteLine(videoInfo.current_h);
+			Console.WriteLine(videoInfo.current_w);
 
 			Sdl.SDL_FreeSurface(videoInfoPtr);
 		}

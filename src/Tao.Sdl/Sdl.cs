@@ -4944,12 +4944,12 @@ namespace Tao.Sdl
 			public IntPtr vfmt;
 
 			/// <summary>
-			///  Value: The current video mode width
+			///  The current video mode width
 			/// </summary>
 			public int current_w;
 
 			/// <summary>
-			///  Value: The current video mode height
+			///  The current video mode height
 			/// </summary>
 			public int current_h;
 
