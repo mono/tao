@@ -1715,7 +1715,7 @@ namespace Tao.Sdl
 		public static extern int SDL_imageFilterBitNegation(byte[] Src1, byte[] Dest, int length);
 		#endregion int SDL_imageFilterBitNegation(byte[] Src1, byte[] Dest, int length)
 
-		#region int SDL_imageFilterAddByte(byte[] Src1, byte[] Dest, int length, char C)
+		#region int SDL_imageFilterAddByte(byte[] Src1, byte[] Dest, int length, byte C)
 		/// <summary>
 		/// SDL_imageFilterAddByte: D = saturation255(S + C)
 		/// </summary>
@@ -1733,12 +1733,12 @@ namespace Tao.Sdl
 		[DllImport(SDL_GFX_NATIVE_LIBRARY,
 			 CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_imageFilterAddByte(byte[] Src1, byte[] Dest, int length, char C);
-		#endregion int SDL_imageFilterAddByte(byte[] Src1, byte[] Dest, int length, char C)
+		public static extern int SDL_imageFilterAddByte(byte[] Src1, byte[] Dest, int length, byte C);
+		#endregion int SDL_imageFilterAddByte(byte[] Src1, byte[] Dest, int length, byte C)
 
 		#region int SDL_imageFilterAddUint(byte[] Src1, byte[] Dest, int length, int C)
 		/// <summary>
-		/// SDL_imageFilterAddByte: D = saturation255(S + C)
+		/// SDL_imageFilterAddUint: D = saturation255(S + (uint)C)
 		/// </summary>
 		/// <remarks>
 		/// Binds to C-function call in SDL_imageFilter.h.
@@ -1748,7 +1748,7 @@ namespace Tao.Sdl
 		/// </remarks>
 		/// <param name="Src1">Array of bytes</param>
 		/// <param name="Dest">Array of bytes returned after operation.</param>
-		/// <param name="C">Byte to add</param>
+		/// <param name="C">int to add</param>
 		/// <param name="length">Size of array</param>
 		/// <returns>Returns 0 for success and -1 for Error.</returns>
 		[DllImport(SDL_GFX_NATIVE_LIBRARY,
@@ -1799,6 +1799,27 @@ namespace Tao.Sdl
 		public static extern int SDL_imageFilterSubByte(byte[] Src1, byte[] Dest, int length, byte C);
 		#endregion int SDL_imageFilterSubByte(byte[] Src1, byte[] Dest, int length, byte C)
 
+		#region int SDL_imageFilterSubUint(byte[] Src1, byte[] Dest, int length, int C)
+		/// <summary>
+		/// SDL_imageFilterSubUint: D = saturation0(S - (uint)C)
+		/// </summary>
+		/// <remarks>
+		/// Binds to C-function call in SDL_imageFilter.h.
+		/// <code>
+		/// int SDL_imageFilterSubUint(unsigned char *Src1, unsigned char *Dest, int length, unsigned int C)
+		/// </code>
+		/// </remarks>
+		/// <param name="Src1">Array of bytes</param>
+		/// <param name="Dest">Array of bytes returned after operation.</param>
+		/// <param name="C">int to add</param>
+		/// <param name="length">Size of array</param>
+		/// <returns>Returns 0 for success and -1 for Error.</returns>
+		[DllImport(SDL_GFX_NATIVE_LIBRARY,
+			 CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_imageFilterSubUint(byte[] Src1, byte[] Dest, int length, int C);
+		#endregion int SDL_imageFilterSubUint(byte[] Src1, byte[] Dest, int length, int C)
+
 		#region int SDL_imageFilterShiftRight(byte[] Src1, byte[] Dest, int length, byte N)
 		/// <summary>
 		/// SDL_imageFilterShiftRight: D = saturation0(S >> N)
@@ -1819,6 +1840,27 @@ namespace Tao.Sdl
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_imageFilterShiftRight(byte[] Src1, byte[] Dest, int length, byte N);
 		#endregion int SDL_imageFilterShiftRight(byte[] Src1, byte[] Dest, int length, byte N)
+
+		#region int SDL_imageFilterShiftRightUint(byte[] Src1, byte[] Dest, int length, byte N)
+		/// <summary>
+		/// SDL_imageFilterShiftRightUint: D = saturation0((uint)S >> N)
+		/// </summary>
+		/// <remarks>
+		/// Binds to C-function call in SDL_imageFilter.h.
+		/// <code>
+		/// int SDL_imageFilterShiftRightUint(unsigned char *Src1, unsigned char *Dest, int length, unsigned char C)
+		/// </code>
+		/// </remarks>
+		/// <param name="Src1">Array of bytes</param>
+		/// <param name="Dest">Array of bytes returned after operation.</param>
+		/// <param name="N">Shift</param>
+		/// <param name="length">Size of array</param>
+		/// <returns>Returns 0 for success and -1 for Error.</returns>
+		[DllImport(SDL_GFX_NATIVE_LIBRARY,
+			 CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_imageFilterShiftRightUint(byte[] Src1, byte[] Dest, int length, byte N);
+		#endregion int SDL_imageFilterShiftRightUint(byte[] Src1, byte[] Dest, int length, byte N)
 
 		#region int SDL_imageFilterMultByByte(byte[] Src1, byte[] Dest, int length, byte C)
 		/// <summary>
@@ -1905,6 +1947,27 @@ namespace Tao.Sdl
 		SuppressUnmanagedCodeSecurity]
 		public static extern int SDL_imageFilterShiftLeft(byte[] Src1, byte[] Dest, int length, byte N);
 		#endregion int SDL_imageFilterShiftLeft(byte[] Src1, byte[] Dest, int length, byte N)
+		
+		#region int SDL_imageFilterShiftLeftUint(byte[] Src1, byte[] Dest, int length, byte N)
+		/// <summary>
+		/// SDL_imageFilterShiftLeftUint: D = ((uint)S << N)
+		/// </summary>
+		/// <remarks>
+		/// Binds to C-function call in SDL_imageFilter.h.
+		/// <code>
+		/// int SDL_imageFilterShiftLeftUint(unsigned char *Src1, unsigned char *Dest, int length, unsigned char N)
+		/// </code>
+		/// </remarks>
+		/// <param name="Src1">Array of bytes</param>
+		/// <param name="Dest">Array of bytes returned after operation.</param>
+		/// <param name="N">Shift</param>
+		/// <param name="length">Size of array</param>
+		/// <returns>Returns 0 for success and -1 for Error.</returns>
+		[DllImport(SDL_GFX_NATIVE_LIBRARY,
+			 CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_imageFilterShiftLeftUint(byte[] Src1, byte[] Dest, int length, byte N);
+		#endregion int SDL_imageFilterShiftLeftUint(byte[] Src1, byte[] Dest, int length, byte N)
 
 		#region int SDL_imageFilterBinarizeUsingThreshold((byte[] Src1, byte[] Dest, int length, byte T)
 		/// <summary>
