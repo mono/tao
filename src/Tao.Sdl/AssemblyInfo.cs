@@ -38,7 +38,7 @@ using System.Security.Permissions;
 #else
 [assembly: AssemblyConfiguration("Retail")]
 #endif
-[assembly: AssemblyCopyright("Copyright ©2003-2005 Tao Framework Team.  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright ©2003-2006 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.Sdl")]
 [assembly: AssemblyDelaySign(false)]
@@ -47,8 +47,8 @@ using System.Security.Permissions;
 #elif LINUX
 [assembly: AssemblyDescription("Tao Framework SDL Binding For .NET (Linux)")]
 #endif
-[assembly: AssemblyFileVersion("1.2.9.0")]
-[assembly: AssemblyInformationalVersion("1.2.9.0")]
+[assembly: AssemblyFileVersion("1.2.10.0")]
+[assembly: AssemblyInformationalVersion("1.2.10.0")]
 #if STRONG
 [assembly: AssemblyKeyFile(@"Tao.Sdl.snk")]
 #else
@@ -66,7 +66,7 @@ using System.Security.Permissions;
 [assembly: AssemblyTitle("Tao Framework SDL Binding For .NET (Linux)")]
 #endif
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
-[assembly: AssemblyVersion("1.2.9.1")]
+[assembly: AssemblyVersion("1.2.10.0")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]

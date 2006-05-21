@@ -5317,6 +5317,7 @@ namespace Tao.Sdl
 			return __SDL_Init(flags);
 		}
 		#endregion int SDL_Init(int flags)
+
 		#region int SDL_InitSubSystem(int flags)
 		// Called from SDL_InitSubSystem
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDL_InitSubSystem"), SuppressUnmanagedCodeSecurity]
