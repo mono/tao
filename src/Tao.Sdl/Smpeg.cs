@@ -81,6 +81,18 @@ namespace Tao.Sdl
 
 		#region smpeg.h
 		/// <summary>
+		/// Major Version
+		/// </summary>
+		public const int SMPEG_MAJOR_VERSION = 0;
+		/// <summary>
+		/// Minor Version
+		/// </summary>
+		public const int SMPEG_MINOR_VERSION = 4;
+		/// <summary>
+		/// Patch Version
+		/// </summary>
+		public const int SMPEG_PATCHLEVEL = 5;
+		/// <summary>
 		/// MPEG status code. 
 		/// </summary>
 		/// <remarks>
@@ -172,6 +184,36 @@ namespace Tao.Sdl
 		#endregion MPEGfilter.h
 
 		#region smpeg.h
+		#region SMPEG_version
+		/// <summary>
+		/// Structure to hold version number of the SMPEG library
+		/// </summary>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SMPEG_version 
+		{
+			/// <summary>
+			/// Major version
+			/// </summary>
+			public byte major;
+			/// <summary>
+			/// Minor version
+			/// </summary>
+			public byte minor;
+			/// <summary>
+			/// Patch version
+			/// </summary>
+			public byte patch;
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <returns></returns>
+			public override string ToString()
+			{
+				return (this.major + "." + this.minor + "." + this.patch);
+			}
+		}
+		#endregion SMPEG_version
+
 		#region SMPEG_Info
 		/// <summary>
 		/// Used to get information about the SMPEG object
@@ -371,6 +413,36 @@ namespace Tao.Sdl
 		#endregion MPEGfilter.h
 
 		#region smpeg.h
+		#region SDL_version SMPEG_VERSION() 
+		/// <summary>
+		/// This method can be used to fill a version structure with the compile-time
+		/// version of the SMPEG library.
+		/// </summary>
+		/// <returns>
+		///     This function returns a <see cref="Sdl.SMPEG_version"/> struct containing the
+		///     compiled version number
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in smpeg.h:
+		///     <code>#define SMPEG_VERSION(X)
+		/// {
+		/// (X)->major = SMPEG_MAJOR_VERSION;
+		/// (X)->minor = SMPEG_MINOR_VERSION;
+		/// (X)->patch = SMPEG_PATCHLEVEL;
+		/// }</code>
+		///     </p>
+		/// </remarks>
+		public static Smpeg.SMPEG_version SMPEG_VERSION() 
+		{ 
+			Smpeg.SMPEG_version smpegVersion = new Smpeg.SMPEG_version();
+			smpegVersion.major = SMPEG_MAJOR_VERSION;
+			smpegVersion.minor = SMPEG_MINOR_VERSION;
+			smpegVersion.patch = SMPEG_PATCHLEVEL;
+			return sdlVersion;
+		} 
+		#endregion SDL_version SMPEG_VERSION() 
+
 		#region IntPtr SMPEG_new(string file, out SMPEG_Info info, int sdl_audio)
 		/// <summary>
 		/// Create a new SMPEG object from an MPEG file.
@@ -896,7 +968,7 @@ namespace Tao.Sdl
 		public static extern IntPtr SMPEG_filter( IntPtr mpeg, IntPtr filter );
 		#endregion IntPtr SMPEG_filter( IntPtr mpeg, IntPtr filter )
 
-		#region string SMPEG_geterror( IntPtr mpeg )
+		#region string SMPEG_error( IntPtr mpeg )
 		/// <summary>
 		/// SMPEG errors messages.
 		/// </summary>
