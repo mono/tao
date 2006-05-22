@@ -4473,16 +4473,16 @@ namespace Tao.Sdl
 		// SDL_thread.h -- none
 		
 		#region SDL_timer.h
-//		#region SDL_TimerID
-//		//typedef struct _SDL_TimerID *SDL_TimerID;
-//		/// <summary>
-//		///     
-//		/// </summary>
-//		[StructLayout(LayoutKind.Sequential, Pack=4)]
-//			public struct SDL_TimerID 
-//		{
-//		}
-//		#endregion SDL_TimerID
+		#region SDL_TimerID
+		//typedef struct _SDL_TimerID *SDL_TimerID;
+		/// <summary>
+		///     
+		/// </summary>
+		[StructLayout(LayoutKind.Sequential, Pack=4)]
+			public struct SDL_TimerID 
+		{
+		}
+		#endregion SDL_TimerID
 		#endregion SDL_timer.h
 
 		// SDL_types.h -- deprecated
@@ -8859,7 +8859,8 @@ namespace Tao.Sdl
 		/// extern DECLSPEC int SDLCALL SDL_WriteLE16(SDL_RWops *dst, Uint16 value)
 		/// </code></p>
 		/// </remarks>
-		/// <param name="src"></param>
+		/// <param name="dst"></param>
+		/// <param name="val"></param>
 		/// <seealso cref="SDL_AllocRW"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
@@ -8876,7 +8877,8 @@ namespace Tao.Sdl
 		/// extern DECLSPEC int SDLCALL SDL_WriteBE16(SDL_RWops *dst, Uint16 value)
 		/// </code></p>
 		/// </remarks>
-		/// <param name="src"></param>
+		/// <param name="dst"></param>
+		/// <param name="val"></param>
 		/// <seealso cref="SDL_AllocRW"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
@@ -8893,7 +8895,8 @@ namespace Tao.Sdl
 		/// extern DECLSPEC int SDLCALL SDL_WriteLE32(SDL_RWops *dst, Uint32 value)
 		/// </code></p>
 		/// </remarks>
-		/// <param name="src"></param>
+		/// <param name="dst"></param>
+		/// <param name="val"></param>
 		/// <seealso cref="SDL_AllocRW"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
@@ -8910,7 +8913,8 @@ namespace Tao.Sdl
 		/// extern DECLSPEC int SDLCALL SDL_WriteBE32(SDL_RWops *dst, Uint32 value)
 		/// </code></p>
 		/// </remarks>
-		/// <param name="src"></param>
+		/// <param name="dst"></param>
+		/// <param name="val"></param>
 		/// <seealso cref="SDL_AllocRW"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
@@ -8927,7 +8931,8 @@ namespace Tao.Sdl
 		/// extern DECLSPEC int SDLCALL SDL_WriteLE64(SDL_RWops *dst, Uint64 value)
 		/// </code></p>
 		/// </remarks>
-		/// <param name="src"></param>
+		/// <param name="dst"></param>
+		/// <param name="val"></param>
 		/// <seealso cref="SDL_AllocRW"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
@@ -8944,7 +8949,8 @@ namespace Tao.Sdl
 		/// extern DECLSPEC int SDLCALL SDL_WriteBE64(SDL_RWops *dst, Uint64 value)
 		/// </code></p>
 		/// </remarks>
-		/// <param name="src"></param>
+		/// <param name="dst"></param>
+		/// <param name="val"></param>
 		/// <seealso cref="SDL_AllocRW"/>
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
@@ -9408,6 +9414,7 @@ namespace Tao.Sdl
 		/// }</code>
 		///     </p>
 		/// </remarks>
+		[CLSCompliant(false)] 
 		public static Sdl.SDL_version SDL_VERSION() 
 		{ 
 			Sdl.SDL_version sdlVersion = new Sdl.SDL_version();
