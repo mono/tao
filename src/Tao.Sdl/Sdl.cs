@@ -250,26 +250,7 @@ namespace Tao.Sdl
 		#endregion SDL_MIX_MAXVOLUME
 		#endregion SDL_audio.h
 
-		#region SDL_endian.h
-		#region SDL_LIL_ENDIAN
-		/// <summary>
-		/// Little Endian
-		/// </summary>
-		/// <remarks>
-		/// e.g. i386 machines</remarks>
-		public const int SDL_LIL_ENDIAN = 1234;
-		#endregion SDL_LIL_ENDIAN
-
-		#region SDL_BIG_ENDIAN
-		/// <summary>
-		/// Big Endian
-		/// </summary>
-		/// <remarks>
-		/// e.g. Macs
-		/// </remarks>
-		public const int SDL_BIG_ENDIAN = 4321;
-		#endregion SDL_BIG_ENDIAN
-		#endregion SDL_endian.h
+		// SDL_byteorder.h -- deprecated
 		
 		#region SDL_cdrom.h
 		#region SDL_MAX_TRACKS
@@ -301,198 +282,52 @@ namespace Tao.Sdl
 		#endregion CD_FPS
 		#endregion SDL_cdrom.h
 
+		// SDL_config.h -- none
 		// SDL_copying.h -- none
 		// SDL_cpuinfo.h -- none
-		// SDL_endian.h - skipped for now
+
+		#region SDL_endian.h
+		#region SDL_LIL_ENDIAN
+		/// <summary>
+		/// Little Endian
+		/// </summary>
+		/// <remarks>
+		/// e.g. i386 machines</remarks>
+		public const int SDL_LIL_ENDIAN = 1234;
+		#endregion SDL_LIL_ENDIAN
+
+		#region SDL_BIG_ENDIAN
+		/// <summary>
+		/// Big Endian
+		/// </summary>
+		/// <remarks>
+		/// e.g. Macs
+		/// </remarks>
+		public const int SDL_BIG_ENDIAN = 4321;
+		#endregion SDL_BIG_ENDIAN
+		#endregion SDL_endian.h
+
 		// SDL_error.h -- none
 
 		#region SDL_events.h
-		//The nameless enum from SDL_events.h was moved into a set of const
-		//instead of a C# enum. This makes it work more like the C Code.
 		/// <summary>
-		/// Unused (do not remove)
+		/// Button in pressed state.
 		/// </summary>
-		public const int SDL_NOEVENT = 0;		
+		/// <remarks>
+		/// SDL_events.h defines SDL_PRESSED and <see cref="SDL_RELEASED"/>
+		///  in a nameless enum. Defining SDL_PRESSED as a const works 
+		///  better for Tao.SDL purposes</remarks>
+		///  <seealso cref="SDL_RELEASED"/>
+		public const byte SDL_PRESSED = 0x01;
 		/// <summary>
-		/// Application loses/gains visibility
+		/// Button in released state.
 		/// </summary>
-		[CLSCompliant(false)]
-		public const int SDL_ACTIVEEVENT = 1;			
-		/// <summary>
-		/// Keys pressed
-		/// </summary>
-		public const int SDL_KEYDOWN = 2;			
-		/// <summary>
-		/// Keys released
-		/// </summary>
-		public const int SDL_KEYUP = 3;		
-		/// <summary>
-		/// Mouse moved
-		/// </summary>
-		public const int SDL_MOUSEMOTION = 4;			
-		/// <summary>
-		/// Mouse button pressed
-		/// </summary>
-		public const int SDL_MOUSEBUTTONDOWN = 5;		
-		/// <summary>
-		/// Mouse button released
-		/// </summary>
-		public const int SDL_MOUSEBUTTONUP = 6;		
-		/// <summary>
-		/// Joystick axis motion
-		/// </summary>
-		public const int SDL_JOYAXISMOTION = 7;	
-		/// <summary>
-		/// Joystick trackball motion
-		/// </summary>
-		public const int SDL_JOYBALLMOTION = 8;	
-		/// <summary>
-		/// Joystick hat position change
-		/// </summary>
-		public const int SDL_JOYHATMOTION = 9;	
-		/// <summary>
-		/// Joystick button pressed
-		/// </summary>
-		public const int SDL_JOYBUTTONDOWN = 10;	
-		/// <summary>
-		/// Joystick button released
-		/// </summary>
-		public const int SDL_JOYBUTTONUP = 11;			
-		/// <summary>
-		/// User-requested quit
-		/// </summary>
-		[CLSCompliant(false)]
-		public const int SDL_QUIT = 12;		
-		/// <summary>
-		/// System specific event
-		/// </summary>
-		[CLSCompliant(false)]
-		public const int SDL_SYSWMEVENT = 13;			
-		/// <summary>
-		/// Reserved for future use..
-		/// </summary>
-		public const int SDL_EVENT_RESERVEDA = 14;		
-		/// <summary>
-		/// Reserved for future use..
-		/// </summary>
-		public const int SDL_EVENT_RESERVEDB = 15;	
-		/// <summary>
-		/// User resized video mode
-		/// </summary>
-		public const int SDL_VIDEORESIZE = 16;			
-		/// <summary>
-		/// Screen needs to be redrawn
-		/// </summary>
-		public const int SDL_VIDEOEXPOSE = 17;			
-		/// <summary>
-		/// Reserved for future use..
-		/// </summary>
-		public const int SDL_EVENT_RESERVED2 = 18;		
-		/// <summary>
-		/// Reserved for future use..
-		/// </summary>
-		public const int SDL_EVENT_RESERVED3 = 19;		
-		/// <summary>
-		/// Reserved for future use..
-		/// </summary>
-		public const int SDL_EVENT_RESERVED4 = 20;		
-		/// <summary>
-		/// Reserved for future use..
-		/// </summary>
-		public const int SDL_EVENT_RESERVED5 = 21;		
-		/// <summary>
-		/// Reserved for future use..
-		/// </summary>
-		public const int SDL_EVENT_RESERVED6 = 22;		
-		/// <summary>
-		/// Reserved for future use..
-		/// </summary>
-		public const int SDL_EVENT_RESERVED7 = 23;		
-		/// <summary>
-		/// Events SDL_USEREVENT through SDL_MAXEVENTS-1 are 
-		/// for your use.
-		/// </summary>
-		[CLSCompliant(false)] 
-		public const int SDL_USEREVENT = 24;
-
-		/// <summary>
-		/// This last event is only for bounding internal arrays
-		/// It is the number of bits in the event mask datatype -- Uint32
-		/// </summary>
-		public const int SDL_NUMEVENTS = 32;
-
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_ACTIVEEVENTMASK = 1 << SDL_ACTIVEEVENT;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_KEYDOWNMASK = 1 << SDL_KEYDOWN;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_KEYUPMASK = 1 << SDL_KEYUP;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_KEYEVENTMASK = (1 << SDL_KEYUP | 1 << SDL_KEYDOWN);
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_MOUSEMOTIONMASK = 1 << SDL_MOUSEMOTION;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_MOUSEBUTTONDOWNMASK = 1 << SDL_MOUSEBUTTONDOWN;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_MOUSEBUTTONUPMASK = 1 << SDL_MOUSEBUTTONUP;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_MOUSEEVENTMASK	= (1 << SDL_MOUSEMOTION)| (1 << SDL_MOUSEBUTTONDOWN)| (1 << SDL_MOUSEBUTTONUP);
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_JOYAXISMOTIONMASK = 1 << SDL_JOYAXISMOTION;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_JOYBALLMOTIONMASK = 1 << SDL_JOYBALLMOTION;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_JOYHATMOTIONMASK = 1 << SDL_JOYHATMOTION;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_JOYBUTTONDOWNMASK = 1 << SDL_JOYBUTTONDOWN;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_JOYBUTTONUPMASK = 1 << SDL_JOYBUTTONUP;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_JOYEVENTMASK = (1 << SDL_JOYAXISMOTION) | (1 << SDL_JOYBALLMOTION) | (1 << SDL_JOYHATMOTION) | (1 << SDL_JOYBUTTONDOWN) | (1 << SDL_JOYBUTTONUP);
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_VIDEORESIZEMASK = 1 << SDL_VIDEORESIZE;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_VIDEOEXPOSEMASK = 1 << SDL_VIDEOEXPOSE;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_QUITMASK = 1 << SDL_QUIT;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_SYSWMEVENTMASK = 1 << SDL_SYSWMEVENT;
+		/// <remarks>
+		/// SDL_events.h defines <see cref="SDL_PRESSED"/> and SDL_RELEASED
+		///  in a nameless enum. Defining SDL_RELEASED as a const works 
+		///  better for Tao.SDL purposes</remarks>
+		///  <seealso cref="SDL_PRESSED"/>
+		public const byte SDL_RELEASED = 0x00;
 
 		/// <summary>
 		/// This is the mask which refers to all hotkey bindings.
@@ -522,7 +357,7 @@ namespace Tao.Sdl
 		public const int SDL_ENABLE = 1;
 		#endregion SDL_events.h
 
-		// SDL_getenv.h -- none
+		// SDL_getenv.h -- deprecated
 
 		#region SDL_joystick.h
 		/// <summary>
@@ -616,7 +451,7 @@ namespace Tao.Sdl
 			short) (KMOD_LMETA|KMOD_RMETA);
 		#endregion SDL_keysym.h
 
-		// SDL_loadso.h -- skipped
+		// SDL_loadso.h -- none
 		// SDL_main.h -- none
 
 		#region SDL_mouse.h
@@ -655,13 +490,41 @@ namespace Tao.Sdl
 		public const byte SDL_BUTTON_RMASK = SDL_PRESSED << ((byte)SDL_BUTTON_RIGHT - 1);
 		#endregion SDL_mouse.h
 
-		// SDL_mutex.h -- Skipped. Superceded by System.Threading class
+		#region SDL_mutex.h
+		/// <summary>
+		/// Synchronization functions which can time out return this value
+		/// if they time out.
+		/// </summary>
+		public const int SDL_MUTEX_TIMEDOUT = 1;
+		/// <summary>
+		/// This is the timeout value which corresponds to never time out
+		/// </summary>
+		public const int SDL_MUTEX_MAXWAIT = (~(int)0);
+		#endregion SDL_mutex.h
+		
 		// SDL_name.h -- none
-		// SDL_opengl.h -- superceded by Tao.OpenGL
+		// SDL_opengl.h -- TODO superceded by Tao.OpenGL?
+		// SDL_platform.h -- none
 		// SDL_quit.h -- none
-		// SDL_rwops -- skipped for now, might be useful.
+		
+		#region SDL_rwops.h
+		/// <summary>
+		/// Seek from the beginning of data
+		/// </summary>
+		public const int RW_SEEK_SET = 0;
+		/// <summary>
+		/// Seek relative to current read point
+		/// </summary>
+		public const int RW_SEEK_CUR = 1;
+		/// <summary>
+		/// Seek relative to the end of data
+		/// </summary>
+		public const int RW_SEEK_END = 2;
+		#endregion SDL_rwops.h
+
+		// SDL_stdinc.h -- TODO skipped for now
 		// SDL_syswm.h -- none
-		// SDL_thread.h -- skipped. Superceded by System.Threading class
+		// SDL_thread.h -- none
 
 		#region SDL_timer.h
 		#region SDL_TIMESLICE
@@ -682,28 +545,22 @@ namespace Tao.Sdl
 		#endregion TIMER_RESOLUTION
 		#endregion SDL_timer.h
 
-		#region SDL_events.h
-		/// <summary>
-		/// Button in pressed state.
-		/// </summary>
-		/// <remarks>
-		/// SDL_events.h defines SDL_PRESSED and <see cref="SDL_RELEASED"/>
-		///  in a nameless enum. Defining SDL_PRESSED as a const works 
-		///  better for Tao.SDL purposes</remarks>
-		///  <seealso cref="SDL_RELEASED"/>
-		public const byte SDL_PRESSED = 0x01;
-		/// <summary>
-		/// Button in released state.
-		/// </summary>
-		/// <remarks>
-		/// SDL_events.h defines <see cref="SDL_PRESSED"/> and SDL_RELEASED
-		///  in a nameless enum. Defining SDL_RELEASED as a const works 
-		///  better for Tao.SDL purposes</remarks>
-		///  <seealso cref="SDL_PRESSED"/>
-		public const byte SDL_RELEASED = 0x00;
-		#endregion SDL_events.h
+		// SDL_types.h - deprecated
 
-		// SDL_version -- none
+		#region SDL_version.h
+		/// <summary>
+		/// Major Version
+		/// </summary>
+		public const int SDL_MAJOR_VERSION = 1;
+		/// <summary>
+		/// Minor Version
+		/// </summary>
+		public const int SDL_MINOR_VERSION = 2;
+		/// <summary>
+		/// Patch Version
+		/// </summary>
+		public const int SDL_PATCHLEVEL = 10;
+		#endregion SDL_version.h
 
 		#region SDL_video.h
 		#region SDL_ALPHA_OPAQUE
@@ -964,7 +821,7 @@ namespace Tao.Sdl
 		#endregion SDL_audiostatus
 		#endregion SDL_audio.h
 
-		// SDL_byteorder.h -- none
+		// SDL_byteorder.h -- deprecated
 
 		#region SDL_cdrom.h
 		#region CDstatus
@@ -1011,12 +868,204 @@ namespace Tao.Sdl
 		#endregion CDstatus
 		#endregion SDL_cdrom.h
 
+		// SDL_config.h -- none
 		// SDL_copying.h -- none
 		// SDL_cpuinfo.h -- none
-		// SDL_endian.h - skipped for now
+		// SDL_endian.h - none
 		// SDL_error.h -- none
 
 		#region SDL_events.h
+		#region SDL_EventType
+		//The nameless enum from SDL_events.h was moved into a set of const
+		//instead of a C# enum. This makes it work more like the C Code.
+		/// <summary>
+		/// Unused (do not remove)
+		/// </summary>
+		public const int SDL_NOEVENT = 0;		
+		/// <summary>
+		/// Application loses/gains visibility
+		/// </summary>
+		[CLSCompliant(false)]
+		public const int SDL_ACTIVEEVENT = 1;			
+		/// <summary>
+		/// Keys pressed
+		/// </summary>
+		public const int SDL_KEYDOWN = 2;			
+		/// <summary>
+		/// Keys released
+		/// </summary>
+		public const int SDL_KEYUP = 3;		
+		/// <summary>
+		/// Mouse moved
+		/// </summary>
+		public const int SDL_MOUSEMOTION = 4;			
+		/// <summary>
+		/// Mouse button pressed
+		/// </summary>
+		public const int SDL_MOUSEBUTTONDOWN = 5;		
+		/// <summary>
+		/// Mouse button released
+		/// </summary>
+		public const int SDL_MOUSEBUTTONUP = 6;		
+		/// <summary>
+		/// Joystick axis motion
+		/// </summary>
+		public const int SDL_JOYAXISMOTION = 7;	
+		/// <summary>
+		/// Joystick trackball motion
+		/// </summary>
+		public const int SDL_JOYBALLMOTION = 8;	
+		/// <summary>
+		/// Joystick hat position change
+		/// </summary>
+		public const int SDL_JOYHATMOTION = 9;	
+		/// <summary>
+		/// Joystick button pressed
+		/// </summary>
+		public const int SDL_JOYBUTTONDOWN = 10;	
+		/// <summary>
+		/// Joystick button released
+		/// </summary>
+		public const int SDL_JOYBUTTONUP = 11;			
+		/// <summary>
+		/// User-requested quit
+		/// </summary>
+		[CLSCompliant(false)]
+		public const int SDL_QUIT = 12;		
+		/// <summary>
+		/// System specific event
+		/// </summary>
+		[CLSCompliant(false)]
+		public const int SDL_SYSWMEVENT = 13;			
+		/// <summary>
+		/// Reserved for future use..
+		/// </summary>
+		public const int SDL_EVENT_RESERVEDA = 14;		
+		/// <summary>
+		/// Reserved for future use..
+		/// </summary>
+		public const int SDL_EVENT_RESERVEDB = 15;	
+		/// <summary>
+		/// User resized video mode
+		/// </summary>
+		public const int SDL_VIDEORESIZE = 16;			
+		/// <summary>
+		/// Screen needs to be redrawn
+		/// </summary>
+		public const int SDL_VIDEOEXPOSE = 17;			
+		/// <summary>
+		/// Reserved for future use..
+		/// </summary>
+		public const int SDL_EVENT_RESERVED2 = 18;		
+		/// <summary>
+		/// Reserved for future use..
+		/// </summary>
+		public const int SDL_EVENT_RESERVED3 = 19;		
+		/// <summary>
+		/// Reserved for future use..
+		/// </summary>
+		public const int SDL_EVENT_RESERVED4 = 20;		
+		/// <summary>
+		/// Reserved for future use..
+		/// </summary>
+		public const int SDL_EVENT_RESERVED5 = 21;		
+		/// <summary>
+		/// Reserved for future use..
+		/// </summary>
+		public const int SDL_EVENT_RESERVED6 = 22;		
+		/// <summary>
+		/// Reserved for future use..
+		/// </summary>
+		public const int SDL_EVENT_RESERVED7 = 23;		
+		/// <summary>
+		/// Events SDL_USEREVENT through SDL_MAXEVENTS-1 are 
+		/// for your use.
+		/// </summary>
+		[CLSCompliant(false)] 
+		public const int SDL_USEREVENT = 24;
+
+		/// <summary>
+		/// This last event is only for bounding internal arrays
+		/// It is the number of bits in the event mask datatype -- Uint32
+		/// </summary>
+		public const int SDL_NUMEVENTS = 32;
+		#endregion SDL_EventType
+
+		#region SDL_EventMask
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_ACTIVEEVENTMASK = 1 << SDL_ACTIVEEVENT;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_KEYDOWNMASK = 1 << SDL_KEYDOWN;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_KEYUPMASK = 1 << SDL_KEYUP;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_KEYEVENTMASK = (1 << SDL_KEYUP | 1 << SDL_KEYDOWN);
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_MOUSEMOTIONMASK = 1 << SDL_MOUSEMOTION;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_MOUSEBUTTONDOWNMASK = 1 << SDL_MOUSEBUTTONDOWN;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_MOUSEBUTTONUPMASK = 1 << SDL_MOUSEBUTTONUP;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_MOUSEEVENTMASK	= (1 << SDL_MOUSEMOTION)| (1 << SDL_MOUSEBUTTONDOWN)| (1 << SDL_MOUSEBUTTONUP);
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_JOYAXISMOTIONMASK = 1 << SDL_JOYAXISMOTION;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_JOYBALLMOTIONMASK = 1 << SDL_JOYBALLMOTION;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_JOYHATMOTIONMASK = 1 << SDL_JOYHATMOTION;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_JOYBUTTONDOWNMASK = 1 << SDL_JOYBUTTONDOWN;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_JOYBUTTONUPMASK = 1 << SDL_JOYBUTTONUP;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_JOYEVENTMASK = (1 << SDL_JOYAXISMOTION) | (1 << SDL_JOYBALLMOTION) | (1 << SDL_JOYHATMOTION) | (1 << SDL_JOYBUTTONDOWN) | (1 << SDL_JOYBUTTONUP);
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_VIDEORESIZEMASK = 1 << SDL_VIDEORESIZE;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_VIDEOEXPOSEMASK = 1 << SDL_VIDEOEXPOSE;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_QUITMASK = 1 << SDL_QUIT;
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_SYSWMEVENTMASK = 1 << SDL_SYSWMEVENT;
+		#endregion SDL_EventMask
+
 		#region SDL_eventaction
 		/// <summary>
 		/// If 'action' is SDL_ADDEVENT, up to 'numevents' events will 
@@ -1053,7 +1102,7 @@ namespace Tao.Sdl
 		#endregion SDL_eventaction
 		#endregion SDL_events.h
 
-		// SDL_getenv.h -- none
+		// SDL_getenv.h -- deprecated
 		// SDL_joystick.h -- none
 		// SDL_keyboard.h -- none
 
@@ -2120,26 +2169,17 @@ namespace Tao.Sdl
 		#endregion SDLMod
 		#endregion SDL_keysym.h
 
-		// SDL_loadso.h -- skipped
+		// SDL_loadso.h -- none
 		// SDL_main.h -- none
 		// SDL_mouse.h -- none
-		// SDL_mutex.h -- Skipped. Superceded by System.Threading class
+		// SDL_mutex.h -- none
 		// SDL_name.h -- none
-		// SDL_opengl.h -- skipped. superceded by Tao.OpenGL
+		// SDL_opengl.h -- TODO superceded by Tao.OpenGL?
+		// SDL_platform.h -- none
 		// SDL_quit.h -- none
-		// SDL_rwops -- skipped for now, might be useful.
+		// SDL_rwops -- none
 
-		#region SDL_syswm.h
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int SDL_SYSWM_X11 = 0;
-		#endregion SDL_syswm.h
-
-		// SDL_thread.h -- Skipped. Superceded by System.Threading class
-		// SDL_timer.h -- none
-
-		#region SDL_types.h
+		#region SDL_stdinc.h
 		#region SDL_bool
 		/// <summary>
 		/// 
@@ -2150,9 +2190,19 @@ namespace Tao.Sdl
 		/// </summary>
 		public const int SDL_TRUE  = 1;
 		#endregion SDL_bool
-		#endregion SDL_types.h
+		#endregion SDL_stdinc.h
 
-		// SDL_version -- none
+		#region SDL_syswm.h
+		/// <summary>
+		/// 
+		/// </summary>
+		public const int SDL_SYSWM_X11 = 0;
+		#endregion SDL_syswm.h
+
+		// SDL_thread.h -- none
+		// SDL_timer.h -- none
+		// SDL_types.h - deprecated
+		// SDL_version.h -- none
 
 		#region SDL_video.h
 		#region SDL_GLattr
@@ -2427,7 +2477,7 @@ namespace Tao.Sdl
 		/// enum SDL_GrabMode. 
 		/// </remarks>
 		/// <see cref="SDL_WM_GrabInput"/>
-		public const int SDL_GRAB_FULLSCREEN =2;
+		public const int SDL_GRAB_FULLSCREEN = 2;
 		#endregion SDL_GrabMode
 		#endregion SDL_video.h
 		#endregion Public Enums
@@ -2683,7 +2733,7 @@ namespace Tao.Sdl
 		#endregion SDL_AudioCVT
 		#endregion SDL_audio.h
 
-		// SDL_byteorder.h -- none
+		// SDL_byteorder.h -- deprecated
 
 		#region SDL_cdrom.h
 		#region SDL_CDtrack
@@ -2868,9 +2918,10 @@ namespace Tao.Sdl
 		#endregion SDL_CD
 		#endregion SDL_cdrom.h
 
+		// SDL_config.h -- none
 		// SDL_copying.h -- none
 		// SDL_cpuinfo.h -- none
-		// SDL_endian.h - skipped for now
+		// SDL_endian.h - TODO skipped for now
 		// SDL_error.h -- none
 
 		#region SDL_events.h
@@ -3764,134 +3815,136 @@ namespace Tao.Sdl
 		
 		#endregion SDL_events.h
 
-		// SDL_getenv.h -- none
+		// SDL_getenv.h -- deprecated
 
 		#region SDL_joystick.h
-		#region SDL_Joystick
-		///<summary>
-		/// TODO. This needs work.
-		///</summary>
-		///<remarks>
-		///<p>
-		///		<code>
-		///		struct _SDL_Joystick 
-		///		{
-		///			Uint8 index;		/* Device index */
-		///			const char *name;	/* Joystick name - system dependent */
-		///			int naxes;		/* Number of axis controls on the joystick */
-		///			Sint16 *axes;		/* Current axis states */
-		///			int nhats;		/* Number of hats on the joystick */
-		///			Uint8 *hats;		/* Current hat states */
-		///			int nballs;		/* Number of trackballs on the joystick */
-		///			struct balldelta 
-		///			{
-		///				int dx;
-		///				int dy;
-		///			} *balls;		/* Current ball motion deltas */
-		///			int nbuttons;		/* Number of buttons on the joystick */
-		///			Uint8 *buttons;		/* Current button states */
-		///			struct joystick_hwdata *hwdata;	/* Driver dependent information */
-		///				int ref_count;		/* Reference count for multiple opens */
-		///			}
-		///			</code>
-		///			</p>
-		///			</remarks>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_Joystick
-		{
-			/// <summary>
-			/// Device index
-			/// </summary>
-			public byte index;
-			/// <summary>
-			/// Joystick name - system dependent
-			/// </summary>
-			public string name;
-			/// <summary>
-			/// Number of axis controls on the joystick
-			/// </summary>
-			public int naxes;
-			/// <summary>
-			/// Current axis states
-			/// </summary>
-			public IntPtr axes;
-			/// <summary>
-			/// Number of hats on the joystick
-			/// </summary>
-			/// <remarks>
-			/// IntPtr to short
-			/// </remarks>
-			public int nhats;
-			/// <summary>
-			/// Current hat states
-			/// </summary>
-			public IntPtr hats;
-			/// <summary>
-			/// Number of trackballs on the joystick
-			/// </summary>
-			/// <remarks>
-			/// IntPtr to byte
-			/// </remarks>
-			public int nballs;
-			/// <summary>
-			/// Current ball motion deltas
-			/// </summary>
-			/// <remarks>
-			/// IntPtr to balldelta
-			/// </remarks>
-			public IntPtr balls;
-			/// <summary>
-			/// Number of buttons on the joystick
-			/// </summary>
-			public int nbuttons;
-			/// <summary>
-			/// Current button states
-			/// </summary>
-			/// <remarks>
-			/// IntPtr to byte
-			/// </remarks>
-			public IntPtr buttons;
-			/// <summary>
-			/// Reference count for multiple opens
-			/// </summary>
-			/// <remarks>
-			/// IntPtr to joystick_hwdata
-			/// </remarks>
-			public IntPtr hwdata;
-		}
-		#endregion SDL_Joystick
+		// These structs are not public structs.
 
-		#region balldelta
-		/// <summary>
-		/// 
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct balldelta
-		{
-			/// <summary>
-			/// 
-			/// </summary>
-			public int dx;
-			/// <summary>
-			/// 
-			/// </summary>
-			public int dy;
-		}
-		#endregion balldelta
+//		#region SDL_Joystick
+//		///<summary>
+//		/// TODO. This needs work.
+//		///</summary>
+//		///<remarks>
+//		///<p>
+//		///		<code>
+//		///		struct _SDL_Joystick 
+//		///		{
+//		///			Uint8 index;		/* Device index */
+//		///			const char *name;	/* Joystick name - system dependent */
+//		///			int naxes;		/* Number of axis controls on the joystick */
+//		///			Sint16 *axes;		/* Current axis states */
+//		///			int nhats;		/* Number of hats on the joystick */
+//		///			Uint8 *hats;		/* Current hat states */
+//		///			int nballs;		/* Number of trackballs on the joystick */
+//		///			struct balldelta 
+//		///			{
+//		///				int dx;
+//		///				int dy;
+//		///			} *balls;		/* Current ball motion deltas */
+//		///			int nbuttons;		/* Number of buttons on the joystick */
+//		///			Uint8 *buttons;		/* Current button states */
+//		///			struct joystick_hwdata *hwdata;	/* Driver dependent information */
+//		///				int ref_count;		/* Reference count for multiple opens */
+//		///			}
+//		///			</code>
+//		///			</p>
+//		///			</remarks>
+//		[StructLayout(LayoutKind.Sequential, Pack=4)]
+//			public struct SDL_Joystick
+//		{
+//			/// <summary>
+//			/// Device index
+//			/// </summary>
+//			public byte index;
+//			/// <summary>
+//			/// Joystick name - system dependent
+//			/// </summary>
+//			public string name;
+//			/// <summary>
+//			/// Number of axis controls on the joystick
+//			/// </summary>
+//			public int naxes;
+//			/// <summary>
+//			/// Current axis states
+//			/// </summary>
+//			public IntPtr axes;
+//			/// <summary>
+//			/// Number of hats on the joystick
+//			/// </summary>
+//			/// <remarks>
+//			/// IntPtr to short
+//			/// </remarks>
+//			public int nhats;
+//			/// <summary>
+//			/// Current hat states
+//			/// </summary>
+//			public IntPtr hats;
+//			/// <summary>
+//			/// Number of trackballs on the joystick
+//			/// </summary>
+//			/// <remarks>
+//			/// IntPtr to byte
+//			/// </remarks>
+//			public int nballs;
+//			/// <summary>
+//			/// Current ball motion deltas
+//			/// </summary>
+//			/// <remarks>
+//			/// IntPtr to balldelta
+//			/// </remarks>
+//			public IntPtr balls;
+//			/// <summary>
+//			/// Number of buttons on the joystick
+//			/// </summary>
+//			public int nbuttons;
+//			/// <summary>
+//			/// Current button states
+//			/// </summary>
+//			/// <remarks>
+//			/// IntPtr to byte
+//			/// </remarks>
+//			public IntPtr buttons;
+//			/// <summary>
+//			/// Reference count for multiple opens
+//			/// </summary>
+//			/// <remarks>
+//			/// IntPtr to joystick_hwdata
+//			/// </remarks>
+//			public IntPtr hwdata;
+//		}
+//		#endregion SDL_Joystick
 
-		#region joystick_hwdata
-		/// <summary>
-		/// 
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct joystick_hwdata
-		{
-			/// <summary>
-			/// 
-			/// </summary>
-			public int ref_count;
-		}
-		#endregion joystick_hwdata
+//		#region balldelta
+//		/// <summary>
+//		/// 
+//		/// </summary>
+//		[StructLayout(LayoutKind.Sequential, Pack=4)]
+//			public struct balldelta
+//		{
+//			/// <summary>
+//			/// 
+//			/// </summary>
+//			public int dx;
+//			/// <summary>
+//			/// 
+//			/// </summary>
+//			public int dy;
+//		}
+//		#endregion balldelta
+//
+//		#region joystick_hwdata
+//		/// <summary>
+//		/// 
+//		/// </summary>
+//		[StructLayout(LayoutKind.Sequential, Pack=4)]
+//			public struct joystick_hwdata
+//		{
+//			/// <summary>
+//			/// 
+//			/// </summary>
+//			public int ref_count;
+//		}
+//		#endregion joystick_hwdata
 		#endregion SDL_joystick.h
 
 		#region SDL_keyboard.h
@@ -3977,27 +4030,27 @@ namespace Tao.Sdl
 		#endregion SDL_keyboard.h
 
 		// SDL_keysym.h -- none
-		// SDL_loadso.h -- skipped
+		// SDL_loadso.h -- none
 		// SDL_main.h -- none
 
 		#region SDL_mouse.h
-		#region WMcursor
-		/// <summary>
-		/// Implementation dependent.
-		/// TODO. Fix this.
-		/// </summary>
-		/// <remarks>
-		/// <p>Struct in SDL_mouse.h
-		/// <code>
-		/// struct WMcursor WMcursor
-		/// </code>
-		/// </p>
-		/// </remarks>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct WMcursor 
-		{
-		}
-		#endregion WMcursor
+//		#region WMcursor
+//		/// <summary>
+//		/// Implementation dependent.
+//		/// TODO. Fix this.
+//		/// </summary>
+//		/// <remarks>
+//		/// <p>Struct in SDL_mouse.h
+//		/// <code>
+//		/// struct WMcursor WMcursor
+//		/// </code>
+//		/// </p>
+//		/// </remarks>
+//		[StructLayout(LayoutKind.Sequential, Pack=4)]
+//			public struct WMcursor 
+//		{
+//		}
+//		#endregion WMcursor
 
 		#region SDL_Cursor
 		/// <summary>
@@ -4059,18 +4112,78 @@ namespace Tao.Sdl
 			/// <remarks>
 			/// IntPtr to WMcursor
 			/// </remarks>
-			public IntPtr WMcursor;
+			public IntPtr wm_cursor;
 		}
 		#endregion SDL_Cursor
 		#endregion SDL_mouse.h
 
-		// SDL_mutex.h -- Skipped. Superceded by System.Threading class
+		// SDL_mutex.h -- none
 		// SDL_name.h -- none
-		// SDL_opengl.h -- superceded by Tao.OpenGL
+		// SDL_opengl.h -- TODO superceded by Tao.OpenGL?
+		// SDL_platform.h -- none
 		// SDL_quit.h -- none
-		// SDL_rwops -- skipped for now, might be useful.
+
+		#region SDL_rwops.h
+		// TODO
+		/* This is the read/write operation structure -- very basic */
+
+		// typedef struct SDL_RWops
+		// {
+		// /* Seek to 'offset' relative to whence, one of stdio's whence values:
+		// SEEK_SET, SEEK_CUR, SEEK_END
+		// Returns the final offset in the data source.
+		// */
+		// int (SDLCALL *seek)(struct SDL_RWops *context, int offset, int whence);
+		//
+		// /* Read up to 'num' objects each of size 'objsize' from the data
+		// source to the area pointed at by 'ptr'.
+		// Returns the number of objects read, or -1 if the read failed.
+		// */
+		// int (SDLCALL *read)(struct SDL_RWops *context, void *ptr, int size, int maxnum);
+		//
+		// /* Write exactly 'num' objects each of size 'objsize' from the area
+		// pointed at by 'ptr' to data source.
+		// Returns 'num', or -1 if the write failed.
+		// */
+		// int (SDLCALL *write)(struct SDL_RWops *context, const void *ptr, int size, int num);
+		//
+		// /* Close and free an allocated SDL_FSops structure */
+		// int (SDLCALL *close)(struct SDL_RWops *context);
+		//
+		// Uint32 type;
+		// union
+		// {
+		//#ifdef __WIN32__
+		// struct
+		// {
+		// int append;
+		// void* h;
+		// } win32io;
+		//#endif
+		//#ifdef HAVE_STDIO_H
+		// struct
+		// {
+		// int autoclose;
+		// FILE *fp;
+		// } stdio;
+		//#endif
+		// struct
+		// {
+		// Uint8 *base;
+		// Uint8 *here;
+		// Uint8 *stop;
+		// } mem;
+		// struct
+		// {
+		// void *data1;
+		// } unknown;
+		// } hidden;
+		//
+		// } SDL_RWops;
+		#endregion SDL_rwops.h
 		
 		#region SDL_syswm.h
+		// TODO
 		#region SDL_SysWMmsg_Unix
 		/// <summary>
 		/// The UNIX custom event structure. TODO
@@ -4357,23 +4470,22 @@ namespace Tao.Sdl
 		#endregion SDL_SysWMinfo
 		#endregion SDL_syswm.h
 
-		// SDL_thread.h -- Skipped. Superceded by System.Threading class
+		// SDL_thread.h -- none
 		
 		#region SDL_timer.h
-		#region SDL_TimerID
-		//typedef struct _SDL_TimerID *SDL_TimerID;
-		//TODO: write test
-		/// <summary>
-		///     
-		/// </summary>
-		[StructLayout(LayoutKind.Sequential, Pack=4)]
-			public struct SDL_TimerID 
-		{
-		}
-		#endregion SDL_TimerID
+//		#region SDL_TimerID
+//		//typedef struct _SDL_TimerID *SDL_TimerID;
+//		/// <summary>
+//		///     
+//		/// </summary>
+//		[StructLayout(LayoutKind.Sequential, Pack=4)]
+//			public struct SDL_TimerID 
+//		{
+//		}
+//		#endregion SDL_TimerID
 		#endregion SDL_timer.h
 
-		// SDL_types.h
+		// SDL_types.h -- deprecated
 
 		#region SDL_version.h
 		#region SDL_version
@@ -6249,30 +6361,7 @@ namespace Tao.Sdl
 		#endregion void SDL_CloseAudio()
 		#endregion SDL_audio.h
 
-		#region SDL_byteorder.h
-		#region int SDL_BYTEORDER
-		/// <summary>
-		/// Returns the endianness of the host system. 
-		/// </summary>
-		/// <remarks>
-		/// </remarks>
-		/// <returns>Returns the endianness of the host system.</returns>
-		public static int SDL_BYTEORDER 
-		{
-			get 
-			{
-				if (BitConverter.IsLittleEndian) 
-				{
-					return SDL_LIL_ENDIAN;
-				}
-				else 
-				{
-					return SDL_BIG_ENDIAN;
-				}
-			}
-		}
-		#endregion int SDL_BYTEORDER
-		#endregion SDL_byteorder.h
+		// SDL_byteorder.h -- deprecated
 
 		#region SDL_cdrom.h
 		#region int CD_INDRIVE(CDstatus status)
@@ -6688,6 +6777,7 @@ namespace Tao.Sdl
 		#endregion void SDL_CDClose(IntPtr cdrom)
 		#endregion SDL_cdrom.h
 
+		// SDL_config.h -- skipped for now
 		// SDL_copying.h -- none
 
 		#region SDL_cpuinfo.h
@@ -6791,8 +6881,32 @@ namespace Tao.Sdl
 
 		#endregion SDL_cpuinfo.h
 
-		// SDL_endian.h -- skipped for now, might be useful after SDL_rwops has
-		// been implemented.
+		#region SDL_endian.h
+		// TODO: A lot more to do for this header file
+
+		#region int SDL_BYTEORDER
+		/// <summary>
+		/// Returns the endianness of the host system. 
+		/// </summary>
+		/// <remarks>
+		/// </remarks>
+		/// <returns>Returns the endianness of the host system.</returns>
+		public static int SDL_BYTEORDER 
+		{
+			get 
+			{
+				if (BitConverter.IsLittleEndian) 
+				{
+					return SDL_LIL_ENDIAN;
+				}
+				else 
+				{
+					return SDL_BIG_ENDIAN;
+				}
+			}
+		}
+		#endregion int SDL_BYTEORDER
+		#endregion SDL_endian.h
 
 		#region SDL_error.h
 		#region SDL_SetError(string message)
@@ -7113,50 +7227,7 @@ namespace Tao.Sdl
 		#endregion int SDL_EventState(byte type, int state)
 		#endregion SDL_events.h
 
-		#region SDL_getenv.h
-		#region int SDL_putenv(string variable)
-		/// <summary>
-		///     Puts a variable of the form "name=value" into the environment.
-		/// </summary>
-		/// <param name="variable">
-		///     The "name=value" pair to write to the environment.
-		/// </param>
-		/// <returns>
-		///     Returns -1 on an error or 0 on success.
-		/// </returns>
-		/// <remarks>
-		///     Not all environments have a working putenv(). SDL_putenv() is not available on Windows.
-		///     <p>
-		///     Binds to C-function call in SDL_getenv.h:
-		///     <code>extern DECLSPEC int SDLCALL SDL_putenv(const char *variable)</code>
-		///     </p>
-		/// </remarks>
-		/// <seealso cref="SDL_getenv" />
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern int SDL_putenv(string variable);
-		#endregion int SDL_putenv(string variable)
-
-		#region string SDL_getenv(string name)
-		/// <summary>
-		///     Retrieves a variable from the environment.
-		/// </summary>
-		/// <param name="name">
-		///     The name of the environmental variable to retrieve.
-		/// </param>
-		/// <returns>
-		///     The value of the specified environmental variable.
-		/// </returns>
-		/// <remarks>
-		///     Not all environments have a working getenv(). SDL_getenv() is not available on Windows.
-		///     <p>Binds to C-function call in SDL_getenv.h:
-		///     <code>extern DECLSPEC char * SDLCALL SDL_getenv(const char *name)</code>
-		///     </p>
-		/// </remarks>
-		/// <seealso cref="SDL_putenv" />
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern string SDL_getenv(string name);
-		#endregion string SDL_getenv(string name)
-		#endregion SDL_getenv.h
+		// SDL_getenv.h -- deprecated
 
 		#region SDL_joystick.h
 		#region int SDL_NumJoysticks()
@@ -7801,8 +7872,65 @@ namespace Tao.Sdl
 		#endregion SDL_keyboard.h
 
 		// SDL_keysym.h -- none
-		// SDL_loadso.h -- skipped
-		// SDL_main.h -- none
+
+		#region SDL_loadso.h
+		#region IntPtr SDL_LoadObject(string sofile)
+		/// <summary>
+		/// This function dynamically loads a shared object and returns a pointer
+		/// to the object handle (or NULL if there was an error).
+		/// </summary>
+		/// <remarks>
+		///  <p>Binds to C-function in SDL_loadso.h
+		///  <code>extern DECLSPEC void * SDLCALL SDL_LoadObject(const char *sofile)
+		///  </code></p>
+		/// </remarks>
+		/// <param name="sofile">System dependent name of the object file.</param>
+		/// <seealso cref="SDL_LoadFunction"/>
+		/// <seealso cref="SDL_UnloadObject"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_LoadObject(string sofile);
+		#endregion IntPtr SDL_LoadObject(string sofile)
+
+		#region IntPtr SDL_LoadFunction(IntPtr handle, string name)
+		/// <summary>
+		/// Given an object handle, this function looks up the address of the
+		/// named function in the shared object and returns it.  This address
+		/// is no longer valid after calling SDL_UnloadObject().
+		/// </summary>
+		/// <remarks>
+		///  <p>Binds to C-function in SDL_loadso.h
+		///  <code>extern DECLSPEC void * SDLCALL SDL_LoadFunction(void *handle, const char *name)
+		///  </code></p>
+		/// </remarks>
+		/// <param name="handle">Object handle</param>
+		/// <param name="name">Name of function in the shared object.</param>
+		/// <seealso cref="SDL_LoadObject"/>
+		/// <seealso cref="SDL_UnloadObject"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr SDL_LoadFunction(IntPtr handle, string name);
+		#endregion IntPtr SDL_LoadFunction(IntPtr handle, string name)
+
+		#region void SDL_UnloadObject(IntPtr handle)
+		/// <summary>
+		/// Unload a shared object from memory
+		/// </summary>
+		/// <remarks>
+		///  <p>Binds to C-function in SDL_loadso.h
+		///  <code>extern DECLSPEC void * SDLCALL SDL_UnloadObject(void *handle)
+		///  </code></p>
+		/// </remarks>
+		/// <param name="handle">Object handle</param>
+		/// <seealso cref="SDL_LoadFunction"/>
+		/// <seealso cref="SDL_LoadObject"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern void SDL_UnloadObject(IntPtr handle);
+		#endregion void SDL_UnloadObject(IntPtr handle)
+		#endregion SDL_loadso.h
+
+		// SDL_main.h -- TODO: apparently some private functions? Not sure.
 
 		#region SDL_mouse.h
 		#region byte SDL_GetMouseState(out int x, out int y)
@@ -8461,9 +8589,40 @@ namespace Tao.Sdl
 
 		#endregion SDL_mutex.h
 
-		// SDL_name.h -- none
-		// SDL_opengl.h -- superceded by Tao.OpenGL
+		#region SDL_name.h
+		#region string SDL_NAME(string x)
+		/// <summary>
+		///     Returns SDL name
+		/// </summary>
+		/// <param name="x">input name</param>
+		/// <returns>Returns SDL name</returns>
+		public static string SDL_NAME(string x)
+		{
+			return "SDL_" + x;
+		}
+		#endregion string SDL_NAME(string x)
+		#endregion SDL_name.h
+
+		// SDL_opengl.h -- TODO: superceded by Tao.OpenGL?
+		// SDL_platform.h -- none
 		// SDL_quit.h -- none
+
+		#region SDL_quit.h
+		#region int SDL_QuitRequested()
+		/// <summary>
+		///     Checks if SDL_Quit event has been requested
+		/// </summary>
+		/// <returns>
+		/// Returns 1 if a SDL_Quit Event has been requested. 
+		/// Returns 0 if no SDL_Quit event has been requeted.
+		/// </returns>
+		public static int SDL_QuitRequested()
+		{
+			Sdl.SDL_PumpEvents();
+			return Sdl.SDL_PeepEvents(null, 0, Sdl.SDL_PEEKEVENT, Sdl.SDL_QUITMASK);
+		}
+		#endregion int SDL_QuitRequested()
+		#endregion SDL_quit.h
 
 		#region SDL_rwops.h
 		// This a is bare-minimum implementation. 
@@ -8588,7 +8747,265 @@ namespace Tao.Sdl
 		public static extern void SDL_FreeRW(IntPtr context);
 		#endregion void SDL_FreeRW(IntPtr context);
 
+		#region short SDL_ReadLE16(IntPtr src)
+		/// <summary>
+		/// Read an item of the specified endianness and return in native format.
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_rwops.h
+		/// <code>
+		/// extern DECLSPEC Uint16 SDLCALL SDL_ReadLE16(SDL_RWops *src)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="src"></param>
+		/// <seealso cref="SDL_AllocRW"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern short SDL_ReadLE16(IntPtr src);
+		#endregion short SDL_ReadLE16(IntPtr src)
+
+		#region short SDL_ReadBE16(IntPtr src)
+		/// <summary>
+		/// Read an item of the specified endianness and return in native format.
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_rwops.h
+		/// <code>
+		/// extern DECLSPEC Uint16 SDLCALL SDL_ReadBE16(SDL_RWops *src)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="src"></param>
+		/// <seealso cref="SDL_AllocRW"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern short SDL_ReadBE16(IntPtr src);
+		#endregion short SDL_ReadBE16(IntPtr src)
+
+		#region int SDL_ReadLE32(IntPtr src)
+		/// <summary>
+		/// Read an item of the specified endianness and return in native format.
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_rwops.h
+		/// <code>
+		/// extern DECLSPEC Uint32 SDLCALL SDL_ReadLE32(SDL_RWops *src)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="src"></param>
+		/// <seealso cref="SDL_AllocRW"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_ReadLE32(IntPtr src);
+		#endregion int SDL_ReadLE32(IntPtr src)
+
+		#region int SDL_ReadBE32(IntPtr src)
+		/// <summary>
+		/// Read an item of the specified endianness and return in native format.
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_rwops.h
+		/// <code>
+		/// extern DECLSPEC Uint32 SDLCALL SDL_ReadBE32(SDL_RWops *src)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="src"></param>
+		/// <seealso cref="SDL_AllocRW"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_ReadBE32(IntPtr src);
+		#endregion int SDL_ReadBE32(IntPtr src)
+
+		#region long SDL_ReadLE64(IntPtr src)
+		/// <summary>
+		/// Read an item of the specified endianness and return in native format.
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_rwops.h
+		/// <code>
+		/// extern DECLSPEC Uint64 SDLCALL SDL_ReadLE64(SDL_RWops *src)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="src"></param>
+		/// <seealso cref="SDL_AllocRW"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern long SDL_ReadLE64(IntPtr src);
+		#endregion long SDL_ReadLE64(IntPtr src)
+
+		#region long SDL_ReadBE64(IntPtr src)
+		/// <summary>
+		/// Read an item of the specified endianness and return in native format.
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_rwops.h
+		/// <code>
+		/// extern DECLSPEC Uint64 SDLCALL SDL_ReadBE64(SDL_RWops *src)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="src"></param>
+		/// <seealso cref="SDL_AllocRW"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern long SDL_ReadBE64(IntPtr src);
+		#endregion long SDL_ReadBE64(IntPtr src)
+
+		#region int SDL_WriteLE16(IntPtr dst, short val)
+		/// <summary>
+		/// Write an item of native format to the specified endianness
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_rwops.h
+		/// <code>
+		/// extern DECLSPEC int SDLCALL SDL_WriteLE16(SDL_RWops *dst, Uint16 value)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="src"></param>
+		/// <seealso cref="SDL_AllocRW"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_WriteLE16(IntPtr dst, short val);
+		#endregion int SDL_WriteLE16(IntPtr dst, short val)
+
+		#region int SDL_WriteBE16(IntPtr dst, short val)
+		/// <summary>
+		/// Write an item of native format to the specified endianness
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_rwops.h
+		/// <code>
+		/// extern DECLSPEC int SDLCALL SDL_WriteBE16(SDL_RWops *dst, Uint16 value)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="src"></param>
+		/// <seealso cref="SDL_AllocRW"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_WriteBE16(IntPtr dst, short val);
+		#endregion int SDL_WriteBE16(IntPtr dst, short val)
+
+		#region int SDL_WriteLE32(IntPtr dst, int val)
+		/// <summary>
+		/// Write an item of native format to the specified endianness
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_rwops.h
+		/// <code>
+		/// extern DECLSPEC int SDLCALL SDL_WriteLE32(SDL_RWops *dst, Uint32 value)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="src"></param>
+		/// <seealso cref="SDL_AllocRW"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_WriteLE32(IntPtr dst, int val);
+		#endregion int SDL_WriteLE32(IntPtr dst, int val)
+
+		#region int SDL_WriteBE32(IntPtr dst, int val)
+		/// <summary>
+		/// Write an item of native format to the specified endianness
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_rwops.h
+		/// <code>
+		/// extern DECLSPEC int SDLCALL SDL_WriteBE32(SDL_RWops *dst, Uint32 value)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="src"></param>
+		/// <seealso cref="SDL_AllocRW"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_WriteBE32(IntPtr dst, int val);
+		#endregion int SDL_WriteBE32(IntPtr dst, int val)
+
+		#region int SDL_WriteLE64(IntPtr dst, long val)
+		/// <summary>
+		/// Write an item of native format to the specified endianness
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_rwops.h
+		/// <code>
+		/// extern DECLSPEC int SDLCALL SDL_WriteLE64(SDL_RWops *dst, Uint64 value)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="src"></param>
+		/// <seealso cref="SDL_AllocRW"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_WriteLE64(IntPtr dst, long val);
+		#endregion int SDL_WriteLE64(IntPtr dst, long val)
+
+		#region int SDL_WriteBE64(IntPtr dst, long val)
+		/// <summary>
+		/// Write an item of native format to the specified endianness
+		/// </summary>
+		/// <remarks>
+		/// <p>Binds to C-function in SDL_rwops.h
+		/// <code>
+		/// extern DECLSPEC int SDLCALL SDL_WriteBE64(SDL_RWops *dst, Uint64 value)
+		/// </code></p>
+		/// </remarks>
+		/// <param name="src"></param>
+		/// <seealso cref="SDL_AllocRW"/>
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
+		SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_WriteBE64(IntPtr dst, long val);
+		#endregion int SDL_WriteBE64(IntPtr dst, long val)
+
+		//TODO
+		//		/* Macros to easily read and write from an SDL_RWops structure */
+		//#define SDL_RWseek(ctx, offset, whence)	(ctx)->seek(ctx, offset, whence)
+		//#define SDL_RWtell(ctx)			(ctx)->seek(ctx, 0, RW_SEEK_CUR)
+		//#define SDL_RWread(ctx, ptr, size, n)	(ctx)->read(ctx, ptr, size, n)
+		//#define SDL_RWwrite(ctx, ptr, size, n)	(ctx)->write(ctx, ptr, size, n)
+		//#define SDL_RWclose(ctx)		(ctx)->close(ctx)
 		#endregion SDL_rwops.h
+
+		#region SDL_stdinc.h
+		// TODO There is a lot more code, but it appears to consist of private functions.
+
+		#region int SDL_putenv(string variable)
+		/// <summary>
+		///     Puts a variable of the form "name=value" into the environment.
+		/// </summary>
+		/// <param name="variable">
+		///     The "name=value" pair to write to the environment.
+		/// </param>
+		/// <returns>
+		///     Returns -1 on an error or 0 on success.
+		/// </returns>
+		/// <remarks>
+		///     Not all environments have a working putenv(). SDL_putenv() is not available on Windows.
+		///     <p>
+		///     Binds to C-function call in SDL_getenv.h:
+		///     <code>extern DECLSPEC int SDLCALL SDL_putenv(const char *variable)</code>
+		///     </p>
+		/// </remarks>
+		/// <seealso cref="SDL_getenv" />
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int SDL_putenv(string variable);
+		#endregion int SDL_putenv(string variable)
+
+		#region string SDL_getenv(string name)
+		/// <summary>
+		///     Retrieves a variable from the environment.
+		/// </summary>
+		/// <param name="name">
+		///     The name of the environmental variable to retrieve.
+		/// </param>
+		/// <returns>
+		///     The value of the specified environmental variable.
+		/// </returns>
+		/// <remarks>
+		///     Not all environments have a working getenv(). SDL_getenv() is not available on Windows.
+		///     <p>Binds to C-function call in SDL_getenv.h:
+		///     <code>extern DECLSPEC char * SDLCALL SDL_getenv(const char *name)</code>
+		///     </p>
+		/// </remarks>
+		/// <seealso cref="SDL_putenv" />
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern string SDL_getenv(string name);
+		#endregion string SDL_getenv(string name)
+		#endregion SDL_stdinc.h
 
 		#region SDL_syswm.h
 		/// <summary>
@@ -8968,9 +9385,39 @@ namespace Tao.Sdl
 		#endregion SDL_bool SDL_RemoveTimer(SDL_TimerID t)
 		#endregion SDL_timer.h
 
-		// SDL_types -- none
+		// SDL_types.h -- deprecated
 
 		#region SDL_version.h
+		#region SDL_version SDL_VERSION() 
+		/// <summary>
+		/// This method can be used to fill a version structure with the compile-time
+		/// version of the SDL library.
+		/// </summary>
+		/// <returns>
+		///     This function returns a <see cref="Sdl.SDL_version"/> struct containing the
+		///     compiled version number
+		/// </returns>
+		/// <remarks>
+		///     <p>
+		///     Binds to C-function call in SDL_version.h:
+		///     <code>#define SDL_VERSION(X)
+		/// {
+		/// (X)->major = SDL_MAJOR_VERSION;
+		/// (X)->minor = SDL_MINOR_VERSION;
+		/// (X)->patch = SDL_PATCHLEVEL;
+		/// }</code>
+		///     </p>
+		/// </remarks>
+		public static Sdl.SDL_version SDL_VERSION() 
+		{ 
+			Sdl.SDL_version sdlVersion = new Sdl.SDL_version();
+			sdlVersion.major = SDL_MAJOR_VERSION;
+			sdlVersion.minor = SDL_MINOR_VERSION;
+			sdlVersion.patch = SDL_PATCHLEVEL;
+			return sdlVersion;
+		} 
+		#endregion SDL_version SDL_VERSION() 
+
 		#region IntPtr SDL_Linked_VersionInternal()
 		//     extern DECLSPEC const SDL_version * SDLCALL SDL_Linked_Version(void)
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDL_Linked_Version"), SuppressUnmanagedCodeSecurity]
@@ -10100,29 +10547,6 @@ namespace Tao.Sdl
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_FreeSurface(IntPtr surface);
 		#endregion void SDL_FreeSurface(IntPtr surface)
-
-		//		#region void SDL_FreeSurface(ref IntPtr surface)
-		//		/// <summary>
-		//		/// Frees (deletes) a SDL_Surface
-		//		/// </summary>
-		//		/// <remarks>
-		//		/// Frees the resources used by a previously created <see cref="SDL_Surface"/>.
-		//		/// If the surface was created using <see cref="SDL_CreateRGBSurfaceFrom"/> 
-		//		/// then the pixel data is not freed.
-		//		/// <p>Binds to C-function call in SDL_video.h:
-		//		/// <code>void SDL_FreeSurface(SDL_Surface *surface)</code>
-		//		/// </p>
-		//		/// </remarks>
-		//		/// <param name="surface"></param>
-		//		/// <seealso cref="SDL_CreateRGBSurface">SDL_CreateRGBSurface</seealso>
-		//		/// <seealso cref="SDL_CreateRGBSurfaceFrom">SDL_CreateRGBSurfaceFrom</seealso>
-		//		public static void SDL_FreeSurface(ref IntPtr surface)
-		//		{
-		//			Marshal.DestroyStructure( surface, typeof(SDL_Surface));
-		//			SDL_FreeSurfaceInternal(surface);
-		//			surface = IntPtr.Zero;
-		//		}
-		//		#endregion void SDL_FreeSurface(ref IntPtr surface)
 
 		#region int SDL_LockSurface(IntPtr surface)
 		/// <summary>

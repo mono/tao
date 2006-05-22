@@ -1950,7 +1950,7 @@ namespace Tao.Sdl
 		
 		#region int SDL_imageFilterShiftLeftUint(byte[] Src1, byte[] Dest, int length, byte N)
 		/// <summary>
-		/// SDL_imageFilterShiftLeftUint: D = ((uint)S << N)
+		/// SDL_imageFilterShiftLeftUint: D = ((uint)S &lt;&lt; N)
 		/// </summary>
 		/// <remarks>
 		/// Binds to C-function call in SDL_imageFilter.h.
