@@ -5882,7 +5882,6 @@ namespace Tao.Sdl
 		public static extern void SDL_PauseAudio(int pause_on);
 		#endregion void SDL_PauseAudio(int pause_on)
 
-		//TODO Fix this method
 		#region IntPtr SDL_LoadWAV_RW(...)
 		/// <summary>
 		/// This function loads a WAVE from the data source, 
@@ -5918,7 +5917,6 @@ namespace Tao.Sdl
 			out IntPtr audio_buf, out int audio_len);
 		#endregion IntPtr SDL_LoadWAV_RW(...)
 
-		//TODO Fix this method
 		#region IntPtr SDL_LoadWAV(string file, out IntPtr spec, out byte[] audio_buf, out IntPtr audio_len)
 		/// <summary>
 		/// Load a WAVE file.
@@ -5983,7 +5981,7 @@ namespace Tao.Sdl
 		}
 		#endregion IntPtr SDL_LoadWAV(string file, out  spec, out byte[] audio_buf, out IntPtr audio_len)
 
-		#region void SDL_FreeWAV(byte[] audio_buf)
+		#region void SDL_FreeWAV(ref IntPtr audio_buf)
 		/// <summary>
 		/// Frees previously opened WAV data.
 		/// </summary>
@@ -6001,7 +5999,7 @@ namespace Tao.Sdl
 		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION),
 		SuppressUnmanagedCodeSecurity]
 		public static extern void SDL_FreeWAV(ref IntPtr audio_buf);
-		#endregion void SDL_FreeWAV(byte[] audio_buf)
+		#endregion void SDL_FreeWAV(ref IntPtr audio_buf)
 
 		#region int SDL_BuildAudioCVT(...)
 		/// <summary>
