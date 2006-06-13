@@ -1030,7 +1030,7 @@ namespace Tao.Sdl
 			Sdl.SDL_version version = Sdl.SDL_Linked_Version();
 			Assert.AreEqual(version.major.ToString() 
 				+ "." + version.minor.ToString() 
-				+ "." + version.patch.ToString(), "1.2.7");
+				+ "." + version.patch.ToString(), "1.2.10");
 		}
 
 		/// <summary>
@@ -1039,25 +1039,25 @@ namespace Tao.Sdl
 		[Test]
 		public void CompiledVersion()
 		{
-			Assert.AreEqual(Sdl.SDL_COMPILEDVERSION, 1207);
+			Assert.AreEqual(Sdl.SDL_COMPILEDVERSION, 1210);
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		[Test]
-		public void VersionAtLeast127()
+		public void VersionAtLeast1210()
 		{
-			Assert.IsTrue(Sdl.SDL_VERSION_ATLEAST(1,2,7));
+			Assert.IsTrue(Sdl.SDL_VERSION_ATLEAST(1,2,10));
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
 		[Test]
-		public void VersionAtLeast128()
+		public void VersionAtLeast1211()
 		{
-			Assert.IsFalse(Sdl.SDL_VERSION_ATLEAST(1,2,8));
+			Assert.IsFalse(Sdl.SDL_VERSION_ATLEAST(1,2,11));
 		}
 		#endregion SDL_version.h
 	}

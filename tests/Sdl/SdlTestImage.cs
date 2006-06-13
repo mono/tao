@@ -63,6 +63,19 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[Test]
+		public void LinkedVersion()
+		{
+			Sdl.SDL_version version = SdlImage.IMG_Linked_Version();
+			Console.WriteLine("IMG version: " + version.ToString());
+			Assert.AreEqual("1.2.5", version.major.ToString() 
+				+ "." + version.minor.ToString() 
+				+ "." + version.patch.ToString());
+			this.Quit();
+		}
+		/// <summary>
+		/// 
+		/// </summary>
+		[Test]
 		public void isBMP()
 		{
 			string file = "test.bmp";

@@ -70,7 +70,7 @@ namespace Tao.Sdl
 		{
 			Sdl.SDL_version version = SdlTtf.TTF_Linked_Version();
 			//Console.WriteLine("Ttf version: " + version.ToString());
-			Assert.AreEqual("2.0.7", version.major.ToString() 
+			Assert.AreEqual("2.0.8", version.major.ToString() 
 				+ "." + version.minor.ToString() 
 				+ "." + version.patch.ToString());
 			this.Quit();

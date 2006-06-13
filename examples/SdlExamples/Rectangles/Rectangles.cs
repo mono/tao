@@ -82,7 +82,7 @@ namespace SdlExamples
 			Random rand = new Random();
 			
 			string filepath = @"../../";
-			if (File.Exists("Data/SdlExamples.SmpegPlayer.mpg"))
+			if (File.Exists("Data/SdlExamples.Rectangles.sound.ogg"))
 			{
 				filepath = "";
 			}
