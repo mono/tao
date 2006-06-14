@@ -1,6 +1,6 @@
 <project SchemaVersion="1.3">
     <assemblies>
-        <assembly location="..\..\dist\bin\Tao.PhysFs.dll" documentation="..\..\dist\bin\Tao.PhysFs.xml" />
+        <assembly location="..\..\dist\bin\Tao.PhysFs.dll" documentation="..\..\dist\doc\Tao.PhysFs.xml" />
     </assemblies>
     <documenters>
         <documenter name="JavaDoc">
