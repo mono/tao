@@ -4,7 +4,7 @@
 !define PRODUCT_VERSION "1.3.0"
 !define PRODUCT_BUILD "1"
 !define PRODUCT_PUBLISHER "Tao"
-!define PRODUCT_WEB_SITE "http://www.mono-project.com/Tao"
+!define PRODUCT_WEB_SITE "http://www.taoframework.com"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\Tao"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\Tao"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
@@ -15,7 +15,7 @@
 ;!define MUI_UNWELCOMEFINISHPAGE_BITMAP "TaoLogo.bmp"
 ;!define MUI_UNWELCOMEFINISHPAGE_BITMAP_NOSTRETCH
 
-BrandingText "© 2003-2005 Tao Framework Team, http://www.mono-project.com/Tao"
+BrandingText "© 2003-2006 Tao Framework Team, http://www.taoframework.com"
 SetCompressor lzma
 CRCCheck on
 
