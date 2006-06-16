@@ -219,7 +219,7 @@ namespace Tao.PhysFs
 		}
 		#endregion PHYSFS_ArchiveInfoInternal
 
-		#region PHYSFS_file
+		#region PHYSFS_File
 		/// <summary>
 		/// A PhysicsFS file handle.
 		/// </summary>
@@ -238,14 +238,14 @@ namespace Tao.PhysFs
 		/// <seealso cref="PHYSFS_setBuffer"/>
 		/// <seealso cref="PHYSFS_flush"/>
 		[StructLayout(LayoutKind.Sequential, Pack=4)]
-		public struct PHYSFS_file
+		public struct PHYSFS_File
 		{
 			/// <summary>
 			/// That's all you get. Don't touch. 
 			/// </summary>
 			public IntPtr opaque;
 		}
-		#endregion PHYSFS_file
+		#endregion PHYSFS_File
 
 		#endregion Public Structs
 
@@ -262,7 +262,7 @@ namespace Tao.PhysFs
 		/// <summary>
 		/// Tao.PhysFs's patch version.
 		/// </summary>
-		public const int PHYSFS_VER_PATCH = 0;
+		public const int PHYSFS_VER_PATCH = 1;
 
 		#endregion Public Defines
 

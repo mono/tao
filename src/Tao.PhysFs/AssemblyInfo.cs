@@ -47,8 +47,8 @@ using System.Security.Permissions;
 #elif LINUX
 [assembly: AssemblyDescription("Tao Framework PhysFS Binding For .NET (Linux)")]
 #endif
-[assembly: AssemblyFileVersion("1.0.0.0")]
-[assembly: AssemblyInformationalVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.1.0")]
+[assembly: AssemblyInformationalVersion("1.0.1.0")]
 #if STRONG
 [assembly: AssemblyKeyFile(@"Tao.PhysFs.snk")]
 #else
@@ -66,7 +66,7 @@ using System.Security.Permissions;
 [assembly: AssemblyTitle("Tao Framework PhysFS Binding For .NET (Linux)")]
 #endif
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
-[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyVersion("1.0.1.0")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]

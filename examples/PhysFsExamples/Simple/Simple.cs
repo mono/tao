@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright ©2003-2005 Tao Framework Team
+Copyright ©2003-2006 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -71,6 +71,7 @@ namespace PhysFsExamples
 			 * put a 0 there and have it be the first thing looked at.
 			 */
 			Fs.PHYSFS_addToSearchPath(@"..\..\Data\myzip.zip", 1);
+			Fs.PHYSFS_addToSearchPath(@".\Data\myzip.zip", 1);
 
 			/*
 			 * Now that we have initialized physfs and added an archive to its search path, 
