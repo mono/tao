@@ -1,5 +1,5 @@
 
-** For the latest information, please visit http://www.mono-project.com/Tao
+** For the latest information, please visit http://taoframework.com
 
 There are two ways of building Tao; one requiring GNU make, and a win32-only
 batch file build.  Please contact the tao mailing list with any problems;
