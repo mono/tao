@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright ©2003-2005 Tao Framework Team
+Copyright ©2003-2006 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -38,13 +38,13 @@ using System.Security.Permissions;
 #else
 [assembly: AssemblyConfiguration("Retail")]
 #endif
-[assembly: AssemblyCopyright("Copyright ©2003-2005 Tao Framework Team.  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright ©2003-2006 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.FreeGlut")]
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyDescription("Tao Framework FreeGLUT Binding For .NET")]
-[assembly: AssemblyFileVersion("2.2.0.0")]
-[assembly: AssemblyInformationalVersion("2.2.0.0")]
+[assembly: AssemblyFileVersion("2.4.0.0")]
+[assembly: AssemblyInformationalVersion("2.4.0.0")]
 #if STRONG
 [assembly: AssemblyKeyFile(@"Tao.FreeGlut.snk")]
 #else
@@ -58,7 +58,7 @@ using System.Security.Permissions;
 #endif
 [assembly: AssemblyTitle("Tao Framework FreeGLUT Binding For .NET")]
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
-[assembly: AssemblyVersion("2.2.0.0")]
+[assembly: AssemblyVersion("2.4.0.0")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]
