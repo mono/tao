@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright ©2003-2005 Tao Framework Team
+Copyright ©2003-2006 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -66,99 +66,99 @@ namespace Tao.Platform.Windows {
 
         #region Class styles
         // #define CS_VREDRAW 0x0001
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int CS_VREDRAW = 0x0001;
 
         // #define CS_HREDRAW 0x0002
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int CS_HREDRAW = 0x0002;
 
         // #define CS_DBLCLKS 0x0008
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int CS_DBLCLKS = 0x0008;
 
         // #define CS_OWNDC 0x0020
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int CS_OWNDC = 0x0020;
 
         // #define CS_CLASSDC 0x0040
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int CS_CLASSDC = 0x0040;
 
         // #define CS_PARENTDC 0x0080
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int CS_PARENTDC = 0x0080;
 
         // #define CS_NOCLOSE 0x0200
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int CS_NOCLOSE = 0x0200;
 
         // #define CS_SAVEBITS 0x0800
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int CS_SAVEBITS = 0x0800;
 
         // #define CS_BYTEALIGNCLIENT 0x1000
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int CS_BYTEALIGNCLIENT = 0x1000;
 
         // #define CS_BYTEALIGNWINDOW 0x2000
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int CS_BYTEALIGNWINDOW = 0x2000;
 
         // #define CS_GLOBALCLASS 0x4000
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int CS_GLOBALCLASS = 0x4000;
 
         // #define CS_IME 0x00010000
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int CS_IME = 0x00010000;
 
         // #define CS_DROPSHADOW 0x00020000
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int CS_DROPSHADOW = 0x00020000;
         #endregion Class styles
 
         // #define CDS_UPDATEREGISTRY 0x00000001
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int CDS_UPDATEREGISTRY = 0x00000001;
 
         // #define CDS_TEST 0x00000002
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int CDS_TEST = 0x00000002;
 
         // #define CDS_FULLSCREEN 0x00000004
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int CDS_FULLSCREEN = 0x00000004;
 
@@ -169,20 +169,20 @@ namespace Tao.Platform.Windows {
         // #define CDS_NORESET 0x10000000
 
         // #define DISP_CHANGE_SUCCESSFUL 0
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int DISP_CHANGE_SUCCESSFUL = 0;
 
         // #define DISP_CHANGE_RESTART 1
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int DISP_CHANGE_RESTART = 1;
 
         // #define DISP_CHANGE_FAILED -1
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int DISP_CHANGE_FAILED = -1;
 
@@ -192,8 +192,8 @@ namespace Tao.Platform.Windows {
         // #define DISP_CHANGE_BADPARAM -5
         // #define DISP_CHANGE_BADDUALVIEW -6
 
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public const int ENUM_CURRENT_SETTINGS = -1;
 
@@ -864,12 +864,12 @@ namespace Tao.Platform.Windows {
         public static extern int ChangeDisplaySettings(IntPtr devMode, int flags);
         #endregion int ChangeDisplaySettings(IntPtr devMode, int flags)
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="deviceName"></param>
-		/// <param name="modeNumber"></param>
-		/// <param name="devMode"></param>
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="deviceName"></param>
+		/// <param name="modeNumber"></param>
+		/// <param name="devMode"></param>
 		/// <returns></returns>
         [DllImport(USER_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, CharSet=CharSet.Auto, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern bool EnumDisplaySettings(string deviceName, int modeNumber, out Gdi.DEVMODE devMode);

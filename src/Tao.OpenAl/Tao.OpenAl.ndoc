@@ -23,7 +23,7 @@
             <property name="Title" value="Tao.OpenAl SDK Documentation" />
             <property name="OutputTarget" value="HtmlHelp" />
             <property name="AssemblyVersionInfo" value="AssemblyVersion" />
-            <property name="CopyrightText" value="Copyright ©2003-2005 Tao Framework Team" />
+            <property name="CopyrightText" value="Copyright ©2003-2006 Tao Framework Team" />
             <property name="CopyrightHref" value="http://mono-project.com/Tao" />
         </documenter>
         <documenter name="MSDN 2003">

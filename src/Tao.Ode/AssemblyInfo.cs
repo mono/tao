@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright 2003-2005 Tao Framework Team
+Copyright 2003-2006 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -38,7 +38,7 @@ using System.Security.Permissions;
 #else
 [assembly: AssemblyConfiguration("Retail")]
 #endif
-[assembly: AssemblyCopyright("Copyright 2003-2005 Tao Framework Team.  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright 2003-2006 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.Ode")]
 [assembly: AssemblyDelaySign(false)]

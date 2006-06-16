@@ -1,5 +1,5 @@
 Tao.OpenGl 1.5.0.3
-Copyright ©2003-2005 Tao Framework Team
+Copyright ©2003-2006 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 

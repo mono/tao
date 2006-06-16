@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright ©2003-2005 Tao Framework Team
+Copyright ©2003-2006 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -35,7 +35,7 @@ namespace Tao.Sdl
 {
 	#region Class Documentation
 	/// <summary>
-	///     Simple DirectMedia Layer binding for .NET, implementing SDL 1.2.9.
+	///     Simple DirectMedia Layer binding for .NET, implementing SDL 1.2.10.
 	/// </summary>
 	/// <remarks>
 	/// This library is designed to make it easy to write games that run 

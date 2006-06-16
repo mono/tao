@@ -2,7 +2,7 @@ The Tao Framework for .NET is a collection of bindings to facilitate
 cross-platform game-related development utilizing the .NET platform.
 
 Currently included bindings are OpenGL 1.5, GLU 1.3, GLUT 3.7.6, WGL,
-various GL and WGL-related extensions, OpenAL 1.0, Cg 1.2.1, DevIL 1.6.6,
+various GL and WGL-related extensions, OpenAL 1.0, Cg 1.2.1, DevIL 1.6.7,
 SDL 1.2.10, and GLFW 2.4.2.
 
 These bindings all function in a cross-platform and cross-runtime manner

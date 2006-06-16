@@ -2,7 +2,7 @@
 /*
 MIT License
 Copyright (C)2004-2005 Vladimir Vukicevic <vladimir@pobox.com>
-Copyright (C)2004-2005 Tao Framework Team
+Copyright (C)2004-2006 Tao Framework Team
 http://www.taoframework.com
 
 All rights reserved.
@@ -39,7 +39,7 @@ using System.Security.Permissions;
 #else
 [assembly: AssemblyConfiguration("Retail")]
 #endif
-[assembly: AssemblyCopyright("Copyright ©2003-2005 Tao Framework Team.  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright ©2003-2006 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.GlPostProcess")]
 [assembly: AssemblyDelaySign(false)]
