@@ -1,5 +1,5 @@
 Tao.DevIl 1.6.7.0
-Copyright ©2003-2005 Tao Framework Team
+Copyright ©2003-2006 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
