@@ -80,14 +80,17 @@ namespace OpenAlExamples {
         private static int[] source = new int[NUM_SOURCES];
         private static int window;
         private static int size;
-        private static int frequency;
+        private static float frequency;
         private static int format;
-        private static byte[] data = null;
-        private static int loop;
+        private static IntPtr data = IntPtr.Zero;
+        //private static int loop;
         #endregion Private Fields
 
         // --- Entry Point ---
         #region Main()
+		/// <summary>
+		/// 
+		/// </summary>
         public static void Main() {
             Glut.glutInit();
             Glut.glutInitDisplayMode(Glut.GLUT_DEPTH | Glut.GLUT_DOUBLE | Glut.GLUT_RGB);
@@ -189,25 +192,25 @@ namespace OpenAlExamples {
             if(fileName == null) {
                 Environment.Exit(-1);
             }
-            Alut.alutLoadWAVFile(fileName, out format, out data, out size, out frequency, out loop);
-            Al.alBufferData(buffer[0], format, data, size, frequency);
-            Alut.alutUnloadWAV(format, out data, size, frequency);
+            data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
+			Al.alBufferData(buffer[0], format, data, size, (int)frequency);
+            //Alut.alutUnloadWAV(format, out data, size, frequency);
 
             fileName = FindFile("OpenAlExamples.Boxes.B.wav");
             if(fileName == null) {
                 Environment.Exit(-1);
             }
-            Alut.alutLoadWAVFile(fileName, out format, out data, out size, out frequency, out loop);
-            Al.alBufferData(buffer[1], format, data, size, frequency);
-            Alut.alutUnloadWAV(format, out data, size, frequency);
+            data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
+            Al.alBufferData(buffer[1], format, data, size, (int)frequency);
+            //Alut.alutUnloadWAV(format, out data, size, frequency);
 
             fileName = FindFile("OpenAlExamples.Boxes.A.wav");
             if(fileName == null) {
                 Environment.Exit(-1);
             }
-            Alut.alutLoadWAVFile(fileName, out format, out data, out size, out frequency, out loop);
-            Al.alBufferData(buffer[2], format, data, size, frequency);
-            Alut.alutUnloadWAV(format, out data, size, frequency);
+            data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
+            Al.alBufferData(buffer[2], format, data, size, (int)frequency);
+            //Alut.alutUnloadWAV(format, out data, size, frequency);
 
             Al.alGetError();
             Al.alGenSources(NUM_SOURCES, source);

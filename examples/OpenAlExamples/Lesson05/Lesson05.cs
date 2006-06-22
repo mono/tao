@@ -102,6 +102,9 @@ namespace OpenAlExamples {
 
         // --- Entry Point ---
         #region Main()
+		/// <summary>
+		/// 
+		/// </summary>
         public static void Main() {
             Console.WriteLine("MindCode's OpenAL Lesson 5: Sources Sharing Buffers");
             Console.WriteLine();
@@ -224,9 +227,9 @@ namespace OpenAlExamples {
             // Variables to load into.
             int format;
             int size;
-            byte[] data = null;
-            int frequency;
-            int loop;
+            IntPtr data = IntPtr.Zero;
+            float frequency;
+            //int loop;
 
             // Generate an OpenAL buffer.
             Al.alGenBuffers(NUM_BUFFERS, buffer);
@@ -240,14 +243,15 @@ namespace OpenAlExamples {
             fileName = FindFile("OpenAlExamples.Lesson05.Thunder.wav");
             if(fileName != null) {
                 // Load wav.
-                Alut.alutLoadWAVFile(fileName, out format, out data, out size, out frequency, out loop);
-                if(data == null) {
+				data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
+				if(data == IntPtr.Zero) 
+				{
                     return false;
                 }
 
                 // Load wav data into the generated buffer.
-                Al.alBufferData(buffer[THUNDER], format, data, size, frequency);
-                Alut.alutUnloadWAV(format, out data, size, frequency);
+                Al.alBufferData(buffer[THUNDER], format, data, size, (int)frequency);
+                //Alut.alutUnloadWAV(format, out data, size, frequency);
             }
             else {
                 return false;
@@ -257,14 +261,15 @@ namespace OpenAlExamples {
             fileName = FindFile("OpenAlExamples.Lesson05.Waterdrop.wav");
             if(fileName != null) {
                 // Load wav.
-                Alut.alutLoadWAVFile(fileName, out format, out data, out size, out frequency, out loop);
-                if(data == null) {
+				data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
+				if(data == IntPtr.Zero) 
+				{
                     return false;
                 }
 
                 // Load wav data into the generated buffer.
-                Al.alBufferData(buffer[WATERDROP], format, data, size, frequency);
-                Alut.alutUnloadWAV(format, out data, size, frequency);
+                Al.alBufferData(buffer[WATERDROP], format, data, size, (int)frequency);
+                //Alut.alutUnloadWAV(format, out data, size, frequency);
             }
             else {
                 return false;
@@ -274,14 +279,15 @@ namespace OpenAlExamples {
             fileName = FindFile("OpenAlExamples.Lesson05.Stream.wav");
             if(fileName != null) {
                 // Load wav.
-                Alut.alutLoadWAVFile(fileName, out format, out data, out size, out frequency, out loop);
-                if(data == null) {
+				data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
+				if(data == IntPtr.Zero) 
+				{
                     return false;
                 }
 
                 // Load wav data into the generated buffer.
-                Al.alBufferData(buffer[STREAM], format, data, size, frequency);
-                Alut.alutUnloadWAV(format, out data, size, frequency);
+                Al.alBufferData(buffer[STREAM], format, data, size, (int)frequency);
+                //Alut.alutUnloadWAV(format, out data, size, frequency);
             }
             else {
                 return false;
@@ -291,14 +297,15 @@ namespace OpenAlExamples {
             fileName = FindFile("OpenAlExamples.Lesson05.Rain.wav");
             if(fileName != null) {
                 // Load wav.
-                Alut.alutLoadWAVFile(fileName, out format, out data, out size, out frequency, out loop);
-                if(data == null) {
+				data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
+				if(data == IntPtr.Zero) 
+				{
                     return false;
                 }
 
                 // Load wav data into the generated buffer.
-                Al.alBufferData(buffer[RAIN], format, data, size, frequency);
-                Alut.alutUnloadWAV(format, out data, size, frequency);
+                Al.alBufferData(buffer[RAIN], format, data, size, (int)frequency);
+                //Alut.alutUnloadWAV(format, out data, size, frequency);
             }
             else {
                 return false;
@@ -308,14 +315,15 @@ namespace OpenAlExamples {
             fileName = FindFile("OpenAlExamples.Lesson05.Ocean.wav");
             if(fileName != null) {
                 // Load wav.
-                Alut.alutLoadWAVFile(fileName, out format, out data, out size, out frequency, out loop);
-                if(data == null) {
+				data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
+				if(data == IntPtr.Zero) 
+				{
                     return false;
                 }
 
                 // Load wav data into the generated buffer.
-                Al.alBufferData(buffer[OCEAN], format, data, size, frequency);
-                Alut.alutUnloadWAV(format, out data, size, frequency);
+                Al.alBufferData(buffer[OCEAN], format, data, size, (int)frequency);
+               // Alut.alutUnloadWAV(format, out data, size, frequency);
             }
             else {
                 return false;
@@ -325,14 +333,15 @@ namespace OpenAlExamples {
             fileName = FindFile("OpenAlExamples.Lesson05.Chimes.wav");
             if(fileName != null) {
                 // Load wav.
-                Alut.alutLoadWAVFile(fileName, out format, out data, out size, out frequency, out loop);
-                if(data == null) {
+				data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
+				if(data == IntPtr.Zero) 
+				{
                     return false;
                 }
 
                 // Load wav data into the generated buffer.
-                Al.alBufferData(buffer[CHIMES], format, data, size, frequency);
-                Alut.alutUnloadWAV(format, out data, size, frequency);
+                Al.alBufferData(buffer[CHIMES], format, data, size, (int)frequency);
+                //Alut.alutUnloadWAV(format, out data, size, frequency);
             }
             else {
                 return false;

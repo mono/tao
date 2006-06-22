@@ -93,6 +93,9 @@ namespace OpenAlExamples {
 
         // --- Entry Point ---
         #region Main()
+		/// <summary>
+		/// 
+		/// </summary>
         public static void Main() {
             Console.WriteLine("MindCode's OpenAL Lesson 3: Multiple Sources");
             Console.WriteLine();
@@ -188,9 +191,9 @@ namespace OpenAlExamples {
             // Variables to load into.
             int format;
             int size;
-            byte[] data = null;
-            int frequency;
-            int loop;
+            IntPtr data = IntPtr.Zero;
+            float frequency;
+            //int loop;
 
             // Generate an OpenAL buffer.
             Al.alGenBuffers(NUM_BUFFERS, buffer);
@@ -204,14 +207,14 @@ namespace OpenAlExamples {
             fileName = FindFile("OpenAlExamples.Lesson03.Battle.wav");
             if(fileName != null) {
                 // Load wav.
-                Alut.alutLoadWAVFile(fileName, out format, out data, out size, out frequency, out loop);
-                if(data == null) {
+                data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
+                if(data == IntPtr.Zero) {
                     return false;
                 }
 
                 // Load wav data into the generated buffer.
-                Al.alBufferData(buffer[BATTLE], format, data, size, frequency);
-                Alut.alutUnloadWAV(format, out data, size, frequency);
+                Al.alBufferData(buffer[BATTLE], format, data, size, (int)frequency);
+                //Alut.a(format, out data, size, frequency);
             }
             else {
                 return false;
@@ -221,14 +224,15 @@ namespace OpenAlExamples {
             fileName = FindFile("OpenAlExamples.Lesson03.Gun1.wav");
             if(fileName != null) {
                 // Load wav.
-                Alut.alutLoadWAVFile(fileName, out format, out data, out size, out frequency, out loop);
-                if(data == null) {
+				data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
+				if(data == IntPtr.Zero) 
+				{
                     return false;
                 }
 
                 // Load wav data into the generated buffer.
-                Al.alBufferData(buffer[GUN1], format, data, size, frequency);
-                Alut.alutUnloadWAV(format, out data, size, frequency);
+                Al.alBufferData(buffer[GUN1], format, data, size, (int)frequency);
+                //Alut.alutUnloadWAV(format, out data, size, frequency);
             }
             else {
                 return false;
@@ -238,14 +242,15 @@ namespace OpenAlExamples {
             fileName = FindFile("OpenAlExamples.Lesson03.Gun2.wav");
             if(fileName != null) {
                 // Load wav.
-                Alut.alutLoadWAVFile(fileName, out format, out data, out size, out frequency, out loop);
-                if(data == null) {
+				data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
+				if(data == IntPtr.Zero) 
+				{
                     return false;
                 }
 
                 // Load wav data into the generated buffer.
-                Al.alBufferData(buffer[GUN2], format, data, size, frequency);
-                Alut.alutUnloadWAV(format, out data, size, frequency);
+                Al.alBufferData(buffer[GUN2], format, data, size, (int)frequency);
+               // Alut.alutUnloadWAV(format, out data, size, frequency);
             }
             else {
                 return false;

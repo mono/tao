@@ -79,6 +79,9 @@ namespace OpenAlExamples {
 
         // --- Entry Point ---
         #region Main()
+		/// <summary>
+		/// 
+		/// </summary>
         public static void Main() {
             Console.WriteLine("MindCode's OpenAL Lesson 1: Single Static Source");
             Console.WriteLine();
@@ -153,9 +156,9 @@ namespace OpenAlExamples {
             // Variables to load into.
             int format;
             int size;
-            byte[] data = null;
-            int frequency;
-            int loop;
+            IntPtr data = IntPtr.Zero;
+            float frequency;
+            //int loop;
 
             // Generate an OpenAL buffer.
             Al.alGenBuffers(1, out buffer);
@@ -179,14 +182,14 @@ namespace OpenAlExamples {
             }
 
             // Load wav.
-            Alut.alutLoadWAVFile(fileName, out format, out data, out size, out frequency, out loop);
-            if(data == null) {
+            data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
+            if(data == IntPtr.Zero) {
                 return false;
             }
 
             // Load wav data into the generated buffer.
-            Al.alBufferData(buffer, format, data, size, frequency);
-            Alut.alutUnloadWAV(format, out data, size, frequency);
+            Al.alBufferData(buffer, format, data, size, (int)frequency);
+           // Alut.alutUnloadWAV(format, out data, size, frequency);
 
             // Generate an OpenAL source.
             Al.alGenSources(1, out source);
@@ -200,7 +203,7 @@ namespace OpenAlExamples {
             Al.alSourcef(source, Al.AL_GAIN, 1.0f);
             Al.alSourcefv(source, Al.AL_POSITION, sourcePosition);
             Al.alSourcefv(source, Al.AL_VELOCITY, sourceVelocity);
-            Al.alSourcei(source, Al.AL_LOOPING, loop);
+            Al.alSourcei(source, Al.AL_LOOPING, 0);
 
             // Do a final error check and then return.
             if(Al.alGetError() == Al.AL_NO_ERROR) {

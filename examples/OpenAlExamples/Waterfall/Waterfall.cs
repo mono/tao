@@ -109,6 +109,9 @@ namespace OpenAlExamples {
 
         // --- Entry Point ---
         #region Main()
+		/// <summary>
+		/// 
+		/// </summary>
         public static void Main() {
             Initialize();
             Glut.glutMainLoop();
@@ -177,6 +180,9 @@ namespace OpenAlExamples {
         #endregion DrawWater()
 
         #region Finish()
+		/// <summary>
+		/// 
+		/// </summary>
         public static void Finish() {
             sound.Destroy();
             Alut.alutExit();

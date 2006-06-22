@@ -8538,7 +8538,7 @@ namespace Tao.FreeGlut {
         ///     Get the user data for the current window.
         /// </summary>
         /// <returns>
-        ///     An <see cref="IntPtr" /> associated with the current window as set with <see cref="glutSetWindowData" />.
+        ///     An <see cref="IntPtr" /> associated with the current window as set with <see cref="glutSetupWindowData" />.
         /// </returns>
         [DllImport(FREEGLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr glutGetWindowData();
