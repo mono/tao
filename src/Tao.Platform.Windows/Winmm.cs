@@ -684,78 +684,63 @@ namespace Tao.Platform.Windows {
             /// <summary>
             ///     Minimum X-coordinate.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wXmin;
+            public Int32 wXmin;
             /// <summary>
             ///     Maximum X-coordinate.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wXmax;
+            public Int32 wXmax;
             /// <summary>
             /// Minimum Y-coordinate.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wYmin;
+            public Int32 wYmin;
             /// <summary>
             ///     Maximum Y-coordinate.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wYmax;
+            public Int32 wYmax;
             /// <summary>
             ///     Minimum Z-coordinate.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wZmin;
+            public Int32 wZmin;
             /// <summary>
             ///     Maximum Z-coordinate.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wZmax;
+            public Int32 wZmax;
             /// <summary>
             ///     Number of joystick buttons.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wNumButtons;
+            public Int32 wNumButtons;
             /// <summary>
             ///     Smallest polling frequency supported when captured by the <see cref="joySetCapture"/> function.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wPeriodMin;
+            public Int32 wPeriodMin;
             /// <summary>
             ///     Largest polling frequency supported when captured by <see cref="joySetCapture"/>.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wPeriodMax;
+            public Int32 wPeriodMax;
             /// <summary>
             ///     Minimum rudder value. The rudder is a fourth axis of movement.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wRmin;
+            public Int32 wRmin;
             /// <summary>
             ///     Maximum rudder value. The rudder is a fourth axis of movement.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wRmax;
+            public Int32 wRmax;
             /// <summary>
             ///     Minimum u-coordinate (fifth axis) values.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wUmin;
+            public Int32 wUmin;
             /// <summary>
             ///     Maximum u-coordinate (fifth axis) values.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wUmax;
+            public Int32 wUmax;
             /// <summary>
             ///     Minimum v-coordinate (sixth axis) values.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wVmin;
+            public Int32 wVmin;
             /// <summary>
             ///     Maximum v-coordinate (sixth axis) values.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wVmax;
+            public Int32 wVmax;
             /// <summary>
             ///     Joystick capabilities The following flags define individual capabilities that a joystick might have:
             /// </summary>
@@ -768,23 +753,19 @@ namespace Tao.Platform.Windows {
             ///     <see cref="JOYCAPS_POV4DIR"/> - Joystick point-of-view supports discrete values (centered, forward, backward, left, and right).
             ///     <see cref="JOYCAPS_POVCTS"/> - Joystick point-of-view supports continuous degree bearings.
             /// </remarks>
-            [CLSCompliant(false)]
-            public uint wCaps;
+            public Int32 wCaps;
             /// <summary>
             ///     Maximum number of axes supported by the joystick.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wMaxAxes;
+            public Int32 wMaxAxes;
             /// <summary>
             ///     Number of axes currently in use by the joystick.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wNumAxes;
+            public Int32 wNumAxes;
             /// <summary>
             ///     Maximum number of buttons supported by the joystick.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wMaxButtons;
+            public Int32 wMaxButtons;
             /// <summary>
             ///     Null-terminated string containing the registry key for the joystick.
             /// </summary>
@@ -818,18 +799,15 @@ namespace Tao.Platform.Windows {
             /// <summary>
             ///     Current X-coordinate.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wXpos;
+            public Int32 wXpos;
             /// <summary>
             ///     Current Y-coordinate.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wYpos;
+            public Int32 wYpos;
             /// <summary>
             ///     Current Z-coordinate.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint wZpos;
+            public Int32 wZpos;
             /// <summary>
             ///     Current state of joystick buttons.
             /// </summary>
@@ -842,8 +820,7 @@ namespace Tao.Platform.Windows {
             ///         <see cref="JOY_BUTTON4"/> - Fourth joystick button is pressed.
             ///     </para>
             /// </remarks>
-            [CLSCompliant(false)]
-            public uint wButtons;
+            public Int32 wButtons;
         }
         #endregion JOYINFO
 
@@ -876,8 +853,7 @@ namespace Tao.Platform.Windows {
             /// <summary>
             /// Size, in bytes, of this structure.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint dwSize;
+            public Int32 dwSize;
             /// <summary>
             /// Flags indicating the valid information returned in this structure. Members that do not contain valid information are set to zero.
             /// </summary>
@@ -915,63 +891,51 @@ namespace Tao.Platform.Windows {
             ///     <see cref="JOY_CAL_READVONLY"/> - Read the v-coordinate if a joystick mini-driver is present that will provide the data and store the raw value in dwVpos. Return zero otherwise.
             /// </para>
             /// </remarks>
-            [CLSCompliant(false)]
-            public uint dwFlags;
+            public Int32 dwFlags;
             /// <summary>
             /// Current X-coordinate.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint dwXpos;
+            public Int32 dwXpos;
             /// <summary>
             /// Current Y-coordinate.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint dwYpos;
+            public Int32 dwYpos;
             /// <summary>
             /// Current Z-coordinate.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint dwZpos;
+            public Int32 dwZpos;
             /// <summary>
             /// Current position of the rudder or fourth joystick axis.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint dwRpos;
+            public Int32 dwRpos;
             /// <summary>
             /// Current fifth axis position.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint dwUpos;
+            public Int32 dwUpos;
             /// <summary>
             /// Current sixth axis position.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint dwVpos;
+            public Int32 dwVpos;
             /// <summary>
             /// Current state of the 32 joystick buttons. The value of this member can be set to any combination of JOY_BUTTONn flags, where n is a value in the range of 1 through 32 corresponding to the button that is pressed.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint dwButtons;
+            public Int32 dwButtons;
             /// <summary>
             /// Current button number that is pressed.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint dwButtonNumber;
+            public Int32 dwButtonNumber;
             /// <summary>
             /// Current position of the point-of-view control. Values for this member are in the range 0 through 35,900. These values represent the angle, in degrees, of each view multiplied by 100.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint dwPOV;
+            public Int32 dwPOV;
             /// <summary>
             /// Reserved; do not use.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint dwReserved1;
+            public Int32 dwReserved1;
             /// <summary>
             /// Reserved; do not use.
             /// </summary>
-            [CLSCompliant(false)]
-            public uint dwReserved2;
+            public Int32 dwReserved2;
         }
         #endregion JOYINFOEX
 
@@ -1272,7 +1236,7 @@ namespace Tao.Platform.Windows {
         public static extern Int32 timeGetTime();
         #endregion Int32 timeGetTime()
 
-        #region Int32 joyConfigChanged(ulong dwFlags)
+        #region Int32 joyConfigChanged(Int64 dwFlags)
         /// <summary>
         ///     The joyConfigChanged function informs the joystick driver that the configuration has changed and should be reloaded from the registry.
         /// </summary>
@@ -1290,12 +1254,11 @@ namespace Tao.Platform.Windows {
         ///         #define JOY_CONFIGCHANGED_MSGSTRING     "MSJSTICK_VJOYD_MSGSTR"
         ///     </code>
         /// </remarks>
-        [CLSCompliant(false)]
         [DllImport(WINMM_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern Int32 joyConfigChanged(ulong dwFlags);
-        #endregion Int32 joyConfigChanged(ulong dwFlags)
+        public static extern Int32 joyConfigChanged(Int64 dwFlags);
+        #endregion Int32 joyConfigChanged(Int64 dwFlags)
 
-        #region Int32 joyGetDevCaps(UIntPtr uJoyID, ref JOYCAPS pjc, uint cbjc)
+        #region Int32 joyGetDevCaps(UIntPtr uJoyID, ref JOYCAPS pjc, Int32 cbjc)
         /// <summary>
         ///     The joyGetDevCaps function queries a joystick to determine its capabilities.
         /// </summary>
@@ -1328,10 +1291,9 @@ namespace Tao.Platform.Windows {
         /// </remarks>
         /// <seealso cref="JOYCAPS"/>
         /// <seealso cref="joyGetNumDevs"/>
-        [CLSCompliant(false)]
         [DllImport(WINMM_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern Int32 joyGetDevCaps(UIntPtr uJoyID, ref JOYCAPS pjc, uint cbjc);
-        #endregion Int32 joyGetDevCaps(UIntPtr uJoyID, ref JOYCAPS pjc, uint cbjc)
+        public static extern Int32 joyGetDevCaps(IntPtr uJoyID, ref JOYCAPS pjc, Int32 cbjc);
+        #endregion Int32 joyGetDevCaps(IntPtr uJoyID, ref JOYCAPS pjc, Int32 cbjc)
 
         #region Int32 joyGetNumDevs()
         /// <summary>
@@ -1349,7 +1311,7 @@ namespace Tao.Platform.Windows {
         public static extern Int32 joyGetNumDevs();
         #endregion Int32 joyGetNumDevs()
 
-        #region Int32 joyGetPos(uint uJoyID, ref JOYINFO pji)
+        #region Int32 joyGetPos(Int32 uJoyID, ref JOYINFO pji)
         /// <summary>
         ///     The joyGetPos function queries a joystick for its position and button status.
         /// </summary>
@@ -1370,12 +1332,11 @@ namespace Tao.Platform.Windows {
         /// <remarks>
         ///     For devices that have four to six axes of movement, a point-of-view control, or more than four buttons, use the <see cref="joyGetPosEx"/> function.
         /// </remarks>
-        [CLSCompliant(false)]
         [DllImport(WINMM_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern Int32 joyGetPos(uint uJoyID, ref JOYINFO pji);
-        #endregion Int32 joyGetPos(uint uJoyID, ref JOYINFO pji)
+        public static extern Int32 joyGetPos(Int32 uJoyID, ref JOYINFO pji);
+        #endregion Int32 joyGetPos(Int32 uJoyID, ref JOYINFO pji)
 
-        #region Int32 joyGetPosEx(uint uJoyID, ref JOYINFOEX pji)
+        #region Int32 joyGetPosEx(Int32 uJoyID, ref JOYINFOEX pji)
         /// <summary>
         ///     The joyGetPosEx function queries a joystick for its position and button status.
         /// </summary>
@@ -1401,12 +1362,11 @@ namespace Tao.Platform.Windows {
         /// <remarks>
         ///     This function provides access to extended devices such as rudder pedals, point-of-view hats, devices with a large number of buttons, and coordinate systems using up to six axes. For joystick devices that use three axes or fewer and have fewer than four buttons, use the joyGetPos function.
         /// </remarks>
-        [CLSCompliant(false)]
         [DllImport(WINMM_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern Int32 joyGetPosEx(uint uJoyID, ref JOYINFOEX pji);
-        #endregion Int32 joyGetPosEx(uint uJoyID, ref JOYINFOEX pji)
+        public static extern Int32 joyGetPosEx(Int32 uJoyID, ref JOYINFOEX pji);
+        #endregion Int32 joyGetPosEx(Int32 uJoyID, ref JOYINFOEX pji)
 
-        #region Int32 joyGetThreshold(uint uJoyID, UIntPtr puThreshold)
+        #region Int32 joyGetThreshold(Int32 uJoyID, UIntPtr puThreshold)
         /// <summary>
         ///     The joyGetThreshold function queries a joystick for its current movement threshold.
         /// </summary>
@@ -1428,12 +1388,11 @@ namespace Tao.Platform.Windows {
         /// <remarks>
         ///     The movement threshold is the distance the joystick must be moved before a joystick position-change message (<see cref="MM_JOY1MOVE"/>, <see cref="MM_JOY1ZMOVE"/>, <see cref="MM_JOY2MOVE"/>, or <see cref="MM_JOY2ZMOVE"/>) is sent to a window that has captured the device. The threshold is initially zero.
         /// </remarks>
-        [CLSCompliant(false)]
         [DllImport(WINMM_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern Int32 joyGetThreshold(uint uJoyID, UIntPtr puThreshold);
-        #endregion Int32 joyGetThreshold(uint uJoyID, UIntPtr puThreshold)
+        public static extern Int32 joyGetThreshold(Int32 uJoyID, IntPtr puThreshold);
+        #endregion Int32 joyGetThreshold(Int32 uJoyID, UIntPtr puThreshold)
 
-        #region Int32 joyReleaseCapture(uint uJoyID)
+        #region Int32 joyReleaseCapture(Int32 uJoyID)
         /// <summary>
         ///     The joyReleaseCapture function releases the specified captured joystick.
         /// </summary>
@@ -1453,12 +1412,11 @@ namespace Tao.Platform.Windows {
         /// <remarks>
         ///     Windows 95/98/Me: This method returns JOYERR_NOERROR when passed a valid joystick identifier that has not been captured.
         /// </remarks>
-        [CLSCompliant(false)]
         [DllImport(WINMM_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern Int32 joyReleaseCapture(uint uJoyID);
-        #endregion Int32 joyReleaseCapture(uint uJoyID)
+        public static extern Int32 joyReleaseCapture(Int32 uJoyID);
+        #endregion Int32 joyReleaseCapture(Int32 uJoyID)
 
-        #region Int32 joySetCapture(int hwnd, uint uJoyID, uint uPeriod, bool fChanged)
+        #region Int32 joySetCapture(int hwnd, Int32 uJoyID, Int32 uPeriod, bool fChanged)
         /// <summary>
         ///     The joySetCature function captures a joystick by causing its messages to be sent to the specified window.
         /// </summary>
@@ -1489,12 +1447,11 @@ namespace Tao.Platform.Windows {
         /// <remarks>
         ///     This function fails if the specified joystick is currently captured. Call the joyReleaseCapture function to release the captured joystick, or destroy the window to release the joystick automatically.
         /// </remarks>
-        [CLSCompliant(false)]
         [DllImport(WINMM_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern Int32 joySetCapture(int hwnd, uint uJoyID, uint uPeriod, bool fChanged);
-        #endregion Int32 joySetCapture(int hwnd, uint uJoyID, uint uPeriod, bool fChanged)
+        public static extern Int32 joySetCapture(int hwnd, Int32 uJoyID, Int32 uPeriod, bool fChanged);
+        #endregion Int32 joySetCapture(int hwnd, Int32 uJoyID, Int32 uPeriod, bool fChanged)
 
-        #region Int32 joySetThreshold(uint uJoyID, uint uThreshold)
+        #region Int32 joySetThreshold(Int32 uJoyID, Int32 uThreshold)
         /// <summary>
         ///     The joySetThreshold function sets the movement threshold of a joystick.
         /// </summary>
@@ -1516,10 +1473,9 @@ namespace Tao.Platform.Windows {
         /// <remarks>
         ///     The movement threshold is the distance the joystick must be moved before a joystick position-change message (<see cref="MM_JOY1MOVE"/>, <see cref="MM_JOY1ZMOVE"/>, <see cref="MM_JOY2MOVE"/>, or <see cref="MM_JOY2ZMOVE"/>) is sent to a window that has captured the device. The threshold is initially zero.
         /// </remarks>
-        [CLSCompliant(false)]
         [DllImport(WINMM_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern Int32 joySetThreshold(uint uJoyID, uint uThreshold);
-        #endregion Int32 joySetThreshold(uint uJoyID, uint uThreshold)
+        public static extern Int32 joySetThreshold(Int32 uJoyID, Int32 uThreshold);
+        #endregion Int32 joySetThreshold(Int32 uJoyID, Int32 uThreshold)
 
     }
 }
