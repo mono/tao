@@ -304,7 +304,7 @@ namespace Tao.Ode
 			/// <summary>
 			/// 
 			/// </summary>
-			dCCylinderClass = 2,
+			dCapsuleClass = 2,
 			/// <summary>
 			/// 
 			/// </summary>
@@ -3678,11 +3678,11 @@ namespace Tao.Ode
 		/// <param name="radius">The radius of the cylinder (and the spherical cap)</param>
 		/// <param name="length">The length of the cylinder (not counting the spherical cap)</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dMassSetCappedCylinder(ref dMass mass, dReal density, int direction,
+		public extern static void dMassSetCapsule(ref dMass mass, dReal density, int direction,
 			dReal radius, dReal length);
 		
 		/* TLT comment:
-		 Calls dMassSetCappedCylinder and dMassAdjust internally.
+		 Calls dMassSetCapsule and dMassAdjust internally.
 		 parameter a = radius, parameter b = length - should probably name them this, but
 		 for now am following the Ode code.
 		 */
@@ -3699,7 +3699,7 @@ namespace Tao.Ode
 		/// <param name="radius">The radius of the cylinder (and the spherical cap)</param>
 		/// <param name="length">The length of the cylinder (not counting the spherical cap)</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dMassSetCappedCylinderTotal(ref dMass mass, dReal total_mass, int direction,
+		public extern static void dMassSetCapsuleTotal(ref dMass mass, dReal total_mass, int direction,
 			dReal radius, dReal length);
 		
 		/// <summary>
@@ -4045,7 +4045,7 @@ namespace Tao.Ode
 		/// Given a geom, this returns its class number. The standard class numbers are:
 		///		dSphereClass  			Sphere
 		///		dBoxClass  				Box
-		///		dCCylinderClass			Capped cylinder
+		///		dCapsuleClass			Capped cylinder
 		///		dCylinderClass  		Regular flat-ended cylinder
 		///		dPlaneClass  			Infinite plane (non-placeable)
 		///		dGeomTransformClass 	Geometry transform
@@ -4456,7 +4456,7 @@ namespace Tao.Ode
 		/// <param name="radius">A  dReal</param>
 		/// <param name="length">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static dGeomID dCreateCCylinder(dSpaceID space, dReal radius, dReal length);
+		public extern static dGeomID dCreateCapsule(dSpaceID space, dReal radius, dReal length);
 		
 		/// <summary>
 		/// Set the parameters of the given capped cylinder.
@@ -4465,7 +4465,7 @@ namespace Tao.Ode
 		/// <param name="radius">A  dReal</param>
 		/// <param name="length">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dGeomCCylinderSetParams(dGeomID ccylinder, dReal radius, dReal length);
+		public extern static void dGeomCapsuleSetParams(dGeomID ccylinder, dReal radius, dReal length);
 		
 		/// <summary>
 		/// Return in radius and length the parameters of the given capped cylinder.
@@ -4474,7 +4474,7 @@ namespace Tao.Ode
 		/// <param name="radius">A  dReal</param>
 		/// <param name="length">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dGeomCCylinderGetParams(dGeomID ccylinder, ref dReal radius, ref dReal length);
+		public extern static void dGeomCapsuleGetParams(dGeomID ccylinder, ref dReal radius, ref dReal length);
 		
 		/// <summary>
 		/// Return the depth of the point (x,y,z) in the given capped cylinder. 
@@ -4488,7 +4488,7 @@ namespace Tao.Ode
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static dReal dGeomCCylinderPointDepth(dGeomID ccylinder, dReal x, dReal y, dReal z);
+		public extern static dReal dGeomCapsulePointDepth(dGeomID ccylinder, dReal x, dReal y, dReal z);
 		#endregion Capped cylinder class
 		#region Ray class
 		/// <summary>
