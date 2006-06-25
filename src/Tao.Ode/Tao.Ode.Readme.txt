@@ -1,12 +1,20 @@
-Tao.Ode 0.5.0.1
-Copyright �2003-2005 Tao Framework Team
+Tao.Ode 0.6.0.0
+Copyright �2003-2006 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
-Tao.Ode is an ODE API binding for .NET, implementing ODE 0.5.
+Tao.Ode is an ODE API binding for .NET, implementing ODE 0.6.
 
 
 Change Log:
+
+0.6.0.0 - June 24, 2006:
+	Update to ODE 0.6.
+	The ODE 0.6 release seems to consist mainly of bug fixes and
+	improvements, with few changes in the API.
+	One notable change: CCylinder renamed to Capsule
+	This update also includes a patch from Markus Ewald to fix a bug in
+	dGeomSetRotation.  Thanks Markus.
 
 0.5.0.2 - Jan 25, 2006:
 	Version bump.  Various bug fixes and changes made over the recent
