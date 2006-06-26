@@ -43,8 +43,8 @@ using System.Security.Permissions;
 [assembly: AssemblyDefaultAlias("Tao.Cg")]
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyDescription("Tao Framework Cg Binding For .NET")]
-[assembly: AssemblyFileVersion("1.2.1.3")]
-[assembly: AssemblyInformationalVersion("1.2.1.3")]
+[assembly: AssemblyFileVersion("1.4.1.0")]
+[assembly: AssemblyInformationalVersion("1.4.1.0")]
 #if STRONG
 [assembly: AssemblyKeyFile(@"Tao.Cg.snk")]
 #else
@@ -58,7 +58,7 @@ using System.Security.Permissions;
 #endif
 [assembly: AssemblyTitle("Tao Framework Cg Binding For .NET")]
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
-[assembly: AssemblyVersion("1.2.1.3")]
+[assembly: AssemblyVersion("1.4.1.0")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]

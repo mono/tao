@@ -33,7 +33,7 @@ namespace Tao.Cg
 {
 	#region Class Documentation
 	/// <summary>
-	///     Cg core runtime binding for .NET, implementing Cg 1.2.1.
+	///     Cg core runtime binding for .NET, implementing Cg 1.4.1.
 	/// </summary>
 	/// <remarks>
 	///     Binds functions and definitions in cg.dll or libcg.so.
