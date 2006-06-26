@@ -1104,6 +1104,12 @@ namespace Tao.Ode
 					}
 				}
 			}
+			
+			public dReal[] ToArray() {
+			  return new dReal[] {
+			    M00, M01, M02, M03, M10, M11, M12, M13, M20, M21, M22, M23
+			  };
+			}
 	};
 	
 		/// <summary>
@@ -3776,17 +3782,22 @@ namespace Tao.Ode
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassTranslate(ref dMass mass, dReal x, dReal y, dReal z);
 		
-		/* TLT comment: this seems redundant since call matching actual Ode signature is below */
-		//[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		//public extern static void dMassRotate(ref dMass mass, /*dMatrix3*/ dReal[] R);
+		/// <summary>
+		/// Given mass parameters for some object, adjust them to represent the object rotated by R relative to the body frame.
+		/// </summary>
+		/// <param name="mass">A  dMass</param>
+		/// <param name="R">An  array of 12 elements containing a 3x4 rotation matrix</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dMassRotate(ref dMass mass, dReal[] R);
 		
 		/// <summary>
 		/// Given mass parameters for some object, adjust them to represent the object rotated by R relative to the body frame.
 		/// </summary>
 		/// <param name="mass">A  dMass</param>
 		/// <param name="R">A  dMatrix3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dMassRotate(ref dMass mass, dMatrix3 R);
+		public static void dMassRotate(ref dMass mass, dMatrix3 R) { // for compatibility
+		  dMassRotate(ref mass, R.ToArray());
+		}
 		
 		/// <summary>
 		/// Add the mass b to the mass a.
@@ -3896,9 +3907,24 @@ namespace Tao.Ode
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
 		/// <param name="geom">A  dGeomID</param>
-		/// <param name="R">A  dMatrix3</param>
+		/// <param name="R">An  array of 12 elements containing a 3x4 rotation matrix</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dGeomSetRotation(dGeomID geom, dMatrix3 R);
+		public extern static void dGeomSetRotation(dGeomID geom, dReal[] R);
+
+		/// <summary>
+		/// Set the rotation matrix of a placeable geom. 
+		/// 
+		/// This function is analogous to dBodySetRotation.
+		///  
+		/// If the geom is attached to a body, the body's rotation will also be changed.
+		/// 
+		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
+		/// </summary>
+		/// <param name="geom">A  dGeomID</param>
+		/// <param name="R">A  dMatrix3</param>
+		public static void dGeomSetRotation(dGeomID geom, dMatrix3 R) { // for compatibility
+		  dGeomSetRotation(geom, R.ToArray());
+		}
 		
 		/// <summary>
 		/// Set the quaternion of a placeable geom. 

@@ -8,6 +8,11 @@ Tao.Ode is an ODE API binding for .NET, implementing ODE 0.5.
 
 Change Log:
 
+0.5.0.3 - Jun 26, 2006:
+	Version bump.  Various bug fixes and changes made over the recent
+	months, including a dGeomSetRotation bug fix submitted by Markus Ewald
+	- thanks Markus!
+
 0.5.0.2 - Jan 25, 2006:
 	Version bump.  Various bug fixes and changes made over the recent
 	months, the most significant being that collision callbacks should
