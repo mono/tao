@@ -40,6 +40,15 @@ namespace Tao.Cg {
     #endregion Class Documentation
     public sealed class CgGl {
         #region Private Constants
+	#region string CGGL_NATIVE_LIBRARY
+	/// <summary>
+	///     Specifies CGGL's native library archive.
+	/// </summary>
+	/// <remarks>
+	///     Specifies cgGL.dll everywhere; will be mapped via .config for mono.
+	/// </remarks>
+	private const string CGGL_NATIVE_LIBRARY = "cgGL.dll";
+	#endregion string CGGL_NATIVE_LIBRARY
         #region CallingConvention CALLING_CONVENTION
         /// <summary>
         ///     Specifies the calling convention.
@@ -164,7 +173,7 @@ namespace Tao.Cg {
         /// <returns>
         /// True if the specified program is loaded.
         /// </returns>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool cgGLIsProgramLoaded(IntPtr program);
         #endregion bool cgGLIsProgramLoaded(IntPtr program)
 
@@ -178,7 +187,7 @@ namespace Tao.Cg {
         /// <returns>
         /// Program's ID.
         /// </returns>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGLGetProgramID(IntPtr program);
         #endregion bool cgGLGetProgramID(IntPtr program)
 
@@ -189,7 +198,7 @@ namespace Tao.Cg {
         /// <param name="program">
         /// Handle to the program to load.
         /// </param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLLoadProgram(IntPtr program);
         #endregion void cgGLLoadProgram(IntPtr program)
 
@@ -200,7 +209,7 @@ namespace Tao.Cg {
         /// <param name="program">
         /// Handle to the program to bind.
         /// </param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLBindProgram(IntPtr program);
         #endregion void cgGLBindProgram(IntPtr program)
 
@@ -211,7 +220,7 @@ namespace Tao.Cg {
         /// <param name="profile">
         /// Handle to the profile to unbind programs from.
         /// </param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLUnbindProgram(int profile);
         #endregion void cgGLUnbindProgram(int profile)
 
@@ -227,7 +236,7 @@ namespace Tao.Cg {
         /// <param name="profile">
         /// Profile.
         /// </param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetOptimalOptions(int profile);
         #endregion void cgGLSetOptimalOptions(int profile)
 
@@ -241,7 +250,7 @@ namespace Tao.Cg {
         /// <returns>
         /// Returns the best profile available.
         /// </returns>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGLGetLatestProfile(int profile_type);
         #endregion int cgGLGetLatestProfile(int profile_type)
 
@@ -255,7 +264,7 @@ namespace Tao.Cg {
         /// <returns>
         /// Returns true if the profile is supported.
         /// </returns>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool cgGLIsProfileSupported(int profile);
         #endregion bool cgGLIsProfileSupported(int profile)
 
@@ -266,7 +275,7 @@ namespace Tao.Cg {
         /// <param name="profile">
         /// Profile to enable.
         /// </param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLEnableProfile(int profile);
         #endregion void cgGLEnableProfile(int profile)
 
@@ -277,7 +286,7 @@ namespace Tao.Cg {
         /// <param name="profile">
         /// Profile to disable.
         /// </param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLDisableProfile(int profile);
         #endregion void cgGLDisableProfile(int profile)
 
@@ -295,7 +304,7 @@ namespace Tao.Cg {
         /// <param name="type">Data type of each coordinate.</param>
         /// <param name="stride">Specifies the byte offset between consecutive vertices. If stride is 0 the array is assumed to be tightly packed.</param>
         /// <param name="pointer">The pointer to the first coordinate in the vertex array.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetParameterPointer(IntPtr param, int fsize, int type, int stride, [In] void* pointer);
         #endregion void cgGLSetParameterPointer(IntPtr param, int fsize, int type, int stride, [In] void* pointer)
         #region void cgGLSetParameterPointer(IntPtr param, int fsize, int type, int stride, [In] IntPtr pointer)
@@ -307,7 +316,7 @@ namespace Tao.Cg {
         /// <param name="type">Data type of each coordinate.</param>
         /// <param name="stride">Specifies the byte offset between consecutive vertices. If stride is 0 the array is assumed to be tightly packed.</param>
         /// <param name="pointer">The pointer to the first coordinate in the vertex array.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameterPointer(IntPtr param, int fsize, int type, int stride, [In] IntPtr pointer);
         #endregion void cgGLSetParameterPointer(IntPtr param, int fsize, int type, int stride, [In] IntPtr pointer)
         #endregion
@@ -317,7 +326,7 @@ namespace Tao.Cg {
         ///     Enables a vertex attribute in OpenGL state.
         /// </summary>
         /// <param name="param">Parameter to enable.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLEnableClientState(IntPtr param);
         #endregion void cgGLEnableClientState(IntPtr param)
         #region void cgGLDisableClientState(IntPtr param)
@@ -325,7 +334,7 @@ namespace Tao.Cg {
         ///     Disables a vertex attribute in OpenGL state.
         /// </summary>
         /// <param name="param">Parameter to disable.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLDisableClientState(IntPtr param);
         #endregion void cgGLDisableClientState(IntPtr param)
 
@@ -337,7 +346,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter1f(IntPtr param, float x);
         #endregion void cgGLSetParameter1f(IntPtr param, float x)
 
@@ -348,7 +357,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter2f(IntPtr param, float x, float y);
         #endregion void cgGLSetParameter2f(IntPtr param, float x, float y)
 
@@ -359,7 +368,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter3f(IntPtr param, float x, float y, float z);
         #endregion void cgGLSetParameter3f(IntPtr param, float x, float y, float z)
 
@@ -370,7 +379,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter4f(IntPtr param, float x, float y, float z, float w);
         #endregion void cgGLSetParameter4f(IntPtr param, float x, float y, float z, float w)
         #endregion
@@ -383,7 +392,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetParameter1fv(IntPtr param, [In] float* values);
         #endregion void cgGLSetParameter1fv(IntPtr param, [In] float* values)
 
@@ -394,7 +403,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter1fv(IntPtr param, [In] float[] values);
         #endregion void cgGLSetParameter1fv(IntPtr param, [In] float[] values)
 
@@ -405,7 +414,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter1fv(IntPtr param, [In] IntPtr values);
         #endregion void cgGLSetParameter1fv(IntPtr param, [In] IntPtr values)
 
@@ -416,7 +425,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetParameter2fv(IntPtr param, [In] float* values);
         #endregion void cgGLSetParameter2fv(IntPtr param, [In] float* values)
 
@@ -427,7 +436,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter2fv(IntPtr param, [In] float[] values);
         #endregion void cgGLSetParameter2fv(IntPtr param, [In] float[] values)
 
@@ -438,7 +447,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter2fv(IntPtr param, [In] IntPtr values);
         #endregion void cgGLSetParameter2fv(IntPtr param, [In] IntPtr values)
 
@@ -449,7 +458,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetParameter3fv(IntPtr param, [In] float* values);
         #endregion void cgGLSetParameter3fv(IntPtr param, [In] float* values)
 
@@ -460,7 +469,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter3fv(IntPtr param, [In] float[] values);
         #endregion void cgGLSetParameter3fv(IntPtr param, [In] float[] values)
 
@@ -471,7 +480,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter3fv(IntPtr param, [In] IntPtr values);
         #endregion void cgGLSetParameter3fv(IntPtr param, [In] IntPtr values)
 
@@ -482,7 +491,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetParameter4fv(IntPtr param, [In] float* values);
         #endregion void cgGLSetParameter4fv(IntPtr param, [In] float* values)
 
@@ -493,7 +502,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter4fv(IntPtr param, [In] float[] values);
         #endregion void cgGLSetParameter4fv(IntPtr param, [In] float[] values)
 
@@ -504,7 +513,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter4fv(IntPtr param, [In] IntPtr values);
         #endregion void cgGLSetParameter4fv(IntPtr param, [In] IntPtr values)
 
@@ -519,7 +528,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter1d(IntPtr param, double x);
         #endregion void cgGLSetParameter1d(IntPtr param, double x)
 
@@ -530,7 +539,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter2d(IntPtr param, double x, double y);
         #endregion void cgGLSetParameter2d(IntPtr param, double x, double y)
 
@@ -541,7 +550,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter3d(IntPtr param, double x, double y, double z);
         #endregion void cgGLSetParameter3d(IntPtr param, double x, double y, double z)
 
@@ -552,7 +561,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter4d(IntPtr param, double x, double y, double z, double w);
         #endregion void cgGLSetParameter4d(IntPtr param, double x, double y, double z, double w)
         #endregion
@@ -565,7 +574,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetParameter1dv(IntPtr param, [In] double* values);
         #endregion void cgGLSetParameter1dv(IntPtr param, [In] double* values)
 
@@ -576,7 +585,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter1dv(IntPtr param, [In] double[] values);
         #endregion void cgGLSetParameter1dv(IntPtr param, [In] double[] values)
 
@@ -587,7 +596,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter1dv(IntPtr param, [In] IntPtr values);
         #endregion void cgGLSetParameter1dv(IntPtr param, [In] IntPtr values)
 
@@ -598,7 +607,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetParameter2dv(IntPtr param, [In] double* values);
         #endregion void cgGLSetParameter2dv(IntPtr param, [In] double* values)
 
@@ -609,7 +618,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter2dv(IntPtr param, [In] double[] values);
         #endregion void cgGLSetParameter2dv(IntPtr param, [In] double[] values)
 
@@ -620,7 +629,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter2dv(IntPtr param, [In] IntPtr values);
         #endregion void cgGLSetParameter2dv(IntPtr param, [In] IntPtr values)
 
@@ -631,7 +640,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetParameter3dv(IntPtr param, [In] double* values);
         #endregion void cgGLSetParameter3dv(IntPtr param, [In] double* values)
 
@@ -642,7 +651,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter3dv(IntPtr param, [In] double[] values);
         #endregion void cgGLSetParameter3dv(IntPtr param, [In] double[] values)
 
@@ -653,7 +662,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter3dv(IntPtr param, [In] IntPtr values);
         #endregion void cgGLSetParameter3dv(IntPtr param, [In] IntPtr values)
 
@@ -664,7 +673,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetParameter4dv(IntPtr param, [In] double* values);
         #endregion void cgGLSetParameter4dv(IntPtr param, [In] double* values)
 
@@ -675,7 +684,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter4dv(IntPtr param, [In] double[] values);
         #endregion void cgGLSetParameter4dv(IntPtr param, [In] double[] values)
 
@@ -686,7 +695,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameter4dv(IntPtr param, [In] IntPtr values);
         #endregion void cgGLSetParameter4dv(IntPtr param, [In] IntPtr values)
 
@@ -700,7 +709,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetParameter1f(IntPtr param, [Out] float* values);
         #endregion void cgGLGetParameter1f(IntPtr param, [Out] float* values)
         #region void cgGLGetParameter1f(IntPtr param, [Out] float[] values)
@@ -710,7 +719,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameter1f(IntPtr param, [Out] float[] values);
         #endregion void cgGLGetParameter1f(IntPtr param, [Out] float[] values)
         #region void cgGLGetParameter1f(IntPtr param, [Out] IntPtr values)
@@ -720,7 +729,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameter1f(IntPtr param, [Out] IntPtr values);
         #endregion void cgGLGetParameter1f(IntPtr param, [Out] IntPtr values)
 
@@ -731,7 +740,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetParameter2f(IntPtr param, [Out] float* values);
         #endregion void cgGLGetParameter2f(IntPtr param, [Out] float* values)
         #region void cgGLGetParameter2f(IntPtr param, [Out] float[] values)
@@ -741,7 +750,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameter2f(IntPtr param, [Out] float[] values);
         #endregion void cgGLGetParameter2f(IntPtr param, [Out] float[] values)
         #region void cgGLGetParameter2f(IntPtr param, [Out] IntPtr values)
@@ -751,7 +760,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameter2f(IntPtr param, [Out] IntPtr values);
         #endregion void cgGLGetParameter2f(IntPtr param, [Out] IntPtr values)
 
@@ -762,7 +771,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetParameter3f(IntPtr param, [Out] float* values);
         #endregion void cgGLGetParameter3f(IntPtr param, [Out] float* values)
         #region void cgGLGetParameter3f(IntPtr param, [Out] float[] values)
@@ -772,7 +781,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameter3f(IntPtr param, [Out] float[] values);
         #endregion void cgGLGetParameter3f(IntPtr param, [Out] float[] values)
         #region void cgGLGetParameter3f(IntPtr param, [Out] IntPtr values)
@@ -782,7 +791,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameter3f(IntPtr param, [Out] IntPtr values);
         #endregion void cgGLGetParameter3f(IntPtr param, [Out] IntPtr values)
 
@@ -793,7 +802,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetParameter4f(IntPtr param, [Out] float* values);
         #endregion void cgGLGetParameter4f(IntPtr param, [Out] float* values)
         #region void cgGLGetParameter4f(IntPtr param, [Out] float[] values)
@@ -803,7 +812,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameter4f(IntPtr param, [Out] float[] values);
         #endregion void cgGLGetParameter4f(IntPtr param, [Out] float[] values)
         #region void cgGLGetParameter4f(IntPtr param, [Out] IntPtr values)
@@ -813,7 +822,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameter4f(IntPtr param, [Out] IntPtr values);
         #endregion void cgGLGetParameter4f(IntPtr param, [Out] IntPtr values)
         #endregion
@@ -826,7 +835,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetParameter1d(IntPtr param, [Out] double* values);
         #endregion void cgGLGetParameter1d(IntPtr param, [Out] double* values)
         #region void cgGLGetParameter1d(IntPtr param, [Out] double[] values)
@@ -836,7 +845,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameter1d(IntPtr param, [Out] double[] values);
         #endregion void cgGLGetParameter1d(IntPtr param, [Out] double[] values)
         #region void cgGLGetParameter1d(IntPtr param, [Out] IntPtr values)
@@ -846,7 +855,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameter1d(IntPtr param, [Out] IntPtr values);
         #endregion void cgGLGetParameter1d(IntPtr param, [Out] IntPtr values)
 
@@ -857,7 +866,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetParameter2d(IntPtr param, [Out] double* values);
         #endregion void cgGLGetParameter2d(IntPtr param, [Out] double* values)
         #region void cgGLGetParameter2d(IntPtr param, [Out] double[] values)
@@ -867,7 +876,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameter2d(IntPtr param, [Out] double[] values);
         #endregion void cgGLGetParameter2d(IntPtr param, [Out] double[] values)
         #region void cgGLGetParameter2d(IntPtr param, [Out] IntPtr values)
@@ -877,7 +886,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameter2d(IntPtr param, [Out] IntPtr values);
         #endregion void cgGLGetParameter2d(IntPtr param, [Out] IntPtr values)
 
@@ -888,7 +897,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetParameter3d(IntPtr param, [Out] double* values);
         #endregion void cgGLGetParameter3d(IntPtr param, [Out] double* values)
         #region void cgGLGetParameter3d(IntPtr param, [Out] double[] values)
@@ -898,7 +907,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameter3d(IntPtr param, [Out] double[] values);
         #endregion void cgGLGetParameter3d(IntPtr param, [Out] double[] values)
         #region void cgGLGetParameter3d(IntPtr param, [Out] IntPtr values)
@@ -908,7 +917,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameter3d(IntPtr param, [Out] IntPtr values);
         #endregion void cgGLGetParameter3d(IntPtr param, [Out] IntPtr values)
 
@@ -919,7 +928,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetParameter4d(IntPtr param, [Out] double* values);
         #endregion void cgGLGetParameter4d(IntPtr param, [Out] double* values)
         #region void cgGLGetParameter4d(IntPtr param, [Out] double[] values)
@@ -929,7 +938,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameter4d(IntPtr param, [Out] double[] values);
         #endregion void cgGLGetParameter4d(IntPtr param, [Out] double[] values)
         #region void cgGLGetParameter4d(IntPtr param, [Out] IntPtr values)
@@ -939,7 +948,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameter4d(IntPtr param, [Out] IntPtr values);
         #endregion void cgGLGetParameter4d(IntPtr param, [Out] IntPtr values)
         #endregion
@@ -954,7 +963,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetParameterArray1f(IntPtr param, long offset, long nelements, [In] float* values);
         #endregion void cgGLSetParameterArray1f(IntPtr param, long offset, long nelements, [In] float* values)
         #region void cgGLSetParameterArray1f(IntPtr param, long offset, long nelements, [In] float[] values)
@@ -965,7 +974,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameterArray1f(IntPtr param, long offset, long nelements, [In] float[] values);
         #endregion void cgGLSetParameterArray1f(IntPtr param, long offset, long nelements, [In] float[] values)
         #region void cgGLSetParameterArray1f(IntPtr param, long offset, long nelements, [In] IntPtr values)
@@ -976,7 +985,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameterArray1f(IntPtr param, long offset, long nelements, [In] IntPtr values);
         #endregion void cgGLSetParameterArray1f(IntPtr param, long offset, long nelements, [In] IntPtr values)
 
@@ -988,7 +997,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetParameterArray2f(IntPtr param, long offset, long nelements, [In] float* values);
         #endregion void cgGLSetParameterArray2f(IntPtr param, long offset, long nelements, [In] float* values)
         #region void cgGLSetParameterArray2f(IntPtr param, long offset, long nelements, [In] float[] values)
@@ -999,7 +1008,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameterArray2f(IntPtr param, long offset, long nelements, [In] float[] values);
         #endregion void cgGLSetParameterArray2f(IntPtr param, long offset, long nelements, [In] float[] values)
         #region void cgGLSetParameterArray2f(IntPtr param, long offset, long nelements, [In] IntPtr values)
@@ -1010,7 +1019,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameterArray2f(IntPtr param, long offset, long nelements, [In] IntPtr values);
         #endregion void cgGLSetParameterArray2f(IntPtr param, long offset, long nelements, [In] IntPtr values)
 
@@ -1022,7 +1031,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetParameterArray3f(IntPtr param, long offset, long nelements, [In] float* values);
         #endregion void cgGLSetParameterArray3f(IntPtr param, long offset, long nelements, [In] float* values)
         #region void cgGLSetParameterArray3f(IntPtr param, long offset, long nelements, [In] float[] values)
@@ -1033,7 +1042,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameterArray3f(IntPtr param, long offset, long nelements, [In] float[] values);
         #endregion void cgGLSetParameterArray3f(IntPtr param, long offset, long nelements, [In] float[] values)
         #region void cgGLSetParameterArray3f(IntPtr param, long offset, long nelements, [In] IntPtr values)
@@ -1044,7 +1053,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameterArray3f(IntPtr param, long offset, long nelements, [In] IntPtr values);
         #endregion void cgGLSetParameterArray3f(IntPtr param, long offset, long nelements, [In] IntPtr values)
 
@@ -1056,7 +1065,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetParameterArray4f(IntPtr param, long offset, long nelements, [In] float* values);
         #endregion void cgGLSetParameterArray4f(IntPtr param, long offset, long nelements, [In] float* values)
         #region void cgGLSetParameterArray4f(IntPtr param, long offset, long nelements, [In] float[] values)
@@ -1067,7 +1076,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameterArray4f(IntPtr param, long offset, long nelements, [In] float[] values);
         #endregion void cgGLSetParameterArray4f(IntPtr param, long offset, long nelements, [In] float[] values)
         #region void cgGLSetParameterArray4f(IntPtr param, long offset, long nelements, [In] IntPtr values)
@@ -1078,7 +1087,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameterArray4f(IntPtr param, long offset, long nelements, [In] IntPtr values);
         #endregion void cgGLSetParameterArray4f(IntPtr param, long offset, long nelements, [In] IntPtr values)
         #endregion
@@ -1091,7 +1100,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetParameterArray1d(IntPtr param, long offset, long nelements, [In] double* values);
         #endregion void cgGLSetParameterArray1d(IntPtr param, long offset, long nelements, [In] double* values)
         #region void cgGLSetParameterArray1d(IntPtr param, long offset, long nelements, [In] double[] values)
@@ -1102,7 +1111,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameterArray1d(IntPtr param, long offset, long nelements, [In] double[] values);
         #endregion void cgGLSetParameterArray1d(IntPtr param, long offset, long nelements, [In] double[] values)
         #region void cgGLSetParameterArray1d(IntPtr param, long offset, long nelements, [In] IntPtr values)
@@ -1113,7 +1122,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameterArray1d(IntPtr param, long offset, long nelements, [In] IntPtr values);
         #endregion void cgGLSetParameterArray1d(IntPtr param, long offset, long nelements, [In] IntPtr values)
 
@@ -1125,7 +1134,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetParameterArray2d(IntPtr param, long offset, long nelements, [In] double* values);
         #endregion void cgGLSetParameterArray2d(IntPtr param, long offset, long nelements, [In] double* values)
         #region void cgGLSetParameterArray2d(IntPtr param, long offset, long nelements, [In] double[] values)
@@ -1136,7 +1145,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameterArray2d(IntPtr param, long offset, long nelements, [In] double[] values);
         #endregion void cgGLSetParameterArray2d(IntPtr param, long offset, long nelements, [In] double[] values)
         #region void cgGLSetParameterArray2d(IntPtr param, long offset, long nelements, [In] IntPtr values)
@@ -1147,7 +1156,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameterArray2d(IntPtr param, long offset, long nelements, [In] IntPtr values);
         #endregion void cgGLSetParameterArray2d(IntPtr param, long offset, long nelements, [In] IntPtr values)
 
@@ -1159,7 +1168,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetParameterArray3d(IntPtr param, long offset, long nelements, [In] double* values);
         #endregion void cgGLSetParameterArray3d(IntPtr param, long offset, long nelements, [In] double* values)
         #region void cgGLSetParameterArray3d(IntPtr param, long offset, long nelements, [In] double[] values)
@@ -1170,7 +1179,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameterArray3d(IntPtr param, long offset, long nelements, [In] double[] values);
         #endregion void cgGLSetParameterArray3d(IntPtr param, long offset, long nelements, [In] double[] values)
         #region void cgGLSetParameterArray3d(IntPtr param, long offset, long nelements, [In] IntPtr values)
@@ -1181,7 +1190,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameterArray3d(IntPtr param, long offset, long nelements, [In] IntPtr values);
         #endregion void cgGLSetParameterArray3d(IntPtr param, long offset, long nelements, [In] IntPtr values)
 
@@ -1193,7 +1202,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetParameterArray4d(IntPtr param, long offset, long nelements, [In] double* values);
         #endregion void cgGLSetParameterArray4d(IntPtr param, long offset, long nelements, [In] double* values)
         #region void cgGLSetParameterArray4d(IntPtr param, long offset, long nelements, [In] double[] values)
@@ -1204,7 +1213,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameterArray4d(IntPtr param, long offset, long nelements, [In] double[] values);
         #endregion void cgGLSetParameterArray4d(IntPtr param, long offset, long nelements, [In] double[] values)
         #region void cgGLSetParameterArray4d(IntPtr param, long offset, long nelements, [In] IntPtr values)
@@ -1215,7 +1224,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to set.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetParameterArray4d(IntPtr param, long offset, long nelements, [In] IntPtr values);
         #endregion void cgGLSetParameterArray4d(IntPtr param, long offset, long nelements, [In] IntPtr values)
         #endregion
@@ -1229,7 +1238,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetParameterArray1f(IntPtr param, long offset, long nelements, [Out] float* values);
         #endregion void cgGLGetParameterArray1f(IntPtr param, long offset, long nelements, [Out] float* values)
         #region void cgGLGetParameterArray1f(IntPtr param, long offset, long nelements, [Out] float[] values)
@@ -1240,7 +1249,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameterArray1f(IntPtr param, long offset, long nelements, [Out] float[] values);
         #endregion void cgGLGetParameterArray1f(IntPtr param, long offset, long nelements, [Out] float[] values)
         #region void cgGLGetParameterArray1f(IntPtr param, long offset, long nelements, [Out] IntPtr values)
@@ -1251,7 +1260,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameterArray1f(IntPtr param, long offset, long nelements, [Out] IntPtr values);
         #endregion void cgGLGetParameterArray1f(IntPtr param, long offset, long nelements, [Out] IntPtr values)
 
@@ -1263,7 +1272,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetParameterArray2f(IntPtr param, long offset, long nelements, [Out] float* values);
         #endregion void cgGLGetParameterArray2f(IntPtr param, long offset, long nelements, [Out] float* values)
         #region void cgGLGetParameterArray2f(IntPtr param, long offset, long nelements, [Out] float[] values)
@@ -1274,7 +1283,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameterArray2f(IntPtr param, long offset, long nelements, [Out] float[] values);
         #endregion void cgGLGetParameterArray2f(IntPtr param, long offset, long nelements, [Out] float[] values)
         #region void cgGLGetParameterArray2f(IntPtr param, long offset, long nelements, [Out] IntPtr values)
@@ -1285,7 +1294,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameterArray2f(IntPtr param, long offset, long nelements, [Out] IntPtr values);
         #endregion void cgGLGetParameterArray2f(IntPtr param, long offset, long nelements, [Out] IntPtr values)
 
@@ -1297,7 +1306,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetParameterArray3f(IntPtr param, long offset, long nelements, [Out] float* values);
         #endregion void cgGLGetParameterArray3f(IntPtr param, long offset, long nelements, [Out] float* values)
         #region void cgGLGetParameterArray3f(IntPtr param, long offset, long nelements, [Out] float[] values)
@@ -1308,7 +1317,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameterArray3f(IntPtr param, long offset, long nelements, [Out] float[] values);
         #endregion void cgGLGetParameterArray3f(IntPtr param, long offset, long nelements, [Out] float[] values)
         #region void cgGLGetParameterArray3f(IntPtr param, long offset, long nelements, [Out] IntPtr values)
@@ -1319,7 +1328,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameterArray3f(IntPtr param, long offset, long nelements, [Out] IntPtr values);
         #endregion void cgGLGetParameterArray3f(IntPtr param, long offset, long nelements, [Out] IntPtr values)
 
@@ -1331,7 +1340,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetParameterArray4f(IntPtr param, long offset, long nelements, [Out] float* values);
         #endregion void cgGLGetParameterArray4f(IntPtr param, long offset, long nelements, [Out] float* values)
         #region void cgGLGetParameterArray4f(IntPtr param, long offset, long nelements, [Out] float[] values)
@@ -1342,7 +1351,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameterArray4f(IntPtr param, long offset, long nelements, [Out] float[] values);
         #endregion void cgGLGetParameterArray4f(IntPtr param, long offset, long nelements, [Out] float[] values)
         #region void cgGLGetParameterArray4f(IntPtr param, long offset, long nelements, [Out] IntPtr values)
@@ -1353,7 +1362,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameterArray4f(IntPtr param, long offset, long nelements, [Out] IntPtr values);
         #endregion void cgGLGetParameterArray4f(IntPtr param, long offset, long nelements, [Out] IntPtr values)
         #endregion
@@ -1366,7 +1375,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetParameterArray1d(IntPtr param, long offset, long nelements, [Out] double* values);
         #endregion void cgGLGetParameterArray1d(IntPtr param, long offset, long nelements, [Out] double* values)
         #region void cgGLGetParameterArray1d(IntPtr param, long offset, long nelements, [Out] double[] values)
@@ -1377,7 +1386,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameterArray1d(IntPtr param, long offset, long nelements, [Out] double[] values);
         #endregion void cgGLGetParameterArray1d(IntPtr param, long offset, long nelements, [Out] double[] values)
         #region void cgGLGetParameterArray1d(IntPtr param, long offset, long nelements, [Out] IntPtr values)
@@ -1388,7 +1397,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameterArray1d(IntPtr param, long offset, long nelements, [Out] IntPtr values);
         #endregion void cgGLGetParameterArray1d(IntPtr param, long offset, long nelements, [Out] IntPtr values)
 
@@ -1400,7 +1409,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetParameterArray2d(IntPtr param, long offset, long nelements, [Out] double* values);
         #endregion void cgGLGetParameterArray2d(IntPtr param, long offset, long nelements, [Out] double* values)
         #region void cgGLGetParameterArray2d(IntPtr param, long offset, long nelements, [Out] double[] values)
@@ -1411,7 +1420,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameterArray2d(IntPtr param, long offset, long nelements, [Out] double[] values);
         #endregion void cgGLGetParameterArray2d(IntPtr param, long offset, long nelements, [Out] double[] values)
         #region void cgGLGetParameterArray2d(IntPtr param, long offset, long nelements, [Out] IntPtr values)
@@ -1422,7 +1431,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameterArray2d(IntPtr param, long offset, long nelements, [Out] IntPtr values);
         #endregion void cgGLGetParameterArray2d(IntPtr param, long offset, long nelements, [Out] IntPtr values)
 
@@ -1434,7 +1443,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetParameterArray3d(IntPtr param, long offset, long nelements, [Out] double* values);
         #endregion void cgGLGetParameterArray3d(IntPtr param, long offset, long nelements, [Out] double* values)
         #region void cgGLGetParameterArray3d(IntPtr param, long offset, long nelements, [Out] double[] values)
@@ -1445,7 +1454,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameterArray3d(IntPtr param, long offset, long nelements, [Out] double[] values);
         #endregion void cgGLGetParameterArray3d(IntPtr param, long offset, long nelements, [Out] double[] values)
         #region void cgGLGetParameterArray3d(IntPtr param, long offset, long nelements, [Out] IntPtr values)
@@ -1456,7 +1465,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameterArray3d(IntPtr param, long offset, long nelements, [Out] IntPtr values);
         #endregion void cgGLGetParameterArray3d(IntPtr param, long offset, long nelements, [Out] IntPtr values)
 
@@ -1468,7 +1477,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetParameterArray4d(IntPtr param, long offset, long nelements, [Out] double* values);
         #endregion void cgGLGetParameterArray4d(IntPtr param, long offset, long nelements, [Out] double* values)
         #region void cgGLGetParameterArray4d(IntPtr param, long offset, long nelements, [Out] double[] values)
@@ -1479,7 +1488,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameterArray4d(IntPtr param, long offset, long nelements, [Out] double[] values);
         #endregion void cgGLGetParameterArray4d(IntPtr param, long offset, long nelements, [Out] double[] values)
         #region void cgGLGetParameterArray4d(IntPtr param, long offset, long nelements, [Out] IntPtr values)
@@ -1490,7 +1499,7 @@ namespace Tao.Cg {
         /// <param name="offset">Offset into an array</param>
         /// <param name="nelements">Number of values to get.</param>
         /// <param name="values">Array of values.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetParameterArray4d(IntPtr param, long offset, long nelements, [Out] IntPtr values);
         #endregion void cgGLGetParameterArray4d(IntPtr param, long offset, long nelements, [Out] IntPtr values)
         #endregion
@@ -1512,7 +1521,7 @@ namespace Tao.Cg {
         /// <param name="transform">
         /// Optional transformation that will be aplied to the OpenGL state matrix before it is retreived to the parameter.
         /// </param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetStateMatrixParameter(IntPtr param, int matrix, int transform);
         #endregion void cgGLSetStateMatrixParameter(IntPtr param, int matrix, int transform)
 
@@ -1524,7 +1533,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Sets the value of matrix parameters in row order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetMatrixParameterdr(IntPtr param, [In] double* matrix);
         #endregion void cgGLSetMatrixParameterdr(IntPtr param, [In] double* matrix)
 
@@ -1532,7 +1541,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Sets the value of matrix parameters in row order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetMatrixParameterdr(IntPtr param, [In] double[] matrix);
         #endregion void cgGLSetMatrixParameterdr(IntPtr param, [In] double[] matrix)
 
@@ -1540,7 +1549,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Sets the value of matrix parameters in row order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetMatrixParameterdr(IntPtr param, [In] IntPtr matrix);
         #endregion void cgGLSetMatrixParameterdr(IntPtr param, [In] IntPtr matrix)
 
@@ -1551,7 +1560,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Sets the value of matrix parameters in row order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetMatrixParameterdr(IntPtr param, [In] float* matrix);
         #endregion void cgGLSetMatrixParameterfr(IntPtr param, [In] float* matrix)
 
@@ -1559,7 +1568,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Sets the value of matrix parameters in row order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetMatrixParameterfr(IntPtr param, [In] float[] matrix);
         #endregion void cgGLSetMatrixParameterfr(IntPtr param, [In] float[] matrix)
 
@@ -1567,7 +1576,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Sets the value of matrix parameters in row order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetMatrixParameterfr(IntPtr param, [In] IntPtr matrix);
         #endregion void cgGLSetMatrixParameterfr(IntPtr param, [In] IntPtr matrix)
 
@@ -1579,7 +1588,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Sets the value of matrix parameters in column  order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetMatrixParameterdc(IntPtr param, [In] double* matrix);
         #endregion void cgGLSetMatrixParameterdc(IntPtr param, [In] double* matrix)
 
@@ -1587,7 +1596,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Sets the value of matrix parameters in column  order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetMatrixParameterdc(IntPtr param, [In] double[] matrix);
         #endregion void cgGLSetMatrixParameterdc(IntPtr param, [In] double[] matrix)
 
@@ -1595,7 +1604,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Sets the value of matrix parameters in column  order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetMatrixParameterdc(IntPtr param, [In] IntPtr matrix);
         #endregion void cgGLSetMatrixParameterdc(IntPtr param, [In] IntPtr matrix)
 
@@ -1606,7 +1615,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Sets the value of matrix parameters in column  order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetMatrixParameterfc(IntPtr param, [In] float* matrix);
         #endregion void cgGLSetMatrixParameterfc(IntPtr param, [In] float* matrix)
 
@@ -1614,7 +1623,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Sets the value of matrix parameters in column  order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetMatrixParameterfc(IntPtr param, [In] float[] matrix);
         #endregion void cgGLSetMatrixParameterfc(IntPtr param, [In] float[] matrix)
 
@@ -1622,7 +1631,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Sets the value of matrix parameters in column  order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetMatrixParameterfc(IntPtr param, [In] IntPtr matrix);
         #endregion void cgGLSetMatrixParameterfc(IntPtr param, [In] IntPtr matrix)
 
@@ -1638,7 +1647,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Gets the value of matrix parameters in row order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetMatrixParameterdr(IntPtr param, [In] double* matrix);
         #endregion void cgGLGetMatrixParameterdr(IntPtr param, [In] double* matrix)
 
@@ -1646,7 +1655,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Gets the value of matrix parameters in row order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetMatrixParameterdr(IntPtr param, [In] double[] matrix);
         #endregion void cgGLGetMatrixParameterdr(IntPtr param, [In] double[] matrix)
 
@@ -1654,7 +1663,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Gets the value of matrix parameters in row order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetMatrixParameterdr(IntPtr param, [In] IntPtr matrix);
         #endregion void cgGLGetMatrixParameterdr(IntPtr param, [In] IntPtr matrix)
 
@@ -1665,7 +1674,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Gets the value of matrix parameters in row order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetMatrixParameterdr(IntPtr param, [In] float* matrix);
         #endregion void cgGLGetMatrixParameterfr(IntPtr param, [In] float* matrix)
 
@@ -1673,7 +1682,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Gets the value of matrix parameters in row order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetMatrixParameterfr(IntPtr param, [In] float[] matrix);
         #endregion void cgGLGetMatrixParameterfr(IntPtr param, [In] float[] matrix)
 
@@ -1681,7 +1690,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Gets the value of matrix parameters in row order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetMatrixParameterfr(IntPtr param, [In] IntPtr matrix);
         #endregion void cgGLGetMatrixParameterfr(IntPtr param, [In] IntPtr matrix)
 
@@ -1693,7 +1702,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Gets the value of matrix parameters in column order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetMatrixParameterdc(IntPtr param, [In] double* matrix);
         #endregion void cgGLGetMatrixParameterdc(IntPtr param, [In] double* matrix)
 
@@ -1701,7 +1710,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Gets the value of matrix parameters in column order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetMatrixParameterdc(IntPtr param, [In] double[] matrix);
         #endregion void cgGLGetMatrixParameterdc(IntPtr param, [In] double[] matrix)
 
@@ -1709,7 +1718,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Gets the value of matrix parameters in column order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetMatrixParameterdc(IntPtr param, [In] IntPtr matrix);
         #endregion void cgGLGetMatrixParameterdc(IntPtr param, [In] IntPtr matrix)
 
@@ -1720,7 +1729,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Gets the value of matrix parameters in column order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetMatrixParameterfc(IntPtr param, [In] float* matrix);
         #endregion void cgGLGetMatrixParameterfc(IntPtr param, [In] float* matrix)
 
@@ -1728,7 +1737,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Gets the value of matrix parameters in column order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetMatrixParameterfc(IntPtr param, [In] float[] matrix);
         #endregion void cgGLGetMatrixParameterfc(IntPtr param, [In] float[] matrix)
 
@@ -1736,7 +1745,7 @@ namespace Tao.Cg {
         /// <summary>
         /// Gets the value of matrix parameters in column order.
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetMatrixParameterfc(IntPtr param, [In] IntPtr matrix);
         #endregion void cgGLGetMatrixParameterfc(IntPtr param, [In] IntPtr matrix)
 
@@ -1756,7 +1765,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start setting from.</param>
         /// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [In] float* matrices);
         #endregion void cgGLSetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, const float* matrices)
 
@@ -1768,7 +1777,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start setting from.</param>
         /// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [In] float[] matrices);
         #endregion void cgGLSetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, const float[] matrices)
 
@@ -1780,7 +1789,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start setting from.</param>
         /// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [In] IntPtr matrices);
         #endregion void cgGLSetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, const IntPtr matrices)
 
@@ -1796,7 +1805,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start setting from.</param>
         /// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [In] double* matrices);
         #endregion void cgGLSetMatrixParameterArraydc(IntPtr param, long offset, long nelements, const double* matrices)
 
@@ -1808,7 +1817,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start setting from.</param>
         /// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [In] double[] matrices);
         #endregion void cgGLSetMatrixParameterArraydc(IntPtr param, long offset, long nelements, const double[] matrices)
 
@@ -1820,7 +1829,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start setting from.</param>
         /// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [In] IntPtr matrices);
         #endregion void cgGLSetMatrixParameterArraydc(IntPtr param, long offset, long nelements, const IntPtr matrices)
 
@@ -1837,7 +1846,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start setting from.</param>
         /// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [In] float* matrices);
         #endregion void cgGLSetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, const float* matrices)
 
@@ -1849,7 +1858,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start setting from.</param>
         /// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [In] float[] matrices);
         #endregion void cgGLSetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, const float[] matrices)
 
@@ -1861,7 +1870,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start setting from.</param>
         /// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [In] IntPtr matrices);
         #endregion void cgGLSetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, const IntPtr matrices)
 
@@ -1877,7 +1886,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start setting from.</param>
         /// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLSetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [In] double* matrices);
         #endregion void cgGLSetMatrixParameterArraydr(IntPtr param, long offset, long nelements, const double* matrices)
 
@@ -1889,7 +1898,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start setting from.</param>
         /// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [In] double[] matrices);
         #endregion void cgGLSetMatrixParameterArraydr(IntPtr param, long offset, long nelements, const double[] matrices)
 
@@ -1901,7 +1910,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start setting from.</param>
         /// <param name="nelements">The number of elements to set. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values to set the parameter to. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [In] IntPtr matrices);
         #endregion void cgGLSetMatrixParameterArraydr(IntPtr param, long offset, long nelements, const IntPtr matrices)
 
@@ -1921,7 +1930,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start getting from.</param>
         /// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [Out] float* matrices);
         #endregion void cgGLGetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, const float* matrices)
 
@@ -1933,7 +1942,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start getting from.</param>
         /// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [Out] float[] matrices);
         #endregion void cgGLGetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, const float[] matrices)
 
@@ -1945,7 +1954,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start getting from.</param>
         /// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, [Out] IntPtr matrices);
         #endregion void cgGLGetMatrixParameterArrayfc(IntPtr param, long offset, long nelements, const IntPtr matrices)
 
@@ -1961,7 +1970,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start getting from.</param>
         /// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [Out] double* matrices);
         #endregion void cgGLGetMatrixParameterArraydc(IntPtr param, long offset, long nelements, const double* matrices)
 
@@ -1973,7 +1982,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start getting from.</param>
         /// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [Out] double[] matrices);
         #endregion void cgGLGetMatrixParameterArraydc(IntPtr param, long offset, long nelements, const double[] matrices)
 
@@ -1985,7 +1994,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start getting from.</param>
         /// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetMatrixParameterArraydc(IntPtr param, long offset, long nelements, [Out] IntPtr matrices);
         #endregion void cgGLGetMatrixParameterArraydc(IntPtr param, long offset, long nelements, const IntPtr matrices)
 
@@ -2002,7 +2011,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start getting from.</param>
         /// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [Out] float* matrices);
         #endregion void cgGLGetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, const float* matrices)
 
@@ -2014,7 +2023,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start getting from.</param>
         /// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [Out] float[] matrices);
         #endregion void cgGLGetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, const float[] matrices)
 
@@ -2026,7 +2035,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start getting from.</param>
         /// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, [Out] IntPtr matrices);
         #endregion void cgGLGetMatrixParameterArrayfr(IntPtr param, long offset, long nelements, const IntPtr matrices)
 
@@ -2042,7 +2051,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start getting from.</param>
         /// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), CLSCompliant(false), SuppressUnmanagedCodeSecurity]
         public unsafe static extern void cgGLGetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [Out] double* matrices);
         #endregion void cgGLGetMatrixParameterArraydr(IntPtr param, long offset, long nelements, const double* matrices)
 
@@ -2054,7 +2063,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start getting from.</param>
         /// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [Out] double[] matrices);
         #endregion void cgGLGetMatrixParameterArraydr(IntPtr param, long offset, long nelements, const double[] matrices)
 
@@ -2066,7 +2075,7 @@ namespace Tao.Cg {
         /// <param name="offset">An offset into the array parameter to start getting from.</param>
         /// <param name="nelements">The number of elements to get. A value of 0 will default to the number of elements in the array minus the offset value.</param>
         /// <param name="matrices">The array of values retreived from parameter.. This must be a contiguous set of values that total nelements times the number of elements in the matrix.</param>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLGetMatrixParameterArraydr(IntPtr param, long offset, long nelements, [Out] IntPtr matrices);
         #endregion void cgGLGetMatrixParameterArraydr(IntPtr param, long offset, long nelements, const IntPtr matrices)
 
@@ -2083,7 +2092,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetTextureParameter(IntPtr param, int texobj);
         #endregion void cgGLSetTextureParameter(IntPtr param, int texobj)
 
@@ -2094,7 +2103,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGLGetTextureParameter(IntPtr param);
         #endregion int cgGLGetTextureParameter(IntPtr param)
 
@@ -2105,7 +2114,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLEnableTextureParameter(IntPtr param);
         #endregion void cgGLEnableTextureParameter(IntPtr param)
 
@@ -2116,7 +2125,7 @@ namespace Tao.Cg {
         /// Use cgGetNamedParameter to obtain the valid pointer to param.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLDisableTextureParameter(IntPtr param);
         #endregion void cgGLDisableTextureParameter(IntPtr param)
 
@@ -2128,7 +2137,7 @@ namespace Tao.Cg {
         /// It can be one of the GL_TEXTURE#_ARB if valid.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGLGetTextureEnum(IntPtr param);
         #endregion int cgGLGetTextureEnum(IntPtr param)
 
@@ -2139,7 +2148,7 @@ namespace Tao.Cg {
         /// Use CG_TRUE or CG_FALSE to enable/disable automatic texture management.
         /// </remarks>
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void cgGLSetManageTextureParameters(IntPtr context, bool flag);
         #endregion void cgGLSetManageTextureParameters(IntPtr context, bool flag)
 
@@ -2147,9 +2156,12 @@ namespace Tao.Cg {
         /// <summary>
         /// Retreives the manage texture parameters flag from a context 
         /// </summary>
-        [DllImport("cgGL.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        [DllImport(CGGL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int cgGLGetManageTextureParameters(IntPtr context);
         #endregion int cgGLGetManageTextureParameters(IntPtr context)
+//TODO
+//CGGLDLL_API void cgGLSetupSampler(CGparameter param, GLuint texobj);
+//CGGLDLL_API void cgGLRegisterStates(CGcontext);
         #endregion
     }
 }

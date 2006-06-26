@@ -33,6 +33,7 @@
                 <File>AssemblyInfo.cs</File>
                 <File>Cg.cs</File>
                 <File>CgGl.cs</File>
+		<File>DelegateCallingConventionCdeclAttribute.cs</File>
             </Files>
         </Project>
     </Solution>
