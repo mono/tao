@@ -45,35 +45,6 @@
 	    <File>..//Tao.Platform.Windows//Tao.Platform.Windows.dll.config</File>
 	    <File>..//Tao.Platform.Windows//TaoButton.jpg</File>
 	</Files>
-	<Project name="Tao.FreeGlut" path="." language="C#" type="Library">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <OutputPath>bin\Debug</OutputPath>
-		    <XmlDocFile>Tao.FreeGlut.xml</XmlDocFile>
-		    <AllowUnsafe>true</AllowUnsafe>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <OutputPath>bin\Release</OutputPath>
-		    <XmlDocFile>Tao.FreeGlut.xml</XmlDocFile>
-		    <AllowUnsafe>true</AllowUnsafe>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" />
-	    <Reference name="Tao.OpenGl" localCopy="true"/>
-	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>Glut.cs</File>
-		<File>DelegateCallingConventionCdeclAttribute.cs</File>
-	    </Files>
-	</Project>
 	<Project name="Tao.OpenGl.ExtensionLoader" path="..\\Tao.OpenGl.ExtensionLoader" language="C#" type="Library">
 	    <Configuration name="Debug">
 		<Options>
@@ -99,6 +70,33 @@
 	    <Files>
 		<File>AssemblyInfo.cs</File>
 		<File>GlExtensionLoader.cs</File>
+	    </Files>
+	</Project>
+	<Project name="Tao.OpenGl.Glu" path="..//Tao.OpenGl.Glu" language="C#" type="Library">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>true</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <XmlDocFile>Tao.OpenGl.Glu.xml</XmlDocFile>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>true</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <XmlDocFile>Tao.OpenGl.Glu.xml</XmlDocFile>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" />
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>Glu.cs</File>
 	    </Files>
 	</Project>
 	<Project name="Tao.OpenGl" path="..\\Tao.OpenGl" language="C#" type="Library" >
@@ -128,14 +126,14 @@
 		<File>Gl.cs</File>
 	    </Files>
 	</Project>
-	<Project name="Tao.OpenGl.Glu" path="..//Tao.OpenGl.Glu" language="C#" type="Library">
+	<Project name="Tao.FreeGlut" path="." language="C#" type="Library">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>true</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
-		    <XmlDocFile>Tao.OpenGl.Glu.xml</XmlDocFile>
+		    <XmlDocFile>Tao.FreeGlut.xml</XmlDocFile>
+		    <AllowUnsafe>true</AllowUnsafe>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -143,16 +141,18 @@
 		<Options>
 		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>true</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
-		    <XmlDocFile>Tao.OpenGl.Glu.xml</XmlDocFile>
+		    <XmlDocFile>Tao.FreeGlut.xml</XmlDocFile>
+		    <AllowUnsafe>true</AllowUnsafe>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
 	    <Reference name="System" />
+	    <Reference name="Tao.OpenGl" localCopy="true"/>
 	    <Files>
 		<File>AssemblyInfo.cs</File>
-		<File>Glu.cs</File>
+		<File>Glut.cs</File>
+		<File>DelegateCallingConventionCdeclAttribute.cs</File>
 	    </Files>
 	</Project>
 	<Project name="Tao.Glfw" path="../Tao.Glfw" language="C#" type="Library">
