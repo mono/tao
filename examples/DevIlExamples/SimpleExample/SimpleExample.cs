@@ -64,6 +64,10 @@ namespace DevIlExamples {
     public sealed class SimpleExample {
         // --- Entry Point ---
         #region Main(string[] args)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="args"></param>
         [STAThread]
         public static void Main(string[] args) {
             int imageId;

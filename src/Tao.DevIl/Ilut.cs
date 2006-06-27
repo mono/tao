@@ -460,9 +460,9 @@ namespace Tao.DevIl
         /// <summary>
 		/// The <b>ilutRenderer</b> function initializes the renderer to use OpenILUT with.
 		/// </summary>
-		/// <param name="Renderer">Renderer enum of the renderer to switch to. Accepted values are: <see cref="ILUT_OPENGL"/>, <see cref="ILUT_ALLEGRO"/> and <see cref="ILUT_DIRECTX"/>.</param>
+		/// <param name="Renderer">Renderer enum of the renderer to switch to. Accepted values are: <see cref="ILUT_OPENGL"/>, <see cref="ILUT_ALLEGRO"/>, <see cref="ILUT_DIRECT3D8"/> and <see cref="ILUT_DIRECT3D9"/>.</param>
 		/// <returns></returns>
-		/// <remarks><b>ilutRenderer</b> switches the renderer OpenILUT uses and sets OpenILUT to use it. Note that the availability of these #define's is determined by whether their respective <see cref="ILUT_USE_X"/> #define is uncommented. For example, if <see cref="ILUT_USE_OPENGL"/> is undefined in ilut.h, <see cref="ILUT_OPENGL"/> will not be available.</remarks>  
+		/// <remarks><b>ilutRenderer</b> switches the renderer OpenILUT uses and sets OpenILUT to use it. Note that the availability of these #define's is determined by whether their respective ILUT_USE_X #define is uncommented. For example, if ILUT_USE_OPENGL is undefined in ilut.h, <see cref="ILUT_OPENGL"/> will not be available.</remarks>  
 		// ILAPI ILboolean ILAPIENTRY ilutRenderer(ILenum Renderer);
 		[DllImport(ILUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern int ilutRenderer(int Renderer);

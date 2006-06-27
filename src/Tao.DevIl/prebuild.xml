@@ -33,6 +33,32 @@
                 <File>Ilu.cs</File>
                 <File>Ilut.cs</File>
             </Files>
-        </Project>
+	</Project>
+	<Project name="DevIlExamples.SimpleExample" path="..\\..\\examples\\DevIlExamples\\SimpleExample" language="C#" type="Exe" startupObject="DevIlExamples.SimpleExample">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.DevIl" />
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>SimpleExample.cs</File>
+	    </Files>
+	</Project>
     </Solution>
 </Prebuild>

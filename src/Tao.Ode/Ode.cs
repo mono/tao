@@ -237,30 +237,96 @@ namespace Tao.Ode
 			#endregion Parameters for first axis
 			
 			#region Parameters for second axis
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamLoStop2 = 0x100 + 0,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamHiStop2 = 0x100 + 1,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamVel2 = 0x100 + 2,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamFMax2 = 0x100 + 3,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamFudgeFactor2 = 0x100 + 4,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamBounce2 = 0x100 + 5,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamCFM2 = 0x100 + 6,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamStopERP2 = 0x100 + 7,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamStopCFM2 = 0x100 + 8,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamSuspensionERP2 = 0x100 + 9,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamSuspensionCFM2 = 0x100 + 10,
 			#endregion Parameters for second axis
 			
 			#region Parameters for third axis
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamLoStop3 = 0x200 + 0,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamHiStop3 = 0x200 + 1,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamVel3 = 0x200 + 2,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamFMax3 = 0x200 + 3,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamFudgeFactor3 = 0x200 + 4,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamBounce3 = 0x200 + 5,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamCFM3 = 0x200 + 6,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamStopERP3 = 0x200 + 7,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamStopCFM3 = 0x200 + 8,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamSuspensionERP3 = 0x200 + 9,
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamSuspensionCFM3 = 0x200 + 10,
 			#endregion Parameters for third axis
 		}
@@ -957,6 +1023,10 @@ namespace Tao.Ode
 		public struct dMatrix3 
 		{
 			
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="values"></param>
 			public dMatrix3(dReal[] values)
 			{
 				M00 = values[0];
@@ -973,10 +1043,58 @@ namespace Tao.Ode
 				M23 = values[11];
 			}
 			
-			public dReal M00,M01,M02,M03;
-			public dReal M10,M11,M12,M13;
-			public dReal M20,M21,M22,M23;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M00;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M01;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M02;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M03;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M10;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M11;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M12;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M13;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M20;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M21;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M22;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M23;
 			
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal this[int index]
 			{
 				get
@@ -1029,7 +1147,11 @@ namespace Tao.Ode
 						default: throw new ArgumentOutOfRangeException("index", index, "Must be between 0 and 11");
 					}
 				}
-			}				
+			}	
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal this[int x, int y]
 			{
 				get
@@ -1105,6 +1227,10 @@ namespace Tao.Ode
 				}
 			}
 			
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <returns></returns>
 			public dReal[] ToArray() {
 			  return new dReal[] {
 			    M00, M01, M02, M03, M10, M11, M12, M13, M20, M21, M22, M23
@@ -1118,6 +1244,10 @@ namespace Tao.Ode
 		[StructLayout(LayoutKind.Sequential)]
 			public struct dMatrix4 
 		{
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="values"></param>
 			public dMatrix4(dReal[] values) 
 			{
 				M00 = values[0];
@@ -1138,11 +1268,74 @@ namespace Tao.Ode
 				M33 = values[15];
 			}
 
-			public dReal M00,M01,M02,M03;
-			public dReal M10,M11,M12,M13;
-			public dReal M20,M21,M22,M23;
-			public dReal M30,M31,M32,M33;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M00;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M01;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M02;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M03;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M10;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M11;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M12;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M13;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M20;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M21;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M22;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M23;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M30;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M31;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M32;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M33;
 			
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal this[int index]
 			{
 				get
@@ -1207,7 +1400,11 @@ namespace Tao.Ode
 						default: throw new ArgumentOutOfRangeException("index", index, "Must be between 0 and 15");
 					}
 				}
-			}				
+			}	
+			
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal this[int x, int y]
 			{
 				get

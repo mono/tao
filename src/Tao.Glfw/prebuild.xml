@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Prebuild xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.6.xsd" version="1.6">
     <Solution name="Tao.Glfw">
-        <Configuration name="Debug">
-            <Options>
-                <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-                <OptimizeCode>false</OptimizeCode>
-                <OutputPath>bin\Debug</OutputPath>
+	<Configuration name="Debug">
+	    <Options>
+		<CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		<OptimizeCode>false</OptimizeCode>
+		<OutputPath>bin\Debug</OutputPath>
 		<XmlDocFile>Tao.Glfw.xml</XmlDocFile>
 		<AllowUnsafe>true</AllowUnsafe>
-                <DebugInformation>true</DebugInformation>
-            </Options>
-        </Configuration>
-        <Configuration name="Release">
-            <Options>
-                <CompilerDefines>TRACE;WIN32</CompilerDefines>
-                <OptimizeCode>true</OptimizeCode>
+		<DebugInformation>true</DebugInformation>
+	    </Options>
+	</Configuration>
+	<Configuration name="Release">
+	    <Options>
+		<CompilerDefines>TRACE;WIN32</CompilerDefines>
+		<OptimizeCode>true</OptimizeCode>
 		<OutputPath>bin\Release</OutputPath>
 		<XmlDocFile>Tao.Glfw.xml</XmlDocFile>
 		<AllowUnsafe>true</AllowUnsafe>
-                <DebugInformation>false</DebugInformation>
-            </Options>
-        </Configuration>
-        <Files>
-            <File>Tao.Glfw.License.txt</File>
-            <File>Tao.Glfw.Readme.txt</File>
-            <File>Tao.Glfw.snk</File>
-            <File>Tao.Glfw.dll.config</File>
-        </Files>
+		<DebugInformation>false</DebugInformation>
+	    </Options>
+	</Configuration>
+	<Files>
+	    <File>Tao.Glfw.License.txt</File>
+	    <File>Tao.Glfw.Readme.txt</File>
+	    <File>Tao.Glfw.snk</File>
+	    <File>Tao.Glfw.dll.config</File>
+	</Files>
 	<Project name="Tao.Glfw" path="." language="C#" type="Library">
 	    <Reference name="System" />
-	    <Reference name="Tao.OpenGl" />
-            <Files>
-                <File>AssemblyInfo.cs</File>
-                <File>Glfw.cs</File>
-            </Files>
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>Glfw.cs</File>
+	    </Files>
 	</Project>
-	<Project name="Tao.OpenGl.ExtensionLoader" path="..//Tao.OpenGl.ExtensionLoader" language="C#" type="Library">
+	<Project name="Tao.OpenGl.ExtensionLoader" path="../Tao.OpenGl.ExtensionLoader" language="C#" type="Library">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -60,7 +60,7 @@
 		<File>GlExtensionLoader.cs</File>
 	    </Files>
 	</Project>
-	<Project name="Tao.OpenGl" path="..//Tao.OpenGl" language="C#" type="Library" >
+	<Project name="Tao.OpenGl" path="../Tao.OpenGl" language="C#" type="Library" >
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -87,12 +87,200 @@
 		<File>Gl.cs</File>
 	    </Files>
 	</Project>
-<Project name="Tao.OpenGl.Glu" path="..//Tao.OpenGl.Glu" language="C#" type="Library">
+	<Project name="Tao.OpenGl.Glu" path="..//Tao.OpenGl.Glu" language="C#" type="Library">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>true</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <XmlDocFile>Tao.OpenGl.Glu.xml</XmlDocFile>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>true</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <XmlDocFile>Tao.OpenGl.Glu.xml</XmlDocFile>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
 	    <Reference name="System" />
-            <Files>
-                <File>AssemblyInfo.cs</File>
-                <File>Glu.cs</File>
-            </Files>
-        </Project>
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>Glu.cs</File>
+	    </Files>
+	</Project>
+	<Project name="GlfwExamples.Boing" path="..\\..\\examples\\GlfwExamples\\Boing" language="C#" type="Exe" startupObject="GlfwExamples.Boing">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.Glfw" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>Boing.cs</File>
+	    </Files>
+	</Project>
+	<Project name="GlfwExamples.Gears" path="..\\..\\examples\\GlfwExamples\\Gears" language="C#" type="Exe" startupObject="GlfwExamples.Gears">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.Glfw" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>Gears.cs</File>
+	    </Files>
+	</Project>
+	<Project name="GlfwExamples.KeyTest" path="..\\..\\examples\\GlfwExamples\\KeyTest" language="C#" type="Exe" startupObject="GlfwExamples.KeyTest">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.Glfw" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>KeyTest.cs</File>
+	    </Files>
+	</Project>
+	<Project name="GlfwExamples.ListModes" path="..\\..\\examples\\GlfwExamples\\ListModes" language="C#" type="Exe" startupObject="GlfwExamples.ListModes">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.Glfw" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>ListModes.cs</File>
+	    </Files>
+	</Project>
+	<Project name="GlfwExamples.Pong" path="..\\..\\examples\\GlfwExamples\\Pong" language="C#" type="Exe" startupObject="GlfwExamples.Pong">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.Glfw" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>Pong.cs</File>
+	    </Files>
+	</Project>
+	<Project name="GlfwExamples.Triangle" path="..\\..\\examples\\GlfwExamples\\Triangle" language="C#" type="Exe" startupObject="GlfwExamples.Triangle">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.Glfw" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>Triangle.cs</File>
+	    </Files>
+	</Project>
     </Solution>
 </Prebuild>
