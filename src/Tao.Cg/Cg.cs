@@ -4883,15 +4883,59 @@ namespace Tao.Cg
 		private static extern IntPtr cgGetErrorStringA(int error);
 		#endregion string cgGetErrorString(int error)
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		// CGDLL_API CGerror cgGetFirstError(void);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetFirstError();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="error"></param>
+		/// <returns></returns>
+		// CGDLL_API const char *cgGetLastErrorString(CGerror *error);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern string cgGetLastErrorString(out int error);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="func"></param>
+		// CGDLL_API void cgSetErrorCallback(CGerrorCallbackFunc func);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetErrorCallback(CGerrorCallbackFuncDelegate func);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		// CGDLL_API CGerrorCallbackFunc cgGetErrorCallback(void);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern CGerrorCallbackFuncDelegate cgGetErrorCallback();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="func"></param>
+		/// <param name="data"></param>
+		// CGDLL_API void cgSetErrorHandler(CGerrorHandlerFunc func, void *data);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetErrorHandler(CGerrorHandlerFuncDelegate func, IntPtr data);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="data"></param>
+		/// <returns></returns>
+		// CGDLL_API CGerrorHandlerFunc cgGetErrorHandler(void **data);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern CGerrorHandlerFuncDelegate cgGetErrorHandler(IntPtr data);
+		#endregion Error Functions
+
 		/* TODO
-	CGDLL_API CGerror cgGetFirstError(void);
-	CGDLL_API const char *cgGetLastErrorString(CGerror *error);
-	CGDLL_API void cgSetErrorCallback(CGerrorCallbackFunc func);
-	CGDLL_API CGerrorCallbackFunc cgGetErrorCallback(void);
-	CGDLL_API void cgSetErrorHandler(CGerrorHandlerFunc func, void *data);
-	CGDLL_API CGerrorHandlerFunc cgGetErrorHandler(void **data);
-
-
 	 CgFX Functions 
 
 	CGDLL_API CGeffect cgCreateEffect(CGcontext, const char *code, const char **args);
@@ -5007,10 +5051,7 @@ namespace Tao.Cg
 	CGDLL_API CGparameter cgGetDependentAnnotationParameter(CGannotation, int index);
 
 	CGDLL_API void cgEvaluateProgram(CGprogram, float *, int ncomps, int nx, int ny, int nz);
-
 	*/
-
-		#endregion Error Functions
 
 		#region Delegates
 		/// <summary>
