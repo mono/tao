@@ -3930,26 +3930,92 @@ namespace Tao.Cg
 		#endregion Cg()
 
 		// --- Public Externs ---
-		#region TODO
-		/* Implement remaining core functions.
+		#region Type Functions
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="type"></param>
+		/// <returns></returns>
+		// CGDLL_API const char *cgGetTypeString(CGtype type);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern string cgGetTypeString(int type);
 
-		// Type Functions
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="type_string"></param>
+		/// <returns></returns>
+		// CGDLL_API CGtype cgGetType(const char *type_string);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetType(string type_string);
 
-		CGDLL_API const char *cgGetTypeString(CGtype type);
-		CGDLL_API CGtype cgGetType(const char *type_string);
-CGDLL_API CGtype cgGetNamedUserType(CGhandle handle, const char *name);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="handle"></param>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		// CGDLL_API CGtype cgGetNamedUserType(CGhandle handle, const char *name);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetNamedUserType(IntPtr handle, string name);
 
-CGDLL_API int cgGetNumUserTypes(CGhandle handle);
-CGDLL_API CGtype cgGetUserType(CGhandle handle, int index);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="handle"></param>
+		/// <returns></returns>
+		// CGDLL_API int cgGetNumUserTypes(CGhandle handle);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetNumUserTypes(IntPtr handle);
 
-CGDLL_API int cgGetNumParentTypes(CGtype type);
-CGDLL_API CGtype cgGetParentType(CGtype type, int index);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="handle"></param>
+		/// <param name="index"></param>
+		/// <returns></returns>
+		// CGDLL_API CGtype cgGetUserType(CGhandle handle, int index);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetUserType(IntPtr handle, int index);
 
-CGDLL_API CGbool cgIsParentType(CGtype parent, CGtype child);
-CGDLL_API CGbool cgIsInterfaceType(CGtype type);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="type"></param>
+		/// <returns></returns>
+		// CGDLL_API int cgGetNumParentTypes(CGtype type);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetNumParentTypes(int type);
 
-		*/
-		#endregion TODO
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="type"></param>
+		/// <param name="index"></param>
+		/// <returns></returns>
+		// CGDLL_API CGtype cgGetParentType(CGtype type, int index);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetParentType(int type, int index);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="parent"></param>
+		/// <param name="child"></param>
+		/// <returns></returns>
+		// CGDLL_API CGbool cgIsParentType(CGtype parent, CGtype child);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgIsParentType(int parent, int child);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="type"></param>
+		/// <returns></returns>
+		// CGDLL_API CGbool cgIsInterfaceType(CGtype type);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgIsInterfaceType(int type);
+		#endregion Type Functions
 
 		#region Context Functions
 		#region IntPtr cgCreateContext()
@@ -4402,7 +4468,6 @@ CGDLL_API CGbool cgIsInterfaceType(CGtype type);
 		CGDLL_API void cgGetMatrixParameterfc(CGparameter param, float *matrix);
 		*/
 	
-		// TODO
 		// CGDLL_API char const * const *cgGetProgramOptions(CGprogram prog);
 		// CGDLL_API void cgSetProgramProfile(CGprogram prog, CGprofile profile);
 		// CGDLL_API void cgSetPassProgramParameters(CGprogram);
@@ -4424,8 +4489,14 @@ CGDLL_API CGbool cgIsInterfaceType(CGtype type);
 		public static extern int cgGetProfile(string profile);
 		#endregion int cgGetProfile(string profile)
 
-		// TODO
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="profile"></param>
+		/// <returns></returns>
 		// CGDLL_API const char *cgGetProfileString(CGprofile profile);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern string cgGetProfileString(int profile);
 		#endregion Profile Functions
 
 		#region Parameter Functions
@@ -4746,19 +4817,37 @@ CGDLL_API CGbool cgIsInterfaceType(CGtype type);
 		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern int cgGetResource(string resource_name);
 		#endregion int cgGetResource(string resource_name)
-		/* TODO
-		 Enum Functions
+		#endregion Resource Functions
+		
+		#region Enum Functions
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="en"></param>
+		/// <returns></returns>
+		// CGDLL_API const char *cgGetEnumString(CGenum en);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern string cgGetEnumString(int en);
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="enum_string"></param>
+		/// <returns></returns>
+		// CGDLL_API CGenum cgGetEnum(const char *enum_string);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetEnum(string enum_string);
+		#endregion Enum Functions
 
-		CGDLL_API const char *cgGetEnumString(CGenum en);
-		CGDLL_API CGenum cgGetEnum(const char *enum_string);
-
-		 Misc Functions 
-
-		CGDLL_API const char *cgGetString(CGenum sname);
-		*/
-
-
-		#endregion
+		#region Misc Functions 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sname"></param>
+		/// <returns></returns>
+		// CGDLL_API const char *cgGetString(CGenum sname);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern string cgGetString(int sname);
+		#endregion Misc Functions
 
 		#region Error Functions
 
