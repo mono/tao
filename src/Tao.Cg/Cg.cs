@@ -3948,9 +3948,6 @@ CGDLL_API CGtype cgGetParentType(CGtype type, int index);
 CGDLL_API CGbool cgIsParentType(CGtype parent, CGtype child);
 CGDLL_API CGbool cgIsInterfaceType(CGtype type);
 
-		// Error Functions
-		CGDLL_API void cgSetErrorCallback(CGerrorCallbackFunc func);
-		CGDLL_API CGerrorCallbackFunc cgGetErrorCallback(void);
 		*/
 		#endregion TODO
 
@@ -4304,51 +4301,29 @@ CGDLL_API CGbool cgIsInterfaceType(CGtype type);
 		CGDLL_API int cgGetNumConnectedToParameters(CGparameter param);
 		CGDLL_API CGparameter cgGetConnectedToParameter(CGparameter param, int index);
 
-		CGDLL_API CGparameter cgGetNamedParameter(CGprogram prog, const char *name);
 		CGDLL_API CGparameter cgGetNamedProgramParameter(CGprogram prog, 
 														 CGenum name_space, 
 														 const char *name);
 
-		CGDLL_API CGparameter cgGetFirstParameter(CGprogram prog, CGenum name_space);
-		CGDLL_API CGparameter cgGetNextParameter(CGparameter current);
-		CGDLL_API CGparameter cgGetFirstLeafParameter(CGprogram prog, CGenum name_space);
-		CGDLL_API CGparameter cgGetNextLeafParameter(CGparameter current);
 
-		CGDLL_API CGparameter cgGetFirstStructParameter(CGparameter param);
 		CGDLL_API CGparameter cgGetNamedStructParameter(CGparameter param, 
 														const char *name);
 
 		CGDLL_API CGparameter cgGetFirstDependentParameter(CGparameter param);
 
-		CGDLL_API CGparameter cgGetArrayParameter(CGparameter aparam, int index);
-		CGDLL_API int cgGetArrayDimension(CGparameter param);
 		CGDLL_API CGtype cgGetArrayType(CGparameter param);
-		CGDLL_API int cgGetArraySize(CGparameter param, int dimension);
 		CGDLL_API int cgGetArrayTotalSize(CGparameter param);
 		CGDLL_API void cgSetArraySize(CGparameter param, int size);
 		CGDLL_API void cgSetMultiDimArraySize(CGparameter param, const int *sizes);
 
-		CGDLL_API CGprogram cgGetParameterProgram(CGparameter param);
 		CGDLL_API CGcontext cgGetParameterContext(CGparameter param);
-		CGDLL_API CGbool cgIsParameter(CGparameter param);
-		CGDLL_API const char *cgGetParameterName(CGparameter param);
 		CGDLL_API CGtype cgGetParameterType(CGparameter param);
 		CGDLL_API CGtype cgGetParameterBaseType(CGparameter param);
 		CGDLL_API CGparameterclass cgGetParameterClass(CGparameter param);
 		CGDLL_API int cgGetParameterRows(CGparameter param);
 		CGDLL_API int cgGetParameterColumns(CGparameter param);
 		CGDLL_API CGtype cgGetParameterNamedType(CGparameter param);
-		CGDLL_API const char *cgGetParameterSemantic(CGparameter param);
-		CGDLL_API CGresource cgGetParameterResource(CGparameter param);
-		CGDLL_API CGresource cgGetParameterBaseResource(CGparameter param);
-		CGDLL_API unsigned long cgGetParameterResourceIndex(CGparameter param);
-		CGDLL_API CGenum cgGetParameterVariability(CGparameter param);
-		CGDLL_API CGenum cgGetParameterDirection(CGparameter param);
-		CGDLL_API CGbool cgIsParameterReferenced(CGparameter param);
 		CGDLL_API CGbool cgIsParameterUsed(CGparameter param, CGhandle handle);
-		CGDLL_API const double *cgGetParameterValues(CGparameter param, 
-													 CGenum value_type,
-													 int *nvalues);
 		CGDLL_API void cgSetParameterValuedr(CGparameter param, int n, const double *vals);
 		CGDLL_API void cgSetParameterValuedc(CGparameter param, int n, const double *vals);
 		CGDLL_API void cgSetParameterValuefr(CGparameter param, int n, const float *vals);
@@ -4364,7 +4339,6 @@ CGDLL_API CGbool cgIsInterfaceType(CGtype type);
 		CGDLL_API const char *cgGetStringParameterValue(CGparameter param);
 		CGDLL_API void cgSetStringParameterValue(CGparameter param, const char *str);
 
-		CGDLL_API int cgGetParameterOrdinalNumber(CGparameter param);
 		CGDLL_API CGbool cgIsParameterGlobal(CGparameter param);
 		CGDLL_API int cgGetParameterIndex(CGparameter param);
 
@@ -4822,7 +4796,6 @@ CGDLL_API CGbool cgIsInterfaceType(CGtype type);
 
 		/* TODO
 	CGDLL_API CGerror cgGetFirstError(void);
-	CGDLL_API const char *cgGetErrorString(CGerror error);
 	CGDLL_API const char *cgGetLastErrorString(CGerror *error);
 	CGDLL_API void cgSetErrorCallback(CGerrorCallbackFunc func);
 	CGDLL_API CGerrorCallbackFunc cgGetErrorCallback(void);

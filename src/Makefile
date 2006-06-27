@@ -10,9 +10,9 @@ DIRS = \
 	Tao.GlPostProcess \
 	Tao.OpenGl \
 	Tao.OpenGl.Glu \
+	Tao.PostProcess \
 	Tao.Cg \
 	Tao.DevIl \
-	Tao.PostProcess \
 	Tao.FreeGlut \
 	Tao.Glfw \
 	Tao.Ode \
