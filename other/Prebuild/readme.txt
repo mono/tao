@@ -15,6 +15,7 @@ Visual Studio .NET 2005 (VS2005.bat)
 Visual Studio .NET 2003 (VS2003.bat)
 Visual Studio .NET 2002 (VS2002.bat)
 SharpDevelop (SharpDevelop.bat) - http://www.icsharpcode.net/OpenSource/SD/
+SharpDevelop2 (SharpDevelop.bat) - http://www.icsharpcode.net/OpenSource/SD/
 MonoDevelop (MonoDevelop.sh) - http://www.monodevelop.com/
 NAnt (nant.sh and nant.bat) - http://nant.sourceforge.net/
 
@@ -62,7 +63,7 @@ Command Line Options:
 
 /file - Specifies the name of the XML which defines what files are to be referenced by the generated project files as well as configures the options for them.  If not specified, prebuild.xml will be used as the default.
 
-/log - Specified the log file that should be written to for build errors.  If this option is not specified, no log file is generated, but if just no value is specified, then the defaul filename will be used for the log (DNPreBuild.log).
+/log - Specified the log file that should be written to for build errors.  If this option is not specified, no log file is generated, but if just no value is specified, then the defaul filename will be used for the log (Prebuild.log).
 
 /ppo - Preprocesses the xml file to test for syntax errors or problems but doesn't generate the files
 
@@ -110,7 +111,7 @@ _________________________________
 
 <?xml version="1.0" encoding="utf-8"?>
     <!--The version of the XML schema specified in the version and xmlns attributes should match the one for which the version of Prebuild.exe used was compiled for.  In this example it is the version 1.3 schema, you can find the XSD schema file at the url specified in the xmlns attribute. -->
-<DNPreBuild version="1.5" xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.6.xsd">
+<Prebuild version="1.6" xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.6.xsd">
 	<Solution name="RealmForge"> <!--The title and file name for the solution, combine, workspace, or project group (depending on what development tool you are using)-->
                        <!--Configurations found as children of Solution are used as templates for the configurations found in the project, this allows you to avoid writing the same options in each project (and maintaining each of these).  You can provide defaults and then override them in the configurations defined for each project. All options are optional.-->
 		<Configuration name="Debug">
@@ -128,12 +129,12 @@ _________________________________
 				<!-The filter for the number of warnings or errors shown and the tolerance level as to what is an error. This is value from 0 to 4 where 4 is the most strict (least tolerent).-->
 
 				<WarningsAsErrors>false</WarningsAsErrors>
-				<SupressWarnings>1591;219;1573;1572;168</SupressWarnings> 
+				<SuppressWarnings>1591;219;1573;1572;168</SuppressWarnings> 
  				<!-- A semicolon ';'  delimited list of the warnings that are filtered and not shown in the output window during compiling a project.  Only include the number portion of the warning codes that are shown in output during compilation (eg CS1591, should be entered as 1591)-->
 
 				<OutputPath>..\bin</OutputPath>
 				<DebugInformation>true</DebugInformation>
-				<RegisterCOMInterop>false</RegisterCOMInterop>
+				<RegisterComInterop>false</RegisterComInterop>
 				<IncrementalBuild>true</IncrementalBuild>
 				<BaseAddress>285212672</BaseAddress>
 				<FileAlignment>4096</FileAlignment>
@@ -149,10 +150,10 @@ _________________________________
 				<AllowUnsafe>false</AllowUnsafe>
 				<WarningLevel>4</WarningLevel>
 				<WarningsAsErrors>false</WarningsAsErrors>
-				<SupressWarnings>1591;219;1573;1572;168</SupressWarnings>
+				<SuppressWarnings>1591;219;1573;1572;168</SuppressWarnings>
 				<OutputPath>..\bin</OutputPath>
 				<DebugInformation>false</DebugInformation>
-				<RegisterCOMInterop>false</RegisterCOMInterop>
+				<RegisterComInterop>false</RegisterComInterop>
 				<IncrementalBuild>true</IncrementalBuild>
 				<BaseAddress>285212672</BaseAddress>
 				<FileAlignment>4096</FileAlignment>
@@ -220,4 +221,4 @@ _________________________________
 		</Project>
 		
 	</Solution>
-</DNPreBuild>
+</Prebuild>

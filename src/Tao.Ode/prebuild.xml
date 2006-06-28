@@ -33,7 +33,7 @@
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
                     <XmlDocFile>Tao.Ode.xml</XmlDocFile>
-		    <AllowUnsafe>false</AllowUnsafe>
+		    <AllowUnsafe>true</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
