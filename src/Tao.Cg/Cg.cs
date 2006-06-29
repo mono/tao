@@ -4348,130 +4348,1610 @@ namespace Tao.Cg
 		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern int cgGetProgramProfile(IntPtr prog);
 		#endregion int cgGetProgramProfile(IntPtr prog)
-		/* TODO
-		 * Parameter functions
-
-		CGDLL_API CGparameter cgCreateParameter(CGcontext ctx, CGtype type);
-		CGDLL_API CGparameter cgCreateParameterArray(CGcontext ctx,
-													 CGtype type, 
-													 int length);
-		CGDLL_API CGparameter cgCreateParameterMultiDimArray(CGcontext ctx,
-															 CGtype type,
-															 int dim, 
-															 const int *lengths);
-		CGDLL_API void cgDestroyParameter(CGparameter param);
-		CGDLL_API void cgConnectParameter(CGparameter from, CGparameter to);
-		CGDLL_API void cgDisconnectParameter(CGparameter param);
-		CGDLL_API CGparameter cgGetConnectedParameter(CGparameter param);
-
-		CGDLL_API int cgGetNumConnectedToParameters(CGparameter param);
-		CGDLL_API CGparameter cgGetConnectedToParameter(CGparameter param, int index);
-
-		CGDLL_API CGparameter cgGetNamedProgramParameter(CGprogram prog, 
-														 CGenum name_space, 
-														 const char *name);
-
-
-		CGDLL_API CGparameter cgGetNamedStructParameter(CGparameter param, 
-														const char *name);
-
-		CGDLL_API CGparameter cgGetFirstDependentParameter(CGparameter param);
-
-		CGDLL_API CGtype cgGetArrayType(CGparameter param);
-		CGDLL_API int cgGetArrayTotalSize(CGparameter param);
-		CGDLL_API void cgSetArraySize(CGparameter param, int size);
-		CGDLL_API void cgSetMultiDimArraySize(CGparameter param, const int *sizes);
-
-		CGDLL_API CGcontext cgGetParameterContext(CGparameter param);
-		CGDLL_API CGtype cgGetParameterType(CGparameter param);
-		CGDLL_API CGtype cgGetParameterBaseType(CGparameter param);
-		CGDLL_API CGparameterclass cgGetParameterClass(CGparameter param);
-		CGDLL_API int cgGetParameterRows(CGparameter param);
-		CGDLL_API int cgGetParameterColumns(CGparameter param);
-		CGDLL_API CGtype cgGetParameterNamedType(CGparameter param);
-		CGDLL_API CGbool cgIsParameterUsed(CGparameter param, CGhandle handle);
-		CGDLL_API void cgSetParameterValuedr(CGparameter param, int n, const double *vals);
-		CGDLL_API void cgSetParameterValuedc(CGparameter param, int n, const double *vals);
-		CGDLL_API void cgSetParameterValuefr(CGparameter param, int n, const float *vals);
-		CGDLL_API void cgSetParameterValuefc(CGparameter param, int n, const float *vals);
-		CGDLL_API void cgSetParameterValueir(CGparameter param, int n, const int *vals);
-		CGDLL_API void cgSetParameterValueic(CGparameter param, int n, const int *vals);
-		CGDLL_API int cgGetParameterValuedr(CGparameter param, int n, double *vals);
-		CGDLL_API int cgGetParameterValuedc(CGparameter param, int n, double *vals);
-		CGDLL_API int cgGetParameterValuefr(CGparameter param, int n, float *vals);
-		CGDLL_API int cgGetParameterValuefc(CGparameter param, int n, float *vals);
-		CGDLL_API int cgGetParameterValueir(CGparameter param, int n, int *vals);
-		CGDLL_API int cgGetParameterValueic(CGparameter param, int n, int *vals);
-		CGDLL_API const char *cgGetStringParameterValue(CGparameter param);
-		CGDLL_API void cgSetStringParameterValue(CGparameter param, const char *str);
-
-		CGDLL_API CGbool cgIsParameterGlobal(CGparameter param);
-		CGDLL_API int cgGetParameterIndex(CGparameter param);
-
-		CGDLL_API void cgSetParameterVariability(CGparameter param, CGenum vary);
-		CGDLL_API void cgSetParameterSemantic(CGparameter param, const char *semantic);
-
-		CGDLL_API void cgSetParameter1f(CGparameter param, float x);
-		CGDLL_API void cgSetParameter2f(CGparameter param, float x, float y);
-		CGDLL_API void cgSetParameter3f(CGparameter param, float x, float y, float z);
-		CGDLL_API void cgSetParameter4f(CGparameter param, 
-										float x, 
-										float y, 
-										float z,
-										float w);
-		CGDLL_API void cgSetParameter1d(CGparameter param, double x);
-		CGDLL_API void cgSetParameter2d(CGparameter param, double x, double y);
-		CGDLL_API void cgSetParameter3d(CGparameter param, 
-										double x, 
-										double y, 
-										double z);
-		CGDLL_API void cgSetParameter4d(CGparameter param, 
-										double x, 
-										double y, 
-										double z,
-										double w);
-		CGDLL_API void cgSetParameter1i(CGparameter param, int x);
-		CGDLL_API void cgSetParameter2i(CGparameter param, int x, int y);
-		CGDLL_API void cgSetParameter3i(CGparameter param, int x, int y, int z);
-		CGDLL_API void cgSetParameter4i(CGparameter param, 
-										int x, 
-										int y, 
-										int z,
-										int w);
-
-
-		CGDLL_API void cgSetParameter1iv(CGparameter param, const int *v);
-		CGDLL_API void cgSetParameter2iv(CGparameter param, const int *v);
-		CGDLL_API void cgSetParameter3iv(CGparameter param, const int *v);
-		CGDLL_API void cgSetParameter4iv(CGparameter param, const int *v);
-		CGDLL_API void cgSetParameter1fv(CGparameter param, const float *v);
-		CGDLL_API void cgSetParameter2fv(CGparameter param, const float *v);
-		CGDLL_API void cgSetParameter3fv(CGparameter param, const float *v);
-		CGDLL_API void cgSetParameter4fv(CGparameter param, const float *v);
-		CGDLL_API void cgSetParameter1dv(CGparameter param, const double *v);
-		CGDLL_API void cgSetParameter2dv(CGparameter param, const double *v);
-		CGDLL_API void cgSetParameter3dv(CGparameter param, const double *v);
-		CGDLL_API void cgSetParameter4dv(CGparameter param, const double *v);
-
-		CGDLL_API void cgSetMatrixParameterir(CGparameter param, const int *matrix);
-		CGDLL_API void cgSetMatrixParameterdr(CGparameter param, const double *matrix);
-		CGDLL_API void cgSetMatrixParameterfr(CGparameter param, const float *matrix);
-		CGDLL_API void cgSetMatrixParameteric(CGparameter param, const int *matrix);
-		CGDLL_API void cgSetMatrixParameterdc(CGparameter param, const double *matrix);
-		CGDLL_API void cgSetMatrixParameterfc(CGparameter param, const float *matrix);
-
-		CGDLL_API void cgGetMatrixParameterir(CGparameter param, int *matrix);
-		CGDLL_API void cgGetMatrixParameterdr(CGparameter param, double *matrix);
-		CGDLL_API void cgGetMatrixParameterfr(CGparameter param, float *matrix);
-		CGDLL_API void cgGetMatrixParameteric(CGparameter param, int *matrix);
-		CGDLL_API void cgGetMatrixParameterdc(CGparameter param, double *matrix);
-		CGDLL_API void cgGetMatrixParameterfc(CGparameter param, float *matrix);
-		*/
-	
-		// CGDLL_API char const * const *cgGetProgramOptions(CGprogram prog);
-		// CGDLL_API void cgSetProgramProfile(CGprogram prog, CGprofile profile);
-		// CGDLL_API void cgSetPassProgramParameters(CGprogram);
 		#endregion Program Functions
+
+		// TODO
+		#region Parameter functions
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="type"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameter cgCreateParameter(CGcontext ctx, CGtype type);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgCreateParameter(IntPtr ctx, int type);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="type"></param>
+		/// <param name="length"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameter cgCreateParameterArray(CGcontext ctx, CGtype type, int length);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgCreateParameterArray(IntPtr ctx, int type, int length);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="type"></param>
+		/// <param name="dim"></param>
+		/// <param name="lengths"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameter cgCreateParameterMultiDimArray(CGcontext ctx, CGtype type, int dim, const int *lengths);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgCreateParameterMultiDimArray(IntPtr ctx, int type, int dim, out int lengths);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		// CGDLL_API void cgDestroyParameter(CGparameter param);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgDestroyParameter(IntPtr param);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="from"></param>
+		/// <param name="to"></param>
+		// CGDLL_API void cgConnectParameter(CGparameter from, CGparameter to);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgConnectParameter(IntPtr from, IntPtr to);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		// CGDLL_API void cgDisconnectParameter(CGparameter param);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgDisconnectParameter(IntPtr param);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameter cgGetConnectedParameter(CGparameter param);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetConnectedParameter(IntPtr param);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <returns></returns>
+		// CGDLL_API int cgGetNumConnectedToParameters(CGparameter param);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetNumConnectedToParameters(IntPtr param);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="index"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameter cgGetConnectedToParameter(CGparameter param, int index);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetConnectedToParameter(IntPtr param, int index);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="prog"></param>
+		/// <param name="name_space"></param>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameter cgGetNamedProgramParameter(CGprogram prog,  CGenum name_space,  const char *name);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNamedProgramParameter(IntPtr prog, int name_space, string name);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameter cgGetNamedStructParameter(CGparameter param, const char *name);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNamedStructParameter(IntPtr param, string name);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameter cgGetFirstDependentParameter(CGparameter param);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetFirstDependentParameter(IntPtr param);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <returns></returns>
+		// CGDLL_API CGtype cgGetArrayType(CGparameter param);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetArrayType(IntPtr param);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <returns></returns>
+		// CGDLL_API int cgGetArrayTotalSize(CGparameter param);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetArrayTotalSize(IntPtr param);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="size"></param>
+		// CGDLL_API void cgSetArraySize(CGparameter param, int size);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetArraySize(IntPtr param, int size);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="sizes"></param>
+		// CGDLL_API void cgSetMultiDimArraySize(CGparameter param, const int *sizes);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetMultiDimArraySize(IntPtr param, out int sizes);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <returns></returns>
+		// CGDLL_API CGcontext cgGetParameterContext(CGparameter param);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetParameterContext(IntPtr param);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <returns></returns>
+		// CGDLL_API CGtype cgGetParameterBaseType(CGparameter param);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetParameterBaseType(IntPtr param);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameterclass cgGetParameterClass(CGparameter param);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetParameterClass(IntPtr param);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <returns></returns>
+		// CGDLL_API int cgGetParameterRows(CGparameter param);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetParameterRows(IntPtr param);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <returns></returns>
+		// CGDLL_API int cgGetParameterColumns(CGparameter param);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetParameterColumns(IntPtr param);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <returns></returns>
+		// CGDLL_API CGtype cgGetParameterNamedType(CGparameter param);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetParameterNamedType(IntPtr param);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="handle"></param>
+		/// <returns></returns>
+		// CGDLL_API CGbool cgIsParameterUsed(CGparameter param, CGhandle handle);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgIsParameterUsed(IntPtr param, IntPtr handle);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="n"></param>
+		/// <param name="vals"></param>
+		// CGDLL_API void cgSetParameterValuedr(CGparameter param, int n, const double *vals);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameterValuedr(IntPtr param, int n, out double vals);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="n"></param>
+		/// <param name="vals"></param>
+		// CGDLL_API void cgSetParameterValuedc(CGparameter param, int n, out double vals);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameterValuedc(IntPtr param, int n, out double vals);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="n"></param>
+		/// <param name="vals"></param>
+		// CGDLL_API void cgSetParameterValuefr(CGparameter param, int n, const float *vals);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameterValuefr(IntPtr param, int n, out float vals);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="n"></param>
+		/// <param name="vals"></param>
+		// CGDLL_API void cgSetParameterValuefc(CGparameter param, int n, const float *vals);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameterValuefc(IntPtr param, int n, out float vals);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="n"></param>
+		/// <param name="vals"></param>
+		// CGDLL_API void cgSetParameterValueir(CGparameter param, int n, const int *vals);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameterValueir(IntPtr param, int n, out int vals);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="n"></param>
+		/// <param name="vals"></param>
+		// CGDLL_API void cgSetParameterValueic(CGparameter param, int n, const int *vals);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameterValueic(IntPtr param, int n, out int vals);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="n"></param>
+		/// <param name="vals"></param>
+		/// <returns></returns>
+		// CGDLL_API int cgGetParameterValuedr(CGparameter param, int n, double *vals);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetParameterValuedr(IntPtr param, int n, out double vals);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="n"></param>
+		/// <param name="vals"></param>
+		/// <returns></returns>
+		// CGDLL_API int cgGetParameterValuedc(CGparameter param, int n, double *vals);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetParameterValuedc(IntPtr param, int n, out double vals);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="n"></param>
+		/// <param name="vals"></param>
+		/// <returns></returns>
+		// CGDLL_API int cgGetParameterValuefr(CGparameter param, int n, float *vals);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetParameterValuefr(IntPtr param, int n, out float vals);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="n"></param>
+		/// <param name="vals"></param>
+		/// <returns></returns>
+		// CGDLL_API int cgGetParameterValuefc(CGparameter param, int n, float *vals);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetParameterValuefc(IntPtr param, int n, out float vals);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="n"></param>
+		/// <param name="vals"></param>
+		/// <returns></returns>
+		// CGDLL_API int cgGetParameterValueir(CGparameter param, int n, int *vals);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetParameterValueir(IntPtr param, int n, out int vals);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="n"></param>
+		/// <param name="vals"></param>
+		/// <returns></returns>
+		// CGDLL_API int cgGetParameterValueic(CGparameter param, int n, int *vals);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetParameterValueic(IntPtr param, int n, out int vals);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <returns></returns>
+		// CGDLL_API const char *cgGetStringParameterValue(CGparameter param);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern string cgGetStringParameterValue(IntPtr param);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="str"></param>
+		// CGDLL_API void cgSetStringParameterValue(CGparameter param, const char *str);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetStringParameterValue(IntPtr param, string str);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <returns></returns>
+		// CGDLL_API CGbool cgIsParameterGlobal(CGparameter param);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgIsParameterGlobal(IntPtr param);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <returns></returns>
+		// CGDLL_API int cgGetParameterIndex(CGparameter param);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetParameterIndex(IntPtr param);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="vary"></param>
+		// CGDLL_API void cgSetParameterVariability(CGparameter param, CGenum vary);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameterVariability(IntPtr param, int vary);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="semantic"></param>
+		// CGDLL_API void cgSetParameterSemantic(CGparameter param, const char *semantic);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameterSemantic(IntPtr param, string semantic);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="x"></param>
+		// CGDLL_API void cgSetParameter1f(CGparameter param, float x);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter1f(IntPtr param, float x);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		// CGDLL_API void cgSetParameter2f(CGparameter param, float x, float y);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter2f(IntPtr param, float x, float y);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		/// <param name="z"></param>
+		// CGDLL_API void cgSetParameter3f(CGparameter param, float x, float y, float z);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter3f(IntPtr param, float x, float y, float z);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		/// <param name="z"></param>
+		/// <param name="w"></param>
+		// CGDLL_API void cgSetParameter4f(CGparameter param, float x, float y, float z, float w);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter4f(IntPtr param, float x, float y, float z, float w);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="x"></param>
+		// CGDLL_API void cgSetParameter1d(CGparameter param, double x);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter1d(IntPtr param, double x);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		// CGDLL_API void cgSetParameter2d(CGparameter param, double x, double y);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter2d(IntPtr param, double x, double y);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		/// <param name="z"></param>
+		// CGDLL_API void cgSetParameter3d(CGparameter param, double x, double y, double z);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter3d(IntPtr param, double x, double y, double z);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		/// <param name="z"></param>
+		/// <param name="w"></param>
+		// CGDLL_API void cgSetParameter4d(CGparameter param, double x, double y, double z, double w);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter4d(IntPtr param, double x, double y, double z, double w);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="x"></param>
+		// CGDLL_API void cgSetParameter1i(CGparameter param, int x);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter1i(IntPtr param, int x);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		// CGDLL_API void cgSetParameter2i(CGparameter param, int x, int y);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter2i(IntPtr param, int x, int y);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		/// <param name="z"></param>
+		// CGDLL_API void cgSetParameter3i(CGparameter param, int x, int y, int z);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter3i(IntPtr param, int x, int y, int z);
+		
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		/// <param name="z"></param>
+		/// <param name="w"></param>
+		// CGDLL_API void cgSetParameter4i(CGparameter param, int x, int y, int z, int w);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter4i(IntPtr param, int x, int y, int z, int w);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="v"></param>
+		// CGDLL_API void cgSetParameter1iv(CGparameter param, const int *v);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter1iv(IntPtr param, out int v);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="v"></param>
+		// CGDLL_API void cgSetParameter2iv(CGparameter param, const int *v);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter2iv(IntPtr param, out int v);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="v"></param>
+		// CGDLL_API void cgSetParameter3iv(CGparameter param, const int *v);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter3iv(IntPtr param, out int v);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="v"></param>
+		// CGDLL_API void cgSetParameter4iv(CGparameter param, const int *v);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter4iv(IntPtr param, out int v);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="v"></param>
+		// CGDLL_API void cgSetParameter1fv(CGparameter param, const float *v);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter1fv(IntPtr param, out float v);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="v"></param>
+		// CGDLL_API void cgSetParameter2fv(CGparameter param, const float *v);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter2fv(IntPtr param, out float v);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="v"></param>
+		// CGDLL_API void cgSetParameter3fv(CGparameter param, const float *v);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter3fv(IntPtr param, out float v);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="v"></param>
+		// CGDLL_API void cgSetParameter4fv(CGparameter param, const float *v);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter4fv(IntPtr param, out float v);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="v"></param>
+		// CGDLL_API void cgSetParameter1dv(CGparameter param, const double *v);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter1dv(IntPtr param, out double v);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="v"></param>
+		// CGDLL_API void cgSetParameter2dv(CGparameter param, const double *v);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter2dv(IntPtr param, out double v);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="v"></param>
+		// CGDLL_API void cgSetParameter3dv(CGparameter param, const double *v);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter3dv(IntPtr param, out double v);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="v"></param>
+		// CGDLL_API void cgSetParameter4dv(CGparameter param, const double *v);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetParameter4dv(IntPtr param, out double v);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="matrix"></param>
+		// CGDLL_API void cgSetMatrixParameterir(CGparameter param, const int *matrix);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetMatrixParameterir(IntPtr param, out int matrix);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="matrix"></param>
+		// CGDLL_API void cgSetMatrixParameterdr(CGparameter param, const double *matrix);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetMatrixParameterdr(IntPtr param, out double matrix);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="matrix"></param>
+		// CGDLL_API void cgSetMatrixParameterfr(CGparameter param, const float *matrix);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetMatrixParameterfr(IntPtr param, out float matrix);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="matrix"></param>
+		// CGDLL_API void cgSetMatrixParameteric(CGparameter param, const int *matrix);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetMatrixParameteric(IntPtr param, out int matrix);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="matrix"></param>
+		// CGDLL_API void cgSetMatrixParameterdc(CGparameter param, const double *matrix);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetMatrixParameterdc(IntPtr param, out double matrix);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="matrix"></param>
+		// CGDLL_API void cgSetMatrixParameterfc(CGparameter param, const float *matrix);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetMatrixParameterfc(IntPtr param, out float matrix);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="matrix"></param>
+		// CGDLL_API void cgGetMatrixParameterir(CGparameter param, int *matrix);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgGetMatrixParameterir(IntPtr param, out int matrix);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="matrix"></param>
+		// CGDLL_API void cgGetMatrixParameterdr(CGparameter param, double *matrix);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgGetMatrixParameterdr(IntPtr param, out double matrix);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="matrix"></param>
+		// CGDLL_API void cgGetMatrixParameterfr(CGparameter param, float *matrix);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgGetMatrixParameterfr(IntPtr param, out float matrix);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="matrix"></param>
+		// CGDLL_API void cgGetMatrixParameteric(CGparameter param, int *matrix);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgGetMatrixParameteric(IntPtr param, out int matrix);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="matrix"></param>
+		// CGDLL_API void cgGetMatrixParameterdc(CGparameter param, double *matrix);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgGetMatrixParameterdc(IntPtr param, out double matrix);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="matrix"></param>
+		// CGDLL_API void cgGetMatrixParameterfc(CGparameter param, float *matrix);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgGetMatrixParameterfc(IntPtr param, out float matrix);
+	
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="prog"></param>
+		/// <returns></returns>
+		// CGDLL_API char const * const *cgGetProgramOptions(CGprogram prog);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern string[] cgGetProgramOptions(IntPtr prog);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="prog"></param>
+		/// <param name="profile"></param>
+		// CGDLL_API void cgSetProgramProfile(CGprogram prog, CGprofile profile);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetProgramProfile(IntPtr prog, int profile);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="prog"></param>
+		// CGDLL_API void cgSetPassProgramParameters(CGprogram);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetPassProgramParameters(IntPtr prog);
+		#endregion Parameter Functions
+	 	
+		#region CgFX Functions 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="code"></param>
+		/// <param name="args"></param>
+		/// <returns></returns>
+		// CGDLL_API CGeffect cgCreateEffect(CGcontext, const char *code, const char **args);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgCreateEffect(IntPtr ctx, string code, string[] args);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="filename"></param>
+		/// <param name="args"></param>
+		/// <returns></returns>
+		// CGDLL_API CGeffect cgCreateEffectFromFile(CGcontext, const char *filename, const char **args);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgCreateEffectFromFile(IntPtr ctx, string filename, string[] args);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="effect"></param>
+		// CGDLL_API void cgDestroyEffect(CGeffect);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgDestroyEffect(IntPtr effect);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="effect"></param>
+		/// <returns></returns>
+		// CGDLL_API CGcontext cgGetEffectContext(CGeffect);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetEffectContext(IntPtr effect);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="effect"></param>
+		/// <returns></returns>
+		// CGDLL_API CGbool cgIsEffect(CGeffect effect);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgIsEffect(IntPtr effect);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <returns></returns>
+		// CGDLL_API CGeffect cgGetFirstEffect(CGcontext);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetFirstEffect(IntPtr ctx);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="effect"></param>
+		/// <returns></returns>
+		// CGDLL_API CGeffect cgGetNextEffect(CGeffect);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNextEffect(IntPtr effect);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="effect"></param>
+		/// <param name="profile"></param>
+		/// <param name="entry"></param>
+		/// <param name="args"></param>
+		/// <returns></returns>
+		// CGDLL_API CGprogram cgCreateProgramFromEffect(CGeffect effect, CGprofile profile, const char *entry, const char **args);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgCreateProgramFromEffect(IntPtr effect, int profile, string entry, string[] args);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="effect"></param>
+		/// <returns></returns>
+		// CGDLL_API CGtechnique cgGetFirstTechnique(CGeffect);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetFirstTechnique(IntPtr effect);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="technique"></param>
+		/// <returns></returns>
+		// CGDLL_API CGtechnique cgGetNextTechnique(CGtechnique);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNextTechnique(IntPtr technique);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="effect"></param>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		// CGDLL_API CGtechnique cgGetNamedTechnique(CGeffect, const char *name);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNamedTechnique(IntPtr effect, string name);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="technique"></param>
+		/// <returns></returns>
+		// CGDLL_API const char *cgGetTechniqueName(CGtechnique);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern string cgGetTechniqueName(IntPtr technique);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="technique"></param>
+		/// <returns></returns>
+		// CGDLL_API CGbool cgIsTechnique(CGtechnique);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgIsTechnique(IntPtr technique);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="technique"></param>
+		/// <returns></returns>
+		// CGDLL_API CGbool cgValidateTechnique(CGtechnique);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgValidateTechnique(IntPtr technique);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="technique"></param>
+		/// <returns></returns>
+		// CGDLL_API CGbool cgIsTechniqueValidated(CGtechnique);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgIsTechniqueValidated(IntPtr technique);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="technique"></param>
+		/// <returns></returns>
+		// CGDLL_API CGeffect cgGetTechniqueEffect(CGtechnique);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetTechniqueEffect(IntPtr technique);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="technique"></param>
+		/// <returns></returns>
+		// CGDLL_API CGpass cgGetFirstPass(CGtechnique);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetFirstPass(IntPtr technique);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="technique"></param>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		// CGDLL_API CGpass cgGetNamedPass(CGtechnique, const char *name);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNamedPass(IntPtr technique, string name);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="pass"></param>
+		/// <returns></returns>
+		// CGDLL_API CGpass cgGetNextPass(CGpass);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNextPass(IntPtr pass);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="pass"></param>
+		/// <returns></returns>
+		// CGDLL_API CGbool cgIsPass(CGpass);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgIsPass(IntPtr pass);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="pass"></param>
+		/// <returns></returns>
+		// CGDLL_API const char *cgGetPassName(CGpass); 
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern string cgGetPassName(IntPtr pass); 
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="pass"></param>
+		/// <returns></returns>
+		// CGDLL_API CGtechnique cgGetPassTechnique(CGpass);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetPassTechnique(IntPtr pass);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="pass"></param>
+		// CGDLL_API void cgSetPassState(CGpass);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetPassState(IntPtr pass);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="pass"></param>
+		// CGDLL_API void cgResetPassState(CGpass);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgResetPassState(IntPtr pass);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="pass"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstateassignment cgGetFirstStateAssignment(CGpass);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetFirstStateAssignment(IntPtr pass);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="pass"></param>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstateassignment cgGetNamedStateAssignment(CGpass, const char *name);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNamedStateAssignment(IntPtr pass, string name);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstateassignment cgGetNextStateAssignment(CGstateassignment);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNextStateAssignment(IntPtr stateassignment);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <returns></returns>
+		// CGDLL_API CGbool cgIsStateAssignment(CGstateassignment);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgIsStateAssignment(IntPtr stateassignment);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <returns></returns>
+		// CGDLL_API CGbool cgCallStateSetCallback(CGstateassignment);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgCallStateSetCallback(IntPtr stateassignment);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <returns></returns>
+		// CGDLL_API CGbool cgCallStateValidateCallback(CGstateassignment);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgCallStateValidateCallback(IntPtr stateassignment);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <returns></returns>
+		// CGDLL_API CGbool cgCallStateResetCallback(CGstateassignment);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgCallStateResetCallback(IntPtr stateassignment);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <returns></returns>
+		// CGDLL_API CGpass cgGetStateAssignmentPass(CGstateassignment);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetStateAssignmentPass(IntPtr stateassignment);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameter cgGetSamplerStateAssignmentParameter(CGstateassignment);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetSamplerStateAssignmentParameter(IntPtr stateassignment);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <param name="nVals"></param>
+		/// <returns></returns>
+		// CGDLL_API const float *cgGetFloatStateAssignmentValues(CGstateassignment, int *nVals);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern float[] cgGetFloatStateAssignmentValues(IntPtr stateassignment, int[] nVals);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <param name="nVals"></param>
+		/// <returns></returns>
+		// CGDLL_API const int *cgGetIntStateAssignmentValues(CGstateassignment, int *nVals);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int[] cgGetIntStateAssignmentValues(IntPtr stateassignment, int[] nVals);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <param name="nVals"></param>
+		/// <returns></returns>
+		// CGDLL_API const CGbool *cgGetBoolStateAssignmentValues(CGstateassignment, int *nVals);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int[] cgGetBoolStateAssignmentValues(IntPtr stateassignment, int[] nVals);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <returns></returns>
+		// CGDLL_API const char *cgGetStringStateAssignmentValue(CGstateassignment);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern string cgGetStringStateAssignmentValue(IntPtr stateassignment);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <returns></returns>
+		// CGDLL_API CGprogram cgGetProgramStateAssignmentValue(CGstateassignment);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetProgramStateAssignmentValue(IntPtr stateassignment);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameter cgGetTextureStateAssignmentValue(CGstateassignment);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetTextureStateAssignmentValue(IntPtr stateassignment);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameter cgGetSamplerStateAssignmentValue(CGstateassignment);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetSamplerStateAssignmentValue(IntPtr stateassignment);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <returns></returns>
+		// CGDLL_API int cgGetStateAssignmentIndex(CGstateassignment);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetStateAssignmentIndex(IntPtr stateassignment);
+
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <returns></returns>
+		// CGDLL_API int cgGetNumDependentStateAssignmentParameters(CGstateassignment);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetNumDependentStateAssignmentParameters(IntPtr stateassignment);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <param name="index"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameter cgGetDependentStateAssignmentParameter(CGstateassignment, int index);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetDependentStateAssignmentParameter(IntPtr stateassignment, int index);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstate cgGetStateAssignmentState(CGstateassignment);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetStateAssignmentState(IntPtr stateassignment);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="stateassignment"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstate cgGetSamplerStateAssignmentState(CGstateassignment);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetSamplerStateAssignmentState(IntPtr stateassignment);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="name"></param>
+		/// <param name="type"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstate cgCreateState(CGcontext, const char *name, CGtype);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgCreateState(IntPtr ctx, string name, int type);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="name"></param>
+		/// <param name="type"></param>
+		/// <param name="nelems"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstate cgCreateArrayState(CGcontext, string name, CGtype, int nelems);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgCreateArrayState(IntPtr ctx, string name, int type, int nelems);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="state"></param>
+		/// <param name="set"></param>
+		/// <param name="reset"></param>
+		/// <param name="validate"></param>
+		// CGDLL_API void cgSetStateCallbacks(CGstate, CGstatecallback set, CGstatecallback reset, CGstatecallback validate);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetStateCallbacks(IntPtr state, CGstatecallbackDelegate set, CGstatecallbackDelegate reset, CGstatecallbackDelegate validate);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="state"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstatecallback cgGetStateSetCallback(CGstate);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern CGstatecallbackDelegate cgGetStateSetCallback(IntPtr state);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="state"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstatecallback cgGetStateResetCallback(CGstate);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern CGstatecallbackDelegate cgGetStateResetCallback(IntPtr state);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="state"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstatecallback cgGetStateValidateCallback(CGstate);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern CGstatecallbackDelegate cgGetStateValidateCallback(IntPtr state);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="state"></param>
+		/// <returns></returns>
+		// CGDLL_API CGtype cgGetStateType(CGstate);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetStateType(IntPtr state);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="state"></param>
+		/// <returns></returns>
+		// CGDLL_API const char *cgGetStateName(CGstate);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern string cgGetStateName(IntPtr state);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstate cgGetNamedState(CGcontext, const char *name);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNamedState(IntPtr ctx, string name);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstate cgGetFirstState(CGcontext);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetFirstState(IntPtr ctx);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="state"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstate cgGetNextState(CGstate);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNextState(IntPtr state);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="state"></param>
+		/// <returns></returns>
+		// CGDLL_API CGbool cgIsState(CGstate);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgIsState(IntPtr state);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="state"></param>
+		/// <param name="name"></param>
+		/// <param name="value"></param>
+		// CGDLL_API void cgAddStateEnumerant(CGstate, string name, int value);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgAddStateEnumerant(IntPtr state, string name, int value);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="name"></param>
+		/// <param name="type"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstate cgCreateSamplerState(CGcontext, string name, CGtype);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgCreateSamplerState(IntPtr ctx, string name, int type);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="name"></param>
+		/// <param name="type"></param>
+		/// <param name="nelems"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstate cgCreateArraySamplerState(CGcontext, const char *name, CGtype, int nelems);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgCreateArraySamplerState(IntPtr ctx, string name, int type, int nelems);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstate cgGetNamedSamplerState(CGcontext, string name);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNamedSamplerState(IntPtr ctx, string name);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="ctx"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstate cgGetFirstSamplerState(CGcontext);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetFirstSamplerState(IntPtr ctx);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstateassignment cgGetFirstSamplerStateAssignment(CGparameter);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetFirstSamplerStateAssignment(IntPtr param);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		// CGDLL_API CGstateassignment cgGetNamedSamplerStateAssignment(CGparameter, const char *);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNamedSamplerStateAssignment(IntPtr param, string name);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		// CGDLL_API void cgSetSamplerState(CGparameter);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgSetSamplerState(IntPtr param);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="effect"></param>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameter cgGetNamedEffectParameter(CGeffect, const char *);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNamedEffectParameter(IntPtr effect, string name);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="effect"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameter cgGetFirstLeafEffectParameter(CGeffect);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetFirstLeafEffectParameter(IntPtr effect);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="effect"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameter cgGetFirstEffectParameter(CGeffect);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetFirstEffectParameter(IntPtr effect);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="effect"></param>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameter cgGetEffectParameterBySemantic(CGeffect, const char *);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetEffectParameterBySemantic(IntPtr effect, string name);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="technique"></param>
+		/// <returns></returns>
+		// CGDLL_API CGannotation cgGetFirstTechniqueAnnotation(CGtechnique);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetFirstTechniqueAnnotation(IntPtr technique);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="pass"></param>
+		/// <returns></returns>
+		// CGDLL_API CGannotation cgGetFirstPassAnnotation(CGpass);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetFirstPassAnnotation(IntPtr pass);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <returns></returns>
+		// CGDLL_API CGannotation cgGetFirstParameterAnnotation(CGparameter);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetFirstParameterAnnotation(IntPtr param);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="prog"></param>
+		/// <returns></returns>
+		// CGDLL_API CGannotation cgGetFirstProgramAnnotation(CGprogram);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetFirstProgramAnnotation(IntPtr prog);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="annotation"></param>
+		/// <returns></returns>
+		// CGDLL_API CGannotation cgGetNextAnnotation(CGannotation);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNextAnnotation(IntPtr annotation);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="technique"></param>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		// CGDLL_API CGannotation cgGetNamedTechniqueAnnotation(CGtechnique, const char *);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNamedTechniqueAnnotation(IntPtr technique, string name);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="pass"></param>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		// CGDLL_API CGannotation cgGetNamedPassAnnotation(CGpass, const char *);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNamedPassAnnotation(IntPtr pass, string name);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="param"></param>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		// CGDLL_API CGannotation cgGetNamedParameterAnnotation(CGparameter, const char *);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNamedParameterAnnotation(IntPtr param, string name);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="prog"></param>
+		/// <param name="name"></param>
+		/// <returns></returns>
+		// CGDLL_API CGannotation cgGetNamedProgramAnnotation(CGprogram, const char *);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetNamedProgramAnnotation(IntPtr prog, string name);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="annotation"></param>
+		/// <returns></returns>
+		// CGDLL_API CGbool cgIsAnnotation(CGannotation);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgIsAnnotation(IntPtr annotation);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="annotation"></param>
+		/// <returns></returns>
+		// CGDLL_API const char *cgGetAnnotationName(CGannotation);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern string cgGetAnnotationName(IntPtr annotation);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="annotation"></param>
+		/// <returns></returns>
+		// CGDLL_API CGtype cgGetAnnotationType(CGannotation);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetAnnotationType(IntPtr annotation);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="annotation"></param>
+		/// <param name="nvalues"></param>
+		/// <returns></returns>
+		// CGDLL_API const float *cgGetFloatAnnotationValues(CGannotation, int *nvalues);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern float[] cgGetFloatAnnotationValues(IntPtr annotation, out int nvalues);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="annotation"></param>
+		/// <param name="nvalues"></param>
+		/// <returns></returns>
+		// CGDLL_API const int *cgGetIntAnnotationValues(CGannotation, int *nvalues);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int[] cgGetIntAnnotationValues(IntPtr annotation, out int nvalues);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="annotation"></param>
+		/// <returns></returns>
+		// CGDLL_API const char *cgGetStringAnnotationValue(CGannotation);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern string cgGetStringAnnotationValue(IntPtr annotation);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="annotation"></param>
+		/// <param name="nvalues"></param>
+		/// <returns></returns>
+		// CGDLL_API const int *cgGetBooleanAnnotationValues(CGannotation, int *nvalues);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int[] cgGetBooleanAnnotationValues(IntPtr annotation, out int nvalues);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="annotation"></param>
+		/// <returns></returns>
+		// CGDLL_API int cgGetNumDependentAnnotationParameters(CGannotation);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int cgGetNumDependentAnnotationParameters(IntPtr annotation);
+		
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="annotation"></param>
+		/// <param name="index"></param>
+		/// <returns></returns>
+		// CGDLL_API CGparameter cgGetDependentAnnotationParameter(CGannotation, int index);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern IntPtr cgGetDependentAnnotationParameter(IntPtr annotation, int index);
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="prog"></param>
+		/// <param name="f"></param>
+		/// <param name="ncomps"></param>
+		/// <param name="nx"></param>
+		/// <param name="ny"></param>
+		/// <param name="nz"></param>
+		// CGDLL_API void cgEvaluateProgram(CGprogram, float *, int ncomps, int nx, int ny, int nz);
+		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern void cgEvaluateProgram(IntPtr prog, float[] f , int ncomps, int nx, int ny, int nz);
+		#endregion CgFX Functions 
 
 		#region Profile Functions
 		#region int cgGetProfile(string profile)
@@ -4934,124 +6414,6 @@ namespace Tao.Cg
 		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public static extern CGerrorHandlerFuncDelegate cgGetErrorHandler(IntPtr data);
 		#endregion Error Functions
-
-		/* TODO
-	 CgFX Functions 
-
-	CGDLL_API CGeffect cgCreateEffect(CGcontext, const char *code, const char **args);
-	CGDLL_API CGeffect cgCreateEffectFromFile(CGcontext, const char *filename,
-											  const char **args);
-	CGDLL_API void cgDestroyEffect(CGeffect);
-	CGDLL_API CGcontext cgGetEffectContext(CGeffect);
-	CGDLL_API CGbool cgIsEffect(CGeffect effect);
-
-	CGDLL_API CGeffect cgGetFirstEffect(CGcontext);
-	CGDLL_API CGeffect cgGetNextEffect(CGeffect);
-
-	CGDLL_API CGprogram cgCreateProgramFromEffect(CGeffect effect,
-												  CGprofile profile,
-												  const char *entry,
-												  const char **args);
-
-	CGDLL_API CGtechnique cgGetFirstTechnique(CGeffect);
-	CGDLL_API CGtechnique cgGetNextTechnique(CGtechnique);
-	CGDLL_API CGtechnique cgGetNamedTechnique(CGeffect, const char *name);
-	CGDLL_API const char *cgGetTechniqueName(CGtechnique);
-	CGDLL_API CGbool cgIsTechnique(CGtechnique);
-	CGDLL_API CGbool cgValidateTechnique(CGtechnique);
-	CGDLL_API CGbool cgIsTechniqueValidated(CGtechnique);
-	CGDLL_API CGeffect cgGetTechniqueEffect(CGtechnique);
-
-	CGDLL_API CGpass cgGetFirstPass(CGtechnique);
-	CGDLL_API CGpass cgGetNamedPass(CGtechnique, const char *name);
-	CGDLL_API CGpass cgGetNextPass(CGpass);
-	CGDLL_API CGbool cgIsPass(CGpass);
-	CGDLL_API const char *cgGetPassName(CGpass); 
-	CGDLL_API CGtechnique cgGetPassTechnique(CGpass);
-
-	CGDLL_API void cgSetPassState(CGpass);
-	CGDLL_API void cgResetPassState(CGpass);
-
-	CGDLL_API CGstateassignment cgGetFirstStateAssignment(CGpass);
-	CGDLL_API CGstateassignment cgGetNamedStateAssignment(CGpass, const char *name);
-	CGDLL_API CGstateassignment cgGetNextStateAssignment(CGstateassignment);
-	CGDLL_API CGbool cgIsStateAssignment(CGstateassignment);
-	CGDLL_API CGbool cgCallStateSetCallback(CGstateassignment);
-	CGDLL_API CGbool cgCallStateValidateCallback(CGstateassignment);
-	CGDLL_API CGbool cgCallStateResetCallback(CGstateassignment);
-	CGDLL_API CGpass cgGetStateAssignmentPass(CGstateassignment);
-	CGDLL_API CGparameter cgGetSamplerStateAssignmentParameter(CGstateassignment);
-
-	CGDLL_API const float *cgGetFloatStateAssignmentValues(CGstateassignment, int *nVals);
-	CGDLL_API const int *cgGetIntStateAssignmentValues(CGstateassignment, int *nVals);
-	CGDLL_API const CGbool *cgGetBoolStateAssignmentValues(CGstateassignment, int *nVals);
-	CGDLL_API const char *cgGetStringStateAssignmentValue(CGstateassignment);
-	CGDLL_API CGprogram cgGetProgramStateAssignmentValue(CGstateassignment);
-	CGDLL_API CGparameter cgGetTextureStateAssignmentValue(CGstateassignment);
-	CGDLL_API CGparameter cgGetSamplerStateAssignmentValue(CGstateassignment);
-	CGDLL_API int cgGetStateAssignmentIndex(CGstateassignment);
-
-	CGDLL_API int cgGetNumDependentStateAssignmentParameters(CGstateassignment);
-	CGDLL_API CGparameter cgGetDependentStateAssignmentParameter(CGstateassignment, int index);
-
-	CGDLL_API CGstate cgGetStateAssignmentState(CGstateassignment);
-	CGDLL_API CGstate cgGetSamplerStateAssignmentState(CGstateassignment);
-
-	CGDLL_API CGstate cgCreateState(CGcontext, const char *name, CGtype);
-	CGDLL_API CGstate cgCreateArrayState(CGcontext, const char *name, CGtype, int nelems);
-	CGDLL_API void cgSetStateCallbacks(CGstate, CGstatecallback set, CGstatecallback reset,
-									   CGstatecallback validate);
-	CGDLL_API CGstatecallback cgGetStateSetCallback(CGstate);
-	CGDLL_API CGstatecallback cgGetStateResetCallback(CGstate);
-	CGDLL_API CGstatecallback cgGetStateValidateCallback(CGstate);
-	CGDLL_API CGtype cgGetStateType(CGstate);
-	CGDLL_API const char *cgGetStateName(CGstate);
-	CGDLL_API CGstate cgGetNamedState(CGcontext, const char *name);
-	CGDLL_API CGstate cgGetFirstState(CGcontext);
-	CGDLL_API CGstate cgGetNextState(CGstate);
-	CGDLL_API CGbool cgIsState(CGstate);
-	CGDLL_API void cgAddStateEnumerant(CGstate, const char *name, int value);
-
-	CGDLL_API CGstate cgCreateSamplerState(CGcontext, const char *name, CGtype);
-	CGDLL_API CGstate cgCreateArraySamplerState(CGcontext, const char *name, CGtype, int nelems);
-	CGDLL_API CGstate cgGetNamedSamplerState(CGcontext, const char *name);
-	CGDLL_API CGstate cgGetFirstSamplerState(CGcontext);
-
-	CGDLL_API CGstateassignment cgGetFirstSamplerStateAssignment(CGparameter);
-	CGDLL_API CGstateassignment cgGetNamedSamplerStateAssignment(CGparameter, const char *);
-	CGDLL_API void cgSetSamplerState(CGparameter);
-
-	CGDLL_API CGparameter cgGetNamedEffectParameter(CGeffect, const char *);
-	CGDLL_API CGparameter cgGetFirstLeafEffectParameter(CGeffect);
-	CGDLL_API CGparameter cgGetFirstEffectParameter(CGeffect);
-	CGDLL_API CGparameter cgGetEffectParameterBySemantic(CGeffect, const char *);
-
-	CGDLL_API CGannotation cgGetFirstTechniqueAnnotation(CGtechnique);
-	CGDLL_API CGannotation cgGetFirstPassAnnotation(CGpass);
-	CGDLL_API CGannotation cgGetFirstParameterAnnotation(CGparameter);
-	CGDLL_API CGannotation cgGetFirstProgramAnnotation(CGprogram);
-	CGDLL_API CGannotation cgGetNextAnnotation(CGannotation);
-
-	CGDLL_API CGannotation cgGetNamedTechniqueAnnotation(CGtechnique, const char *);
-	CGDLL_API CGannotation cgGetNamedPassAnnotation(CGpass, const char *);
-	CGDLL_API CGannotation cgGetNamedParameterAnnotation(CGparameter, const char *);
-	CGDLL_API CGannotation cgGetNamedProgramAnnotation(CGprogram, const char *);
-
-	CGDLL_API CGbool cgIsAnnotation(CGannotation);
-
-	CGDLL_API const char *cgGetAnnotationName(CGannotation);
-	CGDLL_API CGtype cgGetAnnotationType(CGannotation);
-
-	CGDLL_API const float *cgGetFloatAnnotationValues(CGannotation, int *nvalues);
-	CGDLL_API const int *cgGetIntAnnotationValues(CGannotation, int *nvalues);
-	CGDLL_API const char *cgGetStringAnnotationValue(CGannotation);
-	CGDLL_API const int *cgGetBooleanAnnotationValues(CGannotation, int *nvalues);
-
-	CGDLL_API int cgGetNumDependentAnnotationParameters(CGannotation);
-	CGDLL_API CGparameter cgGetDependentAnnotationParameter(CGannotation, int index);
-
-	CGDLL_API void cgEvaluateProgram(CGprogram, float *, int ncomps, int nx, int ny, int nz);
-	*/
 
 		#region Delegates
 		/// <summary>
