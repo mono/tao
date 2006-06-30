@@ -3,12 +3,14 @@ REM built from make using fixbat.pl, see other/fixbat.pl
 mkdir dist
 mkdir dist\bin
 mkdir dist\examples
+mkdir dist\doc
 mkdir obj
+mkdir obj\doc
 echo src
 chdir "src"
 echo src/Tao.OpenGl.ExtensionLoader
 chdir "Tao.OpenGl.ExtensionLoader"
-csc /nologo /target:library /D:WIN32 /doc:..\..\dist\bin\Tao.OpenGl.ExtensionLoader.xml /out:..\..\dist\bin\Tao.OpenGl.ExtensionLoader.dll AssemblyInfo.cs GlExtensionLoader.cs /lib:..\..\dist\bin 
+csc /nologo /target:library /D:WIN32 /doc:..\..\dist\doc\Tao.OpenGl.ExtensionLoader.xml /out:..\..\dist\bin\Tao.OpenGl.ExtensionLoader.dll AssemblyInfo.cs GlExtensionLoader.cs /lib:..\..\dist\bin 
 copy /y Tao.OpenGl.ExtensionLoader.dll.config ..\..\dist\bin\Tao.OpenGl.ExtensionLoader.dll.config
 chdir ..
 echo src/Tao.GlPostProcess
@@ -23,26 +25,29 @@ copy /y Tao.OpenGl.dll.config ..\..\dist\bin\Tao.OpenGl.dll.config
 chdir ..
 echo src/Tao.OpenGl.Glu
 chdir "Tao.OpenGl.Glu"
-csc /nologo /target:library /D:WIN32 /unsafe /doc:..\..\dist\bin\Tao.OpenGl.Glu.xml /out:..\..\dist\bin\Tao.OpenGl.Glu.dll AssemblyInfo.cs Glu.cs /lib:..\..\dist\bin /r:Tao.OpenGl.dll
+csc /nologo /target:library /D:WIN32 /unsafe /doc:..\..\dist\doc\Tao.OpenGl.Glu.xml /out:..\..\dist\bin\Tao.OpenGl.Glu.dll AssemblyInfo.cs Glu.cs /lib:..\..\dist\bin /r:Tao.OpenGl.dll
 copy /y Tao.OpenGl.Glu.dll.config ..\..\dist\bin\Tao.OpenGl.Glu.dll.config
-chdir ..
-echo src/Tao.Cg
-chdir "Tao.Cg"
-csc /nologo /target:library /D:WIN32 /unsafe /doc:..\..\dist\bin\Tao.Cg.xml /out:..\..\dist\bin\Tao.Cg.dll AssemblyInfo.cs Cg.cs /lib:..\..\dist\bin 
-copy /y Tao.Cg.dll.config ..\..\dist\bin\Tao.Cg.dll.config
-chdir ..
-echo src/Tao.DevIl
-chdir "Tao.DevIl"
-csc /nologo /target:library /D:WIN32 /doc:..\..\dist\bin\Tao.DevIl.xml /out:..\..\dist\bin\Tao.DevIl.dll AssemblyInfo.cs Il.cs Ilu.cs Ilut.cs /lib:..\..\dist\bin 
-copy /y Tao.DevIl.dll.config ..\..\dist\bin\Tao.DevIl.dll.config
 chdir ..
 echo src/Tao.PostProcess
 chdir "Tao.PostProcess"
 csc /nologo /target:exe /D:WIN32 /out:..\..\dist\bin\Tao.PostProcess.exe AssemblyInfo.cs AppMain.cs BuildProcessor.cs Options.cs ReleaseBuildProcessor.cs UsageHelp.cs /lib:..\..\dist\bin 
 chdir ..
+echo src/Tao.Cg
+chdir "Tao.Cg"
+csc /nologo /target:library /D:WIN32 /unsafe /doc:..\..\dist\doc\Tao.Cg.xml /out:..\..\obj\Tao.Cg-pre.dll AssemblyInfo.cs Cg.cs CgGl.cs DelegateCallingConventionCdeclAttribute.cs /lib:..\..\dist\bin 
+ildasm /text /OUT=..\..\obj\Tao.Cg-pre.dll.il ..\..\obj\Tao.Cg-pre.dll
+..\..\dist\bin\Tao.PostProcess.exe ..\..\obj\Tao.Cg-pre.dll.il ..\..\obj\Tao.Cg-pre.dll.pp.il /R /Y
+ilasm  /dll ..\..\obj\Tao.Cg-pre.dll.pp.il /out:..\..\dist\bin\Tao.Cg.dll
+copy /y Tao.Cg.dll.config ..\..\dist\bin\Tao.Cg.dll.config
+chdir ..
+echo src/Tao.DevIl
+chdir "Tao.DevIl"
+csc /nologo /target:library /D:WIN32 /doc:..\..\dist\doc\Tao.DevIl.xml /out:..\..\dist\bin\Tao.DevIl.dll AssemblyInfo.cs Il.cs Ilu.cs Ilut.cs /lib:..\..\dist\bin 
+copy /y Tao.DevIl.dll.config ..\..\dist\bin\Tao.DevIl.dll.config
+chdir ..
 echo src/Tao.FreeGlut
 chdir "Tao.FreeGlut"
-csc /nologo /target:library /D:WIN32 /unsafe /doc:..\..\dist\bin\Tao.FreeGlut.xml /out:..\..\obj\Tao.FreeGlut-pre.dll AssemblyInfo.cs Glut.cs DelegateCallingConventionCdeclAttribute.cs /lib:..\..\dist\bin /r:Tao.OpenGl.dll
+csc /nologo /target:library /D:WIN32 /unsafe /doc:..\..\dist\doc\Tao.FreeGlut.xml /out:..\..\obj\Tao.FreeGlut-pre.dll AssemblyInfo.cs Glut.cs DelegateCallingConventionCdeclAttribute.cs /lib:..\..\dist\bin /r:Tao.OpenGl.dll
 ildasm /text /OUT=..\..\obj\Tao.FreeGlut-pre.dll.il ..\..\obj\Tao.FreeGlut-pre.dll
 ..\..\dist\bin\Tao.PostProcess.exe ..\..\obj\Tao.FreeGlut-pre.dll.il ..\..\obj\Tao.FreeGlut-pre.dll.pp.il /R /Y
 ilasm  /dll ..\..\obj\Tao.FreeGlut-pre.dll.pp.il /out:..\..\dist\bin\Tao.FreeGlut.dll
@@ -50,26 +55,28 @@ copy /y Tao.FreeGlut.dll.config ..\..\dist\bin\Tao.FreeGlut.dll.config
 chdir ..
 echo src/Tao.Glfw
 chdir "Tao.Glfw"
-csc /nologo /target:library /D:WIN32 /doc:..\..\dist\bin\Tao.Glfw.xml /out:..\..\dist\bin\Tao.Glfw.dll AssemblyInfo.cs Glfw.cs /lib:..\..\dist\bin /r:Tao.OpenGl.dll
+csc /nologo /target:library /D:WIN32 /doc:..\..\dist\doc\Tao.Glfw.xml /out:..\..\dist\bin\Tao.Glfw.dll AssemblyInfo.cs Glfw.cs /lib:..\..\dist\bin /r:Tao.OpenGl.dll
 copy /y Tao.Glfw.dll.config ..\..\dist\bin\Tao.Glfw.dll.config
 chdir ..
 echo src/Tao.Ode
 chdir "Tao.Ode"
-csc /nologo /target:library /D:WIN32 /unsafe /doc:..\..\dist\bin\Tao.Ode.xml /out:..\..\obj\Tao.Ode-pre.dll AssemblyInfo.cs Ode.cs DelegateCallingConventionCdeclAttribute.cs /lib:..\..\dist\bin 
+csc /nologo /target:library /D:WIN32 /unsafe /doc:..\..\dist\doc\Tao.Ode.xml /out:..\..\obj\Tao.Ode-pre.dll AssemblyInfo.cs Ode.cs DelegateCallingConventionCdeclAttribute.cs /lib:..\..\dist\bin 
 ildasm /text /OUT=..\..\obj\Tao.Ode-pre.dll.il ..\..\obj\Tao.Ode-pre.dll
 ..\..\dist\bin\Tao.PostProcess.exe ..\..\obj\Tao.Ode-pre.dll.il ..\..\obj\Tao.Ode-pre.dll.pp.il /R /Y
 ilasm  /dll ..\..\obj\Tao.Ode-pre.dll.pp.il /out:..\..\dist\bin\Tao.Ode.dll
 copy /y Tao.Ode.dll.config ..\..\dist\bin\Tao.Ode.dll.config
-pause
 chdir ..
 echo src/Tao.OpenAl
 chdir "Tao.OpenAl"
-csc /nologo /target:library /D:WIN32 /unsafe /doc:..\..\dist\bin\Tao.OpenAl.xml /out:..\..\dist\bin\Tao.OpenAl.dll AssemblyInfo.cs Al.cs Alc.cs Alut.cs /lib:..\..\dist\bin 
+csc /nologo /target:library /D:WIN32 /unsafe /doc:..\..\dist\doc\Tao.OpenAl.xml /out:..\..\obj\Tao.OpenAl-pre.dll AssemblyInfo.cs Al.cs Alc.cs Alut.cs DelegateCallingConventionCdeclAttribute.cs /lib:..\..\dist\bin 
+ildasm /text /OUT=..\..\obj\Tao.OpenAl-pre.dll.il ..\..\obj\Tao.OpenAl-pre.dll
+..\..\dist\bin\Tao.PostProcess.exe ..\..\obj\Tao.OpenAl-pre.dll.il ..\..\obj\Tao.OpenAl-pre.dll.pp.il /R /Y
+ilasm  /dll ..\..\obj\Tao.OpenAl-pre.dll.pp.il /out:..\..\dist\bin\Tao.OpenAl.dll
 copy /y Tao.OpenAl.dll.config ..\..\dist\bin\Tao.OpenAl.dll.config
 chdir ..
 echo src/Tao.Sdl
 chdir "Tao.Sdl"
-csc /nologo /target:library /D:WIN32 /unsafe /doc:..\..\dist\bin\Tao.Sdl.xml /out:..\..\obj\Tao.Sdl-pre.dll AssemblyInfo.cs Sdl.cs SdlImage.cs SdlMixer.cs SdlTtf.cs SdlGfx.cs Smpeg.cs DelegateCallingConventionCdeclAttribute.cs /lib:..\..\dist\bin 
+csc /nologo /target:library /D:WIN32 /unsafe /doc:..\..\dist\doc\Tao.Sdl.xml /out:..\..\obj\Tao.Sdl-pre.dll AssemblyInfo.cs Sdl.cs SdlImage.cs SdlMixer.cs SdlTtf.cs SdlNet.cs SdlGfx.cs Smpeg.cs DelegateCallingConventionCdeclAttribute.cs /lib:..\..\dist\bin 
 ildasm /text /OUT=..\..\obj\Tao.Sdl-pre.dll.il ..\..\obj\Tao.Sdl-pre.dll
 ..\..\dist\bin\Tao.PostProcess.exe ..\..\obj\Tao.Sdl-pre.dll.il ..\..\obj\Tao.Sdl-pre.dll.pp.il /R /Y
 ilasm  /dll ..\..\obj\Tao.Sdl-pre.dll.pp.il /out:..\..\dist\bin\Tao.Sdl.dll
@@ -77,11 +84,16 @@ copy /y Tao.Sdl.dll.config ..\..\dist\bin\Tao.Sdl.dll.config
 chdir ..
 echo src/Tao.Platform.Windows
 chdir "Tao.Platform.Windows"
-csc /nologo /target:library /D:WIN32 /unsafe /doc:..\..\dist\bin\Tao.Platform.Windows.xml /out:..\..\obj\Tao.Platform.Windows-pre.dll AssemblyInfo.cs Gdi.cs IlasmAttribute.cs Kernel.cs SimpleOpenGlControl.cs User.cs Wgl.cs WinNt.cs Winmm.cs /lib:..\..\dist\bin /r:System.Drawing.dll /r:System.Windows.Forms.dll /r:Tao.OpenGl.dll
+csc /nologo /target:library /D:WIN32 /unsafe /doc:..\..\dist\doc\Tao.Platform.Windows.xml /out:..\..\obj\Tao.Platform.Windows-pre.dll AssemblyInfo.cs Gdi.cs IlasmAttribute.cs Kernel.cs SimpleOpenGlControl.cs User.cs Wgl.cs WinNt.cs Winmm.cs /lib:..\..\dist\bin /r:System.Drawing.dll /r:System.Windows.Forms.dll /r:Tao.OpenGl.dll
 ildasm /text /OUT=..\..\obj\Tao.Platform.Windows-pre.dll.il ..\..\obj\Tao.Platform.Windows-pre.dll
 ..\..\dist\bin\Tao.PostProcess.exe ..\..\obj\Tao.Platform.Windows-pre.dll.il ..\..\obj\Tao.Platform.Windows-pre.dll.pp.il /R /Y
 ilasm  /dll ..\..\obj\Tao.Platform.Windows-pre.dll.pp.il /out:..\..\dist\bin\Tao.Platform.Windows.dll
 copy /y Tao.Platform.Windows.dll.config ..\..\dist\bin\Tao.Platform.Windows.dll.config
+chdir ..
+echo src/Tao.PhysFs
+chdir "Tao.PhysFs"
+csc /nologo /target:library /D:WIN32 /unsafe /doc:..\..\dist\doc\Tao.PhysFs.xml /out:..\..\dist\bin\Tao.PhysFs.dll AssemblyInfo.cs Fs.cs /lib:..\..\dist\bin 
+copy /y Tao.PhysFs.dll.config ..\..\dist\bin\Tao.PhysFs.dll.config
 chdir ..
 chdir ..
 echo examples
@@ -137,6 +149,10 @@ chdir ..
 echo examples/GlfwExamples/ListModes
 chdir "ListModes"
 csc /nologo /D:WIN32 /target:exe /out:..\..\..\dist\examples\GlfwExamples.ListModes.exe AssemblyInfo.cs ListModes.cs /lib:..\..\..\dist\bin /r:Tao.OpenGl.dll /r:Tao.Glfw.dll
+chdir ..
+echo examples/GlfwExamples/Pong
+chdir "Pong"
+csc /nologo /D:WIN32 /target:winexe /out:..\..\..\dist\examples\GlfwExamples.Pong.exe AssemblyInfo.cs Pong.cs /lib:..\..\..\dist\bin /r:Tao.OpenGl.dll /r:Tao.OpenGl.Glu.dll /r:Tao.Glfw.dll
 chdir ..
 echo examples/GlfwExamples/Triangle
 chdir "Triangle"
@@ -615,6 +631,13 @@ chdir ..
 echo examples/SdlExamples/SmpegPlayer
 chdir "SmpegPlayer"
 csc /nologo /D:WIN32 /target:winexe /out:..\..\..\dist\examples\SdlExamples.SmpegPlayer.exe AssemblyInfo.cs SmpegPlayer.cs /lib:..\..\..\dist\bin /r:Tao.Sdl.dll
+chdir ..
+chdir ..
+echo examples/PhysFsExamples
+chdir "PhysFsExamples"
+echo examples/PhysFsExamples/Simple
+chdir "Simple"
+csc /nologo /D:WIN32 /out:..\..\..\dist\examples\PhysFsExamples.Simple.exe AssemblyInfo.cs Simple.cs /lib:..\..\..\dist\bin /r:Tao.PhysFs.dll
 chdir ..
 chdir ..
 chdir ..
