@@ -1,5 +1,5 @@
-Tao.Ode 0.5.0.1
-Copyright �2003-2006 Tao Framework Team
+Tao.Ode 0.5.0.3
+Copyright 2003-2006 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
