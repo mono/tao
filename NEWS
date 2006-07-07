@@ -26,7 +26,7 @@ Now binds with PhysFs 1.0.1
 For Tao.Ode
 Various bug fixes and changes made over the recent months, 
 including a dGeomSetRotation bug fix submitted by Markus Ewald.
-The collision callbacks shouldnow be working.
+The collision callbacks should now be working.
 
 
 1.2.0
