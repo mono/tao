@@ -15,18 +15,21 @@ For Tao.Sdl
 * Added SDL_GetKeyRepeat() to query the key repeat settings. 
 
 For Tao.Cg
-Now binds with Cg 1.4.1
+* Now binds with Cg 1.4.1
 
 For Tao.OpenAl
-Now binds with OpenAl 1.1.0
+* Now binds with OpenAl 1.1.0
 
 For Tao.PhysFs
-Now binds with PhysFs 1.0.1
+* Now binds with PhysFs 1.0.1
 
 For Tao.Ode
-Various bug fixes and changes made over the recent months, 
+* Various bug fixes and changes made over the recent months, 
 including a dGeomSetRotation bug fix submitted by Markus Ewald.
 The collision callbacks should now be working.
+
+For Tao
+* Updated Prebuild and all prebuild files. Added NAnt target.
 
 
 1.2.0
