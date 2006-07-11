@@ -10,7 +10,6 @@ POSTPROCESS_LIBRARY = 1
 SRCS = \
 	AssemblyInfo.cs \
 	Ode.cs \
-	DelegateCallingConventionCdeclAttribute.cs \
 	$(NULL)
 
 CSFLAGS += /unsafe /doc:$(DOC_DEST)/$(LIBRARY).xml

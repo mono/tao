@@ -1,7 +1,7 @@
 #region License
 /*
  MIT License
- Copyright 2003-2006 Tao Framework Team
+ Copyright 2003-2005 Tao Framework Team
  http://www.taoframework.com
  All rights reserved.
  
@@ -46,7 +46,8 @@ namespace Tao.Ode
 	
 	#region Class Documentation
 	/// <summary>
-	///     Open Dynamics Engine 0.5 (ODE - http://ode.org) bindings for .NET.
+	///     Open Dynamics Engine (ODE - http://ode.org) bindings for .NET
+	/// 	ODE Version: 0.6
 	/// </summary>
 	#endregion Class Documentation
 	public sealed class Ode 
@@ -303,7 +304,7 @@ namespace Tao.Ode
 			/// <summary>
 			/// 
 			/// </summary>
-			dCCylinderClass = 2,
+			dCapsuleClass = 2,
 			/// <summary>
 			/// 
 			/// </summary>
@@ -1104,6 +1105,12 @@ namespace Tao.Ode
 					}
 				}
 			}
+			
+			public dReal[] ToArray() {
+			  return new dReal[] {
+			    M00, M01, M02, M03, M10, M11, M12, M13, M20, M21, M22, M23
+			  };
+			}
 	};
 	
 		/// <summary>
@@ -1369,7 +1376,7 @@ namespace Tao.Ode
 		/// <summary>
 		/// Callback function for dSpaceCollide and dSpaceCollide2
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CALLING_CONVENTION)]
 		public delegate void dNearCallback (IntPtr data, dGeomID o1, dGeomID o2);
 		#endregion Public Delegates
 		
@@ -3671,11 +3678,11 @@ namespace Tao.Ode
 		/// <param name="radius">The radius of the cylinder (and the spherical cap)</param>
 		/// <param name="length">The length of the cylinder (not counting the spherical cap)</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dMassSetCappedCylinder(ref dMass mass, dReal density, int direction,
+		public extern static void dMassSetCapsule(ref dMass mass, dReal density, int direction,
 			dReal radius, dReal length);
 		
 		/* TLT comment:
-		 Calls dMassSetCappedCylinder and dMassAdjust internally.
+		 Calls dMassSetCapsule and dMassAdjust internally.
 		 parameter a = radius, parameter b = length - should probably name them this, but
 		 for now am following the Ode code.
 		 */
@@ -3692,7 +3699,7 @@ namespace Tao.Ode
 		/// <param name="radius">The radius of the cylinder (and the spherical cap)</param>
 		/// <param name="length">The length of the cylinder (not counting the spherical cap)</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dMassSetCappedCylinderTotal(ref dMass mass, dReal total_mass, int direction,
+		public extern static void dMassSetCapsuleTotal(ref dMass mass, dReal total_mass, int direction,
 			dReal radius, dReal length);
 		
 		/// <summary>
@@ -3776,17 +3783,22 @@ namespace Tao.Ode
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassTranslate(ref dMass mass, dReal x, dReal y, dReal z);
 		
-		/* TLT comment: this seems redundant since call matching actual Ode signature is below */
-		//[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		//public extern static void dMassRotate(ref dMass mass, /*dMatrix3*/ dReal[] R);
+		/// <summary>
+		/// Given mass parameters for some object, adjust them to represent the object rotated by R relative to the body frame.
+		/// </summary>
+		/// <param name="mass">A  dMass</param>
+		/// <param name="R">An  array of 12 elements containing a 3x4 rotation matrix</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dMassRotate(ref dMass mass, dReal[] R);
 		
 		/// <summary>
 		/// Given mass parameters for some object, adjust them to represent the object rotated by R relative to the body frame.
 		/// </summary>
 		/// <param name="mass">A  dMass</param>
 		/// <param name="R">A  dMatrix3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dMassRotate(ref dMass mass, dMatrix3 R);
+		public static void dMassRotate(ref dMass mass, dMatrix3 R) { // for compatibility
+		  dMassRotate(ref mass, R.ToArray());
+		}
 		
 		/// <summary>
 		/// Add the mass b to the mass a.
@@ -3896,9 +3908,24 @@ namespace Tao.Ode
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
 		/// <param name="geom">A  dGeomID</param>
-		/// <param name="R">A  dMatrix3</param>
+		/// <param name="R">An  array of 12 elements containing a 3x4 rotation matrix</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dGeomSetRotation(dGeomID geom, dMatrix3 R);
+		public extern static void dGeomSetRotation(dGeomID geom, dReal[] R);
+
+		/// <summary>
+		/// Set the rotation matrix of a placeable geom. 
+		/// 
+		/// This function is analogous to dBodySetRotation.
+		///  
+		/// If the geom is attached to a body, the body's rotation will also be changed.
+		/// 
+		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
+		/// </summary>
+		/// <param name="geom">A  dGeomID</param>
+		/// <param name="R">A  dMatrix3</param>
+		public static void dGeomSetRotation(dGeomID geom, dMatrix3 R) { // for compatibility
+		  dGeomSetRotation(geom, R.ToArray());
+		}
 		
 		/// <summary>
 		/// Set the quaternion of a placeable geom. 
@@ -4018,7 +4045,7 @@ namespace Tao.Ode
 		/// Given a geom, this returns its class number. The standard class numbers are:
 		///		dSphereClass  			Sphere
 		///		dBoxClass  				Box
-		///		dCCylinderClass			Capped cylinder
+		///		dCapsuleClass			Capped cylinder
 		///		dCylinderClass  		Regular flat-ended cylinder
 		///		dPlaneClass  			Infinite plane (non-placeable)
 		///		dGeomTransformClass 	Geometry transform
@@ -4429,7 +4456,7 @@ namespace Tao.Ode
 		/// <param name="radius">A  dReal</param>
 		/// <param name="length">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static dGeomID dCreateCCylinder(dSpaceID space, dReal radius, dReal length);
+		public extern static dGeomID dCreateCapsule(dSpaceID space, dReal radius, dReal length);
 		
 		/// <summary>
 		/// Set the parameters of the given capped cylinder.
@@ -4438,7 +4465,7 @@ namespace Tao.Ode
 		/// <param name="radius">A  dReal</param>
 		/// <param name="length">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dGeomCCylinderSetParams(dGeomID ccylinder, dReal radius, dReal length);
+		public extern static void dGeomCapsuleSetParams(dGeomID ccylinder, dReal radius, dReal length);
 		
 		/// <summary>
 		/// Return in radius and length the parameters of the given capped cylinder.
@@ -4447,7 +4474,7 @@ namespace Tao.Ode
 		/// <param name="radius">A  dReal</param>
 		/// <param name="length">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dGeomCCylinderGetParams(dGeomID ccylinder, ref dReal radius, ref dReal length);
+		public extern static void dGeomCapsuleGetParams(dGeomID ccylinder, ref dReal radius, ref dReal length);
 		
 		/// <summary>
 		/// Return the depth of the point (x,y,z) in the given capped cylinder. 
@@ -4461,7 +4488,7 @@ namespace Tao.Ode
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static dReal dGeomCCylinderPointDepth(dGeomID ccylinder, dReal x, dReal y, dReal z);
+		public extern static dReal dGeomCapsulePointDepth(dGeomID ccylinder, dReal x, dReal y, dReal z);
 		#endregion Capped cylinder class
 		#region Ray class
 		/// <summary>
@@ -5150,7 +5177,7 @@ namespace Tao.Ode
 		/// Allows user to state if a collision with a particular triangle is wanted
 		/// If the return value is zero no contact will be generated.
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CALLING_CONVENTION)]
 		public delegate int dTriCallback(dGeomID TriMesh, dGeomID RefObject, int TriangleIndex);
 		
 		/// <summary>
@@ -5173,7 +5200,7 @@ namespace Tao.Ode
 		/// Per object callback.
 		/// Allows user to get the list of all intersecting triangles in one shot.
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+        [UnmanagedFunctionPointer(CALLING_CONVENTION)]
 		public delegate void dTriArrayCallback(dGeomID TriMesh, dGeomID RefObject, int[] TriIndices, int TriCount);
 		
 		/// <summary>
@@ -5198,7 +5225,7 @@ namespace Tao.Ode
 		/// the barycentric coordinates of an intersection. The user can for example 
 		/// sample a bitmap to determine if a collision should occur.
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+        [UnmanagedFunctionPointer(CALLING_CONVENTION)]
 		public delegate int dTriRayCallback(dGeomID TriMesh, dGeomID Ray, int TriangleIndex, dReal u, dReal v);
 		
 		/// <summary>

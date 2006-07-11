@@ -32,7 +32,6 @@
             <Files>
                 <File>AssemblyInfo.cs</File>
                 <File>Ode.cs</File>
-                <File>DelegateCallingConventionCdeclAttribute.cs</File>
             </Files>
 	</Project>
 	<Project name="OdeExamples.Basic" path="..\\..\\examples\\OdeExamples\\Basic" language="C#" type="Exe" startupObject="OdeExamples.Basic">
