@@ -28,6 +28,12 @@ For Tao.Ode
 including a dGeomSetRotation bug fix submitted by Markus Ewald.
 The collision callbacks should now be working.
 
+For Tao.Glfw
+* Now binds with Glfw 2.5.0
+
+For Tao.FreeGlut
+* Now binds with FreeGLUT 2.4.0
+
 For Tao
 * Updated Prebuild and all prebuild files. Added NAnt target.
 
