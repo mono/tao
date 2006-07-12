@@ -32,9 +32,11 @@ Selecting one build involves typing "make net-1.1", e.g.:
 rm -f config.mk; cp config/net-1-1.mk config.mk
 config.mk installed; re-run make.
 
-* Building.  Simply type "make".  The resulting DLLs will be placed in dist/bin,
-and examples will be in dist/clean. If you wish to strongname the assemblies (as is
-recommended), build with "make STRONG=1".
+* Building.  Simply type "make clean && make".  The "make clean" is neccessary
+because there is a post-processing step which needs to be cleaned out 
+before a build. The resulting DLLs will be placed in dist/bin,
+and examples will be in dist/clean. If you wish to strongname the 
+assemblies (as is recommended), build with "make clean && make STRONG=1".
 
 2. Using batch files
 ====================
@@ -44,12 +46,24 @@ is equivalent to the first, except that it builds strong named assemblies.
 
 3. Using Prebuild
 =================
-Several scripts in the root directory of the code use the Prebuild tool to create project files for several IDE such as Visual Studio 2003, 2005, MonoDevelop, SharpDevelop, SharpDevelop2 and NAnt. These scripts are not meant to do complete builds of the project like the make and batch script. They are meant to help you build parts of the Tao project. When you run a Prebuild script, you can find the main project file (*.sln, *.cmbx, *.build) in the src/Tao.<project> directory
+Several scripts in the root directory of the code use the Prebuild tool to 
+create project files for several IDE such as Visual Studio 2003, 2005, 
+MonoDevelop, SharpDevelop, SharpDevelop2 and NAnt. These scripts are not
+meant to do complete builds of the project like the make and batch script. 
+Notably, the Prebuild builds will not do the post-processing step that properly
+sets up P/Invoking callbacks.
+They are meant to help you build parts of the Tao project. 
+When you run a Prebuild script, you can find the main project file 
+(*.sln, *.cmbx, *.build) in the src/Tao.<project> directory
 
 Tao.Sdl - Builds Tao.Sdl and Sdl Examples
 Tao.PhysFs - Builds Tao.PhysFs and PhysFs Examples
 Tao.Ode -  Builds Tao.Ode and Ode Examples
 Tao.Cg - Builds Tao.Cg
 Tao.DevIl - Builds Tao.DevIl and DevIl Examples
-Tao.OpenGl - Due to the fact that Tao.OpenGl is used in many subprojects, I had to put them altogether so they would build properly. Tao.OpenGl builds Tao.OpenGl, Tao.OpenGl.Glu, Tao.OpenGl.ExtensionLoader, Tao.OpenAl, OpenAl Examples, Tao.Glfw, Glfw Examples, Tao.Platform.Windows and Tao.GlPostProcess
+Tao.OpenGl - Due to the fact that Tao.OpenGl is used in many subprojects,
+I had to put them altogether so they would build properly.
+Tao.OpenGl builds Tao.OpenGl, Tao.OpenGl.Glu, Tao.OpenGl.ExtensionLoader,
+Tao.OpenAl, OpenAl Examples, Tao.Glfw, Glfw Examples, 
+Tao.Platform.Windows and Tao.GlPostProcess
 

@@ -5,13 +5,19 @@ Tao.OpenAl 1.1.0.0, Tao.Cg 1.4.1.0, Tao.DevIl 1.6.7.0,
 Tao.Sdl 1.2.11.0, Tao.PhysFs 1.0.1.0, Tao.Ode 0.5.0.3, Tao.Glfw 2.5.0.0.
 
 For Tao.Sdl
-* Now binds with SDL 1.2.11, SDL_image 1.2.5, SDL_mixer 1.2.7, smpeg 0.4.5, SDL_ttf 2.0.8, SDL_net 1.2.6
-* SDL_SetVideoMode() now accepts 0 for width or height and will use the current video mode (or the desktop mode if no mode has been set.) 
-* Added current_w and current_h to the SDL_VideoInfo structure, which is set to the desktop resolution during video intialization, and then set to the current resolution when a video mode is set. 
-* SDL_GL_LoadLibrary() will load the system default OpenGL library if it is passed NULL as a parameter. 
+* Now binds with SDL 1.2.11, SDL_image 1.2.5, SDL_mixer 1.2.7, 
+smpeg 0.4.5, SDL_ttf 2.0.8, SDL_net 1.2.6
+* SDL_SetVideoMode() now accepts 0 for width or height and will
+use the current video mode (or the desktop mode if no mode has been set.) 
+* Added current_w and current_h to the SDL_VideoInfo structure,
+which is set to the desktop resolution during video intialization, 
+and then set to the current resolution when a video mode is set. 
+* SDL_GL_LoadLibrary() will load the system default OpenGL 
+library if it is passed NULL as a parameter. 
 * Added SDL_GL_SWAP_CONTROL to wait for vsync in OpenGL applications. 
 * Added SDL_GL_ACCELERATED_VISUAL to guarantee hardware acceleration. 
-* SDL_WM_SetCaption() now officially takes UTF-8 title and icon strings, and displays international characters on supported platforms. 
+* SDL_WM_SetCaption() now officially takes UTF-8 title and icon
+strings, and displays international characters on supported platforms. 
 * Added SDL_GetKeyRepeat() to query the key repeat settings. 
 
 For Tao.Cg
@@ -36,6 +42,7 @@ For Tao.FreeGlut
 
 For Tao
 * Updated Prebuild and all prebuild files. Added NAnt target.
+* Reduced many of the XML doc meage generated during a build.
 
 
 1.2.0
