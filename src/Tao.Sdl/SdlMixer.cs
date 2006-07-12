@@ -338,24 +338,24 @@ namespace Tao.Sdl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
-			public delegate void MusicFinishedDelegate();
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+		public delegate void MusicFinishedDelegate();
 		#endregion void MusicFinishedDelegate()
 
 		#region void MixFunctionDelegate(IntPtr udata, IntPtr stream, int len)
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
-			public delegate void MixFunctionDelegate(IntPtr udata, byte[] stream, int len);
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+		public delegate void MixFunctionDelegate(IntPtr udata, byte[] stream, int len);
 		#endregion void MixFunctionDelegate(IntPtr udata, IntPtr stream, int len)
 
 		#region void ChannelFinishedDelegate(int channel)
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
-			public delegate void ChannelFinishedDelegate(int channel);
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+		public delegate void ChannelFinishedDelegate(int channel);
 		#endregion void ChannelFinishedDelegate(int channel)
 
 		#region void MixEffectFunctionDelegate(...)
@@ -392,8 +392,8 @@ namespace Tao.Sdl
 		/// </param>
 		/// <seealso cref="Mix_RegisterEffect"/>
 		/// <seealso cref="Mix_UnregisterEffect"/>
-		[DelegateCallingConventionCdecl]
-			public delegate void MixEffectFunctionDelegate(int chan, IntPtr stream, int len, IntPtr udata);
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+		public delegate void MixEffectFunctionDelegate(int chan, IntPtr stream, int len, IntPtr udata);
 		#endregion void MixEffectFunctionDelegate(...)
 
 		#region void MixEffectDoneDelegate(int chan, IntPtr udata)
@@ -422,8 +422,8 @@ namespace Tao.Sdl
 		/// </param>
 		/// <seealso cref="Mix_RegisterEffect"/>
 		/// <seealso cref="Mix_UnregisterEffect"/>
-		[DelegateCallingConventionCdecl]
-			public delegate void MixEffectDoneDelegate(int chan, IntPtr udata);
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+		public delegate void MixEffectDoneDelegate(int chan, IntPtr udata);
 		#endregion void MixEffectDoneDelegate(int chan, IntPtr udata)
 		#endregion Public Delegates
 		

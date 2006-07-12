@@ -3,8 +3,7 @@
     <Process>src\Tao.Cg\prebuild.xml</Process>
     <Process>src\Tao.DevIl\prebuild.xml</Process>
     <Process>src\Tao.Ode\prebuild.xml</Process>
-    <Process>src\Tao.OpenAl\prebuild.xml</Process>
-    <Process>src\Tao.FreeGlut\prebuild.xml</Process>
+    <Process>src\Tao.OpenGl\prebuild.xml</Process>
     <Process>src\Tao.Sdl\prebuild.xml</Process>
     <Process>src\Tao.PhysFs\prebuild.xml</Process>
 </Prebuild>

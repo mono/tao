@@ -1,0 +1,39 @@
+LIBRARY		= Tao.PhysFs
+
+include $(top_builddir)/am-config.mk
+
+FILES = \
+	AssemblyInfo.cs \
+	Fs.cs
+
+BUILD_FILES = $(addprefix $(srcdir)/, $(FILES))
+
+build: gl_build
+
+all: $(ASSEMBLY)
+
+install-data-local:
+	echo "$(GACUTIL) /i $(ASSEMBLY) /f $(GACUTIL_FLAGS)";  \
+	$(GACUTIL) /i $(ASSEMBLY) /f $(GACUTIL_FLAGS) || exit 1;
+
+uninstall-local:
+	echo "$(GACUTIL) /u $(ASSEMBLY_NAME) $(GACUTIL_FLAGS)"; \
+	$(GACUTIL) /u $(ASSEMBLY_NAME) $(GACUTIL_FLAGS) || exit 1;
+
+CSC_ARGS = \
+	-unsafe \
+	-debug \
+	 -out:$@ \
+	-target:$(TARGET) \
+	$(REFERENCES) \
+	$(CSFLAGS)
+
+
+$(ASSEMBLY): $(FILES)
+	$(CSC) $(CSC_ARGS) $(BUILD_FILES)
+
+CLEANFILES = $(ASSEMBLY) $(ASSEMBLY).mdb Tao.PhysFs-pre.dll
+EXTRA_DIST = \
+	$(FILES) \
+	Tao.PhysFs.snk \
+	Tao.PhysFs.dll.config

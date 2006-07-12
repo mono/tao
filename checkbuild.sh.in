@@ -1,0 +1,69 @@
+DISTRIBUTOR=cjcollier@colliertech.org
+KEY_ID=6CC27EA8
+KEY_URL1=http://colliertech.org/~cjcollier/gpg/cjcollier.pub
+KEY_URL2=http://colliertech.com/downloads/cjcollier.pub
+KEY_URL3=http://svn.myrealbox.com/source/trunk/gtkglarea-sharp/gpg/cjcollier.pub
+
+HOST_URL=colliertech.org:/var/www/colliertech.com/htdocs/downloads
+
+./autogen.sh $*
+if [ $? != 0 ]; then
+    exit 
+fi
+
+make dist-bzip2
+if [ $? != 0 ]; then
+    exit 
+fi
+
+
+mkdir -p ../tmp
+
+pushd ../tmp
+
+rm -rf @PACKAGE@-@VERSION@
+
+tar xfj ../@PACKAGE@.build/@PACKAGE@-@VERSION@.tar.bz2
+if [ $? != 0 ]; then
+    exit 
+fi
+
+cd @PACKAGE@-@VERSION@
+if [ $? != 0 ]; then
+    exit 
+fi
+
+./configure $*
+
+make
+if [ $? != 0 ]; then
+    exit 
+fi
+
+make uninstall
+
+make install
+if [ $? != 0 ]; then
+    exit 
+fi
+
+popd && echo 'Complete!'
+
+DISTFILE=@PACKAGE@-@VERSION@.tar.bz2
+
+# #PACKAGE_FILENAME=$DISTFILE
+
+PACKAGE_FILENAME=@PACKAGE@-current.tbz
+
+echo "cp $DISTFILE $PACKAGE_FILENAME"
+cp $DISTFILE $PACKAGE_FILENAME
+
+PACKAGE_SIGNATURE=@PACKAGE@-current.tbg
+
+echo "Signing package"
+
+gpg -a -u $KEY_ID -o $PACKAGE_SIGNATURE -s $PACKAGE_FILENAME
+
+echo "Pushing package to server"
+
+scp $DISTFILE $PACKAGE_FILENAME $PACKAGE_SIGNATURE $HOST_URL/@PACKAGE@/

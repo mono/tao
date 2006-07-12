@@ -244,6 +244,7 @@ namespace Tao.Platform.Windows {
                     this.BackgroundImage = (Image) Bitmap.FromStream(imageStream);
                 }
             } catch (System.Exception e) {
+				e.ToString();
                 this.BackgroundImage = null;
             }
         }

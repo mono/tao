@@ -1,6 +1,15 @@
-ridge
-vlad
-dhudson - Tao.Sdl
-rloach
-terry - Tao.Ode
-C.J. - Autotools Distribution: http://colliertech.com/downloads/tao/
+Vladimir Vukicevic - Tao.GlPostProcess
+Vladimir Vukicevic and Randy Ridge - Tao.OpenGl
+Vladimir Vukicevic and Randy Ridge - Tao.OpenGl.Glu
+Vladimir Vukicevic and Randy Ridge - Tao.OpenGl.ExtensionLoader
+David Hudson - Tao.Sdl
+Randy Ridge - Tao.FreeGlut
+Randy Ridge - Tao.Platform.Windows
+Randy Ridge - Tao.PostProcess
+Randy Ridge and David Hudson - Tao.OpenAl
+Randy Ridge - Tao.Glfw
+Rob Loach - Tao.PhysFs
+Randy Ridge, 'cody' and Terry Triplett - Tao.Ode
+C.J. Collier - Autotools Distribution: http://colliertech.com/downloads/tao/
+Chris McGuirk and David Hudson - Tao.Cg
+Chris McGuirk and Randy Ridge - Tao.DevIl

@@ -599,142 +599,126 @@ namespace Tao.Platform.Windows {
         // <seealso cref="OpenPrinter" />
         [StructLayout(LayoutKind.Sequential, CharSet=CharSet.Auto)]
         public struct DEVMODE {
-			/// <summary>
-			/// 
+			/// <summary>
 			/// </summary>
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst=32)]
             public string dmDeviceName;
-			/// <summary>
-			/// 
+			/// <summary>
 			/// </summary>
             public short dmSpecVersion;
-			/// <summary>
-			/// 
+			/// <summary>
 			/// </summary>
             public short dmDriverVersion;
-			/// <summary>
-			/// 
+			/// <summary>
 			/// </summary>
             public short dmSize;
-			/// <summary>
-			/// 
+			/// <summary>
 			/// </summary>
             public short dmDriverExtra;
-			/// <summary>
-			/// 
+			/// <summary>
 			/// </summary>
             public int dmFields;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             public short dmOrientation;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             public short dmPaperSize;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             public short dmPaperLength;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             public short dmPaperWidth;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             public short dmScale;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             public short dmCopies;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             public short dmDefaultSource;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             public short dmPrintQuality;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             public short dmColor;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             public short dmDuplex;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             public short dmYResolution;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             public short dmTTOption;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             public short dmCollate;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst=32)]
             public string dmFormName;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             public short dmLogPixels;
-			/// <summary>
-			/// 
+			/// <summary>
 			/// </summary>
             public int dmBitsPerPel;
-			/// <summary>
-			/// 
+			/// <summary>
 			/// </summary>
             public int dmPelsWidth;
-			/// <summary>
-			/// 
+			/// <summary>
 			/// </summary>
             public int dmPelsHeight;
-			/// <summary>
-			/// 
+			/// <summary>
 			/// </summary>
             public int dmDisplayFlags;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             public int dmDisplayFrequency;
-			/// <summary>
-			/// 
+			/// <summary>
 			/// </summary>
             public int dmICMMethod;
-			/// <summary>
-			/// 
+			/// <summary>
 			/// </summary>
             public int dmICMIntent;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             public int dmMediaType;
-			/// <summary>
-			/// 
+			/// <summary>
 			/// </summary>
             public int dmDitherType;
-			/// <summary>
-			/// 
+			/// <summary>
 			/// </summary>
             public int dmReserved1;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
             public int dmReserved2;
-			/// <summary>
-			/// 
+			/// <summary>
 			/// </summary>
             public int dmPanningWidth;
-			/// <summary>
-			/// 
+			/// <summary>
 			/// </summary>
             public int dmPanningHeight;
         }
@@ -1354,8 +1338,6 @@ namespace Tao.Platform.Windows {
         /// <seealso cref="DescribePixelFormat" />
         /// <seealso cref="GetPixelFormat" />
         /// <seealso cref="SetPixelFormat" />
-        /// <param name="deviceContext"></param>
-        /// <param name="pixelFormatDescriptor"></param>
         [DllImport(GDI_NATIVE_LIBRARY, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern int ChoosePixelFormat(IntPtr deviceContext, ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor);
         #endregion int ChoosePixelFormat(HDC hdc, PIXELFORMATDESCRIPTOR* ppfd)
@@ -1365,14 +1347,14 @@ namespace Tao.Platform.Windows {
         /// The <b>SetPixelFormat</b> function sets the pixel format of the specified device context to the format
         /// specified by the <i>iPixelFormat</i> index.
         /// </summary>
-        /// <param name="hdc">
+        /// <param name="deviceContext">
         ///		Specifies the device context whose pixel format the function attempts to set.
         /// </param>
-        /// <param name="iPixelFormat">
+        /// <param name="pixelFormat">
         ///		Index that identifies the pixel format to set. The various pixel formats supported by a device
         ///		context are identified by one-based indexes.
         /// </param>
-        /// <param name="ppfd">
+        /// <param name="pixelFormatDescriptor">
         ///		Pointer to a <see cref="Gdi.PIXELFORMATDESCRIPTOR" /> structure that contains the logical pixel
         ///		format specification. The system's metafile component uses this structure to record the logical
         ///		pixel format specification. The structure has no other effect upon the behavior of the
@@ -1463,65 +1445,62 @@ namespace Tao.Platform.Windows {
         /// <seealso cref="ChoosePixelFormat" />
         /// <seealso cref="DescribePixelFormat" />
         /// <seealso cref="GetPixelFormat" />
-        /// <param name="deviceContext"></param>
-        /// <param name="pixelFormat"></param>
-        /// <param name="pixelFormatDescriptor"></param>
         public static bool SetPixelFormat(IntPtr deviceContext, int pixelFormat, ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
             Kernel.LoadLibrary("opengl32.dll");
             return _SetPixelFormat(deviceContext, pixelFormat, ref pixelFormatDescriptor);
         }
         #endregion BOOL SetPixelFormat(HDC hdc, int iPixelFormat, PIXELFORMATDESCRIPTOR* ppfd)
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="deviceContext"></param>
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="deviceContext"></param>
 		/// <returns></returns>
         [DllImport(GDI_NATIVE_LIBRARY, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern bool SwapBuffers(IntPtr deviceContext);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="deviceContext"></param>
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="deviceContext"></param>
 		/// <returns></returns>
         [DllImport(GDI_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SwapBuffers"), SuppressUnmanagedCodeSecurity]
         public static extern int SwapBuffersFast([In] IntPtr deviceContext);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="height"></param>
-		/// <param name="width"></param>
-		/// <param name="escapement"></param>
-		/// <param name="orientation"></param>
-		/// <param name="weight"></param>
-		/// <param name="italic"></param>
-		/// <param name="underline"></param>
-		/// <param name="strikeOut"></param>
-		/// <param name="charSet"></param>
-		/// <param name="outputPrecision"></param>
-		/// <param name="clipPrecision"></param>
-		/// <param name="quality"></param>
-		/// <param name="pitchAndFamily"></param>
-		/// <param name="typeFace"></param>
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="height"></param>
+		/// <param name="width"></param>
+		/// <param name="escapement"></param>
+		/// <param name="orientation"></param>
+		/// <param name="weight"></param>
+		/// <param name="italic"></param>
+		/// <param name="underline"></param>
+		/// <param name="strikeOut"></param>
+		/// <param name="charSet"></param>
+		/// <param name="outputPrecision"></param>
+		/// <param name="clipPrecision"></param>
+		/// <param name="quality"></param>
+		/// <param name="pitchAndFamily"></param>
+		/// <param name="typeFace"></param>
 		/// <returns></returns>
         [DllImport(GDI_NATIVE_LIBRARY, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr CreateFont(int height, int width, int escapement, int orientation, int weight, bool italic, bool underline, bool strikeOut, int charSet, int outputPrecision, int clipPrecision, int quality, int pitchAndFamily, string typeFace);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="objectHandle"></param>
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="objectHandle"></param>
 		/// <returns></returns>
         [DllImport(GDI_NATIVE_LIBRARY, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern bool DeleteObject(IntPtr objectHandle);
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="deviceContext"></param>
-		/// <param name="objectHandle"></param>
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="deviceContext"></param>
+		/// <param name="objectHandle"></param>
 		/// <returns></returns>
         [DllImport(GDI_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr SelectObject(IntPtr deviceContext, IntPtr objectHandle);

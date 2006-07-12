@@ -35,7 +35,7 @@ namespace Tao.Sdl
 {
 	#region Class Documentation
 	/// <summary>
-	///     Simple DirectMedia Layer binding for .NET, implementing SDL 1.2.10.
+	///     Simple DirectMedia Layer binding for .NET, implementing SDL 1.2.11.
 	/// </summary>
 	/// <remarks>
 	/// This library is designed to make it easy to write games that run 
@@ -559,7 +559,7 @@ namespace Tao.Sdl
 		/// <summary>
 		/// Patch Version
 		/// </summary>
-		public const int SDL_PATCHLEVEL = 10;
+		public const int SDL_PATCHLEVEL = 11;
 		#endregion SDL_version.h
 
 		#region SDL_video.h
@@ -5042,7 +5042,7 @@ namespace Tao.Sdl
 			/// <summary>
 			/// 
 			/// </summary>
-			private short unused;
+			public short unused;
 
 			/// <summary>
 			/// Total amount of video memory in Kilobytes.
@@ -5214,13 +5214,22 @@ namespace Tao.Sdl
 			/// </summary>
 			public IntPtr[] pixels;//TODO double pointer to bytes
 			// Hardware-specific surface info
-			private IntPtr hwfuncs;
-			private IntPtr hwdata;
+			/// <summary>
+			/// 
+			/// </summary>
+			public IntPtr hwfuncs;
+			/// <summary>
+			/// 
+			/// </summary>
+			public IntPtr hwdata;
 			/// <summary>
 			/// This will be set to 1 if the overlay is hardware accelerated.
 			/// </summary>
 			public int hw_overlay;
-			private int UnusedBits;
+			/// <summary>
+			/// 
+			/// </summary>
+			public int UnusedBits;
 		}
 		#endregion SDL_Overlay
 		#endregion SDL_video.h
@@ -5277,7 +5286,7 @@ namespace Tao.Sdl
 		/// </remarks>
 		/// <seealso cref="SDL_SetEventFilter" />
 		/// <seealso cref="SDL_GetEventFilter" />
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int SDL_EventFilter([Out] SDL_Event evt);
 		#endregion int SDL_EventFilter([Out] SDL_Event evt)
 		#endregion SDL_events.h
@@ -5287,7 +5296,7 @@ namespace Tao.Sdl
 		/// <summary>
 		/// int (SDLCALL *fn)(void *)
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int ThreadDelegate();
 		#endregion int ThreadDelegate()
 		#endregion SDL_thread.h
@@ -5310,7 +5319,7 @@ namespace Tao.Sdl
 		///     </p>
 		/// </remarks>
 		/// <seealso cref="SDL_SetTimer" />
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int SDL_TimerCallback(int interval);
 		#endregion int SDL_TimerCallback(int interval)
 
@@ -5340,7 +5349,7 @@ namespace Tao.Sdl
 		/// </remarks>
 		/// <seealso cref="SDL_AddTimer" />
 		/// <seealso cref="SDL_RemoveTimer" />
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int SDL_NewTimerCallback(int interval);
 		#endregion int SDL_NewTimerCallback(int interval)
 		#endregion SDL_timer.h		

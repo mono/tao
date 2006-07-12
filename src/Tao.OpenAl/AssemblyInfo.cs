@@ -43,8 +43,8 @@ using System.Security.Permissions;
 [assembly: AssemblyDefaultAlias("Tao.OpenAl")]
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyDescription("Tao Framework OpenAL Binding For .NET")]
-[assembly: AssemblyFileVersion("1.0.0.2")]
-[assembly: AssemblyInformationalVersion("1.0.0.2")]
+[assembly: AssemblyFileVersion("1.1.0.0")]
+[assembly: AssemblyInformationalVersion("1.1.0.0")]
 #if STRONG
 [assembly: AssemblyKeyFile(@"Tao.OpenAl.snk")]
 #else
@@ -58,7 +58,7 @@ using System.Security.Permissions;
 #endif
 [assembly: AssemblyTitle("Tao Framework OpenAL Binding For .NET")]
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
-[assembly: AssemblyVersion("1.0.0.2")]
+[assembly: AssemblyVersion("1.1.0.0")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]

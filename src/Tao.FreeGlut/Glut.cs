@@ -1885,7 +1885,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutButtonBoxFunc" />.
         /// </summary>
         /// <seealso cref="glutButtonBoxFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void ButtonBoxCallback(int button, int state);
         #endregion ButtonBoxCallback(int button, int state)
 
@@ -1894,7 +1894,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutCreateMenu" />.
         /// </summary>
         /// <seealso cref="glutCreateMenu" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void CreateMenuCallback(int val);
         #endregion CreateMenuCallback(int val)
 
@@ -1903,7 +1903,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutDialsFunc" />.
         /// </summary>
         /// <seealso cref="glutDialsFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void DialsCallback(int dial, int val);
         #endregion DialsCallback(int dial, int val)
 
@@ -1912,7 +1912,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutDisplayFunc" />.
         /// </summary>
         /// <seealso cref="glutDisplayFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void DisplayCallback();
         #endregion DisplayCallback()
 
@@ -1921,7 +1921,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutEntryFunc" />.
         /// </summary>
         /// <seealso cref="glutEntryFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void EntryCallback(int state);
         #endregion EntryCallback(int state)
 
@@ -1930,7 +1930,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutIdleFunc" />.
         /// </summary>
         /// <seealso cref="glutIdleFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void IdleCallback();
         #endregion IdleCallback()
 
@@ -1939,7 +1939,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutJoystickFunc" />.
         /// </summary>
         /// <seealso cref="glutJoystickFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void JoystickCallback(int buttonMask, int x, int y, int z);
         #endregion JoystickCallback(int buttonMask, int x, int y, int z)
 
@@ -1948,7 +1948,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutKeyboardFunc" />.
         /// </summary>
         /// <seealso cref="glutKeyboardFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void KeyboardCallback(byte key, int x, int y);
         #endregion KeyboardCallback(byte key, int x, int y)
 
@@ -1957,7 +1957,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutKeyboardUpFunc" />.
         /// </summary>
         /// <seealso cref="glutKeyboardUpFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void KeyboardUpCallback(byte key, int x, int y);
         #endregion KeyboardUpCallback(byte key, int x, int y)
 
@@ -1966,7 +1966,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutMenuStateFunc" />.
         /// </summary>
         /// <seealso cref="glutMenuStateFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void MenuStateCallback(int state);
         #endregion MenuStateCallback(int state)
 
@@ -1975,7 +1975,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutMenuStatusFunc" />.
         /// </summary>
         /// <seealso cref="glutMenuStatusFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void MenuStatusCallback(int status, int x, int y);
         #endregion MenuStatusCallback(int status, int x, int y)
 
@@ -1984,7 +1984,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutMotionFunc" />.
         /// </summary>
         /// <seealso cref="glutMotionFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void MotionCallback(int x, int y);
         #endregion MotionCallback(int x, int y)
 
@@ -1993,7 +1993,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutMouseFunc" />.
         /// </summary>
         /// <seealso cref="glutMouseFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void MouseCallback(int button, int state, int x, int y);
         #endregion MouseCallback(int button, int state, int x, int y)
 
@@ -2002,7 +2002,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutOverlayDisplayFunc" />.
         /// </summary>
         /// <seealso cref="glutOverlayDisplayFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void OverlayDisplayCallback();
         #endregion OverlayDisplayCallback()
 
@@ -2011,7 +2011,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutPassiveMotionFunc" />.
         /// </summary>
         /// <seealso cref="glutPassiveMotionFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void PassiveMotionCallback(int x, int y);
         #endregion PassiveMotionCallback(int x, int y)
 
@@ -2020,7 +2020,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutReshapeFunc" />.
         /// </summary>
         /// <seealso cref="glutReshapeFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void ReshapeCallback(int width, int height);
         #endregion ReshapeCallback(int width, int height)
 
@@ -2029,7 +2029,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutSpaceballButtonFunc" />.
         /// </summary>
         /// <seealso cref="glutSpaceballButtonFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void SpaceballButtonCallback(int button, int state);
         #endregion SpaceballButtonCallback(int button, int state)
 
@@ -2038,7 +2038,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutSpaceballMotionFunc" />.
         /// </summary>
         /// <seealso cref="glutSpaceballMotionFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void SpaceballMotionCallback(int x, int y, int z);
         #endregion SpaceballMotionCallback(int x, int y, int z)
 
@@ -2047,7 +2047,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutSpaceballRotateFunc" />.
         /// </summary>
         /// <seealso cref="glutSpaceballRotateFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void SpaceballRotateCallback(int x, int y, int z);
         #endregion SpaceballRotateCallback(int x, int y, int z)
 
@@ -2056,7 +2056,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutSpecialFunc" />.
         /// </summary>
         /// <seealso cref="glutSpecialFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void SpecialCallback(int key, int x, int y);
         #endregion SpecialCallback(int key, int x, int y)
 
@@ -2065,7 +2065,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutSpecialUpFunc" />.
         /// </summary>
         /// <seealso cref="glutSpecialUpFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void SpecialUpCallback(int key, int x, int y);
         #endregion SpecialUpCallback(int key, int x, int y)
 
@@ -2082,7 +2082,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutTabletMotionFunc" />.
         /// </summary>
         /// <seealso cref="glutTabletMotionFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void TabletMotionCallback(int x, int y);
         #endregion TabletMotionCallback(int x, int y)
 
@@ -2091,7 +2091,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutTimerFunc" />.
         /// </summary>
         /// <seealso cref="glutTimerFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void TimerCallback(int val);
         #endregion TimerCallback(int val)
 
@@ -2100,7 +2100,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutWindowStatusFunc" />.
         /// </summary>
         /// <seealso cref="glutWindowStatusFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void WindowStatusCallback(int state);
         #endregion WindowStatusCallback(int state)
 
@@ -2109,7 +2109,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate) for use with <see cref="glutVisibilityFunc" />.
         /// </summary>
         /// <seealso cref="glutVisibilityFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void VisibilityCallback(int state);
         #endregion VisibilityCallback(int state)
 
@@ -2134,7 +2134,7 @@ namespace Tao.FreeGlut {
         ///     This may not work reliably on X Windows.
         /// </remarks>
         /// <seealso cref="glutMouseWheelFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void MouseWheelCallback(int wheel, int direction, int x, int y);
         #endregion MouseWheelCallback(int wheel, int direction, int x, int y)
 
@@ -2143,7 +2143,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate for use with <see cref="glutCloseFunc" />.
         /// </summary>
         /// <seealso cref="glutCloseFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void CloseCallback();
         #endregion CloseCallback()
 
@@ -2152,7 +2152,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate for use with <see cref="glutWMCloseFunc" />.
         /// </summary>
         /// <seealso cref="glutWMCloseFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void WindowCloseCallback();
         #endregion WindowCloseCallback()
 
@@ -2161,7 +2161,7 @@ namespace Tao.FreeGlut {
         ///     Callback (delegate for use with <see cref="glutMenuDestroyFunc" />.
         /// </summary>
         /// <seealso cref="glutMenuDestroyFunc" />
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void MenuDestroyCallback();
         #endregion MenuDestroyCallback()
         #endregion Callbacks
@@ -8781,7 +8781,7 @@ namespace Tao.FreeGlut {
         /// <summary>
 	///
         /// </summary>
-	[DelegateCallingConventionCdecl]
+	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 	public delegate void GLUTprocDelegate();
         #endregion void GLUTprocDelegate()
         #endregion Extension

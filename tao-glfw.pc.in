@@ -1,0 +1,9 @@
+prefix=@prefix@
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+
+Name: Tao.Glfw
+Description: Glfw portion of the Tao framework
+Version: @VERSION@
+Requires: tao-opengl
+Libs:  -r:${libdir}/mono/tao/Tao.Glfw.dll
