@@ -1745,14 +1745,14 @@ namespace Tao.DevIl {
         ///         <b>ERRORS</b>
         ///     </para>
         ///     <para>
-        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages(int, out int)" />
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
         ///         and <see cref="ilBindImage" /> before calling this function.  Number could have also been too high.
         ///     </para>
         ///     <para>
         ///         <see cref="IL_INTERNAL_ERROR " /> is set if there's an internal DevIL error.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="ilGenImages(int, out int)" />
+        /// <seealso cref="ilGenImages" />
         /// <seealso cref="ilBindImage" />
         /// <seealso cref="ilActiveMipmap" />
         /// <seealso cref="ilActiveLayer" />
@@ -1776,14 +1776,14 @@ namespace Tao.DevIl {
         ///         <b>ERRORS</b>
         ///     </para>
         ///     <para>
-        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages(int, out int)" />
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
         ///         and <see cref="ilBindImage" /> before calling this function.  Number could have also been too high.
         ///     </para>
         ///     <para>
         ///         <see cref="IL_INTERNAL_ERROR " /> is set if there's an internal DevIL error.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="ilGenImages(int, out int)" />
+        /// <seealso cref="ilGenImages" />
         /// <seealso cref="ilBindImage" />
         /// <seealso cref="ilActiveImage" />
         /// <seealso cref="ilActiveMipmap" />
@@ -1809,14 +1809,14 @@ namespace Tao.DevIl {
         ///         <b>ERRORS</b>
         ///     </para>
         ///     <para>
-        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages(int, out int)" />
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
         ///         and <see cref="ilBindImage" /> before calling this function.  Number could have also been too high.
         ///     </para>
         ///     <para>
         ///         <see cref="IL_INTERNAL_ERROR " /> is set if there's an internal DevIL error.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="ilGenImages(int, out int)" />
+        /// <seealso cref="ilGenImages" />
         /// <seealso cref="ilBindImage" />
         /// <seealso cref="ilActiveImage" />
         /// <seealso cref="ilActiveLayer" />
@@ -1857,7 +1857,7 @@ namespace Tao.DevIl {
         ///         <b>ERRORS</b>
         ///     </para>
         ///     <para>
-        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages(int, out int)" />
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
         ///         and <see cref="ilBindImage" /> before calling this function.  Number could have also been too high.
         ///     </para>
         ///     <para>
@@ -1868,7 +1868,7 @@ namespace Tao.DevIl {
         ///         was <c>null</c>.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="ilGenImages(int, out int)" />
+        /// <seealso cref="ilGenImages" />
         /// <seealso cref="ilBindImage" />
         // ILAPI ILboolean ILAPIENTRY ilApplyProfile(ILstring InProfile, ILstring OutProfile);
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
@@ -1895,12 +1895,12 @@ namespace Tao.DevIl {
         ///         <b>ERRORS</b>
         ///     </para>
         ///     <para>
-        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if <see cref="ilGenImages(int, out int)" /> was never called beforehand,
-        ///         <paramref name="Image" /> is out of bounds or the image name has been deleted via <see cref="ilDeleteImages(int, ref int)" />.
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if <see cref="ilGenImages" /> was never called beforehand,
+        ///         <paramref name="Image" /> is out of bounds or the image name has been deleted via <see cref="ilDeleteImages" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="ilGenImages(int, out int)" />
-        /// <seealso cref="ilDeleteImages(int, ref int)" />
+        /// <seealso cref="ilGenImages" />
+        /// <seealso cref="ilDeleteImages" />
         /// <seealso cref="ilDefaultImage" />
         /// <seealso cref="ilGetError" />
         // ILAPI ILvoid ILAPIENTRY ilBindImage(ILuint Image);
@@ -1997,11 +1997,11 @@ namespace Tao.DevIl {
         ///         <b>ERRORS</b>
         ///     </para>
         ///     <para>
-        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages(int, out int)" />
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
         ///         and <see cref="ilBindImage" /> before calling this function.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="ilGenImages(int, out int)" />
+        /// <seealso cref="ilGenImages" />
         /// <seealso cref="ilBindImage" />
         /// <seealso cref="ilClearColor" />
         // ILAPI ILboolean ILAPIENTRY ilClearImage(ILvoid);
@@ -2023,11 +2023,11 @@ namespace Tao.DevIl {
         ///         <b>ERRORS</b>
         ///     </para>
         ///     <para>
-        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages(int, out int)" />
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
         ///         and <see cref="ilBindImage" /> before calling this function.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="ilGenImages(int, out int)" />
+        /// <seealso cref="ilGenImages" />
         /// <seealso cref="ilBindImage" />
         /// <seealso cref="ilCopyImage" />
         /// <seealso cref="ilActiveImage" />
@@ -2071,7 +2071,7 @@ namespace Tao.DevIl {
         ///         <b>ERRORS</b>
         ///     </para>
         ///     <para>
-        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages(int, out int)" />
+        ///         <see cref="IL_ILLEGAL_OPERATION" /> is set if there is currently no image bound. Use <see cref="ilGenImages" />
         ///         and <see cref="ilBindImage" /> before calling this function.
         ///     </para>
         ///     <para>
@@ -2082,12 +2082,12 @@ namespace Tao.DevIl {
         ///         <see cref="IL_OUT_OF_MEMORY" /> is set if DevIL could not allocate memory for the converted image data.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="ilGenImages(int, out int)" />
+        /// <seealso cref="ilGenImages" />
         /// <seealso cref="ilBindImage" />
         /// <seealso cref="ilGetBoolean" />
-        /// <seealso cref="ilGetBooleanv(int, out bool)" />
+        /// <seealso cref="ilGetBooleanv" />
         /// <seealso cref="ilGetInteger" />
-        /// <seealso cref="ilGetIntegerv(int, out int)" />
+        /// <seealso cref="ilGetIntegerv" />
         /// <seealso cref="ilConvertPal" />
         // ILAPI ILboolean ILAPIENTRY ilConvertImage(ILenum DestFormat, ILenum DestType);
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
@@ -2971,7 +2971,7 @@ namespace Tao.DevIl {
         /// <para>IL_LIB_PNG_ERROR: Error occurred when trying to save a png. </para></remarks>
         /// <returns></returns>
         /// <seealso cref="ilBindImage"/>
-        /// <seealso cref="ilGenImages(int, out int)"/>
+        /// <seealso cref="ilGenImages"/>
         /// <seealso cref="ilLoadImage"/>
         /// <seealso cref="ilSave"/>
         /// <seealso cref="ilSaveImage"/>

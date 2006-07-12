@@ -77,7 +77,6 @@ namespace SdlExamples
 			int width = 640;
 			int height = 480;
 			bool quitFlag = false;
-			int result;
 
 			Random rand = new Random();
 			
@@ -87,7 +86,7 @@ namespace SdlExamples
 
 			try 
 			{
-				int init = Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+				Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 				IntPtr surfacePtr = Sdl.SDL_SetVideoMode(
 					width, 
 					height, 
@@ -99,7 +98,7 @@ namespace SdlExamples
 				Sdl.SDL_SetClipRect(surfacePtr, ref rect2);
 				while (quitFlag == false) 
 				{
-					result = Sdl.SDL_PollEvent(out evt);
+					Sdl.SDL_PollEvent(out evt);
 
 					if (evt.type == Sdl.SDL_QUIT)
 					{
@@ -116,8 +115,8 @@ namespace SdlExamples
 
 					try 
 					{
-						result = SdlGfx.filledCircleRGBA(surfacePtr, (short)rand.Next(10,width - 100),(short)rand.Next(10, height - 100), (short)rand.Next(10,100),(byte)rand.Next(255), (byte)rand.Next(255),(byte)rand.Next(255), (byte)rand.Next(255));
-						result = Sdl.SDL_Flip(surfacePtr);
+						SdlGfx.filledCircleRGBA(surfacePtr, (short)rand.Next(10,width - 100),(short)rand.Next(10, height - 100), (short)rand.Next(10,100),(byte)rand.Next(255), (byte)rand.Next(255),(byte)rand.Next(255), (byte)rand.Next(255));
+						Sdl.SDL_Flip(surfacePtr);
 						Thread.Sleep(100);
 					} 
 					catch (Exception) {}

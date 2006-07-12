@@ -43,7 +43,7 @@
 		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>true</OptimizeCode>
                     <XmlDocFile>Tao.Ode.xml</XmlDocFile>
-		    <AllowUnsafe>false</AllowUnsafe>
+		    <AllowUnsafe>true</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
 		    <DebugInformation>false</DebugInformation>
 		</Options>

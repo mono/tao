@@ -5042,7 +5042,7 @@ namespace Tao.Sdl
 			/// <summary>
 			/// 
 			/// </summary>
-			private short unused;
+			public short unused;
 
 			/// <summary>
 			/// Total amount of video memory in Kilobytes.
@@ -5214,13 +5214,22 @@ namespace Tao.Sdl
 			/// </summary>
 			public IntPtr[] pixels;//TODO double pointer to bytes
 			// Hardware-specific surface info
-			private IntPtr hwfuncs;
-			private IntPtr hwdata;
+			/// <summary>
+			/// 
+			/// </summary>
+			public IntPtr hwfuncs;
+			/// <summary>
+			/// 
+			/// </summary>
+			public IntPtr hwdata;
 			/// <summary>
 			/// This will be set to 1 if the overlay is hardware accelerated.
 			/// </summary>
 			public int hw_overlay;
-			private int UnusedBits;
+			/// <summary>
+			/// 
+			/// </summary>
+			public int UnusedBits;
 		}
 		#endregion SDL_Overlay
 		#endregion SDL_video.h

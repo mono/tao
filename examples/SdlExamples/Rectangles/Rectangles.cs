@@ -93,7 +93,7 @@ namespace SdlExamples
 
 			try 
 			{
-				int init = Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+				Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 				IntPtr surfacePtr = Sdl.SDL_SetVideoMode(
 					width, 
 					height, 
