@@ -69,9 +69,9 @@ namespace OpenAlExamples {
         #endregion Private Constants
 
         #region Private Fields
-        private static int window;
-        private static int windowWidth;
-        private static int windowHeight;
+//        private static int window;
+//        private static int windowWidth;
+//        private static int windowHeight;
         private static float heading;
         private static float xPosition;
         private static float yPosition;
@@ -241,7 +241,7 @@ namespace OpenAlExamples {
             // Set GL Context Properties
             Glut.glutInitDisplayMode(Glut.GLUT_DEPTH | Glut.GLUT_DOUBLE | Glut.GLUT_RGB);
             Glut.glutInitWindowSize(640, 480);                              // Set Window Size
-            window = Glut.glutCreateWindow("OpenAL Tutorial");              // Create Window
+            Glut.glutCreateWindow("OpenAL Tutorial");              // Create Window
 
             Glut.glutDisplayFunc(new Glut.DisplayCallback(Display));        // Display Delegate
             Glut.glutKeyboardFunc(new Glut.KeyboardCallback(Keyboard));     // Keyboard Delegate
@@ -539,8 +539,8 @@ namespace OpenAlExamples {
             if(h == 0) {                                                    // Prevent A Divide By Zero Exception
                 h = 1;                                                      // By Making Height Equal At Least One
             }
-            windowWidth = w;
-            windowHeight = h;
+            //windowWidth = w;
+            //windowHeight = h;
             Gl.glViewport(0, 0, w, h);                                      // Reset The Current Viewport
             Gl.glMatrixMode(Gl.GL_PROJECTION);                              // Select The Projection Matrix
             Gl.glLoadIdentity();                                            // Reset The Projection Matrix

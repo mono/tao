@@ -80,14 +80,13 @@ namespace SdlExamples
 		public void Run() 
 		{
 			Sdl.SDL_Event evt;
-			int result;
 			bool quitFlag = false;
 			int flags = (Sdl.SDL_HWSURFACE|Sdl.SDL_DOUBLEBUF|Sdl.SDL_ANYFORMAT);
 			int bpp = 16;
 			int width = 352;
 			int height = 240;
 			
-			int init = Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
 			surfacePtr = Sdl.SDL_SetVideoMode(
 				width, 
 				height, 
@@ -136,7 +135,7 @@ namespace SdlExamples
 			while ((Smpeg.SMPEG_status(intPtr) == Smpeg.SMPEG_PLAYING) &&
 				(quitFlag == false))
 			{
-				result = Sdl.SDL_PollEvent(out evt);
+				Sdl.SDL_PollEvent(out evt);
 
 				if (evt.type == Sdl.SDL_QUIT)
 				{
