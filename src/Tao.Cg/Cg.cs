@@ -4350,7 +4350,6 @@ namespace Tao.Cg
 		#endregion int cgGetProgramProfile(IntPtr prog)
 		#endregion Program Functions
 
-		// TODO
 		#region Parameter functions
 		/// <summary>
 		/// 

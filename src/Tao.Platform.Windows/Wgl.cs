@@ -1350,7 +1350,7 @@ namespace Tao.Platform.Windows {
         ///         When a layer plane doesn't include a back buffer, calling the
         ///         <b>wglSwapLayerBuffers</b> function has no effect on that layer plane.  After
         ///         you call <b>wglSwapLayerBuffers</b>, the state of the back buffer content is
-        ///         given in the corresponding /* <see cref="Gdi.LAYERPLANEDESCRIPTOR" /> */ structure
+        ///         given in the corresponding /* see cref="Gdi.LAYERPLANEDESCRIPTOR" /> */ structure
         ///         of the layer plane or in the <see cref="Gdi.PIXELFORMATDESCRIPTOR" />
         ///         structure of the main plane.  The <b>wglSwapLayerBuffers</b> function swaps
         ///         the front and back buffers in the specified layer planes simultaneously.
@@ -1368,7 +1368,7 @@ namespace Tao.Platform.Windows {
         ///         to the same window.
         ///     </para>
         /// </remarks>
-       /// /* <seealso cref="Gdi.LAYERPLANEDESCRIPTOR" />*/
+       /// /* seealso cref="Gdi.LAYERPLANEDESCRIPTOR" />*/
         /// <seealso cref="Gdi.PIXELFORMATDESCRIPTOR" />
         /// <seealso cref="Gdi.SwapBuffers" />
         // WINGDIAPI BOOL  WINAPI wglSwapLayerBuffers(HDC, UINT);
@@ -1477,7 +1477,7 @@ namespace Tao.Platform.Windows {
         ///                 <description>
         ///                     The x offset of the glyph's origin, as returned in the
         ///                     <b>gmptGlyphOrigin.x</b> member of the glyph's
-      ///                    /* <see cref="Gdi.GLYPHMETRICS" /> */ structure.
+      ///                    /* see cref="Gdi.GLYPHMETRICS" /> */ structure.
         ///                 </description>
         ///             </item>
         ///             <item>
@@ -1485,7 +1485,7 @@ namespace Tao.Platform.Windows {
         ///                 <description>
         ///                     The y offset of the glyph's origin, as returned in the
         ///                     <b>gmptGlyphOrigin.y</b> member of the glyph's
-       ///                     /* <see cref="Gdi.GLYPHMETRICS" /> */structure.
+       ///                     /* see cref="Gdi.GLYPHMETRICS" /> */structure.
         ///                 </description>
         ///             </item>
         ///             <item>
@@ -1493,7 +1493,7 @@ namespace Tao.Platform.Windows {
         ///                 <description>
         ///                     The horizontal distance to the origin of the next character cell,
         ///                     as returned in the <b>gmCellIncX</b> member of the glyph's
-       ///                    /* <see cref="Gdi.GLYPHMETRICS" /> */structure.
+       ///                    /* see cref="Gdi.GLYPHMETRICS" /> */structure.
         ///                 </description>
         ///             </item>
         ///             <item>
@@ -1501,14 +1501,14 @@ namespace Tao.Platform.Windows {
         ///                 <description>
         ///                     The vertical distance to the origin of the next character cell as
         ///                     returned in the <b>gmCellIncY</b> member of the glyph's
-       ///                     /* <see cref="Gdi.GLYPHMETRICS" /> */structure.
+       ///                     /* see cref="Gdi.GLYPHMETRICS" /> */structure.
         ///                 </description>
         ///             </item>
         ///             <item>
         ///                 <term>bitmap</term>
         ///                 <description>
         ///                     The bitmap for the glyph, as returned by
-       ///                    /* <see cref="Gdi.GetGlyphOutline" />*/  with <i>uFormat</i> equal to 1.
+       ///                    /* see cref="Gdi.GetGlyphOutline" />*/  with <i>uFormat</i> equal to 1.
         ///                 </description>
         ///             </item>
         ///         </list>
@@ -1547,11 +1547,11 @@ namespace Tao.Platform.Windows {
         ///         </code>
         ///     </para>
         /// </remarks>
-        /// /* <seealso cref="Gdi.GetGlyphOutline" />*/
+        /// /* seealso cref="Gdi.GetGlyphOutline" />*/
         /// <seealso cref="Tao.OpenGl.Gl.glBitmap" />
         /// <seealso cref="Tao.OpenGl.Gl.glCallLists" />
         /// <seealso cref="Tao.OpenGl.Gl.glListBase" />
-        /// /* <seealso cref="Gdi.GLYPHMETRICS" />*/
+        /// /* seealso cref="Gdi.GLYPHMETRICS" />*/
         /// <seealso cref="Wgl.wglUseFontOutlines" />
         // WINGDIAPI BOOL WINAPI wglUseFontBitmapsA(HDC, DWORD, DWORD, DWORD);
         // WINGDIAPI BOOL WINAPI wglUseFontBitmapsW(HDC, DWORD, DWORD, DWORD);
