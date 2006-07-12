@@ -748,7 +748,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate IntPtr LPALCCREATECONTEXTDelegate([In] IntPtr device, [In] ref int attrlist);
 		#endregion IntPtr LPALCCREATECONTEXTDelegate([In] IntPtr device, [In] ref int attrlist)
 
@@ -756,7 +756,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int LPALCMAKECONTEXTCURRENTDelegate([In] IntPtr context);
 		#endregion int LPALCMAKECONTEXTCURRENTDelegate([In] IntPtr context)
 
@@ -764,7 +764,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALCPROCESSCONTEXTDelegate([In] IntPtr context);
 		#endregion void LPALCPROCESSCONTEXTDelegate([In] IntPtr context)
 
@@ -772,7 +772,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALCSUSPENDCONTEXTDelegate([In] IntPtr context);
 		#endregion void LPALCSUSPENDCONTEXTDelegate([In] IntPtr context)
 
@@ -780,7 +780,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALCDESTROYCONTEXTDelegate([In] IntPtr context);
 		#endregion void LPALCDESTROYCONTEXTDelegate([In] IntPtr context)
 
@@ -788,7 +788,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate IntPtr LPALCGETCURRENTECONTEXTDelegate();
 		#endregion IntPtr LPALCGETCURRENTECONTEXTDelegate()
 
@@ -796,7 +796,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate IntPtr LPALCGETCONTEXTSDEVICEDelegate([In] IntPtr context);
 		#endregion IntPtr LPALCGETCONTEXTSDEVICEDelegate([In] IntPtr context)
 
@@ -804,7 +804,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate IntPtr LPALCOPENDEVICEDelegate(string devicename);
 		#endregion IntPtr LPALCOPENDEVICEDelegate(string devicename)
 
@@ -812,7 +812,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int LPALCCLOSEDEVICEDelegate([In] IntPtr device);
 		#endregion int LPALCCLOSEDEVICEDelegate([In] IntPtr device)
 
@@ -820,7 +820,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int LPALCGETERRORDelegate([In] IntPtr device);
 		#endregion int LPALCCLOSEDEVICEDelegate([In] IntPtr device)
 
@@ -828,7 +828,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int LPALCISEXTENSIONPRESENTDelegate([In] IntPtr device, string extname);
 		#endregion int LPALCISEXTENSIONPRESENTDelegate([In] IntPtr device, string extname)
 
@@ -836,7 +836,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate IntPtr LPALCGETPROCADDRESSDelegate([In] IntPtr device, string funcname);
 		#endregion IntPtr LPALCGETPROCADDRESSDelegate([In] IntPtr device, string funcname)
 
@@ -844,7 +844,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int LPALCGETENUMVALUEDelegate([In] IntPtr device, string enumname);
 		#endregion int LPALCGETENUMVALUEDelegate([In] IntPtr device, string enumname)
 
@@ -852,7 +852,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate string LPALCGETSTRINGDelegate([In] IntPtr device, string enumname);
 		#endregion string LPALCGETSTRINGDelegate([In] IntPtr device, string enumname)
 
@@ -860,7 +860,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALCGETINTEGERVDelegate([In] IntPtr context, int param, int size, out int data);
 		#endregion void LPALCGETINTEGERVDelegate([In] IntPtr context, int param, int size, out int data)
 
@@ -868,7 +868,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALCCAPTUREOPENDEVICEDelegate(string devicename, int frequency, int format, int buffersize);
 		#endregion void LPALCCAPTUREOPENDEVICEDelegate(string devicename, int frequency, int format, int buffersize)
 
@@ -876,7 +876,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int LPALCCAPTURECLOSEDEVICEDelegate([In] IntPtr device);
 		#endregion int LPALCCAPTURECLOSEDEVICEDelegate([In] IntPtr device)
 
@@ -884,7 +884,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALCCAPTURESTARTDelegate([In] IntPtr device);
 		#endregion void LPALCCAPTURESTARTDelegate([In] IntPtr device)
 
@@ -892,7 +892,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALCCAPTURESTOPDelegate([In] IntPtr device);
 		#endregion void LPALCCAPTURESTOPDelegate([In] IntPtr device)
 
@@ -900,7 +900,7 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALCCAPTURESAMPLESDelegate([In] IntPtr device, [In] IntPtr buffer, int samples);
 		#endregion void LPALCCAPTURESAMPLESDelegate([In] IntPtr device, [In] IntPtr buffer, int samples)
 		#endregion Public OpenAL 1.1 Delegates

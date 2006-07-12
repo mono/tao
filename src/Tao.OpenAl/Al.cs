@@ -4793,436 +4793,436 @@ namespace Tao.OpenAl
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALENABLEDelegate( int capability );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALDISABLEDelegate( int capability ); 
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int LPALISENABLEDDelegate( int capability ); 
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate string LPALGETSTRINGDelegate( int param );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETBOOLEANVDelegate( int param, out int data );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETINTEGERVDelegate( int param, out int data );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETFLOATVDelegate( int param, out float data );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETDOUBLEVDelegate( int param, out double data );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int LPALGETBOOLEANDelegate( int param );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int LPALGETINTEGERDelegate( int param );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate float LPALGETFLOATDelegate( int param );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate double LPALGETDOUBLEDelegate( int param );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int LPALGETERRORDelegate();
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int LPALISEXTENSIONPRESENTDelegate(string extname );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate IntPtr LPALGETPROCADDRESSDelegate( string fname );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int LPALGETENUMVALUEDelegate( string ename );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALLISTENERFDelegate( int param, float val );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALLISTENER3FDelegate( int param, float value1, float value2, float value3 );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALLISTENERFVDelegate( int param, [In] ref float values );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALLISTENERIDelegate( int param, int val );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALLISTENER3IDelegate( int param, int value1, int value2, int value3 );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALLISTENERIVDelegate( int param, [In] ref int values );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETLISTENERFDelegate( int param, out float val );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETLISTENER3FDelegate( int param, out float value1, out float value2, out float value3 );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETLISTENERFVDelegate( int param, out float values );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETLISTENERIDelegate( int param, out int val );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETLISTENER3IDelegate( int param, out int value1, out int value2, out int value3 );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETLISTENERIVDelegate( int param, out int values );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGENSOURCESDelegate( int n, out int sources ); 
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALDELETESOURCESDelegate( int n, out int sources );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int LPALISSOURCEDelegate( int sid ); 
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALSOURCEFDelegate( int sid, int param, float val); 
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALSOURCE3FDelegate( int sid, int param, float value1, float value2, float value3 );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALSOURCEFVDelegate( int sid, int param, out float values );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALSOURCEIDelegate( int sid, int param, int val); 
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALSOURCE3IDelegate( int sid, int param, int value1, int value2, int value3 );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALSOURCEIVDelegate( int sid, int param, out int values );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETSOURCEFDelegate( int sid, int param, out float val );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETSOURCE3FDelegate( int sid, int param, out float value1, out float value2, out float value3);
 
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETSOURCEFVDelegate( int sid, int param, out float values );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETSOURCEIDelegate( int sid, int param, out int val );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETSOURCE3IDelegate( int sid, int param, out int value1, out int value2, out int value3);
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETSOURCEIVDelegate( int sid, int param, out int values );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALSOURCEPLAYVDelegate( int ns, out int sids );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALSOURCESTOPVDelegate( int ns, out int sids );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALSOURCEREWINDVDelegate( int ns,  out int sids );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALSOURCEPAUSEVDelegate( int ns, out int sids );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALSOURCEPLAYDelegate( int sid );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALSOURCESTOPDelegate( int sid );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALSOURCEREWINDDelegate( int sid );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALSOURCEPAUSEDelegate( int sid );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALSOURCEQUEUEBUFFERSDelegate(int sid, int numEntries, out int bids );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALSOURCEUNQUEUEBUFFERSDelegate(int sid, int numEntries, out int bids );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGENBUFFERSDelegate( int n, out int buffers );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALDELETEBUFFERSDelegate( int n, out int buffers );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate int LPALISBUFFERDelegate( int bid );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALBUFFERDATADelegate( int bid, int format, IntPtr data, int size, int freq );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALBUFFERFDelegate( int bid, int param, float val);
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALBUFFER3FDelegate( int bid, int param, float value1, float value2, float value3 );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALBUFFERFVDelegate( int bid, int param, out float values );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALBUFFERIDelegate( int bid, int param, int val);
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALBUFFER3IDelegate( int bid, int param, int value1, int value2, int value3 );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALBUFFERIVDelegate( int bid, int param, out int values );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETBUFFERFDelegate( int bid, int param, out float val );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETBUFFER3FDelegate( int bid, int param, out float value1, out float value2, out float value3);
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETBUFFERFVDelegate( int bid, int param, out float values );
 	
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETBUFFERIDelegate( int bid, int param, out int val );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETBUFFER3IDelegate( int bid, int param, out int value1, out int value2, out int value3);
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALGETBUFFERIVDelegate( int bid, int param, out int values );
 		
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALDOPPLERFACTORDelegate( float val );
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALDOPPLERVELOCITYDelegate( float val );
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALSPEEDOFSOUNDDelegate( float val );
 		/// <summary>
 		/// 
 		/// </summary>
-		[DelegateCallingConventionCdecl]
+		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 			public delegate void LPALDISTANCEMODELDelegate( int distanceModel );
 		#endregion Public Delegates
 	}
