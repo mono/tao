@@ -38,7 +38,6 @@
 		<File>SdlNet.cs</File>
 		<File>SdlGfx.cs</File>
 		<File>Smpeg.cs</File>
-		<File>DelegateCallingConventionCdeclAttribute.cs</File>
 	    </Files>
 	</Project>
 	<Project name="Tao.Sdl.Tests" path="..\\..\\tests\\Sdl\\" language="C#" type="Library">
@@ -154,34 +153,5 @@
 		<File>GfxPrimitives.cs</File>
 	    </Files>
 	</Project>
-	<Project name="Tao.PostProcess" path="..\\Tao.PostProcess\\" language="C#" type="Exe">
-	<Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin\Debug</OutputPath>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin\Release</OutputPath>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" />
-            <Files>
-                <File>AssemblyInfo.cs</File>
-                <File>AppMain.cs</File>
-                <File>BuildProcessor.cs</File>
-                <File>Options.cs</File>
-                <File>ReleaseBuildProcessor.cs</File>
-                <File>UsageHelp.cs</File>
-            </Files>
-        </Project>
     </Solution>
 </Prebuild>

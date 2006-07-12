@@ -183,7 +183,6 @@
 	    <Files>
 		<File>AssemblyInfo.cs</File>
 		<File>Glut.cs</File>
-		<File>DelegateCallingConventionCdeclAttribute.cs</File>
 	    </Files>
 	</Project>
 	<Project name="Tao.Glfw" path="../Tao.Glfw" language="C#" type="Library">
