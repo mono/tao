@@ -29,28 +29,28 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace Tao.Ode 
+namespace Tao.Ode
 {
 	#region Aliases
 	// TODO: Make dReal precision controllable at compile time - the ode lib can be compiled with either single or double precision
-	using dReal=System.Single;
-	using dWorldID=System.IntPtr;
-	using dBodyID=System.IntPtr;
-	using dJointID=System.IntPtr;
-	using dJointGroupID=System.IntPtr;
-	using dGeomID=System.IntPtr;
-	using dSpaceID=System.IntPtr;
-	using dTriMeshDataID=System.IntPtr;
-	
+	using dReal = System.Single;
+	using dWorldID = System.IntPtr;
+	using dBodyID = System.IntPtr;
+	using dJointID = System.IntPtr;
+	using dJointGroupID = System.IntPtr;
+	using dGeomID = System.IntPtr;
+	using dSpaceID = System.IntPtr;
+	using dTriMeshDataID = System.IntPtr;
+
 	#endregion Aliases
-	
+
 	#region Class Documentation
 	/// <summary>
 	///     Open Dynamics Engine (ODE - http://ode.org) bindings for .NET
 	/// 	ODE Version: 0.6
 	/// </summary>
 	#endregion Class Documentation
-	public sealed class Ode 
+	public sealed class Ode
 	{
 		#region Private Constants
 		#region string ODE_NATIVE_LIBRARY
@@ -63,9 +63,9 @@ namespace Tao.Ode
 		/// the ".config" file mechanism.  Kudos to the Mono team for this
 		/// simple yet elegant solution.
 		/// </remarks>
-		private const string ODE_NATIVE_LIBRARY="ode.dll";
+		private const string ODE_NATIVE_LIBRARY = "ode.dll";
 		#endregion string ODE_NATIVE_LIBRARY
-		
+
 		#region CallingConvention CALLING_CONVENTION
 		/// <summary>
 		///     Specifies the calling convention used for the binding.
@@ -77,13 +77,13 @@ namespace Tao.Ode
 		private const CallingConvention CALLING_CONVENTION = CallingConvention.Cdecl;
 		#endregion CallingConvention CALLING_CONVENTION
 		#endregion Private Constants
-		
+
 		#region Public Constants
 		#region Error Numbers
 		/// <summary>
 		/// 
 		/// </summary>
-		public enum dError : int 
+		public enum dError : int
 		{
 			/// <summary>
 			/// 
@@ -92,18 +92,18 @@ namespace Tao.Ode
 			/// <summary>
 			/// 
 			/// </summary>
-			d_ERR_IASSERT=1,		/* internal assertion failed */
+			d_ERR_IASSERT = 1,		/* internal assertion failed */
 			/// <summary>
 			/// 
 			/// </summary>
-			d_ERR_UASSERT=2,		/* user assertion failed */
+			d_ERR_UASSERT = 2,		/* user assertion failed */
 			/// <summary>
 			/// 
 			/// </summary>
-			d_ERR_LCP=3				/* user assertion failed */
+			d_ERR_LCP = 3				/* user assertion failed */
 		};
 		#endregion Error Numbers
-		
+
 		/// <summary>
 		/// Infinity.
 		/// 
@@ -114,13 +114,13 @@ namespace Tao.Ode
 		/// dReal can be System.Single or System.Double, based on the
 		/// multiple precision levels possible with the ODE library.
 		/// </remarks>
-		public const dReal dInfinity=dReal.MaxValue;
-		
+		public const dReal dInfinity = dReal.MaxValue;
+
 		#region Joint Type Numbers
 		/// <summary>
 		/// 
 		/// </summary>
-		public enum dJointTypes : int 
+		public enum dJointTypes : int
 		{
 			/// <summary>
 			/// 
@@ -129,42 +129,46 @@ namespace Tao.Ode
 			/// <summary>
 			/// 
 			/// </summary>
-			dJointTypeBall=1,
+			dJointTypeBall = 1,
 			/// <summary>
 			/// 
 			/// </summary>
-			dJointTypeHinge=2,
+			dJointTypeHinge = 2,
 			/// <summary>
 			/// 
 			/// </summary>
-			dJointTypeSlider=3,
+			dJointTypeSlider = 3,
 			/// <summary>
 			/// 
 			/// </summary>
-			dJointTypeContact=4,
+			dJointTypeContact = 4,
 			/// <summary>
 			/// 
 			/// </summary>
-			dJointTypeUniversal=5,
+			dJointTypeUniversal = 5,
 			/// <summary>
 			/// 
 			/// </summary>
-			dJointTypeHinge2=6,
+			dJointTypeHinge2 = 6,
 			/// <summary>
 			/// 
 			/// </summary>
-			dJointTypeFixed=7,
+			dJointTypeFixed = 7,
 			/// <summary>
 			/// 
 			/// </summary>
-			dJointTypeNull=8,
+			dJointTypeNull = 8,
 			/// <summary>
 			/// 
 			/// </summary>
-			dJointTypeAMotor=9
+			dJointTypeAMotor = 9,
+			/// <summary>
+			/// 
+			/// </summary>
+			dJointTypeLMotor = 10
 		}
 		#endregion Joint Type Numbers
-		
+
 		#region Joint Parameter Names
 		/// <summary>
 		/// Definition of Joint limit and motor parameter names
@@ -185,42 +189,42 @@ namespace Tao.Ode
 			/// Low stop angle or position. Setting this to -dInfinity (the default value) turns off the low stop. For rotational joints, this stop must be greater than - pi to be effective.
 			/// </summary>
 			dParamLoStop = 0,
-			
+
 			/// <summary>
 			/// High stop angle or position. Setting this to dInfinity (the default value) turns off the high stop. For rotational joints, this stop must be less than pi to be effective. If the high stop is less than the low stop then both stops will be ineffective.
 			/// </summary>
 			dParamHiStop = 1,
-			
+
 			/// <summary>
 			/// Desired motor velocity (this will be an angular or linear velocity).
 			/// </summary>
 			dParamVel = 2,
-			
+
 			/// <summary>
 			/// The maximum force or torque that the motor will use to achieve the desired velocity. This must always be greater than or equal to zero. Setting this to zero (the default value) turns off the motor.
 			/// </summary>
 			dParamFMax = 3,
-			
+
 			/// <summary>
 			/// The current joint stop/motor implementation has a small problem: when the joint is at one stop and the motor is set to move it away from the stop, too much force may be applied for one time step, causing a ``jumping'' motion. This fudge factor is used to scale this excess force. It should have a value between zero and one (the default value). If the jumping motion is too visible in a joint, the value can be reduced. Making this value too small can prevent the motor from being able to move the joint away from a stop.
 			/// </summary>
 			dParamFudgeFactor = 4,
-			
+
 			/// <summary>
 			/// The bouncyness of the stops. This is a restitution parameter in the range 0..1. 0 means the stops are not bouncy at all, 1 means maximum bouncyness.
 			/// </summary>
 			dParamBounce = 5,
-			
+
 			/// <summary>
 			/// The constraint force mixing (CFM) value used when not at a stop.
 			/// </summary>
 			dParamCFM = 6,
-			
+
 			/// <summary>
 			/// The error reduction parameter (ERP) used by the stops.
 			/// </summary>
 			dParamStopERP = 7,
-			
+
 			/// <summary>
 			/// The constraint force mixing (CFM) value used by the stops. Together with the ERP value this can be used to get spongy or soft stops. Note that this is intended for unpowered joints, it does not really work as expected when a powered joint reaches its limit.
 			/// </summary>
@@ -230,13 +234,13 @@ namespace Tao.Ode
 			/// Suspension error reduction parameter (ERP). Currently this is only implemented on the hinge-2 joint.
 			/// </summary>
 			dParamSuspensionERP = 9,
-			
+
 			/// <summary>
 			/// Suspension constraint force mixing (CFM) value. Currently this is only implemented on the hinge-2 joint.
 			/// </summary>
 			dParamSuspensionCFM = 10,
 			#endregion Parameters for first axis
-			
+
 			#region Parameters for second axis
 			dParamLoStop2 = 0x100 + 0,
 			dParamHiStop2 = 0x100 + 1,
@@ -250,7 +254,7 @@ namespace Tao.Ode
 			dParamSuspensionERP2 = 0x100 + 9,
 			dParamSuspensionCFM2 = 0x100 + 10,
 			#endregion Parameters for second axis
-			
+
 			#region Parameters for third axis
 			dParamLoStop3 = 0x200 + 0,
 			dParamHiStop3 = 0x200 + 1,
@@ -266,12 +270,12 @@ namespace Tao.Ode
 			#endregion Parameters for third axis
 		}
 		#endregion Joint Parameter Names
-		
+
 		#region Angular Motor Mode Numbers
 		/// <summary>
 		/// 
 		/// </summary>
-		public enum dAMotorMode : int 
+		public enum dAMotorMode : int
 		{
 			/// <summary>
 			/// 
@@ -283,15 +287,15 @@ namespace Tao.Ode
 			dAMotorEuler = 1
 		}
 		#endregion Angular Motor Mode Numbers
-		
+
 		#region Class Numbers
 		/// <summary>the maximum number of user classes that are supported</summary>
 		public const int dMaxUserClasses = 4;
-		
+
 		/// <summary>
 		/// class numbers - each geometry object needs a unique number 
 		/// </summary>
-		public enum dClassNumbers : int 
+		public enum dClassNumbers : int
 		{
 			/// <summary>
 			/// 
@@ -300,35 +304,39 @@ namespace Tao.Ode
 			/// <summary>
 			/// 
 			/// </summary>
-			dBoxClass = 1,
+			dBoxClass,
 			/// <summary>
 			/// 
 			/// </summary>
-			dCapsuleClass = 2,
+			dCapsuleClass,
 			/// <summary>
 			/// 
 			/// </summary>
-			dCylinderClass = 3,
+			dCylinderClass,
 			/// <summary>
 			/// 
 			/// </summary>
-			dPlaneClass = 4,
+			dPlaneClass,
 			/// <summary>
 			/// 
 			/// </summary>
-			dRayClass = 5,
+			dRayClass,
 			/// <summary>
 			/// 
 			/// </summary>
-			dGeomTransformClass = 6,
+			dConvexClass,
 			/// <summary>
 			/// 
 			/// </summary>
-			dTriMeshClass = 7,
+			dGeomTransformClass,
 			/// <summary>
 			/// 
 			/// </summary>
-			dFirstSpaceClass = 8,
+			dTriMeshClass,
+			/// <summary>
+			/// 
+			/// </summary>
+			dFirstSpaceClass,
 			/// <summary>
 			/// 
 			/// </summary>
@@ -336,11 +344,11 @@ namespace Tao.Ode
 			/// <summary>
 			/// 
 			/// </summary>
-			dHashSpaceClass = 9,
+			dHashSpaceClass,
 			/// <summary>
 			/// 
 			/// </summary>
-			dQuadTreeSpaceClass = 10,
+			dQuadTreeSpaceClass,
 			/// <summary>
 			/// 
 			/// </summary>
@@ -348,7 +356,7 @@ namespace Tao.Ode
 			/// <summary>
 			/// 
 			/// </summary>
-			dFirstUserClass = 11,
+			dFirstUserClass,
 			/// <summary>
 			/// 
 			/// </summary>
@@ -356,83 +364,114 @@ namespace Tao.Ode
 			/// <summary>
 			/// 
 			/// </summary>
-			dGeomNumClasses=dLastUserClass + 1
+			dGeomNumClasses = dLastUserClass + 1
 		}
 		#endregion Class Numbers
-		
+
+		#region Body Flags
+		/// <summary>
+		/// some body flags
+		/// ODE source location:  objects.h Ln 37
+		/// </summary>
+		[FlagsAttribute]
+		public enum dBodyFlags : int
+		{
+			/// <summary>
+			/// use finite rotations
+			/// </summary>
+			dxBodyFlagFiniteRotation = 1,
+			/// <summary>
+			/// use finite rotations only along axis
+			/// </summary>
+			dxBodyFlagFiniteRotationAxis = 2,
+			/// <summary>
+			/// body is disabled
+			/// </summary>
+			dxBodyDisabled = 4,
+			/// <summary>
+			/// body is not influenced by gravity
+			/// </summary>
+			dxBodyNoGravity = 8,
+			/// <summary>
+			/// enable auto-disable on body
+			/// </summary>
+			dxBodyAutoDisable = 16
+		}
+		#endregion Body Flags
+
 		#region Contact Flags
 		/// <summary>
 		/// 
 		/// </summary>
 		[FlagsAttribute]
-			public enum dContactFlags : int 
+		public enum dContactFlags : int
 		{
 			/// <summary>
 			/// 
 			/// </summary>
-			dContactMu2			= 0x001,
+			dContactMu2 = 0x001,
 			/// <summary>
 			/// 
 			/// </summary>
-			dContactFDir1		= 0x002,
+			dContactFDir1 = 0x002,
 			/// <summary>
 			/// 
 			/// </summary>
-			dContactBounce		= 0x004,
+			dContactBounce = 0x004,
 			/// <summary>
 			/// 
 			/// </summary>
-			dContactSoftERP		= 0x008,
+			dContactSoftERP = 0x008,
 			/// <summary>
 			/// 
 			/// </summary>
-			dContactSoftCFM		= 0x010,
+			dContactSoftCFM = 0x010,
 			/// <summary>
 			/// 
 			/// </summary>
-			dContactMotion1		= 0x020,
+			dContactMotion1 = 0x020,
 			/// <summary>
 			/// 
 			/// </summary>
-			dContactMotion2		= 0x040,
+			dContactMotion2 = 0x040,
 			/// <summary>
 			/// 
 			/// </summary>
-			dContactSlip1		= 0x080,
+			dContactSlip1 = 0x080,
 			/// <summary>
 			/// 
 			/// </summary>
-			dContactSlip2		= 0x100,
-			
+			dContactSlip2 = 0x100,
+
 			/// <summary>
 			/// 
 			/// </summary>
-			dContactApprox0		= 0x0000,
+			dContactApprox0 = 0x0000,
 			/// <summary>
 			/// 
 			/// </summary>
-			dContactApprox1_1	= 0x1000,
+			dContactApprox1_1 = 0x1000,
 			/// <summary>
 			/// 
 			/// </summary>
-			dContactApprox1_2	= 0x2000,
+			dContactApprox1_2 = 0x2000,
 			/// <summary>
 			/// 
 			/// </summary>
-			dContactApprox1		= 0x3000
+			dContactApprox1 = 0x3000
 		}
 		#endregion Contact Flags
 		#endregion Public Constants
-		
+
 		#region Ode()
 		/// <summary>
 		///     Empty constructor - prevents instantiation.
 		/// </summary>
-		private Ode() 
+		private Ode()
 		{
 		}
 		#endregion Ode()
-		
+
 		#region Public Structs
 		/// <summary>
 		/// Describes the mass parameters of a rigid body
@@ -443,7 +482,7 @@ namespace Tao.Ode
 		/// I - 3x3 inertia tensor in body frame, about POR
 		/// </remarks>
 		[StructLayout(LayoutKind.Sequential)]
-			public struct dMass 
+		public struct dMass
 		{
 			/// <summary>
 			/// 
@@ -451,7 +490,7 @@ namespace Tao.Ode
 			/// <param name="_mass"></param>
 			/// <param name="_c"></param>
 			/// <param name="_I"></param>
-			public dMass(dReal _mass, dVector4 _c, dMatrix3 _I) 
+			public dMass(dReal _mass, dVector4 _c, dMatrix3 _I)
 			{
 				mass = _mass;
 				c = _c;
@@ -470,23 +509,23 @@ namespace Tao.Ode
 			/// </summary>
 			public dMatrix3 I;
 		};
-		
+
 		/// <summary>
 		/// Contact info set by collision functions
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-			public struct dContactGeom 
+		public struct dContactGeom
 		{
 			/// <summary>
 			/// The contact position in global coordinates.
 			/// </summary>
 			public dVector3 pos;
-			
+
 			/// <summary>
 			/// A unit length vector that is, generally speaking, perpendicular to the contact surface.
 			/// </summary>
 			public dVector3 normal;
-			
+
 			/// <summary>
 			/// The depth to which the two bodies inter-penetrate each other. 
 			/// If the depth is zero then the two bodies have a grazing contact, 
@@ -495,23 +534,29 @@ namespace Tao.Ode
 			/// the depth is nonzero.
 			/// </summary>
 			public dReal depth;
-			
+
 			/// <summary>
 			/// The geometry objects that collided.
 			/// </summary>
-			public dGeomID g1,g2;
+			public dGeomID g1, g2;
+
+			/// <summary>
+			/// (to be documented) - verbatim from the ODE source.
+			/// </summary>
+			public int side1, side2;
+
 		};
-		
+
 		/// <summary>
 		/// Defines the properties of the colliding surfaces
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-			public struct dSurfaceParameters 
+		public struct dSurfaceParameters
 		{
 			/// <summary>
 			/// 
 			/// </summary>
-			public dSurfaceParameters(int _mode, dReal _mu, dReal _mu2, dReal _bounce, dReal _bounce_vel, dReal _soft_erp, dReal _soft_cfm, dReal _motion1, dReal _motion2, dReal _slip1, dReal _slip2) 
+			public dSurfaceParameters(int _mode, dReal _mu, dReal _mu2, dReal _bounce, dReal _bounce_vel, dReal _soft_erp, dReal _soft_cfm, dReal _motion1, dReal _motion2, dReal _slip1, dReal _slip2)
 			{
 				mode = _mode;
 				mu = _mu;
@@ -525,7 +570,7 @@ namespace Tao.Ode
 				slip1 = _slip1;
 				slip2 = _slip2;
 			}
-			
+
 			/// <summary>
 			/// Contact flags. This must always be set. This is a combination of one or more of the following flags:
 			///
@@ -557,7 +602,7 @@ namespace Tao.Ode
 			/// dContactApprox1		Equivalent to both dContactApprox1_1 and dContactApprox1_2.
 			/// </summary>
 			public int mode;
-			
+
 			/// <summary>
 			/// Coulomb friction coefficient. 
 			/// This must be in the range 0 to dInfinity. 
@@ -568,14 +613,14 @@ namespace Tao.Ode
 			/// This must always be set.
 			/// </summary>
 			public dReal mu;
-			
+
 			/// <summary>
 			/// Optional Coulomb friction coefficient for friction direction 2 (0..dInfinity). 
 			/// 
 			/// This is only set if the corresponding flag is set in mode.
 			/// </summary>
 			public dReal mu2;
-			
+
 			/// <summary>
 			/// Restitution parameter (0..1). 
 			/// 0 means the surfaces are not bouncy at all, 1 is maximum bouncyness. 
@@ -583,7 +628,7 @@ namespace Tao.Ode
 			/// This is only set if the corresponding flag is set in mode.
 			/// </summary>
 			public dReal bounce;
-			
+
 			/// <summary>
 			/// Restitution parameter (0..1). 
 			/// 0 means the surfaces are not bouncy at all, 1 is maximum bouncyness. 
@@ -591,35 +636,35 @@ namespace Tao.Ode
 			/// This is only set if the corresponding flag is set in mode.
 			/// </summary>
 			public dReal bounce_vel;
-			
+
 			/// <summary>
 			/// Contact normal ``softness'' parameter. 
 			/// 
 			/// This is only set if the corresponding flag is set in mode.
 			/// </summary>
 			public dReal soft_erp;
-			
+
 			/// <summary>
 			/// Contact normal ``softness'' parameter. 
 			/// 
 			/// This is only set if the corresponding flag is set in mode.
 			/// </summary>
 			public dReal soft_cfm;
-			
+
 			/// <summary>
 			/// Surface velocity in friction directions 1 (in m/s). 
 			/// 
 			/// Only set if the corresponding flags are set in mode.
 			/// </summary>
 			public dReal motion1;
-			
+
 			/// <summary>
 			/// Surface velocity in friction directions 1 (in m/s). 
 			/// 
 			/// Only set if the corresponding flags are set in mode.
 			/// </summary>
 			public dReal motion2;
-			
+
 			/// <summary>
 			/// The coefficients of force-dependent-slip (FDS) for friction directions 1 and 2. 
 			/// 
@@ -654,15 +699,15 @@ namespace Tao.Ode
 			///	Note that FDS is quite separate from the sticking/slipping effects of Coulomb friction - both 
 			/// modes can be used together at a single contact point. 
 			/// </summary>
-			public dReal slip1,slip2;
+			public dReal slip1, slip2;
 		};
-		
-		
+
+
 		/// <summary>
 		/// Contact structure used by contact joint
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-			public struct dContact 
+		public struct dContact
 		{
 			/// <summary>
 			/// 
@@ -670,7 +715,7 @@ namespace Tao.Ode
 			/// <param name="_surface"></param>
 			/// <param name="_geom"></param>
 			/// <param name="_fdir1"></param>
-			public dContact(dSurfaceParameters _surface, dContactGeom _geom, dVector3 _fdir1) 
+			public dContact(dSurfaceParameters _surface, dContactGeom _geom, dVector3 _fdir1)
 			{
 				surface = _surface;
 				geom = _geom;
@@ -689,12 +734,12 @@ namespace Tao.Ode
 			/// </summary>
 			public dVector3 fdir1;
 		};
-		
+
 		/// <summary>
 		/// 
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-			public struct dVector3 
+		public struct dVector3
 		{
 			/// <summary>
 			/// 
@@ -702,7 +747,7 @@ namespace Tao.Ode
 			/// <param name="x"></param>
 			/// <param name="y"></param>
 			/// <param name="z"></param>
-			public dVector3(dReal x, dReal y, dReal z) 
+			public dVector3(dReal x, dReal y, dReal z)
 			{
 				X = x;
 				Y = y;
@@ -711,21 +756,21 @@ namespace Tao.Ode
 			/// <summary>
 			/// 
 			/// </summary>
-			public dReal X,Y,Z;
+			public dReal X, Y, Z;
 			/// <summary>
 			/// Indexer to support use of array syntax as found in ODE examples
 			/// X = 0, Y = 1, Z = 2
 			/// </summary>
-			public dReal this[int index] 
+			public dReal this[int index]
 			{
 				get
 				{
-					if ( index < 0 || index > 2 ) 
+					if (index < 0 || index > 2)
 					{
 						throw new ArgumentOutOfRangeException("Index out of range");
 					}
 					dReal retVal = 0;
-					switch ( index ) 
+					switch (index)
 					{
 						case 0:
 							retVal = X;
@@ -741,11 +786,11 @@ namespace Tao.Ode
 				}
 				set
 				{
-					if ( index < 0 || index > 2 ) 
+					if (index < 0 || index > 2)
 					{
 						throw new ArgumentOutOfRangeException("Index out of range");
 					}
-					switch ( index ) 
+					switch (index)
 					{
 						case 0:
 							X = value;
@@ -760,12 +805,12 @@ namespace Tao.Ode
 				}
 			}
 		};
-		
+
 		/// <summary>
 		/// 
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-			public struct dVector4 
+		public struct dVector4
 		{
 			/// <summary>
 			/// 
@@ -774,7 +819,7 @@ namespace Tao.Ode
 			/// <param name="y"></param>
 			/// <param name="z"></param>
 			/// <param name="w"></param>
-			public dVector4(dReal x, dReal y, dReal z, dReal w) 
+			public dVector4(dReal x, dReal y, dReal z, dReal w)
 			{
 				X = x;
 				Y = y;
@@ -784,21 +829,21 @@ namespace Tao.Ode
 			/// <summary>
 			/// 
 			/// </summary>
-			public dReal X,Y,Z,W;
+			public dReal X, Y, Z, W;
 			/// <summary>
 			/// Indexer to support use of array syntax as found in ODE examples
 			/// X = 0, Y = 1, Z = 2, W = 3
 			/// </summary>
-			public dReal this[int index] 
+			public dReal this[int index]
 			{
 				get
 				{
-					if ( index < 0 || index > 3 ) 
+					if (index < 0 || index > 3)
 					{
 						throw new ArgumentOutOfRangeException("Index out of range");
 					}
 					dReal retVal = 0;
-					switch ( index ) 
+					switch (index)
 					{
 						case 0:
 							retVal = X;
@@ -817,11 +862,11 @@ namespace Tao.Ode
 				}
 				set
 				{
-					if ( index < 0 || index > 3 ) 
+					if (index < 0 || index > 3)
 					{
 						throw new ArgumentOutOfRangeException("Index out of range");
 					}
-					switch ( index ) 
+					switch (index)
 					{
 						case 0:
 							X = value;
@@ -836,16 +881,16 @@ namespace Tao.Ode
 							W = value;
 							break;
 					}
-					
+
 				}
 			}
 		};
-		
+
 		/// <summary>
 		/// 
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-			public struct dQuaternion 
+		public struct dQuaternion
 		{
 			/// <summary>
 			/// 
@@ -854,7 +899,7 @@ namespace Tao.Ode
 			/// <param name="y"></param>
 			/// <param name="z"></param>
 			/// <param name="w"></param>
-			public dQuaternion(dReal x, dReal y, dReal z, dReal w) 
+			public dQuaternion(dReal x, dReal y, dReal z, dReal w)
 			{
 				X = x;
 				Y = y;
@@ -864,22 +909,22 @@ namespace Tao.Ode
 			/// <summary>
 			/// 
 			/// </summary>
-			public dReal W,X,Y,Z;
+			public dReal W, X, Y, Z;
 
 			/// <summary>
 			/// Indexer to support use of array syntax as found in ODE examples
 			/// X = 0, Y = 1, Z = 2, W = 3
 			/// </summary>
-			public dReal this[int index] 
+			public dReal this[int index]
 			{
 				get
 				{
-					if ( index < 0 || index > 3 ) 
+					if (index < 0 || index > 3)
 					{
 						throw new ArgumentOutOfRangeException("Index out of range");
 					}
 					dReal retVal = 0;
-					switch ( index ) 
+					switch (index)
 					{
 						case 0:
 							retVal = X;
@@ -898,11 +943,11 @@ namespace Tao.Ode
 				}
 				set
 				{
-					if ( index < 0 || index > 3 ) 
+					if (index < 0 || index > 3)
 					{
 						throw new ArgumentOutOfRangeException("Index out of range");
 					}
-					switch ( index ) 
+					switch (index)
 					{
 						case 0:
 							X = value;
@@ -920,12 +965,12 @@ namespace Tao.Ode
 				}
 			}
 		};
-		
+
 		/// <summary>
 		/// 
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-			public struct Aabb 
+		public struct Aabb
 		{
 			/// <summary>
 			/// 
@@ -936,7 +981,7 @@ namespace Tao.Ode
 			/// <param name="_maxy"></param>
 			/// <param name="_minz"></param>
 			/// <param name="_maxz"></param>
-			public Aabb(dReal _minx, dReal _maxx, dReal _miny, dReal _maxy, dReal _minz, dReal _maxz) 
+			public Aabb(dReal _minx, dReal _maxx, dReal _miny, dReal _maxy, dReal _minz, dReal _maxz)
 			{
 				minx = _minx;
 				maxx = _maxx;
@@ -950,14 +995,14 @@ namespace Tao.Ode
 			/// </summary>
 			public dReal minx, maxx, miny, maxy, minz, maxz;
 		}
-		
+
 		/// <summary>
 		/// 
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-		public struct dMatrix3 
+		public struct dMatrix3
 		{
-			
+
 			public dMatrix3(dReal[] values)
 			{
 				M00 = values[0];
@@ -973,27 +1018,27 @@ namespace Tao.Ode
 				M22 = values[10];
 				M23 = values[11];
 			}
-			
-			public dReal M00,M01,M02,M03;
-			public dReal M10,M11,M12,M13;
-			public dReal M20,M21,M22,M23;
-			
+
+			public dReal M00, M01, M02, M03;
+			public dReal M10, M11, M12, M13;
+			public dReal M20, M21, M22, M23;
+
 			public dReal this[int index]
 			{
 				get
 				{
-					switch(index)
+					switch (index)
 					{
-						case  0: return M00;
-						case  1: return M01;
-						case  2: return M02;
-						case  3: return M03;
-						case  4: return M10;
-						case  5: return M11;
-						case  6: return M12;
-						case  7: return M13;
-						case  8: return M20;
-						case  9: return M21;
+						case 0: return M00;
+						case 1: return M01;
+						case 2: return M02;
+						case 3: return M03;
+						case 4: return M10;
+						case 5: return M11;
+						case 6: return M12;
+						case 7: return M13;
+						case 8: return M20;
+						case 9: return M21;
 						case 10: return M22;
 						case 11: return M23;
 						default: throw new ArgumentOutOfRangeException("index", index, "Must be between 0 and 11");
@@ -1001,78 +1046,78 @@ namespace Tao.Ode
 				}
 				set
 				{
-					switch(index)
+					switch (index)
 					{
-						case  0: M00 = value;
+						case 0: M00 = value;
 							break;
-						case  1: M01 = value; 
+						case 1: M01 = value;
 							break;
-						case  2: M02 = value; 
+						case 2: M02 = value;
 							break;
-						case  3: M03 = value; 
+						case 3: M03 = value;
 							break;
-						case  4: M10 = value; 
+						case 4: M10 = value;
 							break;
-						case  5: M11 = value; 
+						case 5: M11 = value;
 							break;
-						case  6: M12 = value; 
+						case 6: M12 = value;
 							break;
-						case  7: M13 = value; 
+						case 7: M13 = value;
 							break;
-						case  8: M20 = value; 
+						case 8: M20 = value;
 							break;
-						case  9: M21 = value; 
+						case 9: M21 = value;
 							break;
-						case 10: M22 = value; 
+						case 10: M22 = value;
 							break;
-						case 11: M23 = value; 
+						case 11: M23 = value;
 							break;
 						default: throw new ArgumentOutOfRangeException("index", index, "Must be between 0 and 11");
 					}
 				}
-			}				
+			}
 			public dReal this[int x, int y]
 			{
 				get
 				{
-					switch(x)
+					switch (x)
 					{
 						case 0:
-							switch(y)
+							switch (y)
 							{
 								case 0: return M00;
 								case 1: return M01;
 								case 2: return M02;
 								case 3: return M03;
-								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");									
+								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");
 							}
 						case 1:
-							switch(y)
+							switch (y)
 							{
 								case 0: return M10;
 								case 1: return M11;
 								case 2: return M12;
 								case 3: return M13;
-								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");									
+								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");
 							}
 						case 2:
-							switch(y)
+							switch (y)
 							{
 								case 0: return M20;
 								case 1: return M21;
 								case 2: return M22;
 								case 3: return M23;
-								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");									
+								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");
 							}
 						default: throw new ArgumentOutOfRangeException("x", x, "X value must be between 0 and 2");
 					}
 				}
 				set
 				{
-					switch(x)
+					switch (x)
 					{
 						case 0:
-							switch(y)
+							switch (y)
 							{
 								case 0: M00 = value; break;
 								case 1: M01 = value; break;
@@ -1082,7 +1127,7 @@ namespace Tao.Ode
 							}
 							break;
 						case 1:
-							switch(y)
+							switch (y)
 							{
 								case 0: M10 = value; break;
 								case 1: M11 = value; break;
@@ -1092,7 +1137,7 @@ namespace Tao.Ode
 							}
 							break;
 						case 2:
-							switch(y)
+							switch (y)
 							{
 								case 0: M20 = value; break;
 								case 1: M21 = value; break;
@@ -1105,21 +1150,22 @@ namespace Tao.Ode
 					}
 				}
 			}
-			
-			public dReal[] ToArray() {
-			  return new dReal[] {
+
+			public dReal[] ToArray()
+			{
+				return new dReal[] {
 			    M00, M01, M02, M03, M10, M11, M12, M13, M20, M21, M22, M23
 			  };
 			}
-	};
-	
+		};
+
 		/// <summary>
 		/// 
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-			public struct dMatrix4 
+		public struct dMatrix4
 		{
-			public dMatrix4(dReal[] values) 
+			public dMatrix4(dReal[] values)
 			{
 				M00 = values[0];
 				M01 = values[1];
@@ -1139,27 +1185,27 @@ namespace Tao.Ode
 				M33 = values[15];
 			}
 
-			public dReal M00,M01,M02,M03;
-			public dReal M10,M11,M12,M13;
-			public dReal M20,M21,M22,M23;
-			public dReal M30,M31,M32,M33;
-			
+			public dReal M00, M01, M02, M03;
+			public dReal M10, M11, M12, M13;
+			public dReal M20, M21, M22, M23;
+			public dReal M30, M31, M32, M33;
+
 			public dReal this[int index]
 			{
 				get
 				{
-					switch(index)
+					switch (index)
 					{
-						case  0: return M00;
-						case  1: return M01;
-						case  2: return M02;
-						case  3: return M03;
-						case  4: return M10;
-						case  5: return M11;
-						case  6: return M12;
-						case  7: return M13;
-						case  8: return M20;
-						case  9: return M21;
+						case 0: return M00;
+						case 1: return M01;
+						case 2: return M02;
+						case 3: return M03;
+						case 4: return M10;
+						case 5: return M11;
+						case 6: return M12;
+						case 7: return M13;
+						case 8: return M20;
+						case 9: return M21;
 						case 10: return M22;
 						case 11: return M23;
 						case 12: return M30;
@@ -1171,95 +1217,95 @@ namespace Tao.Ode
 				}
 				set
 				{
-					switch(index)
+					switch (index)
 					{
-						case  0: M00 = value;
+						case 0: M00 = value;
 							break;
-						case  1: M01 = value; 
+						case 1: M01 = value;
 							break;
-						case  2: M02 = value; 
+						case 2: M02 = value;
 							break;
-						case  3: M03 = value; 
+						case 3: M03 = value;
 							break;
-						case  4: M10 = value; 
+						case 4: M10 = value;
 							break;
-						case  5: M11 = value; 
+						case 5: M11 = value;
 							break;
-						case  6: M12 = value; 
+						case 6: M12 = value;
 							break;
-						case  7: M13 = value; 
+						case 7: M13 = value;
 							break;
-						case  8: M20 = value; 
+						case 8: M20 = value;
 							break;
-						case  9: M21 = value; 
+						case 9: M21 = value;
 							break;
-						case 10: M22 = value; 
+						case 10: M22 = value;
 							break;
-						case 11: M23 = value; 
+						case 11: M23 = value;
 							break;
-						case 12: M30 = value; 
+						case 12: M30 = value;
 							break;
-						case 13: M31 = value; 
+						case 13: M31 = value;
 							break;
-						case 14: M32 = value; 
+						case 14: M32 = value;
 							break;
-						case 15: M33 = value; 
+						case 15: M33 = value;
 							break;
 						default: throw new ArgumentOutOfRangeException("index", index, "Must be between 0 and 15");
 					}
 				}
-			}				
+			}
 			public dReal this[int x, int y]
 			{
 				get
 				{
-					switch(x)
+					switch (x)
 					{
 						case 0:
-							switch(y)
+							switch (y)
 							{
 								case 0: return M00;
 								case 1: return M01;
 								case 2: return M02;
 								case 3: return M03;
-								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");									
+								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");
 							}
 						case 1:
-							switch(y)
+							switch (y)
 							{
 								case 0: return M10;
 								case 1: return M11;
 								case 2: return M12;
 								case 3: return M13;
-								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");									
+								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");
 							}
 						case 2:
-							switch(y)
+							switch (y)
 							{
 								case 0: return M20;
 								case 1: return M21;
 								case 2: return M22;
 								case 3: return M23;
-								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");									
+								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");
 							}
 						case 3:
-							switch(y)
+							switch (y)
 							{
 								case 0: return M30;
 								case 1: return M31;
 								case 2: return M32;
 								case 3: return M33;
-								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");									
+								default: throw new ArgumentOutOfRangeException("y", y, "Y value must be between 0 and 3");
 							}
 						default: throw new ArgumentOutOfRangeException("x", x, "X value must be between 0 and 3");
 					}
 				}
 				set
 				{
-					switch(x)
+					switch (x)
 					{
 						case 0:
-							switch(y)
+							switch (y)
 							{
 								case 0: M00 = value; break;
 								case 1: M01 = value; break;
@@ -1269,7 +1315,7 @@ namespace Tao.Ode
 							}
 							break;
 						case 1:
-							switch(y)
+							switch (y)
 							{
 								case 0: M10 = value; break;
 								case 1: M11 = value; break;
@@ -1279,7 +1325,7 @@ namespace Tao.Ode
 							}
 							break;
 						case 2:
-							switch(y)
+							switch (y)
 							{
 								case 0: M20 = value; break;
 								case 1: M21 = value; break;
@@ -1289,7 +1335,7 @@ namespace Tao.Ode
 							}
 							break;
 						case 3:
-							switch(y)
+							switch (y)
 							{
 								case 0: M30 = value; break;
 								case 1: M31 = value; break;
@@ -1303,10 +1349,10 @@ namespace Tao.Ode
 				}
 			}
 		};
-		
+
 		// TODO: Should there be a dMatrix6 here to complete the set of arrays found in ODE's common.h?
 		// public struct dMatrix6 {}
-		
+
 		/// <summary>
 		/// During the world time step, the forces that are applied by each joint are computed. 
 		/// These forces are added directly to the joined bodies, and the user normally has no 
@@ -1348,19 +1394,19 @@ namespace Tao.Ode
 		/// would complicate things.
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
-			public struct dJointFeedback 
+		public struct dJointFeedback
 		{
 			/// <summary>
 			/// 
 			/// </summary>
-			public dJointFeedback(dVector3 _f1, dVector3 _t1, dVector3 _f2, dVector3 _t2) 
+			public dJointFeedback(dVector3 _f1, dVector3 _t1, dVector3 _f2, dVector3 _t2)
 			{
 				f1 = _f1;
 				t1 = _t1;
 				f2 = _f2;
 				t2 = _t2;
 			}
-			
+
 			/// <summary>Force applied to body 1</summary>
 			public dVector3 f1;
 			/// <summary>Torque applied to body 1</summary>
@@ -1371,15 +1417,15 @@ namespace Tao.Ode
 			public dVector3 t2;
 		};
 		#endregion Public Structs
-		
+
 		#region Public Delegates
 		/// <summary>
 		/// Callback function for dSpaceCollide and dSpaceCollide2
 		/// </summary>
 		[UnmanagedFunctionPointer(CALLING_CONVENTION)]
-		public delegate void dNearCallback (IntPtr data, dGeomID o1, dGeomID o2);
+		public delegate void dNearCallback(IntPtr data, dGeomID o1, dGeomID o2);
 		#endregion Public Delegates
-		
+
 		#region Public Externs
 		#region World Functions
 		#region World create and destroy functions
@@ -1395,9 +1441,9 @@ namespace Tao.Ode
 		/// Most applications will only need one world.
 		/// </remarks>
 		/// <returns>A dWorldID</returns>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dWorldID dWorldCreate();
-		
+
 		/// <summary>
 		/// Destroy a world and everything in it.
 		/// This includes all bodies, and all joints that are not part of a joint group.
@@ -1405,7 +1451,7 @@ namespace Tao.Ode
 		/// dJointGroupEmpty.
 		/// </summary>
 		/// <param name="world">A  dWorldID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dWorldDestroy(dWorldID world);
 		#endregion World create and destroy functions
 		#region World gravity functions
@@ -1418,18 +1464,18 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dWorldSetGravity(dWorldID world, dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Get the world's global gravity vector.
 		/// The units are m/s/s.
 		/// </summary>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="gravity">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dWorldGetGravity(dWorldID world, ref dVector3 gravity);
-		
+
 		#endregion World gravity functions
 		#region World CFM and ERP functions
 		/// <summary>
@@ -1438,18 +1484,18 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="erp">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dWorldSetERP(dWorldID world, dReal erp);
-		
+
 		/// <summary>
 		/// Get the global ERP value, which controls how much error correction is performed in each time step.
 		/// Typical values are in the range 0.1--0.8. The default is 0.2.
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="world">A  dWorldID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dWorldGetERP(dWorldID world);
-		
+
 		/// <summary>
 		/// Set the global CFM (constraint force mixing) value.
 		/// Typical values are in the range 10-9 -- 1.
@@ -1457,9 +1503,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="cfm">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dWorldSetCFM(dWorldID world, dReal cfm);
-		
+
 		/// <summary>
 		/// Get the global CFM (constraint force mixing) value.
 		/// Typical values are in the range 10-9 -- 1.
@@ -1467,9 +1513,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="world">A  dWorldID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dWorldGetCFM(dWorldID world);
-		
+
 		#endregion World CFM and ERP functions
 		#region World impulse to force conversion function
 		/// <summary>
@@ -1494,9 +1540,9 @@ namespace Tao.Ode
 		/// <param name="iy">A  dReal</param>
 		/// <param name="iz">A  dReal</param>
 		/// <param name="force">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dWorldImpulseToForce(dWorldID world, dReal stepsize, dReal ix, dReal iy, dReal iz, ref dVector3 force);
-		
+
 		#endregion World impulse to force conversion function
 		#region World Stepping Functions
 		/// <summary>
@@ -1509,7 +1555,7 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="stepsize">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dWorldStep(dWorldID world, dReal stepsize);
 		#endregion World Stepping Functions
 		#region World QuickStep functions
@@ -1541,9 +1587,9 @@ namespace Tao.Ode
 		/// </remarks>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="stepsize">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dWorldQuickStep(dWorldID world, dReal stepsize);
-		
+
 		/// <summary>
 		/// Set the number of iterations that the QuickStep method performs per step.
 		///
@@ -1553,9 +1599,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="num">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dWorldSetQuickStepNumIterations(dWorldID world, int num);
-		
+
 		/// <summary>
 		/// Get the number of iterations that the QuickStep method performs per step.
 		///
@@ -1563,9 +1609,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="world">A  dWorldID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dWorldGetQuickStepNumIterations(dWorldID world);
-		
+
 		/// <summary>
 		/// Set the QuickStep SOR over-relaxation parameter
 		/// </summary>
@@ -1574,9 +1620,9 @@ namespace Tao.Ode
 		/// </remarks>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="param">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dWorldSetQuickStepW(dWorldID world, dReal param);
-		
+
 		/// <summary>
 		/// Get the QuickStep SOR over-relaxation parameter
 		/// </summary>
@@ -1585,7 +1631,7 @@ namespace Tao.Ode
 		/// </remarks>
 		/// <returns>A dReal</returns>
 		/// <param name="world">A  dWorldID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dWorldGetQuickStepW(dWorldID world);
 		#endregion World QuickStep functions
 		#region World contact parameter functions
@@ -1598,9 +1644,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="vel">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dWorldSetContactMaxCorrectingVel(dWorldID world, dReal vel);
-		
+
 		/// <summary>
 		/// Get the maximum correcting velocity that contacts are allowed to generate.
 		///
@@ -1608,9 +1654,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="world">A  dWorldID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dWorldGetContactMaxCorrectingVel(dWorldID world);
-		
+
 		/// <summary>
 		/// Set the depth of the surface layer around all geometry objects.
 		///
@@ -1623,9 +1669,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="depth">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dWorldSetContactSurfaceLayer(dWorldID world, dReal depth);
-		
+
 		/// <summary>
 		/// Get the depth of the surface layer around all geometry objects.
 		///
@@ -1633,7 +1679,7 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="world">A  dWorldID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dWorldGetContactSurfaceLayer(dWorldID world);
 		#endregion World contact parameter functions
 		#region World StepFast1 functions
@@ -1646,23 +1692,23 @@ namespace Tao.Ode
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="stepsize">A  dReal</param>
 		/// <param name="maxiterations">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dWorldStepFast1(dWorldID world, dReal stepsize, int maxiterations);
-		
+
 		/// <summary>
 		/// Set the AutoEnableDepth parameter used by the StepFast1 algorithm.
 		/// </summary>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="autoEnableDepth">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dWorldSetAutoEnableDepthSF1(dWorldID world, int autoEnableDepth);
-		
+
 		/// <summary>
 		/// Get the AutoEnableDepth parameter used by the StepFast1 algorithm.
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="world">A  dWorldID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dWorldGetAutoEnableDepthSF1(dWorldID world);
 		#endregion World StepFast1 functions
 		#region World Auto-disable functions
@@ -1673,17 +1719,17 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="do_auto_disable">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void  dWorldSetAutoDisableFlag(dWorldID world, int do_auto_disable);
-		
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dWorldSetAutoDisableFlag(dWorldID world, int do_auto_disable);
+
 		/// <summary>
 		/// Get the current auto-disable flag for newly created bodies.
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="world">A  dWorldID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static int   dWorldGetAutoDisableFlag(dWorldID world);
-		
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static int dWorldGetAutoDisableFlag(dWorldID world);
+
 		/// <summary>
 		/// Set the default auto-disable linear threshold for newly created bodies.
 		///
@@ -1691,17 +1737,17 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="linear_threshold">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void  dWorldSetAutoDisableLinearThreshold(dWorldID world, dReal linear_threshold);
-		
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dWorldSetAutoDisableLinearThreshold(dWorldID world, dReal linear_threshold);
+
 		/// <summary>
 		/// Get the current auto-disable linear threshold for newly created bodies.
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="world">A  dWorldID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dWorldGetAutoDisableLinearThreshold(dWorldID world);
-		
+
 		/// <summary>
 		/// Set the default auto-disable angular threshold for newly created bodies.
 		///
@@ -1709,17 +1755,17 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="angular_threshold">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void  dWorldSetAutoDisableAngularThreshold(dWorldID world, dReal angular_threshold);
-		
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dWorldSetAutoDisableAngularThreshold(dWorldID world, dReal angular_threshold);
+
 		/// <summary>
 		/// Get the current auto-disable angular threshold for newly created objects
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="world">A  dWorldID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dWorldGetAutoDisableAngularThreshold(dWorldID world);
-		
+
 		/// <summary>
 		/// Set the default auto-disable steps for newly created bodies.
 		///
@@ -1727,17 +1773,17 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="steps">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void  dWorldSetAutoDisableSteps(dWorldID world, int steps);
-		
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dWorldSetAutoDisableSteps(dWorldID world, int steps);
+
 		/// <summary>
 		/// Get the current auto-disable steps for newly created bodies
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="world">A  dWorldID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static int   dWorldGetAutoDisableSteps(dWorldID world);
-		
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static int dWorldGetAutoDisableSteps(dWorldID world);
+
 		/// <summary>
 		/// Set the default auto-disable time for newly created bodies.
 		///
@@ -1745,19 +1791,19 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="time">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void  dWorldSetAutoDisableTime(dWorldID world, dReal time);
-		
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dWorldSetAutoDisableTime(dWorldID world, dReal time);
+
 		/// <summary>
 		/// Get the current auto-disable time for newly created bodies.
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="world">A  dWorldID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dWorldGetAutoDisableTime(dWorldID world);
 		#endregion World Auto-disable functions
 		#endregion World Functions
-		
+
 		#region Body functions
 		#region Body create and destroy functions
 		/// <summary>
@@ -1766,9 +1812,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dBodyID</returns>
 		/// <param name="world">A  dWorldID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dBodyID dBodyCreate(dWorldID world);
-		
+
 		/// <summary>
 		/// Destroy a body.
 		///
@@ -1776,7 +1822,7 @@ namespace Tao.Ode
 		/// not affecting the simulation, but they will NOT be deleted)
 		/// </summary>
 		/// <param name="body">A  dBodyID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyDestroy(dBodyID body);
 		#endregion Body create and destroy functions
 		#region Body position and orientation functions
@@ -1790,9 +1836,9 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodySetPosition(dBodyID body, dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Set the rotation of the body.
 		///
@@ -1801,9 +1847,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="body">A  dBodyID</param>
 		/// <param name="R">A  dMatrix3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodySetRotation(dBodyID body, ref dMatrix3 R);
-		
+
 		/// <summary>
 		/// Set the orientation on of the body.
 		///
@@ -1814,9 +1860,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="body">A  dBodyID</param>
 		/// <param name="q">A  dQuaternion</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodySetQuaternion(dBodyID body, [In] ref dQuaternion q);
-		
+
 		/// <summary>
 		/// Set the linear velocity of the body.
 		///
@@ -1827,9 +1873,9 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodySetLinearVel(dBodyID body, dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Set the angular velocity of the body.
 		///
@@ -1840,11 +1886,11 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodySetAngularVel(dBodyID body, dReal x, dReal y, dReal z);
-		
-		[DllImport(ODE_NATIVE_LIBRARY,EntryPoint="dBodyGetPosition")]
-		private extern unsafe static dReal *dBodyGetPosition_(dBodyID body);
+
+		[DllImport(ODE_NATIVE_LIBRARY, EntryPoint = "dBodyGetPosition")]
+		private extern unsafe static dReal* dBodyGetPosition_(dBodyID body);
 		/// <summary>
 		/// Get the position of the body
 		///
@@ -1852,17 +1898,17 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dVector3</returns>
 		/// <param name="body">A  dBodyID</param>
-		public static dVector3 dBodyGetPosition(dBodyID body) 
+		public static dVector3 dBodyGetPosition(dBodyID body)
 		{
 			unsafe
 			{
-				dVector3 *v=(dVector3*)dBodyGetPosition_(body);
+				dVector3* v = (dVector3*)dBodyGetPosition_(body);
 				return *v;
 			}
 		}
-		
-		[DllImport(ODE_NATIVE_LIBRARY,EntryPoint="dBodyGetRotation")]
-		private extern unsafe static dReal * dBodyGetRotation_(dBodyID body);	// ptr to 4x3 rot matrix
+
+		[DllImport(ODE_NATIVE_LIBRARY, EntryPoint = "dBodyGetRotation")]
+		private extern unsafe static dReal* dBodyGetRotation_(dBodyID body);	// ptr to 4x3 rot matrix
 		/// <summary>
 		/// Get the rotation of the body.
 		///
@@ -1871,16 +1917,16 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dMatrix3</returns>
 		/// <param name="body">A  dBodyID</param>
-		public static dMatrix3 dBodyGetRotation(dBodyID body) 
+		public static dMatrix3 dBodyGetRotation(dBodyID body)
 		{
 			unsafe
 			{
-				dMatrix3 *m=(dMatrix3*)dBodyGetRotation_(body);
+				dMatrix3* m = (dMatrix3*)dBodyGetRotation_(body);
 				return *m;
 			}
 		}
-		
-		[DllImport(ODE_NATIVE_LIBRARY,EntryPoint="dBodyGetQuaternion")]
+
+		[DllImport(ODE_NATIVE_LIBRARY, EntryPoint = "dBodyGetQuaternion")]
 		private extern unsafe static dReal* dBodyGetQuaternion_(dBodyID body);
 		/// <summary>
 		/// Get the orientation of a body.
@@ -1890,18 +1936,18 @@ namespace Tao.Ode
 		/// <returns>A dQuaternion</returns>
 		/// <param name="body">A  dBodyID</param>
 		/// TODO: This seems to be unfinished.  Need completion and testing.
-		public static dQuaternion dBodyGetQuaternion(dBodyID body) 
+		public static dQuaternion dBodyGetQuaternion(dBodyID body)
 		{
 			unsafe
 			{
-				dQuaternion *q=(dQuaternion*)dBodyGetQuaternion_(body);
+				dQuaternion* q = (dQuaternion*)dBodyGetQuaternion_(body);
 				//dQuaternion q2=new dQuaternion(q->X,q->Y,q->Z,q->W);
 				return *q;
 			}
 		}
-		
-		[DllImport(ODE_NATIVE_LIBRARY,EntryPoint="dBodyGetLinearVel")]
-		private extern unsafe static dReal *dBodyGetLinearVel_(dBodyID body);
+
+		[DllImport(ODE_NATIVE_LIBRARY, EntryPoint = "dBodyGetLinearVel")]
+		private extern unsafe static dReal* dBodyGetLinearVel_(dBodyID body);
 		/// <summary>
 		/// Get the linear velocity of a body
 		///
@@ -1909,17 +1955,17 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dVector3</returns>
 		/// <param name="body">A  dBodyID</param>
-		public static dVector3 dBodyGetLinearVel(dBodyID body) 
+		public static dVector3 dBodyGetLinearVel(dBodyID body)
 		{
 			unsafe
 			{
-				dVector3 *v=(dVector3*)dBodyGetLinearVel_(body);
+				dVector3* v = (dVector3*)dBodyGetLinearVel_(body);
 				return *v;
 			}
 		}
-		
-		[DllImport(ODE_NATIVE_LIBRARY,EntryPoint="dBodyGetAngularVel")]
-		private extern unsafe static dReal *dBodyGetAngularVel_(dBodyID body);
+
+		[DllImport(ODE_NATIVE_LIBRARY, EntryPoint = "dBodyGetAngularVel")]
+		private extern unsafe static dReal* dBodyGetAngularVel_(dBodyID body);
 		/// <summary>
 		/// Get the angular velocity of a body
 		///
@@ -1927,11 +1973,11 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dVector3</returns>
 		/// <param name="body">A  dBodyID</param>
-		public static dVector3 dBodyGetAngularVel(dBodyID body) 
+		public static dVector3 dBodyGetAngularVel(dBodyID body)
 		{
 			unsafe
 			{
-				dVector3 *v=(dVector3*)dBodyGetAngularVel_(body);
+				dVector3* v = (dVector3*)dBodyGetAngularVel_(body);
 				return *v;
 			}
 		}
@@ -1942,17 +1988,17 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="body">A  dBodyID</param>
 		/// <param name="mass">A  dMass</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodySetMass(dBodyID body, ref dMass mass);
-		
+
 		/// <summary>
 		/// Get the mass of the body (see the mass functions)
 		/// </summary>
 		/// <param name="body">A  dBodyID</param>
 		/// <param name="mass">A  dMass</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyGetMass(dBodyID body, ref dMass mass);
-		
+
 		/// <summary>
 		/// Add force to a body using absolute coordinates.
 		/// </summary>
@@ -1965,9 +2011,9 @@ namespace Tao.Ode
 		/// <param name="fx">A  dReal</param>
 		/// <param name="fy">A  dReal</param>
 		/// <param name="fz">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyAddForce(dBodyID body, dReal fx, dReal fy, dReal fz);
-		
+
 		/// <summary>
 		/// Add torque to a body using absolute coordinates.
 		/// </summary>
@@ -1980,9 +2026,9 @@ namespace Tao.Ode
 		/// <param name="fx">A  dReal</param>
 		/// <param name="fy">A  dReal</param>
 		/// <param name="fz">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyAddTorque(dBodyID body, dReal fx, dReal fy, dReal fz);
-		
+
 		/// <summary>
 		/// Add force to a body using relative coordinates.
 		///
@@ -1997,9 +2043,9 @@ namespace Tao.Ode
 		/// <param name="fx">A  dReal</param>
 		/// <param name="fy">A  dReal</param>
 		/// <param name="fz">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyAddRelForce(dBodyID body, dReal fx, dReal fy, dReal fz);
-		
+
 		/// <summary>
 		/// Add torque to a body using relative coordinates.
 		///
@@ -2014,9 +2060,9 @@ namespace Tao.Ode
 		/// <param name="fx">A  dReal</param>
 		/// <param name="fy">A  dReal</param>
 		/// <param name="fz">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyAddRelTorque(dBodyID body, dReal fx, dReal fy, dReal fz);
-		
+
 		/// <summary>
 		/// Add force to a body using absolute coordinates at specified absolute position.
 		///
@@ -2034,7 +2080,7 @@ namespace Tao.Ode
 		/// <param name="px">A  dReal</param>
 		/// <param name="py">A  dReal</param>
 		/// <param name="pz">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyAddForceAtPos(dBodyID body, dReal fx, dReal fy, dReal fz,
 			dReal px, dReal py, dReal pz);
 		/// <summary>
@@ -2054,10 +2100,10 @@ namespace Tao.Ode
 		/// <param name="px">A  dReal</param>
 		/// <param name="py">A  dReal</param>
 		/// <param name="pz">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyAddForceAtRelPos(dBodyID body, dReal fx, dReal fy, dReal fz,
 			dReal px, dReal py, dReal pz);
-		
+
 		/// <summary>
 		/// Add force to a body using body-relative coordinates at specified absolute position.
 		///
@@ -2075,10 +2121,10 @@ namespace Tao.Ode
 		/// <param name="px">A  dReal</param>
 		/// <param name="py">A  dReal</param>
 		/// <param name="pz">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyAddRelForceAtPos(dBodyID body, dReal fx, dReal fy, dReal fz,
 			dReal px, dReal py, dReal pz);
-		
+
 		/// <summary>
 		/// Add force to a body using body-relative coordinates at specified relative position.
 		///
@@ -2096,12 +2142,12 @@ namespace Tao.Ode
 		/// <param name="px">A  dReal</param>
 		/// <param name="py">A  dReal</param>
 		/// <param name="pz">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyAddRelForceAtRelPos(dBodyID body, dReal fx, dReal fy, dReal fz,
 			dReal px, dReal py, dReal pz);
-		
-		[DllImport(ODE_NATIVE_LIBRARY,EntryPoint="dBodyGetForce")]
-		private extern unsafe static dReal *dBodyGetForce_(dBodyID body);
+
+		[DllImport(ODE_NATIVE_LIBRARY, EntryPoint = "dBodyGetForce")]
+		private extern unsafe static dReal* dBodyGetForce_(dBodyID body);
 		/// <summary>
 		/// Return the current accumulated force on the body.
 		/// </summary>
@@ -2111,17 +2157,17 @@ namespace Tao.Ode
 		/// </remarks>
 		/// <returns>A dVector3</returns>
 		/// <param name="body">A  dBodyID</param>
-		public static dVector3 dBodyGetForce(dBodyID body) 
+		public static dVector3 dBodyGetForce(dBodyID body)
 		{
 			unsafe
 			{
-				dVector3 *v=(dVector3*)dBodyGetForce_(body);
+				dVector3* v = (dVector3*)dBodyGetForce_(body);
 				return *v;
 			}
 		}
-		
-		[DllImport(ODE_NATIVE_LIBRARY,EntryPoint="dBodyGetTorque")]
-		private extern unsafe static dReal *dBodyGetTorque_(dBodyID body);
+
+		[DllImport(ODE_NATIVE_LIBRARY, EntryPoint = "dBodyGetTorque")]
+		private extern unsafe static dReal* dBodyGetTorque_(dBodyID body);
 		/// <summary>
 		/// Return the current accumulated torque on the body.
 		/// </summary>
@@ -2131,15 +2177,15 @@ namespace Tao.Ode
 		/// </remarks>
 		/// <returns>A dVector3</returns>
 		/// <param name="body">A  dBodyID</param>
-		public static dVector3 dBodyGetTorque(dBodyID body) 
+		public static dVector3 dBodyGetTorque(dBodyID body)
 		{
 			unsafe
 			{
-				dVector3 *v=(dVector3*)dBodyGetTorque_(body);
+				dVector3* v = (dVector3*)dBodyGetTorque_(body);
 				return *v;
 			}
 		}
-		
+
 		/// <summary>
 		/// Set the body force accumulation vector.
 		/// This is mostly useful to zero the force and torque for deactivated bodies before they are reactivated,
@@ -2149,9 +2195,9 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodySetForce(dBodyID b, dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Set the body torque accumulation vector.
 		/// This is mostly useful to zero the force and torque for deactivated bodies before they are reactivated,
@@ -2161,7 +2207,7 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodySetTorque(dBodyID b, dReal x, dReal y, dReal z);
 		#endregion Body mass and force functions
 		#region Body utility functions
@@ -2173,10 +2219,10 @@ namespace Tao.Ode
 		/// <param name="py">A  dReal</param>
 		/// <param name="pz">A  dReal</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyGetRelPointPos(dBodyID body, dReal px, dReal py, dReal pz,
 			ref dVector3 result);
-		
+
 		/// <summary>
 		/// Take a point on a body (px,py,pz) and return that point's velocity in body-relative coordinates (in result).
 		/// </summary>
@@ -2185,10 +2231,10 @@ namespace Tao.Ode
 		/// <param name="py">A  dReal</param>
 		/// <param name="pz">A  dReal</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyGetRelPointVel(dBodyID body, dReal px, dReal py, dReal pz,
-			ref dVector3  result);
-		
+			ref dVector3 result);
+
 		/// <summary>
 		/// Take a point on a body (px,py,pz) and return that point's position in absolute coordinates (in result).
 		/// </summary>
@@ -2197,10 +2243,10 @@ namespace Tao.Ode
 		/// <param name="py">A  dReal</param>
 		/// <param name="pz">A  dReal</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyGetPointVel(dBodyID body, dReal px, dReal py, dReal pz,
-			ref dVector3  result);
-		
+			ref dVector3 result);
+
 		/// <summary>
 		/// This is the inverse of dBodyGetRelPointPos.
 		/// It takes a point in global coordinates (x,y,z) and returns the point's position in body-relative
@@ -2211,10 +2257,10 @@ namespace Tao.Ode
 		/// <param name="py">A  dReal</param>
 		/// <param name="pz">A  dReal</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyGetPosRelPoint(dBodyID body, dReal px, dReal py, dReal pz,
-			ref dVector3  result);
-		
+			ref dVector3 result);
+
 		/// <summary>
 		/// Given a vector expressed in the body coordinate system (x,y,z), rotate it to the world coordinate system (result).
 		/// </summary>
@@ -2223,10 +2269,10 @@ namespace Tao.Ode
 		/// <param name="py">A  dReal</param>
 		/// <param name="pz">A  dReal</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyVectorToWorld(dBodyID body, dReal px, dReal py, dReal pz,
-			ref dVector3  result);
-		
+			ref dVector3 result);
+
 		/// <summary>
 		/// Given a vector expressed in the world coordinate system (x,y,z), rotate it to the body coordinate system (result).
 		/// </summary>
@@ -2235,9 +2281,9 @@ namespace Tao.Ode
 		/// <param name="py">A  dReal</param>
 		/// <param name="pz">A  dReal</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyVectorFromWorld(dBodyID body, dReal px, dReal py, dReal pz,
-			ref dVector3  result);
+			ref dVector3 result);
 		#endregion Body utility functions
 		#region Miscellaneous Body Functions
 		/// <summary>
@@ -2252,9 +2298,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="body">A  dBodyID</param>
 		/// <param name="data">An IntPtr</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void  dBodySetData(dBodyID body, /*void **/ IntPtr data);
-		
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dBodySetData(dBodyID body, /*void **/ IntPtr data);
+
 		/// <summary>
 		/// Get the body's user-data pointer.
 		///
@@ -2267,9 +2313,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>An IntPtr</returns>
 		/// <param name="body">A  dBodyID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static IntPtr dBodyGetData(dBodyID body);
-		
+
 		/// <summary>
 		/// This function controls the way a body's orientation is updated at each time step. The mode argument can be:
 		///
@@ -2284,17 +2330,17 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="body">A  dBodyID</param>
 		/// <param name="mode">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodySetFiniteRotationMode(dBodyID body, int mode);
-		
+
 		/// <summary>
 		/// Return the current finite rotation mode of a body (0 or 1).
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="body">A  dBodyID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dBodyGetFiniteRotationMode(dBodyID body);
-		
+
 		/// <summary>
 		/// This sets the finite rotation axis for a body.
 		/// This axis only has meaning when the finite rotation mode is set (see dBodySetFiniteRotationMode).
@@ -2312,25 +2358,25 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodySetFiniteRotationAxis(dBodyID body, dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Return the current finite rotation axis of a body.
 		/// </summary>
 		/// <param name="body">A  dBodyID</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyGetFiniteRotationAxis(dBodyID body, ref dVector3 result);
-		
+
 		/// <summary>
 		/// Return the number of joints that are attached to this body.
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="b">A  dBodyID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dBodyGetNumJoints(dBodyID b);
-		
+
 		/// <summary>
 		/// Return a joint attached to this body, given by index.
 		///
@@ -2339,9 +2385,9 @@ namespace Tao.Ode
 		/// <returns>A dJointID</returns>
 		/// <param name="body">A  dBodyID</param>
 		/// <param name="index">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dJointID dBodyGetJoint(dBodyID body, int index);
-		
+
 		/// <summary>
 		/// Set whether the body is influenced by the world's gravity or not.
 		///
@@ -2351,9 +2397,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="b">A  dBodyID</param>
 		/// <param name="mode">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodySetGravityMode(dBodyID b, int mode);
-		
+
 		/// <summary>
 		/// Get whether the body is influenced by the world's gravity or not.
 		///
@@ -2361,7 +2407,7 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="b">A  dBodyID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dBodyGetGravityMode(dBodyID b);
 		#endregion Miscellaneous Body Functions
 		#region Body automatic enabling and disabling functions
@@ -2385,34 +2431,34 @@ namespace Tao.Ode
 		// 	an enabled flag, a idle step count, an idle time, and linear/angular velocity thresholds.
 		// Newly created bodies get these parameters from world.
 		// The following functions set and get the enable/disable parameters of a body.
-		
+
 		/// <summary>
 		/// Manually enable a body.
 		/// Note that a disabled body that is connected through a joint to an enabled body
 		/// will be automatically re-enabled at the next simulation step.
 		/// </summary>
 		/// <param name="body">A  dBodyID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyEnable(dBodyID body);
-		
+
 		/// <summary>
 		/// Manually disable a body.
 		/// Note that a disabled body that is connected through a joint to an enabled body
 		/// will be automatically re-enabled at the next simulation step.
 		/// </summary>
 		/// <param name="body">A  dBodyID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dBodyDisable(dBodyID body);
-		
+
 		/// <summary>
 		/// Method dBodyIsEnabled
 		/// Return 1 if a body is currently enabled or 0 if it is disabled.
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="body">A  dBodyID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dBodyIsEnabled(dBodyID body);
-		
+
 		/// <summary>
 		/// Method dBodySetAutoDisableFlag
 		/// Set the auto-disable flag of a body.
@@ -2421,9 +2467,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="body">A  dBodyID</param>
 		/// <param name="do_auto_disable">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void  dBodySetAutoDisableFlag(dBodyID body, int do_auto_disable);
-		
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dBodySetAutoDisableFlag(dBodyID body, int do_auto_disable);
+
 		/// <summary>
 		/// Method dBodyGetAutoDisableFlag
 		/// Get the auto-disable flag of a body.
@@ -2432,9 +2478,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="body">A  dBodyID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static int   dBodyGetAutoDisableFlag(dBodyID body);
-		
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static int dBodyGetAutoDisableFlag(dBodyID body);
+
 		/// <summary>
 		/// Method dBodySetAutoDisableLinearThreshold
 		/// Set a body's linear velocity threshold for automatic disabling.
@@ -2446,9 +2492,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="body">A  dBodyID</param>
 		/// <param name="linear_threshold">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void  dBodySetAutoDisableLinearThreshold(dBodyID body, dReal linear_threshold);
-		
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dBodySetAutoDisableLinearThreshold(dBodyID body, dReal linear_threshold);
+
 		/// <summary>
 		/// Method dBodyGetAutoDisableLinearThreshold
 		/// Get a body's linear velocity threshold for automatic disabling.
@@ -2460,9 +2506,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="body">A  dBodyID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dBodyGetAutoDisableLinearThreshold(dBodyID body);
-		
+
 		/// <summary>
 		/// Method dBodySetAutoDisableAngularThreshold
 		/// Set a body's angular velocity threshold for automatic disabling.
@@ -2474,9 +2520,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="body">A  dBodyID</param>
 		/// <param name="angular_threshold">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void  dBodySetAutoDisableAngularThreshold(dBodyID body, dReal angular_threshold);
-		
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dBodySetAutoDisableAngularThreshold(dBodyID body, dReal angular_threshold);
+
 		/// <summary>
 		/// Method dBodyGetAutoDisableAngularThreshold
 		/// Get a body's angular velocity threshold for automatic disabling.
@@ -2488,9 +2534,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="body">A  dBodyID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dBodyGetAutoDisableAngularThreshold(dBodyID body);
-		
+
 		/// <summary>
 		/// Method dBodySetAutoDisableSteps
 		/// Set the number of simulation steps that a body must be idle before
@@ -2500,9 +2546,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="body">A  dBodyID</param>
 		/// <param name="steps">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void  dBodySetAutoDisableSteps(dBodyID body, int steps);
-		
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dBodySetAutoDisableSteps(dBodyID body, int steps);
+
 		/// <summary>
 		/// Method dBodyGetAutoDisableSteps
 		/// Get the number of simulation steps that a body must be idle before
@@ -2512,9 +2558,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="body">A  dBodyID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static int   dBodyGetAutoDisableSteps(dBodyID body);
-		
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static int dBodyGetAutoDisableSteps(dBodyID body);
+
 		/// <summary>
 		/// Method dBodySetAutoDisableTime
 		/// Set the amount of simulation time that a body must be idle before
@@ -2524,9 +2570,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="body">A  dBodyID</param>
 		/// <param name="time">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void  dBodySetAutoDisableTime(dBodyID body, dReal time);
-		
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dBodySetAutoDisableTime(dBodyID body, dReal time);
+
 		/// <summary>
 		/// Method dBodyGetAutoDisableTime
 		/// Get the amount of simulation time that a body must be idle before
@@ -2536,20 +2582,20 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="body">A  dBodyID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dBodyGetAutoDisableTime(dBodyID body);
-		
+
 		/// <summary>
 		/// Method dBodySetAutoDisableDefaults
 		/// Set the auto-disable parameters of the body to the default parameters
 		/// that have been set on the world.
 		/// </summary>
 		/// <param name="body">A  dBodyID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void  dBodySetAutoDisableDefaults(dBodyID body);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dBodySetAutoDisableDefaults(dBodyID body);
 		#endregion Body automatic enabling and disabling functions
 		#endregion Body functions
-		
+
 		#region Joint functions
 		#region Joint create and destroy functions
 		/// <summary>
@@ -2564,9 +2610,9 @@ namespace Tao.Ode
 		/// <returns>A dJointID</returns>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="group">A  dJointGroupID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dJointID dJointCreateBall(dWorldID world, dJointGroupID group);
-		
+
 		/// <summary>
 		/// Create a new hinge joint.
 		///
@@ -2579,9 +2625,9 @@ namespace Tao.Ode
 		/// <returns>A dJointID</returns>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="group">A  dJointGroupID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dJointID dJointCreateHinge(dWorldID world, dJointGroupID group);
-		
+
 		/// <summary>
 		/// Create a new slider joint.
 		///
@@ -2594,9 +2640,9 @@ namespace Tao.Ode
 		/// <returns>A dJointID</returns>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="group">A  dJointGroupID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dJointID dJointCreateSlider(dWorldID world, dJointGroupID group);
-		
+
 		/// <summary>
 		/// Create a new contact joint.
 		///
@@ -2612,9 +2658,9 @@ namespace Tao.Ode
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="group">A  dJointGroupID</param>
 		/// <param name="contact"></param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dJointID dJointCreateContact(dWorldID world, dJointGroupID group, ref dContact contact);
-		
+
 		/// <summary>
 		/// Create a new hinge-2 joint.
 		///
@@ -2627,9 +2673,9 @@ namespace Tao.Ode
 		/// <returns>A dJointID</returns>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="group">A  dJointGroupID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dJointID dJointCreateHinge2(dWorldID world, dJointGroupID group);
-		
+
 		/// <summary>
 		/// Create a new universal joint.
 		///
@@ -2642,9 +2688,9 @@ namespace Tao.Ode
 		/// <returns>A dJointID</returns>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="group">A  dJointGroupID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dJointID dJointCreateUniversal(dWorldID world, dJointGroupID group);
-		
+
 		/// <summary>
 		/// Create a new fixed joint.
 		///
@@ -2657,9 +2703,9 @@ namespace Tao.Ode
 		/// <returns>A dJointID</returns>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="group">A  dJointGroupID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dJointID dJointCreateFixed(dWorldID world, dJointGroupID group);
-		
+
 		/// <summary>
 		/// Create a new angular motor joint.
 		///
@@ -2672,9 +2718,9 @@ namespace Tao.Ode
 		/// <returns>A dJointID</returns>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="group">A  dJointGroupID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dJointID dJointCreateAMotor(dWorldID world, dJointGroupID group);
-		
+
 		/// <summary>
 		/// Create a new "null" joint.
 		///
@@ -2692,18 +2738,18 @@ namespace Tao.Ode
 		/// <returns>A dJointID</returns>
 		/// <param name="world">A  dWorldID</param>
 		/// <param name="group">A  dJointGroupID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dJointID dJointCreateNull(dWorldID world, dJointGroupID group);
-		
+
 		/// <summary>
 		/// Destroy a joint, disconnecting it from its attached bodies and removing it from the world.
 		/// However, if the joint is a member of a group then this function has no effect - to destroy
 		/// that joint the group must be emptied or destroyed.
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointDestroy(dJointID joint);
-		
+
 		/// <summary>
 		/// Create a joint group.
 		///
@@ -2712,22 +2758,22 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dJointGroupID</returns>
 		/// <param name="max_size">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dJointGroupID dJointGroupCreate(int max_size);
-		
+
 		/// <summary>
 		/// Destroy a joint group. All joints in the joint group will be destroyed.
 		/// </summary>
 		/// <param name="group">A  dJointGroupID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointGroupDestroy(dJointGroupID group);
-		
+
 		/// <summary>
 		/// Empty a joint group.
 		/// All joints in the joint group will be destroyed, but the joint group itself will not be destroyed.
 		/// </summary>
 		/// <param name="group">A  dJointGroupID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointGroupEmpty(dJointGroupID group);
 		#endregion Joint create and destroy functions
 		#region Joint miscellaneous functions
@@ -2744,9 +2790,9 @@ namespace Tao.Ode
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="body1">A  dBodyID</param>
 		/// <param name="body2">A  dBodyID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointAttach(dJointID joint, dBodyID body1, dBodyID body2);
-		
+
 		/// <summary>
 		/// Set the joint's user-data pointer.
 		///
@@ -2759,9 +2805,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="data">An IntPtr</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetData(dJointID joint, IntPtr data);
-		
+
 		/// <summary>
 		/// Get the joint's user-data pointer.
 		///
@@ -2774,9 +2820,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>An IntPtr</returns>
 		/// <param name="joint">A  dJointID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static IntPtr dJointGetData(dJointID joint);
-		
+
 		/// <summary>
 		/// Get the joint's type.
 		///
@@ -2792,9 +2838,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="joint">A  dJointID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dJointGetType(dJointID joint);
-		
+
 		/// <summary>
 		/// Return the bodies that this joint connects.
 		///
@@ -2811,9 +2857,9 @@ namespace Tao.Ode
 		/// <returns>A dBodyID</returns>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="index">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dBodyID dJointGetBody(dJointID joint, int index);
-		
+
 		/// <summary>
 		/// Pass a dJointFeedback structure to the joint to collect information about
 		/// the forces applied by each joint.
@@ -2862,11 +2908,11 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="feedback">A  dJointFeedback</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetFeedback(dJointID joint, ref dJointFeedback feedback);
-		
-		[DllImport(ODE_NATIVE_LIBRARY,EntryPoint="dJointGetFeedback")]
-		private extern unsafe static dJointFeedback *dJointGetFeedback_(dJointID joint);
+
+		[DllImport(ODE_NATIVE_LIBRARY, EntryPoint = "dJointGetFeedback")]
+		private extern unsafe static dJointFeedback* dJointGetFeedback_(dJointID joint);
 		/// <summary>
 		/// Get the jointfeedback structure from the joint to get information about
 		/// the forces applied by each joint.
@@ -2885,15 +2931,15 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dJointFeedback</returns>
 		/// <param name="body">A  dBodyID</param>
-		public static dJointFeedback dJointGetFeedback(dBodyID body) 
+		public static dJointFeedback dJointGetFeedback(dBodyID body)
 		{
 			unsafe
 			{
-				dJointFeedback *v=(dJointFeedback*)dJointGetFeedback_(body);
+				dJointFeedback* v = (dJointFeedback*)dJointGetFeedback_(body);
 				return *v;
 			}
 		}
-		
+
 		/// <summary>
 		/// Test if the two specified bodies are connected by a joint.
 		///
@@ -2902,9 +2948,9 @@ namespace Tao.Ode
 		/// <returns>An int</returns>
 		/// <param name="body1">A  dBodyID</param>
 		/// <param name="body2">A  dBodyID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dAreConnected(dBodyID body1, dBodyID body2);
-		
+
 		/// <summary>
 		/// Return 1 if the two bodies are connected together by a joint that does not
 		/// have type joint_type, otherwise return 0.
@@ -2918,7 +2964,7 @@ namespace Tao.Ode
 		/// <param name="body1">A  dBodyID</param>
 		/// <param name="body2">A  dBodyID</param>
 		/// <param name="joint_type">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dAreConnectedExcluding(dBodyID body1, dBodyID body2, int joint_type);
 		#endregion Joint miscellaneous functions
 		#region Joint parameter setting functions
@@ -2933,9 +2979,9 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetBallAnchor(dJointID joint, dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Method dJointGetBallAnchor
 		/// Get the joint anchor point on body 1, in world coordinates.
@@ -2943,9 +2989,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointGetBallAnchor(dJointID joint, ref dVector3 result);
-		
+
 		/// <summary>
 		/// Method dJointGetBallAnchor2
 		/// Get the joint anchor point on body 2, in world coordinates.
@@ -2958,7 +3004,7 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointGetBallAnchor2(dJointID joint, ref dVector3 result);
 		#endregion Ball Joint functions
 		#region Hinge Joint functions
@@ -2969,9 +3015,9 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetHingeAnchor(dJointID joint, dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Set hinge axis parameters
 		/// </summary>
@@ -2979,9 +3025,9 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetHingeAxis(dJointID joint, dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Get the joint anchor point, in world coordinates.
 		/// This returns the point on body 1.
@@ -2989,9 +3035,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointGetHingeAnchor(dJointID joint, ref dVector3 result);
-		
+
 		/// <summary>
 		/// Get the joint anchor point, in world coordinates.
 		/// This returns the point on body 2.
@@ -3001,17 +3047,17 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointGetHingeAnchor2(dJointID joint, ref dVector3 result);
-		
+
 		/// <summary>
 		/// Get the hinge axis parameter for the joint.
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointGetHingeAxis(dJointID joint, ref dVector3 result);
-		
+
 		/// <summary>
 		/// Get the hinge angle of the joint.
 		/// The angle is measured between the two bodies, or between the body
@@ -3022,35 +3068,35 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="joint">A  dJointID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetHingeAngle(dJointID joint);
-		
+
 		/// <summary>
 		/// Get the time derivative of the hinge angle of the joint
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="joint">A  dJointID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetHingeAngleRate(dJointID joint);
-		
+
 		/// <summary>
 		/// Set limit/motor parameters for a hinge joint
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="parameter">An int</param>
 		/// <param name="value">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetHingeParam(dJointID joint, dJointParams parameter, dReal value);
-		
+
 		/// <summary>
 		/// Get limit/motor parameters for a hinge joint
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="parameter">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetHingeParam(dJointID joint, dJointParams parameter);
-		
+
 		/// <summary>
 		/// Applies the torque about the hinge axis.
 		///
@@ -3063,7 +3109,7 @@ namespace Tao.Ode
 		/// </remarks>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="torque">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointAddHingeTorque(dJointID joint, dReal torque);
 		#endregion Hinge Joint functions
 		#region Slider Joint functions
@@ -3074,17 +3120,17 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetSliderAxis(dJointID joint, dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Get the slider axis parameter
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointGetSliderAxis(dJointID joint, ref dVector3 result);
-		
+
 		/// <summary>
 		/// Get the slider linear position (i.e. the slider's ``extension'')
 		///
@@ -3093,17 +3139,17 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="joint">A  dJointID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetSliderPosition(dJointID joint);
-		
+
 		/// <summary>
 		/// Get the time derivative of the slider linear position.
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="joint">A  dJointID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetSliderPositionRate(dJointID joint);
-		
+
 		/// <summary>
 		/// Set limit/motor parameters for a slider joint
 		///
@@ -3112,9 +3158,9 @@ namespace Tao.Ode
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="parameter">An int</param>
 		/// <param name="value">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetSliderParam(dJointID joint, dJointParams parameter, dReal value);
-		
+
 		/// <summary>
 		/// Get limit/motor parameters for a slider joint
 		///
@@ -3123,9 +3169,9 @@ namespace Tao.Ode
 		/// <returns>A dReal</returns>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="parameter">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetSliderParam(dJointID joint, dJointParams parameter);
-		
+
 		/// <summary>
 		/// Applies the given force in the slider's direction.
 		/// That is, it applies a force with magnitude force, in the direction
@@ -3137,7 +3183,7 @@ namespace Tao.Ode
 		/// </remarks>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="force">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointAddSliderForce(dJointID joint, dReal force);
 		#endregion Slider Joint functions
 		#region Hinge-2 Joint functions
@@ -3148,9 +3194,9 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetHinge2Anchor(dJointID joint, dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Set hinge-2 axis 1 parameters
 		///
@@ -3160,9 +3206,9 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetHinge2Axis1(dJointID joint, dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Set hinge-2 axis 2 parameters
 		///
@@ -3172,9 +3218,9 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetHinge2Axis2(dJointID joint, dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Get the joint anchor point, in world coordinates.
 		/// This returns the point on body 1.
@@ -3182,9 +3228,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointGetHinge2Anchor(dJointID joint, ref dVector3 result);
-		
+
 		/// <summary>
 		/// Get the joint anchor point, in world coordinates.
 		/// This returns the point on body 2.
@@ -3194,25 +3240,25 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointGetHinge2Anchor2(dJointID joint, ref dVector3 result);
-		
+
 		/// <summary>
 		/// Get hinge-2 axis 1 parameters.
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointGetHinge2Axis1(dJointID joint, ref dVector3 result);
-		
+
 		/// <summary>
 		/// Get hinge-2 axis 2 parameters.
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointGetHinge2Axis2(dJointID joint, ref dVector3 result);
-		
+
 		/// <summary>
 		/// Get the hinge-2 angles (around axis 1 and axis 2)
 		///
@@ -3221,25 +3267,25 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="joint">A  dJointID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetHinge2Angle1(dJointID joint);
-		
+
 		/// <summary>
 		/// Get the time derivative of hinge-2 angle 1
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="joint">A  dJointID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetHinge2Angle1Rate(dJointID joint);
-		
+
 		/// <summary>
 		/// Get the time derivative of hinge-2 angle 2
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="joint">A  dJointID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetHinge2Angle2Rate(dJointID joint);
-		
+
 		/// <summary>
 		/// Set limit/motor parameters for a hinge-2 joint
 		///
@@ -3248,9 +3294,9 @@ namespace Tao.Ode
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="parameter">An int</param>
 		/// <param name="value">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetHinge2Param(dJointID joint, dJointParams parameter, dReal value);
-		
+
 		/// <summary>
 		/// Get limit/motor parameters for a hinge-2 joint
 		///
@@ -3259,9 +3305,9 @@ namespace Tao.Ode
 		/// <returns>A dReal</returns>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="parameter">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetHinge2Param(dJointID joint, dJointParams parameter);
-		
+
 		/// <summary>
 		/// Applies torque1 about the hinge2's axis 1, and torque2 about the hinge2's axis 2.
 		/// This function is just a wrapper for dBodyAddTorque.
@@ -3269,7 +3315,7 @@ namespace Tao.Ode
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="torque1">A  dReal</param>
 		/// <param name="torque2">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointAddHinge2Torques(dJointID joint, dReal torque1, dReal torque2);
 		#endregion Hinge-2 Joint functions
 		#region Universal Joint functions
@@ -3280,9 +3326,9 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetUniversalAnchor(dJointID joint, dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Set universal joint axis 1 parameters
 		///
@@ -3292,9 +3338,9 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetUniversalAxis1(dJointID joint, dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Set universal joint axis 2 parameters
 		///
@@ -3304,9 +3350,9 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetUniversalAxis2(dJointID joint, dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Get the joint anchor point, in world coordinates.
 		/// This returns the point on body 1.
@@ -3314,9 +3360,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointGetUniversalAnchor(dJointID joint, ref dVector3 result);
-		
+
 		/// <summary>
 		/// Get the joint anchor point, in world coordinates.
 		/// This returns the point on body 2.
@@ -3329,25 +3375,25 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointGetUniversalAnchor2(dJointID joint, ref dVector3 result);
-		
+
 		/// <summary>
 		/// Get parameters for universal joint axis 1
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointGetUniversalAxis1(dJointID joint, ref dVector3 result);
-		
+
 		/// <summary>
 		/// Get parameters for universal joint axis 2
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointGetUniversalAxis2(dJointID joint, ref dVector3 result);
-		
+
 		/// <summary>
 		/// Set limit/motor parameters for a universal joint
 		///
@@ -3356,9 +3402,9 @@ namespace Tao.Ode
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="parameter">An int</param>
 		/// <param name="value">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetUniversalParam(dJointID joint, dJointParams parameter, dReal value);
-		
+
 		/// <summary>
 		/// Get limit/motor parameters for a universal joint
 		///
@@ -3367,9 +3413,9 @@ namespace Tao.Ode
 		/// <returns>A dReal</returns>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="parameter">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetUniversalParam(dJointID joint, dJointParams parameter);
-		
+
 		/// <summary>
 		/// Applies torque1 about the universal's axis 1, and torque2 about the universal's axis 2.
 		/// </summary>
@@ -3379,43 +3425,43 @@ namespace Tao.Ode
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="torque1">A  dReal</param>
 		/// <param name="torque2">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointAddUniversalTorques(dJointID joint, dReal torque1, dReal torque2);
-		
+
 		// TODO: Document this - not found in ode docs
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="joint"></param>
 		/// <returns></returns>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetUniversalAngle1(dJointID joint);
-		
+
 		// TODO: Document this - not found in ode docs
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="joint"></param>
 		/// <returns></returns>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetUniversalAngle2(dJointID joint);
-		
+
 		// TODO: Document this - not found in ode docs
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="joint"></param>
 		/// <returns></returns>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetUniversalAngle1Rate(dJointID joint);
-		
+
 		// TODO: Document this - not found in ode docs
 		/// <summary>
 		/// 
 		/// </summary>
 		/// <param name="joint"></param>
 		/// <returns></returns>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetUniversalAngle2Rate(dJointID joint);
 		#endregion Universal Joint functions
 		#region Fixed Joint functions
@@ -3430,7 +3476,7 @@ namespace Tao.Ode
 		/// If you need two bodies to be glued together it is better to represent that as a single body.
 		/// </remarks>
 		/// <param name="joint">A  dJointID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetFixed(dJointID joint);
 		#endregion Fixed Joint functions
 		#region Angular Motor Joint functions
@@ -3447,9 +3493,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="mode">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetAMotorMode(dJointID joint, int mode);
-		
+
 		/// <summary>
 		/// Get the angular motor mode.
 		/// The mode parameter will be one of the following constants:
@@ -3463,9 +3509,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="joint">A  dJointID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dJointGetAMotorMode(dJointID joint);
-		
+
 		/// <summary>
 		/// Set the number of angular axes that will be controlled by the AMotor.
 		/// The argument num can range from 0 (which effectively deactivates the joint) to 3.
@@ -3473,9 +3519,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="num">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetAMotorNumAxes(dJointID joint, int num);
-		
+
 		/// <summary>
 		/// Get the number of angular axes controlled by the AMotor.
 		/// The number of axes can range from 0 (which effectively deactivates the joint) to 3.
@@ -3483,9 +3529,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="joint">A  dJointID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dJointGetAMotorNumAxes(dJointID joint);
-		
+
 		/// <summary>
 		/// Set the AMotor axes.
 		/// The anum argument selects the axis to change (0,1 or 2).
@@ -3507,10 +3553,10 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetAMotorAxis(dJointID joint, int anum, int rel,
 			dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Get the specified AMotor axis.
 		/// The anum argument selects the axis to get (0,1 or 2).
@@ -3518,9 +3564,9 @@ namespace Tao.Ode
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="anum">An int</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointGetAMotorAxis(dJointID joint, int anum, ref dVector3 result);
-		
+
 		/// <summary>
 		/// Get the relative orientation mode for the specified axis
 		/// The anum argument selects the axis to get (0,1 or 2).
@@ -3532,9 +3578,9 @@ namespace Tao.Ode
 		/// <returns>An int</returns>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="anum">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dJointGetAMotorAxisRel(dJointID joint, int anum);
-		
+
 		/// <summary>
 		/// Tell the AMotor what the current angle is along axis anum.
 		/// This function should only be called in dAMotorUser mode, because in this mode
@@ -3545,9 +3591,9 @@ namespace Tao.Ode
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="anum">An int</param>
 		/// <param name="angle">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetAMotorAngle(dJointID joint, int anum, dReal angle);
-		
+
 		/// <summary>
 		/// Return the current angle for axis anum.
 		/// In dAMotorUser mode this is simply the value that was set with dJointSetAMotorAngle.
@@ -3556,9 +3602,9 @@ namespace Tao.Ode
 		/// <returns>A dReal</returns>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="anum">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetAMotorAngle(dJointID joint, int anum);
-		
+
 		/// <summary>
 		/// Return the current angle rate for axis anum.
 		/// In dAMotorUser mode this is always zero, as not enough information is available.
@@ -3567,9 +3613,9 @@ namespace Tao.Ode
 		/// <returns>A dReal</returns>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="anum">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetAMotorAngleRate(dJointID joint, int anum);
-		
+
 		/// <summary>
 		/// Set limit/motor parameters for a an angular motor joint
 		///
@@ -3578,9 +3624,9 @@ namespace Tao.Ode
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="parameter">An int</param>
 		/// <param name="value">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointSetAMotorParam(dJointID joint, dJointParams parameter, dReal value);
-		
+
 		/// <summary>
 		/// Get limit/motor parameters for a an angular motor joint
 		///
@@ -3589,9 +3635,9 @@ namespace Tao.Ode
 		/// <returns>A dReal</returns>
 		/// <param name="joint">A  dJointID</param>
 		/// <param name="parameter">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dJointGetAMotorParam(dJointID joint, dJointParams parameter);
-		
+
 		/// <summary>
 		/// Applies torque0 about the AMotor's axis 0,
 		/// torque1 about the AMotor's axis 1,
@@ -3605,20 +3651,20 @@ namespace Tao.Ode
 		/// <param name="torque1">A  dReal</param>
 		/// <param name="torque2">A  dReal</param>
 		/// <param name="torque3">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dJointAddAMotorTorques(dJointID joint, dReal torque1, dReal torque2, dReal torque3);
 		#endregion Angular Motor Joint functions
 		#endregion Joint parameter setting functions
 		#endregion Joint functions
-		
+
 		#region Mass functions
 		/// <summary>
 		/// Set all the mass parameters to zero
 		/// </summary>
 		/// <param name="mass">A reference to a dMass</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetZero(ref dMass mass);
-		
+
 		/// <summary>
 		/// Set the mass parameters to the given values.
 		/// </summary>
@@ -3639,12 +3685,12 @@ namespace Tao.Ode
 		/// <param name="I12">An element of the inertia matrix</param>
 		/// <param name="I13">An element of the inertia matrix</param>
 		/// <param name="I23">An element of the inertia matrix</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetParameters(ref dMass mass, dReal themass,
 			dReal cgx, dReal cgy, dReal cgz,
 			dReal I11, dReal I22, dReal I33,
 			dReal I12, dReal I13, dReal I23);
-		
+
 		/// <summary>
 		/// Set the mass parameters to represent a sphere of the given radius and density, with
 		/// the center of mass at (0,0,0) relative to the body.
@@ -3652,9 +3698,9 @@ namespace Tao.Ode
 		/// <param name="mass">A  dMass</param>
 		/// <param name="density">A  dReal</param>
 		/// <param name="radius">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetSphere(ref dMass mass, dReal density, dReal radius);
-		
+
 		/// <summary>
 		/// Set the mass parameters to represent a sphere of the given total mass and radius, with
 		/// the center of mass at (0,0,0) relative to the body.
@@ -3662,9 +3708,9 @@ namespace Tao.Ode
 		/// <param name="mass">A  dMass</param>
 		/// <param name="total_mass">A  dReal</param>
 		/// <param name="radius">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetSphereTotal(ref dMass mass, dReal total_mass, dReal radius);
-		
+
 		/// <summary>
 		/// Set the mass parameters to represent a capped cylinder of the given parameters and density, with
 		/// the center of mass at (0,0,0) relative to the body.
@@ -3677,10 +3723,10 @@ namespace Tao.Ode
 		/// <param name="direction">The orientation of the cylinder's long axis (1=x, 2=y, 3=z)</param>
 		/// <param name="radius">The radius of the cylinder (and the spherical cap)</param>
 		/// <param name="length">The length of the cylinder (not counting the spherical cap)</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetCapsule(ref dMass mass, dReal density, int direction,
 			dReal radius, dReal length);
-		
+
 		/* TLT comment:
 		 Calls dMassSetCapsule and dMassAdjust internally.
 		 parameter a = radius, parameter b = length - should probably name them this, but
@@ -3698,10 +3744,10 @@ namespace Tao.Ode
 		/// <param name="direction">The orientation of the cylinder's long axis (1=x, 2=y, 3=z)</param>
 		/// <param name="radius">The radius of the cylinder (and the spherical cap)</param>
 		/// <param name="length">The length of the cylinder (not counting the spherical cap)</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetCapsuleTotal(ref dMass mass, dReal total_mass, int direction,
 			dReal radius, dReal length);
-		
+
 		/// <summary>
 		/// Set the mass parameters to represent a flat-ended cylinder of the given parameters and density, with
 		/// the center of mass at (0,0,0) relative to the body.
@@ -3714,10 +3760,10 @@ namespace Tao.Ode
 		/// <param name="direction">An int</param>
 		/// <param name="radius">The radius of the cylinder</param>
 		/// <param name="length">The length of the cylinder</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetCylinder(ref dMass mass, dReal density, int direction,
 			dReal radius, dReal length);
-		
+
 		/// <summary>
 		/// Set the mass parameters to represent a flat-ended cylinder of the given parameters and total mass, with
 		/// the center of mass at (0,0,0) relative to the body.
@@ -3730,10 +3776,10 @@ namespace Tao.Ode
 		/// <param name="direction">An int</param>
 		/// <param name="radius">The radius of the cylinder</param>
 		/// <param name="length">The length of the cylinder</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetCylinderTotal(ref dMass mass, dReal total_mass, int direction,
 			dReal radius, dReal length);
-		
+
 		/// <summary>
 		/// Set the mass parameters to represent a box of the given dimensions and density, with
 		/// the center of mass at (0,0,0) relative to the body.
@@ -3743,10 +3789,10 @@ namespace Tao.Ode
 		/// <param name="lx">The side length of the box along the x axis</param>
 		/// <param name="ly">The side length of the box along the y axis</param>
 		/// <param name="lz">The side length of the box along the z axis</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetBox(ref dMass mass, dReal density,
 			dReal lx, dReal ly, dReal lz);
-		
+
 		/// <summary>
 		/// Set the mass parameters to represent a box of the given dimensions and total mass, with
 		/// the center of mass at (0,0,0) relative to the body.
@@ -3756,10 +3802,10 @@ namespace Tao.Ode
 		/// <param name="lx">The side length of the box along the x axis</param>
 		/// <param name="ly">The side length of the box along the y axis</param>
 		/// <param name="lz">The side length of the box along the z axis</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetBoxTotal(ref dMass mass, dReal total_mass,
 			dReal lx, dReal ly, dReal lz);
-		
+
 		/// <summary>
 		/// Given mass parameters for some object, adjust them so the total mass is now newmass
 		/// </summary>
@@ -3769,9 +3815,9 @@ namespace Tao.Ode
 		/// </remarks>
 		/// <param name="mass">A  dMass</param>
 		/// <param name="newmass">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassAdjust(ref dMass mass, dReal newmass);
-		
+
 		/// <summary>
 		/// Given mass parameters for some object, adjust them to represent the object displaced
 		/// by (x,y,z) relative to the body frame.
@@ -3780,26 +3826,27 @@ namespace Tao.Ode
 		/// <param name="x">The displacement along the x axis</param>
 		/// <param name="y">The displacement along the y axis</param>
 		/// <param name="z">The displacement along the z axis</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassTranslate(ref dMass mass, dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Given mass parameters for some object, adjust them to represent the object rotated by R relative to the body frame.
 		/// </summary>
 		/// <param name="mass">A  dMass</param>
 		/// <param name="R">An  array of 12 elements containing a 3x4 rotation matrix</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassRotate(ref dMass mass, dReal[] R);
-		
+
 		/// <summary>
 		/// Given mass parameters for some object, adjust them to represent the object rotated by R relative to the body frame.
 		/// </summary>
 		/// <param name="mass">A  dMass</param>
 		/// <param name="R">A  dMatrix3</param>
-		public static void dMassRotate(ref dMass mass, dMatrix3 R) { // for compatibility
-		  dMassRotate(ref mass, R.ToArray());
+		public static void dMassRotate(ref dMass mass, dMatrix3 R)
+		{ // for compatibility
+			dMassRotate(ref mass, R.ToArray());
 		}
-		
+
 		/// <summary>
 		/// Add the mass b to the mass a.
 		/// </summary>
@@ -3808,10 +3855,10 @@ namespace Tao.Ode
 		/// </remarks>
 		/// <param name="a">A  dMass</param>
 		/// <param name="b">A  dMass</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassAdd(ref dMass a, dMass b);
 		#endregion Mass functions
-		
+
 		#region Collision functions
 		/// <summary>
 		/// Destroy a geom, removing it from any space it is in first. 
@@ -3821,9 +3868,9 @@ namespace Tao.Ode
 		/// all the geoms in that space are automatically destroyed as well.
 		/// </summary>
 		/// <param name="geom">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomDestroy(dGeomID geom);
-		
+
 		/// <summary>
 		/// Set the user-defined data pointer stored in the geom.
 		///
@@ -3836,9 +3883,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="geom">A  dGeomID</param>
 		/// <param name="data">An IntPtr</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomSetData(dGeomID geom, IntPtr data);
-		
+
 		/// <summary>
 		/// Get the user-defined data pointer stored in the geom.
 		///
@@ -3851,9 +3898,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A void*</returns>
 		/// <param name="geom">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static IntPtr dGeomGetData(dGeomID geom);
-		
+
 		/// <summary>
 		/// Set the body associated with a placeable geom. 
 		/// 
@@ -3869,9 +3916,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="geom">A  dGeomID</param>
 		/// <param name="body">A  dBodyID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomSetBody(dGeomID geom, dBodyID body);
-		
+
 		/// <summary>
 		/// Get the body associated with at placeable geom.
 		/// 
@@ -3879,9 +3926,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dBodyID</returns>
 		/// <param name="geom">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dBodyID dGeomGetBody(dGeomID geom);
-		
+
 		/// <summary>
 		/// Set the position vector of a placeable geom. 
 		/// 
@@ -3895,9 +3942,9 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomSetPosition(dGeomID geom, dReal x, dReal y, dReal z);
-		
+
 		/// <summary>
 		/// Set the rotation matrix of a placeable geom. 
 		/// 
@@ -3909,7 +3956,7 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="geom">A  dGeomID</param>
 		/// <param name="R">An  array of 12 elements containing a 3x4 rotation matrix</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomSetRotation(dGeomID geom, dReal[] R);
 
 		/// <summary>
@@ -3923,10 +3970,11 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="geom">A  dGeomID</param>
 		/// <param name="R">A  dMatrix3</param>
-		public static void dGeomSetRotation(dGeomID geom, dMatrix3 R) { // for compatibility
-		  dGeomSetRotation(geom, R.ToArray());
+		public static void dGeomSetRotation(dGeomID geom, dMatrix3 R)
+		{ // for compatibility
+			dGeomSetRotation(geom, R.ToArray());
 		}
-		
+
 		/// <summary>
 		/// Set the quaternion of a placeable geom. 
 		/// 
@@ -3938,11 +3986,11 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="geom">A  dGeomID</param>
 		/// <param name="q">A  dQuaternion</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomSetQuaternion(dGeomID geom, dQuaternion q);
-		
-		[DllImport(ODE_NATIVE_LIBRARY,EntryPoint="dGeomGetPosition")]
-		private extern unsafe static dReal *dGeomGetPosition_(dGeomID geom);
+
+		[DllImport(ODE_NATIVE_LIBRARY, EntryPoint = "dGeomGetPosition")]
+		private extern unsafe static dReal* dGeomGetPosition_(dGeomID geom);
 		/// <summary>
 		/// Return the geom's position vector. 
 		/// 
@@ -3961,17 +4009,17 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dVector3</returns>
 		/// <param name="geom">A  dGeomID</param>
-		public static dVector3 dGeomGetPosition(dGeomID geom) 
+		public static dVector3 dGeomGetPosition(dGeomID geom)
 		{
 			unsafe
 			{
-				dVector3 *v=(dVector3*)dGeomGetPosition_(geom);
+				dVector3* v = (dVector3*)dGeomGetPosition_(geom);
 				return *v;
 			}
 		}
-		
-		[DllImport(ODE_NATIVE_LIBRARY,EntryPoint="dGeomGetRotation")]
-		private extern unsafe static dReal *dGeomGetRotation_(dGeomID geom);
+
+		[DllImport(ODE_NATIVE_LIBRARY, EntryPoint = "dGeomGetRotation")]
+		private extern unsafe static dReal* dGeomGetRotation_(dGeomID geom);
 		/// <summary>
 		/// Return the geom's rotation matrix.
 		/// 
@@ -3986,15 +4034,15 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dMatrix3</returns>
 		/// <param name="geom">A  dGeomID</param>
-		public static dMatrix3 dGeomGetRotation(dGeomID geom) 
+		public static dMatrix3 dGeomGetRotation(dGeomID geom)
 		{
 			unsafe
 			{
-				dMatrix3 *m=(dMatrix3*)dGeomGetRotation_(geom);
+				dMatrix3* m = (dMatrix3*)dGeomGetRotation_(geom);
 				return *m;
 			}
 		}
-		
+
 		/// <summary>
 		/// Get the geom's quaternion.
 		/// 
@@ -4007,9 +4055,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="geom">A  dGeomID</param>
 		/// <param name="result">A  dQuaternion</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomGetQuaternion(dGeomID geom, ref dQuaternion result);
-		
+
 		/// <summary>
 		/// Return in aabb an axis aligned bounding box that surrounds the given geom. 
 		/// 
@@ -4022,25 +4070,25 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="geom">A  dGeomID</param>
 		/// <param name="aabb">An Aabb</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomGetAABB(dGeomID geom, Aabb aabb);
-		
+
 		/// <summary>
 		/// Return 1 if the given geom is a space, or 0 if not.		
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="geom">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dGeomIsSpace(dGeomID geom);
-		
+
 		/// <summary>
 		/// Return the space that the given geometry is contained in, or return 0 if it is not contained in any space.
 		/// </summary>
 		/// <returns>A dSpaceID</returns>
 		/// <param name="geom">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dSpaceID dGeomGetSpace(dGeomID geom);
-		
+
 		/// <summary>
 		/// Given a geom, this returns its class number. The standard class numbers are:
 		///		dSphereClass  			Sphere
@@ -4058,9 +4106,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="geom">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dGeomGetClass(dGeomID geom);
-		
+
 		/// <summary>
 		/// Set the ``category'' bitfield for the given geom. 
 		/// This bitfield is used by spaces to govern which geoms will interact 
@@ -4076,9 +4124,9 @@ namespace Tao.Ode
 		/// <param name="geom">A  dGeomID</param>
 		/// <param name="bits">An ulong</param>
 		[CLSCompliant(false)]
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomSetCategoryBits(dGeomID geom, ulong bits);
-		
+
 		/// <summary>
 		/// Set the ``collide'' bitfield for the given geom. 
 		/// 
@@ -4095,9 +4143,9 @@ namespace Tao.Ode
 		/// <param name="geom">A  dGeomID</param>
 		/// <param name="bits">An ulong</param>
 		[CLSCompliant(false)]
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomSetCollideBits(dGeomID geom, ulong bits);
-		
+
 		/// <summary>
 		/// Get the ``category'' bitfield for the given geom. 
 		/// This bitfield is used by spaces to govern which geoms will interact 
@@ -4113,9 +4161,9 @@ namespace Tao.Ode
 		/// <returns>An ulong</returns>
 		/// <param name="geom">A  dGeomID</param>
 		[CLSCompliant(false)]
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static ulong dGeomGetCategoryBits(dGeomID geom);
-		
+
 		/// <summary>
 		/// Get the ``collide'' bitfield for the given geom. 
 		/// This bitfield is used by spaces to govern which geoms will interact 
@@ -4131,9 +4179,9 @@ namespace Tao.Ode
 		/// <returns>An ulong</returns>
 		/// <param name="geom">A  dGeomID</param>
 		[CLSCompliant(false)]
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static ulong dGeomGetCollideBits(dGeomID geom);
-		
+
 		/// <summary>
 		/// Enable a geom. 
 		/// 
@@ -4143,9 +4191,9 @@ namespace Tao.Ode
 		/// New geoms are created in the enabled state.
 		/// </summary>
 		/// <param name="geom">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomEnable(dGeomID geom);
-		
+
 		/// <summary>
 		/// Disable a geom. 
 		/// 
@@ -4155,9 +4203,9 @@ namespace Tao.Ode
 		/// New geoms are created in the enabled state.
 		/// </summary>
 		/// <param name="geom">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomDisable(dGeomID geom);
-		
+
 		/// <summary>
 		/// Returns 1 if a geom is enabled or 0 if it is disabled. 
 		/// 
@@ -4165,10 +4213,10 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="geom">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dGeomIsEnabled(dGeomID geom);
 		#endregion Collision functions
-		
+
 		#region Collision Detection
 		/// <summary>
 		/// Given two geoms o1 and o2 that potentially intersect, generate contact 
@@ -4217,10 +4265,10 @@ namespace Tao.Ode
 		/// <param name="flags">An int</param>
 		/// <param name="contacts">A  dContactGeom[]</param>
 		/// <param name="skip">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static int dCollide(dGeomID o1, dGeomID o2, int flags, [In,Out]dContactGeom[] contacts,
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static int dCollide(dGeomID o1, dGeomID o2, int flags, [In, Out]dContactGeom[] contacts,
 			int skip);
-		
+
 		/// <summary>
 		/// This determines which pairs of geoms in a space may potentially intersect,
 		/// and calls the callback function with each candidate pair. 
@@ -4250,9 +4298,9 @@ namespace Tao.Ode
 		/// <param name="space">A  dSpaceID</param>
 		/// <param name="data">An IntPtr</param>
 		/// <param name="callback">A  dNearCallback</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dSpaceCollide(dSpaceID space, IntPtr data, dNearCallback callback);
-		
+
 		/// <summary>
 		/// This function is similar to dSpaceCollide, except that it is passed two 
 		/// geoms (or spaces) as arguments. It calls the callback for all 
@@ -4287,11 +4335,11 @@ namespace Tao.Ode
 		/// <param name="o2">A  dGeomID</param>
 		/// <param name="data">An IntPtr</param>
 		/// <param name="callback">A  dNearCallback</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dSpaceCollide2(dGeomID o1, dGeomID o2, IntPtr data,
 			dNearCallback callback);
 		#endregion Collision Detection
-		
+
 		#region Sphere class
 		/// <summary>
 		/// Create a sphere geom of the given radius, and return its ID. If space is 
@@ -4301,25 +4349,25 @@ namespace Tao.Ode
 		/// <returns>A dGeomID</returns>
 		/// <param name="space">A  dSpaceID</param>
 		/// <param name="radius">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dGeomID dCreateSphere(dSpaceID space, dReal radius);
-		
+
 		/// <summary>
 		/// Set the radius of the given sphere.
 		/// </summary>
 		/// <param name="sphere">A  dGeomID</param>
 		/// <param name="radius">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomSphereSetRadius(dGeomID sphere, dReal radius);
-		
+
 		/// <summary>
 		/// Return the radius of the given sphere.
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="sphere">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dGeomSphereGetRadius(dGeomID sphere);
-		
+
 		/// <summary>
 		/// Return the depth of the point (x,y,z) in the given sphere. 
 		/// 
@@ -4331,7 +4379,7 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dGeomSpherePointDepth(dGeomID sphere, dReal x, dReal y, dReal z);
 		#endregion Sphere class
 		#region Box class
@@ -4347,9 +4395,9 @@ namespace Tao.Ode
 		/// <param name="lx">A  dReal</param>
 		/// <param name="ly">A  dReal</param>
 		/// <param name="lz">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dGeomID dCreateBox(dSpaceID space, dReal lx, dReal ly, dReal lz);
-		
+
 		/// <summary>
 		/// Set the side lengths of the given box.
 		/// </summary>
@@ -4357,17 +4405,17 @@ namespace Tao.Ode
 		/// <param name="lx">A  dReal</param>
 		/// <param name="ly">A  dReal</param>
 		/// <param name="lz">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomBoxSetLengths(dGeomID box, dReal lx, dReal ly, dReal lz);
-		
+
 		/// <summary>
 		/// Return in result the side lengths of the given box.
 		/// </summary>
 		/// <param name="box">A  dGeomID</param>
 		/// <param name="result">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomBoxGetLengths(dGeomID box, ref dVector3 result);
-		
+
 		/// <summary>
 		/// Return the depth of the point (x,y,z) in the given box. 
 		/// 
@@ -4379,7 +4427,7 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dGeomBoxPointDepth(dGeomID box, dReal x, dReal y, dReal z);
 		#endregion Box class
 		#region Plane class
@@ -4403,9 +4451,9 @@ namespace Tao.Ode
 		/// <param name="b">A  dReal</param>
 		/// <param name="c">A  dReal</param>
 		/// <param name="d">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dGeomID dCreatePlane(dSpaceID space, dReal a, dReal b, dReal c, dReal d);
-		
+
 		/// <summary>
 		/// Set the parameters of the given plane.
 		/// </summary>
@@ -4414,17 +4462,17 @@ namespace Tao.Ode
 		/// <param name="b">A  dReal</param>
 		/// <param name="c">A  dReal</param>
 		/// <param name="d">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomPlaneSetParams(dGeomID plane, dReal a, dReal b, dReal c, dReal d);
-		
+
 		/// <summary>
 		/// Return in result the parameters of the given plane.
 		/// </summary>
 		/// <param name="plane">A  dGeomID</param>
 		/// <param name="result">A  dVector4</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomPlaneGetParams(dGeomID plane, ref dVector4 result);
-		
+
 		/// <summary>
 		/// Return the depth of the point (x,y,z) in the given plane. 
 		/// 
@@ -4436,7 +4484,7 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dGeomPlanePointDepth(dGeomID plane, dReal x, dReal y, dReal z);
 		#endregion Plane class
 		#region Capped cylinder class
@@ -4455,27 +4503,27 @@ namespace Tao.Ode
 		/// <param name="space">A  dSpaceID</param>
 		/// <param name="radius">A  dReal</param>
 		/// <param name="length">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dGeomID dCreateCapsule(dSpaceID space, dReal radius, dReal length);
-		
+
 		/// <summary>
 		/// Set the parameters of the given capped cylinder.
 		/// </summary>
 		/// <param name="ccylinder">A  dGeomID</param>
 		/// <param name="radius">A  dReal</param>
 		/// <param name="length">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomCapsuleSetParams(dGeomID ccylinder, dReal radius, dReal length);
-		
+
 		/// <summary>
 		/// Return in radius and length the parameters of the given capped cylinder.
 		/// </summary>
 		/// <param name="ccylinder">A  dGeomID</param>
 		/// <param name="radius">A  dReal</param>
 		/// <param name="length">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomCapsuleGetParams(dGeomID ccylinder, ref dReal radius, ref dReal length);
-		
+
 		/// <summary>
 		/// Return the depth of the point (x,y,z) in the given capped cylinder. 
 		/// 
@@ -4487,7 +4535,7 @@ namespace Tao.Ode
 		/// <param name="x">A  dReal</param>
 		/// <param name="y">A  dReal</param>
 		/// <param name="z">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dGeomCapsulePointDepth(dGeomID ccylinder, dReal x, dReal y, dReal z);
 		#endregion Capped cylinder class
 		#region Ray class
@@ -4521,25 +4569,25 @@ namespace Tao.Ode
 		/// <returns>A dGeomID</returns>
 		/// <param name="space">A  dSpaceID</param>
 		/// <param name="length">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dGeomID dCreateRay(dSpaceID space, dReal length);
-		
+
 		/// <summary>
 		/// Set the length of the given ray.
 		/// </summary>
 		/// <param name="ray">A  dGeomID</param>
 		/// <param name="length">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomRaySetLength(dGeomID ray, dReal length);
-		
+
 		/// <summary>
 		/// Get the length of the given ray.
 		/// </summary>
 		/// <returns>A dReal</returns>
 		/// <param name="ray">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dGeomRayGetLength(dGeomID ray);
-		
+
 		/// <summary>
 		/// Set the starting position (px,py,pz) and direction (dx,dy,dz) of the given ray. 
 		/// The ray's rotation matrix will be adjusted so that the local Z-axis is aligned 
@@ -4554,10 +4602,10 @@ namespace Tao.Ode
 		/// <param name="dx">A  dReal</param>
 		/// <param name="dy">A  dReal</param>
 		/// <param name="dz">A  dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomRaySet(dGeomID ray, dReal px, dReal py, dReal pz,
 			dReal dx, dReal dy, dReal dz);
-		
+
 		/// <summary>
 		/// Get the starting position (start) and direction (dir) of the ray. 
 		/// The returned direction will be a unit length vector.
@@ -4565,10 +4613,10 @@ namespace Tao.Ode
 		/// <param name="ray">A  dGeomID</param>
 		/// <param name="start">A  dVector3</param>
 		/// <param name="dir">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomRayGet(dGeomID ray, dVector3 start, dVector3 dir);
-		
-		
+
+
 		/*
 		 * Set/get ray flags that influence ray collision detection.
 		 * These flags are currently only noticed by the trimesh collider, because
@@ -4581,9 +4629,9 @@ namespace Tao.Ode
 		/// <param name="g">A  dGeomID</param>
 		/// <param name="FirstContact">An int</param>
 		/// <param name="BackfaceCull">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomRaySetParams(dGeomID g, int FirstContact, int BackfaceCull);
-		
+
 		/// <summary>
 		/// Method dGeomRayGetParams
 		/// TODO: Document me
@@ -4591,9 +4639,9 @@ namespace Tao.Ode
 		/// <param name="g">A  dGeomID</param>
 		/// <param name="FirstContact">An int</param>
 		/// <param name="BackfaceCull">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomRayGetParams(dGeomID g, ref int FirstContact, ref int BackfaceCull);
-		
+
 		/// <summary>
 		/// Method dGeomRayGetParams
 		/// TODO: Document me
@@ -4601,25 +4649,25 @@ namespace Tao.Ode
 		/// <param name="g">A  dGeomID</param>
 		/// <param name="FirstContact">An int[]</param>
 		/// <param name="BackfaceCull">An int[]</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomRayGetParams(dGeomID g, [Out]int[] FirstContact, [Out]int[] BackfaceCull);
-		
+
 		/// <summary>
 		/// Method dGeomRaySetClosestHit
 		/// TODO: Document me
 		/// </summary>
 		/// <param name="g">A  dGeomID</param>
 		/// <param name="closestHit">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomRaySetClosestHit(dGeomID g, int closestHit);
-		
+
 		/// <summary>
 		/// Method dGeomRayGetClosestHit
 		/// TODO: Document me
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="g">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dGeomRayGetClosestHit(dGeomID g);
 		#endregion Ray class
 		#region Geometry transform class
@@ -4646,9 +4694,9 @@ namespace Tao.Ode
 		/// </remarks>
 		/// <returns>A dGeomID</returns>
 		/// <param name="space">A  dSpaceID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dGeomID dCreateGeomTransform(dSpaceID space);
-		
+
 		/// <summary>
 		/// Set the geom that the geometry transform g encapsulates. The object obj 
 		/// must not be inserted into any space, and must not be associated with any body.
@@ -4658,17 +4706,17 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="g">A  dGeomID</param>
 		/// <param name="obj">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTransformSetGeom(dGeomID g, dGeomID obj);
-		
+
 		/// <summary>
 		/// Get the geom that the geometry transform g encapsulates.
 		/// </summary>
 		/// <returns>A dGeomID</returns>
 		/// <param name="g">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dGeomID dGeomTransformGetGeom(dGeomID g);
-		
+
 		/// <summary>
 		/// Set the clean-up mode of geometry transform g. 
 		/// 
@@ -4680,9 +4728,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="g">A  dGeomID</param>
 		/// <param name="mode">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTransformSetCleanup(dGeomID g, int mode);
-		
+
 		/// <summary>
 		/// Get the clean-up mode of geometry transform g. 
 		/// 
@@ -4694,9 +4742,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="g">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dGeomTransformGetCleanup(dGeomID g);
-		
+
 		/// <summary>
 		/// Set and get the "information" mode of geometry transform g. 
 		/// 
@@ -4717,9 +4765,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="g">A  dGeomID</param>
 		/// <param name="mode">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTransformSetInfo(dGeomID g, int mode);
-		
+
 		/// <summary>
 		/// Set and get the "information" mode of geometry transform g. 
 		/// 
@@ -4727,10 +4775,10 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="g">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dGeomTransformGetInfo(dGeomID g);
 		#endregion Geometry transform class
-		
+
 		#region Utility Functions
 		/// <summary>
 		/// Given two line segments A and B with endpoints a1-a2 and b1-b2, return 
@@ -4746,11 +4794,11 @@ namespace Tao.Ode
 		/// <param name="b2">A  dVector3</param>
 		/// <param name="cp1">A  dVector3</param>
 		/// <param name="cp2">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dClosestLineSegmentPoints(ref dVector3 a1, ref dVector3 a2,
 			ref dVector3 b1, ref dVector3 b2,
 			ref dVector3 cp1, ref dVector3 cp2);
-		
+
 		/// <summary>
 		/// Given boxes (p1,R1,side1) and (p2,R2,side2), return 1 if they intersect 
 		/// or 0 if not. p is the center of the box, R is the rotation matrix for 
@@ -4763,11 +4811,11 @@ namespace Tao.Ode
 		/// <param name="_p2">A  dVector3</param>
 		/// <param name="R2">A  dMatrix3</param>
 		/// <param name="side2">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dBoxTouchesBox(ref dVector3 _p1, ref dMatrix3 R1,
 			ref dVector3 side1, ref dVector3 _p2,
 			ref dMatrix3 R2, ref dVector3 side2);
-		
+
 		/// <summary>
 		/// This function can be used as the AABB-getting function in a geometry class, 
 		/// if you don't want to compute tight bounds for the AABB. 
@@ -4775,18 +4823,18 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="geom">A  dGeomID</param>
 		/// <param name="aabb">An Aabb</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dInfiniteAABB(dGeomID geom, Aabb aabb);
-		
+
 		/// <summary>
 		/// This deallocates some extra memory used by ODE that can not be deallocated using the normal destroy functions,
 		/// e.g. dWorldDestroy.
 		/// You can use this function at the end of your application to prevent memory leak checkers from complaining about ODE.
 		/// </summary>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dCloseODE();
 		#endregion Utility Functions
-		
+
 		#region Space functions
 		/// <summary>
 		/// Create a simple space. 
@@ -4795,9 +4843,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dSpaceID</returns>
 		/// <param name="space">A  dSpaceID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dSpaceID dSimpleSpaceCreate(dSpaceID space);
-		
+
 		/// <summary>
 		/// Create a multi-resolution hash table space. 
 		/// 
@@ -4805,9 +4853,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <returns>A dSpaceID</returns>
 		/// <param name="space">A  dSpaceID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dSpaceID dHashSpaceCreate(dSpaceID space);
-		
+
 		/// <summary>
 		/// Creates a quadtree space. 
 		/// 
@@ -4819,9 +4867,9 @@ namespace Tao.Ode
 		/// <param name="Center">A  dVector3</param>
 		/// <param name="Extents">A  dVector3</param>
 		/// <param name="Depth">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dSpaceID dQuadTreeSpaceCreate(dSpaceID space, dVector3 Center, dVector3 Extents, int Depth);
-		
+
 		/// <summary>
 		/// This destroys a space. 
 		/// It functions exactly like dGeomDestroy except that it takes a dSpaceID argument. 
@@ -4829,9 +4877,9 @@ namespace Tao.Ode
 		/// geoms in that space are automatically destroyed as well.
 		/// </summary>
 		/// <param name="space">A  dSpaceID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dSpaceDestroy(dSpaceID space);
-		
+
 		/// <summary>
 		/// Sets some parameters for a multi-resolution hash table space. 
 		/// 
@@ -4843,9 +4891,9 @@ namespace Tao.Ode
 		/// <param name="space">A  dSpaceID</param>
 		/// <param name="minlevel">An int</param>
 		/// <param name="maxlevel">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dHashSpaceSetLevels(dSpaceID space, int minlevel, int maxlevel);
-		
+
 		/// <summary>
 		/// Get some parameters for a multi-resolution hash table space. 
 		/// 
@@ -4860,9 +4908,9 @@ namespace Tao.Ode
 		/// <param name="space">A  dSpaceID</param>
 		/// <param name="minlevel">An int</param>
 		/// <param name="maxlevel">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dHashSpaceGetLevels(dSpaceID space, ref int minlevel, ref int maxlevel);
-		
+
 		/// <summary>
 		/// Set the clean-up mode of the space. 
 		/// 
@@ -4874,17 +4922,17 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="space">A  dSpaceID</param>
 		/// <param name="mode">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dSpaceSetCleanup(dSpaceID space, int mode);
-		
+
 		/// <summary>
 		/// Get the clean-up mode of the space.
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="space">A  dSpaceID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dSpaceGetCleanup(dSpaceID space);
-		
+
 		/// <summary>
 		/// Add a geom to a space. 
 		/// 
@@ -4895,9 +4943,9 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="space">A  dSpaceID</param>
 		/// <param name="geom">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dSpaceAdd(dSpaceID space, dGeomID geom);
-		
+
 		/// <summary>
 		/// Remove a geom from a space. 
 		/// 
@@ -4907,35 +4955,35 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="space">A  dSpaceID</param>
 		/// <param name="geom">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dSpaceRemove(dSpaceID space, dGeomID geom);
-		
+
 		/// <summary>
 		/// Return 1 if the given geom is in the given space, or return 0 if it is not.
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="space">A  dSpaceID</param>
 		/// <param name="geom">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dSpaceQuery(dSpaceID space, dGeomID geom);
-		
+
 		/// <summary>
 		/// Method dSpaceClean
 		/// Not sure what this does exactly - no documentation.
 		/// TODO: Find out what this function does and document it here.
 		/// </summary>
 		/// <param name="space">A  dSpaceID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dSpaceClean(dSpaceID space);
-		
+
 		/// <summary>
 		/// Return the number of geoms contained within a space.
 		/// </summary>
 		/// <returns>An int</returns>
 		/// <param name="space">A  dSpaceID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dSpaceGetNumGeoms(dSpaceID space);
-		
+
 		/// <summary>
 		/// Return the i'th geom contained within the space. 
 		/// 
@@ -4952,34 +5000,34 @@ namespace Tao.Ode
 		/// <returns>A dGeomID</returns>
 		/// <param name="space">A  dSpaceID</param>
 		/// <param name="i">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dGeomID dSpaceGetGeom(dSpaceID space, int i);
 		#endregion Space functions
-		
+
 		#region TriMesh functions
 		/// <summary>
 		/// 
 		/// </summary>
-		public const int TRIMESH_FACE_NORMALS=1;
+		public const int TRIMESH_FACE_NORMALS = 1;
 		/// <summary>
 		/// 
 		/// </summary>
-		public const int TRIMESH_LAST_TRANSFORMATION=2;
-		
+		public const int TRIMESH_LAST_TRANSFORMATION = 2;
+
 		/// <summary>
 		/// Create a dTriMeshData object which is used to store mesh data.
 		/// </summary>
 		/// <returns>A dTriMeshDataID</returns>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dTriMeshDataID dGeomTriMeshDataCreate();
-		
+
 		/// <summary>
 		/// Destroy a dTriMeshData object.
 		/// </summary>
 		/// <param name="g">A  dTriMeshDataID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshDataDestroy(dTriMeshDataID g);
-		
+
 		/// <summary>
 		/// In order to efficiently resolve collisions, dCollideTTL needs the 
 		/// positions of the colliding trimeshes in the previous timestep. This is 
@@ -5008,14 +5056,14 @@ namespace Tao.Ode
 		/// <param name="g">A  dTriMeshDataID</param>
 		/// <param name="data_id">An int</param>
 		/// <param name="data">An IntPtr</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshDataSet(dTriMeshDataID g, int data_id, IntPtr data);
-		
+
 		#region Trimesh data filling functions
 		// Note: this section of the ODE api seems a bit rougher than the rest
 		// Not surprising since it is still in flux according to the docs.
 		// The code below is a best attempt to work with what is there currently.
-		
+
 		/// <summary>
 		/// Build Trimesh data with single precision used in vertex data.
 		/// </summary>
@@ -5072,11 +5120,11 @@ namespace Tao.Ode
 		/// <param name="Indices">An int[]</param>
 		/// <param name="IndexCount">An int</param>
 		/// <param name="TriStride">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshDataBuildSingle(dTriMeshDataID g,
 			dVector3[] Vertices, int VertexStride, int VertexCount,
 			int[] Indices, int IndexCount, int TriStride);
-		
+
 		/// <summary>
 		/// Build Trimesh data with single precision used in vertex data.
 		/// This function takes a normals array which is used as a trimesh-trimesh
@@ -5090,12 +5138,12 @@ namespace Tao.Ode
 		/// <param name="IndexCount">An int</param>
 		/// <param name="TriStride">An int</param>
 		/// <param name="Normals">A  dVector3[]</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshDataBuildSingle1(dTriMeshDataID g,
 			dVector3[] Vertices, int VertexStride, int VertexCount,
 			int[] Indices, int IndexCount, int TriStride,
 			dVector3[] Normals);
-		
+
 		/// <summary>
 		/// Build Trimesh data with double precision used in vertex data.
 		/// </summary>
@@ -5106,11 +5154,11 @@ namespace Tao.Ode
 		/// <param name="Indices">An int[]</param>
 		/// <param name="IndexCount">An int</param>
 		/// <param name="TriStride">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshDataBuildDouble(dTriMeshDataID g,
-			dVector3 Vertices,  int VertexStride, int VertexCount,
+			dVector3 Vertices, int VertexStride, int VertexCount,
 			int[] Indices, int IndexCount, int TriStride);
-		
+
 		/// <summary>
 		/// Build Trimesh data with double precision used in vertex data.
 		/// This function takes a normals array which is used as a trimesh-trimesh
@@ -5124,12 +5172,12 @@ namespace Tao.Ode
 		/// <param name="IndexCount">An int</param>
 		/// <param name="TriStride">An int</param>
 		/// <param name="Normals">A  dVector3[]</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshDataBuildDouble1(dTriMeshDataID g,
-			dVector3[] Vertices,  int VertexStride, int VertexCount,
+			dVector3[] Vertices, int VertexStride, int VertexCount,
 			int[] Indices, int IndexCount, int TriStride,
 			dVector3[] Normals);
-		
+
 		/// <summary>
 		/// Simple trimesh build function provided for convenience.
 		/// 
@@ -5144,11 +5192,11 @@ namespace Tao.Ode
 		/// <param name="VertexCount">An int</param>
 		/// <param name="Indices">An int[]</param>
 		/// <param name="IndexCount">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshDataBuildSimple(dTriMeshDataID g,
 			dVector3[] Vertices, int VertexCount,
 			int[] Indices, int IndexCount);
-		
+
 		/// <summary>
 		/// Simple trimesh build function provided for convenience.
 		/// This version takes a normals array to use for trimesh-trimesh optimization.
@@ -5165,7 +5213,7 @@ namespace Tao.Ode
 		/// <param name="Indices">An int[]</param>
 		/// <param name="IndexCount">An int</param>
 		/// <param name="Normals">A  dVector3[]</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshDataBuildSimple1(dTriMeshDataID g,
 			dVector3[] Vertices, int VertexCount,
 			int[] Indices, int IndexCount,
@@ -5179,73 +5227,73 @@ namespace Tao.Ode
 		/// </summary>
 		[UnmanagedFunctionPointer(CALLING_CONVENTION)]
 		public delegate int dTriCallback(dGeomID TriMesh, dGeomID RefObject, int TriangleIndex);
-		
+
 		/// <summary>
 		/// Set per triangle callback for specified trimesh.
 		/// </summary>
 		/// <param name="g">A  dGeomID</param>
 		/// <param name="Callback">A  dTriCallback</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshSetCallback(dGeomID g, dTriCallback Callback);
-		
+
 		/// <summary>
 		/// Get per triangle callback for specified trimesh.
 		/// </summary>
 		/// <returns>A dTriCallback</returns>
 		/// <param name="g">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dTriCallback dGeomTriMeshGetCallback(dGeomID g);
-		
+
 		/// <summary>
 		/// Per object callback.
 		/// Allows user to get the list of all intersecting triangles in one shot.
 		/// </summary>
-        [UnmanagedFunctionPointer(CALLING_CONVENTION)]
+		[UnmanagedFunctionPointer(CALLING_CONVENTION)]
 		public delegate void dTriArrayCallback(dGeomID TriMesh, dGeomID RefObject, int[] TriIndices, int TriCount);
-		
+
 		/// <summary>
 		/// Set per object callback for specified trimesh.
 		/// </summary>
 		/// <param name="g">A  dGeomID</param>
 		/// <param name="ArrayCallback">A  dTriArrayCallback</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshSetArrayCallback(dGeomID g, dTriArrayCallback ArrayCallback);
-		
+
 		/// <summary>
 		/// Get per object callback for specified trimesh
 		/// </summary>
 		/// <returns>A dTriArrayCallback</returns>
 		/// <param name="g">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dTriArrayCallback dGeomTriMeshGetArrayCallback(dGeomID g);
-		
+
 		/// <summary>
 		/// Ray callback. 
 		/// Allows the user to determine if a ray collides with a triangle based on 
 		/// the barycentric coordinates of an intersection. The user can for example 
 		/// sample a bitmap to determine if a collision should occur.
 		/// </summary>
-        [UnmanagedFunctionPointer(CALLING_CONVENTION)]
+		[UnmanagedFunctionPointer(CALLING_CONVENTION)]
 		public delegate int dTriRayCallback(dGeomID TriMesh, dGeomID Ray, int TriangleIndex, dReal u, dReal v);
-		
+
 		/// <summary>
 		/// Set ray callback for specified trimesh.
 		/// </summary>
 		/// <param name="g">A  dGeomID</param>
 		/// <param name="Callback">A  dTriRayCallback</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshSetRayCallback(dGeomID g, dTriRayCallback Callback);
-		
+
 		/// <summary>
 		/// Get ray callback for specified trimesh.
 		/// </summary>
 		/// <returns>A dTriRayCallback</returns>
 		/// <param name="g">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dTriRayCallback dGeomTriMeshGetRayCallback(dGeomID g);
-		
+
 		#endregion Trimesh callback functions
-		
+
 		/// <summary>
 		/// Trimesh class constructor.
 		/// 
@@ -5259,17 +5307,17 @@ namespace Tao.Ode
 		/// <param name="Callback">A  dTriCallback</param>
 		/// <param name="ArrayCallback">A  dTriArrayCallback</param>
 		/// <param name="RayCallback">A  dTriRayCallback</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dGeomID dCreateTriMesh(dSpaceID space, dTriMeshDataID Data, dTriCallback Callback, dTriArrayCallback ArrayCallback, dTriRayCallback RayCallback);
-		
+
 		/// <summary>
 		/// Replaces the current vertex data.
 		/// </summary>
 		/// <param name="g">A  dGeomID</param>
 		/// <param name="Data">A  dTriMeshDataID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshSetData(dGeomID g, dTriMeshDataID Data);
-		
+
 		// enable/disable/check temporal coherence
 		/// <summary>
 		/// Enable/disable the use of temporal coherence during tri-mesh collision checks. 
@@ -5284,9 +5332,9 @@ namespace Tao.Ode
 		/// <param name="g">A  dGeomID</param>
 		/// <param name="geomClass">An int</param>
 		/// <param name="enable">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshEnableTC(dGeomID g, int geomClass, int enable);
-		
+
 		/// <summary>
 		/// Checks whether the use of temporal coherence during tri-mesh collision checks is enabled.
 		/// 
@@ -5295,26 +5343,26 @@ namespace Tao.Ode
 		/// <returns>An int</returns>
 		/// <param name="g">A  dGeomID</param>
 		/// <param name="geomClass">An int</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dGeomTriMeshIsTCEnabled(dGeomID g, int geomClass);
-		
+
 		/// <summary>
 		/// Clears the internal temporal coherence caches. When a geom has its
 		/// collision checked with a trimesh once, data is stored inside the trimesh.
 		/// With large worlds with lots of seperate objects this list could get huge.
 		/// </summary>
 		/// <param name="g">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshClearTCCache(dGeomID g);
-		
+
 		/// <summary>
 		/// Returns the TriMeshDataID for the specified geom.
 		/// </summary>
 		/// <returns>A dTriMeshDataID</returns>
 		/// <param name="g">A  dGeomID</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dTriMeshDataID dGeomTriMeshGetTriMeshDataID(dGeomID g);
-		
+
 		/// <summary>
 		/// Retrieves a triangle in object space. The v0, v1 and v2 arguments are optional.
 		/// </summary>
@@ -5323,9 +5371,9 @@ namespace Tao.Ode
 		/// <param name="v0">A  dVector3</param>
 		/// <param name="v1">A  dVector3</param>
 		/// <param name="v2">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshGetTriangle(dGeomID g, int Index, ref dVector3 v0, ref dVector3 v1, ref dVector3 v2);
-		
+
 		/// <summary>
 		/// Retrieves a position on the requested triangle and the given
 		/// barycentric coordinates
@@ -5335,17 +5383,17 @@ namespace Tao.Ode
 		/// <param name="u">A  dReal</param>
 		/// <param name="v">A  dReal</param>
 		/// <param name="Out">A  dVector3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshGetPoint(dGeomID g, int Index, dReal u, dReal v, ref dVector3 Out);
 		#endregion TriMesh functions
 
 		#region Rotation Functions
-		
+
 		/// <summary>
 		/// Set R to the identity matrix (i.e. no rotation).
 		/// </summary>
 		/// <param name="R">A dMatrix3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dRSetIdentity(out dMatrix3 R);
 
 		/// <summary>
@@ -5356,8 +5404,8 @@ namespace Tao.Ode
 		/// <param name="ay">A dReal</param>
 		/// <param name="az">A dReal</param>
 		/// <param name="angle">A dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dRFromAxisAndAngle (out dMatrix3 R, dReal ax, dReal ay, dReal az, dReal angle);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dRFromAxisAndAngle(out dMatrix3 R, dReal ax, dReal ay, dReal az, dReal angle);
 
 		/// <summary>
 		/// Compute the rotation matrix R from the three Euler rotation angles.
@@ -5366,8 +5414,8 @@ namespace Tao.Ode
 		/// <param name="phi">A dReal</param>
 		/// <param name="theta">A dReal</param>
 		/// <param name="psi">A dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dRFromEulerAngles (out dMatrix3 R, dReal phi, dReal theta, dReal psi);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dRFromEulerAngles(out dMatrix3 R, dReal phi, dReal theta, dReal psi);
 
 		/// <summary>
 		/// Compute the rotation matrix R from the two vectors `a' (ax,ay,az) and `b' (bx,by,bz). `a' and `b' are the desired x and y axes of the rotated coordinate system. If necessary, `a' and `b' will be made unit length, and `b' will be projected so that it is perpendicular to `a'. The desired z axis is the cross product of `a' and `b'.
@@ -5379,15 +5427,15 @@ namespace Tao.Ode
 		/// <param name="bx">A dReal</param>
 		/// <param name="by">A dReal</param>
 		/// <param name="bz">A dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dRFrom2Axes (out dMatrix3 R, dReal ax, dReal ay, dReal az, dReal bx, dReal by, dReal bz);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dRFrom2Axes(out dMatrix3 R, dReal ax, dReal ay, dReal az, dReal bx, dReal by, dReal bz);
 
 		/// <summary>
 		/// Set q to the identity rotation (i.e. no rotation).
 		/// </summary>
 		/// <param name="q">A dQuaternion</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dQSetIdentity (out dQuaternion q);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dQSetIdentity(out dQuaternion q);
 
 		/// <summary>
 		/// Compute q as a rotation of angle radians along the axis (ax,ay,az).
@@ -5397,8 +5445,8 @@ namespace Tao.Ode
 		/// <param name="ay">A dReal</param>
 		/// <param name="az">A dReal</param>
 		/// <param name="angle">A dReal</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dQFromAxisAndAngle (out dQuaternion q, dReal ax, dReal ay, dReal az, dReal angle);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dQFromAxisAndAngle(out dQuaternion q, dReal ax, dReal ay, dReal az, dReal angle);
 
 		/// <summary>
 		/// Set qa = qb*qc. This is that same as qa = rotation qc followed by rotation qb. The 0/1/2 versions are analogous to the multiply functions, i.e. 1 uses the inverse of qb, and 2 uses the inverse of qc. Option 3 uses the inverse of both.
@@ -5406,8 +5454,8 @@ namespace Tao.Ode
 		/// <param name="qa">A dQuaternion</param>
 		/// <param name="qb">A returning dQuaternion</param>
 		/// <param name="qc">A returning dQuaternion</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dQMultiply0 (out dQuaternion qa, ref dQuaternion qb, ref dQuaternion qc);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dQMultiply0(out dQuaternion qa, ref dQuaternion qb, ref dQuaternion qc);
 
 		/// <summary>
 		/// Set qa = qb*qc. This is that same as qa = rotation qc followed by rotation qb. The 0/1/2 versions are analogous to the multiply functions, i.e. 1 uses the inverse of qb, and 2 uses the inverse of qc. Option 3 uses the inverse of both.
@@ -5415,8 +5463,8 @@ namespace Tao.Ode
 		/// <param name="qa">A dQuaternion</param>
 		/// <param name="qb">A returning dQuaternion</param>
 		/// <param name="qc">A returning dQuaternion</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dQMultiply1 (out dQuaternion qa, ref dQuaternion qb, ref dQuaternion qc);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dQMultiply1(out dQuaternion qa, ref dQuaternion qb, ref dQuaternion qc);
 
 		/// <summary>
 		/// Set qa = qb*qc. This is that same as qa = rotation qc followed by rotation qb. The 0/1/2 versions are analogous to the multiply functions, i.e. 1 uses the inverse of qb, and 2 uses the inverse of qc. Option 3 uses the inverse of both.
@@ -5424,8 +5472,8 @@ namespace Tao.Ode
 		/// <param name="qa">A dQuaternion</param>
 		/// <param name="qb">A returning dQuaternion</param>
 		/// <param name="qc">A returning dQuaternion</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dQMultiply2 (out dQuaternion qa, ref dQuaternion qb, ref dQuaternion qc);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dQMultiply2(out dQuaternion qa, ref dQuaternion qb, ref dQuaternion qc);
 
 		/// <summary>
 		/// Set qa = qb*qc. This is that same as qa = rotation qc followed by rotation qb. The 0/1/2 versions are analogous to the multiply functions, i.e. 1 uses the inverse of qb, and 2 uses the inverse of qc. Option 3 uses the inverse of both.
@@ -5433,24 +5481,24 @@ namespace Tao.Ode
 		/// <param name="qa">A dQuaternion</param>
 		/// <param name="qb">A returning dQuaternion</param>
 		/// <param name="qc">A returning dQuaternion</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dQMultiply3 (out dQuaternion qa, ref dQuaternion qb, ref dQuaternion qc);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dQMultiply3(out dQuaternion qa, ref dQuaternion qb, ref dQuaternion qc);
 
 		/// <summary>
 		/// Convert quaternion q to rotation matrix R.
 		/// </summary>
 		/// <param name="q">A dQuaternion</param>
 		/// <param name="R">A dMatrix3</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dQtoR (ref dQuaternion q, out dMatrix3 R);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dQtoR(ref dQuaternion q, out dMatrix3 R);
 
 		/// <summary>
 		/// Convert rotation matrix R to quaternion q.
 		/// </summary>
 		/// <param name="R">A dMatrix3</param>
 		/// <param name="q">A dQuaternion</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dRtoQ (ref dMatrix3 R, out dQuaternion q);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dRtoQ(ref dMatrix3 R, out dQuaternion q);
 
 		/// <summary>
 		/// Given an existing orientation q and an angular velocity vector w, return in dq the resulting dq/dt.
@@ -5458,8 +5506,8 @@ namespace Tao.Ode
 		/// <param name="w">A dVector3</param>
 		/// <param name="q">A dQuaternion</param>
 		/// <param name="dq">A dVector4</param>
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dWtoDQ (ref dVector3 w, ref dQuaternion q, out dVector4 dq);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dWtoDQ(ref dVector3 w, ref dQuaternion q, out dVector4 dq);
 
 		#endregion Rotation Functions
 
