@@ -37,7 +37,6 @@ SUBDIRS = \
 	Tao.Ode \
 	Tao.OpenAl \
 	Tao.OpenGl.Glu \
-	Tao.PostProcess \
 	Tao.Sdl \
 	Tao.PhysFs \
 	Tao.Platform.Windows

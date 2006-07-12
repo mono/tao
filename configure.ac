@@ -31,7 +31,7 @@ AC_PATH_PROG(GACUTIL, gacutil)
 AC_MSG_CHECKING([for mono])
 dnl if test "x$MONO" = "x" ; then
 dnl  AC_MSG_ERROR([Can't find "mono" in your PATH])
-dnlelse
+dnl else
   AC_MSG_RESULT([found])
 dnl fi
 
@@ -184,7 +184,6 @@ src/Tao.Glfw/Makefile
 src/Tao.Ode/Makefile
 src/Tao.OpenAl/Makefile
 src/Tao.OpenGl.Glu/Makefile
-src/Tao.PostProcess/Makefile
 src/Tao.Sdl/Makefile
 src/Tao.PhysFs/Makefile
 src/Tao.Platform.Windows/Makefile
