@@ -8,7 +8,6 @@ include $(top_builddir)/am-config.mk
 
 FILES = \
 	AssemblyInfo.cs \
-	DelegateCallingConventionCdeclAttribute.cs \
 	Ode.cs
 
 REFERENCES =
