@@ -3866,7 +3866,7 @@ namespace Tao.OpenAl
 		///     The float values which the attribute will be set to.
 		/// </param>
 		/// <remarks>
-		///     This function is an alternative to <see cref="alSourcefv" />.
+		///     This function is an alternative to <see cref="alSourcefv(int, int, System.IntPtr)" />.
 		/// </remarks>
 		// ALAPI ALvoid ALAPIENTRY alSource3f(ALuint source, ALenum param, ALfloat v1, ALfloat v2, ALfloat v3);
 		[DllImport(AL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
