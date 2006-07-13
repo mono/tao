@@ -1471,8 +1471,8 @@ namespace Tao.Ode
 		/// Get the world's global gravity vector.
 		/// The units are m/s/s.
 		/// </summary>
-		/// <param name="world">A  dWorldID</param>
-		/// <param name="gravity">A  dVector3</param>
+		/// <param name="world">A dWorldID</param>
+		/// <param name="gravity">A dVector3</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dWorldGetGravity(dWorldID world, ref dVector3 gravity);
 
@@ -3920,12 +3920,10 @@ namespace Tao.Ode
 		public extern static void dGeomSetBody(dGeomID geom, dBodyID body);
 
 		/// <summary>
-		/// Get the body associated with at placeable geom.
-		/// 
-		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
+		/// Get the body associated with a placeable geom.
 		/// </summary>
 		/// <returns>A dBodyID</returns>
-		/// <param name="geom">A  dGeomID</param>
+		/// <param name="geom">A dGeomID</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dBodyID dGeomGetBody(dGeomID geom);
 
@@ -3938,10 +3936,10 @@ namespace Tao.Ode
 		/// 
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
-		/// <param name="geom">A  dGeomID</param>
-		/// <param name="x">A  dReal</param>
-		/// <param name="y">A  dReal</param>
-		/// <param name="z">A  dReal</param>
+		/// <param name="geom">dGeomID of the geom to set</param>
+		/// <param name="x">the new X coordinate</param>
+		/// <param name="y">the new Y coordinate</param>
+		/// <param name="z">the new Z coordinate</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomSetPosition(dGeomID geom, dReal x, dReal y, dReal z);
 
@@ -3954,8 +3952,8 @@ namespace Tao.Ode
 		/// 
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
-		/// <param name="geom">A  dGeomID</param>
-		/// <param name="R">An  array of 12 elements containing a 3x4 rotation matrix</param>
+		/// <param name="geom">the geom to set</param>
+		/// <param name="R">An array of 12 elements containing the new 3x4 rotation matrix</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomSetRotation(dGeomID geom, dReal[] R);
 
@@ -3968,28 +3966,28 @@ namespace Tao.Ode
 		/// 
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
-		/// <param name="geom">A  dGeomID</param>
-		/// <param name="R">A  dMatrix3</param>
+		/// <param name="geom">the geom to set</param>
+		/// <param name="R">dMatrix3 containing the new rotation matrix</param>
 		public static void dGeomSetRotation(dGeomID geom, dMatrix3 R)
 		{ // for compatibility
 			dGeomSetRotation(geom, R.ToArray());
 		}
 
 		/// <summary>
-		/// Set the quaternion of a placeable geom. 
+		/// Set the rotation of a placeable geom. 
 		/// 
 		/// This function is analogous to dBodySetQuaternion. 
 		/// 
-		/// If the geom is attached to a body, the body's quaternion will also be changed.
+		/// If the geom is attached to a body, the body's rotation will also be changed.
 		/// 
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
-		/// <param name="geom">A  dGeomID</param>
-		/// <param name="q">A  dQuaternion</param>
+		/// <param name="geom">the geom to set</param>
+		/// <param name="q">the new rotation</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomSetQuaternion(dGeomID geom, dQuaternion q);
 
-		[DllImport(ODE_NATIVE_LIBRARY, EntryPoint = "dGeomGetPosition")]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, EntryPoint = "dGeomGetPosition"), SuppressUnmanagedCodeSecurity]
 		private extern unsafe static dReal* dGeomGetPosition_(dGeomID geom);
 		/// <summary>
 		/// Return the geom's position vector. 
@@ -4007,8 +4005,8 @@ namespace Tao.Ode
 		/// 
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
-		/// <returns>A dVector3</returns>
-		/// <param name="geom">A  dGeomID</param>
+		/// <returns>the geom's position vector</returns>
+		/// <param name="geom">the geom to query</param>
 		public static dVector3 dGeomGetPosition(dGeomID geom)
 		{
 			unsafe
@@ -4018,10 +4016,10 @@ namespace Tao.Ode
 			}
 		}
 
-		[DllImport(ODE_NATIVE_LIBRARY, EntryPoint = "dGeomGetRotation")]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, EntryPoint = "dGeomGetRotation"), SuppressUnmanagedCodeSecurity]
 		private extern unsafe static dReal* dGeomGetRotation_(dGeomID geom);
 		/// <summary>
-		/// Return the geom's rotation matrix.
+		/// Get the rotation matrix of a placeable geom.
 		/// 
 		/// In native ODE, the returned values are pointers to internal data 
 		/// structures, so the matrices are valid until any changes are made to the 
@@ -4032,8 +4030,8 @@ namespace Tao.Ode
 		/// 
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
-		/// <returns>A dMatrix3</returns>
-		/// <param name="geom">A  dGeomID</param>
+		/// <returns>the geom's rotation matrix</returns>
+		/// <param name="geom">the geom to query</param>
 		public static dMatrix3 dGeomGetRotation(dGeomID geom)
 		{
 			unsafe
@@ -4044,7 +4042,7 @@ namespace Tao.Ode
 		}
 
 		/// <summary>
-		/// Get the geom's quaternion.
+		/// Get the rotation quaternion of a placeable geom.
 		/// 
 		/// dGeomGetQuaternion copies the geom's quaternion into the structure provided. 
 		/// 
@@ -4053,8 +4051,8 @@ namespace Tao.Ode
 		/// 
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
-		/// <param name="geom">A  dGeomID</param>
-		/// <param name="result">A  dQuaternion</param>
+		/// <param name="geom">the geom to query</param>
+		/// <param name="result">a copy of the rotation quaternion.</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomGetQuaternion(dGeomID geom, ref dQuaternion result);
 
@@ -4068,24 +4066,24 @@ namespace Tao.Ode
 		/// This function may return a pre-computed cached bounding box, if it can 
 		/// determine that the geom has not moved since the last time the bounding box was computed.
 		/// </summary>
-		/// <param name="geom">A  dGeomID</param>
-		/// <param name="aabb">An Aabb</param>
+		/// <param name="geom">the geom to query</param>
+		/// <param name="aabb">the returned bounding box</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomGetAABB(dGeomID geom, Aabb aabb);
 
 		/// <summary>
-		/// Return 1 if the given geom is a space, or 0 if not.		
+		/// Determine if a geom is a space.		
 		/// </summary>
-		/// <returns>An int</returns>
-		/// <param name="geom">A  dGeomID</param>
+		/// <returns>An int, non-zero if the given geom is a space, zero otherwise.</returns>
+		/// <param name="geom">The geom to query</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dGeomIsSpace(dGeomID geom);
 
 		/// <summary>
-		/// Return the space that the given geometry is contained in, or return 0 if it is not contained in any space.
+		/// Query for the space containing the specified geom.
 		/// </summary>
-		/// <returns>A dSpaceID</returns>
-		/// <param name="geom">A  dGeomID</param>
+		/// <returns>The space containing the geom, or NULL if the geom is not contained by a space.</returns>
+		/// <param name="geom">the geom to query</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dSpaceID dGeomGetSpace(dGeomID geom);
 
@@ -4093,91 +4091,95 @@ namespace Tao.Ode
 		/// Given a geom, this returns its class number. The standard class numbers are:
 		///		dSphereClass  			Sphere
 		///		dBoxClass  				Box
-		///		dCapsuleClass			Capped cylinder
 		///		dCylinderClass  		Regular flat-ended cylinder
+		///		dCapsuleClass			Capped cylinder
 		///		dPlaneClass  			Infinite plane (non-placeable)
-		///		dGeomTransformClass 	Geometry transform
 		///		dRayClass  				Ray
+		///		dConvexClass			Convex class
+		///		dGeomTransformClass 	Geometry transform
 		///		dTriMeshClass  			Triangle mesh
 		///		dSimpleSpaceClass  		Simple space
 		///		dHashSpaceClass  		Hash table based space
+		///		dQuadTreeSpaceClass		Quad-tree based space
+		///		dFirstUserClass			First user class
+		///		dLastUserClass			Last user class
 		/// 
 		/// User defined classes will return their own numbers.
 		/// </summary>
-		/// <returns>An int</returns>
-		/// <param name="geom">A  dGeomID</param>
+		/// <returns>The geom class ID.</returns>
+		/// <param name="geom">the geom to query</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dGeomGetClass(dGeomID geom);
 
 		/// <summary>
-		/// Set the ``category'' bitfield for the given geom. 
+		/// Set the "category" bitfield for the given geom. 
 		/// This bitfield is used by spaces to govern which geoms will interact 
 		/// with each other. 
 		/// 
-		/// The bit fields are guaranteed to be at least 32 bits wide. 
+		/// The bitfield is guaranteed to be at least 32 bits wide. 
 		/// 
 		/// The default category and collide values for newly created geoms have all bits set.
 		///
 		/// Note this is NOT CLS-compliant (due to the use of ulong to hold the 32-bit bitfield)
 		/// TODO: Implement a CLS-compliant work-around or justify why not
 		/// </summary>
-		/// <param name="geom">A  dGeomID</param>
-		/// <param name="bits">An ulong</param>
+		/// <param name="geom">the geom to set</param>
+		/// <param name="bits">the new bitfield value</param>
 		[CLSCompliant(false)]
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomSetCategoryBits(dGeomID geom, ulong bits);
 
 		/// <summary>
-		/// Set the ``collide'' bitfield for the given geom. 
+		/// Set the "collide" bitfield for the given geom. 
 		/// 
 		/// This bitfield is used by spaces to govern which geoms will interact 
 		/// with each other. 
 		/// 
-		/// The bit fields are guaranteed to be at least 32 bits wide. 
+		/// The bitfield is guaranteed to be at least 32 bits wide. 
 		/// 
 		/// The default category and collide values for newly created geoms have all bits set.
 		///
 		/// Note this is NOT CLS-compliant (due to the use of ulong to hold the 32-bit bitfield)
 		/// TODO: Implement a CLS-compliant work-around or justify why not
 		/// </summary>
-		/// <param name="geom">A  dGeomID</param>
-		/// <param name="bits">An ulong</param>
+		/// <param name="geom">the geom to set</param>
+		/// <param name="bits">the new bitfield value</param>
 		[CLSCompliant(false)]
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomSetCollideBits(dGeomID geom, ulong bits);
 
 		/// <summary>
-		/// Get the ``category'' bitfield for the given geom. 
+		/// Get the "category" bitfield for the given geom. 
 		/// This bitfield is used by spaces to govern which geoms will interact 
 		/// with each other. 
 		/// 
-		/// The bit fields are guaranteed to be at least 32 bits wide. 
+		/// The bitfield is guaranteed to be at least 32 bits wide. 
 		/// 
 		/// The default category and collide values for newly created geoms have all bits set.
 		///
 		/// Note this is NOT CLS-compliant (due to the use of ulong to hold the 32-bit bitfield)
 		/// TODO: Implement a CLS-compliant work-around or justify why not
 		/// </summary>
-		/// <returns>An ulong</returns>
-		/// <param name="geom">A  dGeomID</param>
+		/// <returns>the current bitfield value</returns>
+		/// <param name="geom">the geom to query</param>
 		[CLSCompliant(false)]
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static ulong dGeomGetCategoryBits(dGeomID geom);
 
 		/// <summary>
-		/// Get the ``collide'' bitfield for the given geom. 
+		/// Get the "collide" bitfield for the given geom. 
 		/// This bitfield is used by spaces to govern which geoms will interact 
 		/// with each other. 
 		/// 
-		/// The bit fields are guaranteed to be at least 32 bits wide. 
+		/// The bitfield is guaranteed to be at least 32 bits wide. 
 		/// 
 		/// The default category and collide values for newly created geoms have all bits set.
 		///
 		/// Note this is NOT CLS-compliant (due to the use of ulong to hold the 32-bit bitfield)
 		/// TODO: Implement a CLS-compliant work-around or justify why not
 		/// </summary>
-		/// <returns>An ulong</returns>
-		/// <param name="geom">A  dGeomID</param>
+		/// <returns>the current bitfield</returns>
+		/// <param name="geom">the geom to query</param>
 		[CLSCompliant(false)]
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static ulong dGeomGetCollideBits(dGeomID geom);
@@ -4190,7 +4192,7 @@ namespace Tao.Ode
 		/// 
 		/// New geoms are created in the enabled state.
 		/// </summary>
-		/// <param name="geom">A  dGeomID</param>
+		/// <param name="geom">the geom to enable</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomEnable(dGeomID geom);
 
@@ -4202,19 +4204,234 @@ namespace Tao.Ode
 		/// 
 		/// New geoms are created in the enabled state.
 		/// </summary>
-		/// <param name="geom">A  dGeomID</param>
+		/// <param name="geom">the geom to disable</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomDisable(dGeomID geom);
 
 		/// <summary>
-		/// Returns 1 if a geom is enabled or 0 if it is disabled. 
+		/// Check if a geom is enabled.
 		/// 
 		/// New geoms are created in the enabled state.
 		/// </summary>
-		/// <returns>An int</returns>
-		/// <param name="geom">A  dGeomID</param>
+		/// <returns>Returns non-zero if a geom is enabled, zero otherwise.</returns>
+		/// <param name="geom">the geom to query</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dGeomIsEnabled(dGeomID geom);
+
+		#region Geom Offsets
+		/// Geom Offset Overview
+		/// Geom offsets allow geom objects to be offset from a body's position. 
+		/// This is useful for cases where an object has an offset centre of mass, 
+		/// or is made up out of several geoms each with their own local position. 
+		/// Native support for geom offsets means that the geomTransform container is now obselete.
+		///
+		/// The real advantage over geomTransform is that there is a much easier interface for 
+		/// setting, getting, and modifying a geom's offset from its body. 
+		/// The elimination of geomTransform simplifies callbacks which no longer have to 
+		/// special case that geom class type. 
+		/// In terms of performance, the new code has a negligible performance difference 
+		/// and a memory improvement compared to using a geomTransform.
+		/// 
+		/// Geom Offset and Bodies
+		/// An offset only makes sense for geoms which are connected to bodies. 
+		/// It is an error to attempt to set an offset for a geom which is not connected to a body. 
+		/// When a geom is disconnected from a body, any offset will be automatically eliminated. 
+		/// Thus, the possible states a geom can be in are:
+		///     * Geom
+		///     * Geom on body
+		///     * Geom on body, with an offset 
+		/// To create an offset, just call one of the geomSetOffset functions. 
+		/// The offset will be automatically created if it does not yet exist. 
+		/// Geom offsets are normally set by specifying the offset in local coordinates. 
+		/// An extra set of functions are provided to allow an offset to be determined by 
+		/// providing world coordinates and subtracting them from the current body position. 
+		/// These second set of functions, geomSetOffsetWorldPosition(),etc, allow the user to 
+		/// essentially say "keep the body where it is, and move its geom to this position in the world". 
+		
+		/// <summary>
+		/// Set the local offset position of a geom from its body.
+		/// 
+		/// After this call, the geom will be at a new position determined from the 
+		/// body's position and the offset.
+		/// The geom must be attached to a body.
+		/// If the geom did not have an offset, it is automatically created.
+		/// </summary>
+		/// <param name="geom">the geom to set</param>
+		/// <param name="x">the new X coordinate</param>
+		/// <param name="y">the new Y coordinate</param>
+		/// <param name="z">the new Z coordinate</param>
+		[DllImport (ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dGeomSetOffsetPosition(dGeomID geom, dReal x, dReal y, dReal z);
+
+		/// <summary>
+		/// Set the local offset rotation matrix of a geom from its body.
+		/// 
+		/// Sets the geom's rotational offset in local coordinates. 
+		/// After this call, the geom will be at a new position determined from the 
+		/// body's position and the offset.
+		/// The geom must be attached to a body.
+		/// If the geom did not have an offset, it is automatically created.
+		/// </summary>
+		/// <param name="geom">the geom to set.</param>
+		/// <param name="R">the new rotation matrix.</param>
+		[DllImport (ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dGeomSetOffsetRotation (dGeomID geom, dMatrix3 R);
+
+		/// <summary>
+		/// Set the local offset rotation of a geom from its body.
+		///
+		/// Sets the geom's rotational offset in local coordinates.
+		/// After this call, the geom will be at a new position determined from the
+		/// body's position and the offset.
+		/// The geom must be attached to a body.
+		/// If the geom did not have an offset, it is automatically created.
+		///
+		/// <param name="geom">the geom to set.</param>
+		/// <param name="Q">the new rotation.</param>
+		[DllImport (ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dGeomSetOffsetQuaternion (dGeomID geom, dQuaternion Q);
+
+		/// <summary>
+		/// Set the offset position of a geom from its body.
+		///
+		/// Sets the geom's positional offset to move it to the new world
+		/// coordinates.
+		/// After this call, the geom will be at the world position passed in,
+		/// and the offset will be the difference from the current body position.
+		/// The geom must be attached to a body.
+		/// If the geom did not have an offset, it is automatically created.
+		/// </summary>
+		/// <param name="geom">the geom to set.</param>
+		/// <param name="x">the new X coordinate.</param>
+		/// <param name="y">the new Y coordinate.</param>
+		/// <param name="z">the new Z coordinate.</param>
+		[DllImport (ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dGeomSetOffsetWorldPosition (dGeomID geom, dReal x, dReal y, dReal z);
+
+		/// <summary>
+		/// Set the offset rotation of a geom from its body.
+		///
+		/// Sets the geom's rotational offset to orient it to the new world
+		/// rotation matrix.
+		/// After this call, the geom will be at the world orientation passed in,
+		/// and the offset will be the difference from the current body orientation.
+		/// The geom must be attached to a body.
+		/// If the geom did not have an offset, it is automatically created.
+		/// </summary>
+		/// <param name="geom">the geom to set.</summary>
+		/// <param name="R">the new rotation matrix.</summary>
+		[DllImport (ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dGeomSetOffsetWorldRotation (dGeomID geom, dMatrix3 R);
+
+		/// <summary>
+		/// Set the offset rotation of a geom from its body.
+		///
+		/// Sets the geom's rotational offset to orient it to the new world
+		/// rotation matrix.
+		/// After this call, the geom will be at the world orientation passed in,
+		/// and the offset will be the difference from the current body orientation.
+		/// The geom must be attached to a body.
+		/// If the geom did not have an offset, it is automatically created.
+		/// </summary>
+		/// <param name="geom">the geom to set.</param>
+		/// <param name="Q">the new rotation.</param>
+		[DllImport (ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dGeomSetOffsetWorldQuaternion (dGeomID geom, dQuaternion Q);
+
+		/// <summary>
+		/// Clear any offset from the geom.
+		///
+		/// If the geom has an offset, it is eliminated and the geom is
+		/// repositioned at the body's position.  If the geom has no offset,
+		/// this function does nothing.
+		/// This is more efficient than calling dGeomSetOffsetPosition(zero)
+		/// and dGeomSetOffsetRotation(identiy), because this function actually
+		/// eliminates the offset, rather than leaving it as the identity transform.
+		/// </summary>
+		/// <param name="geom">the geom to have its offset destroyed.</param>
+		[DllImport (ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dGeomClearOffset(dGeomID geom);
+
+		/// <summary>
+		/// Check to see whether the geom has an offset.
+		/// 
+		/// This function will return non-zero if the offset has been created.
+		/// Note that there is a difference between a geom with no offset,
+		/// and a geom with an offset that is the identity transform.
+		/// In the latter case, although the observed behaviour is identical,
+		/// there is a unnecessary computation involved because the geom will
+		/// be applying the transform whenever it needs to recalculate its world
+		/// position.
+		/// </summary>
+		/// <param name="geom">the geom to query.</param>
+		/// <returns>Non-zero if the geom has an offset, zero otherwise.</returns>
+		[DllImport (ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static int dGeomIsOffset(dGeomID geom);
+
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, EntryPoint = "dGeomGetOffsetPosition"), SuppressUnmanagedCodeSecurity]
+		private extern unsafe static dReal* dGeomGetOffsetPosition_(dGeomID geom);
+		/// <summary>
+		/// Get the offset position vector of a geom.
+		/// 
+		/// Returns the positional offset of the geom in local coordinates.
+		/// If the geom has no offset, this function returns the zero vector.
+		/// </summary>
+		/// <param name="geom">the geom to query.</param>
+		/// <returns>A pointer to the geom's offset vector.</returns>
+		/// <remarks>
+		/// The returned value is a pointer to the geom's internal
+		/// data structure. It is valid until any changes are made
+		///	to the geom.
+		///	</remarks> 
+		public static dVector3 dGeomGetOffsetPosition(dGeomID geom)
+		{
+			unsafe
+			{
+				dVector3* v = (dVector3*)dGeomGetOffsetPosition_(geom);
+				return *v;
+			}
+		}
+
+
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, EntryPoint = "dGeomGetOffsetRotation"), SuppressUnmanagedCodeSecurity]
+		private extern unsafe static dReal* dGeomGetOffsetRotation_(dGeomID geom);
+		///<summary>
+		/// Get the offset rotation matrix of a geom.
+		///
+		/// Returns the rotational offset of the geom as a matrix.
+		/// If the geom has no offset, this function returns ????
+		/// FIXME - ODE docs incorrect.
+		/// </summary>
+		/// <param name="geom">the geom to query</param>
+		/// <returns>A pointer to the geom's offset rotation matrix.</returns>
+		/// <remarks>
+		/// The returned value is a pointer to the geom's internal
+		/// data structure. It is valid until any changes are made
+		/// to the geom.
+		/// </remarks> 
+		public static dMatrix3 dGeomGetOffsetRotation(dGeomID geom)
+		{
+			unsafe
+			{
+				dMatrix3* m = (dMatrix3*)dGeomGetOffsetRotation_(geom);
+				return *m;
+			}
+		}
+
+
+		/// <summary>
+		/// Get the offset rotation quaternion of a geom.
+		/// 
+		/// Returns the rotation offset of the geom as a quaternion.
+		/// If the geom has no offset, the identity quaternion is returned.
+		/// </summary>
+		/// <param name="geom">the geom to query</param>
+		/// <param name="result">a copy of the rotation quaternion</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dGeomGetOffsetQuaternion(dGeomID geom, ref dQuaternion result);
+
+		#endregion Geom Offsets
+
 		#endregion Collision functions
 
 		#region Collision Detection
@@ -4266,8 +4483,7 @@ namespace Tao.Ode
 		/// <param name="contacts">A  dContactGeom[]</param>
 		/// <param name="skip">An int</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static int dCollide(dGeomID o1, dGeomID o2, int flags, [In, Out]dContactGeom[] contacts,
-			int skip);
+		public extern static int dCollide(dGeomID o1, dGeomID o2, int flags, [In, Out]dContactGeom[] contacts, int skip);
 
 		/// <summary>
 		/// This determines which pairs of geoms in a space may potentially intersect,
@@ -4336,8 +4552,7 @@ namespace Tao.Ode
 		/// <param name="data">An IntPtr</param>
 		/// <param name="callback">A  dNearCallback</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dSpaceCollide2(dGeomID o1, dGeomID o2, IntPtr data,
-			dNearCallback callback);
+		public extern static void dSpaceCollide2(dGeomID o1, dGeomID o2, IntPtr data, dNearCallback callback);
 		#endregion Collision Detection
 
 		#region Sphere class
@@ -4382,6 +4597,13 @@ namespace Tao.Ode
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dGeomSpherePointDepth(dGeomID sphere, dReal x, dReal y, dReal z);
 		#endregion Sphere class
+
+		#region Convex class
+		/// TODO: Implement - Convex support is new in ODE and not yet documented or clearly stable
+		/// ODE_API dGeomID dCreateConvex (dSpaceID space, dReal *_planes, unsigned int _planecount, dReal *_points, unsigned int _pointcount,unsigned int *_polygons);
+		/// ODE_API void dGeomSetConvex (dGeomID g, dReal *_planes, unsigned int _count, dReal *_points, unsigned int _pointcount,unsigned int *_polygons);
+		#endregion Convex class
+
 		#region Box class
 		/// <summary>
 		/// Create a box geom of the given x/y/z side lengths (lx,ly,lz), and return 
@@ -4391,28 +4613,28 @@ namespace Tao.Ode
 		/// for a box is its center.
 		/// </summary>
 		/// <returns>A dGeomID</returns>
-		/// <param name="space">A  dSpaceID</param>
-		/// <param name="lx">A  dReal</param>
-		/// <param name="ly">A  dReal</param>
-		/// <param name="lz">A  dReal</param>
+		/// <param name="space">the space the box should be inserted to</param>
+		/// <param name="lx">length of the x side</param>
+		/// <param name="ly">length of the y side</param>
+		/// <param name="lz">length of the z side</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dGeomID dCreateBox(dSpaceID space, dReal lx, dReal ly, dReal lz);
 
 		/// <summary>
 		/// Set the side lengths of the given box.
 		/// </summary>
-		/// <param name="box">A  dGeomID</param>
-		/// <param name="lx">A  dReal</param>
-		/// <param name="ly">A  dReal</param>
-		/// <param name="lz">A  dReal</param>
+		/// <param name="box">the box to be set</param>
+		/// <param name="lx">length of the x side</param>
+		/// <param name="ly">length of the y side</param>
+		/// <param name="lz">length of the z side</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomBoxSetLengths(dGeomID box, dReal lx, dReal ly, dReal lz);
 
 		/// <summary>
 		/// Return in result the side lengths of the given box.
 		/// </summary>
-		/// <param name="box">A  dGeomID</param>
-		/// <param name="result">A  dVector3</param>
+		/// <param name="box">the box to query</param>
+		/// <param name="result">vector3 containing the side lengths</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomBoxGetLengths(dGeomID box, ref dVector3 result);
 
@@ -4422,11 +4644,11 @@ namespace Tao.Ode
 		/// Points inside the geom will have positive depth, points outside it will 
 		/// have negative depth, and points on the surface will have zero depth.
 		/// </summary>
-		/// <returns>A dReal</returns>
-		/// <param name="box">A  dGeomID</param>
-		/// <param name="x">A  dReal</param>
-		/// <param name="y">A  dReal</param>
-		/// <param name="z">A  dReal</param>
+		/// <returns>the depth of the point</returns>
+		/// <param name="box">the box to query</param>
+		/// <param name="x">the x-coordinate of the point</param>
+		/// <param name="y">the y-coordinate of the point</param>
+		/// <param name="z">the z-coordinate of the point</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dGeomBoxPointDepth(dGeomID box, dReal x, dReal y, dReal z);
 		#endregion Box class
@@ -4445,9 +4667,9 @@ namespace Tao.Ode
 		/// it is assumed that the plane is always part of the static environment and 
 		/// not tied to any movable object.
 		/// </summary>
-		/// <returns>A dGeomID</returns>
-		/// <param name="space">A  dSpaceID</param>
-		/// <param name="a">A  dReal</param>
+		/// <returns>the plane</returns>
+		/// <param name="space">the space to insert the plane into</param>
+		/// <param name="a">the a parameter of the plane</param>
 		/// <param name="b">A  dReal</param>
 		/// <param name="c">A  dReal</param>
 		/// <param name="d">A  dReal</param>
