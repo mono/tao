@@ -688,7 +688,7 @@ namespace NeHe {
             }
 
             if(File.Exists(fileName)) {                                         // Does The File Exist Here?
-                fileName = fileName;                                            // Do Nothing
+                //fileName = fileName;                                            // Do Nothing
             }
             else if(File.Exists(fileName1)) {                                   // Does The File Exist Here?
                 fileName = fileName1;                                           // Swap Filename
