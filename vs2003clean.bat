@@ -1,2 +1,2 @@
 @ECHO OFF
-.\other\Prebuild\Prebuild.exe /clean vs2003 /file prebuild.xml
+.\other\Prebuild\Prebuild.exe /clean vs2005 /file prebuild.xml
