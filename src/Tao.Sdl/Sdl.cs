@@ -5429,7 +5429,7 @@ namespace Tao.Sdl
 		public static int SDL_Init(int flags) 
 		{
 			//Mac OSX code
-			Assembly af = Assembly.LoadWithPartialName("cocoa-sharp");
+			Assembly af = Assembly.Load("cocoa-sharp");
 			if (af != null) 
 			{
 				obj = af.GetType("Cocoa.Application").InvokeMember("Init", BindingFlags.Static | BindingFlags.InvokeMethod, null, obj, null);
@@ -5510,7 +5510,7 @@ namespace Tao.Sdl
 		public static int SDL_InitSubSystem(int flags) 
 		{
 			// Mac OSX code
-			Assembly af = Assembly.LoadWithPartialName("cocoa-sharp");
+			Assembly af = Assembly.Load("cocoa-sharp");
 			if (af != null) 
 			{
 				obj = af.GetType("Cocoa.Application").InvokeMember("Init", BindingFlags.Static | BindingFlags.InvokeMethod, null, obj, null);
