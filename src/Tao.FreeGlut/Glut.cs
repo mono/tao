@@ -860,7 +860,7 @@ namespace Tao.FreeGlut {
 
         #region int GLUT_ELAPSED_TIME
         /// <summary>
-        ///     Number of milliseconds since <see cref="glutInit" /> called (or first call to
+        ///     Number of milliseconds since <see cref="glutInit()" /> called (or first call to
         ///     <c>glutGet(GLUT_ELAPSED_TIME)</c>).
         /// </summary>
         // #define GLUT_ELAPSED_TIME ((GLenum) 700)
@@ -2728,7 +2728,7 @@ namespace Tao.FreeGlut {
         ///                     After processing callbacks and/or events, check if there are any
         ///                     OpenGL errors by calling <see cref="Gl.glGetError" />.  If an
         ///                     error is reported, print out a warning by looking up the error
-        ///                     code with <see cref="Glu.gluErrorString" />.  Using this option is
+        ///                     code with /*see cref="Glu.gluErrorString" />*/.  Using this option is
         ///                     helpful in detecting OpenGL run-time errors.
         ///                 </description>
         ///             </item>
@@ -2850,7 +2850,7 @@ namespace Tao.FreeGlut {
         ///                     After processing callbacks and/or events, check if there are any
         ///                     OpenGL errors by calling <see cref="Gl.glGetError" />.  If an
         ///                     error is reported, print out a warning by looking up the error
-        ///                     code with <see cref="Glu.gluErrorString" />.  Using this option is
+        ///                     code with /*see cref="Glu.gluErrorString" />*/.  Using this option is
         ///                     helpful in detecting OpenGL run-time errors.
         ///                 </description>
         ///             </item>
@@ -3002,7 +3002,7 @@ namespace Tao.FreeGlut {
         ///     </para>
         /// </remarks>
         /// <seealso cref="glutCreateWindow" />
-        /// <seealso cref="glutInit" />
+        /// <seealso cref="glutInit()" />
         /// <seealso cref="glutInitDisplayString" />
         // GLUTAPI void APIENTRY glutInitDisplayMode(unsigned int mode);
         [DllImport(FREEGLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
@@ -3489,7 +3489,7 @@ namespace Tao.FreeGlut {
         ///     </para>
         /// </remarks>
         /// <seealso cref="glutCreateWindow" />
-        /// <seealso cref="glutInit" />
+        /// <seealso cref="glutInit()" />
         /// <seealso cref="glutInitDisplayMode" />
         // GLUTAPI void APIENTRY glutInitDisplayString(const char *string);
         [DllImport(FREEGLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
@@ -3528,7 +3528,7 @@ namespace Tao.FreeGlut {
         ///         location and at a given size, but you would also like to let the user override
         ///         these default via a command line argument (such as -geometry for X11), call
         ///         <see cref="glutInitWindowSize" /> and <see cref="glutInitWindowPosition"/>
-        ///         before your call to <see cref="glutInit" />.  For example:
+        ///         before your call to <see cref="glutInit()" />.  For example:
         ///     </para>
         ///     <para>
         ///         <code>
@@ -3546,7 +3546,7 @@ namespace Tao.FreeGlut {
         ///         However, if you'd like to force your program to start up at a given size and
         ///         position, call <see cref="glutInitWindowSize" /> and
         ///         <see cref="glutInitWindowPosition" /> after your call to
-        ///         <see cref="glutInit" />. For example:
+        ///         <see cref="glutInit()" />. For example:
         ///     </para>
         ///     <para>
         ///         <code>
@@ -3564,7 +3564,7 @@ namespace Tao.FreeGlut {
         /// <seealso cref="glutCreateWindow" />
         /// <seealso cref="glutCreateSubWindow" />
         /// <seealso cref="glutGet" />
-        /// <seealso cref="glutInit" />
+        /// <seealso cref="glutInit()" />
         /// <seealso cref="glutInitWindowSize" />
         /// <seealso cref="glutReshapeFunc" />
         /// <seealso cref="ReshapeCallback" />
@@ -3606,7 +3606,7 @@ namespace Tao.FreeGlut {
         ///         override these default via a command line argument (such as -geometry for
         ///         X11), call <see cref="glutInitWindowSize" /> and
         ///         <see cref="glutInitWindowPosition"/> before your call to
-        ///         <see cref="glutInit" />.  For example:
+        ///         <see cref="glutInit()" />.  For example:
         ///     </para>
         ///     <para>
         ///         <code>
@@ -3624,7 +3624,7 @@ namespace Tao.FreeGlut {
         ///         However, if you'd like to force your program to start up at a given size and
         ///         position, call <see cref="glutInitWindowSize" /> and
         ///         <see cref="glutInitWindowPosition" /> after your call to
-        ///         <see cref="glutInit" />.  For example:
+        ///         <see cref="glutInit()" />.  For example:
         ///     </para>
         ///     <para>
         ///         <code>
@@ -3642,7 +3642,7 @@ namespace Tao.FreeGlut {
         /// <seealso cref="glutCreateWindow" />
         /// <seealso cref="glutCreateSubWindow" />
         /// <seealso cref="glutGet" />
-        /// <seealso cref="glutInit" />
+        /// <seealso cref="glutInit()" />
         /// <seealso cref="glutInitWindowPosition" />
         /// <seealso cref="glutReshapeFunc" />
         /// <seealso cref="ReshapeCallback" />
@@ -3663,7 +3663,7 @@ namespace Tao.FreeGlut {
         ///     routine will never return.  It will call as necessary any callbacks
         ///     (delegates) that have been registered.
         /// </remarks>
-        /// <seealso cref="glutInit" />
+        /// <seealso cref="glutInit()" />
         // GLUTAPI void APIENTRY glutMainLoop(void);
         [DllImport(FREEGLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void glutMainLoop();
@@ -6730,7 +6730,7 @@ namespace Tao.FreeGlut {
         ///             <item>
         ///                 <term><see cref="GLUT_ELAPSED_TIME" /></term>
         ///                 <description>
-        ///                     Number of milliseconds since <see cref="glutInit" /> called (or
+        ///                     Number of milliseconds since <see cref="glutInit()" /> called (or
         ///                     first call to <c>Glut.glutGet(Glut.GLUT_ELAPSED_TIME)</c>).
         ///                 </description>
         ///             </item>
@@ -7881,7 +7881,7 @@ namespace Tao.FreeGlut {
         ///         convenience; all the routine does is call <see cref="Gl.glGetError" /> until
         ///         no more errors are reported.  Any errors detected are reported with a GLUT
         ///         warning and the corresponding text message generated by
-        ///         <see cref="Glu.gluErrorString" />.
+        ///         /*see cref="Glu.gluErrorString" />*/.
         ///     </para>
         ///     <para>
         ///         Calling <b>glutReportErrors</b> repeatedly in your program can help isolate
@@ -7890,9 +7890,9 @@ namespace Tao.FreeGlut {
         ///     </para>
         /// </remarks>
         /// <seealso cref="glutCreateWindow" />
-        /// <seealso cref="Glu.gluErrorString" />
+        /// /*seealso cref="Glu.gluErrorString" />*/
         /// <seealso cref="Gl.glGetError" />
-        /// <seealso cref="glutInit" />
+        /// <seealso cref="glutInit()" />
         /// <seealso cref="glutInitDisplayMode" />
         // GLUTAPI void APIENTRY glutReportErrors(void);
         [DllImport(FREEGLUT_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]

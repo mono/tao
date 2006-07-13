@@ -214,6 +214,465 @@
 		<File>Glfw.cs</File>
 	    </Files>
 	</Project>
+	<Project name="GeWang.ClippingPlanes" path="..\\..\\examples\\GeWang\\ClippingPlanes" language="C#" type="Exe" startupObject="GeWang.ClippingPlanes">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="GeWang.Lorenz3d" path="..\\..\\examples\\GeWang\\Lorenz3d" language="C#" type="Exe" startupObject="GeWang.Lorenz3d">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="GeWang.Mirror" path="..\\..\\examples\\GeWang\\Mirror" language="C#" type="Exe" startupObject="GeWang.Mirror">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="GeWang.Shadow" path="..\\..\\examples\\GeWang\\Shadow" language="C#" type="Exe" startupObject="GeWang.Shadow">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="GeWang.Starfield" path="..\\..\\examples\\GeWang\\Starfield" language="C#" type="Exe" startupObject="GeWang.Starfield">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="GeWang.Xform" path="..\\..\\examples\\GeWang\\Xform" language="C#" type="Exe" startupObject="GeWang.Xform">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="NateRobins.Area" path="..\\..\\examples\\NateRobins\\Area" language="C#" type="Exe" startupObject="NateRobins.Area">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="NateRobins.Maiden" path="..\\..\\examples\\NateRobins\\Maiden" language="C#" type="Exe" startupObject="NateRobins.Maiden">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="NateRobins.MultiView" path="..\\..\\examples\\NateRobins\\MultiView" language="C#" type="Exe" startupObject="NateRobins.MultiView">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="NateRobins.Nii" path="..\\..\\examples\\NateRobins\\Nii" language="C#" type="Exe" startupObject="NateRobins.Nii">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="NateRobins.Null" path="..\\..\\examples\\NateRobins\\Null" language="C#" type="Exe" startupObject="NateRobins.Null">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="NateRobins.Qix" path="..\\..\\examples\\NateRobins\\Qix" language="C#" type="Exe" startupObject="NateRobins.Qix">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="NateRobins.Rotate" path="..\\..\\examples\\NateRobins\\Rotate" language="C#" type="Exe" startupObject="NateRobins.Rotate">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="NateRobins.Starfield" path="..\\..\\examples\\NateRobins\\Starfield" language="C#" type="Exe" startupObject="NateRobins.Starfield">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="NateRobins.Strip" path="..\\..\\examples\\NateRobins\\Strip" language="C#" type="Exe" startupObject="NateRobins.Strip">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="NateRobins.Texture" path="..\\..\\examples\\NateRobins\\Texture" language="C#" type="Exe" startupObject="NateRobins.Texture">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="NateRobins.Voronoi" path="..\\..\\examples\\NateRobins\\Voronoi" language="C#" type="Exe" startupObject="NateRobins.Voronoi">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
 	<Project name="GlfwExamples.Boing" path="..\\..\\examples\\GlfwExamples\\Boing" language="C#" type="Exe" startupObject="GlfwExamples.Boing">
 	    <Configuration name="Debug">
 		<Options>

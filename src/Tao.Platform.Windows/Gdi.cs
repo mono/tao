@@ -589,7 +589,7 @@ namespace Tao.Platform.Windows {
         ///         number of bytes of private data.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="User.ChangeDisplaySettings" />
+        /// <seealso cref="User.ChangeDisplaySettings(ref Tao.Platform.Windows.Gdi.DEVMODE, int)" />
         /// <seealso cref="User.EnumDisplaySettings" />
         // <seealso cref="AdvancedDocumentProperties" />
         // <seealso cref="CreateDC" />

@@ -169,7 +169,7 @@ namespace OpenAlExamples {
             // Attempt to locate the file.
             string fileName = "OpenAlExamples.Lesson01.FancyPants.wav";
             if(File.Exists(fileName)) {
-                fileName = fileName;
+                //fileName = fileName;
             }
             else if(File.Exists("Data/" + fileName)) {
                 fileName = "Data/" + fileName;

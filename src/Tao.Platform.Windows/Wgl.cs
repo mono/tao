@@ -439,7 +439,7 @@ namespace Tao.Platform.Windows {
         ///     <para>
         ///         Specifies which groups of the <i>source</i> rendering state are to be copied
         ///         to <i>destination</i>.  It contains the bitwise-OR of the same symbolic names
-        ///         that are passed to the <see cref="Tao.OpenGl.Gl.glPushAttrib" /> function.
+        ///         that are passed to the <see cref="Tao.OpenGl.Gl.glPushAttrib(int)" /> function.
         ///         You can use <see cref="Tao.OpenGl.Gl.GL_ALL_ATTRIB_BITS" /> to copy all the
         ///         rendering state information.
         ///     </para>
@@ -462,14 +462,14 @@ namespace Tao.Platform.Windows {
         ///     </para>
         ///     <para>
         ///         You can copy the same state information available only with the
-        ///         <see cref="Tao.OpenGl.Gl.glPushAttrib" /> function.  You cannot copy some
+        ///         <see cref="Tao.OpenGl.Gl.glPushAttrib(int)" /> function.  You cannot copy some
         ///         state information, such as pixel pack/unpack state, render mode state, select
         ///         state, and feedback state.  When you call <b>wglCopyContext</b>, make sure
         ///         that the destination rendering context, <i>destination</i>, is not current to
         ///         any thread.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Tao.OpenGl.Gl.glPushAttrib" />
+        /// <seealso cref="Tao.OpenGl.Gl.glPushAttrib(int)" />
         /// <seealso cref="wglCreateContext" />
         /// <seealso cref="wglCreateLayerContext" />
         /// <seealso cref="wglShareLists" />
@@ -1428,7 +1428,7 @@ namespace Tao.Platform.Windows {
         ///         The <b>wglUseFontBitmaps</b> function defines <i>count</i> display lists in
         ///         the current OpenGL rendering context.  Each display list has an identifying
         ///         number, starting at <i>listBase</i>.  Each display list consists of a single
-        ///         call to <see cref="Tao.OpenGl.Gl.glBitmap" />.  The definition of bitmap
+        ///         call to <see cref="Tao.OpenGl.Gl.glBitmap(int, int, float, float, float, float, ref byte)" />.  The definition of bitmap
         ///         <i>listBase + i</i> is taken from the glyph <i>first + i</i> of the font
         ///         currently selected in the device context specified by <i>deviceContext</i>.
         ///         If a glyph is not defined, then the function defines an empty display list
@@ -1448,7 +1448,7 @@ namespace Tao.Platform.Windows {
         ///     </para>
         ///     <para>
         ///         The function determines the parameters of each call to
-        ///         <see cref="Tao.OpenGl.Gl.glBitmap" /> as follows:
+        ///         <see cref="Tao.OpenGl.Gl.glBitmap(int, int, float, float, float, float, ref byte)" /> as follows:
         ///     </para>
         ///     <para>
         ///         <list type="table">
@@ -1548,9 +1548,9 @@ namespace Tao.Platform.Windows {
         ///     </para>
         /// </remarks>
         /// /* seealso cref="Gdi.GetGlyphOutline" />*/
-        /// <seealso cref="Tao.OpenGl.Gl.glBitmap" />
-        /// <seealso cref="Tao.OpenGl.Gl.glCallLists" />
-        /// <seealso cref="Tao.OpenGl.Gl.glListBase" />
+        /// <seealso cref="Tao.OpenGl.Gl.glBitmap(int, int, float, float, float, float, ref byte)" />
+        /// <seealso cref="Tao.OpenGl.Gl.glCallLists(int, int, bool[])" />
+        /// <seealso cref="Tao.OpenGl.Gl.glListBase(int)" />
         /// /* seealso cref="Gdi.GLYPHMETRICS" />*/
         /// <seealso cref="Wgl.wglUseFontOutlines" />
         // WINGDIAPI BOOL WINAPI wglUseFontBitmapsA(HDC, DWORD, DWORD, DWORD);
@@ -1693,7 +1693,7 @@ namespace Tao.Platform.Windows {
         ///         the <b>gmfCellIncX</b> and <b>gmfCellIncY</b> members of the corresponding
         ///         <see cref="Gdi.GLYPHMETRICSFLOAT" /> structure.  The translation enables the
         ///         drawing of successive characters in their natural direction with a single
-        ///         call to <see cref="Tao.OpenGl.Gl.glCallLists" />.
+        ///         call to <see cref="Tao.OpenGl.Gl.glCallLists(int, int, bool[])" />.
         ///     </para>
         ///     <para>
         ///         <b>NOTE</b>
@@ -1736,8 +1736,8 @@ namespace Tao.Platform.Windows {
         ///     </para>
         /// </remarks>
         /// <seealso cref="Gdi.GLYPHMETRICSFLOAT" />
-        /// <seealso cref="Tao.OpenGl.Gl.glCallLists" />
-        /// <seealso cref="Tao.OpenGl.Gl.glListBase" />
+        /// <seealso cref="Tao.OpenGl.Gl.glCallLists(int, int, bool[])" />
+        /// <seealso cref="Tao.OpenGl.Gl.glListBase(int)" />
         /// <seealso cref="Tao.OpenGl.Gl.glTexGenf" />
         /// <seealso cref="wglUseFontBitmaps" />
         // WINGDIAPI BOOL WINAPI wglUseFontOutlinesA(HDC, DWORD, DWORD, DWORD, FLOAT, FLOAT, int, LPGLYPHMETRICSFLOAT);
