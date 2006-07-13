@@ -214,6 +214,70 @@
 		<File>Glfw.cs</File>
 	    </Files>
 	</Project>
+	<Project name="Tao.GlPostProcess" path="..//Tao.GlPostProcess" language="C#" type="Exe">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <XmlDocFile>Tao.GlPostProcess.xml</XmlDocFile>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <OutputPath>bin\Release</OutputPath>
+		    <XmlDocFile>Tao.GlPostProcess.xml</XmlDocFile>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" />
+	    <Reference name="Tao.OpenGl" localCopy="true"/>
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>GlPostProcess.cs</File>
+	    </Files>
+	</Project>
+	<Project name="Tao.Platform.Windows" path="..//Tao.Platform.Windows" language="C#" type="Library">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <XmlDocFile>Tao.Platform.Windows.xml</XmlDocFile>
+		    <AllowUnsafe>true</AllowUnsafe>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <OutputPath>bin\Release</OutputPath>
+		    <XmlDocFile>Tao.Platform.Windows.xml</XmlDocFile>
+		    <AllowUnsafe>true</AllowUnsafe>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" />
+	    <Reference name="System.Drawing" />
+	    <Reference name="System.Windows.Forms" />
+	    <Reference name="Tao.OpenGl" localCopy="true"/>
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>Gdi.cs</File>
+		<File>IlasmAttribute.cs</File>
+		<File>Kernel.cs</File>
+		<File>SimpleOpenGlControl.cs</File>
+		<File>User.cs</File>
+		<File>Wgl.cs</File>
+		<File>Winmm.cs</File>
+		<File>WinNt.cs</File>
+	    </Files>
+	</Project>
 	<Project name="GeWang.ClippingPlanes" path="..\\..\\examples\\GeWang\\ClippingPlanes" language="C#" type="Exe" startupObject="GeWang.ClippingPlanes">
 	    <Configuration name="Debug">
 		<Options>
@@ -1398,6 +1462,482 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
+	<Project name="Redbook.Aaindex" path="..\\..\\examples\\Redbook\\Aaindex" language="C#" type="Exe" startupObject="Redbook.Aaindex">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="Redbook.Aapoly" path="..\\..\\examples\\Redbook\\Aapoly" language="C#" type="Exe" startupObject="Redbook.Aapoly">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="Redbook.Aargb" path="..\\..\\examples\\Redbook\\Aargb" language="C#" type="Exe" startupObject="Redbook.Aargb">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="Redbook.Accanti" path="..\\..\\examples\\Redbook\\Accanti" language="C#" type="Exe" startupObject="Redbook.Accanti">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="Redbook.Accpersp" path="..\\..\\examples\\Redbook\\Accpersp" language="C#" type="Exe" startupObject="Redbook.Accpersp">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="Redbook.Alpha" path="..\\..\\examples\\Redbook\\Alpha" language="C#" type="Exe" startupObject="Redbook.Alpha">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="Redbook.Alpha3d" path="..\\..\\examples\\Redbook\\Alpha3d" language="C#" type="Exe" startupObject="Redbook.Alpha3d">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="Redbook.Anti" path="..\\..\\examples\\Redbook\\Anti" language="C#" type="Exe" startupObject="Redbook.Anti">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="Redbook.Bezcurve" path="..\\..\\examples\\Redbook\\Bezcurve" language="C#" type="Exe" startupObject="Redbook.Bezcurve">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="Redbook.Bezmesh" path="..\\..\\examples\\Redbook\\Bezmesh" language="C#" type="Exe" startupObject="Redbook.Bezmesh">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="Redbook.Bezsurf" path="..\\..\\examples\\Redbook\\Bezsurf" language="C#" type="Exe" startupObject="Redbook.Bezsurf">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="Redbook.Checker" path="..\\..\\examples\\Redbook\\Checker" language="C#" type="Exe" startupObject="Redbook.Checker">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="Redbook.CheckerOld" path="..\\..\\examples\\Redbook\\CheckerOld" language="C#" type="Exe" startupObject="Redbook.CheckerOld">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="Redbook.Clip" path="..\\..\\examples\\Redbook\\Clip" language="C#" type="Exe" startupObject="Redbook.Clip">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="Redbook.Colormat" path="..\\..\\examples\\Redbook\\Colormat" language="C#" type="Exe" startupObject="Redbook.Colormat">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="Redbook.Cube" path="..\\..\\examples\\Redbook\\Cube" language="C#" type="Exe" startupObject="Redbook.Cube">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="Redbook.DepthCue" path="..\\..\\examples\\Redbook\\DepthCue" language="C#" type="Exe" startupObject="Redbook.DepthCue">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<!--             Clip         Lines                Quadric
+            Colormat     List         TessWind
+            Cube         TexBind
+Aaindex     DepthCue     Robot        TexGen
+Aapoly      Dof          Scene        TexProx		   Tess
+Aargb       Double       Material     SceneBlueAmbient     TexSub
+Accanti     Drawf        Mipmap       SceneColorLight      TextureSurf
+Accpersp    Feedback     Model        SceneFlat            Torus
+Alpha       Fog          MoveLight    Select               Trim
+Alpha3d     FogIndex     Nurbs        Smooth               UnProject
+Anti        FogIndexOld  PickDepth    Stencil              Varray
+Bezcurve    FogOld       PickSquare   Stroke               Wrap
+Bezmesh     Font         Plane        Surface
+Bezsurf     Hello        Planet       SurfaceOld
+Checker     Image        PolyOff      TeaAmbient
+CheckerOld  Light        Polys        Teapots -->
+
 	<Project name="GlfwExamples.Boing" path="..\\..\\examples\\GlfwExamples\\Boing" language="C#" type="Exe" startupObject="GlfwExamples.Boing">
 	    <Configuration name="Debug">
 		<Options>
@@ -1564,70 +2104,6 @@
 	    <Files>
 		<File>AssemblyInfo.cs</File>
 		<File>Triangle.cs</File>
-	    </Files>
-	</Project>
-	<Project name="Tao.GlPostProcess" path="..//Tao.GlPostProcess" language="C#" type="Exe">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <OutputPath>bin\Debug</OutputPath>
-		    <XmlDocFile>Tao.GlPostProcess.xml</XmlDocFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <OutputPath>bin\Release</OutputPath>
-		    <XmlDocFile>Tao.GlPostProcess.xml</XmlDocFile>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" />
-	    <Reference name="Tao.OpenGl" localCopy="true"/>
-	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
-	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>GlPostProcess.cs</File>
-	    </Files>
-	</Project>
-	<Project name="Tao.Platform.Windows" path="..//Tao.Platform.Windows" language="C#" type="Library">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <OutputPath>bin\Debug</OutputPath>
-		    <XmlDocFile>Tao.Platform.Windows.xml</XmlDocFile>
-		    <AllowUnsafe>true</AllowUnsafe>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <OutputPath>bin\Release</OutputPath>
-		    <XmlDocFile>Tao.Platform.Windows.xml</XmlDocFile>
-		    <AllowUnsafe>true</AllowUnsafe>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" />
-	    <Reference name="System.Drawing" />
-	    <Reference name="System.Windows.Forms" />
-	    <Reference name="Tao.OpenGl" localCopy="true"/>
-	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>Gdi.cs</File>
-		<File>IlasmAttribute.cs</File>
-		<File>Kernel.cs</File>
-		<File>SimpleOpenGlControl.cs</File>
-		<File>User.cs</File>
-		<File>Wgl.cs</File>
-		<File>Winmm.cs</File>
-		<File>WinNt.cs</File>
 	    </Files>
 	</Project>
 	<Project name="OpenAlExamples.Boxes" path="..\\..\\examples\\OpenAlExamples\\Boxes" language="C#" type="WinExe" startupObject="OpenAlExamples.Boxes">
