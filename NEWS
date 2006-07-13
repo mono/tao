@@ -42,7 +42,7 @@ For Tao.FreeGlut
 
 For Tao
 * Updated Prebuild and all prebuild files. Added NAnt target.
-* Reduced many of the XML doc meage generated during a build.
+* Reduced many of the XML doc messages generated during a build.
 
 
 1.2.0
