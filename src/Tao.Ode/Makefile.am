@@ -2,7 +2,6 @@ LIBRARY		= Tao.Ode
 
 DOCS = 1
 UNSAFE = 1
-POSTPROCESS_LIBRARY = 1
 
 include $(top_builddir)/am-config.mk
 

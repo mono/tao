@@ -9,7 +9,8 @@ FILES = \
 	AssemblyInfo.cs \
 	Glu.cs
 
-REFERENCES =
+REFERENCES = \
+	-r:../Tao.OpenGl/Tao.OpenGl.dll
 
 BUILD_FILES = $(addprefix $(srcdir)/, $(FILES))
 

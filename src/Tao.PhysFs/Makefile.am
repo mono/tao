@@ -1,5 +1,7 @@
 LIBRARY		= Tao.PhysFs
 
+DOCS = 1
+
 include $(top_builddir)/am-config.mk
 
 FILES = \
