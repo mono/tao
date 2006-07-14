@@ -230,7 +230,7 @@ namespace Tao.PhysFs
 		/// <seealso cref="PHYSFS_openWrite"/>
 		/// <seealso cref="PHYSFS_openAppend"/>
 		/// <seealso cref="PHYSFS_close"/>
-		/// <seealso cref="PHYSFS_read"/>
+        /// <seealso cref="PHYSFS_read(System.IntPtr, System.IntPtr, uint, uint)"/>
 		/// <seealso cref="PHYSFS_write"/>
 		/// <seealso cref="PHYSFS_seek"/>
 		/// <seealso cref="PHYSFS_tell"/>
@@ -424,7 +424,7 @@ namespace Tao.PhysFs
 		/// <remarks>Determine if the end of file has been reached in a PhysicsFS filehandle.</remarks>
 		/// <param name="handle">handle returned from <see cref="PHYSFS_openRead"/>.</param>
 		/// <returns>nonzero if EOF, zero if not.</returns>
-		/// <seealso cref="PHYSFS_read"/>
+        /// <seealso cref="PHYSFS_read(System.IntPtr, System.IntPtr, uint, uint)"/>
 		/// <seealso cref="PHYSFS_tell"/>
 		[DllImport(PHYSFS_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int PHYSFS_eof(IntPtr handle);
@@ -771,7 +771,7 @@ namespace Tao.PhysFs
 		/// <returns>A valid PhysicsFS filehandle on success, NULL on error. Specifics of the error can be gleaned from <see cref="PHYSFS_getLastError"/>.</returns>
 		/// <seealso cref="PHYSFS_openWrite"/>
 		/// <seealso cref="PHYSFS_openAppend"/>
-		/// <seealso cref="PHYSFS_read"/>
+        /// <seealso cref="PHYSFS_read(System.IntPtr, System.IntPtr, uint, uint)"/>
 		/// <seealso cref="PHYSFS_close"/>
 		[DllImport(PHYSFS_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static IntPtr PHYSFS_openRead(string filename);
@@ -1171,7 +1171,7 @@ namespace Tao.PhysFs
 		/// Set up buffering for a PhysicsFS file handle.
 		/// </summary>
 		/// <remarks>Define an i/o buffer for a file handle. A memory block of (bufsize) bytes will be allocated and associated with (handle).
-		/// <p>For files opened for reading, up to (bufsize) bytes are read from (handle) and stored in the internal buffer. Calls to <see cref="PHYSFS_read"/>() will pull from this buffer until it is empty, and then refill it for more reading. Note that compressed files, like ZIP archives, will decompress while buffering, so this can be handy for offsetting CPU-intensive operations. The buffer isn't filled until you do your next read.</p>
+        /// <p>For files opened for reading, up to (bufsize) bytes are read from (handle) and stored in the internal buffer. Calls to <see cref="PHYSFS_read(System.IntPtr, System.IntPtr, uint, uint)"/>() will pull from this buffer until it is empty, and then refill it for more reading. Note that compressed files, like ZIP archives, will decompress while buffering, so this can be handy for offsetting CPU-intensive operations. The buffer isn't filled until you do your next read.</p>
 		/// <p>For files opened for writing, data will be buffered to memory until the buffer is full or the buffer is flushed. Closing a handle implicitly causes a flush...check your return values!</p>
 		/// <p>Seeking, etc transparently accounts for buffering.</p>
 		/// <p>You can resize an existing buffer by calling this function more than once on the same file. Setting the buffer size to zero will free an existing buffer.</p>
@@ -1181,7 +1181,7 @@ namespace Tao.PhysFs
 		/// <param name="bufsize">size, in bytes, of buffer to allocate.</param>
 		/// <returns>nonzero if successful, zero on error.</returns>
 		/// <seealso cref="PHYSFS_flush"/>
-		/// <seealso cref="PHYSFS_read"/>
+        /// <seealso cref="PHYSFS_read(System.IntPtr, System.IntPtr, uint, uint)"/>
 		/// <seealso cref="PHYSFS_write"/>
 		/// <seealso cref="PHYSFS_close"/>
 		[CLSCompliant(false)]
