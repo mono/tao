@@ -41,7 +41,6 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
-		    <XmlDocFile>PhysFsExamples.Simple.xml</XmlDocFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -51,7 +50,6 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
-		    <XmlDocFile>PhysFsExamples.Simple.xml</XmlDocFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
