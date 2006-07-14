@@ -81,24 +81,24 @@ namespace Tao.Ode
 		#region Public Constants
 		#region Error Numbers
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		public enum dError : int
 		{
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			d_ERR_UNKNOWN = 0,		/* unknown error */
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			d_ERR_IASSERT = 1,		/* internal assertion failed */
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			d_ERR_UASSERT = 2,		/* user assertion failed */
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			d_ERR_LCP = 3				/* user assertion failed */
 		};
@@ -106,9 +106,9 @@ namespace Tao.Ode
 
 		/// <summary>
 		/// Infinity.
-		/// 
+		///
 		/// The maximum value of the current data type for dReal.
-		/// 
+		///
 		/// </summary>
 		/// <remarks>
 		/// dReal can be System.Single or System.Double, based on the
@@ -118,52 +118,52 @@ namespace Tao.Ode
 
 		#region Joint Type Numbers
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		public enum dJointTypes : int
 		{
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dJointTypeNone = 0,		/* or "unknown" */
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dJointTypeBall = 1,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dJointTypeHinge = 2,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dJointTypeSlider = 3,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dJointTypeContact = 4,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dJointTypeUniversal = 5,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dJointTypeHinge2 = 6,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dJointTypeFixed = 7,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dJointTypeNull = 8,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dJointTypeAMotor = 9,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dJointTypeLMotor = 10
 		}
@@ -173,7 +173,7 @@ namespace Tao.Ode
 		/// <summary>
 		/// Definition of Joint limit and motor parameter names
 		/// If a particular parameter is not implemented by a given joint, setting it will have no effect.
-		/// 
+		///
 		/// These parameter names can be optionally followed by a digit (2 or 3) to indicate the second or third set of parameters, e.g. for the second axis in a hinge-2 joint, or the third axis in an AMotor joint. A constant dParamGroup is also defined such that: dParamXi = dParamX + dParamGroup * (i-1)
 		/// </summary>
 		/// <remarks>
@@ -242,96 +242,96 @@ namespace Tao.Ode
 			#endregion Parameters for first axis
 
 			#region Parameters for second axis
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamLoStop2 = 0x100 + 0,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamHiStop2 = 0x100 + 1,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamVel2 = 0x100 + 2,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamFMax2 = 0x100 + 3,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamFudgeFactor2 = 0x100 + 4,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamBounce2 = 0x100 + 5,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamCFM2 = 0x100 + 6,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamStopERP2 = 0x100 + 7,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamStopCFM2 = 0x100 + 8,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamSuspensionERP2 = 0x100 + 9,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamSuspensionCFM2 = 0x100 + 10,
 			#endregion Parameters for second axis
 
 			#region Parameters for third axis
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamLoStop3 = 0x200 + 0,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamHiStop3 = 0x200 + 1,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamVel3 = 0x200 + 2,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamFMax3 = 0x200 + 3,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamFudgeFactor3 = 0x200 + 4,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamBounce3 = 0x200 + 5,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamCFM3 = 0x200 + 6,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamStopERP3 = 0x200 + 7,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamStopCFM3 = 0x200 + 8,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamSuspensionERP3 = 0x200 + 9,
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			dParamSuspensionCFM3 = 0x200 + 10,
 			#endregion Parameters for third axis
 		}
@@ -339,16 +339,16 @@ namespace Tao.Ode
 
 		#region Angular Motor Mode Numbers
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		public enum dAMotorMode : int
 		{
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dAMotorUser = 0,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dAMotorEuler = 1
 		}
@@ -359,76 +359,76 @@ namespace Tao.Ode
 		public const int dMaxUserClasses = 4;
 
 		/// <summary>
-		/// class numbers - each geometry object needs a unique number 
+		/// class numbers - each geometry object needs a unique number
 		/// </summary>
 		public enum dClassNumbers : int
 		{
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dSphereClass = 0,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dBoxClass,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dCapsuleClass,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dCylinderClass,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dPlaneClass,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dRayClass,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dConvexClass,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dGeomTransformClass,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dTriMeshClass,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dFirstSpaceClass,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dSimpleSpaceClass = dFirstSpaceClass,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dHashSpaceClass,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dQuadTreeSpaceClass,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dLastSpaceClass = dQuadTreeSpaceClass,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dFirstUserClass,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dLastUserClass = dFirstUserClass + dMaxUserClasses - 1,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dGeomNumClasses = dLastUserClass + 1
 		}
@@ -467,62 +467,62 @@ namespace Tao.Ode
 
 		#region Contact Flags
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		[FlagsAttribute]
 		public enum dContactFlags : int
 		{
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dContactMu2 = 0x001,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dContactFDir1 = 0x002,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dContactBounce = 0x004,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dContactSoftERP = 0x008,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dContactSoftCFM = 0x010,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dContactMotion1 = 0x020,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dContactMotion2 = 0x040,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dContactSlip1 = 0x080,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dContactSlip2 = 0x100,
 
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dContactApprox0 = 0x0000,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dContactApprox1_1 = 0x1000,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dContactApprox1_2 = 0x2000,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dContactApprox1 = 0x3000
 		}
@@ -551,7 +551,7 @@ namespace Tao.Ode
 		public struct dMass
 		{
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			/// <param name="_mass"></param>
 			/// <param name="_c"></param>
@@ -563,15 +563,15 @@ namespace Tao.Ode
 				I = _I;
 			}
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal mass;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dVector4 c;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dMatrix3 I;
 		};
@@ -593,10 +593,10 @@ namespace Tao.Ode
 			public dVector3 normal;
 
 			/// <summary>
-			/// The depth to which the two bodies inter-penetrate each other. 
-			/// If the depth is zero then the two bodies have a grazing contact, 
-			/// i.e. they "only just" touch. However, this is rare - the simulation is 
-			/// not perfectly accurate and will often step the bodies too far so that 
+			/// The depth to which the two bodies inter-penetrate each other.
+			/// If the depth is zero then the two bodies have a grazing contact,
+			/// i.e. they "only just" touch. However, this is rare - the simulation is
+			/// not perfectly accurate and will often step the bodies too far so that
 			/// the depth is nonzero.
 			/// </summary>
 			public dReal depth;
@@ -620,7 +620,7 @@ namespace Tao.Ode
 		public struct dSurfaceParameters
 		{
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dSurfaceParameters(int _mode, dReal _mu, dReal _mu2, dReal _bounce, dReal _bounce_vel, dReal _soft_erp, dReal _soft_cfm, dReal _motion1, dReal _motion2, dReal _slip1, dReal _slip2)
 			{
@@ -640,130 +640,130 @@ namespace Tao.Ode
 			/// <summary>
 			/// Contact flags. This must always be set. This is a combination of one or more of the following flags:
 			///
-			/// dContactMu2			If not set, use mu for both friction directions. 
+			/// dContactMu2			If not set, use mu for both friction directions.
 			/// 					If set, use mu for friction direction 1, use mu2 for friction direction 2.
-			/// dContactFDir1		If set, take fdir1 as friction direction 1, otherwise automatically compute 
-			/// 					friction direction 1 to be perpendicular to the contact normal (in which 
+			/// dContactFDir1		If set, take fdir1 as friction direction 1, otherwise automatically compute
+			/// 					friction direction 1 to be perpendicular to the contact normal (in which
 			/// 					case its resulting orientation is unpredictable).
-			/// dContactBounce		If set, the contact surface is bouncy, in other words the bodies will 
-			/// 					bounce off each other. The exact amount of bouncyness is controlled by 
+			/// dContactBounce		If set, the contact surface is bouncy, in other words the bodies will
+			/// 					bounce off each other. The exact amount of bouncyness is controlled by
 			/// 					the bounce parameter.
-			///	dContactSoftERP		If set, the error reduction parameter of the contact normal can be set 
+			///	dContactSoftERP		If set, the error reduction parameter of the contact normal can be set
 			/// 					with the soft_erp parameter. This is useful to make surfaces soft.
-			///	dContactSoftCFM		If set, the constraint force mixing parameter of the contact normal 
+			///	dContactSoftCFM		If set, the constraint force mixing parameter of the contact normal
 			/// 					can be set with the soft_cfm parameter. This is useful to make surfaces soft.
-			///	dContactMotion1		If set, the contact surface is assumed to be moving independently of the 
-			/// 					motion of the bodies. This is kind of like a conveyor belt running over 
-			/// 					the surface. When this flag is set, motion1 defines the surface velocity 
+			///	dContactMotion1		If set, the contact surface is assumed to be moving independently of the
+			/// 					motion of the bodies. This is kind of like a conveyor belt running over
+			/// 					the surface. When this flag is set, motion1 defines the surface velocity
 			/// 					in friction direction 1.
 			///	dContactMotion2		The same thing as above, but for friction direction 2.
 			/// dContactSlip1		Force-dependent-slip (FDS) in friction direction 1.
 			///	dContactSlip2		Force-dependent-slip (FDS) in friction direction 2.
-			///	dContactApprox1_1	Use the friction pyramid approximation for friction direction 1. If this is 
-			/// 					not specified then the constant-force-limit approximation is used (and mu is 
+			///	dContactApprox1_1	Use the friction pyramid approximation for friction direction 1. If this is
+			/// 					not specified then the constant-force-limit approximation is used (and mu is
 			/// 					a force limit).
-			/// dContactApprox1_2	Use the friction pyramid approximation for friction direction 2. If this is 
-			/// 					not specified then the constant-force-limit approximation is used (and mu is 
+			/// dContactApprox1_2	Use the friction pyramid approximation for friction direction 2. If this is
+			/// 					not specified then the constant-force-limit approximation is used (and mu is
 			/// 					a force limit).
 			/// dContactApprox1		Equivalent to both dContactApprox1_1 and dContactApprox1_2.
 			/// </summary>
 			public int mode;
 
 			/// <summary>
-			/// Coulomb friction coefficient. 
-			/// This must be in the range 0 to dInfinity. 
-			/// 0 results in a frictionless contact, and dInfinity results in a contact that never slips. 
-			/// Note that frictionless contacts are less time consuming to compute than ones with friction, 
-			/// and infinite friction contacts can be cheaper than contacts with finite friction. 
-			/// 
+			/// Coulomb friction coefficient.
+			/// This must be in the range 0 to dInfinity.
+			/// 0 results in a frictionless contact, and dInfinity results in a contact that never slips.
+			/// Note that frictionless contacts are less time consuming to compute than ones with friction,
+			/// and infinite friction contacts can be cheaper than contacts with finite friction.
+			///
 			/// This must always be set.
 			/// </summary>
 			public dReal mu;
 
 			/// <summary>
-			/// Optional Coulomb friction coefficient for friction direction 2 (0..dInfinity). 
-			/// 
+			/// Optional Coulomb friction coefficient for friction direction 2 (0..dInfinity).
+			///
 			/// This is only set if the corresponding flag is set in mode.
 			/// </summary>
 			public dReal mu2;
 
 			/// <summary>
-			/// Restitution parameter (0..1). 
-			/// 0 means the surfaces are not bouncy at all, 1 is maximum bouncyness. 
-			/// 
+			/// Restitution parameter (0..1).
+			/// 0 means the surfaces are not bouncy at all, 1 is maximum bouncyness.
+			///
 			/// This is only set if the corresponding flag is set in mode.
 			/// </summary>
 			public dReal bounce;
 
 			/// <summary>
-			/// Restitution parameter (0..1). 
-			/// 0 means the surfaces are not bouncy at all, 1 is maximum bouncyness. 
-			/// 
+			/// Restitution parameter (0..1).
+			/// 0 means the surfaces are not bouncy at all, 1 is maximum bouncyness.
+			///
 			/// This is only set if the corresponding flag is set in mode.
 			/// </summary>
 			public dReal bounce_vel;
 
 			/// <summary>
-			/// Contact normal ``softness'' parameter. 
-			/// 
+			/// Contact normal ``softness'' parameter.
+			///
 			/// This is only set if the corresponding flag is set in mode.
 			/// </summary>
 			public dReal soft_erp;
 
 			/// <summary>
-			/// Contact normal ``softness'' parameter. 
-			/// 
+			/// Contact normal ``softness'' parameter.
+			///
 			/// This is only set if the corresponding flag is set in mode.
 			/// </summary>
 			public dReal soft_cfm;
 
 			/// <summary>
-			/// Surface velocity in friction directions 1 (in m/s). 
-			/// 
+			/// Surface velocity in friction directions 1 (in m/s).
+			///
 			/// Only set if the corresponding flags are set in mode.
 			/// </summary>
 			public dReal motion1;
 
 			/// <summary>
-			/// Surface velocity in friction directions 1 (in m/s). 
-			/// 
+			/// Surface velocity in friction directions 1 (in m/s).
+			///
 			/// Only set if the corresponding flags are set in mode.
 			/// </summary>
 			public dReal motion2;
 
 			/// <summary>
-			/// The coefficients of force-dependent-slip (FDS) for friction directions 1 and 2. 
-			/// 
+			/// The coefficients of force-dependent-slip (FDS) for friction directions 1 and 2.
+			///
 			/// These are only set if the corresponding flags are set in mode.
-			/// 
-			/// FDS is an effect that causes the contacting surfaces to side past each other with a 
+			///
+			/// FDS is an effect that causes the contacting surfaces to side past each other with a
 			/// velocity that is proportional to the force that is being applied tangentially to that surface.
-			///	
-			///	Consider a contact point where the coefficient of friction mu is infinite. Normally, if a 
-			/// force f is applied to the two contacting surfaces, to try and get them to slide past each 
-			/// other, they will not move. However, if the FDS coefficient is set to a positive value k 
-			/// then the surfaces will slide past each other, building up to a steady velocity of k*f 
+			///
+			///	Consider a contact point where the coefficient of friction mu is infinite. Normally, if a
+			/// force f is applied to the two contacting surfaces, to try and get them to slide past each
+			/// other, they will not move. However, if the FDS coefficient is set to a positive value k
+			/// then the surfaces will slide past each other, building up to a steady velocity of k*f
 			/// relative to each other.
-			/// 
-			/// Note that this is quite different from normal frictional effects: the force does not 
-			/// cause a constant acceleration of the surfaces relative to each other - it causes a 
+			///
+			/// Note that this is quite different from normal frictional effects: the force does not
+			/// cause a constant acceleration of the surfaces relative to each other - it causes a
 			/// brief acceleration to achieve the steady velocity.
-			///	
-			///	This is useful for modeling some situations, in particular tires. For example consider 
-			/// a car at rest on a road. Pushing the car in its direction of travel will cause it to 
-			/// start moving (i.e. the tires will start rolling). Pushing the car in the perpendicular 
-			/// direction will have no effect, as the tires do not roll in that direction. However - if 
-			/// the car is moving at a velocity v, applying a force f in the perpendicular direction will 
-			/// cause the tires to slip on the road with a velocity proportional to f*v (Yes, this really 
+			///
+			///	This is useful for modeling some situations, in particular tires. For example consider
+			/// a car at rest on a road. Pushing the car in its direction of travel will cause it to
+			/// start moving (i.e. the tires will start rolling). Pushing the car in the perpendicular
+			/// direction will have no effect, as the tires do not roll in that direction. However - if
+			/// the car is moving at a velocity v, applying a force f in the perpendicular direction will
+			/// cause the tires to slip on the road with a velocity proportional to f*v (Yes, this really
 			/// happens).
 			///
-			///	To model this in ODE set the tire-road contact parameters as follows: set friction direction 1 
-			/// in the direction that the tire is rolling in, and set the FDS slip coefficient in friction 
-			/// direction 2 to k*v, where v is the tire rolling velocity and k is a tire parameter that you can 
+			///	To model this in ODE set the tire-road contact parameters as follows: set friction direction 1
+			/// in the direction that the tire is rolling in, and set the FDS slip coefficient in friction
+			/// direction 2 to k*v, where v is the tire rolling velocity and k is a tire parameter that you can
 			/// choose based on experimentation.
-			///	
-			///	Note that FDS is quite separate from the sticking/slipping effects of Coulomb friction - both 
-			/// modes can be used together at a single contact point. 
+			///
+			///	Note that FDS is quite separate from the sticking/slipping effects of Coulomb friction - both
+			/// modes can be used together at a single contact point.
 			/// </summary>
 			public dReal slip1, slip2;
 		};
@@ -776,7 +776,7 @@ namespace Tao.Ode
 		public struct dContact
 		{
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			/// <param name="_surface"></param>
 			/// <param name="_geom"></param>
@@ -788,27 +788,27 @@ namespace Tao.Ode
 				fdir1 = _fdir1;
 			}
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dSurfaceParameters surface;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dContactGeom geom;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dVector3 fdir1;
 		};
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
 		public struct dVector3
 		{
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			/// <param name="x"></param>
 			/// <param name="y"></param>
@@ -820,7 +820,7 @@ namespace Tao.Ode
 				Z = z;
 			}
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal X, Y, Z;
 			/// <summary>
@@ -873,13 +873,13 @@ namespace Tao.Ode
 		};
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
 		public struct dVector4
 		{
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			/// <param name="x"></param>
 			/// <param name="y"></param>
@@ -893,7 +893,7 @@ namespace Tao.Ode
 				W = w;
 			}
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal X, Y, Z, W;
 			/// <summary>
@@ -953,13 +953,13 @@ namespace Tao.Ode
 		};
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
 		public struct dQuaternion
 		{
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			/// <param name="x"></param>
 			/// <param name="y"></param>
@@ -973,7 +973,7 @@ namespace Tao.Ode
 				W = w;
 			}
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal W, X, Y, Z;
 
@@ -1033,13 +1033,13 @@ namespace Tao.Ode
 		};
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
 		public struct Aabb
 		{
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			/// <param name="_minx"></param>
 			/// <param name="_maxx"></param>
@@ -1057,21 +1057,21 @@ namespace Tao.Ode
 				maxz = _maxz;
 			}
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal minx, maxx, miny, maxy, minz, maxz;
 		}
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
 		public struct dMatrix3
 		{
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="values"></param>
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="values"></param>
 			public dMatrix3(dReal[] values)
 			{
 				M00 = values[0];
@@ -1088,60 +1088,60 @@ namespace Tao.Ode
 				M23 = values[11];
 			}
 
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal M00;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M01;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M02;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M03;
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M01;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M02;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M03;
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal M10;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M11;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M12;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M13;
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M11;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M12;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M13;
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal M20;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M21;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M22;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M23;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M21;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M22;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M23;
 
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="index"></param>
-            /// <returns></returns>
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="index"></param>
+			/// <returns></returns>
 			public dReal this[int index]
 			{
 				get
@@ -1196,12 +1196,12 @@ namespace Tao.Ode
 				}
 			}
 
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="x"></param>
-            /// <param name="y"></param>
-            /// <returns></returns>
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="x"></param>
+			/// <param name="y"></param>
+			/// <returns></returns>
 			public dReal this[int x, int y]
 			{
 				get
@@ -1277,10 +1277,10 @@ namespace Tao.Ode
 				}
 			}
 
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <returns></returns>
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <returns></returns>
 			public dReal[] ToArray()
 			{
 				return new dReal[] {
@@ -1290,15 +1290,15 @@ namespace Tao.Ode
 		};
 
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
 		public struct dMatrix4
 		{
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="values"></param>
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="values"></param>
 			public dMatrix4(dReal[] values)
 			{
 				M00 = values[0];
@@ -1319,76 +1319,76 @@ namespace Tao.Ode
 				M33 = values[15];
 			}
 
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal M00;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M01;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M02;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M03;
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M01;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M02;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M03;
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal M10;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M11;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M12;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M13;
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M11;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M12;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M13;
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal M20;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M21;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M22;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M23;
-            /// <summary>
-            /// 
-            /// </summary>
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M21;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M22;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M23;
+			/// <summary>
+			/// 
+			/// </summary>
 			public dReal M30;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M31;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M32;
-            /// <summary>
-            /// 
-            /// </summary>
-            public dReal M33;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M31;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M32;
+			/// <summary>
+			/// 
+			/// </summary>
+			public dReal M33;
 
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="index"></param>
-            /// <returns></returns>
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="index"></param>
+			/// <returns></returns>
 			public dReal this[int index]
 			{
 				get
@@ -1455,12 +1455,12 @@ namespace Tao.Ode
 				}
 			}
 
-            /// <summary>
-            /// 
-            /// </summary>
-            /// <param name="x"></param>
-            /// <param name="y"></param>
-            /// <returns></returns>
+			/// <summary>
+			/// 
+			/// </summary>
+			/// <param name="x"></param>
+			/// <param name="y"></param>
+			/// <returns></returns>
 			public dReal this[int x, int y]
 			{
 				get
@@ -1560,50 +1560,50 @@ namespace Tao.Ode
 		// public struct dMatrix6 {}
 
 		/// <summary>
-		/// During the world time step, the forces that are applied by each joint are computed. 
-		/// These forces are added directly to the joined bodies, and the user normally has no 
+		/// During the world time step, the forces that are applied by each joint are computed.
+		/// These forces are added directly to the joined bodies, and the user normally has no
 		/// way of telling which joint contributed how much force.
 		///
-		///	If this information is desired then the user can allocate a dJointFeedback structure 
-		/// and pass its pointer to the dJointSetFeedback() function. 
-		/// 
+		///	If this information is desired then the user can allocate a dJointFeedback structure
+		/// and pass its pointer to the dJointSetFeedback() function.
+		///
 		/// The feedback information structure is defined as follows:
-		///	
+		///
 		///	typedef struct dJointFeedback {
 		///		dVector3 f1;       // force that joint applies to body 1
 		///		dVector3 t1;       // torque that joint applies to body 1
 		///		dVector3 f2;       // force that joint applies to body 2
 		///		dVector3 t2;       // torque that joint applies to body 2
 		///	} dJointFeedback;
-		///	
-		///	During the time step any feedback structures that are attached to joints will be filled in with the 
-		/// joint's force and torque information. The dJointGetFeedback() function returns the current feedback 
-		/// structure pointer, or 0 if none is used (this is the default). dJointSetFeedback() can be passed 0 
+		///
+		///	During the time step any feedback structures that are attached to joints will be filled in with the
+		/// joint's force and torque information. The dJointGetFeedback() function returns the current feedback
+		/// structure pointer, or 0 if none is used (this is the default). dJointSetFeedback() can be passed 0
 		/// to disable feedback for that joint.
-		///	
-		///	Now for some API design notes. It might seem strange to require that users perform the allocation 
-		/// of these structures. Why not just store the data statically in each joint? The reason is that not 
-		/// all users will use the feedback information, and even when it is used not all joints will need it. 
-		/// It will waste memory to store it statically, especially as this structure could grow to store a 
+		///
+		///	Now for some API design notes. It might seem strange to require that users perform the allocation
+		/// of these structures. Why not just store the data statically in each joint? The reason is that not
+		/// all users will use the feedback information, and even when it is used not all joints will need it.
+		/// It will waste memory to store it statically, especially as this structure could grow to store a
 		/// lot of extra information in the future.
-		///	
-		///	Why not have ODE allocate the structure itself, at the user's request? The reason is that contact 
-		/// joints (which are created and destroyed every time step) would require a lot of time to be spent 
-		/// in memory allocation if feedback is required. Letting the user do the allocation means that a 
+		///
+		///	Why not have ODE allocate the structure itself, at the user's request? The reason is that contact
+		/// joints (which are created and destroyed every time step) would require a lot of time to be spent
+		/// in memory allocation if feedback is required. Letting the user do the allocation means that a
 		/// better allocation strategy can be provided, e.g simply allocating them out of a fixed array.
-		///	
-		///	The alternative to this API is to have a joint-force callback. This would work of course, but 
-		/// it has a few problems. First, callbacks tend to pollute APIs and sometimes require the user 
-		/// to go through unnatural contortions to get the data to the right place. Second, this would 
-		/// expose ODE to being changed in the middle of a step (which would have bad consequences), and 
-		/// there would have to be some kind of guard against this or a debugging check for it - which 
+		///
+		///	The alternative to this API is to have a joint-force callback. This would work of course, but
+		/// it has a few problems. First, callbacks tend to pollute APIs and sometimes require the user
+		/// to go through unnatural contortions to get the data to the right place. Second, this would
+		/// expose ODE to being changed in the middle of a step (which would have bad consequences), and
+		/// there would have to be some kind of guard against this or a debugging check for it - which
 		/// would complicate things.
 		/// </summary>
 		[StructLayout(LayoutKind.Sequential)]
 		public struct dJointFeedback
 		{
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dJointFeedback(dVector3 _f1, dVector3 _t1, dVector3 _f2, dVector3 _t2)
 			{
@@ -3636,7 +3636,7 @@ namespace Tao.Ode
 
 		// TODO: Document this - not found in ode docs
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="joint"></param>
 		/// <returns></returns>
@@ -3645,7 +3645,7 @@ namespace Tao.Ode
 
 		// TODO: Document this - not found in ode docs
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="joint"></param>
 		/// <returns></returns>
@@ -3654,7 +3654,7 @@ namespace Tao.Ode
 
 		// TODO: Document this - not found in ode docs
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="joint"></param>
 		/// <returns></returns>
@@ -3663,7 +3663,7 @@ namespace Tao.Ode
 
 		// TODO: Document this - not found in ode docs
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		/// <param name="joint"></param>
 		/// <returns></returns>
@@ -3901,9 +3901,9 @@ namespace Tao.Ode
 		/// Set the mass parameters to represent a sphere of the given radius and density, with
 		/// the center of mass at (0,0,0) relative to the body.
 		/// </summary>
-		/// <param name="mass">A  dMass</param>
-		/// <param name="density">A  dReal</param>
-		/// <param name="radius">A  dReal</param>
+		/// <param name="mass">the mass to set</param>
+		/// <param name="density">the density of the sphere</param>
+		/// <param name="radius">the radius of the sphere</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetSphere(ref dMass mass, dReal density, dReal radius);
 
@@ -3911,21 +3911,21 @@ namespace Tao.Ode
 		/// Set the mass parameters to represent a sphere of the given total mass and radius, with
 		/// the center of mass at (0,0,0) relative to the body.
 		/// </summary>
-		/// <param name="mass">A  dMass</param>
-		/// <param name="total_mass">A  dReal</param>
-		/// <param name="radius">A  dReal</param>
+		/// <param name="mass">the mass to set</param>
+		/// <param name="total_mass">the total mass of the sphere</param>
+		/// <param name="radius">the radius of the sphere</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetSphereTotal(ref dMass mass, dReal total_mass, dReal radius);
 
 		/// <summary>
-		/// Set the mass parameters to represent a capped cylinder of the given parameters and density, with
+		/// Set the mass parameters to represent a capsule of the given parameters and density, with
 		/// the center of mass at (0,0,0) relative to the body.
 		/// </summary>
 		/// <remarks>
 		/// The cylinder's long axis is oriented along the body's x, y or z axis according to the value of direction (1=x, 2=y, 3=z).
 		/// </remarks>
-		/// <param name="mass">A  dMass</param>
-		/// <param name="density">The density of the cylinder</param>
+		/// <param name="mass">the mass to set</param>
+		/// <param name="density">The density of the capsule</param>
 		/// <param name="direction">The orientation of the cylinder's long axis (1=x, 2=y, 3=z)</param>
 		/// <param name="radius">The radius of the cylinder (and the spherical cap)</param>
 		/// <param name="length">The length of the cylinder (not counting the spherical cap)</param>
@@ -3933,23 +3933,18 @@ namespace Tao.Ode
 		public extern static void dMassSetCapsule(ref dMass mass, dReal density, int direction,
 			dReal radius, dReal length);
 
-		/* TLT comment:
-		 Calls dMassSetCapsule and dMassAdjust internally.
-		 parameter a = radius, parameter b = length - should probably name them this, but
-		 for now am following the Ode code.
-		 */
 		/// <summary>
-		/// Set the mass parameters to represent a capped cylinder of the given parameters and total mass, with
+		/// Set the mass parameters to represent a capsule of the given parameters and total mass, with
 		/// the center of mass at (0,0,0) relative to the body.
 		/// </summary>
 		/// <remarks>
-		/// The cylinder's long axis is oriented along the body's x, y or z axis according to the value of direction (1=x, 2=y, 3=z).
+		/// The capsule's long axis is oriented along the body's x, y or z axis according to the value of direction (1=x, 2=y, 3=z).
 		/// </remarks>
-		/// <param name="mass">A  dMass</param>
-		/// <param name="total_mass">The total mass of the cylinder</param>
-		/// <param name="direction">The orientation of the cylinder's long axis (1=x, 2=y, 3=z)</param>
-		/// <param name="radius">The radius of the cylinder (and the spherical cap)</param>
-		/// <param name="length">The length of the cylinder (not counting the spherical cap)</param>
+		/// <param name="mass">the mass to set</param>
+		/// <param name="total_mass">The total mass of the capsule</param>
+		/// <param name="direction">The orientation of the capsule's long axis (1=x, 2=y, 3=z)</param>
+		/// <param name="radius">The radius of the capsule (and the spherical cap)</param>
+		/// <param name="length">The length of the capsule (not counting the spherical cap)</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassSetCapsuleTotal(ref dMass mass, dReal total_mass, int direction,
 			dReal radius, dReal length);
@@ -3961,9 +3956,9 @@ namespace Tao.Ode
 		/// <remarks>
 		/// The cylinder's long axis is oriented along the body's x, y or z axis according to the value of direction (1=x, 2=y, 3=z).
 		/// </remarks>
-		/// <param name="mass">A  dMass</param>
-		/// <param name="density">A  dReal</param>
-		/// <param name="direction">An int</param>
+		/// <param name="mass">the mass to set</param>
+		/// <param name="density">the density of the cylinder</param>
+		/// <param name="direction">the orientation of the cylinder</param>
 		/// <param name="radius">The radius of the cylinder</param>
 		/// <param name="length">The length of the cylinder</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
@@ -3977,9 +3972,9 @@ namespace Tao.Ode
 		/// <remarks>
 		/// The cylinder's long axis is oriented along the body's x, y or z axis according to the value of direction (1=x, 2=y, 3=z).
 		/// </remarks>
-		/// <param name="mass">A  dMass</param>
-		/// <param name="total_mass">A  dReal</param>
-		/// <param name="direction">An int</param>
+		/// <param name="mass">the mass to set</param>
+		/// <param name="total_mass">the total mass of the cylinder</param>
+		/// <param name="direction">the orientation of the cylinder</param>
 		/// <param name="radius">The radius of the cylinder</param>
 		/// <param name="length">The length of the cylinder</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
@@ -3990,7 +3985,7 @@ namespace Tao.Ode
 		/// Set the mass parameters to represent a box of the given dimensions and density, with
 		/// the center of mass at (0,0,0) relative to the body.
 		/// </summary>
-		/// <param name="mass">A  dMass</param>
+		/// <param name="mass">the mass to set</param>
 		/// <param name="density">The density of the box</param>
 		/// <param name="lx">The side length of the box along the x axis</param>
 		/// <param name="ly">The side length of the box along the y axis</param>
@@ -4003,7 +3998,7 @@ namespace Tao.Ode
 		/// Set the mass parameters to represent a box of the given dimensions and total mass, with
 		/// the center of mass at (0,0,0) relative to the body.
 		/// </summary>
-		/// <param name="mass">A  dMass</param>
+		/// <param name="mass">the mass to set</param>
 		/// <param name="total_mass">The total mass of the box</param>
 		/// <param name="lx">The side length of the box along the x axis</param>
 		/// <param name="ly">The side length of the box along the y axis</param>
@@ -4019,8 +4014,8 @@ namespace Tao.Ode
 		/// This is useful when using the "mass set" functions to set the mass parameters for
 		/// certain objects - they take the object density, not the total mass.
 		/// </remarks>
-		/// <param name="mass">A  dMass</param>
-		/// <param name="newmass">A  dReal</param>
+		/// <param name="mass">the mass parameters to adjust</param>
+		/// <param name="newmass">the new total mass</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassAdjust(ref dMass mass, dReal newmass);
 
@@ -4028,7 +4023,7 @@ namespace Tao.Ode
 		/// Given mass parameters for some object, adjust them to represent the object displaced
 		/// by (x,y,z) relative to the body frame.
 		/// </summary>
-		/// <param name="mass">A  dMass</param>
+		/// <param name="mass">the mass parameters to translate</param>
 		/// <param name="x">The displacement along the x axis</param>
 		/// <param name="y">The displacement along the y axis</param>
 		/// <param name="z">The displacement along the z axis</param>
@@ -4038,8 +4033,8 @@ namespace Tao.Ode
 		/// <summary>
 		/// Given mass parameters for some object, adjust them to represent the object rotated by R relative to the body frame.
 		/// </summary>
-		/// <param name="mass">A  dMass</param>
-		/// <param name="R">An  array of 12 elements containing a 3x4 rotation matrix</param>
+		/// <param name="mass">the mass to rotate</param>
+		/// <param name="R">An array of 12 elements containing a 3x4 rotation matrix</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dMassRotate(ref dMass mass, dReal[] R);
 
@@ -4067,10 +4062,10 @@ namespace Tao.Ode
 
 		#region Collision functions
 		/// <summary>
-		/// Destroy a geom, removing it from any space it is in first. 
-		/// This one function destroys a geom of any type, but to create a geom you 
+		/// Destroy a geom, removing it from any space it is in first.
+		/// This one function destroys a geom of any type, but to create a geom you
 		/// must call a creation function for that type.
-		/// When a space is destroyed, if its cleanup mode is 1 (the default) then 
+		/// When a space is destroyed, if its cleanup mode is 1 (the default) then
 		/// all the geoms in that space are automatically destroyed as well.
 		/// </summary>
 		/// <param name="geom">A  dGeomID</param>
@@ -4108,16 +4103,16 @@ namespace Tao.Ode
 		public extern static IntPtr dGeomGetData(dGeomID geom);
 
 		/// <summary>
-		/// Set the body associated with a placeable geom. 
-		/// 
-		/// Setting a body on a geom automatically combines the position vector and 
-		/// rotation matrix of the body and geom, so that setting the position or 
+		/// Set the body associated with a placeable geom.
+		///
+		/// Setting a body on a geom automatically combines the position vector and
+		/// rotation matrix of the body and geom, so that setting the position or
 		/// orientation of one will set the value for both objects.
-		/// Setting a body ID of zero gives the geom its own position and rotation, 
-		/// independent from any body. 
-		/// If the geom was previously connected to a body then its new independent 
+		/// Setting a body ID of zero gives the geom its own position and rotation,
+		/// independent from any body.
+		/// If the geom was previously connected to a body then its new independent
 		/// position/rotation is set to the current position/rotation of the body.
-		/// 
+		///
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
 		/// <param name="geom">A  dGeomID</param>
@@ -4134,12 +4129,12 @@ namespace Tao.Ode
 		public extern static dBodyID dGeomGetBody(dGeomID geom);
 
 		/// <summary>
-		/// Set the position vector of a placeable geom. 
-		/// 
+		/// Set the position vector of a placeable geom.
+		///
 		/// This function is analogous to dBodySetPosition.
-		///  
+		///
 		/// If the geom is attached to a body, the body's position will also be changed.
-		/// 
+		///
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
 		/// <param name="geom">dGeomID of the geom to set</param>
@@ -4150,12 +4145,12 @@ namespace Tao.Ode
 		public extern static void dGeomSetPosition(dGeomID geom, dReal x, dReal y, dReal z);
 
 		/// <summary>
-		/// Set the rotation matrix of a placeable geom. 
-		/// 
+		/// Set the rotation matrix of a placeable geom.
+		///
 		/// This function is analogous to dBodySetRotation.
-		///  
+		///
 		/// If the geom is attached to a body, the body's rotation will also be changed.
-		/// 
+		///
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
 		/// <param name="geom">the geom to set</param>
@@ -4164,12 +4159,12 @@ namespace Tao.Ode
 		public extern static void dGeomSetRotation(dGeomID geom, dReal[] R);
 
 		/// <summary>
-		/// Set the rotation matrix of a placeable geom. 
-		/// 
+		/// Set the rotation matrix of a placeable geom.
+		///
 		/// This function is analogous to dBodySetRotation.
-		///  
+		///
 		/// If the geom is attached to a body, the body's rotation will also be changed.
-		/// 
+		///
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
 		/// <param name="geom">the geom to set</param>
@@ -4180,12 +4175,12 @@ namespace Tao.Ode
 		}
 
 		/// <summary>
-		/// Set the rotation of a placeable geom. 
-		/// 
-		/// This function is analogous to dBodySetQuaternion. 
-		/// 
+		/// Set the rotation of a placeable geom.
+		///
+		/// This function is analogous to dBodySetQuaternion.
+		///
 		/// If the geom is attached to a body, the body's rotation will also be changed.
-		/// 
+		///
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
 		/// <param name="geom">the geom to set</param>
@@ -4196,19 +4191,19 @@ namespace Tao.Ode
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, EntryPoint = "dGeomGetPosition"), SuppressUnmanagedCodeSecurity]
 		private extern unsafe static dReal* dGeomGetPosition_(dGeomID geom);
 		/// <summary>
-		/// Return the geom's position vector. 
-		/// 
-		/// In native ODE, the returned values are pointers to internal data 
-		/// structures, so the vectors are valid until any changes are made to the 
-		/// geom. 
-		/// 
-		/// If the geom is attached to a body, the body's position vector will be 
+		/// Return the geom's position vector.
+		///
+		/// In native ODE, the returned values are pointers to internal data
+		/// structures, so the vectors are valid until any changes are made to the
+		/// geom.
+		///
+		/// If the geom is attached to a body, the body's position vector will be
 		/// returned, i.e. the result will be identical to calling dBodyGetPosition
-		/// 
-		/// dGeomGetQuaternion copies the geom's quaternion into the space provided. 
-		/// If the geom is attached to a body, the body's quaternion will be returned, 
+		///
+		/// dGeomGetQuaternion copies the geom's quaternion into the space provided.
+		/// If the geom is attached to a body, the body's quaternion will be returned,
 		/// i.e. the resulting quaternion will be the same as the result of calling dBodyGetQuaternion.
-		/// 
+		///
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
 		/// <returns>the geom's position vector</returns>
@@ -4226,14 +4221,14 @@ namespace Tao.Ode
 		private extern unsafe static dReal* dGeomGetRotation_(dGeomID geom);
 		/// <summary>
 		/// Get the rotation matrix of a placeable geom.
-		/// 
-		/// In native ODE, the returned values are pointers to internal data 
-		/// structures, so the matrices are valid until any changes are made to the 
-		/// geom. 
-		/// 
-		/// If the geom is attached to a body, the body's rotation matrix will be 
+		///
+		/// In native ODE, the returned values are pointers to internal data
+		/// structures, so the matrices are valid until any changes are made to the
+		/// geom.
+		///
+		/// If the geom is attached to a body, the body's rotation matrix will be
 		/// returned, i.e. the result will be identical to calling dBodyGetRotation.
-		/// 
+		///
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
 		/// <returns>the geom's rotation matrix</returns>
@@ -4249,12 +4244,12 @@ namespace Tao.Ode
 
 		/// <summary>
 		/// Get the rotation quaternion of a placeable geom.
-		/// 
-		/// dGeomGetQuaternion copies the geom's quaternion into the structure provided. 
-		/// 
-		/// If the geom is attached to a body, the body's quaternion will be returned, 
+		///
+		/// dGeomGetQuaternion copies the geom's quaternion into the structure provided.
+		///
+		/// If the geom is attached to a body, the body's quaternion will be returned,
 		/// i.e. the resulting quaternion will be the same as the result of calling dBodyGetQuaternion.
-		/// 
+		///
 		/// Calling this function on a non-placeable geom results in a runtime error in the debug build of ODE.
 		/// </summary>
 		/// <param name="geom">the geom to query</param>
@@ -4263,13 +4258,13 @@ namespace Tao.Ode
 		public extern static void dGeomGetQuaternion(dGeomID geom, ref dQuaternion result);
 
 		/// <summary>
-		/// Return in aabb an axis aligned bounding box that surrounds the given geom. 
-		/// 
+		/// Return in aabb an axis aligned bounding box that surrounds the given geom.
+		///
 		/// The aabb array has elements (minx, maxx, miny, maxy, minz, maxz).
-		///  
+		///
 		/// If the geom is a space, a bounding box that surrounds all contained geoms is returned.
-		/// 
-		/// This function may return a pre-computed cached bounding box, if it can 
+		///
+		/// This function may return a pre-computed cached bounding box, if it can
 		/// determine that the geom has not moved since the last time the bounding box was computed.
 		/// </summary>
 		/// <param name="geom">the geom to query</param>
@@ -4278,7 +4273,7 @@ namespace Tao.Ode
 		public extern static void dGeomGetAABB(dGeomID geom, Aabb aabb);
 
 		/// <summary>
-		/// Determine if a geom is a space.		
+		/// Determine if a geom is a space.
 		/// </summary>
 		/// <returns>An int, non-zero if the given geom is a space, zero otherwise.</returns>
 		/// <param name="geom">The geom to query</param>
@@ -4309,7 +4304,7 @@ namespace Tao.Ode
 		///		dQuadTreeSpaceClass		Quad-tree based space
 		///		dFirstUserClass			First user class
 		///		dLastUserClass			Last user class
-		/// 
+		///
 		/// User defined classes will return their own numbers.
 		/// </summary>
 		/// <returns>The geom class ID.</returns>
@@ -4318,12 +4313,12 @@ namespace Tao.Ode
 		public extern static int dGeomGetClass(dGeomID geom);
 
 		/// <summary>
-		/// Set the "category" bitfield for the given geom. 
-		/// This bitfield is used by spaces to govern which geoms will interact 
-		/// with each other. 
-		/// 
-		/// The bitfield is guaranteed to be at least 32 bits wide. 
-		/// 
+		/// Set the "category" bitfield for the given geom.
+		/// This bitfield is used by spaces to govern which geoms will interact
+		/// with each other.
+		///
+		/// The bitfield is guaranteed to be at least 32 bits wide.
+		///
 		/// The default category and collide values for newly created geoms have all bits set.
 		///
 		/// Note this is NOT CLS-compliant (due to the use of ulong to hold the 32-bit bitfield)
@@ -4336,13 +4331,13 @@ namespace Tao.Ode
 		public extern static void dGeomSetCategoryBits(dGeomID geom, ulong bits);
 
 		/// <summary>
-		/// Set the "collide" bitfield for the given geom. 
-		/// 
-		/// This bitfield is used by spaces to govern which geoms will interact 
-		/// with each other. 
-		/// 
-		/// The bitfield is guaranteed to be at least 32 bits wide. 
-		/// 
+		/// Set the "collide" bitfield for the given geom.
+		///
+		/// This bitfield is used by spaces to govern which geoms will interact
+		/// with each other.
+		///
+		/// The bitfield is guaranteed to be at least 32 bits wide.
+		///
 		/// The default category and collide values for newly created geoms have all bits set.
 		///
 		/// Note this is NOT CLS-compliant (due to the use of ulong to hold the 32-bit bitfield)
@@ -4355,12 +4350,12 @@ namespace Tao.Ode
 		public extern static void dGeomSetCollideBits(dGeomID geom, ulong bits);
 
 		/// <summary>
-		/// Get the "category" bitfield for the given geom. 
-		/// This bitfield is used by spaces to govern which geoms will interact 
-		/// with each other. 
-		/// 
-		/// The bitfield is guaranteed to be at least 32 bits wide. 
-		/// 
+		/// Get the "category" bitfield for the given geom.
+		/// This bitfield is used by spaces to govern which geoms will interact
+		/// with each other.
+		///
+		/// The bitfield is guaranteed to be at least 32 bits wide.
+		///
 		/// The default category and collide values for newly created geoms have all bits set.
 		///
 		/// Note this is NOT CLS-compliant (due to the use of ulong to hold the 32-bit bitfield)
@@ -4373,12 +4368,12 @@ namespace Tao.Ode
 		public extern static ulong dGeomGetCategoryBits(dGeomID geom);
 
 		/// <summary>
-		/// Get the "collide" bitfield for the given geom. 
-		/// This bitfield is used by spaces to govern which geoms will interact 
-		/// with each other. 
-		/// 
-		/// The bitfield is guaranteed to be at least 32 bits wide. 
-		/// 
+		/// Get the "collide" bitfield for the given geom.
+		/// This bitfield is used by spaces to govern which geoms will interact
+		/// with each other.
+		///
+		/// The bitfield is guaranteed to be at least 32 bits wide.
+		///
 		/// The default category and collide values for newly created geoms have all bits set.
 		///
 		/// Note this is NOT CLS-compliant (due to the use of ulong to hold the 32-bit bitfield)
@@ -4391,11 +4386,11 @@ namespace Tao.Ode
 		public extern static ulong dGeomGetCollideBits(dGeomID geom);
 
 		/// <summary>
-		/// Enable a geom. 
-		/// 
+		/// Enable a geom.
+		///
 		/// Disabled geoms are completely ignored by dSpaceCollide and dSpaceCollide2,
 		/// although they can still be members of a space.
-		/// 
+		///
 		/// New geoms are created in the enabled state.
 		/// </summary>
 		/// <param name="geom">the geom to enable</param>
@@ -4403,11 +4398,11 @@ namespace Tao.Ode
 		public extern static void dGeomEnable(dGeomID geom);
 
 		/// <summary>
-		/// Disable a geom. 
-		/// 
+		/// Disable a geom.
+		///
 		/// Disabled geoms are completely ignored by dSpaceCollide and dSpaceCollide2,
 		/// although they can still be members of a space.
-		/// 
+		///
 		/// New geoms are created in the enabled state.
 		/// </summary>
 		/// <param name="geom">the geom to disable</param>
@@ -4416,7 +4411,7 @@ namespace Tao.Ode
 
 		/// <summary>
 		/// Check if a geom is enabled.
-		/// 
+		///
 		/// New geoms are created in the enabled state.
 		/// </summary>
 		/// <returns>Returns non-zero if a geom is enabled, zero otherwise.</returns>
@@ -4425,38 +4420,38 @@ namespace Tao.Ode
 		public extern static int dGeomIsEnabled(dGeomID geom);
 
 		#region Geom Offsets
-        /// <summary>
+		/// <summary>
 		/// Geom Offset Overview
-		/// Geom offsets allow geom objects to be offset from a body's position. 
-		/// This is useful for cases where an object has an offset centre of mass, 
-		/// or is made up out of several geoms each with their own local position. 
+		/// Geom offsets allow geom objects to be offset from a body's position.
+		/// This is useful for cases where an object has an offset centre of mass,
+		/// or is made up out of several geoms each with their own local position.
 		/// Native support for geom offsets means that the geomTransform container is now obselete.
 		///
-		/// The real advantage over geomTransform is that there is a much easier interface for 
-		/// setting, getting, and modifying a geom's offset from its body. 
-		/// The elimination of geomTransform simplifies callbacks which no longer have to 
-		/// special case that geom class type. 
-		/// In terms of performance, the new code has a negligible performance difference 
+		/// The real advantage over geomTransform is that there is a much easier interface for
+		/// setting, getting, and modifying a geom's offset from its body.
+		/// The elimination of geomTransform simplifies callbacks which no longer have to
+		/// special case that geom class type.
+		/// In terms of performance, the new code has a negligible performance difference
 		/// and a memory improvement compared to using a geomTransform.
-		/// 
+		///
 		/// Geom Offset and Bodies
-		/// An offset only makes sense for geoms which are connected to bodies. 
-		/// It is an error to attempt to set an offset for a geom which is not connected to a body. 
-		/// When a geom is disconnected from a body, any offset will be automatically eliminated. 
+		/// An offset only makes sense for geoms which are connected to bodies.
+		/// It is an error to attempt to set an offset for a geom which is not connected to a body.
+		/// When a geom is disconnected from a body, any offset will be automatically eliminated.
 		/// Thus, the possible states a geom can be in are:
 		///     * Geom
 		///     * Geom on body
-		///     * Geom on body, with an offset 
-		/// To create an offset, just call one of the geomSetOffset functions. 
-		/// The offset will be automatically created if it does not yet exist. 
-		/// Geom offsets are normally set by specifying the offset in local coordinates. 
-		/// An extra set of functions are provided to allow an offset to be determined by 
-		/// providing world coordinates and subtracting them from the current body position. 
-		/// These second set of functions, geomSetOffsetWorldPosition(),etc, allow the user to 
-		/// essentially say "keep the body where it is, and move its geom to this position in the world". 
+		///     * Geom on body, with an offset
+		/// To create an offset, just call one of the geomSetOffset functions.
+		/// The offset will be automatically created if it does not yet exist.
+		/// Geom offsets are normally set by specifying the offset in local coordinates.
+		/// An extra set of functions are provided to allow an offset to be determined by
+		/// providing world coordinates and subtracting them from the current body position.
+		/// These second set of functions, geomSetOffsetWorldPosition(),etc, allow the user to
+		/// essentially say "keep the body where it is, and move its geom to this position in the world".
 		/// Set the local offset position of a geom from its body.
-		/// 
-		/// After this call, the geom will be at a new position determined from the 
+		///
+		/// After this call, the geom will be at a new position determined from the
 		/// body's position and the offset.
 		/// The geom must be attached to a body.
 		/// If the geom did not have an offset, it is automatically created.
@@ -4465,22 +4460,22 @@ namespace Tao.Ode
 		/// <param name="x">the new X coordinate</param>
 		/// <param name="y">the new Y coordinate</param>
 		/// <param name="z">the new Z coordinate</param>
-		[DllImport (ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomSetOffsetPosition(dGeomID geom, dReal x, dReal y, dReal z);
 
 		/// <summary>
 		/// Set the local offset rotation matrix of a geom from its body.
-		/// 
-		/// Sets the geom's rotational offset in local coordinates. 
-		/// After this call, the geom will be at a new position determined from the 
+		///
+		/// Sets the geom's rotational offset in local coordinates.
+		/// After this call, the geom will be at a new position determined from the
 		/// body's position and the offset.
 		/// The geom must be attached to a body.
 		/// If the geom did not have an offset, it is automatically created.
 		/// </summary>
 		/// <param name="geom">the geom to set.</param>
 		/// <param name="R">the new rotation matrix.</param>
-		[DllImport (ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dGeomSetOffsetRotation (dGeomID geom, dMatrix3 R);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dGeomSetOffsetRotation(dGeomID geom, dMatrix3 R);
 
 		/// <summary>
 		/// Set the local offset rotation of a geom from its body.
@@ -4493,8 +4488,8 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="geom">the geom to set.</param>
 		/// <param name="Q">the new rotation.</param>
-		[DllImport (ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dGeomSetOffsetQuaternion (dGeomID geom, dQuaternion Q);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dGeomSetOffsetQuaternion(dGeomID geom, dQuaternion Q);
 
 		/// <summary>
 		/// Set the offset position of a geom from its body.
@@ -4510,8 +4505,8 @@ namespace Tao.Ode
 		/// <param name="x">the new X coordinate.</param>
 		/// <param name="y">the new Y coordinate.</param>
 		/// <param name="z">the new Z coordinate.</param>
-		[DllImport (ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dGeomSetOffsetWorldPosition (dGeomID geom, dReal x, dReal y, dReal z);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dGeomSetOffsetWorldPosition(dGeomID geom, dReal x, dReal y, dReal z);
 
 		/// <summary>
 		/// Set the offset rotation of a geom from its body.
@@ -4525,8 +4520,8 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="geom">the geom to set.</param>>
 		/// <param name="R">the new rotation matrix.</param>>
-		[DllImport (ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dGeomSetOffsetWorldRotation (dGeomID geom, dMatrix3 R);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dGeomSetOffsetWorldRotation(dGeomID geom, dMatrix3 R);
 
 		/// <summary>
 		/// Set the offset rotation of a geom from its body.
@@ -4540,8 +4535,8 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="geom">the geom to set.</param>
 		/// <param name="Q">the new rotation.</param>
-		[DllImport (ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dGeomSetOffsetWorldQuaternion (dGeomID geom, dQuaternion Q);
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dGeomSetOffsetWorldQuaternion(dGeomID geom, dQuaternion Q);
 
 		/// <summary>
 		/// Clear any offset from the geom.
@@ -4554,12 +4549,12 @@ namespace Tao.Ode
 		/// eliminates the offset, rather than leaving it as the identity transform.
 		/// </summary>
 		/// <param name="geom">the geom to have its offset destroyed.</param>
-		[DllImport (ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomClearOffset(dGeomID geom);
 
 		/// <summary>
 		/// Check to see whether the geom has an offset.
-		/// 
+		///
 		/// This function will return non-zero if the offset has been created.
 		/// Note that there is a difference between a geom with no offset,
 		/// and a geom with an offset that is the identity transform.
@@ -4570,14 +4565,14 @@ namespace Tao.Ode
 		/// </summary>
 		/// <param name="geom">the geom to query.</param>
 		/// <returns>Non-zero if the geom has an offset, zero otherwise.</returns>
-		[DllImport (ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dGeomIsOffset(dGeomID geom);
 
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, EntryPoint = "dGeomGetOffsetPosition"), SuppressUnmanagedCodeSecurity]
 		private extern unsafe static dReal* dGeomGetOffsetPosition_(dGeomID geom);
 		/// <summary>
 		/// Get the offset position vector of a geom.
-		/// 
+		///
 		/// Returns the positional offset of the geom in local coordinates.
 		/// If the geom has no offset, this function returns the zero vector.
 		/// </summary>
@@ -4587,7 +4582,7 @@ namespace Tao.Ode
 		/// The returned value is a pointer to the geom's internal
 		/// data structure. It is valid until any changes are made
 		///	to the geom.
-		///	</remarks> 
+		///	</remarks>
 		public static dVector3 dGeomGetOffsetPosition(dGeomID geom)
 		{
 			unsafe
@@ -4613,7 +4608,7 @@ namespace Tao.Ode
 		/// The returned value is a pointer to the geom's internal
 		/// data structure. It is valid until any changes are made
 		/// to the geom.
-		/// </remarks> 
+		/// </remarks>
 		public static dMatrix3 dGeomGetOffsetRotation(dGeomID geom)
 		{
 			unsafe
@@ -4626,7 +4621,7 @@ namespace Tao.Ode
 
 		/// <summary>
 		/// Get the offset rotation quaternion of a geom.
-		/// 
+		///
 		/// Returns the rotation offset of the geom as a quaternion.
 		/// If the geom has no offset, the identity quaternion is returned.
 		/// </summary>
@@ -4641,44 +4636,44 @@ namespace Tao.Ode
 
 		#region Collision Detection
 		/// <summary>
-		/// Given two geoms o1 and o2 that potentially intersect, generate contact 
-		/// information for them. 
-		/// 
+		/// Given two geoms o1 and o2 that potentially intersect, generate contact
+		/// information for them.
+		///
 		/// Internally, this just calls the correct class-specific collision functions
 		/// for o1 and o2.
-		/// 
-		/// "flags" specifies how contacts should be generated if the geoms touch. The 
-		/// lower 16 bits of flags is an integer that specifies the maximum number 
-		/// of contact points to generate. Note that if this number is zero, this 
-		/// function just pretends that it is one - in other words you can not ask 
-		/// for zero contacts. All other bits in flags must be zero. 
-		/// In the future the other bits may be used to select from different contact 
+		///
+		/// "flags" specifies how contacts should be generated if the geoms touch. The
+		/// lower 16 bits of flags is an integer that specifies the maximum number
+		/// of contact points to generate. Note that if this number is zero, this
+		/// function just pretends that it is one - in other words you can not ask
+		/// for zero contacts. All other bits in flags must be zero.
+		/// In the future the other bits may be used to select from different contact
 		/// generation strategies.
-		/// 
-		/// "contacts" points to an array of dContactGeom structures. The array must 
-		/// be able to hold at least the maximum number of contacts. These 
-		/// dContactGeom structures may be embedded within larger structures in the 
-		/// array - the skip parameter is the byte offset from one dContactGeom to 
-		/// the next in the array. If skip is sizeof(dContactGeom) then contact 
+		///
+		/// "contacts" points to an array of dContactGeom structures. The array must
+		/// be able to hold at least the maximum number of contacts. These
+		/// dContactGeom structures may be embedded within larger structures in the
+		/// array - the skip parameter is the byte offset from one dContactGeom to
+		/// the next in the array. If skip is sizeof(dContactGeom) then contact
 		/// points to a normal (C-style) array. It is an error for skip to be smaller
 		/// than sizeof(dContactGeom).
-		/// 
+		///
 		/// If the geoms intersect, this function returns the number of contact points
 		/// generated (and updates the contact array), otherwise it returns 0 (and the
 		///  contact array is not touched).
-		/// 
-		/// If a space is passed as o1 or o2 then this function will collide all 
-		/// objects contained in o1 with all objects contained in o2, and return 
-		/// the resulting contact points. This method for colliding spaces with 
-		/// geoms (or spaces with spaces) provides no user control over the 
-		/// individual collisions. To get that control, use dSpaceCollide or 
+		///
+		/// If a space is passed as o1 or o2 then this function will collide all
+		/// objects contained in o1 with all objects contained in o2, and return
+		/// the resulting contact points. This method for colliding spaces with
+		/// geoms (or spaces with spaces) provides no user control over the
+		/// individual collisions. To get that control, use dSpaceCollide or
 		/// dSpaceCollide2 instead.
-		/// 
-		/// If o1 and o2 are the same geom then this function will do nothing and 
-		/// return 0. Technically speaking an object intersects with itself, but 
+		///
+		/// If o1 and o2 are the same geom then this function will do nothing and
+		/// return 0. Technically speaking an object intersects with itself, but
 		/// it is not useful to find contact points in this case.
-		/// 
-		/// This function does not care if o1 and o2 are in the same space or not 
+		///
+		/// This function does not care if o1 and o2 are in the same space or not
 		/// (or indeed if they are in any space at all).
 		/// </summary>
 		/// <returns>An int</returns>
@@ -4692,28 +4687,28 @@ namespace Tao.Ode
 
 		/// <summary>
 		/// This determines which pairs of geoms in a space may potentially intersect,
-		/// and calls the callback function with each candidate pair. 
-		/// 
-		/// The callback function is of type dNearCallback, which is defined as: 
+		/// and calls the callback function with each candidate pair.
+		///
+		/// The callback function is of type dNearCallback, which is defined as:
 		///		typedef void dNearCallback (void *data, dGeomID o1, dGeomID o2);
-		/// 
-		/// The data argument is passed from dSpaceCollide directly to the callback 
-		/// function. Its meaning is user defined. 
+		///
+		/// The data argument is passed from dSpaceCollide directly to the callback
+		/// function. Its meaning is user defined.
 		/// The o1 and o2 arguments are the geoms that may be near each other.
-		/// The callback function can call dCollide on o1 and o2 to generate contact 
-		/// points between each pair. Then these contact points may be added to the 
-		/// simulation as contact joints. The user's callback function can of course 
-		/// chose not to call dCollide for any pair, e.g. if the user decides that 
+		/// The callback function can call dCollide on o1 and o2 to generate contact
+		/// points between each pair. Then these contact points may be added to the
+		/// simulation as contact joints. The user's callback function can of course
+		/// chose not to call dCollide for any pair, e.g. if the user decides that
 		/// those pairs should not interact.
-		/// 
-		/// Other spaces that are contained within the colliding space are not treated 
-		/// specially, i.e. they are not recursed into. The callback function may be 
+		///
+		/// Other spaces that are contained within the colliding space are not treated
+		/// specially, i.e. they are not recursed into. The callback function may be
 		/// passed these contained spaces as one or both geom arguments.
-		/// 
-		/// dSpaceCollide() is guaranteed to pass all intersecting geom pairs to the 
-		/// callback function, but it may also make mistakes and pass non-intersecting 
-		/// pairs. The number of mistaken calls depends on the internal algorithms 
-		/// used by the space. Thus you should not expect that dCollide will return 
+		///
+		/// dSpaceCollide() is guaranteed to pass all intersecting geom pairs to the
+		/// callback function, but it may also make mistakes and pass non-intersecting
+		/// pairs. The number of mistaken calls depends on the internal algorithms
+		/// used by the space. Thus you should not expect that dCollide will return
 		/// contacts for every pair passed to the callback.
 		/// </summary>
 		/// <param name="space">A  dSpaceID</param>
@@ -4723,33 +4718,33 @@ namespace Tao.Ode
 		public extern static void dSpaceCollide(dSpaceID space, IntPtr data, dNearCallback callback);
 
 		/// <summary>
-		/// This function is similar to dSpaceCollide, except that it is passed two 
-		/// geoms (or spaces) as arguments. It calls the callback for all 
-		/// potentially intersecting pairs that contain one geom from o1 and one geom 
+		/// This function is similar to dSpaceCollide, except that it is passed two
+		/// geoms (or spaces) as arguments. It calls the callback for all
+		/// potentially intersecting pairs that contain one geom from o1 and one geom
 		/// from o2.
-		/// 
-		/// The exact behavior depends on the types of o1 and o2: 
-		///		If one argument is a non-space geom and the other is a space, the 
-		/// 	callback is called with all potential intersections between the geom and 
+		///
+		/// The exact behavior depends on the types of o1 and o2:
+		///		If one argument is a non-space geom and the other is a space, the
+		/// 	callback is called with all potential intersections between the geom and
 		/// 	the objects in the space.
-		/// 	If both o1 and o2 are spaces then this calls the callback for all potentially 
-		/// 	intersecting pairs that contain one geom from o1 and one geom from o2. The 
-		/// 	algorithm that is used depends on what kinds of spaces are being collided. 
-		/// 	If no optimized algorithm can be selected then this function will resort 
-		/// 	to one of the following two strategies: 
-		/// 		1. 	All the geoms in o1 are tested one-by-one against o2. 
-		/// 		2. 	All the geoms in o2 are tested one-by-one against o1. 
-		/// 	The strategy used may depend on a number of rules, but in general the 
-		/// 	space with less objects has its geoms examined one-by-one. 
-		/// 		-	If both arguments are the same space, this is equivalent to calling 
-		/// 			dSpaceCollide on that space. 
-		/// 		-	If both arguments are non-space geoms, this simply calls the callback 
-		/// 			once with these arguments. 
-		/// 
-		/// If this function is given a space and an geom X in that same space, this 
-		/// case is not treated specially. In this case the callback will always be 
-		/// called with the pair (X,X), because an objects always intersects with 
-		/// itself. The user may either test for this case and ignore it, or just 
+		/// 	If both o1 and o2 are spaces then this calls the callback for all potentially
+		/// 	intersecting pairs that contain one geom from o1 and one geom from o2. The
+		/// 	algorithm that is used depends on what kinds of spaces are being collided.
+		/// 	If no optimized algorithm can be selected then this function will resort
+		/// 	to one of the following two strategies:
+		/// 		1. 	All the geoms in o1 are tested one-by-one against o2.
+		/// 		2. 	All the geoms in o2 are tested one-by-one against o1.
+		/// 	The strategy used may depend on a number of rules, but in general the
+		/// 	space with less objects has its geoms examined one-by-one.
+		/// 		-	If both arguments are the same space, this is equivalent to calling
+		/// 			dSpaceCollide on that space.
+		/// 		-	If both arguments are non-space geoms, this simply calls the callback
+		/// 			once with these arguments.
+		///
+		/// If this function is given a space and an geom X in that same space, this
+		/// case is not treated specially. In this case the callback will always be
+		/// called with the pair (X,X), because an objects always intersects with
+		/// itself. The user may either test for this case and ignore it, or just
 		/// pass the pair (X,X) to dCollide (which will be guaranteed to return 0).
 		/// </summary>
 		/// <param name="o1">A  dGeomID</param>
@@ -4762,8 +4757,8 @@ namespace Tao.Ode
 
 		#region Sphere class
 		/// <summary>
-		/// Create a sphere geom of the given radius, and return its ID. If space is 
-		/// nonzero, insert it into that space. The point of reference for a sphere 
+		/// Create a sphere geom of the given radius, and return its ID. If space is
+		/// nonzero, insert it into that space. The point of reference for a sphere
 		/// is its center.
 		/// </summary>
 		/// <returns>A dGeomID</returns>
@@ -4789,9 +4784,9 @@ namespace Tao.Ode
 		public extern static dReal dGeomSphereGetRadius(dGeomID sphere);
 
 		/// <summary>
-		/// Return the depth of the point (x,y,z) in the given sphere. 
-		/// 
-		/// Points inside the geom will have positive depth, points outside it will 
+		/// Return the depth of the point (x,y,z) in the given sphere.
+		///
+		/// Points inside the geom will have positive depth, points outside it will
 		/// have negative depth, and points on the surface will have zero depth.
 		/// </summary>
 		/// <returns>A dReal</returns>
@@ -4811,10 +4806,10 @@ namespace Tao.Ode
 
 		#region Box class
 		/// <summary>
-		/// Create a box geom of the given x/y/z side lengths (lx,ly,lz), and return 
-		/// its ID. 
-		/// 
-		/// If space is nonzero, insert it into that space. The point of reference 
+		/// Create a box geom of the given x/y/z side lengths (lx,ly,lz), and return
+		/// its ID.
+		///
+		/// If space is nonzero, insert it into that space. The point of reference
 		/// for a box is its center.
 		/// </summary>
 		/// <returns>A dGeomID</returns>
@@ -4844,9 +4839,9 @@ namespace Tao.Ode
 		public extern static void dGeomBoxGetLengths(dGeomID box, ref dVector3 result);
 
 		/// <summary>
-		/// Return the depth of the point (x,y,z) in the given box. 
-		/// 
-		/// Points inside the geom will have positive depth, points outside it will 
+		/// Return the depth of the point (x,y,z) in the given box.
+		///
+		/// Points inside the geom will have positive depth, points outside it will
 		/// have negative depth, and points on the surface will have zero depth.
 		/// </summary>
 		/// <returns>the depth of the point</returns>
@@ -4859,264 +4854,309 @@ namespace Tao.Ode
 		#endregion Box class
 		#region Plane class
 		/// <summary>
-		/// Create a plane geom of the given parameters, and return its ID. 
-		/// 
-		/// If space is nonzero, insert it into that space. The plane equation is 
+		/// Create a plane geom of the given parameters, and return its ID.
+		///
+		/// If space is nonzero, insert it into that space. The plane equation is
 		///		a*x+b*y+c*z = d
-		/// 
-		/// The plane's normal vector is (a,b,c), and it must have length 1. 
-		/// 
-		/// Planes are non-placeable geoms. This means that, unlike placeable geoms, 
-		/// planes do not have an assigned position and rotation. This means that 
-		/// the parameters (a,b,c,d) are always in global coordinates. In other words 
-		/// it is assumed that the plane is always part of the static environment and 
+		///
+		/// The plane's normal vector is (a,b,c), and it must have length 1.
+		///
+		/// Planes are non-placeable geoms. This means that, unlike placeable geoms,
+		/// planes do not have an assigned position and rotation. This means that
+		/// the parameters (a,b,c,d) are always in global coordinates. In other words
+		/// it is assumed that the plane is always part of the static environment and
 		/// not tied to any movable object.
 		/// </summary>
 		/// <returns>the plane</returns>
 		/// <param name="space">the space to insert the plane into</param>
 		/// <param name="a">the a parameter of the plane</param>
-		/// <param name="b">A  dReal</param>
-		/// <param name="c">A  dReal</param>
-		/// <param name="d">A  dReal</param>
+		/// <param name="b">the b parameter of the plane</param>
+		/// <param name="c">the c parameter of the plane</param>
+		/// <param name="d">the d parameter of the plane</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dGeomID dCreatePlane(dSpaceID space, dReal a, dReal b, dReal c, dReal d);
 
 		/// <summary>
 		/// Set the parameters of the given plane.
 		/// </summary>
-		/// <param name="plane">A  dGeomID</param>
-		/// <param name="a">A  dReal</param>
-		/// <param name="b">A  dReal</param>
-		/// <param name="c">A  dReal</param>
-		/// <param name="d">A  dReal</param>
+		/// <param name="plane">the plane to set</param>
+		/// <param name="a">the a parameter to set</param>
+		/// <param name="b">the b parameter to set</param>
+		/// <param name="c">the c parameter to set</param>
+		/// <param name="d">the d parameter to set</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomPlaneSetParams(dGeomID plane, dReal a, dReal b, dReal c, dReal d);
 
 		/// <summary>
 		/// Return in result the parameters of the given plane.
 		/// </summary>
-		/// <param name="plane">A  dGeomID</param>
-		/// <param name="result">A  dVector4</param>
+		/// <param name="plane">the plane to query</param>
+		/// <param name="result">A dVector4 containing the plane's parameters</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomPlaneGetParams(dGeomID plane, ref dVector4 result);
 
 		/// <summary>
-		/// Return the depth of the point (x,y,z) in the given plane. 
-		/// 
-		/// Points inside the geom will have positive depth, points outside it will 
+		/// Return the depth of the point (x,y,z) in the given plane.
+		///
+		/// Points inside the geom will have positive depth, points outside it will
 		/// have negative depth, and points on the surface will have zero depth.
 		/// </summary>
-		/// <returns>A dReal</returns>
-		/// <param name="plane">A  dGeomID</param>
-		/// <param name="x">A  dReal</param>
-		/// <param name="y">A  dReal</param>
-		/// <param name="z">A  dReal</param>
+		/// <returns>the depth of the point as a dReal</returns>
+		/// <param name="plane">the plane to query</param>
+		/// <param name="x">the x coordinate of the point</param>
+		/// <param name="y">the y coordinate of the point</param>
+		/// <param name="z">the z coordinate of the point</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dGeomPlanePointDepth(dGeomID plane, dReal x, dReal y, dReal z);
 		#endregion Plane class
-		#region Capped cylinder class
+		#region Capsule class
 		/// <summary>
-		/// Create a capped cylinder geom of the given parameters, and return its ID. 
+		/// Create a capsule geom of the given parameters, and return its ID.
 		/// If space is nonzero, insert it into that space.
-		/// 
-		/// A capped cylinder is like a normal cylinder except it has half-sphere 
-		/// caps at its ends. This feature makes the internal collision detection 
-		/// code particularly fast and accurate. The cylinder's length, not counting 
-		/// the caps, is given by length. The cylinder is aligned along the geom's 
-		/// local Z axis. The radius of the caps, and of the cylinder itself, is 
+		///
+		/// A capsule is like a normal cylinder except it has half-sphere
+		/// caps at its ends. This feature makes the internal collision detection
+		/// code particularly fast and accurate. The cylinder's length, not counting
+		/// the caps, is given by length. The cylinder is aligned along the geom's
+		/// local Z axis. The radius of the caps, and of the cylinder itself, is
 		/// given by radius.
 		/// </summary>
-		/// <returns>A dGeomID</returns>
-		/// <param name="space">A  dSpaceID</param>
-		/// <param name="radius">A  dReal</param>
-		/// <param name="length">A  dReal</param>
+		/// <returns>the capsule</returns>
+		/// <param name="space">the space to add the capsule to</param>
+		/// <param name="radius">the radius of the capsule</param>
+		/// <param name="length">the length of the capsule</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dGeomID dCreateCapsule(dSpaceID space, dReal radius, dReal length);
 
 		/// <summary>
-		/// Set the parameters of the given capped cylinder.
+		/// Set the parameters of the given capsule.
 		/// </summary>
-		/// <param name="ccylinder">A  dGeomID</param>
-		/// <param name="radius">A  dReal</param>
-		/// <param name="length">A  dReal</param>
+		/// <param name="capsule">the capsule to manipulate</param>
+		/// <param name="radius">the new radius</param>
+		/// <param name="length">the new length</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dGeomCapsuleSetParams(dGeomID ccylinder, dReal radius, dReal length);
+		public extern static void dGeomCapsuleSetParams(dGeomID capsule, dReal radius, dReal length);
 
 		/// <summary>
-		/// Return in radius and length the parameters of the given capped cylinder.
+		/// Return in radius and length the parameters of the given capsule.
 		/// </summary>
-		/// <param name="ccylinder">A  dGeomID</param>
-		/// <param name="radius">A  dReal</param>
-		/// <param name="length">A  dReal</param>
+		/// <param name="capsule">the capsule to query</param>
+		/// <param name="radius">a reference to the dReal variable to hold the returned radius</param>
+		/// <param name="length">a reference to the dReal variable to hold the returned length</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dGeomCapsuleGetParams(dGeomID ccylinder, ref dReal radius, ref dReal length);
+		public extern static void dGeomCapsuleGetParams(dGeomID capsule, ref dReal radius, ref dReal length);
 
 		/// <summary>
-		/// Return the depth of the point (x,y,z) in the given capped cylinder. 
-		/// 
-		/// Points inside the geom will have positive depth, points outside it will 
+		/// Return the depth of the point (x,y,z) in the given capsule.
+		///
+		/// Points inside the geom will have positive depth, points outside it will
 		/// have negative depth, and points on the surface will have zero depth.
 		/// </summary>
-		/// <returns>A dReal</returns>
-		/// <param name="ccylinder">A  dGeomID</param>
-		/// <param name="x">A  dReal</param>
-		/// <param name="y">A  dReal</param>
-		/// <param name="z">A  dReal</param>
+		/// <returns>the depth of the point</returns>
+		/// <param name="capsule">the capsule to query</param>
+		/// <param name="x">the x coordinate of the point</param>
+		/// <param name="y">the y coordinate of the point</param>
+		/// <param name="z">the z coordinate of the point</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static dReal dGeomCapsulePointDepth(dGeomID ccylinder, dReal x, dReal y, dReal z);
-		#endregion Capped cylinder class
+		public extern static dReal dGeomCapsulePointDepth(dGeomID capsule, dReal x, dReal y, dReal z);
+		#endregion Capsule class
+		#region Cylinder class
+		/// <summary>
+		/// Create a (flat-ended) cylinder geom of the given parameters, and return its ID.
+		/// If space is nonzero, insert it into that space.
+		///
+		/// The cylinder's length is given by length. The cylinder is aligned along the geom's
+		/// local Z axis.
+		/// The radius of the cylinder is given by radius.
+		/// </summary>
+		/// <returns>the cylinder id</returns>
+		/// <param name="space">the space to add the cylinder to</param>
+		/// <param name="radius">the radius of the cylinder</param>
+		/// <param name="length">the length of the cylinder</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static dGeomID dCreateCylinder(dSpaceID space, dReal radius, dReal length);
+
+		/// <summary>
+		/// Set the parameters of the given cylinder.
+		/// </summary>
+		/// <param name="cylinder">the cylinder to manipulate</param>
+		/// <param name="radius">the new radius</param>
+		/// <param name="length">the new length</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dGeomCylinderSetParams(dGeomID cylinder, dReal radius, dReal length);
+
+		/// <summary>
+		/// Return in radius and length the parameters of the given cylinder.
+		/// </summary>
+		/// <param name="cylinder">the cylinder to query</param>
+		/// <param name="radius">a reference to the dReal variable to hold the returned radius</param>
+		/// <param name="length">a reference to the dReal variable to hold the returned length</param>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static void dGeomCylinderGetParams(dGeomID cylinder, ref dReal radius, ref dReal length);
+
+		/// <summary>
+		/// Return the depth of the point (x,y,z) in the given cylinder.
+		///
+		/// Points inside the geom will have positive depth, points outside it will
+		/// have negative depth, and points on the surface will have zero depth.
+		/// </summary>
+		/// <returns>the depth of the point</returns>
+		/// <param name="cylinder">the cylinder to query</param>
+		/// <param name="x">the x coordinate of the point</param>
+		/// <param name="y">the y coordinate of the point</param>
+		/// <param name="z">the z coordinate of the point</param>
+		// TODO: Uncomment when implemented by ODE
+		//		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		//		public extern static dReal dGeomCylinderPointDepth(dGeomID cylinder, dReal x, dReal y, dReal z);
+		#endregion Cylinder class
 		#region Ray class
 		/// <summary>
-		/// Create a ray geom of the given length, and return its ID. 
-		/// 
+		/// Create a ray geom of the given length, and return its ID.
+		///
 		/// If space is nonzero, insert it into that space.
 		/// </summary>
 		/// <remarks>
-		/// A ray is different from all the other geom classes in that it does not 
-		/// represent a solid object. It is an infinitely thin line that starts from 
+		/// A ray is different from all the other geom classes in that it does not
+		/// represent a solid object. It is an infinitely thin line that starts from
 		/// the geom's position and extends in the direction of the geom's local Z-axis.
-		/// 
-		/// Calling dCollide between a ray and another geom will result in at most one 
-		/// contact point. Rays have their own conventions for the contact information 
-		/// in the dContactGeom structure (thus it is not useful to create contact 
+		///
+		/// Calling dCollide between a ray and another geom will result in at most one
+		/// contact point. Rays have their own conventions for the contact information
+		/// in the dContactGeom structure (thus it is not useful to create contact
 		/// joints from this information):
-		/// 
-		/// 	pos - 		This is the point at which the ray intersects the surface of the 
-		/// 				other geom, regardless of whether the ray starts from inside or 
+		///
+		/// 	pos - 		This is the point at which the ray intersects the surface of the
+		/// 				other geom, regardless of whether the ray starts from inside or
 		/// 				outside the geom.
-		/// 	normal - 	This is the surface normal of the other geom at the contact point. 
-		/// 				if dCollide is passed the ray as its first geom then the normal 
-		/// 				will be oriented correctly for ray reflection from that surface 
+		/// 	normal - 	This is the surface normal of the other geom at the contact point.
+		/// 				if dCollide is passed the ray as its first geom then the normal
+		/// 				will be oriented correctly for ray reflection from that surface
 		/// 				(otherwise it will have the opposite sign).
-		/// 	depth - 	This is the distance from the start of the ray to the contact point. 
-		/// 
-		/// Rays are useful for things like visibility testing, determining the path of 
+		/// 	depth - 	This is the distance from the start of the ray to the contact point.
+		///
+		/// Rays are useful for things like visibility testing, determining the path of
 		/// projectiles or light rays, and for object placement.
 		/// </remarks>
-		/// <returns>A dGeomID</returns>
-		/// <param name="space">A  dSpaceID</param>
-		/// <param name="length">A  dReal</param>
+		/// <returns>the id of the new ray</returns>
+		/// <param name="space">the space to add the ray to</param>
+		/// <param name="length">the length of the ray</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dGeomID dCreateRay(dSpaceID space, dReal length);
 
 		/// <summary>
 		/// Set the length of the given ray.
 		/// </summary>
-		/// <param name="ray">A  dGeomID</param>
-		/// <param name="length">A  dReal</param>
+		/// <param name="ray">the ray to change</param>
+		/// <param name="length">the new length of the ray</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomRaySetLength(dGeomID ray, dReal length);
 
 		/// <summary>
 		/// Get the length of the given ray.
 		/// </summary>
-		/// <returns>A dReal</returns>
-		/// <param name="ray">A  dGeomID</param>
+		/// <returns>the length of the ray</returns>
+		/// <param name="ray">the ray to query</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dReal dGeomRayGetLength(dGeomID ray);
 
 		/// <summary>
-		/// Set the starting position (px,py,pz) and direction (dx,dy,dz) of the given ray. 
-		/// The ray's rotation matrix will be adjusted so that the local Z-axis is aligned 
-		/// with the direction. 
-		/// 
+		/// Set the starting position (px,py,pz) and direction (dx,dy,dz) of the given ray.
+		/// The ray's rotation matrix will be adjusted so that the local Z-axis is aligned
+		/// with the direction.
+		///
 		/// Note that this does not adjust the ray's length.
 		/// </summary>
-		/// <param name="ray">A  dGeomID</param>
-		/// <param name="px">A  dReal</param>
-		/// <param name="py">A  dReal</param>
-		/// <param name="pz">A  dReal</param>
-		/// <param name="dx">A  dReal</param>
-		/// <param name="dy">A  dReal</param>
-		/// <param name="dz">A  dReal</param>
+		/// <param name="ray">the ray to set</param>
+		/// <param name="px">x-coordinate of the starting position</param>
+		/// <param name="py">y-coordinate of the starting position</param>
+		/// <param name="pz">z-coordinate of the starting position</param>
+		/// <param name="dx">x-coordinate of the direction</param>
+		/// <param name="dy">y-coordinate of the direction</param>
+		/// <param name="dz">z-coordinate of the direction</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomRaySet(dGeomID ray, dReal px, dReal py, dReal pz,
 			dReal dx, dReal dy, dReal dz);
 
 		/// <summary>
-		/// Get the starting position (start) and direction (dir) of the ray. 
+		/// Get the starting position (start) and direction (dir) of the ray.
 		/// The returned direction will be a unit length vector.
 		/// </summary>
-		/// <param name="ray">A  dGeomID</param>
-		/// <param name="start">A  dVector3</param>
-		/// <param name="dir">A  dVector3</param>
+		/// <param name="ray">the ray to query</param>
+		/// <param name="start">dVector3 containing the returned start position</param>
+		/// <param name="dir">dVector3 containing the returned direction</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dGeomRayGet(dGeomID ray, dVector3 start, dVector3 dir);
+		public extern static void dGeomRayGet(dGeomID ray, ref dVector3 start, ref dVector3 dir);
 
-
-		/*
-		 * Set/get ray flags that influence ray collision detection.
-		 * These flags are currently only noticed by the trimesh collider, because
-		 * they can make a major differences there.
-		 */
 		/// <summary>
-		/// Method dGeomRaySetParams
-		/// TODO: Document me
+		/// Set ray flags that influence ray collision detection.
+		///
+		/// These flags are currently only noticed by the trimesh collider, because they can make a major difference there.
 		/// </summary>
-		/// <param name="g">A  dGeomID</param>
-		/// <param name="FirstContact">An int</param>
-		/// <param name="BackfaceCull">An int</param>
+		/// <param name="g">the ray to set</param>
+		/// <param name="FirstContact">An int representing first contact - undocumented in ODE</param>
+		/// <param name="BackfaceCull">An int representing backface cull - undocumented in ODE</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomRaySetParams(dGeomID g, int FirstContact, int BackfaceCull);
 
 		/// <summary>
-		/// Method dGeomRayGetParams
-		/// TODO: Document me
+		/// Get ray flags that influence ray collision detection.
 		/// </summary>
-		/// <param name="g">A  dGeomID</param>
-		/// <param name="FirstContact">An int</param>
-		/// <param name="BackfaceCull">An int</param>
+		/// <param name="g">the ray to query</param>
+		/// <param name="FirstContact">An int representing first contact - undocumented in ODE</param>
+		/// <param name="BackfaceCull">An int representing backface cull - undocumented in ODE</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomRayGetParams(dGeomID g, ref int FirstContact, ref int BackfaceCull);
 
 		/// <summary>
-		/// Method dGeomRayGetParams
-		/// TODO: Document me
+		/// Get ray flags that influence ray collision detection.
+		/// TODO: Document me - Not documented in ODE
 		/// </summary>
-		/// <param name="g">A  dGeomID</param>
+		/// <param name="g">the ray to query</param>
 		/// <param name="FirstContact">An int[]</param>
 		/// <param name="BackfaceCull">An int[]</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomRayGetParams(dGeomID g, [Out]int[] FirstContact, [Out]int[] BackfaceCull);
 
 		/// <summary>
-		/// Method dGeomRaySetClosestHit
-		/// TODO: Document me
+		/// Set the closest hit parameter for a ray
+		/// TODO: Document me - not documented in ODE
 		/// </summary>
-		/// <param name="g">A  dGeomID</param>
-		/// <param name="closestHit">An int</param>
+		/// <param name="g">the ray to set</param>
+		/// <param name="closestHit">An int representing closest hit - not documented in ODE</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomRaySetClosestHit(dGeomID g, int closestHit);
 
 		/// <summary>
-		/// Method dGeomRayGetClosestHit
-		/// TODO: Document me
+		/// Get the closest hit parameter for a ray
+		/// TODO: Document me - not documented in ODE
 		/// </summary>
-		/// <returns>An int</returns>
-		/// <param name="g">A  dGeomID</param>
+		/// <returns>An int representing the closest hit parameter</returns>
+		/// <param name="g">the ray to query</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dGeomRayGetClosestHit(dGeomID g);
 		#endregion Ray class
 		#region Geometry transform class
 		/// <summary>
-		/// Create a new geometry transform object, and return its ID. 
-		/// If space is nonzero, insert it into that space. 
+		/// Create a new geometry transform object, and return its ID.
+		/// NOTE:  The new Geometry offset API is favored over transforms.
+		///
+		/// If space is nonzero, insert it into that space.
 		/// On creation the encapsulated geometry is set to 0.
 		/// </summary>
 		/// <remarks>
-		/// A geometry transform `T' is a geom that encapsulates another geom `E', 
-		/// allowing E to be positioned and rotated arbitrarily with respect to 
+		/// A geometry transform `T' is a geom that encapsulates another geom `E',
+		/// allowing E to be positioned and rotated arbitrarily with respect to
 		/// its point of reference.
-		/// Most placeable geoms (like the sphere and box) have their point of 
-		/// reference corresponding to their center of mass, allowing them to be 
-		/// easily connected to dynamics objects. Transform objects give you more 
-		/// flexibility - for example, you can offset the center of a sphere, or 
+		/// Most placeable geoms (like the sphere and box) have their point of
+		/// reference corresponding to their center of mass, allowing them to be
+		/// easily connected to dynamics objects. Transform objects give you more
+		/// flexibility - for example, you can offset the center of a sphere, or
 		/// rotate a cylinder so that its axis is something other than the default.
-		/// T mimics the object E that it encapsulates: T is inserted into a space 
-		/// and attached to a body as though it was E. E itself must not be inserted 
-		/// into a space or attached to a body. E's position and rotation are set to 
-		/// constant values that say how it is transformed relative to T. If E's 
-		/// position and rotation are left at their default values, T will behave 
+		/// T mimics the object E that it encapsulates: T is inserted into a space
+		/// and attached to a body as though it was E. E itself must not be inserted
+		/// into a space or attached to a body. E's position and rotation are set to
+		/// constant values that say how it is transformed relative to T. If E's
+		/// position and rotation are left at their default values, T will behave
 		/// exactly like E would have if you had used it directly.
 		/// </remarks>
 		/// <returns>A dGeomID</returns>
@@ -5125,10 +5165,10 @@ namespace Tao.Ode
 		public extern static dGeomID dCreateGeomTransform(dSpaceID space);
 
 		/// <summary>
-		/// Set the geom that the geometry transform g encapsulates. The object obj 
+		/// Set the geom that the geometry transform g encapsulates. The object obj
 		/// must not be inserted into any space, and must not be associated with any body.
-		/// 
-		/// If g has its clean-up mode turned on, and it already encapsulates an object, 
+		///
+		/// If g has its clean-up mode turned on, and it already encapsulates an object,
 		/// the old object will be destroyed before it is replaced with the new one.
 		/// </summary>
 		/// <param name="g">A  dGeomID</param>
@@ -5145,12 +5185,12 @@ namespace Tao.Ode
 		public extern static dGeomID dGeomTransformGetGeom(dGeomID g);
 
 		/// <summary>
-		/// Set the clean-up mode of geometry transform g. 
-		/// 
-		/// If the clean-up mode is 1, then the encapsulated object will be destroyed 
-		/// when the geometry transform is destroyed. 
-		/// If the clean-up mode is 0 this does not happen. 
-		/// 
+		/// Set the clean-up mode of geometry transform g.
+		///
+		/// If the clean-up mode is 1, then the encapsulated object will be destroyed
+		/// when the geometry transform is destroyed.
+		/// If the clean-up mode is 0 this does not happen.
+		///
 		/// The default clean-up mode is 0.
 		/// </summary>
 		/// <param name="g">A  dGeomID</param>
@@ -5159,12 +5199,12 @@ namespace Tao.Ode
 		public extern static void dGeomTransformSetCleanup(dGeomID g, int mode);
 
 		/// <summary>
-		/// Get the clean-up mode of geometry transform g. 
-		/// 
-		/// If the clean-up mode is 1, then the encapsulated object will be destroyed 
-		/// when the geometry transform is destroyed. 
-		/// If the clean-up mode is 0 this does not happen. 
-		/// 
+		/// Get the clean-up mode of geometry transform g.
+		///
+		/// If the clean-up mode is 1, then the encapsulated object will be destroyed
+		/// when the geometry transform is destroyed.
+		/// If the clean-up mode is 0 this does not happen.
+		///
 		/// The default clean-up mode is 0.
 		/// </summary>
 		/// <returns>An int</returns>
@@ -5173,21 +5213,21 @@ namespace Tao.Ode
 		public extern static int dGeomTransformGetCleanup(dGeomID g);
 
 		/// <summary>
-		/// Set and get the "information" mode of geometry transform g. 
-		/// 
+		/// Set and get the "information" mode of geometry transform g.
+		///
 		/// The mode can be 0 or 1. The default mode is 0.
-		/// With mode 0, when a transform object is collided with another object 
-		/// (using dCollide (tx_geom,other_geom,...)), the g1 field of the 
-		/// dContactGeom structure is set to the geom that is encapsulated by the 
-		/// transform object. This value of g1 allows the caller to interrogate the 
-		/// type of the geom that is transformed, but it does not allow the caller 
-		/// to determine the position in global coordinates or the associated body, 
+		/// With mode 0, when a transform object is collided with another object
+		/// (using dCollide (tx_geom,other_geom,...)), the g1 field of the
+		/// dContactGeom structure is set to the geom that is encapsulated by the
+		/// transform object. This value of g1 allows the caller to interrogate the
+		/// type of the geom that is transformed, but it does not allow the caller
+		/// to determine the position in global coordinates or the associated body,
 		/// as both of these properties are used differently for encapsulated geoms.
-		/// With mode 1, the g1 field of the dContactGeom structure is set to the 
-		/// transform object itself. This makes the object appear just like any other 
-		/// kind of geom, as dGeomGetBody will return the attached body, and 
-		/// dGeomGetPosition will return the global position. 
-		/// To get the actual type of the encapsulated geom in this case, 
+		/// With mode 1, the g1 field of the dContactGeom structure is set to the
+		/// transform object itself. This makes the object appear just like any other
+		/// kind of geom, as dGeomGetBody will return the attached body, and
+		/// dGeomGetPosition will return the global position.
+		/// To get the actual type of the encapsulated geom in this case,
 		/// dGeomTransformGetGeom must be used.
 		/// </summary>
 		/// <param name="g">A  dGeomID</param>
@@ -5196,8 +5236,8 @@ namespace Tao.Ode
 		public extern static void dGeomTransformSetInfo(dGeomID g, int mode);
 
 		/// <summary>
-		/// Set and get the "information" mode of geometry transform g. 
-		/// 
+		/// Set and get the "information" mode of geometry transform g.
+		///
 		/// The mode can be 0 or 1. The default mode is 0.
 		/// </summary>
 		/// <returns>An int</returns>
@@ -5205,53 +5245,117 @@ namespace Tao.Ode
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dGeomTransformGetInfo(dGeomID g);
 		#endregion Geometry transform class
+		#region User Custom Geom class
+		/// <summary>
+		/// Create a custom (user) geom class and register with ODE.
+		/// Note ODE limits the number of custom geom classes that can be generated.
+		///
+		/// NOTE also that this is untested and may need modification/clarification before
+		/// being considered stable.
+		/// </summary>
+		/// <param name="customclass">the custom class object</param>
+		/// <returns>a class number for the new custom geom class</returns>
+		//[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		//public extern static int dCreateGeomClass (dGeomClass customclass);
 
+		//		/// <summary>Return a class data for a custom user defined geom</summary>
+		//		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		//		public extern static void * dGeomGetClassData (dGeomID);
+
+		/// <summary>
+		/// Create an instance of a custom user-defined geom class.
+		/// </summary>
+		/// <param name="classnum">the class number of the custom geom, generated by dCreateGeomClass</param>
+		/// <returns>the id (handle) of the new geom instance</returns>
+		//[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		//public extern static dGeomID dCreateGeom (int classnum);
+
+		#endregion User Custom Geom class
 		#region Utility Functions
 		/// <summary>
-		/// Given two line segments A and B with endpoints a1-a2 and b1-b2, return 
-		/// the points on A and B that are closest to each other (in cp1 and cp2). 
-		/// 
-		/// In the case of parallel lines where there are multiple solutions, a 
-		/// solution involving the endpoint of at least one line will be returned. 
+		/// Given two line segments A and B with endpoints a1-a2 and b1-b2, return
+		/// the points on A and B that are closest to each other (in cp1 and cp2).
+		///
+		/// In the case of parallel lines where there are multiple solutions, a
+		/// solution involving the endpoint of at least one line will be returned.
 		/// This will work correctly for zero length lines, e.g. if a1==a2 and/or b1==b2.
 		/// </summary>
-		/// <param name="a1">A  dVector3</param>
-		/// <param name="a2">A  dVector3</param>
-		/// <param name="b1">A  dVector3</param>
-		/// <param name="b2">A  dVector3</param>
-		/// <param name="cp1">A  dVector3</param>
-		/// <param name="cp2">A  dVector3</param>
+		/// <param name="a1">A dVector3 containing endpoint 1 of line segment A</param>
+		/// <param name="a2">A dVector3 containing endpoint 2 of line segment A</param>
+		/// <param name="b1">A dVector3 containing endpoint 1 of line segment B</param>
+		/// <param name="b2">A dVector3 containing endpoint 2 of line segment B</param>
+		/// <param name="cp1">A dVector3 returning the closest point on A</param>
+		/// <param name="cp2">A dVector3 returning the closest point on B</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dClosestLineSegmentPoints(ref dVector3 a1, ref dVector3 a2,
-			ref dVector3 b1, ref dVector3 b2,
+		public extern static void dClosestLineSegmentPoints(dVector3 a1, dVector3 a2,
+			dVector3 b1, dVector3 b2,
 			ref dVector3 cp1, ref dVector3 cp2);
 
 		/// <summary>
-		/// Given boxes (p1,R1,side1) and (p2,R2,side2), return 1 if they intersect 
-		/// or 0 if not. p is the center of the box, R is the rotation matrix for 
+		/// Given boxes (p1,R1,side1) and (p2,R2,side2), return 1 if they intersect
+		/// or 0 if not. p is the center of the box, R is the rotation matrix for
 		/// the box, and side is a vector of x/y/z side lengths.
 		/// </summary>
-		/// <returns>An int</returns>
-		/// <param name="_p1">A  dVector3</param>
-		/// <param name="R1">A  dMatrix3</param>
-		/// <param name="side1">A  dVector3</param>
-		/// <param name="_p2">A  dVector3</param>
-		/// <param name="R2">A  dMatrix3</param>
-		/// <param name="side2">A  dVector3</param>
+		/// <returns>1 if the boxes intersect, 0 if they do not</returns>
+		/// <param name="_p1">A dVector3 containing the center coordinates for box 1</param>
+		/// <param name="R1">A dMatrix3 containing the rotation matrix for box 1</param>
+		/// <param name="side1">A dVector3 containing the side lengths (x/y/z) for box 1</param>
+		/// <param name="_p2">A dVector3 containing the center coordinates for box 2</param>
+		/// <param name="R2">A dMatrix3 containing the rotation matrix for box 2</param>
+		/// <param name="side2">A dVector3 containing the side lengths (x/y/z) for box 2</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static int dBoxTouchesBox(ref dVector3 _p1, ref dMatrix3 R1,
-			ref dVector3 side1, ref dVector3 _p2,
-			ref dMatrix3 R2, ref dVector3 side2);
+		public extern static int dBoxTouchesBox(dVector3 _p1, dMatrix3 R1,
+			dVector3 side1, dVector3 _p2,
+			dMatrix3 R2, dVector3 side2);
 
 		/// <summary>
-		/// This function can be used as the AABB-getting function in a geometry class, 
-		/// if you don't want to compute tight bounds for the AABB. 
+		/// given two boxes (p1,R1,side1) and (p2,R2,side2), collide them together and
+		/// generate contact points. this returns 0 if there is no contact otherwise
+		/// it returns the number of contacts generated.
+		/// `normal' returns the contact normal.
+		/// `depth' returns the maximum penetration depth along that normal.
+		/// `return_code' returns a number indicating the type of contact that was
+		/// detected:
+		///        1,2,3 = box 2 intersects with a face of box 1
+		///        4,5,6 = box 1 intersects with a face of box 2
+		///        7..15 = edge-edge contact
+		/// `maxc' is the maximum number of contacts allowed to be generated, i.e.
+		/// the size of the `contact' array.
+		/// `contact' and `skip' are the contact array information provided to the
+		/// collision functions.
+		///
+		/// this function only fills in the position and depth fields.
+		/// </summary>
+		/// TODO: Needs testing.
+		/// <param name="p1">A dVector3 containing the center coordinates for box 1</param>
+		/// <param name="R1">A dMatrix3 containing the rotation matrix for box 1</param>
+		/// <param name="side1">A dVector3 containing the side lengths (x/y/z) for box 1</param>
+		/// <param name="p2">A dVector3 containing the center coordinates for box 2</param>
+		/// <param name="R2">A dMatrix3 containing the rotation matrix for box 2</param>
+		/// <param name="side2">A dVector3 containing the side lengths (x/y/z) for box 1</param>
+		/// <param name="normal">returns the value of the contact normal</param>
+		/// <param name="depth">returns the maximum penetration along the contact normal</param>
+		/// <param name="return_code">returns the type of contact detected</param>
+		/// <param name="maxc">specifies the maximum number of contacts allowed (should match size of contact array)</param>
+		/// <param name="contact">an array of ContactGeoms returning the contact information</param>
+		/// <param name="skip">contact array information provided to collision functions.  Size of contact geom?</param>
+		/// <returns>the number of contacts generated</returns>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public static extern int dBoxBox(dVector3 p1, dMatrix3 R1,
+		 dVector3 side1, dVector3 p2,
+		 dMatrix3 R2, dVector3 side2,
+		 ref dVector3 normal, ref dReal depth, ref int return_code,
+		 int maxc, ref dContactGeom[] contact, int skip);
+
+		/// <summary>
+		/// This function can be used as the AABB-getting function in a geometry class,
+		/// if you don't want to compute tight bounds for the AABB.
 		/// It returns +/- infinity in each direction.
 		/// </summary>
-		/// <param name="geom">A  dGeomID</param>
-		/// <param name="aabb">An Aabb</param>
+		/// <param name="geom">the geom</param>
+		/// <param name="aabb">the returned Aabb with all positions set to +/- infinity</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dInfiniteAABB(dGeomID geom, Aabb aabb);
+		public extern static void dInfiniteAABB(dGeomID geom, ref Aabb aabb);
 
 		/// <summary>
 		/// This deallocates some extra memory used by ODE that can not be deallocated using the normal destroy functions,
@@ -5264,8 +5368,8 @@ namespace Tao.Ode
 
 		#region Space functions
 		/// <summary>
-		/// Create a simple space. 
-		/// 
+		/// Create a simple space.
+		///
 		/// If space is nonzero, insert the new space into that space.
 		/// </summary>
 		/// <returns>A dSpaceID</returns>
@@ -5274,8 +5378,8 @@ namespace Tao.Ode
 		public extern static dSpaceID dSimpleSpaceCreate(dSpaceID space);
 
 		/// <summary>
-		/// Create a multi-resolution hash table space. 
-		/// 
+		/// Create a multi-resolution hash table space.
+		///
 		/// If space is nonzero, insert the new space into that space.
 		/// </summary>
 		/// <returns>A dSpaceID</returns>
@@ -5284,104 +5388,105 @@ namespace Tao.Ode
 		public extern static dSpaceID dHashSpaceCreate(dSpaceID space);
 
 		/// <summary>
-		/// Creates a quadtree space. 
-		/// 
-		/// Center and Extents define the size of the root block. 
+		/// Creates a quadtree space.
+		/// If space is nonzero, insert the new space into that space.
+		///
+		/// Center and Extents define the size of the root block.
 		/// Depth sets the depth of the tree - the number of blocks that are created is 4^Depth
 		/// </summary>
 		/// <returns>A dSpaceID</returns>
-		/// <param name="space">A  dSpaceID</param>
-		/// <param name="Center">A  dVector3</param>
-		/// <param name="Extents">A  dVector3</param>
-		/// <param name="Depth">An int</param>
+		/// <param name="space">handle of space to replace</param>
+		/// <param name="Center">center of root block</param>
+		/// <param name="Extents">extents of root block</param>
+		/// <param name="Depth">depth of tree</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dSpaceID dQuadTreeSpaceCreate(dSpaceID space, dVector3 Center, dVector3 Extents, int Depth);
 
 		/// <summary>
-		/// This destroys a space. 
-		/// It functions exactly like dGeomDestroy except that it takes a dSpaceID argument. 
-		/// When a space is destroyed, if its cleanup mode is 1 (the default) then all the 
+		/// This destroys a space.
+		/// It functions exactly like dGeomDestroy except that it takes a dSpaceID argument.
+		/// When a space is destroyed, if its cleanup mode is 1 (the default) then all the
 		/// geoms in that space are automatically destroyed as well.
 		/// </summary>
-		/// <param name="space">A  dSpaceID</param>
+		/// <param name="space">the space to destroy</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dSpaceDestroy(dSpaceID space);
 
 		/// <summary>
-		/// Sets some parameters for a multi-resolution hash table space. 
-		/// 
-		/// The smallest and largest cell sizes used in the hash table will be 
-		/// 2^minlevel and 2^maxlevel respectively. 
-		/// 
+		/// Sets some parameters for a multi-resolution hash table space.
+		///
+		/// The smallest and largest cell sizes used in the hash table will be
+		/// 2^minlevel and 2^maxlevel respectively.
+		///
 		/// minlevel must be less than or equal to maxlevel.
 		/// </summary>
-		/// <param name="space">A  dSpaceID</param>
-		/// <param name="minlevel">An int</param>
-		/// <param name="maxlevel">An int</param>
+		/// <param name="space">the space to modify</param>
+		/// <param name="minlevel">minimum level (determines smallest cell size).</param>
+		/// <param name="maxlevel">maximum level (determines largest cell size)</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dHashSpaceSetLevels(dSpaceID space, int minlevel, int maxlevel);
 
 		/// <summary>
-		/// Get some parameters for a multi-resolution hash table space. 
-		/// 
-		/// The smallest and largest cell sizes used in the hash table will be 
-		/// 2^minlevel and 2^maxlevel respectively. 
-		/// 
+		/// Get some parameters for a multi-resolution hash table space.
+		///
+		/// The smallest and largest cell sizes used in the hash table will be
+		/// 2^minlevel and 2^maxlevel respectively.
+		///
 		/// minlevel must be less than or equal to maxlevel.
-		/// 
-		/// The minimum and maximum levels are returned through pointers. 
+		///
+		/// The minimum and maximum levels are returned through pointers.
 		/// If a pointer is zero then it is ignored and no argument is returned.
 		/// </summary>
-		/// <param name="space">A  dSpaceID</param>
-		/// <param name="minlevel">An int</param>
-		/// <param name="maxlevel">An int</param>
+		/// <param name="space">the space to query</param>
+		/// <param name="minlevel">returns current minlevel</param>
+		/// <param name="maxlevel">returns current maxlevel</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dHashSpaceGetLevels(dSpaceID space, ref int minlevel, ref int maxlevel);
 
 		/// <summary>
-		/// Set the clean-up mode of the space. 
-		/// 
-		/// If the clean-up mode is 1, then the contained geoms will be destroyed 
-		/// when the space is destroyed. 
-		/// If the clean-up mode is 0 this does not happen. 
-		/// 
+		/// Set the clean-up mode of the space.
+		///
+		/// If the clean-up mode is 1, then the contained geoms will be destroyed
+		/// when the space is destroyed.
+		/// If the clean-up mode is 0 this does not happen.
+		///
 		/// The default clean-up mode for new spaces is 1.
 		/// </summary>
-		/// <param name="space">A  dSpaceID</param>
-		/// <param name="mode">An int</param>
+		/// <param name="space">the space to set</param>
+		/// <param name="mode">the cleanup mode</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dSpaceSetCleanup(dSpaceID space, int mode);
 
 		/// <summary>
 		/// Get the clean-up mode of the space.
 		/// </summary>
-		/// <returns>An int</returns>
-		/// <param name="space">A  dSpaceID</param>
+		/// <returns>the current cleanup mode for the space</returns>
+		/// <param name="space">the space to query</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dSpaceGetCleanup(dSpaceID space);
 
 		/// <summary>
-		/// Add a geom to a space. 
-		/// 
-		/// This does nothing if the geom is already in the space. 
-		/// 
-		/// This function can be called automatically if a space argument is given to 
+		/// Add a geom to a space.
+		///
+		/// This does nothing if the geom is already in the space.
+		///
+		/// This function can be called automatically if a space argument is given to
 		/// a geom creation function.
 		/// </summary>
-		/// <param name="space">A  dSpaceID</param>
-		/// <param name="geom">A  dGeomID</param>
+		/// <param name="space">the space to add the geom to</param>
+		/// <param name="geom">the geom to be added</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dSpaceAdd(dSpaceID space, dGeomID geom);
 
 		/// <summary>
-		/// Remove a geom from a space. 
-		/// 
-		/// This does nothing if the geom is not actually in the space. 
-		/// 
+		/// Remove a geom from a space.
+		///
+		/// This does nothing if the geom is not actually in the space.
+		///
 		/// This function is called automatically by dGeomDestroy if the geom is in a space.
 		/// </summary>
-		/// <param name="space">A  dSpaceID</param>
-		/// <param name="geom">A  dGeomID</param>
+		/// <param name="space">the space containing the geom</param>
+		/// <param name="geom">the geom to be removed</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dSpaceRemove(dSpaceID space, dGeomID geom);
 
@@ -5389,102 +5494,92 @@ namespace Tao.Ode
 		/// Return 1 if the given geom is in the given space, or return 0 if it is not.
 		/// </summary>
 		/// <returns>An int</returns>
-		/// <param name="space">A  dSpaceID</param>
-		/// <param name="geom">A  dGeomID</param>
+		/// <param name="space">the space to query</param>
+		/// <param name="geom">the geom to query</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dSpaceQuery(dSpaceID space, dGeomID geom);
 
 		/// <summary>
-		/// Method dSpaceClean
-		/// Not sure what this does exactly - no documentation.
-		/// TODO: Find out what this function does and document it here.
+		/// Cleans the space
 		/// </summary>
-		/// <param name="space">A  dSpaceID</param>
+		/// <param name="space">the space to clean</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dSpaceClean(dSpaceID space);
 
 		/// <summary>
 		/// Return the number of geoms contained within a space.
 		/// </summary>
-		/// <returns>An int</returns>
-		/// <param name="space">A  dSpaceID</param>
+		/// <returns>the number of geoms in the space</returns>
+		/// <param name="space">the space to query</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static int dSpaceGetNumGeoms(dSpaceID space);
 
 		/// <summary>
-		/// Return the i'th geom contained within the space. 
-		/// 
+		/// Return the i'th geom contained within the space.
+		///
 		/// i must range from 0 to dSpaceGetNumGeoms()-1.
-		/// 
-		/// If any change is made to the space (including adding and deleting geoms) 
-		/// then no guarantee can be made about how the index number of any 
-		/// particular geom will change. Thus no space changes should be made while 
+		///
+		/// If any change is made to the space (including adding and deleting geoms)
+		/// then no guarantee can be made about how the index number of any
+		/// particular geom will change. Thus no space changes should be made while
 		/// enumerating the geoms.
-		/// This function is guaranteed to be fastest when the geoms are accessed in 
-		/// the order 0,1,2,etc. Other non-sequential orders may result in slower 
+		/// This function is guaranteed to be fastest when the geoms are accessed in
+		/// the order 0,1,2,etc. Other non-sequential orders may result in slower
 		/// access, depending on the internal implementation.
 		/// </summary>
-		/// <returns>A dGeomID</returns>
-		/// <param name="space">A  dSpaceID</param>
-		/// <param name="i">An int</param>
+		/// <returns>a handle to the geom</returns>
+		/// <param name="space">the space to query</param>
+		/// <param name="i">the index number of the geom to get</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dGeomID dSpaceGetGeom(dSpaceID space, int i);
 		#endregion Space functions
 
+		#region TriMesh enums
+		public enum TriMeshNumbers : int
+		{
+			TRIMESH_FACE_NORMALS = 1,
+			TRIMESH_LAST_TRANSFORMATION = 2
+		}
+		#endregion TriMesh enums
+
 		#region TriMesh functions
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int TRIMESH_FACE_NORMALS = 1;
-		/// <summary>
-		/// 
-		/// </summary>
-		public const int TRIMESH_LAST_TRANSFORMATION = 2;
 
 		/// <summary>
 		/// Create a dTriMeshData object which is used to store mesh data.
 		/// </summary>
-		/// <returns>A dTriMeshDataID</returns>
+		/// <returns>the id of the new trimesh data object</returns>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static dTriMeshDataID dGeomTriMeshDataCreate();
 
 		/// <summary>
 		/// Destroy a dTriMeshData object.
 		/// </summary>
-		/// <param name="g">A  dTriMeshDataID</param>
+		/// <param name="g">the id of the trimesh data object to destroy</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomTriMeshDataDestroy(dTriMeshDataID g);
 
 		/// <summary>
-		/// In order to efficiently resolve collisions, dCollideTTL needs the 
-		/// positions of the colliding trimeshes in the previous timestep. This is 
-		/// used to calculate an estimated velocity of each colliding triangle, which 
-		/// is used to find the direction of impact, contact normals, etc. This 
-		/// requires the user to update these variables at every timestep. This update 
-		/// is performed outside of ODE, so it is not included in ODE itself. 
-		/// The code to do this looks something like this: 
+		/// In order to efficiently resolve collisions, dCollideTTL needs the
+		/// positions of the colliding trimeshes in the previous timestep. This is
+		/// used to calculate an estimated velocity of each colliding triangle, which
+		/// is used to find the direction of impact, contact normals, etc. This
+		/// requires the user to update these variables at every timestep. This update
+		/// is performed outside of ODE, so it is not included in ODE itself.
+		/// The code to do this looks something like this:
 		///		const double *DoubleArrayPtr =
 		///			Bodies[BodyIndex].TransformationMatrix->GetArray();
 		///		dGeomTriMeshDataSet( TriMeshData,
 		///			TRIMESH_LAST_TRANSFORMATION,
 		///			(void *) DoubleArrayPtr );
-		/// 
-		/// The transformation matrix is the standard 4x4 homogeneous transform matrix, 
+		///
+		/// The transformation matrix is the standard 4x4 homogeneous transform matrix,
 		/// and the "DoubleArray" is the standard flattened array of the 16 matrix values.
 		/// </summary>
-		/// <remarks>
-		/// Not really used or documented in the ODE 0.5 code that I have other than the 
-		/// description above.  This looks like part of work in progress, since the 
-		/// Trimesh stuff is still in development.  
-		/// 
-		/// I leave this here for completeness, but this function should probably only be
-		/// uses if you know what you are doing.
-		/// </remarks>
-		/// <param name="g">A  dTriMeshDataID</param>
-		/// <param name="data_id">An int</param>
-		/// <param name="data">An IntPtr</param>
+		/// <param name="g">the trimesh dataset handle</param>
+		/// <param name="data_id">data id, like TRIMESH_LAST_TRANSFORMATION</param>
+		/// <param name="data">a reference to the "DoubleArray"</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dGeomTriMeshDataSet(dTriMeshDataID g, int data_id, IntPtr data);
+		public extern static void dGeomTriMeshDataSet(dTriMeshDataID g, int data_id, ref IntPtr data);
 
 		#region Trimesh data filling functions
 		// Note: this section of the ODE api seems a bit rougher than the rest
@@ -5496,13 +5591,13 @@ namespace Tao.Ode
 		/// </summary>
 		/// <remarks>
 		/// Applies to all the dGeomTriMeshDataBuild single and double versions.
-		/// 
+		///
 		/// (From http://ode.org/ode-latest-userguide.html#sec_10_7_6)
-		/// 
+		///
 		/// Used for filling a dTriMeshData object with data.
-		///  
-		/// No data is copied here, so the pointers passed into this function must 
-		/// remain valid. 
+		///
+		/// No data is copied here, so the pointers passed into this function must
+		/// remain valid.
 		/// This is how the strided data works:
 		///		struct StridedVertex {
 		///			dVector3 Vertex;  // 4th component can be left out, reducing memory usage
@@ -5515,8 +5610,8 @@ namespace Tao.Ode
 		///			// Userdata
 		///		};
 		///		int TriStride = sizeof (StridedTri);
-		/// 
-		///	The Normals argument is optional: the normals of the faces of each 
+		///
+		///	The Normals argument is optional: the normals of the faces of each
 		/// trimesh object. For example,
 		///		dTriMeshDataID TriMeshData;
 		///		TriMeshData = dGeomTriMeshGetTriMeshDataID (
@@ -5532,12 +5627,12 @@ namespace Tao.Ode
 		///			(int) NumTriangles, 3*sizeof(unsigned int),
 		///			// Normals
 		///			Bodies[BodyIndex].FaceNormals);
-		/// 
-		///	This pre-calculation saves some time during evaluation of the contacts, 
-		/// but isn't necessary. If you don't want to calculate the face normals 
-		/// before construction (or if you have enormous trimeshes and know that 
-		/// only very few faces will be touching and want to save time), just pass 
-		/// a "NULL" for the Normals argument, and dCollideTTL will take care of the 
+		///
+		///	This pre-calculation saves some time during evaluation of the contacts,
+		/// but isn't necessary. If you don't want to calculate the face normals
+		/// before construction (or if you have enormous trimeshes and know that
+		/// only very few faces will be touching and want to save time), just pass
+		/// a "NULL" for the Normals argument, and dCollideTTL will take care of the
 		/// normal calculations itself.
 		/// </remarks>
 		/// <param name="g">A  dTriMeshDataID</param>
@@ -5607,7 +5702,7 @@ namespace Tao.Ode
 
 		/// <summary>
 		/// Simple trimesh build function provided for convenience.
-		/// 
+		///
 		/// Uses single/double precision vertices and normals depending on the
 		/// current value of the dReal alias.
 		/// The precision to use depends on which version of the ODE library is being
@@ -5627,7 +5722,7 @@ namespace Tao.Ode
 		/// <summary>
 		/// Simple trimesh build function provided for convenience.
 		/// This version takes a normals array to use for trimesh-trimesh optimization.
-		/// 
+		///
 		/// Uses single/double precision vertices and normals depending on the
 		/// current value of the dReal alias.
 		/// The precision to use depends on which version of the ODE library is being
@@ -5695,9 +5790,9 @@ namespace Tao.Ode
 		public extern static dTriArrayCallback dGeomTriMeshGetArrayCallback(dGeomID g);
 
 		/// <summary>
-		/// Ray callback. 
-		/// Allows the user to determine if a ray collides with a triangle based on 
-		/// the barycentric coordinates of an intersection. The user can for example 
+		/// Ray callback.
+		/// Allows the user to determine if a ray collides with a triangle based on
+		/// the barycentric coordinates of an intersection. The user can for example
 		/// sample a bitmap to determine if a collision should occur.
 		/// </summary>
 		[UnmanagedFunctionPointer(CALLING_CONVENTION)]
@@ -5723,9 +5818,9 @@ namespace Tao.Ode
 
 		/// <summary>
 		/// Trimesh class constructor.
-		/// 
+		///
 		/// The Data member defines the vertex data the newly created triangle mesh will use.
-		/// 
+		///
 		/// Callbacks are optional.
 		/// </summary>
 		/// <returns>A dGeomID</returns>
@@ -5747,13 +5842,13 @@ namespace Tao.Ode
 
 		// enable/disable/check temporal coherence
 		/// <summary>
-		/// Enable/disable the use of temporal coherence during tri-mesh collision checks. 
-		/// Temporal coherence can be enabled/disabled per tri-mesh instance/geom class pair, 
+		/// Enable/disable the use of temporal coherence during tri-mesh collision checks.
+		/// Temporal coherence can be enabled/disabled per tri-mesh instance/geom class pair,
 		/// currently it works for spheres and boxes. The default for spheres and boxes is 'false'.
 		/// The 'enable' param should be 1 for true, 0 for false.
 		/// Temporal coherence is optional because allowing it can cause subtle efficiency problems
-		/// in situations where a tri-mesh may collide with many different geoms during its lifespan. 
-		/// If you enable temporal coherence on a tri-mesh then these problems can be eased by 
+		/// in situations where a tri-mesh may collide with many different geoms during its lifespan.
+		/// If you enable temporal coherence on a tri-mesh then these problems can be eased by
 		/// intermittently calling dGeomTriMeshClearTCCache for it.
 		/// </summary>
 		/// <param name="g">A  dGeomID</param>
@@ -5764,7 +5859,7 @@ namespace Tao.Ode
 
 		/// <summary>
 		/// Checks whether the use of temporal coherence during tri-mesh collision checks is enabled.
-		/// 
+		///
 		/// Returns 1 if enabled, 0 if not enabled.
 		/// </summary>
 		/// <returns>An int</returns>
