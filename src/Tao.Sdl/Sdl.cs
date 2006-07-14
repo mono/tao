@@ -5428,13 +5428,13 @@ namespace Tao.Sdl
 		/// <seealso cref="SDL_Quit" />
 		public static int SDL_Init(int flags) 
 		{
-			//Mac OSX code
-			Assembly af = Assembly.Load("cocoa-sharp");
-			if (af != null) 
-			{
-				obj = af.GetType("Cocoa.Application").InvokeMember("Init", BindingFlags.Static | BindingFlags.InvokeMethod, null, obj, null);
-				NSApplicationLoad();
-			}
+            ////Mac OSX code
+            //Assembly af = Assembly.Load("cocoa-sharp");
+            //if (af != null) 
+            //{
+            //    obj = af.GetType("Cocoa.Application").InvokeMember("Init", BindingFlags.Static | BindingFlags.InvokeMethod, null, obj, null);
+            //    NSApplicationLoad();
+            //}
 			return __SDL_Init(flags);
 		}
 		#endregion int SDL_Init(int flags)
