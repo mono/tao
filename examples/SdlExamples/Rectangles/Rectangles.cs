@@ -94,6 +94,7 @@ namespace SdlExamples
 			try 
 			{
 				Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+				Sdl.SDL_WM_SetCaption("Tao.Sdl Example - Rectangles", "");
 				IntPtr surfacePtr = Sdl.SDL_SetVideoMode(
 					width, 
 					height, 
