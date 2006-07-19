@@ -98,19 +98,19 @@ namespace NeHe {
         private static float zspeed;                                            // Z Rotation Speed
         private static float cx;                                                // X Position
         private static float cy;                                                // Y Position
-        private static float cz = -15;                                          // Z Position
-
-        private static int key = 1;                                             // Make Sure Same Morph Key Is Not Pressed
-        private static int step = 0;                                            // Step Counter
-        private static int steps = 200;                                         // Maximum Number Of Steps
-        private static bool morph;                                              // Morphing?
-
-        private static int maxver;                                              // Maximum Number Of Vertices
-        private static Thing morph1, morph2, morph3, morph4;                    // Our 4 Morphable Objects
-        private static Thing helper, source, destination;                       // Helper Object, Source Object, Destination Object
-
-        private static Random rand = new Random();                              // Random Number Generator
-
+        private static float cz = -15;                                          // Z Position
+
+        private static int key = 1;                                             // Make Sure Same Morph Key Is Not Pressed
+        private static int step = 0;                                            // Step Counter
+        private static int steps = 200;                                         // Maximum Number Of Steps
+        private static bool morph;                                              // Morphing?
+
+        private static int maxver;                                              // Maximum Number Of Vertices
+        private static Thing morph1, morph2, morph3, morph4;                    // Our 4 Morphable Objects
+        private static Thing helper, source, destination;                       // Helper Object, Source Object, Destination Object
+
+        private static Random rand = new Random();                              // Random Number Generator
+
         private struct Vertex {                                                 // Structure For 3d Points
             public float X;                                                     // X Coordinate
             public float Y;                                                     // Y Coordinate
@@ -162,80 +162,80 @@ namespace NeHe {
                 fullscreen = false;                                              // Windowed Mode
             }
 
-            // Create Our OpenGL Window
-            if(!CreateGLWindow("Piotr Cieslak & NeHe's Morphing Points Tutorial", 640, 480, 16, fullscreen)) {
+            // Create Our OpenGL Window
+            if(!CreateGLWindow("Piotr Cieslak & NeHe's Morphing Points Tutorial", 640, 480, 16, fullscreen)) {
                 return;                                                         // Quit If Window Was Not Created
             }
 
             while(!done) {                                                      // Loop That Runs While done = false
-                Application.DoEvents();                                         // Process Events
-
+                Application.DoEvents();                                         // Process Events
+
                 // Draw The Scene.  Watch For ESC Key And Quit Messages From DrawGLScene()
                 if(active && keys[(int) Keys.Escape] || form == null) {         //  Active?  Was There A Quit Received?
-                    done = true;                                                // ESC Or DrawGLScene Signalled A Quit
-                }
-                else {                                                          // Not Time To Quit, Update Screen
-                    DrawGLScene();                                              // Draw
-                    Gdi.SwapBuffers(hDC);                                       // Swap Buffers (Double Buffering)
-
-                    if(keys[(int) Keys.PageUp]) {                               // Is Page Up Being Pressed?
-                        zspeed += 0.01f;                                        // Increase zspeed
-                    }
-                    if(keys[(int) Keys.PageDown]) {                             // Is Page Down Being Pressed?
-                        zspeed -= 0.01f;                                        // Decrease zspeed
-                    }
-                    if(keys[(int) Keys.Down]) {                                 // Is Down Arrow Being Pressed?
-                        xspeed += 0.01f;                                        // Increase xspeed
-                    }
-                    if(keys[(int) Keys.Up]) {                                   // Is Up Arrow Being Pressed?
-                        xspeed -= 0.01f;                                        // Decrease xspeed
-                    }
-                    if(keys[(int) Keys.Right]) {                                // Is Right Arrow Being Pressed?
-                        yspeed += 0.01f;                                        // Increase yspeed
-                    }
-                    if(keys[(int) Keys.Left]) {                                 // Is Left Arrow Being Pressed?
-                        yspeed -= 0.01f;                                        // Decrease yspeed
-                    }
-                    if(keys[(int) Keys.Q]) {                                    // Is Q Key Being Pressed?
-                        cz -= 0.01f;                                            // Move Object Away From Viewer
-                    }
-                    if(keys[(int) Keys.Z]) {                                    // Is Z Key Being Pressed?
-                        cz += 0.01f;                                            // Move Object Towards Viewer
-                    }
-                    if(keys[(int) Keys.W]) {                                    // Is W Key Being Pressed?
-                        cy += 0.01f;                                            // Move Object Up
-                    }
-                    if(keys[(int) Keys.S]) {                                    // Is S Key Being Pressed?
-                        cy -= 0.01f;                                            // Move Object Down
-                    }
-                    if(keys[(int) Keys.D]) {                                    // Is W Key Being Pressed?
-                        cx += 0.01f;                                            // Move Object Right
-                    }
-                    if(keys[(int) Keys.A]) {                                    // Is S Key Being Pressed?
-                        cx -= 0.01f;                                            // Move Object Left
-                    }
-
-                    if(keys[(int) Keys.D1] && (key != 1) && !morph) {           // Is 1 Pressed, key Not Equal To 1 And Morph False?
-                        key = 1;                                                // Sets key To 1 (To Prevent Pressing 1 2x In A Row)
-                        morph = true;                                           // Set morph To True (Starts Morphing Process)
-                        destination = morph1;                                   // Destination Object To Morph To Becomes morph1
-                    }
-                    if(keys[(int) Keys.D2] && (key != 2) && !morph) {           // Is 2 Pressed, key Not Equal To 2 And Morph False?
-                        key = 2;                                                // Sets key To 2 (To Prevent Pressing 2 2x In A Row)
-                        morph = true;                                           // Set morph To True (Starts Morphing Process)
-                        destination = morph2;                                   // Destination Object To Morph To Becomes morph2
-                    }
-                    if(keys[(int) Keys.D3] && (key != 3) && !morph) {           // Is 3 Pressed, key Not Equal To 3 And Morph False?
-                        key = 3;                                                // Sets key To 3 (To Prevent Pressing 3 2x In A Row)
-                        morph = true;                                           // Set morph To True (Starts Morphing Process)
-                        destination = morph3;                                   // Destination Object To Morph To Becomes morph3
-                    }
-                    if(keys[(int) Keys.D4] && (key != 4) && !morph) {           // Is 4 Pressed, key Not Equal To 4 And Morph False?
-                        key = 4;                                                // Sets key To 4 (To Prevent Pressing 4 2x In A Row)
-                        morph = true;                                           // Set morph To True (Starts Morphing Process)
-                        destination = morph4;                                   // Destination Object To Morph To Becomes morph4
-                    }
-
+                    done = true;                                                // ESC Or DrawGLScene Signalled A Quit
+                }
+                else {                                                          // Not Time To Quit, Update Screen
+                    DrawGLScene();                                              // Draw
+                    Gdi.SwapBuffers(hDC);                                       // Swap Buffers (Double Buffering)
+
+                    if(keys[(int) Keys.PageUp]) {                               // Is Page Up Being Pressed?
+                        zspeed += 0.01f;                                        // Increase zspeed
+                    }
+                    if(keys[(int) Keys.PageDown]) {                             // Is Page Down Being Pressed?
+                        zspeed -= 0.01f;                                        // Decrease zspeed
+                    }
+                    if(keys[(int) Keys.Down]) {                                 // Is Down Arrow Being Pressed?
+                        xspeed += 0.01f;                                        // Increase xspeed
+                    }
+                    if(keys[(int) Keys.Up]) {                                   // Is Up Arrow Being Pressed?
+                        xspeed -= 0.01f;                                        // Decrease xspeed
+                    }
+                    if(keys[(int) Keys.Right]) {                                // Is Right Arrow Being Pressed?
+                        yspeed += 0.01f;                                        // Increase yspeed
+                    }
+                    if(keys[(int) Keys.Left]) {                                 // Is Left Arrow Being Pressed?
+                        yspeed -= 0.01f;                                        // Decrease yspeed
+                    }
+                    if(keys[(int) Keys.Q]) {                                    // Is Q Key Being Pressed?
+                        cz -= 0.01f;                                            // Move Object Away From Viewer
+                    }
+                    if(keys[(int) Keys.Z]) {                                    // Is Z Key Being Pressed?
+                        cz += 0.01f;                                            // Move Object Towards Viewer
+                    }
+                    if(keys[(int) Keys.W]) {                                    // Is W Key Being Pressed?
+                        cy += 0.01f;                                            // Move Object Up
+                    }
+                    if(keys[(int) Keys.S]) {                                    // Is S Key Being Pressed?
+                        cy -= 0.01f;                                            // Move Object Down
+                    }
+                    if(keys[(int) Keys.D]) {                                    // Is W Key Being Pressed?
+                        cx += 0.01f;                                            // Move Object Right
+                    }
+                    if(keys[(int) Keys.A]) {                                    // Is S Key Being Pressed?
+                        cx -= 0.01f;                                            // Move Object Left
+                    }
+
+                    if(keys[(int) Keys.D1] && (key != 1) && !morph) {           // Is 1 Pressed, key Not Equal To 1 And Morph False?
+                        key = 1;                                                // Sets key To 1 (To Prevent Pressing 1 2x In A Row)
+                        morph = true;                                           // Set morph To True (Starts Morphing Process)
+                        destination = morph1;                                   // Destination Object To Morph To Becomes morph1
+                    }
+                    if(keys[(int) Keys.D2] && (key != 2) && !morph) {           // Is 2 Pressed, key Not Equal To 2 And Morph False?
+                        key = 2;                                                // Sets key To 2 (To Prevent Pressing 2 2x In A Row)
+                        morph = true;                                           // Set morph To True (Starts Morphing Process)
+                        destination = morph2;                                   // Destination Object To Morph To Becomes morph2
+                    }
+                    if(keys[(int) Keys.D3] && (key != 3) && !morph) {           // Is 3 Pressed, key Not Equal To 3 And Morph False?
+                        key = 3;                                                // Sets key To 3 (To Prevent Pressing 3 2x In A Row)
+                        morph = true;                                           // Set morph To True (Starts Morphing Process)
+                        destination = morph3;                                   // Destination Object To Morph To Becomes morph3
+                    }
+                    if(keys[(int) Keys.D4] && (key != 4) && !morph) {           // Is 4 Pressed, key Not Equal To 4 And Morph False?
+                        key = 4;                                                // Sets key To 4 (To Prevent Pressing 4 2x In A Row)
+                        morph = true;                                           // Set morph To True (Starts Morphing Process)
+                        destination = morph4;                                   // Destination Object To Morph To Becomes morph4
+                    }
+
                     if(keys[(int) Keys.F1]) {                                   // Is F1 Being Pressed?
                         keys[(int) Keys.F1] = false;                            // If So Make Key false
                         KillGLWindow();                                         // Kill Our Current Window
@@ -265,30 +265,30 @@ namespace NeHe {
         /// </param>
         /// <param name="number">
         ///     The number of points to allocate.
-        /// </param>
-        private static void AllocateThing(ref Thing thing, int number) {
-            thing.Points = new Vertex[number];
-        }
-        #endregion AllocateThing(ref Thing thing, int number)
-
-        #region Vertex Calculate(int i)
-        /// <summary>
-        ///     Calculates movement of points during morphing.
-        /// </summary>
-        /// <param name="i">
-        ///     The number of the point to calculate.
-        /// </param>
-        /// <returns>
-        ///     A Vertex.
-        /// </returns>
-        private static Vertex Calculate(int i) {
-            // This Makes Points Move At A Speed So They All Get To Their Destination At The Same Time
-            Vertex a;                                                                   // Temporary Vertex Called a
-            a.X = (source.Points[i].X - destination.Points[i].X) / steps;               // a.X Value Equals Source X - Destination X Divided By Steps
-            a.Y = (source.Points[i].Y - destination.Points[i].Y) / steps;               // a.Y Value Equals Source Y - Destination Y Divided By Steps
-            a.Z = (source.Points[i].Z - destination.Points[i].Z) / steps;               // a.Z Value Equals Source Z - Destination Z Divided By Steps
-            return a;                                                                   // Return The Results
-        }
+        /// </param>
+        private static void AllocateThing(ref Thing thing, int number) {
+            thing.Points = new Vertex[number];
+        }
+        #endregion AllocateThing(ref Thing thing, int number)
+
+        #region Vertex Calculate(int i)
+        /// <summary>
+        ///     Calculates movement of points during morphing.
+        /// </summary>
+        /// <param name="i">
+        ///     The number of the point to calculate.
+        /// </param>
+        /// <returns>
+        ///     A Vertex.
+        /// </returns>
+        private static Vertex Calculate(int i) {
+            // This Makes Points Move At A Speed So They All Get To Their Destination At The Same Time
+            Vertex a;                                                                   // Temporary Vertex Called a
+            a.X = (source.Points[i].X - destination.Points[i].X) / steps;               // a.X Value Equals Source X - Destination X Divided By Steps
+            a.Y = (source.Points[i].Y - destination.Points[i].Y) / steps;               // a.Y Value Equals Source Y - Destination Y Divided By Steps
+            a.Z = (source.Points[i].Z - destination.Points[i].Z) / steps;               // a.Z Value Equals Source Z - Destination Z Divided By Steps
+            return a;                                                                   // Return The Results
+        }
         #endregion Vertex Calculate(int i)
 
         #region bool CreateGLWindow(string title, int width, int height, int bits, bool fullscreenflag)
@@ -456,61 +456,61 @@ namespace NeHe {
         /// <returns>
         ///     Returns <c>true</c> on success, otherwise <c>false</c>.
         /// </returns>
-        private static void DrawGLScene() {                                     // Here's Where We Do All The Drawing
-            Gl.glClear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);        // Clear The Screen And The Depth Buffer
-            Gl.glLoadIdentity();                                                // Reset The View
-            Gl.glTranslatef(cx, cy, cz);                                        // Translate The The Current Position To Start Drawing
-            Gl.glRotatef(xrot, 1, 0, 0);                                        // Rotate On The X Axis By xrot
-            Gl.glRotatef(yrot, 0, 1, 0);                                        // Rotate On The Y Axis By yrot
-            Gl.glRotatef(zrot, 0, 0, 1);                                        // Rotate On The Z Axis By zrot
-
-            xrot += xspeed;
-            yrot += yspeed;
-            zrot += zspeed;                                                     // Increase xrot,yrot & zrot by xspeed, yspeed & zspeed
-
-            float tx, ty, tz;                                                   // Temp X, Y & Z Variables
-            Vertex q;                                                           // Holds Returned Calculated Values For One Vertex
-
-            Gl.glBegin(Gl.GL_POINTS);                                           // Begin Drawing Points
-            for(int i = 0; i < morph1.Verts; i++) {                             // Loop Through All The Verts Of morph1 (All Objects Have
-                if(morph) {                                                     // The Same Amount Of Verts For Simplicity, Could Use maxver Also)
-                    q = Calculate(i);
-                }
-                else {
-                    q.X = q.Y = q.Z = 0;                                        // If morph Is True Calculate Movement Otherwise Movement=0
-                }
-                helper.Points[i].X -= q.X;                                      // Subtract q.x Units From helper.points[i].x (Move On X Axis)
-                helper.Points[i].Y -= q.Y;                                      // Subtract q.y Units From helper.points[i].y (Move On Y Axis)
-                helper.Points[i].Z -= q.Z;                                      // Subtract q.z Units From helper.points[i].z (Move On Z Axis)
-                tx = helper.Points[i].X;                                        // Make Temp X Variable Equal To Helper's X Variable
-                ty = helper.Points[i].Y;                                        // Make Temp Y Variable Equal To Helper's Y Variable
-                tz = helper.Points[i].Z;                                        // Make Temp Z Variable Equal To Helper's Z Variable
-
-                Gl.glColor3f(0, 1, 1);                                          // Set Color To A Bright Shade Of Off Blue
-                Gl.glVertex3f(tx, ty, tz);                                      // Draw A Point At The Current Temp Values (Vertex)
-                Gl.glColor3f(0, 0.5f, 1);                                       // Darken Color A Bit
-                tx -= 2 * q.X;
-                ty -= 2 * q.Y;
-                ty -= 2 * q.Y;                                                  // Calculate Two Positions Ahead
-                Gl.glVertex3f(tx, ty, tz);                                      // Draw A Second Point At The Newly Calculate Position
-                Gl.glColor3f(0, 0, 1);                                          // Set Color To A Very Dark Blue
-                tx -= 2 * q.X;
-                ty -= 2 * q.Y;
-                ty -= 2 * q.Y;                                                  // Calculate Two More Positions Ahead
-                Gl.glVertex3f(tx, ty, tz);                                      // Draw A Third Point At The Second New Position
-            }                                                                   // This Creates A Ghostly Tail As Points Move
-            Gl.glEnd();                                                         // Done Drawing Points
-
-            // If We're Morphing And We Haven't Gone Through All 200 Steps Increase Our Step Counter
-            // Otherwise Set Morphing To False, Make Source=Destination And Set The Step Counter Back To Zero.
-            if(morph && step <= steps) {
-                step++;
-            }
-            else {
-                morph = false;
-                source = destination;
-                step = 0;
-            }
+        private static void DrawGLScene() {                                     // Here's Where We Do All The Drawing
+            Gl.glClear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);        // Clear The Screen And The Depth Buffer
+            Gl.glLoadIdentity();                                                // Reset The View
+            Gl.glTranslatef(cx, cy, cz);                                        // Translate The The Current Position To Start Drawing
+            Gl.glRotatef(xrot, 1, 0, 0);                                        // Rotate On The X Axis By xrot
+            Gl.glRotatef(yrot, 0, 1, 0);                                        // Rotate On The Y Axis By yrot
+            Gl.glRotatef(zrot, 0, 0, 1);                                        // Rotate On The Z Axis By zrot
+
+            xrot += xspeed;
+            yrot += yspeed;
+            zrot += zspeed;                                                     // Increase xrot,yrot & zrot by xspeed, yspeed & zspeed
+
+            float tx, ty, tz;                                                   // Temp X, Y & Z Variables
+            Vertex q;                                                           // Holds Returned Calculated Values For One Vertex
+
+            Gl.glBegin(Gl.GL_POINTS);                                           // Begin Drawing Points
+            for(int i = 0; i < morph1.Verts; i++) {                             // Loop Through All The Verts Of morph1 (All Objects Have
+                if(morph) {                                                     // The Same Amount Of Verts For Simplicity, Could Use maxver Also)
+                    q = Calculate(i);
+                }
+                else {
+                    q.X = q.Y = q.Z = 0;                                        // If morph Is True Calculate Movement Otherwise Movement=0
+                }
+                helper.Points[i].X -= q.X;                                      // Subtract q.x Units From helper.points[i].x (Move On X Axis)
+                helper.Points[i].Y -= q.Y;                                      // Subtract q.y Units From helper.points[i].y (Move On Y Axis)
+                helper.Points[i].Z -= q.Z;                                      // Subtract q.z Units From helper.points[i].z (Move On Z Axis)
+                tx = helper.Points[i].X;                                        // Make Temp X Variable Equal To Helper's X Variable
+                ty = helper.Points[i].Y;                                        // Make Temp Y Variable Equal To Helper's Y Variable
+                tz = helper.Points[i].Z;                                        // Make Temp Z Variable Equal To Helper's Z Variable
+
+                Gl.glColor3f(0, 1, 1);                                          // Set Color To A Bright Shade Of Off Blue
+                Gl.glVertex3f(tx, ty, tz);                                      // Draw A Point At The Current Temp Values (Vertex)
+                Gl.glColor3f(0, 0.5f, 1);                                       // Darken Color A Bit
+                tx -= 2 * q.X;
+                ty -= 2 * q.Y;
+                ty -= 2 * q.Y;                                                  // Calculate Two Positions Ahead
+                Gl.glVertex3f(tx, ty, tz);                                      // Draw A Second Point At The Newly Calculate Position
+                Gl.glColor3f(0, 0, 1);                                          // Set Color To A Very Dark Blue
+                tx -= 2 * q.X;
+                ty -= 2 * q.Y;
+                ty -= 2 * q.Y;                                                  // Calculate Two More Positions Ahead
+                Gl.glVertex3f(tx, ty, tz);                                      // Draw A Third Point At The Second New Position
+            }                                                                   // This Creates A Ghostly Tail As Points Move
+            Gl.glEnd();                                                         // Done Drawing Points
+
+            // If We're Morphing And We Haven't Gone Through All 200 Steps Increase Our Step Counter
+            // Otherwise Set Morphing To False, Make Source=Destination And Set The Step Counter Back To Zero.
+            if(morph && step <= steps) {
+                step++;
+            }
+            else {
+                morph = false;
+                source = destination;
+                step = 0;
+            }
         }
         #endregion DrawGLScene()
 
@@ -521,32 +521,32 @@ namespace NeHe {
         /// <returns>
         ///     Returns <c>true</c> on success, otherwise <c>false</c>.
         /// </returns>
-        private static bool InitGL() {                                          // All Setup For OpenGL Goes Here
-            Gl.glBlendFunc(Gl.GL_SRC_ALPHA, Gl.GL_ONE);                         // Set The Blending Function For Translucency
-            Gl.glClearColor(0, 0, 0, 0);                                        // This Will Clear The Background Color To Black
-            Gl.glClearDepth(1);                                                 // Enables Clearing Of The Depth Buffer
-            Gl.glDepthFunc(Gl.GL_LESS);                                         // The Type Of Depth Test To Do
-            Gl.glEnable(Gl.GL_DEPTH_TEST);                                      // Enables Depth Testing
-            Gl.glShadeModel(Gl.GL_SMOOTH);                                      // Enables Smooth Color Shading
-            Gl.glHint(Gl.GL_PERSPECTIVE_CORRECTION_HINT, Gl.GL_NICEST);         // Really Nice Perspective Calculations
-
-            maxver = 0;                                                         // Sets Max Vertices To 0 By Default
-
-            LoadThing("NeHe.Lesson25.Sphere.txt", ref morph1);                  // Load The First Object Into morph1 From File sphere.txt
-            LoadThing("NeHe.Lesson25.Torus.txt", ref morph2);                   // Load The Second Object Into morph2 From File torus.txt
-            LoadThing("NeHe.Lesson25.Tube.txt", ref morph3);                    // Load The Third Object Into morph3 From File tube.txt
-
-            AllocateThing(ref morph4, 486);                                     // Manually Reserver Ram For A 4th 468 Vertice Object (morph4)
-            for(int i = 0; i < 486; i++) {                                      // Loop Through All 468 Vertices
-                morph4.Points[i].X = ((float) (rand.Next() % 14000) / 1000) - 7;// morph4 X Point Becomes A Random Float Value From -7 to 7
-                morph4.Points[i].Y = ((float) (rand.Next() % 14000) / 1000) - 7;// morph4 Y Point Becomes A Random Float Value From -7 to 7
-                morph4.Points[i].Z = ((float) (rand.Next() % 14000) / 1000) - 7;// morph4 Z Point Becomes A Random Float Value From -7 to 7
-            }
-
-            LoadThing("NeHe.Lesson25.Sphere.txt", ref helper);                  // Load sphere.txt Object Into Helper (Used As Starting Point)
-            source = destination = morph1;                                      // Source & Destination Are Set To Equal First Object (morph1)
-
-            return true;                                                        // Initialization Went OK
+        private static bool InitGL() {                                          // All Setup For OpenGL Goes Here
+            Gl.glBlendFunc(Gl.GL_SRC_ALPHA, Gl.GL_ONE);                         // Set The Blending Function For Translucency
+            Gl.glClearColor(0, 0, 0, 0);                                        // This Will Clear The Background Color To Black
+            Gl.glClearDepth(1);                                                 // Enables Clearing Of The Depth Buffer
+            Gl.glDepthFunc(Gl.GL_LESS);                                         // The Type Of Depth Test To Do
+            Gl.glEnable(Gl.GL_DEPTH_TEST);                                      // Enables Depth Testing
+            Gl.glShadeModel(Gl.GL_SMOOTH);                                      // Enables Smooth Color Shading
+            Gl.glHint(Gl.GL_PERSPECTIVE_CORRECTION_HINT, Gl.GL_NICEST);         // Really Nice Perspective Calculations
+
+            maxver = 0;                                                         // Sets Max Vertices To 0 By Default
+
+            LoadThing("NeHe.Lesson25.Sphere.txt", ref morph1);                  // Load The First Object Into morph1 From File sphere.txt
+            LoadThing("NeHe.Lesson25.Torus.txt", ref morph2);                   // Load The Second Object Into morph2 From File torus.txt
+            LoadThing("NeHe.Lesson25.Tube.txt", ref morph3);                    // Load The Third Object Into morph3 From File tube.txt
+
+            AllocateThing(ref morph4, 486);                                     // Manually Reserver Ram For A 4th 468 Vertice Object (morph4)
+            for(int i = 0; i < 486; i++) {                                      // Loop Through All 468 Vertices
+                morph4.Points[i].X = ((float) (rand.Next() % 14000) / 1000) - 7;// morph4 X Point Becomes A Random Float Value From -7 to 7
+                morph4.Points[i].Y = ((float) (rand.Next() % 14000) / 1000) - 7;// morph4 Y Point Becomes A Random Float Value From -7 to 7
+                morph4.Points[i].Z = ((float) (rand.Next() % 14000) / 1000) - 7;// morph4 Z Point Becomes A Random Float Value From -7 to 7
+            }
+
+            LoadThing("NeHe.Lesson25.Sphere.txt", ref helper);                  // Load sphere.txt Object Into Helper (Used As Starting Point)
+            source = destination = morph1;                                      // Source & Destination Are Set To Equal First Object (morph1)
+
+            return true;                                                        // Initialization Went OK
         }
         #endregion bool InitGL()
 
@@ -593,89 +593,89 @@ namespace NeHe {
                 form = null;                                                    // Set form To Null
             }
         }
-        #endregion KillGLWindow()
-
-        #region LoadThing(string filename, ref Thing k)
-        /// <summary>
-        ///     Loads Object from a file.
-        /// </summary>
-        /// <param name="filename">
-        ///     The file to load.
-        /// </param>
-        /// <param name="k">
-        ///     The Object to save to.
-        /// </param>
-        private static void LoadThing(string filename, ref Thing k) {
-            int ver;                                                                    // Will Hold Vertice Count
-            float rx, ry, rz;                                                           // Hold Vertex X, Y & Z Position
-            string oneline = "";                                                        // The Line We've Read
-            string[] splitter;                                                          // Array For Split Values
-            StreamReader reader = null;                                                 // Our StreamReader
-            ASCIIEncoding encoding = new ASCIIEncoding();                               // ASCII Encoding
-
-            try {
-                if(filename == null || filename == string.Empty) {                      // Make Sure A Filename Was Given
-                    return;                                                             // If Not Return
-                }
-
-                string fileName1 = string.Format("Data{0}{1}",                          // Look For Data\Filename
-                    Path.DirectorySeparatorChar, filename);
-                string fileName2 = string.Format("{0}{1}{0}{1}Data{1}{2}",              // Look For ..\..\Data\Filename
-                    "..", Path.DirectorySeparatorChar, filename);
-
-                // Make Sure The File Exists In One Of The Usual Directories
-                if(!File.Exists(filename) && !File.Exists(fileName1) && !File.Exists(fileName2)) {
-                    return;                                                             // If Not Return Null
-                }
-
-                if(File.Exists(filename)) {                                             // Does The File Exist Here?
-                    reader = new StreamReader(filename, encoding);                          // Open The File As ASCII Text
-                }
-                else if(File.Exists(fileName1)) {                                       // Does The File Exist Here?
-                    reader = new StreamReader(fileName1, encoding);                     // Open The File As ASCII Text
-                }
-                else if(File.Exists(fileName2)) {                                       // Does The File Exist Here?
-                    reader = new StreamReader(fileName2, encoding);                     // Open The File As ASCII Text
-                }
-
-                oneline = reader.ReadLine();                                            // Read The First Line
-                splitter = oneline.Split();                                             // Split The Line On Spaces
-
-                // The First Item In The Array Will Contain The String "Vertices:", Which We Will Ignore
-                ver = Convert.ToInt32(splitter[1]);                                     // Save The Number Of Triangles To ver As An int
-                k.Verts = ver;                                                          // Sets PointObjects (k) verts Variable To Equal The Value Of ver
-                AllocateThing(ref k, ver);                                              // Jumps To Code That Allocates Ram To Hold The Object
-
-                for(int vertloop = 0; vertloop < ver; vertloop++) {                     // Loop Through The Vertices
-                    oneline = reader.ReadLine();                                        // Reads In The Next Line Of Text
-                    if(oneline != null) {                                               // If The Line's Not null
-                        splitter = oneline.Split();                                     // Split The Line On Spaces
-                        rx = float.Parse(splitter[0]);                                  // Save The X Value As A Float
-                        ry = float.Parse(splitter[1]);                                  // Save The Y Value As A Float
-                        rz = float.Parse(splitter[2]);                                  // Save The Z Value As A Float
-                        k.Points[vertloop].X = rx;                                      // Sets PointObjects (k) points.x Value To rx
-                        k.Points[vertloop].Y = ry;                                      // Sets PointObjects (k) points.y Value To ry
-                        k.Points[vertloop].Z = rz;                                      // Sets PointObjects (k) points.z Value To rz
-                    }
-                }
-
-                if(ver > maxver) {                                                      // If ver Is Greater Than maxver
-                    // maxver Keeps Track Of The Highest Number Of Vertices Used In Any Of The Objects
-                    maxver = ver;                                                       // Set maxver Equal To ver
-                }
-            }
-            catch(Exception e) {
-                // Handle Any Exceptions While Loading Object Data, Exit App
-                string errorMsg = "An Error Occurred While Loading And Parsing Object Data:\n\t" + filename + "\n" + "\n\nStack Trace:\n\t" + e.StackTrace + "\n";
-                MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                done = true;
-            }
-            finally {
-                if(reader != null) {
-                    reader.Close();                                                     // Close The StreamReader
-                }
-            }
-        }
+        #endregion KillGLWindow()
+
+        #region LoadThing(string filename, ref Thing k)
+        /// <summary>
+        ///     Loads Object from a file.
+        /// </summary>
+        /// <param name="filename">
+        ///     The file to load.
+        /// </param>
+        /// <param name="k">
+        ///     The Object to save to.
+        /// </param>
+        private static void LoadThing(string filename, ref Thing k) {
+            int ver;                                                                    // Will Hold Vertice Count
+            float rx, ry, rz;                                                           // Hold Vertex X, Y & Z Position
+            string oneline = "";                                                        // The Line We've Read
+            string[] splitter;                                                          // Array For Split Values
+            StreamReader reader = null;                                                 // Our StreamReader
+            ASCIIEncoding encoding = new ASCIIEncoding();                               // ASCII Encoding
+
+            try {
+                if(filename == null || filename == string.Empty) {                      // Make Sure A Filename Was Given
+                    return;                                                             // If Not Return
+                }
+
+                string fileName1 = string.Format("Data{0}{1}",                          // Look For Data\Filename
+                    Path.DirectorySeparatorChar, filename);
+                string fileName2 = string.Format("{0}{1}{0}{1}Data{1}{2}",              // Look For ..\..\Data\Filename
+                    "..", Path.DirectorySeparatorChar, filename);
+
+                // Make Sure The File Exists In One Of The Usual Directories
+                if(!File.Exists(filename) && !File.Exists(fileName1) && !File.Exists(fileName2)) {
+                    return;                                                             // If Not Return Null
+                }
+
+                if(File.Exists(filename)) {                                             // Does The File Exist Here?
+                    reader = new StreamReader(filename, encoding);                          // Open The File As ASCII Text
+                }
+                else if(File.Exists(fileName1)) {                                       // Does The File Exist Here?
+                    reader = new StreamReader(fileName1, encoding);                     // Open The File As ASCII Text
+                }
+                else if(File.Exists(fileName2)) {                                       // Does The File Exist Here?
+                    reader = new StreamReader(fileName2, encoding);                     // Open The File As ASCII Text
+                }
+
+                oneline = reader.ReadLine();                                            // Read The First Line
+                splitter = oneline.Split();                                             // Split The Line On Spaces
+
+                // The First Item In The Array Will Contain The String "Vertices:", Which We Will Ignore
+                ver = Convert.ToInt32(splitter[1]);                                     // Save The Number Of Triangles To ver As An int
+                k.Verts = ver;                                                          // Sets PointObjects (k) verts Variable To Equal The Value Of ver
+                AllocateThing(ref k, ver);                                              // Jumps To Code That Allocates Ram To Hold The Object
+
+                for(int vertloop = 0; vertloop < ver; vertloop++) {                     // Loop Through The Vertices
+                    oneline = reader.ReadLine();                                        // Reads In The Next Line Of Text
+                    if(oneline != null) {                                               // If The Line's Not null
+                        splitter = oneline.Split();                                     // Split The Line On Spaces
+                        rx = float.Parse(splitter[0]);                                  // Save The X Value As A Float
+                        ry = float.Parse(splitter[1]);                                  // Save The Y Value As A Float
+                        rz = float.Parse(splitter[2]);                                  // Save The Z Value As A Float
+                        k.Points[vertloop].X = rx;                                      // Sets PointObjects (k) points.x Value To rx
+                        k.Points[vertloop].Y = ry;                                      // Sets PointObjects (k) points.y Value To ry
+                        k.Points[vertloop].Z = rz;                                      // Sets PointObjects (k) points.z Value To rz
+                    }
+                }
+
+                if(ver > maxver) {                                                      // If ver Is Greater Than maxver
+                    // maxver Keeps Track Of The Highest Number Of Vertices Used In Any Of The Objects
+                    maxver = ver;                                                       // Set maxver Equal To ver
+                }
+            }
+            catch(Exception e) {
+                // Handle Any Exceptions While Loading Object Data, Exit App
+                string errorMsg = "An Error Occurred While Loading And Parsing Object Data:\n\t" + filename + "\n" + "\n\nStack Trace:\n\t" + e.StackTrace + "\n";
+                MessageBox.Show(errorMsg, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                done = true;
+            }
+            finally {
+                if(reader != null) {
+                    reader.Close();                                                     // Close The StreamReader
+                }
+            }
+        }
         #endregion LoadThing(string filename, ref Thing k)
 
         #region ReSizeGLScene(int width, int height)

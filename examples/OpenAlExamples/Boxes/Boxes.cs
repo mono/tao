@@ -88,8 +88,8 @@ namespace OpenAlExamples {
 
         // --- Entry Point ---
         #region Main()
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public static void Main() {
             Glut.glutInit();

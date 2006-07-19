@@ -21,10 +21,10 @@ namespace Tao.Sdl
 		//IntPtr surfacePtr;
 		int sleepTime;
 
-		private void Quit()
-		{
-			SdlTtf.TTF_Quit();
-			Tao.Sdl.Sdl.SDL_Quit();
+		private void Quit()
+		{
+			SdlTtf.TTF_Quit();
+			Tao.Sdl.Sdl.SDL_Quit();
 		}
 
 		/// <summary>

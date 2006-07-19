@@ -33,8 +33,8 @@ using System;
 using Tao.OpenAl;
 
 namespace OpenAlExamples {
-	/// <summary>
-	/// 
+	/// <summary>
+	/// 
 	/// </summary>
     public class Sound {
         // --- Fields ---
@@ -49,8 +49,8 @@ namespace OpenAlExamples {
 
         // --- Public Methods ---
         #region Destroy()
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public void Destroy() {
             Al.alDeleteSources(1, ref sourceId);
@@ -59,8 +59,8 @@ namespace OpenAlExamples {
         #endregion Destroy()
 
         #region Play()
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public void Play() {
             Al.alSourcePlay(sourceId);
@@ -68,10 +68,10 @@ namespace OpenAlExamples {
         #endregion Play()
 
         #region Load(string fileName, bool shouldLoop)
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="fileName"></param>
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="fileName"></param>
 		/// <param name="shouldLoop"></param>
         public void Load(string fileName, bool shouldLoop) {
             // Load our sound
@@ -96,14 +96,14 @@ namespace OpenAlExamples {
         #endregion Load(string fileName, bool shouldLoop)
 
         #region SetListenerOrientation(float fx, float fy, float fz, float ux, float uy, float uz)
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="fx"></param>
-		/// <param name="fy"></param>
-		/// <param name="fz"></param>
-		/// <param name="ux"></param>
-		/// <param name="uy"></param>
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="fx"></param>
+		/// <param name="fy"></param>
+		/// <param name="fz"></param>
+		/// <param name="ux"></param>
+		/// <param name="uy"></param>
 		/// <param name="uz"></param>
         public void SetListenerOrientation(float fx, float fy, float fz, float ux, float uy, float uz) {
             //set the orientation using an array of floats
@@ -119,11 +119,11 @@ namespace OpenAlExamples {
         #endregion SetListenerOrientation(float fx, float fy, float fz, float ux, float uy, float uz)
 
         #region SetListenerPosition(float x, float y, float z)
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="x"></param>
-		/// <param name="y"></param>
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
 		/// <param name="z"></param>
         public void SetListenerPosition(float x, float y, float z) {
             // Set the position using 3 seperate floats
@@ -132,14 +132,14 @@ namespace OpenAlExamples {
         #endregion SetListenerPosition(float x, float y, float z)
 
         #region SetProperties(float x, float y, float z, float vx, float vy, float vz)
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="x"></param>
-		/// <param name="y"></param>
-		/// <param name="z"></param>
-		/// <param name="vx"></param>
-		/// <param name="vy"></param>
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="x"></param>
+		/// <param name="y"></param>
+		/// <param name="z"></param>
+		/// <param name="vx"></param>
+		/// <param name="vy"></param>
 		/// <param name="vz"></param>
         public void SetProperties(float x, float y, float z, float vx, float vy, float vz) {
             // Set the sounds position and velocity
@@ -153,8 +153,8 @@ namespace OpenAlExamples {
         // parameters become relative to the source rather than the listener.  This is
         // useful for background music that you want to stay constant relative to the listener
         // no matter where they go.
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public void SetSourceRelative() {
             Al.alSourcei(sourceId, Al.AL_SOURCE_RELATIVE, Al.AL_TRUE);
@@ -162,8 +162,8 @@ namespace OpenAlExamples {
         #endregion SetSourceRelative()
 
         #region Stop()
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public void Stop() {
             Al.alSourceStop(sourceId);

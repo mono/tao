@@ -48,8 +48,8 @@ using System.Security.Permissions;
 [assembly: AssemblyKeyName("")]
 #if DEBUG
 [assembly: AssemblyProduct("OdeExamples.Basic.exe *** Debug Build ***")]
-#else
-[assembly: AssemblyProduct("OdeExamples.Basic.exe")]
+#else
+[assembly: AssemblyProduct("OdeExamples.Basic.exe")]
 #endif
 [assembly: AssemblyTitle("A basic ODE example.")]
 [assembly: AssemblyTrademark("Tao Framework - http://www.taoframework.com")]

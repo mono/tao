@@ -109,8 +109,8 @@ namespace OpenAlExamples {
 
         // --- Entry Point ---
         #region Main()
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public static void Main() {
             Initialize();
@@ -180,8 +180,8 @@ namespace OpenAlExamples {
         #endregion DrawWater()
 
         #region Finish()
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public static void Finish() {
             sound.Destroy();

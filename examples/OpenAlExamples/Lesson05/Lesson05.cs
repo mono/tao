@@ -102,8 +102,8 @@ namespace OpenAlExamples {
 
         // --- Entry Point ---
         #region Main()
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public static void Main() {
             Console.WriteLine("MindCode's OpenAL Lesson 5: Sources Sharing Buffers");
@@ -244,7 +244,7 @@ namespace OpenAlExamples {
             if(fileName != null) {
                 // Load wav.
 				data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
-				if(data == IntPtr.Zero) 
+				if(data == IntPtr.Zero) 
 				{
                     return false;
                 }
@@ -262,7 +262,7 @@ namespace OpenAlExamples {
             if(fileName != null) {
                 // Load wav.
 				data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
-				if(data == IntPtr.Zero) 
+				if(data == IntPtr.Zero) 
 				{
                     return false;
                 }
@@ -280,7 +280,7 @@ namespace OpenAlExamples {
             if(fileName != null) {
                 // Load wav.
 				data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
-				if(data == IntPtr.Zero) 
+				if(data == IntPtr.Zero) 
 				{
                     return false;
                 }
@@ -298,7 +298,7 @@ namespace OpenAlExamples {
             if(fileName != null) {
                 // Load wav.
 				data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
-				if(data == IntPtr.Zero) 
+				if(data == IntPtr.Zero) 
 				{
                     return false;
                 }
@@ -316,7 +316,7 @@ namespace OpenAlExamples {
             if(fileName != null) {
                 // Load wav.
 				data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
-				if(data == IntPtr.Zero) 
+				if(data == IntPtr.Zero) 
 				{
                     return false;
                 }
@@ -334,7 +334,7 @@ namespace OpenAlExamples {
             if(fileName != null) {
                 // Load wav.
 				data = Alut.alutLoadMemoryFromFile(fileName, out format, out size, out frequency);
-				if(data == IntPtr.Zero) 
+				if(data == IntPtr.Zero) 
 				{
                     return false;
                 }

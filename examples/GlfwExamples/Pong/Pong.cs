@@ -114,16 +114,16 @@ namespace GlfwExamples {
 		///  Menu options
 		/// </summary>
 		public enum MenuOption {
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			None,
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			Play,
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			Quit
 		}
@@ -131,16 +131,16 @@ namespace GlfwExamples {
 		/// Game events
 		/// </summary>
 		public enum GameEvent {
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			NobodyWins,
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			Player1Wins,
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			Player2Wins
 		}
@@ -149,16 +149,16 @@ namespace GlfwExamples {
 		/// Game winners
 		/// </summary>
 		public enum Winner {
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			Nobody,
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			Player1,
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			Player2
 		}
@@ -170,16 +170,16 @@ namespace GlfwExamples {
 		///  Camera positions
 		/// </summary>
 		public enum CameraPosition {
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			Classic,
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			Above,
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			Spectator
 		}
@@ -192,32 +192,32 @@ namespace GlfwExamples {
 		/// Textures
 		/// </summary>
 		public enum Textures {
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			Title,
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			Menu,
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			Instr,
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			Winner1,
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			Winner2,
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			Field,
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			Num_textures
 		}
@@ -255,20 +255,20 @@ namespace GlfwExamples {
 		
 		/// <summary> Ball information </summary>
 		public struct Ball {
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			public double posX;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			public double posY;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			public double speedX;
-			/// <summary>
-			/// 
+			/// <summary>
+			/// 
 			/// </summary>
 			public double speedY;
 		}
@@ -277,63 +277,63 @@ namespace GlfwExamples {
 		public static Ball gameBall;
 		
 		#region Lighting configuration
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
 		public static float[] envAmbient;
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
 		public static float[] light1Position;
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
 		public static float[] light1Diffuse;
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
 		public static float[] light1Ambient;
 		#endregion Lighting configuration
 		
 		#region Object material properties
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
 		public static float[] Player1Diffuse;
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
 		public static float[] Player1Ambient;
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
 		public static float[] Player2Diffuse;
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
 		public static float[] Player2Ambient;
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
 		public static float[] ballDiffuse;
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
 		public static float[] ballAmbient;
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
 		public static float[] borderDiffuse;
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
 		public static float[] borderAmbient;
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
 		public static float[] floorDiffuse;
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
 		public static float[] floorAmbient;
 		#endregion Object material properties

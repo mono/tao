@@ -79,8 +79,8 @@ namespace OpenAlExamples {
 
         // --- Entry Point ---
         #region Main()
-		/// <summary>
-		/// 
+		/// <summary>
+		/// 
 		/// </summary>
         public static void Main() {
             Console.WriteLine("MindCode's OpenAL Lesson 1: Single Static Source");
