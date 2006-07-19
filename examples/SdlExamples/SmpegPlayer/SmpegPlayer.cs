@@ -87,6 +87,7 @@ namespace SdlExamples
 			int height = 240;
 			
 			Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+			Sdl.SDL_WM_SetCaption("Tao.Sdl Example - SmpegPlayer", "");
 			surfacePtr = Sdl.SDL_SetVideoMode(
 				width, 
 				height, 

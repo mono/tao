@@ -68,7 +68,7 @@ namespace SdlExamples
 	{		
 		#region Run()
 		/// <summary>
-		/// 
+		///  
 		/// </summary>
 		public void Run() 
 		{
@@ -87,6 +87,7 @@ namespace SdlExamples
 			try 
 			{
 				Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+				Sdl.SDL_WM_SetCaption("Tao.Sdl Example - GfxPrimitives", "");
 				IntPtr surfacePtr = Sdl.SDL_SetVideoMode(
 					width, 
 					height, 
