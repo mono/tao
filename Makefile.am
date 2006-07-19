@@ -20,9 +20,6 @@ pkgconfig_DATA=$(pkgconfig_in_files:.pc.in=.pc)
 
 EXTRA_DIST = \
 	$(pkgconfig_in_files) \
-	intltool-update.in \
-	intltool-extract.in \
-	intltool-merge.in \
 	am-config.mk
 
 DISTCLEANFILES = \

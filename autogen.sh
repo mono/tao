@@ -69,6 +69,9 @@ esac
     echo "Running $LIBTOOLIZE ..."
     $LIBTOOLIZE --force --copy
 }
+echo "Running intltoolize ..."
+intltoolize --force --copy --automake ||
+  { echo "**Error**: intltoolize failed."; exit 1; }
 
 echo "Running $ACLOCAL $aclocalinclude ..."
 $ACLOCAL $aclocalinclude
