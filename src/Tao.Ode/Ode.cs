@@ -243,94 +243,94 @@ namespace Tao.Ode
 
 			#region Parameters for second axis
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamLoStop2 = 0x100 + 0,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamHiStop2 = 0x100 + 1,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamVel2 = 0x100 + 2,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamFMax2 = 0x100 + 3,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamFudgeFactor2 = 0x100 + 4,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamBounce2 = 0x100 + 5,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamCFM2 = 0x100 + 6,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamStopERP2 = 0x100 + 7,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamStopCFM2 = 0x100 + 8,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamSuspensionERP2 = 0x100 + 9,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamSuspensionCFM2 = 0x100 + 10,
 			#endregion Parameters for second axis
 
 			#region Parameters for third axis
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamLoStop3 = 0x200 + 0,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamHiStop3 = 0x200 + 1,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamVel3 = 0x200 + 2,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamFMax3 = 0x200 + 3,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamFudgeFactor3 = 0x200 + 4,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamBounce3 = 0x200 + 5,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamCFM3 = 0x200 + 6,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamStopERP3 = 0x200 + 7,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamStopCFM3 = 0x200 + 8,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamSuspensionERP3 = 0x200 + 9,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			dParamSuspensionCFM3 = 0x200 + 10,
 			#endregion Parameters for third axis
@@ -659,6 +659,7 @@ namespace Tao.Ode
 			///	dContactMotion2		The same thing as above, but for friction direction 2.
 			/// dContactSlip1		Force-dependent-slip (FDS) in friction direction 1.
 			///	dContactSlip2		Force-dependent-slip (FDS) in friction direction 2.
+			/// dContactApprox0		TODO: Document me
 			///	dContactApprox1_1	Use the friction pyramid approximation for friction direction 1. If this is
 			/// 					not specified then the constant-force-limit approximation is used (and mu is
 			/// 					a force limit).
@@ -818,11 +819,38 @@ namespace Tao.Ode
 				X = x;
 				Y = y;
 				Z = z;
+				SIMD_PADDING = (dReal)0;
 			}
 			/// <summary>
 			///
 			/// </summary>
 			public dReal X, Y, Z;
+			
+			/// <summary>
+			/// In ODE's common.h: typedef dReal dVector3[4];
+			/// 
+			/// From ODE mailing list:
+			/// dVector3 is a dReal[4] to allow for future SIMD extension (the dMatrix3 is
+			/// similarily defined).
+			///
+			///	However, there may already be a speed difference by defining it as a
+			///	dReal[4]; the reason is that properly alligned memory data can be accessed
+			///	more efficiently by the CPU. You should go to great lengths to ensure that
+			///	every instance of dVector3 in your projects are atleast 4-byte aligned
+			///	(virtually default), 16-byte alignments are better still and usually need to
+			///	be enforced.
+			///
+			///	This ensures that memory access (read/write) can be performed just a little
+			///	bit faster.
+			///
+			///	For example:
+			///	You'll notice that if you used dReal[3] for an array of dVector3, then not
+			///	every vector would fall onto a 16-byte boundary (provided that the first
+			///	vector was properly alligned). Whereas it is guaranteed with dReal[4]
+			///	(provided that the first vector was properly alligned).
+			/// </summary>
+			public dReal SIMD_PADDING;
+
 			/// <summary>
 			/// Indexer to support use of array syntax as found in ODE examples
 			/// X = 0, Y = 1, Z = 2
@@ -869,6 +897,17 @@ namespace Tao.Ode
 							break;
 					}
 				}
+			}
+
+			/// <summary>
+			///
+			/// </summary>
+			/// <returns></returns>
+			public dReal[] ToArray()
+			{
+				return new dReal[] {
+					X, Y, Z, SIMD_PADDING
+				};
 			}
 		};
 
@@ -950,6 +989,17 @@ namespace Tao.Ode
 
 				}
 			}
+
+			/// <summary>
+			///
+			/// </summary>
+			/// <returns></returns>
+			public dReal[] ToArray()
+			{
+				return new dReal[] {
+					X, Y, Z, W
+				};
+			}
 		};
 
 		/// <summary>
@@ -1030,6 +1080,17 @@ namespace Tao.Ode
 					}
 				}
 			}
+
+			/// <summary>
+			///
+			/// </summary>
+			/// <returns></returns>
+			public dReal[] ToArray()
+			{
+				return new dReal[] {
+					X, Y, Z, W
+				};
+			}
 		};
 
 		/// <summary>
@@ -1069,7 +1130,7 @@ namespace Tao.Ode
 		public struct dMatrix3
 		{
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			/// <param name="values"></param>
 			public dMatrix3(dReal[] values)
@@ -1089,56 +1150,56 @@ namespace Tao.Ode
 			}
 
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M00;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M01;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M02;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M03;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M10;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M11;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M12;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M13;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M20;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M21;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M22;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M23;
 
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			/// <param name="index"></param>
 			/// <returns></returns>
@@ -1197,7 +1258,7 @@ namespace Tao.Ode
 			}
 
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			/// <param name="x"></param>
 			/// <param name="y"></param>
@@ -1278,7 +1339,7 @@ namespace Tao.Ode
 			}
 
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			/// <returns></returns>
 			public dReal[] ToArray()
@@ -1296,7 +1357,7 @@ namespace Tao.Ode
 		public struct dMatrix4
 		{
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			/// <param name="values"></param>
 			public dMatrix4(dReal[] values)
@@ -1320,72 +1381,72 @@ namespace Tao.Ode
 			}
 
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M00;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M01;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M02;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M03;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M10;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M11;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M12;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M13;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M20;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M21;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M22;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M23;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M30;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M31;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M32;
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			public dReal M33;
 
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			/// <param name="index"></param>
 			/// <returns></returns>
@@ -1456,7 +1517,7 @@ namespace Tao.Ode
 			}
 
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			/// <param name="x"></param>
 			/// <param name="y"></param>
@@ -1553,6 +1614,16 @@ namespace Tao.Ode
 						default: throw new ArgumentOutOfRangeException("x", x, "X value must be between 0 and 3");
 					}
 				}
+			}
+			/// <summary>
+			///
+			/// </summary>
+			/// <returns></returns>
+			public dReal[] ToArray()
+			{
+				return new dReal[] {
+					M00, M01, M02, M03, M10, M11, M12, M13, M20, M21, M22, M23, M30, M31, M32, M33
+				};
 			}
 		};
 
@@ -1663,7 +1734,7 @@ namespace Tao.Ode
 		#region World gravity functions
 		/// <summary>
 		/// Set the world's global gravity vector.
-		/// The units are m/s/s (meters/second/second), so Earth's gravity vector would 
+		/// The units are m/s/s (meters/second/second), so Earth's gravity vector would
 		/// be (0,0,-9.81), assuming that +z is up.
 		/// The default is no gravity, i.e. (0,0,0).
 		/// </summary>
@@ -1686,7 +1757,7 @@ namespace Tao.Ode
 		#endregion World gravity functions
 		#region World CFM and ERP functions
 		/// <summary>
-		/// Set the global ERP (Error Reduction Parameter) value, which controls how much error 
+		/// Set the global ERP (Error Reduction Parameter) value, which controls how much error
 		/// correction is performed in each time step.
 		/// Typical values are in the range 0.1--0.8. The default is 0.2.
 		/// </summary>
@@ -2060,7 +2131,7 @@ namespace Tao.Ode
 		/// </summary>
 		/// <remarks>
 		/// For some reason the dMatrix3 does not marshall correctly, so this function
-		/// maintains compatibility with the ODE api by converting the supplied dMatrix3 to 
+		/// maintains compatibility with the ODE api by converting the supplied dMatrix3 to
 		/// and array and passing that to ODE.
 		/// </remarks>
 		/// <param name="body">the body to set</param>
@@ -2207,7 +2278,7 @@ namespace Tao.Ode
 		/// <param name="body">A  dBodyID</param>
 		/// <param name="mass">A  dMass</param>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static void dBodySetMass(dBodyID body, dMass mass);
+		public extern static void dBodySetMass(dBodyID body, ref dMass mass);
 
 		/// <summary>
 		/// Get the mass of the body (see the mass functions)
@@ -5061,17 +5132,17 @@ namespace Tao.Ode
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dGeomCylinderGetParams(dGeomID cylinder, ref dReal radius, ref dReal length);
 
-		/// <summary>
-		/// Return the depth of the point (x,y,z) in the given cylinder.
-		///
-		/// Points inside the geom will have positive depth, points outside it will
-		/// have negative depth, and points on the surface will have zero depth.
-		/// </summary>
-		/// <returns>the depth of the point</returns>
-		/// <param name="cylinder">the cylinder to query</param>
-		/// <param name="x">the x coordinate of the point</param>
-		/// <param name="y">the y coordinate of the point</param>
-		/// <param name="z">the z coordinate of the point</param>
+		// <summary>
+		// Return the depth of the point (x,y,z) in the given cylinder.
+		//
+		// Points inside the geom will have positive depth, points outside it will
+		// have negative depth, and points on the surface will have zero depth.
+		// </summary>
+		// <returns>the depth of the point</returns>
+		// <param name="cylinder">the cylinder to query</param>
+		// <param name="x">the x coordinate of the point</param>
+		// <param name="y">the y coordinate of the point</param>
+		// <param name="z">the z coordinate of the point</param>
 		// TODO: Uncomment when implemented by ODE
 		//		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		//		public extern static dReal dGeomCylinderPointDepth(dGeomID cylinder, dReal x, dReal y, dReal z);
@@ -5313,15 +5384,15 @@ namespace Tao.Ode
 		public extern static int dGeomTransformGetInfo(dGeomID g);
 		#endregion Geometry transform class
 		#region User Custom Geom class
-		/// <summary>
-		/// Create a custom (user) geom class and register with ODE.
-		/// Note ODE limits the number of custom geom classes that can be generated.
-		///
-		/// NOTE also that this is untested and may need modification/clarification before
-		/// being considered stable.
-		/// </summary>
-		/// <param name="customclass">the custom class object</param>
-		/// <returns>a class number for the new custom geom class</returns>
+		// <summary>
+		// Create a custom (user) geom class and register with ODE.
+		// Note ODE limits the number of custom geom classes that can be generated.
+		//
+		// NOTE also that this is untested and may need modification/clarification before
+		// being considered stable.
+		// </summary>
+		// <param name="customclass">the custom class object</param>
+		// <returns>a class number for the new custom geom class</returns>
 		//[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		//public extern static int dCreateGeomClass (dGeomClass customclass);
 
@@ -5329,11 +5400,11 @@ namespace Tao.Ode
 		//		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		//		public extern static void * dGeomGetClassData (dGeomID);
 
-		/// <summary>
-		/// Create an instance of a custom user-defined geom class.
-		/// </summary>
-		/// <param name="classnum">the class number of the custom geom, generated by dCreateGeomClass</param>
-		/// <returns>the id (handle) of the new geom instance</returns>
+		// <summary>
+		// Create an instance of a custom user-defined geom class.
+		// </summary>
+		// <param name="classnum">the class number of the custom geom, generated by dCreateGeomClass</param>
+		// <returns>the id (handle) of the new geom instance</returns>
 		//[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		//public extern static dGeomID dCreateGeom (int classnum);
 
@@ -5602,9 +5673,18 @@ namespace Tao.Ode
 		#endregion Space functions
 
 		#region TriMesh enums
+		/// <summary>
+		/// 
+		/// </summary>
 		public enum TriMeshNumbers : int
 		{
+			/// <summary>
+			/// 
+			/// </summary>
 			TRIMESH_FACE_NORMALS = 1,
+			/// <summary>
+			/// 
+			/// </summary>
 			TRIMESH_LAST_TRANSFORMATION = 2
 		}
 		#endregion TriMesh enums
@@ -6019,12 +6099,24 @@ namespace Tao.Ode
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dRFrom2Axes(out dMatrix3 R, dReal ax, dReal ay, dReal az, dReal bx, dReal by, dReal bz);
 
-		// TODO: Document Me
-		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		/// <summary>
+		/// TODO: Document Me
+		/// </summary>
+		/// <param name="R"></param>
+		/// <param name="ax"></param>
+		/// <param name="ay"></param>
+		/// <param name="az"></param>
+ 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dRFromZAxis(dReal[] R, dReal ax, dReal ay, dReal az);
 
-		// ODE API compatability function due to dMatrix3 marshalling errors
-		public static void dRFromZAxis(dMatrix3 R, dReal ax, dReal ay, dReal az)
+		/// <summary>
+		/// ODE API compatability function due to dMatrix3 marshalling errors
+		/// </summary>
+		/// <param name="R"></param>
+		/// <param name="ax"></param>
+		/// <param name="ay"></param>
+		/// <param name="az"></param>
+ 		public static void dRFromZAxis(dMatrix3 R, dReal ax, dReal ay, dReal az)
 		{
 			dRFromZAxis(R.ToArray(), ax, ay, az);
 		}
@@ -6123,16 +6215,16 @@ namespace Tao.Ode
 
 		// NOT IMPLEMENTED
 		// This region contains functions in the ODE 0.6 source that are part of the
-		// ODE public API (labeled ODE_API in the ODE source), but aren't implemented in 
-		// Tao.Ode.  In a few cases they may be awaiting implementation, but most of the 
+		// ODE public API (labeled ODE_API in the ODE source), but aren't implemented in
+		// Tao.Ode.  In a few cases they may be awaiting implementation, but most of the
 		// functions here are deliberately not implemented.
-		// The primary reason for not implementing a function is that it does not seem to 
+		// The primary reason for not implementing a function is that it does not seem to
 		// implement core ODE functionality and so isn't worth the effort to wrap.  Such a
-		// function could be better implemented in fully managed code rather than calling 
-		// into the ODE library.  
+		// function could be better implemented in fully managed code rather than calling
+		// into the ODE library.
 		// An example of this is dSetZero(dReal *a, int n), which just sets a vector or matrix
 		// of size n to all zeros.  This can easily be done in managed code by the Tao.Ode user.
-		// 
+		//
 		// Conceivably, some utility functions such as this could be implemented as fully managed
 		// parts of Tao.Ode, if deemed useful.
 		//
