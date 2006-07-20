@@ -7,6 +7,7 @@ CSC = csc /nologo
 CSFLAGS = /D:WIN32
 ILDASM = ildasm /text
 ILASM = ilasm
+NDOC = NDocConsole.exe
 
 RUN_WITH_MONO =
 WIN32_BUILD = 1

@@ -11,6 +11,7 @@ endif
 CSFLAGS =
 ILDASM = monodis
 ILASM = ilasm
+NDOC = ndoc-console
 
 RUN_WITH_MONO = 1
 WIN32_BUILD =
