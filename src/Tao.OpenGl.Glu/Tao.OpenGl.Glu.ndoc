@@ -1,24 +1,24 @@
-<project SchemaVersion="1.3">
+﻿<project SchemaVersion="1.3">
     <assemblies>
-        <assembly location="..\..\dist\bin\Tao.OpenGl.Glu.dll" documentation="..\..\dist\doc\Tao.OpenGl.Glu.xml" />
+        <assembly location="../../dist/bin/Tao.OpenGl.Glu.dll" documentation="../../dist/doc/Tao.OpenGl.Glu.xml" />
     </assemblies>
     <documenters>
         <documenter name="JavaDoc">
-            <property name="OutputDirectory" value=".\doc\" />
+            <property name="OutputDirectory" value="./doc/" />
         </documenter>
         <documenter name="LaTeX">
-            <property name="OutputDirectory" value=".\doc\" />
+            <property name="OutputDirectory" value="./doc/" />
             <property name="TextFileFullName" value="Documentation.tex" />
             <property name="TexFileBaseName" value="Documentation" />
             <property name="LatexCompiler" value="latex" />
-            <property name="TexFileFullPath" value=".\doc\Documentation.tex" />
+            <property name="TexFileFullPath" value="./doc/Documentation.tex" />
         </documenter>
         <documenter name="LinearHtml">
-            <property name="OutputDirectory" value=".\doc\" />
+            <property name="OutputDirectory" value="./doc/" />
             <property name="Title" value="An NDoc Documented Class Library" />
         </documenter>
         <documenter name="MSDN">
-            <property name="OutputDirectory" value="..\..\obj\doc\" />
+            <property name="OutputDirectory" value="../../obj/doc/" />
             <property name="HtmlHelpName" value="Tao.OpenGl.Glu" />
             <property name="Title" value="Tao.OpenGl.Glu SDK Documentation" />
             <property name="OutputTarget" value="HtmlHelp" />
@@ -27,16 +27,16 @@
             <property name="CopyrightHref" value="http://mono-project.com/Tao" />
         </documenter>
         <documenter name="MSDN 2003">
-            <property name="OutputDirectory" value=".\doc\" />
+            <property name="OutputDirectory" value="./doc/" />
             <property name="Title" value="An NDoc Documented Class Library" />
         </documenter>
         <documenter name="VS.NET 2003">
-            <property name="OutputDirectory" value=".\doc\" />
+            <property name="OutputDirectory" value="./doc/" />
             <property name="HtmlHelpName" value="Documentation" />
             <property name="Title" value="An NDoc documented library" />
         </documenter>
         <documenter name="XML">
-            <property name="OutputFile" value=".\doc\doc.xml" />
+            <property name="OutputFile" value="./doc/doc.xml" />
         </documenter>
     </documenters>
 </project>
