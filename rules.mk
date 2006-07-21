@@ -23,8 +23,10 @@ DOC_OBJ_DEST = ./doc
 
 ifdef RUN_WITH_MONO
  RUN_EXE = mono
+ NDOC_TARGET = Web
 else
  RUN_EXE = 
+ NDOC_TARGET = HtmlHelp
 endif
 
 ifdef STRONG
@@ -112,12 +114,18 @@ $(LIBRARY_DEST)/$(LIBRARY).dll.config: $(LIBRARY).dll.config
 clean::
 	rm -f $(LIBRARY_DEST)/$(LIBRARY).dll $(LIBRARY_DEST)/$(LIBRARY).dll.config $(DOC_DEST)/$(LIBRARY).xml $(DOC_DEST)/$(LIBRARY).chm $(OBJ_DEST)/*.chm
 	rm -rf $(DOC_OBJ_DEST)
+	rm -rf $(DOC_DEST)
 
 
 docs::
 ifneq (,$(DOCS))
-	$(NDOC) -project=$(LIBRARY).ndoc
+	$(NDOC) "$(LIBRARY_DEST)/$(LIBRARY).dll","$(DOC_DEST)/$(LIBRARY).xml" -documenter="MSDN" -OutputDirectory="./doc/" -OutputTarget="$(NDOC_TARGET)" -Title="$(LIBRARY) SDK documentation" -HtmlHelpName="$(LIBRARY)" -AssemblyVersionInfo="AssemblyVersion" -CopyrightText="Copyright ©2003-2006 Tao Framework Team" -CopyrightHref="http://taoframework.com"
+ifneq (,$(RUN_WITH_MONO))
+	mkdir -p $(DOC_DEST)/$(LIBRARY)
+	cp -f $(DOC_OBJ_DEST)/* $(DOC_DEST)/$(LIBRARY)
+else
 	cp -f $(DOC_OBJ_DEST)/$(LIBRARY).chm $(DOC_DEST)/$(LIBRARY).chm
+endif
 endif
 
 endif
