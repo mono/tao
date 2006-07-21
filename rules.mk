@@ -122,7 +122,7 @@ ifneq (,$(DOCS))
 	$(NDOC) "$(LIBRARY_DEST)/$(LIBRARY).dll","$(DOC_DEST)/$(LIBRARY).xml" -documenter="MSDN" -OutputDirectory="./doc/" -OutputTarget="$(NDOC_TARGET)" -Title="$(LIBRARY) SDK documentation" -HtmlHelpName="$(LIBRARY)" -AssemblyVersionInfo="AssemblyVersion" -CopyrightText="Copyright ©2003-2006 Tao Framework Team" -CopyrightHref="http://taoframework.com"
 ifneq (,$(RUN_WITH_MONO))
 	mkdir -p $(DOC_DEST)/$(LIBRARY)
-	cp -f $(DOC_OBJ_DEST)/* $(DOC_DEST)/$(LIBRARY)
+	cp -f $(DOC_OBJ_DEST)/*.* $(DOC_DEST)/$(LIBRARY)
 else
 	cp -f $(DOC_OBJ_DEST)/$(LIBRARY).chm $(DOC_DEST)/$(LIBRARY).chm
 endif
