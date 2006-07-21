@@ -4,12 +4,13 @@ Documentation and downloads are available at http://dnpb.sourceforge.net.
 
 Prebuild is licensed under the BSD license.
 
-[ July 19, 2006 - 1.3.1 ]
+[ July 21, 2006 - 1.3.1 ]
 	! VS2005 fixes from Rob Loach
 	! NAnt fixes from Rob Loach and David Hudson
 	! XML doc fixes from Rob Loach
 	+ Added SharpDevelop2 target (really just uses VS2005 target)
 	! Fixed bug with BuildEvents in Monodevelop target
+	+ Passing /yes will default to answering yes to any warnings
 
 [ February 28, 2006 - 1.3 ]
 	+ Added MonoDevelop target.

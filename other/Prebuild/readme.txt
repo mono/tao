@@ -1,6 +1,6 @@
 Prebuild Instructions
 
-Prebuild is an XML-driven pre-build tool allowing developers to easily generate project or make files for major IDE's and .NET development tools including: Visual Studio 2005, Visual Studio 2003, Visual Studio 2002, SharpDevelop, MonoDevelop, and NAnt.
+Prebuild is an XML-driven pre-build tool allowing developers to easily generate project or make files for major IDE's and .NET development tools including: Visual Studio 2005, Visual Studio 2003, Visual Studio 2002, SharpDevelop, SharpDevelop2, MonoDevelop, and NAnt.
 
 _________________________________________________________________________________
 Overview
@@ -50,6 +50,8 @@ Note: The '>' signified the command line, do not actually enter this manually
 
 >Prebuild /clean
 
+>Prebuild /clean /yes
+
 >Prebuild /clean vs2003
 
 _________________________________________________________________________________
@@ -75,6 +77,8 @@ This allows you to check if an errors occurred and - if so - what it was.
 /allowedgroups - This is followed by a pipe-delimited list of project group filter flags (eg. Group1|Group2) allow optional filtering of all projects that dont have at least one of these flags
 
 /removedir - This is followed by a pipe-delimited list of directory names that will be deleted while recursivly searching the directory of the prebuild application and its child directories (eg. use obj|bin to delete all output and temporary directories before file releases)
+
+/yes - Answer yes to any warnings (e.g. when cleaning all projects).
 
 _________________________________________________________________________________
 Example Batch Files and Shell Scripts
