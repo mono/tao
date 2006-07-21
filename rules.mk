@@ -19,7 +19,7 @@ LIBRARY_DEST = $(DESTDIR)/bin
 EXAMPLE_DEST = $(DESTDIR)/examples
 DOC_DEST     = $(DESTDIR)/doc
 OBJ_DEST     = $(DEPTH)/obj
-DOC_OBJ_DEST = $(OBJ_DEST)/doc
+DOC_OBJ_DEST = ./doc
 
 ifdef RUN_WITH_MONO
  RUN_EXE = mono

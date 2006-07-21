@@ -18,7 +18,7 @@
             <property name="Title" value="An NDoc Documented Class Library" />
         </documenter>
         <documenter name="MSDN">
-            <property name="OutputDirectory" value="../../obj/doc/" />
+            <property name="OutputDirectory" value="./doc/" />
             <property name="HtmlHelpName" value="Tao.Sdl" />
             <property name="Title" value="Tao.Sdl SDK Documentation" />
             <property name="OutputTarget" value="HtmlHelp" />
