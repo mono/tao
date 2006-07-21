@@ -3218,11 +3218,28 @@ namespace Tao.Ode
 			}
 		}
 
-		// TODO: Implement me
-		// dJointID dConnectingJoint (dBodyID, dBodyID);
+		/// <summary>
+		/// Undocumented in ODE.  
+		/// 
+		/// Seems to return the first joint connecting the two specified bodies
+		/// </summary>
+		/// <param name="body1">the first body to query</param>
+		/// <param name="body2">the second body to query</param>
+		/// <returns>the id of the first joint found connecting the bodies</returns>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static dJointID dConnectingJoint (dBodyID body1, dBodyID body2);
 
-		// TODO: Implement me
-		// int dConnectingJointList (dBodyID, dBodyID, dJointID*);
+		/// <summary>
+		/// Undocumented in ODE.
+		/// 
+		/// Seems to return a list of the joints connecting the two specified bodies
+		/// </summary>
+		/// <param name="body1">the first body to query</param>
+		/// <param name="body1">the second body to query</param>
+		/// <param name="connectingJoints">An array of dJointID listing the joints connecting the specified bodies</param>
+		/// <returns>an int specifying the number of connecting joints found</returns>
+		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+		public extern static int dConnectingJointList (dBodyID body1, dBodyID body1, out dJointID[] connectingJoints);
 
 		/// <summary>
 		/// Test if the two specified bodies are connected by a joint.
@@ -6175,15 +6192,6 @@ namespace Tao.Ode
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
 		public extern static void dQMultiply3(out dQuaternion qa, ref dQuaternion qb, ref dQuaternion qc);
 
-		//TODO: Implement me
-		// void dRfromQ (dMatrix3 R, const dQuaternion q);
-
-		// TODO: Implement me
-		// void dQfromR (dQuaternion q, const dMatrix3 R);
-
-		// TODO: Implement me
-		// void dDQfromW (dReal dq[4], const dVector3 w, const dQuaternion q);
-
 		/// <summary>
 		/// Convert quaternion q to rotation matrix R.
 		/// </summary>
@@ -6306,5 +6314,17 @@ namespace Tao.Ode
 		// ODE_API void dTimerReport (FILE *fout, int average);
 		// ODE_API double dTimerTicksPerSecond(void);
 		// ODE_API double dTimerResolution(void);
+
+		// from compatability.h
+		// already implemented as dQtoR
+		// ODE_API void dRfromQ (dMatrix3 R, const dQuaternion q);
+
+		// already implemented as dRtoQ
+		// ODE_API void dQfromR (dQuaternion q, const dMatrix3 R);
+
+		// already implemented as dWtoDQ
+		// ODE_API void dDQfromW (dReal dq[4], const dVector3 w, const dQuaternion q);
+
+
 	}
 }
