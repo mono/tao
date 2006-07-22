@@ -109,7 +109,8 @@ endif # POSTPROCESS_LIBRARY
 endif # !WIN32
 
 $(LIBRARY_DEST)/$(LIBRARY).dll.config: $(LIBRARY).dll.config
-	cp -f $^ $@
+	# cp -f $^ $@
+	cp -f $(LIBRARY).dll.config* $(LIBRARY_DEST)
 
 clean::
 	rm -f $(LIBRARY_DEST)/$(LIBRARY).dll $(LIBRARY_DEST)/$(LIBRARY).dll.config $(DOC_DEST)/$(LIBRARY).xml $(DOC_DEST)/$(LIBRARY).chm $(OBJ_DEST)/*.chm
