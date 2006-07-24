@@ -1,7 +1,7 @@
 !verbose 3
 
 !define PRODUCT_NAME "Tao"
-!define PRODUCT_VERSION "2.0"
+!define PRODUCT_VERSION "1.3.0"
 !define PRODUCT_BUILD "1"
 !define PRODUCT_PUBLISHER "Tao"
 !define PRODUCT_WEB_SITE "http://www.taoframework.com"
@@ -127,7 +127,7 @@ Section "Source" SecSrc
   File /r /x obj /x .svn ..\..\tests\*.*
 
   SetOutPath "$INSTDIR\source\src"
-  File /r /x obj /x bin /x .svn ..\..\src\*.*
+  File /r /x obj /x bin /x doc /x .svn ..\..\src\*.*
 
   SetOutPath "$INSTDIR\source\other"
   File /r /x .svn /x *.swp ..\..\other\*.*
