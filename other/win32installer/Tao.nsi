@@ -127,7 +127,7 @@ Section "Source" SecSrc
   File /r /x obj /x .svn ..\..\tests\*.*
 
   SetOutPath "$INSTDIR\source\src"
-  File /r /x obj /x bin /x .svn ..\..\src\*.*
+  File /r /x obj /x bin /x doc /x .svn ..\..\src\*.*
 
   SetOutPath "$INSTDIR\source\other"
   File /r /x .svn /x *.swp ..\..\other\*.*
