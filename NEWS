@@ -43,6 +43,7 @@ For Tao.FreeGlut
 For Tao
 * Updated Prebuild and all prebuild files. Added NAnt target.
 * Reduced many of the XML doc messages generated during a build.
+* Mono build now includes MSDN-Style HTML docs.
 
 
 1.2.0
