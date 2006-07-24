@@ -5,7 +5,7 @@ AM_INIT_AUTOMAKE([tao],[0.0.8],[tao-list@lists.ximian.com])
 
 AM_MAINTAINER_MODE
 
-AC_PROG_INTLTOOL([0.25])
+dnl AC_PROG_INTLTOOL([0.25])
 
 AC_PROG_INSTALL
 
