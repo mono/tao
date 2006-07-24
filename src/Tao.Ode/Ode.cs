@@ -3235,11 +3235,11 @@ namespace Tao.Ode
 		/// Seems to return a list of the joints connecting the two specified bodies
 		/// </summary>
 		/// <param name="body1">the first body to query</param>
-		/// <param name="body1">the second body to query</param>
+		/// <param name="body2">the second body to query</param>
 		/// <param name="connectingJoints">An array of dJointID listing the joints connecting the specified bodies</param>
 		/// <returns>an int specifying the number of connecting joints found</returns>
 		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public extern static int dConnectingJointList (dBodyID body1, dBodyID body1, out dJointID[] connectingJoints);
+		public extern static int dConnectingJointList (dBodyID body1, dBodyID body2, out dJointID[] connectingJoints);
 
 		/// <summary>
 		/// Test if the two specified bodies are connected by a joint.
