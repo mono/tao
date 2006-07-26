@@ -1,4 +1,0 @@
-<configuration>
-	<dllmap dll="opengl32.dll" target="/System/Library/Frameworks/OpenGL.framework/OpenGL" />
-	<dllmap dll="glu32.dll" target="/System/Library/Frameworks/OpenGL.framework/Libraries/libGLU.dylib" />
-</configuration>
