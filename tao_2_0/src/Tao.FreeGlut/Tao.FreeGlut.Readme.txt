@@ -1,0 +1,14 @@
+Tao.FreeGlut 2.4.0.0
+Copyright ©2003-2006 Tao Framework Team
+http://www.taoframework.com
+All rights reserved.
+
+Tao.FreeGlut is a FreeGLUT API binding for .NET, implementing FreeGLUT 2.4.0.
+
+
+Change Log:
+2.4.0.0 - June 15, 2006:
+    Updated to freeglut 2.4.0 by David Hudson
+
+2.2.0.0 - November 28, 2004:
+    Initial release.

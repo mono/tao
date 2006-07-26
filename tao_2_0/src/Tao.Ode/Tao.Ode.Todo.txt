@@ -1,0 +1,23 @@
+Issues
+------
+
+Single/Double precision:
+	Currently the code is configured for single precision, so can only be 
+	run against a single precision Ode library.
+	Tao.Ode binding can be configured for double precision by changing the 
+	value of the dReal alias to System.Double and recompiling, but this 
+	hasn't been tested extensively.
+	What needs to be worked out is a reasonable way to deal with the fact 
+	that there can be at least 2 versions of the ODE library.  
+	Possible solutions:
+	-	Compile 2 versions of Tao.Ode (Tao.Ode.Single.dll and 
+		Tao.Ode.Double.dll) as part of normal build
+	-	Target a single assembly (Tao.Ode.dll) but control precision 
+		at compile time with appropriate #ifdef statements.
+	-	Your solution here - let me know on the Tao mailing list
+   
+
+Unit tests:
+	Unit tests need to be written to cover as much ODE functionality as possible.
+	Tests for Matrix3 marshalling have already been implemented.
+

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Prebuild xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.6.xsd" version="1.6">
+    <Solution name="Tao.Ode">
+        <Configuration name="Debug">
+            <Options>
+                <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+                <OptimizeCode>false</OptimizeCode>
+                <OutputPath>bin\Debug</OutputPath>
+                <XmlDocFile>Tao.Ode.xml</XmlDocFile>
+		<AllowUnsafe>true</AllowUnsafe>
+                <DebugInformation>true</DebugInformation>
+            </Options>
+        </Configuration>
+        <Configuration name="Release">
+            <Options>
+                <CompilerDefines>TRACE;WIN32</CompilerDefines>
+                <OptimizeCode>true</OptimizeCode>
+                <OutputPath>bin\Release</OutputPath>
+		<XmlDocFile>Tao.Ode.xml</XmlDocFile>
+		<AllowUnsafe>true</AllowUnsafe>
+                <DebugInformation>false</DebugInformation>
+            </Options>
+        </Configuration>
+        <Files>
+            <File>Tao.Ode.License.txt</File>
+            <File>Tao.Ode.Readme.txt</File>
+            <File>Tao.Ode.snk</File>
+            <File>Tao.Ode.dll.config</File>
+        </Files>
+	<Project name="Tao.Ode" path="." language="C#" type="Library">
+	    <Reference name="System" />
+            <Files>
+                <File>AssemblyInfo.cs</File>
+                <File>Ode.cs</File>
+            </Files>
+	</Project>
+	<Project name="OdeExamples.Basic" path="..\\..\\examples\\OdeExamples\\Basic" language="C#" type="Exe" startupObject="OdeExamples.Basic">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.Ode" />
+	    <Files>
+		<File>AssemblyInfo.cs</File>
+		<File>Basic.cs</File>
+	    </Files>
+	</Project>
+    </Solution>
+</Prebuild>

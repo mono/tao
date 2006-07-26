@@ -1,0 +1,29 @@
+OpenAlExamples
+Copyright ©2003-2005 Tao Framework Team
+http://www.taoframework.com
+All rights reserved.
+
+These are C# ports of various OpenAL examples, most of which can be
+found at http://www.devmaster.net/articles.php?catID=6.  They make use of
+OpenAL and some use FreeGLUT, make sure to have the appropriate native
+libraries for your system installed.
+
+These examples aren't well documented, but they should be fairly easy
+to understand, particularly if you follow along with the originals,
+however, do not take them to be 'best practices' for .NET OpenAL and
+OpenGL development.  The intent of these ports is as an introduction or
+as a comparison against the original native versions.
+
+If you'd like to contribute you may want to try porting further OpenAL
+examples from http://www.devmaster.net/articles.php?catID=6 particularly
+lesson 08 and you might like to try porting the examples from the native
+OpenAL distribution.
+
+Randy Ridge
+http://www.taoframework.com
+
+
+Change Log:
+
+April 24, 2004
+    Initial release, version 1.0.0.0.
