@@ -1,7 +1,7 @@
 #region License
 /*
  MIT License
- Copyright 2003-2005 Tao Framework Team
+ Copyright 2003-2006 Tao Framework Team
  http://www.taoframework.com
  All rights reserved.
  
@@ -828,7 +828,7 @@ namespace Tao.Ode
 			
 			/// <summary>
 			/// In ODE's common.h: typedef dReal dVector3[4];
-			/// 
+			///
 			/// From ODE mailing list:
 			/// dVector3 is a dReal[4] to allow for future SIMD extension (the dMatrix3 is
 			/// similarily defined).
@@ -3219,8 +3219,8 @@ namespace Tao.Ode
 		}
 
 		/// <summary>
-		/// Undocumented in ODE.  
-		/// 
+		/// Undocumented in ODE.
+		///
 		/// Seems to return the first joint connecting the two specified bodies
 		/// </summary>
 		/// <param name="body1">the first body to query</param>
@@ -3231,7 +3231,7 @@ namespace Tao.Ode
 
 		/// <summary>
 		/// Undocumented in ODE.
-		/// 
+		///
 		/// Seems to return a list of the joints connecting the two specified bodies
 		/// </summary>
 		/// <param name="body1">the first body to query</param>
@@ -5691,16 +5691,16 @@ namespace Tao.Ode
 
 		#region TriMesh enums
 		/// <summary>
-		/// 
+		///
 		/// </summary>
 		public enum TriMeshNumbers : int
 		{
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			TRIMESH_FACE_NORMALS = 1,
 			/// <summary>
-			/// 
+			///
 			/// </summary>
 			TRIMESH_LAST_TRANSFORMATION = 2
 		}
