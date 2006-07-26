@@ -1,7 +1,7 @@
 AC_INIT(tao-opengl.pc.in)
 AC_PREREQ(2.53)
 AC_CANONICAL_SYSTEM
-AM_INIT_AUTOMAKE([tao],[0.0.8],[tao-list@lists.ximian.com])
+AM_INIT_AUTOMAKE([tao],[2.0.0],[tao-list@lists.ximian.com])
 
 AM_MAINTAINER_MODE
 
