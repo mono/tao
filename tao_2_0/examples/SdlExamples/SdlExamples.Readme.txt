@@ -1,0 +1,11 @@
+SdlExamples
+Copyright ©2003-2005 Tao Framework Team
+http://www.taoframework.com
+All rights reserved.
+
+These are various SDL examples.
+
+Dave Hudson (jendave@yahoo.com)
+
+October 22, 2004
+    Initial release, version 1.0.0.0

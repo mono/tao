@@ -1,0 +1,428 @@
+<?xml version="1.0"?>
+
+<typemap>
+  <type name="GLenum">
+    <mapto language="c#" type="int" />
+  </type>
+
+  <type name="GLbitfield">
+    <mapto language="c#" type="int" nonclstype="uint" />
+  </type>
+
+  <type name="GLboolean">
+    <!-- we sort of cheat here and just add bool as the nonclstype -->
+    <mapto language="c#" type="int" nonclstype="bool" />
+  </type>
+
+  <type name="GLsizei">
+    <mapto language="c#" type="int" />
+  </type>
+
+  <type name="GLfloat">
+    <mapto language="c#" type="float" />
+  </type>
+
+  <type name="GLclampf">
+    <mapto language="c#" type="float" />
+  </type>
+
+  <type name="GLdouble">
+    <mapto language="c#" type="double" />
+  </type>
+
+  <type name="GLclampd">
+    <mapto language="c#" type="double" />
+  </type>
+
+  <type name="GLint">
+    <mapto language="c#" type="int" />
+  </type>
+
+  <type name="GLuint">
+    <mapto language="c#" type="int" nonclstype="uint" />
+  </type>
+
+  <type name="GLshort">
+    <mapto language="c#" type="short" />
+  </type>
+
+  <type name="GLushort">
+    <mapto language="c#" type="short" nonclstype="ushort" />
+  </type>
+
+  <type name="GLbyte">
+    <mapto language="c#" type="byte" nonclstype="sbyte" />
+  </type>
+
+  <type name="GLubyte">
+    <mapto language="c#" type="byte" />
+  </type>
+
+  <type name="GLhalfARB">
+    <mapto language="c#" type="short" nonclstype="ushort" />
+  </type>
+
+  <type name="GLhalfNV">
+    <mapto language="c#" type="short" nonclstype="ushort" />
+  </type>
+
+  <!-- note 'void' with lowercase v -->
+  <type name="void">
+    <mapto language="c#" type="void" />
+  </type>
+
+  <!-- note 'Void' with uppercase v -->
+  <type name="Void">
+    <!-- for Void, generate a whole slew of function overloads for various array types -->
+    <mapto language="c#" is_generic="1" type="void" />
+  </type>
+  <typealias name="ConstVoid" mapto="Void" />
+
+  <type name="VoidPointer">
+    <mapto language="c#" if_return="1" type="IntPtr" />
+    <mapto language="c#" is_generic="1" type="void" />
+  </type>
+  <typealias name="ConstVoidPointer" mapto="VoidPointer" />
+
+  <!-- only used by one IBM extension -->
+  <type name="BooleanPointer">
+    <mapto language="c#" type="bool" />
+  </type>
+
+  <!-- only used by one SGIX extension -->
+  <type name="IglooParameterSGIX">
+    <mapto language="c#" type="IntPtr" />
+  </type>
+
+  <!-- why can't you just use String? -->
+  <type name="Char">
+    <mapto language="c#" if_array="1" type="string" />
+  </type>
+
+  <!-- magic for various *Op[23]ATI functions that use a lot of UInt32 params; we get an explosion
+       of functions without this -->
+  <type name="ATIUint32">
+    <mapto language="c#" type="int" />
+  </type>
+
+  <!-- misc -->
+  <typealias name="CompressedTextureARB" mapto="Void" />
+
+  <type name="SizeI">
+    <mapto language="c#" type="int" />
+  </type>
+
+  <type name="String">
+    <!-- DANGER: this breaks badly if a retval is a string,
+         e.g. from GetString.  We need to special case that! -->
+    <mapto language="c#" if_return="1" type="IntPtr" />
+    <mapto language="c#" type="string" />
+  </type>
+
+  <type name="VertexBufferSize">
+    <mapto language="c#" type="int" />
+  </type>
+  <typealias name="VertexBufferSizeARB" mapto="VertexBufferSize" />
+
+  <type name="Half16NV">
+    <!-- wish we could do something better with this -->
+    <mapto language="c#" type="short" nonclstype="ushort" />
+  </type>
+
+  <type name="handleARB">
+    <mapto language="c#" type="int" nonclstype="uint" />
+  </type>
+
+  <type name="charARB">
+    <mapto language="c#" if_array="1" if_out="1" type="IntPtr" />
+    <mapto language="c#" if_array="1" type="string" />
+  </type>
+
+  <type name="charPointerARB">
+    <mapto language="c#" if_array="1" type="string" />
+    <mapto language="c#" type="string" />
+  </type>
+
+  <type name="CharPointer">
+    <mapto language="c#" if_array="1" type="string[]" />
+  </type>
+
+  <type name="StringBuilder">
+    <mapto language="c#" type="System.Text.StringBuilder" />
+  </type>
+
+  <!-- GLbyte -->
+  <typealias name="ColorB" mapto="GLbyte" />
+  <typealias name="Int8" mapto="GLbyte" />
+
+  <!-- GLubyte -->
+  <!-- Fixme! This should be some kind of string type, it's used as an out -->
+  <typealias name="ProgramCharacterNV" mapto="GLubyte" />
+  <typealias name="ColorIndexValueUB" mapto="GLubyte" />
+  <typealias name="ColorUB" mapto="GLubyte" />
+  <typealias name="UInt8" mapto="GLubyte" />
+
+  <!-- GLdouble -->
+  <typealias name="ColorD" mapto="GLdouble" />
+  <typealias name="ColorIndexValueD" mapto="GLdouble" />
+  <typealias name="CoordD" mapto="GLdouble" />
+  <typealias name="Float64" mapto="GLdouble" />
+  <typealias name="Float64Pointer" mapto="GLdouble" />
+
+  <!-- GLclampf/GLclampd -->
+  <typealias name="ClampedColorF" mapto="GLclampf" />
+  <typealias name="ClampedFloat32" mapto="GLclampf" />
+  <typealias name="ClampedFloat64" mapto="GLclampd" />
+
+  <!-- GLint -->
+  <typealias name="CheckedInt32" mapto="GLint" />
+  <typealias name="ClampedStencilValue" mapto="GLint" />
+  <typealias name="ColorI" mapto="GLint" />
+  <typealias name="ColorIndexValueI" mapto="GLint" />
+  <typealias name="CoordI" mapto="GLint" />
+  <typealias name="Int32" mapto="GLint" />
+  <typealias name="StencilValue" mapto="GLint" />
+  <typealias name="TextureComponentCount" mapto="GLint" />
+  <typealias name="WinCoord" mapto="GLint" />
+  <typealias name="VertexBufferOffset" mapto="GLint" />
+  <typealias name="VertexBufferOffsetARB" mapto="GLint" />
+
+  <!-- GLushort -->
+  <typealias name="ColorUS" mapto="GLushort" />
+  <typealias name="LineStipple" mapto="GLushort" />
+  <typealias name="UInt16" mapto="GLushort" />
+
+  <!-- GLshort -->
+  <typealias name="ColorIndexValueS" mapto="GLshort" />
+  <typealias name="ColorS" mapto="GLshort" />
+  <typealias name="CoordS" mapto="GLshort" />
+  <typealias name="Int16" mapto="GLshort" />
+
+  <!-- GLuint -->
+  <typealias name="ColorUI" mapto="GLuint" />
+  <typealias name="FenceNV" mapto="GLuint" />
+  <typealias name="List" mapto="GLuint" />
+  <typealias name="MaskedColorIndexValueI" mapto="GLuint" />
+  <typealias name="MaskedStencilValue" mapto="GLuint" />
+  <typealias name="ProgramNV" mapto="GLuint" />
+  <typealias name="ReplacementCodeSUN" mapto="GLuint" />
+  <typealias name="SelectName" mapto="GLuint" />
+  <typealias name="Texture" mapto="GLuint" />
+  <typealias name="UInt32" mapto="GLuint" />
+  <typealias name="ConstUInt32" mapto="GLuint" />
+
+  <!-- GLfloat -->
+  <typealias name="CheckedFloat32" mapto="GLfloat" />
+  <typealias name="ColorF" mapto="GLfloat" />
+  <typealias name="ColorIndexValueF" mapto="GLfloat" />
+  <typealias name="CoordF" mapto="GLfloat" />
+  <typealias name="FeedbackElement" mapto="GLfloat" />
+  <typealias name="Float32" mapto="GLfloat" />
+  <typealias name="MaskedColorIndexValueF" mapto="GLfloat" />
+  <typealias name="ConstFloat32" mapto="GLfloat" />
+
+  <!-- GLboolean -->
+  <typealias name="Boolean" mapto="GLboolean" />
+
+  <!-- GLbitfield -->
+  <typealias name="AttribMask" mapto="GLbitfield" />
+  <typealias name="ClearBufferMask" mapto="GLbitfield" />
+  <typealias name="ClientAttribMask" mapto="GLbitfield" />
+  <typealias name="FfdMaskSGIX" mapto="GLbitfield" />
+
+  <!-- GLenum -->
+  <typealias name="AccumOp" mapto="GLenum" />
+  <typealias name="AlphaFunction" mapto="GLenum" />
+  <typealias name="BeginMode" mapto="GLenum" />
+  <typealias name="BinormalPointerTypeEXT" mapto="GLenum" />
+  <typealias name="BlendEquationMode" mapto="GLenum" />
+  <typealias name="BlendEquationModeEXT" mapto="GLenum" />
+  <typealias name="BlendFuncSeparateParameterEXT" mapto="GLenum" />
+  <typealias name="BlendingFactorDest" mapto="GLenum" />
+  <typealias name="BlendingFactorSrc" mapto="GLenum" />
+  <typealias name="ClampColorModeARB" mapto="GLenum" />
+  <typealias name="ClampColorTargetARB" mapto="GLenum" />
+  <typealias name="ClipPlaneName" mapto="GLenum" />
+  <typealias name="ColorMaterialParameter" mapto="GLenum" />
+  <typealias name="ColorPointerType" mapto="GLenum" />
+  <typealias name="ColorTableParameterPName" mapto="GLenum" />
+  <typealias name="ColorTableParameterPNameSGI" mapto="GLenum" />
+  <typealias name="ColorTableTarget" mapto="GLenum" />
+  <typealias name="ColorTableTargetSGI" mapto="GLenum" />
+  <typealias name="CombinerBiasNV" mapto="GLenum" />
+  <typealias name="CombinerComponentUsageNV" mapto="GLenum" />
+  <typealias name="CombinerMappingNV" mapto="GLenum" />
+  <typealias name="CombinerParameterNV" mapto="GLenum" />
+  <typealias name="CombinerPortionNV" mapto="GLenum" />
+  <typealias name="CombinerRegisterNV" mapto="GLenum" />
+  <typealias name="CombinerScaleNV" mapto="GLenum" />
+  <typealias name="CombinerStageNV" mapto="GLenum" />
+  <typealias name="CombinerVariableNV" mapto="GLenum" />
+  <typealias name="ControlPointTypeNV" mapto="GLenum" />
+  <typealias name="ConvolutionParameter" mapto="GLenum" />
+  <typealias name="ConvolutionParameterEXT" mapto="GLenum" />
+  <typealias name="ConvolutionTarget" mapto="GLenum" />
+  <typealias name="ConvolutionTargetEXT" mapto="GLenum" />
+  <typealias name="CullFaceMode" mapto="GLenum" />
+  <typealias name="CullParameterEXT" mapto="GLenum" />
+  <typealias name="DepthFunction" mapto="GLenum" />
+  <typealias name="DrawBufferMode" mapto="GLenum" />
+  <typealias name="DrawElementsType" mapto="GLenum" />
+  <typealias name="ElementPointerTypeATI" mapto="GLenum" />
+  <typealias name="EnableCap" mapto="GLenum" />
+  <typealias name="ErrorCode" mapto="GLenum" />
+  <typealias name="EvalMapsModeNV" mapto="GLenum" />
+  <typealias name="EvalTargetNV" mapto="GLenum" />
+  <typealias name="FeedbackType" mapto="GLenum" />
+  <typealias name="FenceConditionNV" mapto="GLenum" />
+  <typealias name="FenceParameterNameNV" mapto="GLenum" />
+  <typealias name="FfdTargetSGIX" mapto="GLenum" />
+  <typealias name="FogParameter" mapto="GLenum" />
+  <typealias name="FogPointerTypeEXT" mapto="GLenum" />
+  <typealias name="FogPointerTypeIBM" mapto="GLenum" />
+  <typealias name="FragmentLightModelParameterSGIX" mapto="GLenum" />
+  <typealias name="FragmentLightNameSGIX" mapto="GLenum" />
+  <typealias name="FragmentLightParameterSGIX" mapto="GLenum" />
+  <typealias name="FrontFaceDirection" mapto="GLenum" />
+  <typealias name="GetColorTableParameterPName" mapto="GLenum" />
+  <typealias name="GetColorTableParameterPNameSGI" mapto="GLenum" />
+  <typealias name="GetConvolutionParameterPName" mapto="GLenum" />
+  <typealias name="GetHistogramParameterPName" mapto="GLenum" />
+  <typealias name="GetHistogramParameterPNameEXT" mapto="GLenum" />
+  <typealias name="GetMapQuery" mapto="GLenum" />
+  <typealias name="GetMinmaxParameterPName" mapto="GLenum" />
+  <typealias name="GetMinmaxParameterPNameEXT" mapto="GLenum" />
+  <typealias name="GetPName" mapto="GLenum" />
+  <typealias name="GetPointervPName" mapto="GLenum" />
+  <typealias name="GetTextureParameter" mapto="GLenum" />
+  <typealias name="HintMode" mapto="GLenum" />
+  <typealias name="HintTarget" mapto="GLenum" />
+  <typealias name="HintTargetPGI" mapto="GLenum" />
+  <typealias name="HistogramTarget" mapto="GLenum" />
+  <typealias name="HistogramTargetEXT" mapto="GLenum" />
+  <typealias name="IglooFunctionSelectSGIX" mapto="GLenum" />
+  <typealias name="ImageTransformPNameHP" mapto="GLenum" />
+  <typealias name="ImageTransformTargetHP" mapto="GLenum" />
+  <typealias name="IndexFunctionEXT" mapto="GLenum" />
+  <typealias name="IndexMaterialParameterEXT" mapto="GLenum" />
+  <typealias name="IndexPointerType" mapto="GLenum" />
+  <typealias name="InterleavedArrayFormat" mapto="GLenum" />
+  <typealias name="LightEnvParameterSGIX" mapto="GLenum" />
+  <typealias name="LightModelParameter" mapto="GLenum" />
+  <typealias name="LightName" mapto="GLenum" />
+  <typealias name="LightParameter" mapto="GLenum" />
+  <typealias name="LightTextureModeEXT" mapto="GLenum" />
+  <typealias name="LightTexturePNameEXT" mapto="GLenum" />
+  <typealias name="ListMode" mapto="GLenum" />
+  <typealias name="ListNameType" mapto="GLenum" />
+  <typealias name="ListParameterName" mapto="GLenum" />
+  <typealias name="LogicOp" mapto="GLenum" />
+  <typealias name="MapAttribParameterNV" mapto="GLenum" />
+  <typealias name="MapParameterNV" mapto="GLenum" />
+  <typealias name="MapTarget" mapto="GLenum" />
+  <typealias name="MapTargetNV" mapto="GLenum" />
+  <typealias name="MapTypeNV" mapto="GLenum" />
+  <typealias name="MaterialFace" mapto="GLenum" />
+  <typealias name="MaterialParameter" mapto="GLenum" />
+  <typealias name="MatrixIndexPointerTypeARB" mapto="GLenum" />
+  <typealias name="MatrixMode" mapto="GLenum" />
+  <typealias name="MatrixTransformNV" mapto="GLenum" />
+  <typealias name="MeshMode1" mapto="GLenum" />
+  <typealias name="MeshMode2" mapto="GLenum" />
+  <typealias name="MinmaxTarget" mapto="GLenum" />
+  <typealias name="MinmaxTargetEXT" mapto="GLenum" />
+  <typealias name="NormalPointerType" mapto="GLenum" />
+  <typealias name="NurbsCallback" mapto="GLenum" />
+  <typealias name="NurbsProperty" mapto="GLenum" />
+  <typealias name="NurbsTrim" mapto="GLenum" />
+  <typealias name="OcclusionQueryParameterNameNV" mapto="GLenum" />
+  <typealias name="PixelCopyType" mapto="GLenum" />
+  <typealias name="PixelFormat" mapto="GLenum" />
+  <typealias name="PixelInternalFormat" mapto="GLenum" />
+  <typealias name="PixelMap" mapto="GLenum" />
+  <typealias name="PixelStoreParameter" mapto="GLenum" />
+  <typealias name="PixelTexGenModeSGIX" mapto="GLenum" />
+  <typealias name="PixelTexGenParameterNameSGIS" mapto="GLenum" />
+  <typealias name="PixelTransferParameter" mapto="GLenum" />
+  <typealias name="PixelTransformPNameEXT" mapto="GLenum" />
+  <typealias name="PixelTransformTargetEXT" mapto="GLenum" />
+  <typealias name="PixelType" mapto="GLenum" />
+  <typealias name="PointParameterNameARB" mapto="GLenum" />
+  <typealias name="PolygonMode" mapto="GLenum" />
+  <typealias name="ProgramParameterNV" mapto="GLenum" />
+  <typealias name="QuadricCallback" mapto="GLenum" />
+  <typealias name="QuadricDrawStyle" mapto="GLenum" />
+  <typealias name="QuadricNormal" mapto="GLenum" />
+  <typealias name="QuadricOrientation" mapto="GLenum" />
+  <typealias name="ReadBufferMode" mapto="GLenum" />
+  <typealias name="RenderingMode" mapto="GLenum" />
+  <typealias name="ReplacementCodeTypeSUN" mapto="GLenum" />
+  <typealias name="SamplePassARB" mapto="GLenum" />
+  <typealias name="SamplePatternEXT" mapto="GLenum" />
+  <typealias name="SamplePatternSGIS" mapto="GLenum" />
+  <typealias name="SecondaryColorPointerTypeIBM" mapto="GLenum" />
+  <typealias name="SeparableTarget" mapto="GLenum" />
+  <typealias name="SeparableTargetEXT" mapto="GLenum" />
+  <typealias name="ShadingModel" mapto="GLenum" />
+  <typealias name="SpriteParameterNameSGIX" mapto="GLenum" />
+  <typealias name="StencilFunction" mapto="GLenum" />
+  <typealias name="StencilFaceDirection" mapto="GLenum" />
+  <typealias name="StencilOp" mapto="GLenum" />
+  <typealias name="StringName" mapto="GLenum" />
+  <typealias name="TangentPointerTypeEXT" mapto="GLenum" />
+  <typealias name="TessCallback" mapto="GLenum" />
+  <typealias name="TessContour" mapto="GLenum" />
+  <typealias name="TessProperty" mapto="GLenum" />
+  <typealias name="TexCoordPointerType" mapto="GLenum" />
+  <typealias name="TextureCoordName" mapto="GLenum" />
+  <typealias name="TextureEnvParameter" mapto="GLenum" />
+  <typealias name="TextureEnvTarget" mapto="GLenum" />
+  <typealias name="TextureFilterSGIS" mapto="GLenum" />
+  <typealias name="TextureGenParameter" mapto="GLenum" />
+  <typealias name="TextureNormalModeEXT" mapto="GLenum" />
+  <typealias name="TextureParameterName" mapto="GLenum" />
+  <typealias name="TextureTarget" mapto="GLenum" />
+  <typealias name="TextureUnit" mapto="GLenum" />
+  <typealias name="VertexAttribEnumNV" mapto="GLenum" />
+  <typealias name="VertexAttribPointerTypeNV" mapto="GLenum" />
+  <typealias name="VertexPointerType" mapto="GLenum" />
+  <typealias name="VertexWeightPointerTypeEXT" mapto="GLenum" />
+  <typealias name="WeightPointerTypeARB" mapto="GLenum" />
+  <typealias name="ArrayObjectPNameATI" mapto="GLenum" />
+  <typealias name="ArrayObjectUsageATI" mapto="GLenum" />
+  <typealias name="DataTypeEXT" mapto="GLenum" />
+  <typealias name="FragmentOpATI" mapto="GLenum" />
+  <typealias name="GetTexBumpParameterATI" mapto="GLenum" />
+  <typealias name="GetVariantValueEXT" mapto="GLenum" />
+  <typealias name="ParameterRangeEXT" mapto="GLenum" />
+  <typealias name="PreserveModeATI" mapto="GLenum" />
+  <typealias name="ProgramFormatARB" mapto="GLenum" />
+  <typealias name="ProgramTargetARB" mapto="GLenum" />
+  <typealias name="ProgramPropertyARB" mapto="GLenum" />
+  <typealias name="ProgramStringPropertyARB" mapto="GLenum" />
+  <typealias name="ScalarType" mapto="GLenum" />
+  <typealias name="SwizzleOpATI" mapto="GLenum" />
+  <typealias name="TexBumpParameterATI" mapto="GLenum" />
+  <typealias name="VariantCapEXT" mapto="GLenum" />
+  <typealias name="VertexAttribPointerPropertyARB" mapto="GLenum" />
+  <typealias name="VertexAttribPointerTypeARB" mapto="GLenum" />
+  <typealias name="VertexAttribPropertyARB" mapto="GLenum" />
+  <typealias name="VertexShaderCoordOutEXT" mapto="GLenum" />
+  <typealias name="VertexShaderOpEXT" mapto="GLenum" />
+  <typealias name="VertexShaderParameterEXT" mapto="GLenum" />
+  <typealias name="VertexShaderStorageTypeEXT" mapto="GLenum" />
+  <typealias name="VertexShaderTextureUnitParameter" mapto="GLenum" />
+  <typealias name="VertexShaderWriteMaskEXT" mapto="GLenum" />
+  <typealias name="VertexStreamATI" mapto="GLenum" />
+  <typealias name="PNTrianglesPNameATI" mapto="GLenum" />
+  <typealias name="VertexBufferAccessARB" mapto="GLenum" />
+  <typealias name="VertexBufferPNameARB" mapto="GLenum" />
+  <typealias name="VertexBufferPointerNameARB" mapto="GLenum" />
+  <typealias name="VertexBufferTargetARB" mapto="GLenum" />
+  <typealias name="VertexBufferUsageARB" mapto="GLenum" />
+  <typealias name="ObjectTypeAPPLE" mapto="GLenum" />
+  <typealias name="VertexArrayPNameAPPLE" mapto="GLenum" />
+  <typealias name="DrawBufferModeATI" mapto="GLenum" />
+  <typealias name="PixelDataRangeTargetNV" mapto="GLenum" />
+
+</typemap>

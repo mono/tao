@@ -1,0 +1,26 @@
+GlfwExamples
+http://www.taoframework.com
+Copyright ©2003-2004 Randy Ridge, All rights reserved.
+
+These are C# ports of some OpenGL examples developed for GLFW, the originals
+are available from http://glfw.sourceforge.net.
+
+These examples use Tao.OpenGl and Tao.Glfw.  Make sure you have the
+appropriate native GLFW libraries for your system installed.
+
+These examples are fairly well documented, however, do not take
+them to be 'best practices' for .NET OpenGL development.  The
+intent of these ports is as an introduction or as a comparison
+against the original native versions.
+
+If you'd like to contribute you can port the remaining examples as supplied
+with GLFW.  I never got around to them, but they look pretty trivial.
+
+Randy Ridge
+http://www.taoframework.com
+
+
+Change Log:
+
+April 23, 2004:
+    Initial release, version 1.0.0.0.
