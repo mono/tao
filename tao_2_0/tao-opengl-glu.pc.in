@@ -1,9 +1,0 @@
-prefix=@prefix@
-exec_prefix=${prefix}
-libdir=${exec_prefix}/lib
-
-Name: Tao.OpenGl.Glu
-Description: OpenGL.Glu section of the Tao framework
-Version: @VERSION@
-Requires: tao-opengl
-Libs: -r:${libdir}/mono/tao/Tao.OpenGl.Glu.dll

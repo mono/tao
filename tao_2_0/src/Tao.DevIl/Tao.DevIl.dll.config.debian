@@ -1,5 +1,0 @@
-<configuration>
-    <dllmap dll="devil.dll" target="libIL.so.1" />
-    <dllmap dll="ilu.dll" target="libILU.so.1" />
-    <dllmap dll="ilut.dll" target="libILUT.so.1" />
-</configuration>
