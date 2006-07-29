@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://dnpb.sourceforge.net/schemas/prebuild-1.6.xsd"
-	xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.6.xsd">
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://dnpb.sourceforge.net/schemas/prebuild-1.7.xsd"
+	xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.7.xsd">
 	<xs:annotation>
 		<xs:documentation>
-			Copyright (c) 2004-2005 Matthew Holmes (calefaction at houston . rr . com), Dan Moorehead (dan05a at gmail . com)
+			Copyright (c) 2004-2005 Matthew Holmes (calefaction at houston . rr . com), Dan Moorehead (dan05a at gmail . com), David Hudson (jendave at  yahoo dot com)
 
 			.NET Prebuild is a cross-platform XML-driven pre-build tool which
 			allows developers to easily generate project or make files for major
@@ -153,6 +153,7 @@
 				<xs:element name="BaseAddress" type="xs:string" minOccurs="0" />
 				<xs:element name="FileAlignment" type="xs:integer" minOccurs="0" />
 				<xs:element name="NoStdLib" type="xs:boolean" minOccurs="0" />
+				<xs:element name="KeyFile" type="xs:string" minOccurs="0" />
 			</xs:all>
 		</xs:complexType>
 	</xs:element>

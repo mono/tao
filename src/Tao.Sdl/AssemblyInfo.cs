@@ -42,29 +42,16 @@ using System.Security.Permissions;
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.Sdl")]
 [assembly: AssemblyDelaySign(false)]
-#if WIN32
-[assembly: AssemblyDescription("Tao Framework SDL Binding For .NET (Windows)")]
-#elif LINUX
-[assembly: AssemblyDescription("Tao Framework SDL Binding For .NET (Linux)")]
-#endif
+[assembly: AssemblyDescription("Tao Framework SDL Binding For .NET")]
 [assembly: AssemblyFileVersion("1.2.11.0")]
 [assembly: AssemblyInformationalVersion("1.2.11.0")]
-#if STRONG
-[assembly: AssemblyKeyFile(@"Tao.Sdl.snk")]
-#else
-[assembly: AssemblyKeyFile("")]
-#endif
 [assembly: AssemblyKeyName("")]
 #if DEBUG
 [assembly: AssemblyProduct("Tao.Sdl.dll *** Debug Build ***")]
 #else
 [assembly: AssemblyProduct("Tao.Sdl.dll")]
 #endif
-#if WIN32
-[assembly: AssemblyTitle("Tao Framework SDL Binding For .NET (Windows)")]
-#elif LINUX
-[assembly: AssemblyTitle("Tao Framework SDL Binding For .NET (Linux)")]
-#endif
+[assembly: AssemblyTitle("Tao Framework SDL Binding For .NET")]
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
 [assembly: AssemblyVersion("1.2.11.0")]
 [assembly: CLSCompliant(true)]

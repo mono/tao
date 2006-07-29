@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Prebuild xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.6.xsd" version="1.6">
+<Prebuild xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.7.xsd" version="1.7">
     <Solution name="Tao.Sdl">
 	<Configuration name="Debug">
 	    <Options>
@@ -7,7 +7,6 @@
 		<OptimizeCode>false</OptimizeCode>
 		<AllowUnsafe>true</AllowUnsafe>
 		<OutputPath>bin\Debug</OutputPath>
-		<XmlDocFile>Tao.Sdl.xml</XmlDocFile>
 		<DebugInformation>true</DebugInformation>
 	    </Options>
 	</Configuration>
@@ -17,17 +16,37 @@
 		<OptimizeCode>true</OptimizeCode>
 		<AllowUnsafe>true</AllowUnsafe>
 		<OutputPath>bin\Release</OutputPath>
-		<XmlDocFile>Tao.Sdl.xml</XmlDocFile>
 		<DebugInformation>false</DebugInformation>
 	    </Options>
 	</Configuration>
 	<Files>
 	    <File>Tao.Sdl.License.txt</File>
 	    <File>Tao.Sdl.Readme.txt</File>
-	    <File>Tao.Sdl.snk</File>
 	    <File>Tao.Sdl.dll.config</File>
 	</Files>
 	<Project name="Tao.Sdl" path="." language="C#" type="Library">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>true</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <XmlDocFile>Tao.Sdl.xml</XmlDocFile>
+		    <KeyFile>Tao.Sdl.snk</KeyFile>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>true</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <XmlDocFile>Tao.Sdl.xml</XmlDocFile>
+		    <KeyFile>Tao.Sdl.snk</KeyFile>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
 	    <Reference name="System" /> 
 	    <Files>
 		<File>AssemblyInfo.cs</File>
@@ -38,6 +57,7 @@
 		<File>SdlNet.cs</File>
 		<File>SdlGfx.cs</File>
 		<File>Smpeg.cs</File>
+	    	<File buildAction="None">Tao.Sdl.snk</File>
 	    </Files>
 	</Project>
 	<Project name="Tao.Sdl.Tests" path="..\\..\\tests\\Sdl\\" language="C#" type="Library">
