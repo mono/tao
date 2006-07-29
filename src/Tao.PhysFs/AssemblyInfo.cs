@@ -33,38 +33,16 @@ using System.Security.Permissions;
 
 [assembly: AllowPartiallyTrustedCallers]
 [assembly: AssemblyCompany("Tao Framework -- http://www.taoframework.com")]
-#if DEBUG
-[assembly: AssemblyConfiguration("Debug")]
-#else
 [assembly: AssemblyConfiguration("Retail")]
-#endif
 [assembly: AssemblyCopyright("Copyright ©2003-2006 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.PhysFs")]
 [assembly: AssemblyDelaySign(false)]
-#if WIN32
-[assembly: AssemblyDescription("Tao Framework PhysFS Binding For .NET (Windows)")]
-#elif LINUX
-[assembly: AssemblyDescription("Tao Framework PhysFS Binding For .NET (Linux)")]
-#endif
+[assembly: AssemblyDescription("Tao Framework PhysFS Binding For .NET")]
 [assembly: AssemblyFileVersion("1.0.1.0")]
 [assembly: AssemblyInformationalVersion("1.0.1.0")]
-#if STRONG
-[assembly: AssemblyKeyFile(@"Tao.PhysFs.snk")]
-#else
-[assembly: AssemblyKeyFile("")]
-#endif
-[assembly: AssemblyKeyName("")]
-#if DEBUG
-[assembly: AssemblyProduct("Tao.PhysFs.dll *** Debug Build ***")]
-#else
 [assembly: AssemblyProduct("Tao.PhysFs.dll")]
-#endif
-#if WIN32
-[assembly: AssemblyTitle("Tao Framework PhysFS Binding For .NET (Windows)")]
-#elif LINUX
-[assembly: AssemblyTitle("Tao Framework PhysFS Binding For .NET (Linux)")]
-#endif
+[assembly: AssemblyTitle("Tao Framework PhysFS Binding For .NET")]
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
 [assembly: AssemblyVersion("1.0.1.0")]
 [assembly: CLSCompliant(true)]

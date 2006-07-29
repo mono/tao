@@ -33,11 +33,7 @@ using System.Security.Permissions;
 
 [assembly: AllowPartiallyTrustedCallers]
 [assembly: AssemblyCompany("Tao Framework -- http://www.taoframework.com")]
-#if DEBUG
-[assembly: AssemblyConfiguration("Debug")]
-#else
 [assembly: AssemblyConfiguration("Retail")]
-#endif
 [assembly: AssemblyCopyright("Copyright ©2003-2005 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.OpenAl")]
@@ -45,17 +41,8 @@ using System.Security.Permissions;
 [assembly: AssemblyDescription("Tao Framework OpenAL Binding For .NET")]
 [assembly: AssemblyFileVersion("1.1.0.0")]
 [assembly: AssemblyInformationalVersion("1.1.0.0")]
-#if STRONG
-[assembly: AssemblyKeyFile(@"Tao.OpenAl.snk")]
-#else
-[assembly: AssemblyKeyFile("")]
-#endif
 [assembly: AssemblyKeyName("")]
-#if DEBUG
-[assembly: AssemblyProduct("Tao.OpenAl.dll *** Debug Build ***")]
-#else
 [assembly: AssemblyProduct("Tao.OpenAl.dll")]
-#endif
 [assembly: AssemblyTitle("Tao Framework OpenAL Binding For .NET")]
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
 [assembly: AssemblyVersion("1.1.0.0")]

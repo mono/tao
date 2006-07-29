@@ -33,11 +33,7 @@ using System.Security.Permissions;
 
 [assembly: AllowPartiallyTrustedCallers]
 [assembly: AssemblyCompany("Tao Framework -- http://www.taoframework.com")]
-#if DEBUG
-[assembly: AssemblyConfiguration("Debug")]
-#else
 [assembly: AssemblyConfiguration("Retail")]
-#endif
 [assembly: AssemblyCopyright("Copyright ©2003-2006 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.Platform.Windows")]
@@ -45,18 +41,9 @@ using System.Security.Permissions;
 [assembly: AssemblyDescription("Tao Framework Windows Platform API Binding For .NET")]
 [assembly: AssemblyFileVersion("1.0.0.3")]
 [assembly: AssemblyInformationalVersion("1.0.0.3")]
-#if STRONG
-[assembly: AssemblyKeyFile(@"Tao.Platform.Windows.snk")]
-#else
-[assembly: AssemblyKeyFile("")]
-#endif
 [assembly: AssemblyKeyName("")]
-#if DEBUG
-[assembly: AssemblyProduct("Tao.Platform.Windows.dll *** Debug Build ***")]
-#else
 [assembly: AssemblyProduct("Tao.Platform.Windows.dll")]
-#endif
-[assembly: AssemblyTitle("Tao Framework Windows Platform API Binding For .NET (Windows)")]
+[assembly: AssemblyTitle("Tao Framework Windows Platform API Binding For .NET")]
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
 [assembly: AssemblyVersion("1.0.0.3")]
 [assembly: CLSCompliant(true)]

@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Prebuild xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.6.xsd" version="1.6">
+<Prebuild xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.7.xsd" version="1.7">
     <Solution name="Tao.Cg">
         <Configuration name="Debug">
             <Options>
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
                 <OutputPath>bin\Debug</OutputPath>
-		<XmlDocFile>Tao.Cg.xml</XmlDocFile>
 		<AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>true</DebugInformation>
             </Options>
@@ -16,7 +15,6 @@
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
                 <OutputPath>bin\Release</OutputPath>
-                <XmlDocFile>Tao.Cg.xml</XmlDocFile>
 		<AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>false</DebugInformation>
             </Options>
@@ -28,6 +26,28 @@
             <File>Tao.Cg.dll.config</File>
         </Files>
 	<Project name="Tao.Cg" path="." language="C#" type="Library">
+        <Configuration name="Debug">
+            <Options>
+                <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+                <OptimizeCode>false</OptimizeCode>
+                <OutputPath>bin\Debug</OutputPath>
+		<XmlDocFile>Tao.Cg.xml</XmlDocFile>
+		<KeyFile>Tao.Cg.snk</KeyFile>
+		<AllowUnsafe>true</AllowUnsafe>
+                <DebugInformation>true</DebugInformation>
+            </Options>
+        </Configuration>
+        <Configuration name="Release">
+            <Options>
+                <CompilerDefines>TRACE;WIN32</CompilerDefines>
+                <OptimizeCode>true</OptimizeCode>
+                <OutputPath>bin\Release</OutputPath>
+                <XmlDocFile>Tao.Cg.xml</XmlDocFile>
+		<KeyFile>Tao.Cg.snk</KeyFile>
+		<AllowUnsafe>true</AllowUnsafe>
+                <DebugInformation>false</DebugInformation>
+            </Options>
+        </Configuration>
 	    <Reference name="System" />
             <Files>
                 <File>AssemblyInfo.cs</File>

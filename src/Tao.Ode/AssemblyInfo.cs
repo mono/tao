@@ -33,11 +33,7 @@ using System.Security.Permissions;
 
 [assembly: AllowPartiallyTrustedCallers]
 [assembly: AssemblyCompany("Tao Framework -- http://www.taoframework.com")]
-#if DEBUG
-[assembly: AssemblyConfiguration("Debug")]
-#else
 [assembly: AssemblyConfiguration("Retail")]
-#endif
 [assembly: AssemblyCopyright("Copyright 2003-2006 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.Ode")]
@@ -45,17 +41,8 @@ using System.Security.Permissions;
 [assembly: AssemblyDescription("Tao Framework ODE Binding For .NET")]
 [assembly: AssemblyFileVersion("0.6.0.0")]
 [assembly: AssemblyInformationalVersion("0.6.0.0")]
-#if STRONG
-[assembly: AssemblyKeyFile(@"Tao.Ode.snk")]
-#else
-[assembly: AssemblyKeyFile("")]
-#endif
 [assembly: AssemblyKeyName("")]
-#if DEBUG
-[assembly: AssemblyProduct("Tao.Ode.dll *** Debug Build ***")]
-#else
 [assembly: AssemblyProduct("Tao.Ode.dll")]
-#endif
 [assembly: AssemblyTitle("Tao Framework ODE Binding For .NET")]
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
 [assembly: AssemblyVersion("0.6.0.0")]

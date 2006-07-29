@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<Prebuild xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.6.xsd" version="1.6">
+<Prebuild xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.7.xsd" version="1.7">
     <Solution name="Tao.OpenGl">
 	<Configuration name="Debug">
 	    <Options>
@@ -56,6 +56,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <OutputPath>bin\Debug</OutputPath>
 		    <XmlDocFile>Tao.OpenAl.xml</XmlDocFile>
+		    <KeyFile>..//Tao.OpenAl//Tao.OpenAl.snk</KeyFile>
 		    <AllowUnsafe>true</AllowUnsafe>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
@@ -66,6 +67,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <OutputPath>bin\Release</OutputPath>
 		    <XmlDocFile>Tao.OpenAl.xml</XmlDocFile>
+		    <KeyFile>..//Tao.OpenAl//Tao.OpenAl.snk</KeyFile>
 		    <AllowUnsafe>true</AllowUnsafe>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
@@ -83,6 +85,7 @@
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
 		    <XmlDocFile>Tao.OpenGl.ExtensionLoader.xml</XmlDocFile>
+	    	    <KeyFile>..//Tao.OpenGl.ExtensionLoader//Tao.OpenGl.ExtensionLoader.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -93,6 +96,7 @@
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
 		    <XmlDocFile>Tao.OpenGl.ExtensionLoader.xml</XmlDocFile>
+	    	    <KeyFile>..//Tao.OpenGl.ExtensionLoader//Tao.OpenGl.ExtensionLoader.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -109,6 +113,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+	    	    <KeyFile>..//Tao.OpenGl//Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -137,6 +142,7 @@
 		    <AllowUnsafe>true</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
 		    <XmlDocFile>Tao.OpenGl.Glu.xml</XmlDocFile>
+	    	    <KeyFile>..//Tao.OpenGl.Glu//Tao.OpenGl.Glu.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -147,6 +153,7 @@
 		    <AllowUnsafe>true</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
 		    <XmlDocFile>Tao.OpenGl.Glu.xml</XmlDocFile>
+	    	    <KeyFile>..//Tao.OpenGl.Glu//Tao.OpenGl.Glu.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -164,6 +171,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <OutputPath>bin\Debug</OutputPath>
 		    <XmlDocFile>Tao.FreeGlut.xml</XmlDocFile>
+	    	    <KeyFile>..//Tao.FreeGlut//Tao.FreeGlut.snk</KeyFile>
 		    <AllowUnsafe>true</AllowUnsafe>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
@@ -174,6 +182,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <OutputPath>bin\Release</OutputPath>
 		    <XmlDocFile>Tao.FreeGlut.xml</XmlDocFile>
+	    	    <KeyFile>..//Tao.FreeGlut//Tao.FreeGlut.snk</KeyFile>
 		    <AllowUnsafe>true</AllowUnsafe>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
@@ -192,6 +201,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <OutputPath>bin\Debug</OutputPath>
 		    <XmlDocFile>Tao.Glfw.xml</XmlDocFile>
+	    	    <KeyFile>..//Tao.Glfw//Tao.Glfw.snk</KeyFile>
 		    <AllowUnsafe>true</AllowUnsafe>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
@@ -202,6 +212,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <OutputPath>bin\Release</OutputPath>
 		    <XmlDocFile>Tao.Glfw.xml</XmlDocFile>
+	    	    <KeyFile>..//Tao.Glfw//Tao.Glfw.snk</KeyFile>
 		    <AllowUnsafe>true</AllowUnsafe>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
@@ -248,6 +259,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <OutputPath>bin\Debug</OutputPath>
 		    <XmlDocFile>Tao.Platform.Windows.xml</XmlDocFile>
+	    	    <KeyFile>..//Tao.Platform.Windows//Tao.Platform.Windows.snk</KeyFile>
 		    <AllowUnsafe>true</AllowUnsafe>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
@@ -258,6 +270,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <OutputPath>bin\Release</OutputPath>
 		    <XmlDocFile>Tao.Platform.Windows.xml</XmlDocFile>
+	    	    <KeyFile>..//Tao.Platform.Windows//Tao.Platform.Windows.snk</KeyFile>
 		    <AllowUnsafe>true</AllowUnsafe>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
