@@ -33,11 +33,7 @@ using System.Security.Permissions;
 
 [assembly: AllowPartiallyTrustedCallers]
 [assembly: AssemblyCompany("Tao Framework -- http://www.taoframework.com")]
-#if DEBUG
-[assembly: AssemblyConfiguration("Debug")]
-#else
 [assembly: AssemblyConfiguration("Retail")]
-#endif
 [assembly: AssemblyCopyright("Copyright ©2003-2006 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.Sdl")]
@@ -46,11 +42,7 @@ using System.Security.Permissions;
 [assembly: AssemblyFileVersion("1.2.11.0")]
 [assembly: AssemblyInformationalVersion("1.2.11.0")]
 [assembly: AssemblyKeyName("")]
-#if DEBUG
-[assembly: AssemblyProduct("Tao.Sdl.dll *** Debug Build ***")]
-#else
 [assembly: AssemblyProduct("Tao.Sdl.dll")]
-#endif
 [assembly: AssemblyTitle("Tao Framework SDL Binding For .NET")]
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
 [assembly: AssemblyVersion("1.2.11.0")]
