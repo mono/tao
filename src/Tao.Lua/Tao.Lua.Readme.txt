@@ -1,0 +1,11 @@
+Tao.Lua 5.1.0.0
+Copyright ©2003-2005 Tao Framework Team
+http://www.taoframework.com
+All rights reserved.
+
+Tao.Lua is a Lua API binding for .NET, implementing Lua 5.1 (http://www.lua.org).
+
+
+Todo:
+
+Change Log:

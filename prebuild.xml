@@ -6,4 +6,5 @@
     <Process>src\Tao.OpenGl\prebuild.xml</Process>
     <Process>src\Tao.Sdl\prebuild.xml</Process>
     <Process>src\Tao.PhysFs\prebuild.xml</Process>
+    <Process>src\Tao.Lua\prebuild.xml</Process>
 </Prebuild>

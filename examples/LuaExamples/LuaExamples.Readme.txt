@@ -1,0 +1,13 @@
+LuaExamples
+Copyright ©2003-2005 Tao Framework Team
+http://www.taoframework.com
+All rights reserved.
+
+These are various Lua examples.
+
+Rob Loach (http://www.robloach.net)
+
+
+Todo:
+
+Change Log:
