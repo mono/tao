@@ -27,7 +27,7 @@
 
 #region Original License
 
-/******************************************************************************
+/*
 * Copyright (C) 1994-2006 Lua.org, PUC-Rio.  All rights reserved.
 *
 * Permission is hereby granted, free of charge, to any person obtaining
@@ -48,7 +48,7 @@
 * CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 * TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-******************************************************************************/
+*/
 
 #endregion Original License
 
@@ -67,7 +67,7 @@ namespace Tao.Lua
     using lua_Debug = System.IntPtr;
     #endregion Aliases
 	
-	#region Class Documentation
+	/// #region Class Documentation
 	/// <summary>
 	///     Lua bindings for .NET, implementing Lua 5.1 (http://www.lua.org).
 	/// </summary>
@@ -77,8 +77,8 @@ namespace Tao.Lua
 	///		general-purpose, stand-alone language.
 	///	<p>More information can be found at the official website (http://www.lua.org).</p>
 	///	</remarks>
-	#endregion Class Documentation
-    public class Lua
+	/// #endregion Class Documentation
+    public sealed class Lua
     {
         #region Private Constants
 
@@ -172,7 +172,7 @@ namespace Tao.Lua
         /// </summary>
         /// <param name="L"></param>
         /// <returns></returns>
-        [UnmanagedFunctionPointer(CALLING_CONVENTION)]
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate int lua_CFunction(lua_State L);
 
         //functions that read/write blocks when loading/dumping Lua chunks
@@ -184,7 +184,7 @@ namespace Tao.Lua
         /// <param name="ud"></param>
         /// <param name="sz"></param>
         /// <returns></returns>
-        [UnmanagedFunctionPointer(CALLING_CONVENTION)]
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		[CLSCompliant(false)]
         public delegate string lua_Reader(lua_State L, IntPtr ud, ref size_t sz);
 
@@ -197,7 +197,7 @@ namespace Tao.Lua
         /// <param name="sz"></param>
         /// <param name="ud"></param>
         /// <returns></returns>
-        [UnmanagedFunctionPointer(CALLING_CONVENTION)]
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		[CLSCompliant(false)]
         public delegate int lua_Writer(lua_State L, IntPtr p, size_t sz, IntPtr ud);
 
@@ -211,7 +211,7 @@ namespace Tao.Lua
         /// <param name="nsize"></param>
         /// <returns></returns>
         [CLSCompliant(false)]
-        [UnmanagedFunctionPointer(CALLING_CONVENTION)]
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate IntPtr lua_Alloc(IntPtr ud, IntPtr ptr, size_t osize, size_t nsize);
 
         #endregion Public Delegates
@@ -1315,7 +1315,7 @@ namespace Tao.Lua
         /// </summary>
         /// <param name="L"></param>
         /// <param name="ar"></param>
-        [UnmanagedFunctionPointer(CALLING_CONVENTION)]
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void lua_Hook(lua_State L, lua_Debug ar);
 
         //LUA_API int lua_getstack (lua_State *L, int level, lua_Debug *ar);

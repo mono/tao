@@ -1699,7 +1699,7 @@ namespace Tao.Ode
 		/// <summary>
 		/// Callback function for dSpaceCollide and dSpaceCollide2
 		/// </summary>
-		[UnmanagedFunctionPointer(CALLING_CONVENTION)]
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void dNearCallback(IntPtr data, dGeomID o1, dGeomID o2);
 		#endregion Public Delegates
 
@@ -5911,7 +5911,7 @@ namespace Tao.Ode
 		/// Allows user to state if a collision with a particular triangle is wanted
 		/// If the return value is zero no contact will be generated.
 		/// </summary>
-		[UnmanagedFunctionPointer(CALLING_CONVENTION)]
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate int dTriCallback(dGeomID TriMesh, dGeomID RefObject, int TriangleIndex);
 
 		/// <summary>
@@ -5934,7 +5934,7 @@ namespace Tao.Ode
 		/// Per object callback.
 		/// Allows user to get the list of all intersecting triangles in one shot.
 		/// </summary>
-		[UnmanagedFunctionPointer(CALLING_CONVENTION)]
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate void dTriArrayCallback(dGeomID TriMesh, dGeomID RefObject, int[] TriIndices, int TriCount);
 
 		/// <summary>
@@ -5959,7 +5959,7 @@ namespace Tao.Ode
 		/// the barycentric coordinates of an intersection. The user can for example
 		/// sample a bitmap to determine if a collision should occur.
 		/// </summary>
-		[UnmanagedFunctionPointer(CALLING_CONVENTION)]
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 		public delegate int dTriRayCallback(dGeomID TriMesh, dGeomID Ray, int TriangleIndex, dReal u, dReal v);
 
 		/// <summary>
