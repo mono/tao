@@ -20,11 +20,13 @@ assembly_DATA = \
 	Tao.OpenGl.Glu/Tao.OpenGl.Glu.dll \
 	Tao.OpenGl.Glu/Tao.OpenGl.Glu.dll.config \
 	Tao.Sdl/Tao.Sdl.dll \
-	Tao.Sdl/Tao.Sdl.dll.config
+	Tao.Sdl/Tao.Sdl.dll.config \
 	Tao.PhysFs/Tao.PhysFs.dll \
-	Tao.PhysFs/Tao.PhysFs.dll.config
+	Tao.PhysFs/Tao.PhysFs.dll.config \
 	Tao.Platform.Windows/Tao.Platform.Windows.dll \
-	Tao.Platform.Windows/Tao.Platform.Windows.dll.config
+	Tao.Platform.Windows/Tao.Platform.Windows.dll.config \
+	Tao.Lua/Tao.Lua.dll \
+	Tao.Lua/Tao.Lua.dll.config
 
 SUBDIRS = \
         Tao.OpenGl.ExtensionLoader \
@@ -38,5 +40,6 @@ SUBDIRS = \
 	Tao.OpenAl \
 	Tao.OpenGl.Glu \
 	Tao.Sdl \
+	Tao.Lua \
 	Tao.PhysFs \
 	Tao.Platform.Windows

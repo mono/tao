@@ -33,38 +33,17 @@ using System.Security.Permissions;
 
 [assembly: AllowPartiallyTrustedCallers]
 [assembly: AssemblyCompany("Tao Framework -- http://www.taoframework.com")]
-#if DEBUG
-[assembly: AssemblyConfiguration("Debug")]
-#else
 [assembly: AssemblyConfiguration("Retail")]
-#endif
 [assembly: AssemblyCopyright("Copyright ©2003-2005 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.Lua")]
 [assembly: AssemblyDelaySign(false)]
-#if WIN32
-[assembly: AssemblyDescription("Tao Framework PhysFS Binding For .NET (Windows)")]
-#elif LINUX
-[assembly: AssemblyDescription("Tao Framework PhysFS Binding For .NET (Linux)")]
-#endif
+[assembly: AssemblyDescription("Tao Framework Lua Binding For .NET")]
 [assembly: AssemblyFileVersion("5.1.0.0")]
 [assembly: AssemblyInformationalVersion("5.1.0.0")]
-#if STRONG
-[assembly: AssemblyKeyFile(@"Tao.Lua.snk")]
-#else
-[assembly: AssemblyKeyFile("")]
-#endif
 [assembly: AssemblyKeyName("")]
-#if DEBUG
-[assembly: AssemblyProduct("Tao.Lua.dll *** Debug Build ***")]
-#else
 [assembly: AssemblyProduct("Tao.Lua.dll")]
-#endif
-#if WIN32
-[assembly: AssemblyTitle("Tao Framework Lua Binding For .NET (Windows)")]
-#elif LINUX
-[assembly: AssemblyTitle("Tao Framework Lua Binding For .NET (Linux)")]
-#endif
+[assembly: AssemblyTitle("Tao Framework Lua Binding For .NET")]
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
 [assembly: AssemblyVersion("5.1.0.0")]
 [assembly: CLSCompliant(true)]

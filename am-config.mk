@@ -17,10 +17,7 @@ ifdef UNSAFE
   CSFLAGS	+= /unsafe
 endif
 
-# Add the /d:STRONG command line argument (which defines a compile-time value to be set for use in pre-processing)
-ifdef STRONG
-  CSFLAGS += /d:STRONG
-endif
+
 
 # If ASSEMBLY_DLL has been set, and thus, is not ".dll", assume we're a 
 # library, and not an executable
@@ -37,6 +34,10 @@ ifneq (.dll,$(ASSEMBLY_DLL))
   else
     SNKFILE =
   endif
+# Add the /d:STRONG command line argument (which defines a compile-time value to be set for use in pre-processing)
+ifdef STRONG
+  CSFLAGS += /keyfile:$(SNKFILE)
+endif
 else
 # If ASSEMBLY_WINEXE has been set, and thus, is not ".exe", assume we're a 
 # winexe, and not a command-line exe

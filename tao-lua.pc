@@ -1,0 +1,8 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+
+Name: Tao.Lua
+Description: Lua portion of the Tao framework
+Version: 2.0.0
+Libs:  -r:${libdir}/mono/tao/Tao.Lua.dll

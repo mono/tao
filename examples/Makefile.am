@@ -8,6 +8,7 @@ SUBDIRS = \
 	NeHe \
 	OdeExamples \
 	OpenAlExamples \
+	LuaExamples \
 	PhysFsExamples \
 	Redbook \
 	SdlExamples

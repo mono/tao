@@ -170,6 +170,7 @@ tao-openal.pc
 tao-opengl.pc
 tao-opengl-glu.pc
 tao-sdl.pc
+tao-lua.pc
 tao-physfs.pc
 tao-platform-windows.pc
 Makefile
@@ -185,6 +186,7 @@ src/Tao.Ode/Makefile
 src/Tao.OpenAl/Makefile
 src/Tao.OpenGl.Glu/Makefile
 src/Tao.Sdl/Makefile
+src/Tao.Lua/Makefile
 src/Tao.PhysFs/Makefile
 src/Tao.Platform.Windows/Makefile
 examples/Makefile
@@ -192,6 +194,9 @@ examples/SdlExamples/Makefile
 examples/SdlExamples/Rectangles/Makefile
 examples/SdlExamples/GfxPrimitives/Makefile
 examples/SdlExamples/SmpegPlayer/Makefile
+examples/LuaExamples/Makefile
+examples/LuaExamples/Simple/Makefile
+examples/LuaExamples/Functions/Makefile
 examples/DevIlExamples/Makefile
 examples/DevIlExamples/SimpleExample/Makefile
 examples/PhysFsExamples/Makefile

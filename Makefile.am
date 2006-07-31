@@ -11,6 +11,7 @@ pkgconfig_in_files = \
 	tao-opengl.pc.in \
 	tao-opengl-glu.pc.in \
 	tao-sdl.pc.in \
+	tao-lua.pc.in \
 	tao-physfs.pc.in \
 	tao-platform-windows.pc.in
 

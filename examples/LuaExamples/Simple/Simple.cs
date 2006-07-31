@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Tao.Lua;
 
 namespace LuaExamples
@@ -32,7 +33,15 @@ namespace LuaExamples
 		[STAThread]
 		static void Main(string[] args)
 		{
-			string file = "simple.lua";
+            string filepath = @"../../Data/";
+            string fileName = "simple.lua";
+			if (File.Exists(fileName))
+			{
+				filepath = "";
+			}
+
+            string file = filepath + fileName;
+
 			IntPtr L = Lua.luaL_newstate();
 
             Lua.luaL_openlibs(L);
