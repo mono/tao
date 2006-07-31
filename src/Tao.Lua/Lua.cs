@@ -1661,7 +1661,7 @@ namespace Tao.Lua
         /// <param name="t"></param>
         /// <param name="n"></param>
         [DllImport(LUA_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public extern static void lua_newstate(lua_State L, int t, int n);
+        public extern static void luaL_setn(lua_State L, int t, int n);
 
         //#define LUA_ERRFILE     (LUA_ERRERR+1)
         /// <summary>
