@@ -17,7 +17,7 @@ AssemblyInfo.cs \
 	Winmm.cs
 
 REFERENCES = \
-	-r:../Tao.OpenGl/Tao.OpenGl.dll,System.Drawing.dll,System.Windows.Forms.dll
+	-r:../Tao.OpenGl/Tao.OpenGl.dll,../Tao.OpenGl.ExtensionLoader/Tao.OpenGl.ExtensionLoader.dll,System.Drawing.dll,System.Windows.Forms.dll
 
 BUILD_FILES = $(addprefix $(srcdir)/, $(FILES))
 
