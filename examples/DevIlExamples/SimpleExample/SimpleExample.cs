@@ -45,7 +45,8 @@ using System;
 using System.IO;
 using Tao.DevIl;
 
-namespace DevIlExamples {
+namespace DevIlExamples
+{
     #region Class Documentation
     /// <summary>
     ///     Converts one image to another.
@@ -61,34 +62,53 @@ namespace DevIlExamples {
     ///     </para>
     /// </remarks>
     #endregion Class Documentation
-    public sealed class SimpleExample {
+    public sealed class SimpleExample
+    {
         // --- Entry Point ---
         #region Main(string[] args)
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="args"></param>
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
         [STAThread]
-        public static void Main(string[] args) {
+        public static void Main(string[] args)
+        {
             int imageId;
-            string inputFile = "Data" + Path.DirectorySeparatorChar + "yinyangblue.gif";
-            string outputFile = "Data" + Path.DirectorySeparatorChar + "yinyangblue.jpg";
+
+            string filePath = Path.Combine("..", "..");
+            string fileDirectory = "Data";
+            string fileName = "yinyangblue.gif";
+            if (File.Exists(fileName))
+            {
+                filePath = "";
+                fileDirectory = "";
+            }
+            else if (File.Exists(Path.Combine(fileDirectory, fileName)))
+            {
+                filePath = "";
+            }
+
+            string inputFile = Path.Combine(Path.Combine(filePath, fileDirectory), fileName);
+            string outputFile = Path.Combine(Path.Combine(filePath, fileDirectory), "yinyangblue.jpg");
 
             Console.WriteLine("DevIlExamples.SimpleExample - DevIL simple command line application.");
 
-            if(args.Length == 2) {
+            if (args.Length == 2)
+            {
                 inputFile = args[0];
                 outputFile = args[1];
                 Console.WriteLine("Converting - {0} -> {1}", inputFile, outputFile);
             }
-            else {
+            else
+            {
                 Console.WriteLine("Usage - DevIlExamples.SimpleExample <inputfile> <outputfile>");
                 Console.WriteLine("Converting example files - {0} -> {1}", inputFile, outputFile);
             }
 
-            if(Il.ilGetInteger(Il.IL_VERSION_NUM) < Il.IL_VERSION ||
+            if (Il.ilGetInteger(Il.IL_VERSION_NUM) < Il.IL_VERSION ||
                 Il.ilGetInteger(Ilu.ILU_VERSION_NUM) < Ilu.ILU_VERSION ||
-                Il.ilGetInteger(Ilut.ILUT_VERSION_NUM) < Ilut.ILUT_VERSION) {
+                Il.ilGetInteger(Ilut.ILUT_VERSION_NUM) < Ilut.ILUT_VERSION)
+            {
                 Console.WriteLine("*** Your DevIL native libraries are older than what Tao.DevIl supports, get the latest DevIL native libraries. ***");
                 Console.WriteLine("Your DevIL native IL version: {0}.  Tao.DevIl's IL version: {1}.",
                     Il.ilGetInteger(Il.IL_VERSION_NUM), Il.IL_VERSION);
@@ -108,7 +128,8 @@ namespace DevIlExamples {
             Il.ilBindImage(imageId);
 
             // Loads the image into the imageId
-            if(!Il.ilLoadImage(inputFile)) {
+            if (!Il.ilLoadImage(inputFile))
+            {
                 Console.WriteLine("Could not open file, {0}, exiting.", inputFile);
                 Exit();
             }
@@ -136,7 +157,8 @@ namespace DevIlExamples {
         /// <summary>
         ///     Exits application.
         /// </summary>
-        private static void Exit() {
+        private static void Exit()
+        {
             Console.WriteLine("Press Enter to exit...");
             Console.ReadLine();
             Environment.Exit(0);
