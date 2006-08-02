@@ -32,4 +32,4 @@ $(ASSEMBLY): $(FILES)
 CLEANFILES = $(ASSEMBLY) $(ASSEMBLY).mdb
 EXTRA_DIST = \
 	$(FILES) \
-	Tao.Sdl.snk
+	../../../src/Tao.Sdl/Tao.Sdl.snk

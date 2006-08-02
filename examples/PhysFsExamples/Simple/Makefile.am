@@ -32,4 +32,4 @@ $(ASSEMBLY): $(FILES)
 CLEANFILES = $(ASSEMBLY) $(ASSEMBLY).mdb
 EXTRA_DIST = \
 	$(FILES) \
-	Tao.PhysFs.snk
+	../../../src/Tao.PhysFs/Tao.PhysFs.snk
