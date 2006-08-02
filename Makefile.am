@@ -25,9 +25,5 @@ EXTRA_DIST = \
 
 DISTCLEANFILES = \
 	configure \
-	config.guess \
-	config.sub   \
 	Makefile.in  \
-	install-sh   \
-	aclocal.m4   \
-	missing
+	aclocal.m4

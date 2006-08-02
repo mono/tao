@@ -80,14 +80,21 @@ namespace SdlExamples
 			bool quitFlag = false;
 
 			Random rand = new Random();
-			
-			string filepath = @"../../";
-			if (File.Exists("Data/SdlExamples.Rectangles.sound.ogg"))
-			{
-				filepath = "";
-			}
 
-			string musicFile = filepath + "Data/SdlExamples.Rectangles.sound.ogg";
+            string filePath = Path.Combine("..", "..");
+            string fileDirectory = "Data";
+            string fileName = "SdlExamples.Rectangles.sound.ogg";
+            if (File.Exists(fileName))
+            {
+                filePath = "";
+                fileDirectory = "";
+            }
+            else if (File.Exists(Path.Combine(fileDirectory, fileName)))
+            {
+                filePath = "";
+            }
+
+            string file = Path.Combine(Path.Combine(filePath, fileDirectory), fileName);
 
 			Sdl.SDL_Event evt;
 
@@ -106,7 +113,7 @@ namespace SdlExamples
 					(short) SdlMixer.MIX_DEFAULT_FORMAT, 
 					2, 
 					1024);
-				IntPtr chunkPtr = SdlMixer.Mix_LoadMUS(musicFile);
+				IntPtr chunkPtr = SdlMixer.Mix_LoadMUS(file);
 
 				SdlMixer.MusicFinishedDelegate musicStopped = 
 					new SdlMixer.MusicFinishedDelegate(this.musicHasStopped);

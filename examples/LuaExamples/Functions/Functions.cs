@@ -44,14 +44,20 @@ namespace LuaExamples
         [STAThread]
         static void Main(string[] args)
         {
-            string filepath = @"../../Data/";
+            string filePath = Path.Combine("..", "..");
+            string fileDirectory = "Data";
             string fileName = "functions.lua";
             if (File.Exists(fileName))
             {
-                filepath = "";
+                filePath = "";
+                fileDirectory = "";
+            }
+            else if (File.Exists(Path.Combine(fileDirectory, fileName)))
+            {
+                filePath = "";
             }
 
-            string file = filepath + fileName;
+            string file = Path.Combine(Path.Combine(filePath, fileDirectory), fileName);
 
             IntPtr L = Lua.luaL_newstate();
 

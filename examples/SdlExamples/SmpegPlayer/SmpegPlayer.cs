@@ -96,18 +96,27 @@ namespace SdlExamples
 			SdlMixer.Mix_OpenAudio(SdlMixer.MIX_DEFAULT_FREQUENCY, unchecked(Sdl.AUDIO_S16LSB), 2, 1024);
 			Smpeg.SMPEG_Info info = new Smpeg.SMPEG_Info();
 
-			string filepath = @"../../";
-			if (File.Exists("Data/SdlExamples.SmpegPlayer.mpg"))
-			{
-				filepath = "";
-			}
+            string filePath = Path.Combine("..", "..");
+            string fileDirectory = "Data";
+            string fileName = "SdlExamples.SmpegPlayer.mpg";
+            if (File.Exists(fileName))
+            {
+                filePath = "";
+                fileDirectory = "";
+            }
+            else if (File.Exists(Path.Combine(fileDirectory, fileName)))
+            {
+                filePath = "";
+            }
+
+            string file = Path.Combine(Path.Combine(filePath, fileDirectory), fileName);
 
 			//SdlMixer.MixFunctionDelegate audioMixer = new SdlMixer.MixFunctionDelegate(this.player);
 			//int freq;
 			//short format;
 			//int channels;
 			SdlMixer.Mix_CloseAudio();
-			IntPtr intPtr = Smpeg.SMPEG_new(filepath + "Data/SdlExamples.SmpegPlayer.mpg", out info, 1); 
+			IntPtr intPtr = Smpeg.SMPEG_new(file, out info, 1); 
 			//Smpeg.SMPEG_enableaudio(intPtr, 0);
 			//SdlMixer.Mix_QuerySpec(out freq, out unchecked(format), out channels);
 			//Sdl.SDL_AudioSpec audiofmt = new Tao.Sdl.Sdl.SDL_AudioSpec();
