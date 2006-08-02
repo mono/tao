@@ -25,7 +25,7 @@ fi
 AC_MSG_RESULT($from_cvs)
 
 AC_PATH_PROG(MONO, mono)
-AC_PATH_PROG(MCS, mcs)
+AC_PATH_PROG(GMCS, gmcs)
 AC_PATH_PROG(GACUTIL, gacutil)
 
 AC_MSG_CHECKING([for mono])
@@ -35,9 +35,9 @@ dnl else
   AC_MSG_RESULT([found])
 dnl fi
 
-AC_MSG_CHECKING([for mcs])
-dnl if test "x$MCS" = "x" ; then
-dnl  AC_MSG_ERROR([Can't find "mcs" in your PATH])
+AC_MSG_CHECKING([for gmcs])
+dnl if test "x$GMCS" = "x" ; then
+dnl  AC_MSG_ERROR([Can't find "gmcs" in your PATH])
 dnl else
   AC_MSG_RESULT([found])
 dnl fi
@@ -65,7 +65,7 @@ PKG_CHECK_MODULES(MONO_DEPENDENCY, mono >= $MONO_REQUIRED_VERSION, has_mono=true
 
 if test "x$has_mono" = "xtrue"; then
   AC_PATH_PROG(RUNTIME, mono, no)
-  AC_PATH_PROG(CSC, mcs, no)
+  AC_PATH_PROG(CSC, gmcs, no)
   if test `uname -s` = "Darwin"; then
         LIB_PREFIX=
         LIB_SUFFIX=.dylib
