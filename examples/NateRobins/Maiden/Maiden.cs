@@ -307,11 +307,11 @@ namespace NateRobins {
             int dataPosition = 0;
 
             try {
-                if(File.Exists("Data" + System.IO.Path.DirectorySeparatorChar + fileName)) {
-                    fileName = "Data" + System.IO.Path.DirectorySeparatorChar + fileName;
+                if(File.Exists(Path.Combine("Data", fileName))) {
+                    fileName = Path.Combine("Data", fileName);
                 }
                 else {
-                    fileName = ".." + System.IO.Path.DirectorySeparatorChar + ".." + System.IO.Path.DirectorySeparatorChar + "Data" + System.IO.Path.DirectorySeparatorChar + fileName;
+                    fileName = Path.Combine(Path.Combine(Path.Combine("..", ".."), "Data"), fileName);
                 }
 
                 file = File.Open(fileName, FileMode.Open, FileAccess.Read);

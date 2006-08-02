@@ -26,6 +26,7 @@ SOFTWARE.
 #endregion License
 
 using System;
+using System.IO;
 using System.Text;
 using Tao.PhysFs;
 
@@ -50,7 +51,11 @@ namespace PhysFsExamples
 		[STAThread]
 		public static void Main(string[] args)
 		{
-			/* 
+            string filePath = Path.Combine("..", "..");
+            string fileDirectory = "Data";
+            string fileName = "myzip.zip";
+
+            /* 
 			 * First thing you need to do is initialize the filesystem.  You simply call 
 			 * PHYSFS_init();
 			 * to do this.
@@ -70,8 +75,8 @@ namespace PhysFsExamples
 			 * end of the search path so that it is the last looked at.  You could instead 
 			 * put a 0 there and have it be the first thing looked at.
 			 */
-			Fs.PHYSFS_addToSearchPath(@"..\..\Data\myzip.zip", 1);
-			Fs.PHYSFS_addToSearchPath(@".\Data\myzip.zip", 1);
+            Fs.PHYSFS_addToSearchPath(Path.Combine(Path.Combine(filePath, fileDirectory), fileName), 1);
+            Fs.PHYSFS_addToSearchPath(Path.Combine(fileDirectory, fileName), 1);
 
 			/*
 			 * Now that we have initialized physfs and added an archive to its search path, 

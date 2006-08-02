@@ -156,19 +156,23 @@ namespace OpenAlExamples {
         private static string FindFile(string fileName) {
             string originalName = fileName;
 
-            if(File.Exists(fileName)) {
-                return fileName;
+            string filePath = Path.Combine("..", "..");
+            string fileDirectory = "Data";
+
+            if (File.Exists(fileName))
+            {
+                filePath = "";
+                fileDirectory = "";
             }
-            else if(File.Exists("Data/" + fileName)) {
-                return "Data/" + fileName;
+            else if (File.Exists(Path.Combine(fileDirectory, fileName)))
+            {
+                filePath = "";
             }
-            else if(File.Exists("../../Data/" + fileName)) {
-                return "../../Data/" + fileName;
-            }
-            else {
-                Console.WriteLine("Could not locate file: " + originalName);
-                return null;
-            }
+            //else {
+            //    Console.WriteLine("Could not locate file: " + originalName);
+            //    return null;
+            //}
+            return Path.Combine(Path.Combine(filePath, fileDirectory), fileName);
         }
         #endregion string FindFile(string fileName)
 
