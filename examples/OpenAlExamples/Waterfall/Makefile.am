@@ -8,7 +8,7 @@ FILES = \
 	Waterfall.cs
 
 REFERENCES = \
-	-r:../../../src/Tao.OpenAl/Tao.OpenAl.dll,../../../src/Tao.OpenGl/Tao.OpenGl.dll,../../../src/Tao.OpenGl.Glu/Tao.OpenGl.Glu.dll,../../../src/Tao.FreeGlut/Tao.FreeGlut.dll,System.Drawing.dll
+	-r:../../../src/Tao.OpenAl/Tao.OpenAl.dll,../../../src/Tao.OpenGl/Tao.OpenGl.dll,../../../src/Tao.OpenGl.ExtensionLoader/Tao.OpenGl.ExtensionLoader.dll,../../../src/Tao.OpenGl.Glu/Tao.OpenGl.Glu.dll,../../../src/Tao.FreeGlut/Tao.FreeGlut.dll,System.Drawing.dll
 
 BUILD_FILES = $(addprefix $(srcdir)/, $(FILES))
 

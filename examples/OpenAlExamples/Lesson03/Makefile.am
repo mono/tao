@@ -7,7 +7,7 @@ FILES = \
 	Lesson03.cs
 
 REFERENCES = \
-	-r:../../../src/Tao.OpenAl/Tao.OpenAl.dll,../../../src/Tao.OpenGl/Tao.OpenGl.dll,../../../src/Tao.OpenGl.Glu/Tao.OpenGl.Glu.dll,../../../src/Tao.FreeGlut/Tao.FreeGlut.dll
+	-r:../../../src/Tao.OpenAl/Tao.OpenAl.dll,../../../src/Tao.OpenGl/Tao.OpenGl.dll,../../../src/Tao.OpenGl.ExtensionLoader/Tao.OpenGl.ExtensionLoader.dll,../../../src/Tao.OpenGl.Glu/Tao.OpenGl.Glu.dll,../../../src/Tao.FreeGlut/Tao.FreeGlut.dll
 
 BUILD_FILES = $(addprefix $(srcdir)/, $(FILES))
 

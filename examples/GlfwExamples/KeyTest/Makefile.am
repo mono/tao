@@ -7,7 +7,7 @@ FILES = \
 	KeyTest.cs
 
 REFERENCES = \
-	-r:../../../src/Tao.Glfw/Tao.Glfw.dll,../../../src/Tao.OpenGl/Tao.OpenGl.dll
+	-r:../../../src/Tao.Glfw/Tao.Glfw.dll,../../../src/Tao.OpenGl/Tao.OpenGl.dll,../../../src/Tao.OpenGl.ExtensionLoader/Tao.OpenGl.ExtensionLoader.dll
 
 BUILD_FILES = $(addprefix $(srcdir)/, $(FILES))
 
