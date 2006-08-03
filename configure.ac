@@ -52,8 +52,69 @@ fi
 AC_SUBST(PATH)
 AC_SUBST(LD_LIBRARY_PATH)
 
-CSFLAGS="-debug -nowarn:1574"
+dnl CSFLAGS="-debug -nowarn:1574"
+CSFLAGS=""
 AC_SUBST(CSFLAGS)
+
+AC_MSG_CHECKING(--disable-cg argument)
+AC_ARG_ENABLE(cg,
+    [  --disable-cg         Disable Cg interface.],
+    [disable_cg=$disableval],
+    [disable_cg="no"])
+AC_MSG_RESULT($disable_cg)
+if test "$disable_cscope" = "yes"; then
+  AC_DEFINE(FEAT_CG)
+fi
+
+AC_MSG_CHECKING(--disable-platform-windows argument)
+AC_ARG_ENABLE(platform-windows,
+    [  --disable-platform-windows         Disable Platform.Windows interface.],
+    [disable_platform_windows=$disableval],
+    [disable_platform_windows="no"])
+AC_MSG_RESULT($disable_platform_windows)
+if test "$disable_platform_windows" = "yes"; then
+  AC_DEFINE(FEAT_PLATFORM_WINDOWS)
+fi
+
+AC_MSG_CHECKING(--disable-glfw argument)
+AC_ARG_ENABLE(glfw,
+    [  --disable-glfw         Disable Glfw interface.],
+    [disable_glfw=$disableval],
+    [disable_glfw="no"])
+AC_MSG_RESULT($disable_glfw)
+if test "$disable_glfw" = "yes"; then
+  AC_DEFINE(FEAT_GLFW)
+fi
+
+AC_MSG_CHECKING(--disable-sdl argument)
+AC_ARG_ENABLE(sdl,
+    [  --disable-sdl         Disable Sdl interface.],
+    [disable_sdl=$disableval],
+    [disable_sdl="no"])
+AC_MSG_RESULT($disable_sdl)
+if test "$disable_sdl" = "yes"; then
+  AC_DEFINE(FEAT_SDL)
+fi
+
+AC_MSG_CHECKING(--disable-ode argument)
+AC_ARG_ENABLE(ode,
+    [  --disable-ode         Disable Ode interface.],
+    [disable_ode=$disableval],
+    [disable_ode="no"])
+AC_MSG_RESULT($disable_ode)
+if test "$disable_ode" = "yes"; then
+  AC_DEFINE(FEAT_ODE)
+fi
+
+AC_MSG_CHECKING(--disable-physfs argument)
+AC_ARG_ENABLE(physfs,
+    [  --disable-physfs         Disable physfs interface.],
+    [disable_physfs=$disableval],
+    [disable_physfs="no"])
+AC_MSG_RESULT($disable_physfs)
+if test "$disable_physfs" = "yes"; then
+  AC_DEFINE(FEAT_PHYSFS)
+fi
 
 dnl Find pkg-config
 AC_PATH_PROG(PKGCONFIG, pkg-config, no)
