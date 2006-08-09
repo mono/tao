@@ -41,8 +41,8 @@ assemblies (as is recommended), build with "make clean && make STRONG=1".
 2. Using batch files
 ====================
 
-Two batch files are provided, "build.bat" and "buildstrong.bat".  The second
-is equivalent to the first, except that it builds strong named assemblies.
+Two batch files are provided, "build.bat" and "buildmono.bat".  The second
+is equivalent to the first, except that it builds Mono 2.0 Profile assemblies.
 
 3. Using Prebuild
 =================
@@ -58,6 +58,7 @@ When you run a Prebuild script, you can find the main project file
 
 Tao.Sdl - Builds Tao.Sdl and Sdl Examples
 Tao.PhysFs - Builds Tao.PhysFs and PhysFs Examples
+Tao.Lua - Build Tao.Lua and Lua Examples
 Tao.Ode -  Builds Tao.Ode and Ode Examples
 Tao.Cg - Builds Tao.Cg
 Tao.DevIl - Builds Tao.DevIl and DevIl Examples

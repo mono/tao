@@ -53,7 +53,7 @@ namespace PhysFsExamples
 		{
             string filePath = Path.Combine("..", "..");
             string fileDirectory = "Data";
-            string fileName = "myzip.zip";
+            string fileName = "PhysFsExamples.Simple.MyZip.zip";
 
             /* 
 			 * First thing you need to do is initialize the filesystem.  You simply call 
