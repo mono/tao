@@ -35,7 +35,7 @@ namespace LuaExamples
 		{
             string filePath = Path.Combine("..", "..");
             string fileDirectory = "Data";
-            string fileName = "LuaExamples.Simple.Script.lua";
+            string fileName = "LuaExamples.Simple.lua";
 			if (File.Exists(fileName))
 			{
 				filePath = "";

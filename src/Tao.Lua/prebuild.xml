@@ -81,7 +81,7 @@
 	    <Files>
 		<File>AssemblyInfo.cs</File>
 		<File>Simple.cs</File>
-		<File buildAction="Content">Data\\simple.lua</File>
+		<File buildAction="Content">Data\\LuaExamples.Simple.lua</File>
 	    </Files>
 	</Project>
 	<Project name="LuaExamples.Functions" path="..\\..\\examples\\LuaExamples\\Functions" language="C#" type="Exe" startupObject="LuaExamples.Functions">
@@ -110,7 +110,7 @@
 	    <Files>
 		<File>AssemblyInfo.cs</File>
 		<File>Functions.cs</File>
-		<File buildAction="Content">Data\\functions.lua</File>
+		<File buildAction="Content">Data\\LuaExamples.Functions.lua</File>
 	    </Files>
 	</Project>
     </Solution>
