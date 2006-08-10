@@ -6946,8 +6946,14 @@ namespace Tao.Sdl
 		///     <code>extern DECLSPEC char * SDLCALL SDL_GetError(void)</code>
 		///     </p>
 		/// </remarks>
-		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern string SDL_GetError();
+		public static string SDL_GetError() 
+		{ 
+            		return Marshal.PtrToStringAnsi(__SDL_GetError()); 
+		}
+		
+		// Called from SDL_GetError()
+		[DllImport(SDL_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, EntryPoint="SDL_GetError"), SuppressUnmanagedCodeSecurity] 
+        	private static extern IntPtr __SDL_GetError();
 		#endregion string SDL_GetError()
 
 		#region SDL_ClearError()
