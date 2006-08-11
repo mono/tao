@@ -48,7 +48,39 @@
             <File>..//Tao.OpenAl//Tao.OpenAl.Readme.txt</File>
             <File>..//Tao.OpenAl//Tao.OpenAl.snk</File>
             <File>..//Tao.OpenAl//Tao.OpenAl.dll.config</File>
+	    <File>..//Tao.Cg//Tao.Cg.License.txt</File>
+            <File>..//Tao.Cg//Tao.Cg.Readme.txt</File>
+            <File>..//Tao.Cg//Tao.Cg.snk</File>
+            <File>..//Tao.Cg//Tao.Cg.dll.config</File>
 	</Files>
+	<Project name="Tao.Cg" path="..//Tao.Cg" language="C#" type="Library">
+        <Configuration name="Debug">
+            <Options>
+                <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+                <OptimizeCode>false</OptimizeCode>
+                <OutputPath>bin\Debug</OutputPath>
+		<XmlDocFile>Tao.Cg.xml</XmlDocFile>
+		<KeyFile>../Tao.Cg/Tao.Cg.snk</KeyFile>
+		<AllowUnsafe>true</AllowUnsafe>
+                <DebugInformation>true</DebugInformation>
+            </Options>
+        </Configuration>
+        <Configuration name="Release">
+            <Options>
+                <CompilerDefines>TRACE;WIN32</CompilerDefines>
+                <OptimizeCode>true</OptimizeCode>
+                <OutputPath>bin\Release</OutputPath>
+                <XmlDocFile>Tao.Cg.xml</XmlDocFile>
+		<KeyFile>../Tao.Cg/Tao.Cg.snk</KeyFile>
+		<AllowUnsafe>true</AllowUnsafe>
+                <DebugInformation>false</DebugInformation>
+            </Options>
+        </Configuration>
+	    <Reference name="System" />
+            <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+            </Files>
+	</Project>
 	<Project name="Tao.OpenAl" path="..//Tao.OpenAl" language="C#" type="Library">
 	    <Configuration name="Debug">
 		<Options>
@@ -102,8 +134,7 @@
 	    </Configuration>
 	    <Reference name="System" />
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>GlExtensionLoader.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
 	<Project name="Tao.OpenGl" path="..\\Tao.OpenGl" language="C#" type="Library" >
@@ -130,9 +161,7 @@
 	    <Reference name="System" />
 	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>ContextGl.cs</File>
-		<File>Gl.cs</File>
+		<Match path="." pattern="*.cs" recurse="false"/>
 	    </Files>
 	</Project>
 	<Project name="Tao.OpenGl.Glu" path="..//Tao.OpenGl.Glu" language="C#" type="Library">
@@ -161,8 +190,7 @@
 	    <Reference name="System" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>Glu.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
 	<Project name="Tao.FreeGlut" path="..//Tao.FreeGlut" language="C#" type="Library">
@@ -191,8 +219,7 @@
 	    <Reference name="System" />
 	    <Reference name="Tao.OpenGl" localCopy="true"/>
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>Glut.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
 	<Project name="Tao.Glfw" path="../Tao.Glfw" language="C#" type="Library">
@@ -222,8 +249,7 @@
 	    <Reference name="Tao.OpenGl" localCopy="true"/>
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true"/>
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>Glfw.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
 	<Project name="Tao.GlPostProcess" path="..//Tao.GlPostProcess" language="C#" type="Exe">
@@ -251,8 +277,7 @@
 	    <Reference name="Tao.OpenGl" localCopy="true"/>
 	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>GlPostProcess.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
 	<Project name="Tao.Platform.Windows" path="..//Tao.Platform.Windows" language="C#" type="Library">
@@ -283,15 +308,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true"/>
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>Gdi.cs</File>
-		<File>IlasmAttribute.cs</File>
-		<File>Kernel.cs</File>
-		<File>SimpleOpenGlControl.cs</File>
-		<File>User.cs</File>
-		<File>Wgl.cs</File>
-		<File>Winmm.cs</File>
-		<File>WinNt.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
 	<Project name="GeWang.ClippingPlanes" path="..\\..\\examples\\GeWang\\ClippingPlanes" language="C#" type="Exe" startupObject="GeWang.ClippingPlanes">
@@ -3560,8 +3577,7 @@
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>Boing.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
 	<Project name="GlfwExamples.Gears" path="..\\..\\examples\\GlfwExamples\\Gears" language="C#" type="Exe" startupObject="GlfwExamples.Gears">
@@ -3590,8 +3606,7 @@
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>Gears.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
 	<Project name="GlfwExamples.KeyTest" path="..\\..\\examples\\GlfwExamples\\KeyTest" language="C#" type="Exe" startupObject="GlfwExamples.KeyTest">
@@ -3620,8 +3635,7 @@
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>KeyTest.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
 	<Project name="GlfwExamples.ListModes" path="..\\..\\examples\\GlfwExamples\\ListModes" language="C#" type="Exe" startupObject="GlfwExamples.ListModes">
@@ -3650,8 +3664,7 @@
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>ListModes.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
 	<Project name="GlfwExamples.Pong" path="..\\..\\examples\\GlfwExamples\\Pong" language="C#" type="Exe" startupObject="GlfwExamples.Pong">
@@ -3680,8 +3693,7 @@
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>Pong.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
 	<Project name="GlfwExamples.Triangle" path="..\\..\\examples\\GlfwExamples\\Triangle" language="C#" type="Exe" startupObject="GlfwExamples.Triangle">
@@ -3710,8 +3722,7 @@
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>Triangle.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
 	<Project name="OpenAlExamples.Boxes" path="..\\..\\examples\\OpenAlExamples\\Boxes" language="C#" type="WinExe" startupObject="OpenAlExamples.Boxes">
@@ -3876,6 +3887,66 @@
 	    <Reference name="System" /> 
 	    <Reference name="System.Drawing" /> 
 	    <Reference name="Tao.OpenAl" />
+	    <Reference name="Tao.OpenGl" />
+	    <Reference name="Tao.OpenGl.Glu" />
+	    <Reference name="Tao.FreeGlut" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="CgExamples.Gl_01_vertex_program" path="..\\..\\examples\\CgExamples\\Gl_01_vertex_program" language="C#" type="WinExe" startupObject="CgExamples.Gl_01_vertex_program">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.Cg/Tao.Cg.snk</KeyFile>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <KeyFile>../../../src/Tao.Cg/Tao.Cg.snk</KeyFile>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.Cg" />
+	    <Reference name="Tao.OpenGl" />
+	    <Reference name="Tao.OpenGl.Glu" />
+	    <Reference name="Tao.FreeGlut" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="CgExamples.Gl_02_vertex_and_fragment_program" path="..\\..\\examples\\CgExamples\\Gl_02_vertex_and_fragment_program" language="C#" type="WinExe" startupObject="CgExamples.Gl_02_vertex_and_fragment_program">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.Cg/Tao.Cg.snk</KeyFile>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <KeyFile>../../../src/Tao.Cg/Tao.Cg.snk</KeyFile>
+		    <OutputPath>bin\Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.Cg" />
 	    <Reference name="Tao.OpenGl" />
 	    <Reference name="Tao.OpenGl.Glu" />
 	    <Reference name="Tao.FreeGlut" />

@@ -258,6 +258,7 @@ examples/SdlExamples/SmpegPlayer/Makefile
 examples/LuaExamples/Makefile
 examples/LuaExamples/Simple/Makefile
 examples/LuaExamples/Functions/Makefile
+examples/CgExamples/Gl_01_vertex_program/Makefile
 examples/DevIlExamples/Makefile
 examples/DevIlExamples/SimpleExample/Makefile
 examples/PhysFsExamples/Makefile

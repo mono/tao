@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Prebuild xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.7.xsd" version="1.7">
-    <Process>src\Tao.Cg\prebuild.xml</Process>
     <Process>src\Tao.DevIl\prebuild.xml</Process>
     <Process>src\Tao.Ode\prebuild.xml</Process>
     <Process>src\Tao.OpenGl\prebuild.xml</Process>
