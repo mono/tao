@@ -2149,7 +2149,7 @@ namespace Tao.Lua
 
         //LUALIB_API void (luaL_where) (lua_State *L, int lvl);
         /// <summary>
-        /// Pushes onto the stack a string identifying the current position of the control at level lvl in the call stack. Typically this string has the format <chunkname>:<currentline>:. Level 0 is the running function, level 1 is the function that called the running function, etc.
+        /// Pushes onto the stack a string identifying the current position of the control at level lvl in the call stack. Typically this string has the format {chunkname}:{currentline}:. Level 0 is the running function, level 1 is the function that called the running function, etc.
         /// </summary>
         /// <param name="L"></param>
         /// <param name="lvl"></param>
@@ -2433,9 +2433,9 @@ namespace Tao.Lua
         /// <remarks>
         /// A string buffer allows C code to build Lua strings piecemeal. Its pattern of use is as follows:
         ///     * First you declare a variable b of type luaL_Buffer.
-        ///     * Then you initialize it with a call luaL_buffinit(L, &b).
+        ///     * Then you initialize it with a call luaL_buffinit(L, &amp;b).
         ///     * Then you add string pieces to the buffer calling any of the luaL_add* functions.
-        ///     * You finish by calling luaL_pushresult(&b). This call leaves the final string on the top of the stack.
+        ///     * You finish by calling luaL_pushresult(&amp;b). This call leaves the final string on the top of the stack.
         /// During its normal operation, a string buffer uses a variable number of stack slots. So, while using a buffer, you cannot assume that you know where the top of the stack is. You can use the stack between successive calls to buffer operations as long as that use is balanced; that is, when you call a buffer operation, the stack is at the same level it was immediately after the previous buffer operation. (The only exception to this rule is luaL_addvalue.) After calling luaL_pushresult the stack is back to its level when the buffer was initialized, plus the final string on its top.
         /// </remarks>
         [StructLayout(LayoutKind.Sequential, Pack = 4, CharSet = CharSet.Unicode)]

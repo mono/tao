@@ -6,7 +6,6 @@
 other\Prebuild\Prebuild.exe /target nant /file prebuild.xml 
 
 @REM Build Solutions Using NAnt 
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.Cg/Tao.Cg.build build-release
 NAnt.exe -t:net-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build build-release
 NAnt.exe -t:net-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build build-release
 NAnt.exe -t:net-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build build-release
@@ -31,6 +30,11 @@ xcopy src\Tao.Sdl\bin\Release\*.dll dist\bin\*.* /Q /Y
 
 @REM Copy Examples to Dist Directory
 xcopy dist\bin\*.dll dist\examples\*.* /Q /Y
+
+xcopy examples\CgExamples\Gl_01_vertex_program\bin\Release\*.exe dist\examples\*.* /Q /Y
+xcopy examples\CgExamples\Gl_01_vertex_program\Data\*.* dist\examples\Data\*.* /Q /Y
+xcopy examples\CgExamples\Gl_02_vertex_and_fragment_program\bin\Release\*.exe dist\examples\*.* /Q /Y
+xcopy examples\CgExamples\Gl_02_vertex_and_fragment_program\Data\*.* dist\examples\Data\*.* /Q /Y
 
 xcopy examples\DevIlExamples\SimpleExample\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\DevIlExamples\SimpleExample\Data\*.* dist\examples\Data\*.* /Q /Y

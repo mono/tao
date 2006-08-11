@@ -307,6 +307,7 @@
 	    <Reference name="System.Drawing" />
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true"/>
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -336,6 +337,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -365,6 +367,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -394,6 +397,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -423,6 +427,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -452,6 +457,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -481,6 +487,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -510,6 +517,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -539,6 +547,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -568,6 +577,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -597,6 +607,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -626,6 +637,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -655,6 +667,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -684,6 +697,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -713,6 +727,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -742,6 +757,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -771,6 +787,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -800,6 +817,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -830,6 +848,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -861,6 +880,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -892,6 +912,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -923,6 +944,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -954,6 +976,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -985,6 +1008,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1016,6 +1040,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1047,6 +1072,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1078,6 +1104,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1109,6 +1136,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1140,6 +1168,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1171,6 +1200,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1202,6 +1232,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1233,6 +1264,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1264,6 +1296,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1295,6 +1328,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1326,6 +1360,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1357,6 +1392,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1388,6 +1424,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1419,6 +1456,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1450,6 +1488,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1481,6 +1520,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1512,6 +1552,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1543,6 +1584,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1574,6 +1616,7 @@
 	    <Reference name="System.Windows.Forms" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1603,6 +1646,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1632,6 +1676,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1661,6 +1706,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1690,6 +1736,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1719,6 +1766,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1748,6 +1796,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1777,6 +1826,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1806,6 +1856,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1835,6 +1886,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1864,6 +1916,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1893,6 +1946,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1922,6 +1976,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1951,6 +2006,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -1980,6 +2036,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2009,6 +2066,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2038,6 +2096,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2067,6 +2126,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2096,6 +2156,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2125,6 +2186,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2154,6 +2216,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2183,6 +2246,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2212,6 +2276,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2241,6 +2306,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2270,6 +2336,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2299,6 +2366,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2328,6 +2396,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2357,6 +2426,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2386,6 +2456,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2415,6 +2486,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2444,6 +2516,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2473,6 +2546,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2502,6 +2576,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2531,6 +2606,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2560,6 +2636,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2589,6 +2666,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2618,6 +2696,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2647,6 +2726,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2676,6 +2756,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2705,6 +2786,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2734,6 +2816,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2763,6 +2846,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2792,6 +2876,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2821,6 +2906,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2850,6 +2936,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2879,6 +2966,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2908,6 +2996,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2937,6 +3026,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2966,6 +3056,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -2995,6 +3086,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3024,6 +3116,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3053,6 +3146,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3082,6 +3176,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3111,6 +3206,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3140,6 +3236,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3169,6 +3266,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3198,6 +3296,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3227,6 +3326,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3256,6 +3356,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3285,6 +3386,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3314,6 +3416,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3343,6 +3446,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3372,6 +3476,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3401,6 +3506,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3430,6 +3536,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3459,6 +3566,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3488,6 +3596,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3517,6 +3626,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3546,6 +3656,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3576,6 +3687,7 @@
 	    <Reference name="Tao.Glfw" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -3605,6 +3717,7 @@
 	    <Reference name="Tao.Glfw" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -3634,6 +3747,7 @@
 	    <Reference name="Tao.Glfw" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -3663,6 +3777,7 @@
 	    <Reference name="Tao.Glfw" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -3692,6 +3807,7 @@
 	    <Reference name="Tao.Glfw" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -3721,6 +3837,7 @@
 	    <Reference name="Tao.Glfw" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.OpenGl.Glu" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
@@ -3750,6 +3867,7 @@
 	    <Reference name="Tao.OpenAl" />
 	    <Reference name="Tao.OpenGl" />
 	    <Reference name="Tao.OpenGl.Glu" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3889,6 +4007,7 @@
 	    <Reference name="Tao.OpenAl" />
 	    <Reference name="Tao.OpenGl" />
 	    <Reference name="Tao.OpenGl.Glu" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3919,6 +4038,7 @@
 	    <Reference name="Tao.Cg" />
 	    <Reference name="Tao.OpenGl" />
 	    <Reference name="Tao.OpenGl.Glu" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
@@ -3949,6 +4069,7 @@
 	    <Reference name="Tao.Cg" />
 	    <Reference name="Tao.OpenGl" />
 	    <Reference name="Tao.OpenGl.Glu" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Reference name="Tao.FreeGlut" />
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
