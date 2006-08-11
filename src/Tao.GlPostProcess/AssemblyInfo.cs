@@ -49,7 +49,7 @@ using System.Security.Permissions;
 #if STRONG
 [assembly: AssemblyKeyFile(@"Tao.GlPostProcess.snk")]
 #else
-[assembly: AssemblyKeyFile("")]
+
 #endif
 [assembly: AssemblyKeyName("")]
 #if DEBUG

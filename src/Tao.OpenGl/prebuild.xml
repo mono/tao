@@ -123,6 +123,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+	    	    <KeyFile>..//Tao.OpenGl//Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -231,6 +232,7 @@
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <OutputPath>bin\Debug</OutputPath>
+	    	    <KeyFile>..//Tao.GlPostProcess//Tao.GlPostProcess.snk</KeyFile>
 		    <XmlDocFile>Tao.GlPostProcess.xml</XmlDocFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
@@ -240,6 +242,7 @@
 		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>true</OptimizeCode>
 		    <OutputPath>bin\Release</OutputPath>
+	    	    <KeyFile>..//Tao.GlPostProcess//Tao.GlPostProcess.snk</KeyFile>
 		    <XmlDocFile>Tao.GlPostProcess.xml</XmlDocFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
@@ -298,6 +301,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -307,6 +311,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -325,6 +330,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -334,6 +340,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -352,6 +359,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -361,6 +369,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -379,6 +388,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -388,6 +398,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -406,6 +417,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -415,6 +427,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -433,6 +446,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -442,6 +456,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -460,6 +475,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -469,6 +485,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -487,6 +504,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -496,6 +514,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -514,6 +533,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -523,6 +543,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -541,6 +562,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -550,6 +572,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -568,6 +591,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -577,6 +601,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -595,6 +620,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -604,6 +630,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -622,6 +649,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -631,6 +659,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -649,6 +678,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -658,6 +688,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -676,6 +707,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -685,6 +717,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -703,6 +736,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -712,6 +746,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -730,6 +765,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -739,6 +775,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -757,6 +794,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -766,6 +804,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -786,6 +825,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -795,6 +835,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -815,6 +856,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -824,6 +866,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -844,6 +887,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -853,6 +897,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -873,6 +918,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -882,6 +928,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -902,6 +949,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -911,6 +959,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -931,6 +980,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -940,6 +990,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -960,6 +1011,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -969,6 +1021,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -989,6 +1042,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -998,6 +1052,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1018,6 +1073,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1027,6 +1083,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1047,6 +1104,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1056,6 +1114,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1076,6 +1135,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1085,6 +1145,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1105,6 +1166,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1114,6 +1176,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1134,6 +1197,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1143,6 +1207,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1163,6 +1228,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1172,6 +1238,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1192,6 +1259,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1201,6 +1269,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1221,6 +1290,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1230,6 +1300,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1250,6 +1321,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1259,6 +1331,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1279,6 +1352,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1288,6 +1362,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1308,6 +1383,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1317,6 +1393,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1337,6 +1414,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1346,6 +1424,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1366,6 +1445,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1375,6 +1455,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1395,6 +1476,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1404,6 +1486,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1424,6 +1507,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1433,6 +1517,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1453,6 +1538,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1462,6 +1548,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1482,6 +1569,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1491,6 +1579,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1509,6 +1598,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1518,6 +1608,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1536,6 +1627,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1545,6 +1637,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1563,6 +1656,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1572,6 +1666,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1590,6 +1685,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1599,6 +1695,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1617,6 +1714,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1626,6 +1724,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1644,6 +1743,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1653,6 +1753,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1671,6 +1772,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1680,6 +1782,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1698,6 +1801,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1707,6 +1811,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1724,6 +1829,7 @@
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <OutputPath>bin\Debug</OutputPath>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
@@ -1734,6 +1840,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1752,6 +1859,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1761,6 +1869,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1779,6 +1888,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1788,6 +1898,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1806,6 +1917,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1815,6 +1927,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1833,6 +1946,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1842,6 +1956,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1860,6 +1975,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1869,6 +1985,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1887,6 +2004,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1896,6 +2014,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1914,6 +2033,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1923,6 +2043,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1941,6 +2062,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1950,6 +2072,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1968,6 +2091,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1977,6 +2101,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -1995,6 +2120,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2004,6 +2130,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2022,6 +2149,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2031,6 +2159,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2049,6 +2178,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2058,6 +2188,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2076,6 +2207,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2085,6 +2217,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2103,6 +2236,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2112,6 +2246,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2130,6 +2265,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2139,6 +2275,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2157,6 +2294,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2166,6 +2304,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2184,6 +2323,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2193,6 +2333,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2211,6 +2352,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2220,6 +2362,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2238,6 +2381,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2247,6 +2391,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2265,6 +2410,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2274,6 +2420,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2292,6 +2439,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2301,6 +2449,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2319,6 +2468,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2328,6 +2478,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2346,6 +2497,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2355,6 +2507,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2373,6 +2526,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2382,6 +2536,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2400,6 +2555,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2409,6 +2565,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2427,6 +2584,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2436,6 +2594,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2454,6 +2613,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2463,6 +2623,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2481,6 +2642,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2490,6 +2652,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2508,6 +2671,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2517,6 +2681,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2535,6 +2700,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2544,6 +2710,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2562,6 +2729,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2571,6 +2739,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2589,6 +2758,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2598,6 +2768,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2616,6 +2787,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2625,6 +2797,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2643,6 +2816,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2652,6 +2826,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2670,6 +2845,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2679,6 +2855,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2697,6 +2874,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2706,6 +2884,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2724,6 +2903,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2733,6 +2913,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2751,6 +2932,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2760,6 +2942,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2778,6 +2961,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2787,6 +2971,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2805,6 +2990,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2814,6 +3000,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2832,6 +3019,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2841,6 +3029,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2859,6 +3048,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2868,6 +3058,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2886,6 +3077,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2895,6 +3087,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2913,6 +3106,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2922,6 +3116,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2940,6 +3135,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2949,6 +3145,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2967,6 +3164,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2976,6 +3174,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -2994,6 +3193,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3003,6 +3203,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3021,6 +3222,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3030,6 +3232,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3048,6 +3251,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3057,6 +3261,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3075,6 +3280,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3084,6 +3290,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3102,6 +3309,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3110,6 +3318,7 @@
 		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <OutputPath>bin\Release</OutputPath>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
@@ -3129,6 +3338,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3138,6 +3348,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3156,6 +3367,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3165,6 +3377,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3183,6 +3396,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3192,6 +3406,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3210,6 +3425,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3219,6 +3435,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3237,6 +3454,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3246,6 +3464,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3264,6 +3483,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3273,6 +3493,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3291,6 +3512,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3300,6 +3522,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3318,6 +3541,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.Glfw/Tao.Glfw.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3327,6 +3551,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.Glfw/Tao.Glfw.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3346,6 +3571,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.Glfw/Tao.Glfw.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3355,6 +3581,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.Glfw/Tao.Glfw.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3374,6 +3601,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.Glfw/Tao.Glfw.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3383,6 +3611,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.Glfw/Tao.Glfw.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3402,6 +3631,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.Glfw/Tao.Glfw.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3411,6 +3641,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.Glfw/Tao.Glfw.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3430,6 +3661,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.Glfw/Tao.Glfw.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3439,6 +3671,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.Glfw/Tao.Glfw.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3458,6 +3691,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.Glfw/Tao.Glfw.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3467,6 +3701,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.Glfw/Tao.Glfw.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3486,6 +3721,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3495,6 +3731,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3514,6 +3751,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3523,6 +3761,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3539,6 +3778,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3548,6 +3788,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3564,6 +3805,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3573,6 +3815,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3589,6 +3832,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3598,6 +3842,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3614,6 +3859,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -3623,6 +3869,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>

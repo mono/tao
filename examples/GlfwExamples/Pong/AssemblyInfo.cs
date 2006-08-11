@@ -44,7 +44,6 @@ using System.Security.Permissions;
 [assembly: AssemblyDescription("GLFW Pong example.")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: AssemblyInformationalVersion("1.0.0.0")]
-[assembly: AssemblyKeyFile("")]
 [assembly: AssemblyKeyName("")]
 #if DEBUG
 [assembly: AssemblyProduct("GlfwExamples.Pong.exe *** Debug Build ***")]

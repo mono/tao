@@ -44,7 +44,6 @@ using System.Security.Permissions;
 [assembly: AssemblyDescription("A simple PhysFS example.")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: AssemblyInformationalVersion("1.0.0.0")]
-[assembly: AssemblyKeyFile("")]
 [assembly: AssemblyKeyName("")]
 #if DEBUG
 [assembly: AssemblyProduct("PhysFsExamples.Simple.exe *** Debug Build ***")]

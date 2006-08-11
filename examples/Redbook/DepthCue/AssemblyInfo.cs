@@ -44,7 +44,7 @@ using System.Security.Permissions;
 [assembly: AssemblyDescription("Redbook DepthCue example.")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: AssemblyInformationalVersion("1.0.0.0")]
-[assembly: AssemblyKeyFile("")]
+
 [assembly: AssemblyKeyName("")]
 #if DEBUG
 [assembly: AssemblyProduct("Redbook.DepthCue.exe *** Debug Build ***")]

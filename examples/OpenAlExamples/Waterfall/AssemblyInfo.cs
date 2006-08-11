@@ -44,7 +44,7 @@ using System.Security.Permissions;
 [assembly: AssemblyDescription("OpenAL Waterfall example.")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: AssemblyInformationalVersion("1.0.0.0")]
-[assembly: AssemblyKeyFile("")]
+
 [assembly: AssemblyKeyName("")]
 #if DEBUG
 [assembly: AssemblyProduct("OpenAlExamples.Waterfall.exe *** Debug Build ***")]

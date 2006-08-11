@@ -2,6 +2,8 @@ PROGRAM		= Tao.GlPostProcess
 
 include $(top_builddir)/am-config.mk
 
+SNKFILE = Tao.GlPostProcess.snk
+
 FILES = \
 	AssemblyInfo.cs \
 	GlPostProcess.cs

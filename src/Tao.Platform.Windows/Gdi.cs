@@ -320,7 +320,7 @@ namespace Tao.Platform.Windows {
         ///         when in color-index mode.
         ///     </para>
         ///     <para>
-        ///         When this flag is set, you must call <see cref="SetSystemPaletteUse" /> in
+        ///         When this flag is set, you must call see cref="SetSystemPaletteUse" /> in
         ///         your program to force a one-to-one mapping of the logical palette and the
         ///         system palette.  If your OpenGL hardware supports multiple hardware palettes
         ///         and the device driver can allocate spare hardware palettes for OpenGL, this
@@ -772,8 +772,8 @@ namespace Tao.Platform.Windows {
         ///     pixel format properties not supported by the generic implementation.
         /// </remarks>
         /// <seealso cref="ChoosePixelFormat" />
-        /// <seealso cref="DescribePixelFormat" />
-        /// <seealso cref="GetPixelFormat" />
+        /// seealso cref="DescribePixelFormat" />
+        /// seealso cref="GetPixelFormat" />
         /// <seealso cref="SetPixelFormat" />
         [StructLayout(LayoutKind.Sequential)]
         public struct PIXELFORMATDESCRIPTOR {
@@ -1269,7 +1269,7 @@ namespace Tao.Platform.Windows {
         ///		If the function succeeds, the return value is a pixel format index (one-based) that is the closest match
         ///		to the given pixel format descriptor.<br /><br />
         ///		If the function fails, the return value is zero. To get extended error information,
-        ///		call <see cref="Kernel.GetLastError" />.
+        ///		call see cref="Kernel.GetLastError" />.
         /// </returns>
         /// <remarks>
         ///		You must ensure that the pixel format matched by the <b>ChoosePixelFormat</b> function satisfies your
@@ -1335,8 +1335,8 @@ namespace Tao.Platform.Windows {
         ///			pixelFormat = Gdi.ChoosePixelFormat(hdc, &amp;pfd);
         ///		</code>
         /// </remarks>
-        /// <seealso cref="DescribePixelFormat" />
-        /// <seealso cref="GetPixelFormat" />
+        /// seealso cref="DescribePixelFormat" />
+        /// seealso cref="GetPixelFormat" />
         /// <seealso cref="SetPixelFormat" />
         [DllImport(GDI_NATIVE_LIBRARY, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern int ChoosePixelFormat(IntPtr deviceContext, ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor);
@@ -1363,7 +1363,7 @@ namespace Tao.Platform.Windows {
         /// <returns>
         ///		If the function succeeds, the return value is true.<br /><br />
         ///		If the function fails, the return value is false. To get extended error information, call
-        ///		<see cref="Kernel.GetLastError" />.
+        ///		see cref="Kernel.GetLastError" />.
         /// </returns>
         /// <remarks>
         ///		If <i>hdc</i> references a window, calling the <b>SetPixelFormat</b> function also changes the pixel format
@@ -1443,8 +1443,8 @@ namespace Tao.Platform.Windows {
         ///		</code>
         /// </remarks>
         /// <seealso cref="ChoosePixelFormat" />
-        /// <seealso cref="DescribePixelFormat" />
-        /// <seealso cref="GetPixelFormat" />
+        /// seealso cref="DescribePixelFormat" />
+        /// seealso cref="GetPixelFormat" />
         public static bool SetPixelFormat(IntPtr deviceContext, int pixelFormat, ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor) {
             Kernel.LoadLibrary("opengl32.dll");
             return _SetPixelFormat(deviceContext, pixelFormat, ref pixelFormatDescriptor);

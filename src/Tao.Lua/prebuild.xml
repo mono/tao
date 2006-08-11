@@ -62,6 +62,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile>
 		    <XmlDocFile>LuaExamples.Simple.xml</XmlDocFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
@@ -72,6 +73,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile>
 		    <XmlDocFile>LuaExamples.Simple.xml</XmlDocFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
@@ -91,6 +93,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile>
 		    <XmlDocFile>LuaExamples.Functions.xml</XmlDocFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
@@ -101,6 +104,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile>
 		    <XmlDocFile>LuaExamples.Functions.xml</XmlDocFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>

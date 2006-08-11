@@ -2,6 +2,8 @@ PROGRAM = DevIlExamples.SimpleExample
 
 include $(top_builddir)/am-config.mk
 
+SNKFILE = ../../../src/Tao.DevIl/Tao.DevIl.snk
+
 FILES = \
 	AssemblyInfo.cs \
 	SimpleExample.cs

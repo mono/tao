@@ -59,6 +59,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.DevIl/Tao.DevIl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -67,6 +68,7 @@
 		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
+		    <KeyFile>../../../src/Tao.DevIl/Tao.DevIl.snk</KeyFile>
 		    <OutputPath>bin\Release</OutputPath>
 		    <DebugInformation>false</DebugInformation>
 		</Options>

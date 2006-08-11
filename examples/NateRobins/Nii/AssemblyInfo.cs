@@ -44,7 +44,7 @@ using System.Security.Permissions;
 [assembly: AssemblyDescription("Nate Robins' Nii example.")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: AssemblyInformationalVersion("1.0.0.0")]
-[assembly: AssemblyKeyFile("")]
+
 [assembly: AssemblyKeyName("")]
 #if DEBUG
 [assembly: AssemblyProduct("NateRobins.Nii.exe *** Debug Build ***")]

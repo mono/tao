@@ -300,7 +300,7 @@ namespace Tao.Platform.Windows {
 
         #region Draw()
         /// <summary>
-        ///     Sends an <see cref="UserControl.Invalidate" /> command to this control, thus
+        ///     Sends an see cref="UserControl.Invalidate"  command to this control, thus
         ///     forcing a redraw to occur.
         /// </summary>
         public void Draw() {

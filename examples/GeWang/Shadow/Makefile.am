@@ -2,6 +2,8 @@ PROGRAM_WIN = GeWang.Shadow
 
 include $(top_builddir)/am-config.mk
 
+SNKFILE = ../../../src/Tao.OpenGl/Tao.OpenGl.snk
+
 FILES = \
 	AssemblyInfo.cs \
 	Shadow.cs
@@ -23,4 +25,5 @@ $(ASSEMBLY): $(FILES)
 
 CLEANFILES = $(ASSEMBLY) $(ASSEMBLY).mdb
 EXTRA_DIST = \
-	$(FILES)
+	$(FILES) \
+	../../../src/Tao.OpenGl/Tao.OpenGl.snk

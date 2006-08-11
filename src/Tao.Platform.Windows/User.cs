@@ -315,7 +315,7 @@ namespace Tao.Platform.Windows {
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.DM_POSITION" /></term>
+        ///                 <term>see cref="Gdi.DM_POSITION" </term>
         ///                 <description>
         ///                     <b>Windows 98/Me, Windows 2000/XP:</b> Use the dmPosition value.
         ///                 </description>
@@ -342,7 +342,7 @@ namespace Tao.Platform.Windows {
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.CDS_FULLSCREEN" /></term>
+        ///                 <term>see cref="Gdi.CDS_FULLSCREEN" </term>
         ///                 <description>
         ///                     <para>
         ///                         The mode is temporary in nature.
@@ -354,43 +354,43 @@ namespace Tao.Platform.Windows {
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.CDS_GLOBAL" /></term>
+        ///                 <term>see cref="Gdi.CDS_GLOBAL" </term>
         ///                 <description>
         ///                     The settings will be saved in the global settings area so that
         ///                     they will affect all users on the machine.  Otherwise, only the
         ///                     settings for the user are modified.  This flag is only valid when
-        ///                     specified with the <see cref="Gdi.CDS_UPDATEREGISTRY" /> flag.
+        ///                     specified with the see cref="Gdi.CDS_UPDATEREGISTRY"  flag.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.CDS_NORESET" /></term>
+        ///                 <term>see cref="Gdi.CDS_NORESET" </term>
         ///                 <description>
         ///                     The settings will be saved in the registry, but will not take
         ///                     affect.  This flag is only valid when specified with the
-        ///                     <see cref="Gdi.CDS_UPDATEREGISTRY" /> flag.
+        ///                     see cref="Gdi.CDS_UPDATEREGISTRY"  flag.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.CDS_RESET" /></term>
+        ///                 <term>see cref="Gdi.CDS_RESET" </term>
         ///                 <description>
         ///                     The settings should be changed, even if the requested settings are
         ///                     the same as the current settings.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.CDS_SET_PRIMARY" /></term>
+        ///                 <term>see cref="Gdi.CDS_SET_PRIMARY" </term>
         ///                 <description>
         ///                     This device will become the primary device.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.CDS_TEST" /></term>
+        ///                 <term>see cref="Gdi.CDS_TEST" </term>
         ///                 <description>
         ///                     The system tests if the requested graphics mode could be set.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.CDS_UPDATEREGISTRY" /></term>
+        ///                 <term>see cref="Gdi.CDS_UPDATEREGISTRY" </term>
         ///                 <description>
         ///                     The graphics mode for the current screen will be changed
         ///                     dynamically and the graphics mode will be updated in the registry.
@@ -400,21 +400,21 @@ namespace Tao.Platform.Windows {
         ///         </list>
         ///     </para>
         ///     <para>
-        ///         Specifying <see cref="Gdi.CDS_TEST" /> allows an application to determine
+        ///         Specifying see cref="Gdi.CDS_TEST"  allows an application to determine
         ///         which graphics modes are actually valid, without causing the system to
         ///         change to that graphics mode.
         ///     </para>
         ///     <para>
-        ///         If <see cref="Gdi.CDS_UPDATEREGISTRY" /> is specified and it is possible to
+        ///         If see cref="Gdi.CDS_UPDATEREGISTRY"  is specified and it is possible to
         ///         change the graphics mode dynamically, the information is stored in the
-        ///         registry and <see cref="Gdi.DISP_CHANGE_SUCCESSFUL" /> is returned.  If it is
+        ///         registry and see cref="Gdi.DISP_CHANGE_SUCCESSFUL"  is returned.  If it is
         ///         not possible to change the graphics mode dynamically, the information is
-        ///         stored in the registry and <see cref="Gdi.DISP_CHANGE_RESTART" /> is returned.
+        ///         stored in the registry and see cref="Gdi.DISP_CHANGE_RESTART"  is returned.
         ///     </para>
         ///     <para>
-        ///         <b>Windows NT/2000/XP:</b>  If <see cref="Gdi.CDS_UPDATEREGISTRY" /> is
+        ///         <b>Windows NT/2000/XP:</b>  If see cref="Gdi.CDS_UPDATEREGISTRY"  is
         ///         specified and the information could not be stored in the registry, the
-        ///         graphics mode is not changed and <see cref="Gdi.DISP_CHANGE_NOTUPDATED" /> is
+        ///         graphics mode is not changed and see cref="Gdi.DISP_CHANGE_NOTUPDATED"  is
         ///         returned.
         ///     </para>
         /// </param>
@@ -429,52 +429,52 @@ namespace Tao.Platform.Windows {
         ///                 <description>Description</description>
         ///             </listheader>
         ///             <item>
-        ///                 <term><see cref="Gdi.DISP_CHANGE_SUCCESSFUL" /></term>
+        ///                 <term>see cref="Gdi.DISP_CHANGE_SUCCESSFUL" </term>
         ///                 <description>
         ///                     The settings change was successful.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.DISP_CHANGE_BADDUALVIEW" /></term>
+        ///                 <term>see cref="Gdi.DISP_CHANGE_BADDUALVIEW" </term>
         ///                 <description>
         ///                     <b>Windows XP:</b>  The settings change was unsuccessful because
         ///                     system is DualView capable.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.DISP_CHANGE_BADFLAGS" /></term>
+        ///                 <term>see cref="Gdi.DISP_CHANGE_BADFLAGS" </term>
         ///                 <description>
         ///                     An invalid set of flags was passed in.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.DISP_CHANGE_BADMODE" /></term>
+        ///                 <term>see cref="Gdi.DISP_CHANGE_BADMODE" </term>
         ///                 <description>
         ///                     The graphics mode is not supported.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.DISP_CHANGE_BADPARAM" /></term>
+        ///                 <term>see cref="Gdi.DISP_CHANGE_BADPARAM" </term>
         ///                 <description>
         ///                     An invalid parameter was passed in.  This can include an invalid
         ///                     flag or combination of flags.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.DISP_CHANGE_FAILED" /></term>
+        ///                 <term>see cref="Gdi.DISP_CHANGE_FAILED" </term>
         ///                 <description>
         ///                     The display driver failed the specified graphics mode.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.DISP_CHANGE_NOTUPDATED" /></term>
+        ///                 <term>see cref="Gdi.DISP_CHANGE_NOTUPDATED" </term>
         ///                 <description>
         ///                     <b>Windows NT/2000/XP:</b>  Unable to write settings to the
         ///                     registry.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.DISP_CHANGE_RESTART" /></term>
+        ///                 <term>see cref="Gdi.DISP_CHANGE_RESTART" </term>
         ///                 <description>
         ///                     The computer must be restarted in order for the graphics mode to
         ///                     work.
@@ -525,7 +525,7 @@ namespace Tao.Platform.Windows {
         ///         with no windows, for example, a new thread.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="CreateDC" />
+        /// seealso cref="CreateDC" 
         /// <seealso cref="Gdi.DEVMODE" />
         /// <seealso cref="EnumDisplaySettings" />
         // <seealso cref="ChangeDisplaySettingsEx" />
@@ -642,7 +642,7 @@ namespace Tao.Platform.Windows {
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.DM_POSITION" /></term>
+        ///                 <term>see cref="Gdi.DM_POSITION" /></term>
         ///                 <description>
         ///                     <b>Windows 98/Me, Windows 2000/XP:</b> Use the dmPosition value.
         ///                 </description>
@@ -669,7 +669,7 @@ namespace Tao.Platform.Windows {
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.CDS_FULLSCREEN" /></term>
+        ///                 <term>see cref="Gdi.CDS_FULLSCREEN" </term>
         ///                 <description>
         ///                     <para>
         ///                         The mode is temporary in nature.
@@ -681,43 +681,43 @@ namespace Tao.Platform.Windows {
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.CDS_GLOBAL" /></term>
+        ///                 <term>see cref="Gdi.CDS_GLOBAL" </term>
         ///                 <description>
         ///                     The settings will be saved in the global settings area so that
         ///                     they will affect all users on the machine.  Otherwise, only the
         ///                     settings for the user are modified.  This flag is only valid when
-        ///                     specified with the <see cref="Gdi.CDS_UPDATEREGISTRY" /> flag.
+        ///                     specified with the see cref="Gdi.CDS_UPDATEREGISTRY"  flag.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.CDS_NORESET" /></term>
+        ///                 <term>see cref="Gdi.CDS_NORESET" </term>
         ///                 <description>
         ///                     The settings will be saved in the registry, but will not take
         ///                     affect.  This flag is only valid when specified with the
-        ///                     <see cref="Gdi.CDS_UPDATEREGISTRY" /> flag.
+        ///                     see cref="Gdi.CDS_UPDATEREGISTRY"  flag.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.CDS_RESET" /></term>
+        ///                 <term>see cref="Gdi.CDS_RESET" </term>
         ///                 <description>
         ///                     The settings should be changed, even if the requested settings are
         ///                     the same as the current settings.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.CDS_SET_PRIMARY" /></term>
+        ///                 <term>see cref="Gdi.CDS_SET_PRIMARY" </term>
         ///                 <description>
         ///                     This device will become the primary device.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.CDS_TEST" /></term>
+        ///                 <term>see cref="Gdi.CDS_TEST" /></term>
         ///                 <description>
         ///                     The system tests if the requested graphics mode could be set.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.CDS_UPDATEREGISTRY" /></term>
+        ///                 <term>see cref="Gdi.CDS_UPDATEREGISTRY" /></term>
         ///                 <description>
         ///                     The graphics mode for the current screen will be changed
         ///                     dynamically and the graphics mode will be updated in the registry.
@@ -727,21 +727,21 @@ namespace Tao.Platform.Windows {
         ///         </list>
         ///     </para>
         ///     <para>
-        ///         Specifying <see cref="Gdi.CDS_TEST" /> allows an application to determine
+        ///         Specifying see cref="Gdi.CDS_TEST" /> allows an application to determine
         ///         which graphics modes are actually valid, without causing the system to
         ///         change to that graphics mode.
         ///     </para>
         ///     <para>
-        ///         If <see cref="Gdi.CDS_UPDATEREGISTRY" /> is specified and it is possible to
+        ///         If see cref="Gdi.CDS_UPDATEREGISTRY" /> is specified and it is possible to
         ///         change the graphics mode dynamically, the information is stored in the
-        ///         registry and <see cref="Gdi.DISP_CHANGE_SUCCESSFUL" /> is returned.  If it is
+        ///         registry and see cref="Gdi.DISP_CHANGE_SUCCESSFUL" /> is returned.  If it is
         ///         not possible to change the graphics mode dynamically, the information is
-        ///         stored in the registry and <see cref="Gdi.DISP_CHANGE_RESTART" /> is returned.
+        ///         stored in the registry and see cref="Gdi.DISP_CHANGE_RESTART" /> is returned.
         ///     </para>
         ///     <para>
-        ///         <b>Windows NT/2000/XP:</b>  If <see cref="Gdi.CDS_UPDATEREGISTRY" /> is
+        ///         <b>Windows NT/2000/XP:</b>  If see cref="Gdi.CDS_UPDATEREGISTRY" /> is
         ///         specified and the information could not be stored in the registry, the
-        ///         graphics mode is not changed and <see cref="Gdi.DISP_CHANGE_NOTUPDATED" /> is
+        ///         graphics mode is not changed and see cref="Gdi.DISP_CHANGE_NOTUPDATED" /> is
         ///         returned.
         ///     </para>
         /// </param>
@@ -756,52 +756,52 @@ namespace Tao.Platform.Windows {
         ///                 <description>Description</description>
         ///             </listheader>
         ///             <item>
-        ///                 <term><see cref="Gdi.DISP_CHANGE_SUCCESSFUL" /></term>
+        ///                 <term>see cref="Gdi.DISP_CHANGE_SUCCESSFUL" /></term>
         ///                 <description>
         ///                     The settings change was successful.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.DISP_CHANGE_BADDUALVIEW" /></term>
+        ///                 <term>see cref="Gdi.DISP_CHANGE_BADDUALVIEW" /></term>
         ///                 <description>
         ///                     <b>Windows XP:</b>  The settings change was unsuccessful because
         ///                     system is DualView capable.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.DISP_CHANGE_BADFLAGS" /></term>
+        ///                 <term>see cref="Gdi.DISP_CHANGE_BADFLAGS" /></term>
         ///                 <description>
         ///                     An invalid set of flags was passed in.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.DISP_CHANGE_BADMODE" /></term>
+        ///                 <term>see cref="Gdi.DISP_CHANGE_BADMODE" </term>
         ///                 <description>
         ///                     The graphics mode is not supported.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.DISP_CHANGE_BADPARAM" /></term>
+        ///                 <term>see cref="Gdi.DISP_CHANGE_BADPARAM" </term>
         ///                 <description>
         ///                     An invalid parameter was passed in.  This can include an invalid
         ///                     flag or combination of flags.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.DISP_CHANGE_FAILED" /></term>
+        ///                 <term>see cref="Gdi.DISP_CHANGE_FAILED" /></term>
         ///                 <description>
         ///                     The display driver failed the specified graphics mode.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.DISP_CHANGE_NOTUPDATED" /></term>
+        ///                 <term>see cref="Gdi.DISP_CHANGE_NOTUPDATED" /></term>
         ///                 <description>
         ///                     <b>Windows NT/2000/XP:</b>  Unable to write settings to the
         ///                     registry.
         ///                 </description>
         ///             </item>
         ///             <item>
-        ///                 <term><see cref="Gdi.DISP_CHANGE_RESTART" /></term>
+        ///                 <term>see cref="Gdi.DISP_CHANGE_RESTART" /></term>
         ///                 <description>
         ///                     The computer must be restarted in order for the graphics mode to
         ///                     work.
@@ -852,7 +852,7 @@ namespace Tao.Platform.Windows {
         ///         with no windows, for example, a new thread.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="CreateDC" />
+        /// seealso cref="CreateDC" />
         /// <seealso cref="Gdi.DEVMODE" />
         /// <seealso cref="EnumDisplaySettings" />
         // <seealso cref="ChangeDisplaySettingsEx" />
@@ -882,7 +882,7 @@ namespace Tao.Platform.Windows {
         ///         use the returned handle in subsequent GDI functions to draw in the DC.
         ///     </para>
         ///     <para>
-        ///         The <see cref="GetDCEx" /> function is an extension to <b>GetDC</b>, which
+        ///         The see cref="GetDCEx" /> function is an extension to <b>GetDC</b>, which
         ///         gives an application more control over how and whether clipping occurs in the
         ///         client area.
         ///     </para>
@@ -894,8 +894,8 @@ namespace Tao.Platform.Windows {
         ///     </para>
         ///     <para>
         ///         <b>Windows 98/Me, Windows 2000/XP:</b> To get the DC for a specific display
-        ///         monitor, use the <see cref="EnumDisplayMonitors" /> and
-        ///         <see cref="Gdi.CreateDC" /> functions.
+        ///         monitor, use the see cref="EnumDisplayMonitors" /> and
+        ///         see cref="Gdi.CreateDC" /> functions.
         ///     </para>
         /// </param>
         /// <returns>
@@ -920,7 +920,7 @@ namespace Tao.Platform.Windows {
         ///         it is retrieved.  For example, the default font is System, which is a bitmap
         ///         font.  Because of this, the handle for a common DC returned by <b>GetDC</b>
         ///         does not tell you what font, color, or brush was used when the window was
-        ///         drawn.  To determine the font, call <see cref="GetTextFace" />.
+        ///         drawn.  To determine the font, call see cref="GetTextFace" />.
         ///     </para>
         ///     <para>
         ///         Note that the handle to the DC can only be used by a single thread at any one
@@ -938,10 +938,10 @@ namespace Tao.Platform.Windows {
         ///         one.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="GetDCEx" />
+        /// seealso cref="GetDCEx" />
         /// <seealso cref="ReleaseDC" />
-        /// <seealso cref="GetTextFace" />
-        /// <seealso cref="GetWindowDC" />
+        /// seealso cref="GetTextFace" />
+        /// seealso cref="GetWindowDC" />
         // WINUSERAPI HDC WINAPI GetDC(IN HWND hWnd);
         [DllImport(USER_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, SetLastError=true), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr GetDC(IntPtr windowHandle);
@@ -978,20 +978,20 @@ namespace Tao.Platform.Windows {
         /// <remarks>
         ///     <para>
         ///         The application must call the <b>ReleaseDC</b> function for each call to the
-        ///         <see cref="GetWindowDC" /> function and for each call to the
+        ///         see cref="GetWindowDC" /> function and for each call to the
         ///         <see cref="GetDC" /> function that retrieves a common DC.
         ///     </para>
         ///     <para>
         ///         An application cannot use the <b>ReleaseDC</b> function to release a DC that
-        ///         was created by calling the <see cref="Gdi.CreateDC" /> function; instead, it
-        ///         must use the <see cref="Gdi.DeleteDC" /> function.  <b>ReleaseDC</b> must be
+        ///         was created by calling the see cref="Gdi.CreateDC" /> function; instead, it
+        ///         must use the see cref="Gdi.DeleteDC" /> function.  <b>ReleaseDC</b> must be
         ///         called from the same thread that called <b>GetDC</b>.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gdi.CreateDC" />
-        /// <seealso cref="Gdi.DeleteDC" />
+        /// seealso cref="Gdi.CreateDC" />
+        /// seealso cref="Gdi.DeleteDC" />
         /// <seealso cref="GetDC" />
-        /// <seealso cref="GetWindowDC" />
+        /// seealso cref="GetWindowDC" />
         // WINUSERAPI int WINAPI ReleaseDC(IN HWND hWnd, IN HDC hDC);
         [DllImport(USER_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ReleaseDC(IntPtr windowHandle, IntPtr deviceContext);

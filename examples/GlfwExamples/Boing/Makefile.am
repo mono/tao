@@ -2,6 +2,8 @@ PROGRAM_WIN = GlfwExamples.Boing
 
 include $(top_builddir)/am-config.mk
 
+SNKFILE = ../../../src/Tao.Glfw/Tao.Glfw.snk
+
 FILES = \
 	AssemblyInfo.cs \
 	Boing.cs
@@ -21,6 +23,7 @@ $(ASSEMBLY): $(FILES)
 		$(CSFLAGS) \
 		$(BUILD_FILES)
 
-CLEANFILES = $(ASSEMBLY) $(ASSEMBLY).mdb
+CLEANFILES = $(ASSEMBLY) $(ASSEMBLY).mdb $(ASSEMBLY_NAME).pdb $(ASSEMBLY_NAME).xml
 EXTRA_DIST = \
-	$(FILES)
+	$(FILES) \
+	../../../src/Tao.Glfw/Tao.Glfw.snk

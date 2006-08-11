@@ -6,6 +6,8 @@ FILES = \
 	AssemblyInfo.cs \
 	Triangle.cs
 
+SNKFILE = ../../../src/Tao.Glfw/Tao.Glfw.snk
+
 REFERENCES = \
 	-r:../../../src/Tao.Glfw/Tao.Glfw.dll,../../../src/Tao.OpenGl/Tao.OpenGl.dll,../../../src/Tao.OpenGl.ExtensionLoader/Tao.OpenGl.ExtensionLoader.dll,../../../src/Tao.OpenGl.Glu/Tao.OpenGl.Glu.dll
 
@@ -21,6 +23,7 @@ $(ASSEMBLY): $(FILES)
 		$(CSFLAGS) \
 		$(BUILD_FILES)
 
-CLEANFILES = $(ASSEMBLY) $(ASSEMBLY).mdb
+CLEANFILES = $(ASSEMBLY) $(ASSEMBLY).mdb $(ASSEMBLY_NAME).pdb $(ASSEMBLY_NAME).xml
 EXTRA_DIST = \
-	$(FILES)
+	$(FILES) \
+	../../../src/Tao.Glfw/Tao.Glfw.snk

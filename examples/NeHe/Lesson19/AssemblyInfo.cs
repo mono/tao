@@ -44,7 +44,7 @@ using System.Security.Permissions;
 [assembly: AssemblyDescription("NeHe's Lesson 19 example.")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: AssemblyInformationalVersion("1.0.0.0")]
-[assembly: AssemblyKeyFile("")]
+
 [assembly: AssemblyKeyName("")]
 #if DEBUG
 [assembly: AssemblyProduct("NeHe.Lesson19.exe *** Debug Build ***")]

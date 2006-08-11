@@ -684,10 +684,10 @@ namespace Tao.Platform.Windows {
         ///         The <b>wglDeleteContext</b> function does not delete the device context
         ///         associated with the OpenGL rendering context when you call the
         ///         <b>wglMakeCurrent</b> function.  After calling <b>wglDeleteContext</b>, you
-        ///         must call <see cref="Gdi.DeleteDC" /> to delete the associated device context.
+        ///         must call see cref="Gdi.DeleteDC"  to delete the associated device context.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gdi.DeleteDC" />
+        /// seealso cref="Gdi.DeleteDC" 
         /// <seealso cref="wglCreateContext" />
         /// <seealso cref="wglGetCurrentContext" />
         /// <seealso cref="wglGetCurrentDC" />
@@ -912,9 +912,9 @@ namespace Tao.Platform.Windows {
         ///         GDI palette functions.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gdi.LAYERPLANEDESCRIPTOR" />
+        /// seealso cref="Gdi.LAYERPLANEDESCRIPTOR"
         /// <seealso cref="Gdi.PIXELFORMATDESCRIPTOR" />
-        /// <seealso cref="wglDescribeLayerPlane" />
+        /// seealso cref="wglDescribeLayerPlane"
         /// <seealso cref="wglRealizeLayerPalette" />
         /// <seealso cref="wglSetLayerPaletteEntries" />
         // WINGDIAPI int WINAPI wglGetLayerPaletteEntries(HDC, int, int, int, COLORREF *);
@@ -1121,9 +1121,9 @@ namespace Tao.Platform.Windows {
         ///         main plane, use GDI palette functions to realize the main plane palette.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gdi.LAYERPLANEDESCRIPTOR" />
+        /// seealso cref="Gdi.LAYERPLANEDESCRIPTOR" 
         /// <seealso cref="Gdi.PIXELFORMATDESCRIPTOR" />
-        /// <seealso cref="wglDescribeLayerPlane" />
+        /// seealso cref="wglDescribeLayerPlane" 
         /// <seealso cref="wglGetLayerPaletteEntries" />
         /// <seealso cref="wglSetLayerPaletteEntries" />
         // WINGDIAPI BOOL  WINAPI wglRealizeLayerPalette(HDC, int, BOOL);
@@ -1204,9 +1204,9 @@ namespace Tao.Platform.Windows {
         ///         functions.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gdi.LAYERPLANEDESCRIPTOR" />
+        /// seealso cref="Gdi.LAYERPLANEDESCRIPTOR" 
         /// <seealso cref="Gdi.PIXELFORMATDESCRIPTOR" />
-        /// <seealso cref="wglDescribeLayerPlane" />
+        /// seealso cref="wglDescribeLayerPlane" 
         /// <seealso cref="wglGetLayerPaletteEntries" />
         /// <seealso cref="wglRealizeLayerPalette" />
         // WINGDIAPI int WINAPI wglSetLayerPaletteEntries(HDC, int, int, int, CONST COLORREF *);
@@ -1461,7 +1461,7 @@ namespace Tao.Platform.Windows {
         ///                 <description>
         ///                     The width of the glyph's bitmap, as returned in the
         ///                     <b>gmBlackBoxX</b> member of the glyph's
-       ///                  /*   <see cref="Gdi.GLYPHMETRICS" /> */structure.
+       ///                  /*   see cref="Gdi.GLYPHMETRICS"  */structure.
         ///                 </description>
         ///             </item>
         ///             <item>
@@ -1469,7 +1469,7 @@ namespace Tao.Platform.Windows {
         ///                 <description>
         ///                     The height of the glyph's bitmap, as returned in the
         ///                     <b>gmBlackBoxY</b> member of the glyph's
-       ///                 /*    <see cref="Gdi.GLYPHMETRICS" /> */structure.
+       ///                 /*    see cref="Gdi.GLYPHMETRICS"  */structure.
         ///                 </description>
         ///             </item>
         ///             <item>

@@ -8,7 +8,7 @@ BINDIR		= $(DESTDIR)/bin
 ASSEMBLY_DLL	= $(LIBRARY).dll
 ASSEMBLY_EXE	= $(PROGRAM).exe
 ASSEMBLY_WINEXE	= $(PROGRAM_WIN).exe
-ASSEMBLY_NAME	= $(LIBRARY)
+ASSEMBLY_NAME	= 
 SYMBOLS		= 
 CSFLAGS		= 
 
@@ -17,13 +17,12 @@ ifdef UNSAFE
   CSFLAGS	+= /unsafe
 endif
 
-
-
 # If ASSEMBLY_DLL has been set, and thus, is not ".dll", assume we're a 
 # library, and not an executable
 ifneq (.dll,$(ASSEMBLY_DLL))
   TARGET	= library
   ASSEMBLY	= $(ASSEMBLY_DLL)
+  ASSEMBLY_NAME	= $(LIBRARY)
   
   ifdef DOCS
     CSFLAGS	+= /doc:$(DOC_DEST)/$(LIBRARY).xml
@@ -44,13 +43,20 @@ else
   ifneq (.exe,$(ASSEMBLY_WINEXE))
     TARGET	= winexe
     ASSEMBLY	= $(ASSEMBLY_WINEXE)
+    ASSEMBLY_NAME = $(PROGRAM_WIN)
+ifdef STRONG
+  #CSFLAGS += /keyfile:$(SNKFILE)
+endif
   else
 # Otherwise, do command-line executable-type stuff
   TARGET	= exe
   ASSEMBLY	= $(ASSEMBLY_EXE)
+  ASSEMBLY_NAME = $(PROGRAM)
+ifdef STRONG
+  #CSFLAGS += /keyfile:$(SNKFILE)
+endif
   endif
 endif
-
 
 GACUTIL_FLAGS = 
 

@@ -44,7 +44,7 @@ using System.Security.Permissions;
 [assembly: AssemblyDescription("OpenAL Lesson 01 example.")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: AssemblyInformationalVersion("1.0.0.0")]
-[assembly: AssemblyKeyFile("")]
+
 [assembly: AssemblyKeyName("")]
 #if DEBUG
 [assembly: AssemblyProduct("OpenAlExamples.Lesson01.exe *** Debug Build ***")]
