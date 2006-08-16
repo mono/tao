@@ -9,7 +9,7 @@ FILES = \
 	Gl_02_vertex_and_fragment_program.cs
 
 REFERENCES = \
-	-r:../../../src/Tao.Cg/Tao.Cg.dll
+		-r:../../../src/Tao.Cg/Tao.Cg.dll,../../../src/Tao.OpenGl/Tao.OpenGl.dll,../../../src/Tao.OpenGl.ExtensionLoader/Tao.OpenGl.ExtensionLoader.dll,../../../src/Tao.OpenGl.Glu/Tao.OpenGl.Glu.dll,../../../src/Tao.FreeGlut/Tao.FreeGlut.dll
 
 BUILD_FILES = $(addprefix $(srcdir)/, $(FILES))
 
