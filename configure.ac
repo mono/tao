@@ -238,6 +238,7 @@ Makefile
 src/Makefile
 src/Tao.OpenGl.ExtensionLoader/Makefile
 src/Tao.GlPostProcess/Makefile
+src/Tao.GlGenerator/Makefile
 src/Tao.OpenGl/Makefile
 src/Tao.Cg/Makefile
 src/Tao.DevIl/Makefile

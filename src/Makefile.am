@@ -31,6 +31,7 @@ assembly_DATA = \
 SUBDIRS = \
         Tao.OpenGl.ExtensionLoader \
 	Tao.GlPostProcess \
+	Tao.GlGenerator \
 	Tao.OpenGl \
 	Tao.Cg \
 	Tao.DevIl \

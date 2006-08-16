@@ -39,6 +39,9 @@
 	    <File>..//Tao.GlPostProcess//Tao.GlPostProcess.License.txt</File>
 	    <File>..//Tao.GlPostProcess//Tao.GlPostProcess.Readme.txt</File>
 	    <File>..//Tao.GlPostProcess//Tao.GlPostProcess.snk</File>
+	    <File>..//Tao.GlGenerator//Tao.GlGenerator.License.txt</File>
+	    <File>..//Tao.GlGenerator//Tao.GlGenerator.Readme.txt</File>
+	    <File>..//Tao.GlGenerator//Tao.GlGenerator.snk</File>
 	    <File>..//Tao.Platform.Windows//Tao.Platform.Windows.License.txt</File>
 	    <File>..//Tao.Platform.Windows//Tao.Platform.Windows.Readme.txt</File>
 	    <File>..//Tao.Platform.Windows//Tao.Platform.Windows.snk</File>
@@ -252,7 +255,7 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="Tao.GlPostProcess" path="..//Tao.GlPostProcess" language="C#" type="Exe">
+	<Project name="Tao.GlPostProcess" path="..//Tao.GlPostProcess" language="C#" type="Exe" startupObject="Tao.GlPostProcess">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -278,6 +281,31 @@
 	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="Tao.GlGenerator" path="..//Tao.GlGenerator" language="C#" type="Exe" startupObject="Tao.GlGenerator.GlGenerator">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <OutputPath>bin\Debug</OutputPath>
+	    	    <KeyFile>..//Tao.GlGenerator//Tao.GlGenerator</KeyFile>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <OutputPath>bin\Release</OutputPath>
+	    	    <KeyFile>..//Tao.GlGenerator//Tao.GlGenerator.snk</KeyFile>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" />
+	    <Reference name="System.Xml" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="false"/>
 	    </Files>
 	</Project>
 	<Project name="Tao.Platform.Windows" path="..//Tao.Platform.Windows" language="C#" type="Library">

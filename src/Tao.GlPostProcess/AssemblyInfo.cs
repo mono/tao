@@ -46,11 +46,6 @@ using System.Security.Permissions;
 [assembly: AssemblyDescription("S.R.E. post-processor for OpenGL bindings.")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: AssemblyInformationalVersion("1.0.0.0")]
-#if STRONG
-[assembly: AssemblyKeyFile(@"Tao.GlPostProcess.snk")]
-#else
-
-#endif
 [assembly: AssemblyKeyName("")]
 #if DEBUG
 [assembly: AssemblyProduct("Tao.GlPostProcess.exe *** Debug Build ***")]
