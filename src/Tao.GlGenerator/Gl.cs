@@ -43,7 +43,7 @@ namespace Tao.GlGenerator
             public string line;
             public string fname;
             public string[] fargs;
-            public string[] fargtypes;
+            public Dictionary<string, Dictionary<string, string>> fargtypes = new Dictionary<string,Dictionary<string,string>>();
             public string rettype;
             public string category;
             public string version;
@@ -232,6 +232,15 @@ namespace Tao.GlGenerator
             string[] line;
             Regex regex = new Regex(" +");
             FunctionStruct func = new FunctionStruct(streamReader, specFileLine);
+            string fargstr = specFileLine.Substring(specFileLine.IndexOf('(') + 1, specFileLine.IndexOf(')') - specFileLine.IndexOf('(')-1);
+            if (fargstr == "" || fargstr == null)
+            {
+                func.fargs = null;
+            }
+            else
+            {
+                func.fargs = fargstr.Split(',');
+            }
             func.fname = specFileLine.Substring(0, specFileLine.IndexOf('('));
             while ((specFileLine = streamReader.ReadLine()) != "" && specFileLine != null)
             {
@@ -254,6 +263,21 @@ namespace Tao.GlGenerator
                 }
                 else if (line[0] == "param")
                 {
+                    string pname = line[1];
+                    if (func.fargtypes.ContainsKey(pname))
+                    {
+                    }
+                    else
+                    {
+                        func.fargtypes[pname] = new Dictionary<string,string>();
+                    }
+                    func.fargtypes[pname]["type"] = line[2];
+                    func.fargtypes[pname]["inout"] = line[3];
+                    func.fargtypes[pname]["valtype"] = line[4];
+                    if (func.fargtypes[pname]["valtype"] == "array")
+                    {
+                        func.fargtypes[pname]["arraysize"] = line[5].Substring(1, line[5].Length - 1);
+                    }
                 }
 
             }
@@ -283,8 +307,17 @@ namespace Tao.GlGenerator
         static void PrintFunction(StreamWriter streamWriter, FunctionStruct function)
         {
             streamWriter.WriteLine("\t\t<function name=\"{0}\" rettype=\"{1}\" >", function.fname, function.rettype);
-            streamWriter.WriteLine("\t\t\t<param name=\"{0}\" valtype=\"{1}\" type=\"{2}\" inout=\"{3}\" />", function, function, function, function);
-            streamWriter.WriteLine("\t\t</function>");
+            if (function.fargs != null)
+            {
+                foreach (string arg in function.fargs)
+                {
+                    //string arginfo = function.fargtypes;
+                    streamWriter.WriteLine("\t\t\t<param name=\"{0}\" valtype=\"{1}\" type=\"{2}\" inout=\"{3}\" />", arg, function, function, function);
+                    //function.fargtypes[arg]["valtype"], function.fargtypes[arg]["type"], function.fargtypes[arg]["inout"]);
+                }
+            }
+                streamWriter.WriteLine("\t\t</function>");
+            
         }
 
         static void WriteEnum(StreamWriter streamWriter)
