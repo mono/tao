@@ -200,7 +200,9 @@ namespace Tao.GlGenerator
             {
                 glHash.Remove(category);
             }
+            
 
+            
 
             foreach (string k in glHash.Keys)
             {
@@ -216,7 +218,7 @@ namespace Tao.GlGenerator
             CreateGlHash(streamReader);
         }
 
-        static Dictionary<string, Dictionary<string, FunctionStruct>> glHash = new Dictionary<string, Dictionary<string, FunctionStruct>>();
+        static SortedDictionary<string, Dictionary<string, FunctionStruct>> glHash = new SortedDictionary<string, Dictionary<string, FunctionStruct>>();
         static Dictionary<string, string> categories = new Dictionary<string, string>();
         static void CreateGlHash(StreamReader streamReader)
         {
@@ -305,7 +307,7 @@ namespace Tao.GlGenerator
             return func;
         }
 
-        static void PrintCore(StreamWriter streamWriter, string coreKey, Dictionary<string, Dictionary<string, FunctionStruct>> coreData)
+        static void PrintCore(StreamWriter streamWriter, string coreKey, SortedDictionary<string, Dictionary<string, FunctionStruct>> coreData)
         {
             streamWriter.WriteLine("\t<coreset category=\"{0}\">", coreKey);
             
@@ -314,9 +316,10 @@ namespace Tao.GlGenerator
                 PrintFunction(streamWriter, coreData[coreKey][fname]);
             }
             streamWriter.WriteLine("\t</coreset>");
+            streamWriter.WriteLine();
         }
 
-        static void PrintExtension(StreamWriter streamWriter, string extKey, Dictionary<string, Dictionary<string, FunctionStruct>> extData)
+        static void PrintExtension(StreamWriter streamWriter, string extKey, SortedDictionary<string, Dictionary<string, FunctionStruct>> extData)
         {
             streamWriter.WriteLine("\t<extset extension=\"{0}\">", extKey);
             
@@ -325,21 +328,21 @@ namespace Tao.GlGenerator
                 PrintFunction(streamWriter, extData[extKey][fname]);
             }
             streamWriter.WriteLine("\t</extset>");
+            streamWriter.WriteLine();
         }
 
         static void PrintFunction(StreamWriter streamWriter, FunctionStruct function)
         {
-            streamWriter.WriteLine("\t\t<function name=\"{0}\" rettype=\"{1}\">", function.fname, function.rettype);
-            if (function.fargs != null)
-            {
+            
 
 
-                if (function.fargs.Length == 0 || function.fargs[0] == "")
+                if (function.fargs == null || function.fargs.Length == 0 || function.fargs[0] == "")
                 {
-                    //pass   
+                    streamWriter.WriteLine("\t\t<function name=\"{0}\" rettype=\"{1}\" />", function.fname, function.rettype);
                 }
                 else
                 {
+                    streamWriter.WriteLine("\t\t<function name=\"{0}\" rettype=\"{1}\">", function.fname, function.rettype);
                     foreach (string arg in function.fargs)
                     {
 
@@ -347,9 +350,10 @@ namespace Tao.GlGenerator
                         streamWriter.WriteLine("\t\t\t<param name=\"{0}\" valtype=\"{1}\" type=\"{2}\" inout=\"{3}\" />", arg, arginfo["valtype"], arginfo["type"], arginfo["inout"]);
                         //function.fargtypes[arg]["valtype"], function.fargtypes[arg]["type"], function.fargtypes[arg]["inout"]);
                     }
+                    streamWriter.WriteLine("\t\t</function>");
                 }
-            }
-            streamWriter.WriteLine("\t\t</function>");
+          
+            
 
         }
 
