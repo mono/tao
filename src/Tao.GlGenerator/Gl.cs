@@ -32,6 +32,7 @@ using System.IO;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Xml;
+using System.Text;
 using System.Collections.Generic;
 
 namespace Tao.GlGenerator
@@ -43,7 +44,7 @@ namespace Tao.GlGenerator
             public string line;
             public string fname;
             public string[] fargs;
-            public Dictionary<string, Dictionary<string, string>> fargtypes = new Dictionary<string,Dictionary<string,string>>();
+            public Dictionary<string, Dictionary<string, string>> fargtypes = new Dictionary<string, Dictionary<string, string>>();
             public string rettype;
             public string category;
             public string version;
@@ -56,10 +57,8 @@ namespace Tao.GlGenerator
                 this.streamReader = streamReader;
             }
         }
+        static List<string> core_gl = new List<string>();
 
-        static string[] core_gl = new string[] {"1_1", "display-list", "drawing", "drawing-control", 
-             "feedback", "framebuf", "misc", "modeling", "pixel-op", "pixel-rw", 
-             "state-req", "xform"};
 
         internal static string FilePath
         {
@@ -159,7 +158,6 @@ namespace Tao.GlGenerator
 
         internal static void WriteClass(StreamWriter streamWriter, bool isInstance)
         {
-
             WritePrivateConstants(streamWriter);
             if (!isInstance)
             {
@@ -177,14 +175,34 @@ namespace Tao.GlGenerator
         static void GenerateXmlSpec()
         {
             ReadGlSpec();
-            StreamWriter streamWriter = new StreamWriter(Path.Combine(FilePath,"gltest.xml"));
+            core_gl.Clear();
+            core_gl.Add("1_1");
+            core_gl.Add("display-list");
+            core_gl.Add("drawing");
+            core_gl.Add("drawing-control");
+            core_gl.Add("feedback");
+            core_gl.Add("framebuf");
+            core_gl.Add("misc");
+            core_gl.Add("modeling");
+            core_gl.Add("pixel-op");
+            core_gl.Add("pixel-rw");
+            core_gl.Add("state-req");
+            core_gl.Add("xform");
+
+            StreamWriter streamWriter = new StreamWriter(Path.Combine(FilePath, "gl.xml"));
             streamWriter.WriteLine("<?xml version=\"1.0\"?>");
             streamWriter.WriteLine("<glspec>");
             foreach (string k in core_gl)
             {
                 PrintCore(streamWriter, k, glHash);
             }
-            foreach (string k in core_gl)
+            foreach (string category in core_gl)
+            {
+                glHash.Remove(category);
+            }
+
+
+            foreach (string k in glHash.Keys)
             {
                 PrintExtension(streamWriter, k, glHash);
             }
@@ -199,7 +217,7 @@ namespace Tao.GlGenerator
         }
 
         static Dictionary<string, Dictionary<string, FunctionStruct>> glHash = new Dictionary<string, Dictionary<string, FunctionStruct>>();
-
+        static Dictionary<string, string> categories = new Dictionary<string, string>();
         static void CreateGlHash(StreamReader streamReader)
         {
             //Regex regex = new Regex("([^ ]+) ([^ ]+)");
@@ -212,6 +230,7 @@ namespace Tao.GlGenerator
                     continue;
                 }
                 FunctionStruct func = ParseSpecFileLine(streamReader, specFileLine);
+
                 if (!(func.category == null))
                 {
                     if (glHash.ContainsKey(func.category))
@@ -224,6 +243,8 @@ namespace Tao.GlGenerator
                         glHash[func.category][func.fname] = func;
                     }
                 }
+
+
             }
         }
 
@@ -232,14 +253,14 @@ namespace Tao.GlGenerator
             string[] line;
             Regex regex = new Regex(" +");
             FunctionStruct func = new FunctionStruct(streamReader, specFileLine);
-            string fargstr = specFileLine.Substring(specFileLine.IndexOf('(') + 1, specFileLine.IndexOf(')') - specFileLine.IndexOf('(')-1);
-            if (fargstr == "" || fargstr == null)
+            StringBuilder fargstr = new StringBuilder(specFileLine.Substring(specFileLine.IndexOf('(') + 1, specFileLine.IndexOf(')') - specFileLine.IndexOf('(') - 1));
+            if (fargstr.Equals("") || fargstr == null)
             {
                 func.fargs = null;
             }
             else
             {
-                func.fargs = fargstr.Split(',');
+                func.fargs = fargstr.Replace(" ", "").ToString().Split(',');
             }
             func.fname = specFileLine.Substring(0, specFileLine.IndexOf('('));
             while ((specFileLine = streamReader.ReadLine()) != "" && specFileLine != null)
@@ -247,15 +268,15 @@ namespace Tao.GlGenerator
                 line = regex.Split(specFileLine.Trim().Replace('\t', ' '));
                 if (line[0] == "return")
                 {
-                    func.rettype = line[1];
+                    func.rettype = line[1].Trim();
                 }
                 else if (line[0] == "category")
                 {
-                    func.category = line[1];
+                    func.category = line[1].Trim();
                 }
                 else if (line[0] == "version")
                 {
-                    func.version = line[1];
+                    func.version = line[1].Trim();
                 }
                 else if (line[0] == "extension")
                 {
@@ -263,20 +284,20 @@ namespace Tao.GlGenerator
                 }
                 else if (line[0] == "param")
                 {
-                    string pname = line[1];
+                    string pname = line[1].Trim();
                     if (func.fargtypes.ContainsKey(pname))
                     {
                     }
                     else
                     {
-                        func.fargtypes[pname] = new Dictionary<string,string>();
+                        func.fargtypes[pname] = new Dictionary<string, string>();
                     }
-                    func.fargtypes[pname]["type"] = line[2];
-                    func.fargtypes[pname]["inout"] = line[3];
-                    func.fargtypes[pname]["valtype"] = line[4];
+                    func.fargtypes[pname]["type"] = line[2].Trim();
+                    func.fargtypes[pname]["inout"] = line[3].Trim();
+                    func.fargtypes[pname]["valtype"] = line[4].Trim();
                     if (func.fargtypes[pname]["valtype"] == "array")
                     {
-                        func.fargtypes[pname]["arraysize"] = line[5].Substring(1, line[5].Length - 1);
+                        func.fargtypes[pname]["arraysize"] = line[5].Substring(1, line[5].Length - 1).Trim();
                     }
                 }
 
@@ -287,16 +308,18 @@ namespace Tao.GlGenerator
         static void PrintCore(StreamWriter streamWriter, string coreKey, Dictionary<string, Dictionary<string, FunctionStruct>> coreData)
         {
             streamWriter.WriteLine("\t<coreset category=\"{0}\">", coreKey);
+            
             foreach (string fname in coreData[coreKey].Keys)
             {
                 PrintFunction(streamWriter, coreData[coreKey][fname]);
             }
-            streamWriter.WriteLine("\t</coreset>");            
+            streamWriter.WriteLine("\t</coreset>");
         }
 
         static void PrintExtension(StreamWriter streamWriter, string extKey, Dictionary<string, Dictionary<string, FunctionStruct>> extData)
         {
             streamWriter.WriteLine("\t<extset extension=\"{0}\">", extKey);
+            
             foreach (string fname in extData[extKey].Keys)
             {
                 PrintFunction(streamWriter, extData[extKey][fname]);
@@ -306,26 +329,36 @@ namespace Tao.GlGenerator
 
         static void PrintFunction(StreamWriter streamWriter, FunctionStruct function)
         {
-            streamWriter.WriteLine("\t\t<function name=\"{0}\" rettype=\"{1}\" >", function.fname, function.rettype);
+            streamWriter.WriteLine("\t\t<function name=\"{0}\" rettype=\"{1}\">", function.fname, function.rettype);
             if (function.fargs != null)
             {
-                foreach (string arg in function.fargs)
+
+
+                if (function.fargs.Length == 0 || function.fargs[0] == "")
                 {
-                    //string arginfo = function.fargtypes;
-                    streamWriter.WriteLine("\t\t\t<param name=\"{0}\" valtype=\"{1}\" type=\"{2}\" inout=\"{3}\" />", arg, function, function, function);
-                    //function.fargtypes[arg]["valtype"], function.fargtypes[arg]["type"], function.fargtypes[arg]["inout"]);
+                    //pass   
+                }
+                else
+                {
+                    foreach (string arg in function.fargs)
+                    {
+
+                        Dictionary<string, string> arginfo = function.fargtypes[arg];
+                        streamWriter.WriteLine("\t\t\t<param name=\"{0}\" valtype=\"{1}\" type=\"{2}\" inout=\"{3}\" />", arg, arginfo["valtype"], arginfo["type"], arginfo["inout"]);
+                        //function.fargtypes[arg]["valtype"], function.fargtypes[arg]["type"], function.fargtypes[arg]["inout"]);
+                    }
                 }
             }
-                streamWriter.WriteLine("\t\t</function>");
-            
+            streamWriter.WriteLine("\t\t</function>");
+
         }
 
         static void WriteEnum(StreamWriter streamWriter)
         {
-            StreamReader streamReader = new StreamReader(Path.Combine(FilePath,"enum.spec"));
+            StreamReader streamReader = new StreamReader(Path.Combine(FilePath, "enum.spec"));
             Hashtable enumHash = new Hashtable();
             CreateHash(streamReader, enumHash);
-            streamReader = new StreamReader(Path.Combine(FilePath,"enumext.spec"));
+            streamReader = new StreamReader(Path.Combine(FilePath, "enumext.spec"));
             CreateHash(streamReader, enumHash);
             foreach (string s in enumHash.Keys)
             {
@@ -378,10 +411,13 @@ namespace Tao.GlGenerator
         static void WriteFunctions(StreamWriter streamWriter, bool doInstance)
         {
             Driver.doInstance = doInstance;
-            Driver.TypeMap = new GlTypeMap(Path.Combine(FilePath,"typemap.xml"));
-            GenerateXmlSpec();
+            Driver.TypeMap = new GlTypeMap(Path.Combine(FilePath, "typemap.xml"));
+            if (!doInstance)
+            {
+                GenerateXmlSpec();
+            }
             Driver.Doc = new XmlDocument();
-            Driver.Doc.Load(Path.Combine(FilePath,"gl.xml"));
+            Driver.Doc.Load(Path.Combine(FilePath, "gl.xml"));
 
             //Driver.Output = new StreamWriter("Gl-funcs.cs");
             Driver.Output = streamWriter;
@@ -418,10 +454,10 @@ namespace Tao.GlGenerator
             }
 
             ar.Sort(new FuncParamStructComparer());
-            for (int i = 0; i < 20; i++)
-            {
-                Console.WriteLine("{0}: {1}", ((FuncParamStruct)ar[i]).fname, ((FuncParamStruct)ar[i]).nparams);
-            }
+            //for (int i = 0; i < 20; i++)
+            //{
+            //    Console.WriteLine("{0}: {1}", ((FuncParamStruct)ar[i]).fname, ((FuncParamStruct)ar[i]).nparams);
+            //}
         }
 
         public class GlParam
@@ -854,10 +890,10 @@ namespace Tao.GlGenerator
         {
             public string fname;
             public int nparams;
-            public FuncParamStruct(string f, int n) 
-	    { 
-		fname = f; nparams = n; 
-	    }
+            public FuncParamStruct(string f, int n)
+            {
+                fname = f; nparams = n;
+            }
         }
         internal class FuncParamStructComparer : IComparer
         {

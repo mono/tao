@@ -50,7 +50,9 @@ namespace Tao.GlGenerator
 
         private static void WriteGl(bool isInstance)
         {
+            //int i =0;
             StreamWriter streamWriter;
+            //Console.WriteLine("HelloMain" + i++);
             if (isInstance)
             {
                 streamWriter = new StreamWriter(Gl.FileNameInstance);
@@ -59,25 +61,37 @@ namespace Tao.GlGenerator
             {
                 streamWriter = new StreamWriter(Gl.FileNameStatic);
             }
+           // Console.WriteLine("HelloMain" + i++);
             streamWriter.AutoFlush = true;
+            //Console.WriteLine("HelloMain" + i++);
             Common.WriteLicense(streamWriter);
+            //Console.WriteLine("HelloMain" + i++);
             Common.WriteEmptyLine(streamWriter);
+            //Console.WriteLine("HelloMain" + i++);
+                
             Gl.WriteUsing(streamWriter);
+            //Console.WriteLine("HelloMain" + i++);
             Gl.WriteNamespace(streamWriter);
+            //Console.WriteLine("HelloMain" + i++);
             Common.WriteOpenBrace(streamWriter);
+            //Console.WriteLine("HelloMain" + i++);
             Gl.WriteClassDefinition(streamWriter, isInstance);
+            //Console.WriteLine("HelloMain" + i++);
             streamWriter.Write("\t");
+            //Console.WriteLine("HelloMain" + i++);
             Common.WriteOpenBrace(streamWriter);
+            //Console.WriteLine("HelloMain" + i++);
             Gl.WriteClass(streamWriter, isInstance);
+            //Console.WriteLine("HelloMain" + i++);
             streamWriter.Write("\t");
+            //Console.WriteLine("HelloMain" + i++);
             Common.WriteCloseBrace(streamWriter);
+            //Console.WriteLine("HelloMain" + i++);
             Common.WriteCloseBrace(streamWriter);
+           // Console.WriteLine("HelloMain" + i++);
             streamWriter.Close();
+           // Console.WriteLine("HelloMain" + i++);
         }
-		#endregion
-
-		#region	Private	Methods
-		
 		#endregion
 	}
 }
