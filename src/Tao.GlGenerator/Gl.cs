@@ -32,11 +32,31 @@ using System.IO;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Xml;
+using System.Collections.Generic;
 
 namespace Tao.GlGenerator
 {
     public static class Gl
     {
+        public class FunctionStruct
+        {
+            public string line;
+            public string fname;
+            public string[] fargs;
+            public string[] fargtypes;
+            public string rettype;
+            public string category;
+            public string version;
+            public int extension = 0;
+            StreamReader streamReader;
+
+            public FunctionStruct(StreamReader streamReader, string line)
+            {
+                this.line = line;
+                this.streamReader = streamReader;
+            }
+        }
+
         static string[] core_gl = new string[] {"1_1", "display-list", "drawing", "drawing-control", 
              "feedback", "framebuf", "misc", "modeling", "pixel-op", "pixel-rw", 
              "state-req", "xform"};
@@ -162,11 +182,11 @@ namespace Tao.GlGenerator
             streamWriter.WriteLine("<glspec>");
             foreach (string k in core_gl)
             {
-                PrintCore(streamWriter, k, k);
+                PrintCore(streamWriter, k, glHash);
             }
             foreach (string k in core_gl)
             {
-                PrintExtension(streamWriter, k, k);
+                PrintExtension(streamWriter, k, glHash);
             }
             streamWriter.WriteLine("</glspec>");
             streamWriter.Close();
@@ -178,42 +198,91 @@ namespace Tao.GlGenerator
             CreateGlHash(streamReader);
         }
 
+        static Dictionary<string, Dictionary<string, FunctionStruct>> glHash = new Dictionary<string, Dictionary<string, FunctionStruct>>();
+
         static void CreateGlHash(StreamReader streamReader)
         {
-            Regex regex = new Regex("([^ ]+) ([^ ]+)");
+            //Regex regex = new Regex("([^ ]+) ([^ ]+)");
             string specFileLine;
             //string[] line;
             while ((specFileLine = streamReader.ReadLine()) != null)
             {
-                if (specFileLine.StartsWith("#") || !specFileLine.StartsWith("passthru") || !specFileLine.Contains("("))
+                if (specFileLine.StartsWith("#") || specFileLine.StartsWith("passthru") || !specFileLine.Contains("("))
                 {
                     continue;
                 }
-                ParseSpecFileLine(specFileLine);
+                FunctionStruct func = ParseSpecFileLine(streamReader, specFileLine);
+                if (!(func.category == null))
+                {
+                    if (glHash.ContainsKey(func.category))
+                    {
+                        glHash[func.category][func.fname] = func;
+                    }
+                    else
+                    {
+                        glHash[func.category] = new Dictionary<string, FunctionStruct>();
+                        glHash[func.category][func.fname] = func;
+                    }
+                }
             }
         }
 
-        private static void ParseSpecFileLine(string specFileLine)
+        private static FunctionStruct ParseSpecFileLine(StreamReader streamReader, string specFileLine)
         {
+            string[] line;
+            Regex regex = new Regex(" +");
+            FunctionStruct func = new FunctionStruct(streamReader, specFileLine);
+            func.fname = specFileLine.Substring(0, specFileLine.IndexOf('('));
+            while ((specFileLine = streamReader.ReadLine()) != "" && specFileLine != null)
+            {
+                line = regex.Split(specFileLine.Trim().Replace('\t', ' '));
+                if (line[0] == "return")
+                {
+                    func.rettype = line[1];
+                }
+                else if (line[0] == "category")
+                {
+                    func.category = line[1];
+                }
+                else if (line[0] == "version")
+                {
+                    func.version = line[1];
+                }
+                else if (line[0] == "extension")
+                {
+                    func.extension = 1;
+                }
+                else if (line[0] == "param")
+                {
+                }
+
+            }
+            return func;
         }
 
-        static void PrintCore(StreamWriter streamWriter, string coreKey, string coreData)
+        static void PrintCore(StreamWriter streamWriter, string coreKey, Dictionary<string, Dictionary<string, FunctionStruct>> coreData)
         {
             streamWriter.WriteLine("\t<coreset category=\"{0}\">", coreKey);
-            PrintFunction(streamWriter, coreData);
+            foreach (string fname in coreData[coreKey].Keys)
+            {
+                PrintFunction(streamWriter, coreData[coreKey][fname]);
+            }
             streamWriter.WriteLine("\t</coreset>");            
         }
 
-        static void PrintExtension(StreamWriter streamWriter, string extKey, string extData)
+        static void PrintExtension(StreamWriter streamWriter, string extKey, Dictionary<string, Dictionary<string, FunctionStruct>> extData)
         {
             streamWriter.WriteLine("\t<extset extension=\"{0}\">", extKey);
-            PrintFunction(streamWriter, extData);
+            foreach (string fname in extData[extKey].Keys)
+            {
+                PrintFunction(streamWriter, extData[extKey][fname]);
+            }
             streamWriter.WriteLine("\t</extset>");
         }
 
-        static void PrintFunction(StreamWriter streamWriter, string function)
+        static void PrintFunction(StreamWriter streamWriter, FunctionStruct function)
         {
-            streamWriter.WriteLine("\t\t<function name=\"{0}\" rettype=\"{1}\" >", function, function);
+            streamWriter.WriteLine("\t\t<function name=\"{0}\" rettype=\"{1}\" >", function.fname, function.rettype);
             streamWriter.WriteLine("\t\t\t<param name=\"{0}\" valtype=\"{1}\" type=\"{2}\" inout=\"{3}\" />", function, function, function, function);
             streamWriter.WriteLine("\t\t</function>");
         }
@@ -752,7 +821,10 @@ namespace Tao.GlGenerator
         {
             public string fname;
             public int nparams;
-            public FuncParamStruct(string f, int n) { fname = f; nparams = n; }
+            public FuncParamStruct(string f, int n) 
+	    { 
+		fname = f; nparams = n; 
+	    }
         }
         internal class FuncParamStructComparer : IComparer
         {
