@@ -32,7 +32,6 @@ using System.Runtime.InteropServices;
 using System.Security.Permissions;
 using System.Resources;
 
-
 // FxCop recommended attributes
 [assembly: ComVisible(false)]
 [assembly: FileIOPermission(SecurityAction.RequestMinimum, Unrestricted=true)]
@@ -43,10 +42,10 @@ using System.Resources;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
-[assembly: AssemblyTitle(".NET GlGen")]
-[assembly: AssemblyDescription("A .NET OpenGl generation tool")]
+[assembly: AssemblyTitle("Tao.GlGenerator")]
+[assembly: AssemblyDescription("A .NET OpenGl Generation tool")]
 [assembly: AssemblyConfiguration(".NET CLR")]
-[assembly: AssemblyCompany("The GlGen Project")]
+[assembly: AssemblyCompany("The Tao Project")]
 [assembly: AssemblyProduct("")]
 [assembly: AssemblyCopyright("Copyright David Hudson")]
 [assembly: AssemblyTrademark("")]
@@ -64,7 +63,7 @@ using System.Resources;
 // You can specify all the values or you can default the Revision and Build Numbers 
 // by using the '*' as shown below:
 
-[assembly: AssemblyVersion("1.3.2.*")]
+[assembly: AssemblyVersion("1.0.0.*")]
 
 //
 // In order to sign your assembly you must specify a key to use. Refer to the 

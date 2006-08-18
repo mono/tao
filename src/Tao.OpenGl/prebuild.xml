@@ -283,7 +283,7 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="Tao.GlGenerator" path="..//Tao.GlGenerator" language="C#" type="Exe" startupObject="Tao.GlGenerator.GlGenerator">
+	<Project name="Tao.GlGenerator" path="..//Tao.GlGenerator" language="C#" type="Exe" startupObject="Tao.GlGenerator">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
