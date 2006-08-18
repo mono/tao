@@ -6,8 +6,6 @@ SNKFILE = Tao.GlGenerator.snk
 
 FILES = \
 	AssemblyInfo.cs \
-	Common.cs \
-	Gl.cs \
 	GlGenerator.cs
 
 REFERENCES = 
