@@ -1,0 +1,23 @@
+FreeGlutExamples
+Copyright ©2003-2006 Tao Framework Team
+http://www.taoframework.com
+All rights reserved.
+
+These are C# ports of some official FreeGLUT examples.  The
+originals are available from http://freeglut.sourceforge.net/.
+
+These examples use Tao.FreeGlut, and Tao.OpenGl.  Make sure you
+have the appropriate native libraries for your system installed.
+
+These examples are fairly well documented, however, do not take
+them to be 'best practices' for .NET FreGLUT development.  The
+intent of these ports is as an introduction or as a comparison
+against the original native versions.
+
+Rob Loach
+http://www.taoframework.com
+
+Change Log:
+
+August 24, 2006
+    Initial release, version 1.0.0.0.

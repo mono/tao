@@ -35,6 +35,8 @@ xcopy dist\bin\*.dll dist\examples\*.* /Q /Y
 xcopy examples\DevIlExamples\SimpleExample\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\DevIlExamples\SimpleExample\Data\*.* dist\examples\Data\*.* /Q /Y
 
+xcopy examples\FreeGlutExamples\One\bin\Release\*.exe dist\examples\*.* /Q /Y
+
 xcopy examples\GeWang\ClippingPlanes\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\GeWang\Lorenz3d\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\GeWang\Mirror\bin\Release\*.exe dist\examples\*.* /Q /Y

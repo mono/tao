@@ -38,6 +38,8 @@ cp -f examples/CgExamples/Gl_02_vertex_and_fragment_program/Data/*.* dist/exampl
 cp -f examples/DevIlExamples/SimpleExample/bin/Release/*.exe dist/examples
 cp -f examples/DevIlExamples/SimpleExample/Data/*.* dist/examples/Data
 
+cp -f examples/FreeGlutExamples/One/bin/Release/*.exe dist/examples /Q /Y
+
 cp -f examples/GeWang/ClippingPlanes/bin/Release/*.exe dist/examples
 cp -f examples/GeWang/Lorenz3d/bin/Release/*.exe dist/examples
 cp -f examples/GeWang/Mirror/bin/Release/*.exe dist/examples

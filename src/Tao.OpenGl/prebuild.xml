@@ -340,6 +340,35 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
+	<Project name="FreeGlutExamples.One" path="..\\..\\examples\\FreeGlutExamples\\One" language="C#" type="WinExe" startupObject="FreeGlutExamples.One">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Debug</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <OutputPath>bin\Release</OutputPath>
+		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="Tao.FreeGlut" localCopy="true" />
+	    <Reference name="Tao.OpenGl" localCopy="true" />
+	    <Reference name="Tao.OpenGl.ExtensionLoader" localCopy="true"/>
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
 	<Project name="GeWang.ClippingPlanes" path="..\\..\\examples\\GeWang\\ClippingPlanes" language="C#" type="WinExe" startupObject="GeWang.ClippingPlanes">
 	    <Configuration name="Debug">
 		<Options>
