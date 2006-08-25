@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Prebuild xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.7.xsd" version="1.7">
+    <Solution name="Tao.GlGenerator">
+	<Configuration name="Debug">
+	    <Options>
+		<CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		<OptimizeCode>false</OptimizeCode>
+		<OutputPath>bin\Debug</OutputPath>
+		<AllowUnsafe>true</AllowUnsafe>
+		<DebugInformation>true</DebugInformation>
+	    </Options>
+	</Configuration>
+	<Configuration name="Release">
+	    <Options>
+		<CompilerDefines>TRACE;WIN32</CompilerDefines>
+		<OptimizeCode>true</OptimizeCode>
+		<OutputPath>bin\Release</OutputPath>
+		<AllowUnsafe>true</AllowUnsafe>
+		<DebugInformation>false</DebugInformation>
+	    </Options>
+	</Configuration>
+	<Files>
+	    <File>..//Tao.GlGenerator//Tao.GlGenerator.License.txt</File>
+	    <File>..//Tao.GlGenerator//Tao.GlGenerator.Readme.txt</File>
+	    <File>..//Tao.GlGenerator//Tao.GlGenerator.snk</File>
+	</Files>
+	<Project name="Tao.GlGenerator" path="..//Tao.GlGenerator" language="C#" type="Exe" startupObject="Tao.GlGenerator">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <OutputPath>bin\Debug</OutputPath>
+	    	    <KeyFile>..//Tao.GlGenerator//Tao.GlGenerator</KeyFile>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <OutputPath>bin\Release</OutputPath>
+	    	    <KeyFile>..//Tao.GlGenerator//Tao.GlGenerator.snk</KeyFile>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" />
+	    <Reference name="System.Xml" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="false"/>
+	    </Files>
+	</Project>
+    </Solution>
+    </Prebuild>
