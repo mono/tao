@@ -1,4 +1,4 @@
-PROGRAM = CgExamples.Gl_01_vertex_program
+PROGRAM_WIN = CgExamples.Gl_01_vertex_program
 
 include $(top_builddir)/am-config.mk
 

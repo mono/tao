@@ -273,6 +273,8 @@ examples/GeWang/Mirror/Makefile
 examples/GeWang/Shadow/Makefile
 examples/GeWang/Starfield/Makefile
 examples/GeWang/Xform/Makefile
+examples/FreeGlutExamples/Makefile
+examples/FreeGlutExamples/One/Makefile
 examples/GlfwExamples/Makefile
 examples/GlfwExamples/Boing/Makefile
 examples/GlfwExamples/Gears/Makefile

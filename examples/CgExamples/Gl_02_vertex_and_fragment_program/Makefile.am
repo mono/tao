@@ -1,4 +1,4 @@
-PROGRAM = CgExamples.Gl_02_vertex_and_fragment_program
+PROGRAM_WIN = CgExamples.Gl_02_vertex_and_fragment_program
 
 include $(top_builddir)/am-config.mk
 

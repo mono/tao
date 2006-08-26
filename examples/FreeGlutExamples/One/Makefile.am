@@ -1,4 +1,4 @@
-PROGRAM = FreeGlutExamples.One
+PROGRAM_WIN = FreeGlutExamples.One
 
 include $(top_builddir)/am-config.mk
 

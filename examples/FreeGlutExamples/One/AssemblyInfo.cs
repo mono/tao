@@ -39,18 +39,18 @@ using System.Security.Permissions;
 #endif
 [assembly: AssemblyCopyright("Copyright ©2003-2006 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
-[assembly: AssemblyDefaultAlias("PhysFsExamples.Simple")]
+[assembly: AssemblyDefaultAlias("FreeGlutExamples.One")]
 [assembly: AssemblyDelaySign(false)]
-[assembly: AssemblyDescription("A simple PhysFS example.")]
+[assembly: AssemblyDescription("A simple FreeGlut example.")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: AssemblyInformationalVersion("1.0.0.0")]
 [assembly: AssemblyKeyName("")]
 #if DEBUG
-[assembly: AssemblyProduct("PhysFsExamples.Simple.exe *** Debug Build ***")]
+[assembly: AssemblyProduct("FreeGlutExamples.One.exe *** Debug Build ***")]
 #else
-[assembly: AssemblyProduct("PhysFsExamples.Simple.exe")]
+[assembly: AssemblyProduct("FreeGlutExamples.One.exe")]
 #endif
-[assembly: AssemblyTitle("A simple PhysFS example.")]
+[assembly: AssemblyTitle("A simple FreeGlut example.")]
 [assembly: AssemblyTrademark("Tao Framework - http://www.taoframework.com")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: CLSCompliant(true)]
