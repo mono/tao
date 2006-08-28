@@ -1,3 +1,10 @@
+2.0
+Tao library versions
+Tao.OpenGl 1.5.0.3, Tao.OpenGl.Glu 1.3, Tao.Platform.Windows 1.0.0.3,
+Tao.FreeGlut 2.4.0.0, Tao.OpenAl 1.1.0.0, Tao.Cg 1.4.1.0, Tao.DevIl 1.6.7.0,
+Tao.Lua 5.1.0.0, Tao.Sdl 1.2.11.0, Tao.PhysFs 1.0.1.0, Tao.Ode 0.6.0.3,
+Tao.Glfw 2.5.0.0.
+
 1.3.0
 Tao library versions
 Tao.OpenGl 1.5.0.3, Tao.Platform.Windows 1.0.0.3, Tao.FreeGlut 2.4.0.0,

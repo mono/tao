@@ -34,7 +34,7 @@ using Tao.OpenGl;
 namespace Tao.FreeGlut {
     #region Class Documentation
     /// <summary>
-    ///     FreeGLUT (OpenGL Utility Toolkit) binding for .NET.
+    ///     FreeGLUT (OpenGL Utility Toolkit) binding for .NET, implementing FreeGlut 2.4.0.
     /// </summary>
     #endregion Class Documentation
     public sealed class Glut {

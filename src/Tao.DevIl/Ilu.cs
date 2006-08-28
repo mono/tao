@@ -32,7 +32,7 @@ using System.Security;
 namespace Tao.DevIl {
     #region Class Documentation
     /// <summary>
-    ///     Core DevIL library binding for .NET.
+    ///     DevIL (Developer's Image Library) ILU binding for .NET.
     /// </summary>
     #endregion Class Documentation
     public sealed class Ilu {

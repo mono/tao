@@ -1,7 +1,7 @@
 !verbose 3
 
 !define PRODUCT_NAME "Tao"
-!define PRODUCT_VERSION "1.3.0"
+!define PRODUCT_VERSION "2.0.0"
 !define PRODUCT_BUILD "1"
 !define PRODUCT_PUBLISHER "Tao"
 !define PRODUCT_WEB_SITE "http://www.taoframework.com"
@@ -182,11 +182,17 @@ Section "Examples" SecExamples
   CreateDirectory "$SMPROGRAMS\Tao\Examples\DevIlExamples"
   StrCpy $example_dir "DevIlExamples"
   call CreateExampleShortcuts
+  CreateDirectory "$SMPROGRAMS\Tao\Examples\FreeGlutExamples"
+  StrCpy $example_dir "FreeGlutExamples"
+  call CreateExampleShortcuts
   CreateDirectory "$SMPROGRAMS\Tao\Examples\GeWang"
   StrCpy $example_dir "GeWang"
   call CreateExampleShortcuts
   CreateDirectory "$SMPROGRAMS\Tao\Examples\GlfwExamples"
   StrCpy $example_dir "GlfwExamples"
+  call CreateExampleShortcuts
+  CreateDirectory "$SMPROGRAMS\Tao\Examples\LuaExamples"
+  StrCpy $example_dir "LuaExamples"
   call CreateExampleShortcuts
   CreateDirectory "$SMPROGRAMS\Tao\Examples\NateRobbins"
   StrCpy $example_dir "NateRobbins"

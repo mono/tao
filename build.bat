@@ -7,6 +7,7 @@ other\Prebuild\Prebuild.exe /target nant /file prebuild.xml
 
 @REM Build Solutions Using NAnt 
 NAnt.exe -t:net-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build build-release
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.GlGenerator/Tao.GlGenerator.build build-release
 NAnt.exe -t:net-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build build-release
 NAnt.exe -t:net-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build build-release
 NAnt.exe -t:net-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build build-release
@@ -17,6 +18,7 @@ NAnt.exe -t:net-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build build-release
 xcopy src\Tao.Cg\bin\Release\*.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.DevIl\bin\Release\*.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.FreeGlut\bin\Release\Tao.FreeGlut.dll dist\bin\*.* /Q /Y
+xcopy src\Tao.GlGenerator\bin\Release\*.exe dist\bin\*.* /Q /Y
 xcopy src\Tao.Glfw\bin\Release\Tao.Glfw.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.Lua\bin\Release\*.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.Ode\bin\Release\*.dll dist\bin\*.* /Q /Y
@@ -211,17 +213,37 @@ xcopy examples\SdlExamples\Rectangles\Data\*.* dist\examples\Data\*.* /Q /Y
 xcopy examples\SdlExamples\SmpegPlayer\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\SdlExamples\SmpegPlayer\Data\*.* dist\examples\Data\*.* /Q /Y
 
-@REM Copy XML Documentation to Dist Directory
-xcopy src\Tao.Cg\bin\Release\*.xml dist\doc\*.* /Q /Y
-xcopy src\Tao.DevIl\bin\Release\*.xml dist\doc\*.* /Q /Y
-xcopy src\Tao.FreeGlut\bin\Release\*.xml dist\doc\*.* /Q /Y
-xcopy src\Tao.Glfw\bin\Release\*.xml dist\doc\*.* /Q /Y
-xcopy src\Tao.Lua\bin\Release\*.xml dist\doc\*.* /Q /Y
-xcopy src\Tao.Ode\bin\Release\*.xml dist\doc\*.* /Q /Y
-xcopy src\Tao.OpenAl\bin\Release\*.xml dist\doc\*.* /Q /Y
-xcopy src\Tao.OpenGl.Glu\bin\Release\*.xml dist\doc\*.* /Q /Y
-xcopy src\Tao.PhysFs\bin\Release\*.xml dist\doc\*.* /Q /Y
-xcopy src\Tao.Platform.Windows\bin\Release\*.xml dist\doc\*.* /Q /Y
-xcopy src\Tao.Sdl\bin\Release\*.xml dist\doc\*.* /Q /Y
+@REM Build Documentation Using NAnt 
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build doc
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build doc
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build doc
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build doc
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build doc
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build doc
+
+@REM Copy Documentation To Dist Directory
+xcopy src\Tao.Cg\bin\Release\*.xml dist/doc /Q /Y
+xcopy src\Tao.DevIl\bin\Release\*.xml dist/doc /Q /Y
+xcopy src\Tao.FreeGlut\bin\Release\*.xml dist/doc /Q /Y
+xcopy src\Tao.Glfw\bin\Release\*.xml dist/doc /Q /Y
+xcopy src\Tao.Lua\bin\Release\*.xml dist/doc /Q /Y
+xcopy src\Tao.Ode\bin\Release\*.xml dist/doc /Q /Y
+xcopy src\Tao.OpenAl\bin\Release\*.xml dist/doc /Q /Y
+xcopy src\Tao.OpenGl.Glu\bin\Release\*.xml dist/doc /Q /Y
+xcopy src\Tao.PhysFs\bin\Release\*.xml dist/doc /Q /Y
+xcopy src\Tao.Platform.Windows\bin\Release\*.xml dist/doc /Q /Y
+xcopy src\Tao.Sdl\bin\Release\*.xml dist/doc /Q /Y
+
+xcopy src\Tao.Cg\bin\Release\doc\*.chm dist/doc /Q /Y
+xcopy src\Tao.DevIl\bin\Release\doc\*.chm dist/doc /Q /Y
+xcopy src\Tao.FreeGlut\bin\Release\doc\*.chm dist/doc /Q /Y
+xcopy src\Tao.Glfw\bin\Release\doc\*.chm dist/doc /Q /Y
+xcopy src\Tao.Lua\bin\Release\doc\*.chm dist/doc /Q /Y
+xcopy src\Tao.Ode\bin\Release\doc\*.chm dist/doc /Q /Y
+xcopy src\Tao.OpenAl\bin\Release\doc\*.chm dist/doc /Q /Y
+xcopy src\Tao.OpenGl.Glu\bin\Release\doc\*.chm dist/doc /Q /Y
+xcopy src\Tao.PhysFs\bin\Release\doc\*.chm dist/doc /Q /Y
+xcopy src\Tao.Platform.Windows\bin\Release\doc\*.chm dist/doc /Q /Y
+xcopy src\Tao.Sdl\bin\Release\doc\*.chm dist/doc /Q /Y
 
 pause 
