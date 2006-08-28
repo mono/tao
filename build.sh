@@ -17,7 +17,6 @@ nant -t:mono-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build build-release
 cp -f src/Tao.Cg/bin/Release/*.dll dist/bin
 cp -f src/Tao.DevIl/bin/Release/*.dll dist/bin
 cp -f src/Tao.FreeGlut/bin/Release/*.dll dist/bin
-cp -f src/Tao.GlGenerator/bin/Release/*.exe dist/bin
 cp -f src/Tao.Glfw/bin/Release/Tao.Glfw.dll dist/bin
 cp -f src/Tao.Lua/bin/Release/*.dll dist/bin
 cp -f src/Tao.Ode/bin/Release/*.dll dist/bin

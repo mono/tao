@@ -19,7 +19,6 @@ NAnt.exe -t:mono-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build build-release
 xcopy src\Tao.Cg\bin\Release\*.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.DevIl\bin\Release\*.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.FreeGlut\bin\Release\Tao.FreeGlut.dll dist\bin\*.* /Q /Y
-xcopy src\Tao.GlGenerator\bin\Release\*.exe dist\bin\*.* /Q /Y
 xcopy src\Tao.Glfw\bin\Release\Tao.Glfw.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.Lua\bin\Release\*.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.Ode\bin\Release\*.dll dist\bin\*.* /Q /Y
