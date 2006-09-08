@@ -5,7 +5,7 @@
             <Options>
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
-                <OutputPath>bin\Debug</OutputPath>
+                <OutputPath>bin/Debug</OutputPath>
                 <DebugInformation>true</DebugInformation>
             </Options>
         </Configuration>
@@ -13,7 +13,7 @@
             <Options>
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
-                <OutputPath>bin\Release</OutputPath>
+                <OutputPath>bin/Release</OutputPath>
                 <DebugInformation>false</DebugInformation>
             </Options>
         </Configuration>
@@ -28,7 +28,7 @@
             <Options>
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
-                <OutputPath>bin\Debug</OutputPath>
+                <OutputPath>bin/Debug</OutputPath>
                 <XmlDocFile>Tao.DevIl.xml</XmlDocFile>
 		<KeyFile>Tao.DevIl.snk</KeyFile>
                 <DebugInformation>true</DebugInformation>
@@ -38,7 +38,7 @@
             <Options>
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
-                <OutputPath>bin\Release</OutputPath>
+                <OutputPath>bin/Release</OutputPath>
                 <XmlDocFile>Tao.DevIl.xml</XmlDocFile>
 		<KeyFile>Tao.DevIl.snk</KeyFile>
                 <DebugInformation>false</DebugInformation>
@@ -52,13 +52,13 @@
                 <File>Ilut.cs</File>
             </Files>
 	</Project>
-	<Project name="DevIlExamples.SimpleExample" path="..\\..\\examples\\DevIlExamples\\SimpleExample" language="C#" type="Exe" startupObject="DevIlExamples.SimpleExample">
+	<Project name="DevIlExamples.SimpleExample" path="../../examples/DevIlExamples/SimpleExample" language="C#" type="Exe" startupObject="DevIlExamples.SimpleExample">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin\Debug</OutputPath>
+		    <OutputPath>bin/Debug</OutputPath>
 		    <KeyFile>../../../src/Tao.DevIl/Tao.DevIl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
@@ -69,7 +69,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <KeyFile>../../../src/Tao.DevIl/Tao.DevIl.snk</KeyFile>
-		    <OutputPath>bin\Release</OutputPath>
+		    <OutputPath>bin/Release</OutputPath>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>

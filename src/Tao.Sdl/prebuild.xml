@@ -6,7 +6,7 @@
 		<CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		<OptimizeCode>false</OptimizeCode>
 		<AllowUnsafe>true</AllowUnsafe>
-		<OutputPath>bin\Debug</OutputPath>
+		<OutputPath>bin/Debug</OutputPath>
 		<DebugInformation>true</DebugInformation>
 	    </Options>
 	</Configuration>
@@ -15,7 +15,7 @@
 		<CompilerDefines>TRACE;WIN32</CompilerDefines>
 		<OptimizeCode>true</OptimizeCode>
 		<AllowUnsafe>true</AllowUnsafe>
-		<OutputPath>bin\Release</OutputPath>
+		<OutputPath>bin/Release</OutputPath>
 		<DebugInformation>false</DebugInformation>
 	    </Options>
 	</Configuration>
@@ -30,7 +30,7 @@
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>true</AllowUnsafe>
-		    <OutputPath>bin\Debug</OutputPath>
+		    <OutputPath>bin/Debug</OutputPath>
 		    <XmlDocFile>Tao.Sdl.xml</XmlDocFile>
 		    <KeyFile>Tao.Sdl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
@@ -41,7 +41,7 @@
 		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>true</AllowUnsafe>
-		    <OutputPath>bin\Release</OutputPath>
+		    <OutputPath>bin/Release</OutputPath>
 		    <XmlDocFile>Tao.Sdl.xml</XmlDocFile>
 		    <KeyFile>Tao.Sdl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
@@ -60,13 +60,13 @@
 	    	<File buildAction="None">Tao.Sdl.snk</File>
 	    </Files>
 	</Project>
-	<Project name="Tao.Sdl.Tests" path="..\\..\\tests\\Sdl\\" language="C#" type="Library">
+	<Project name="Tao.Sdl.Tests" path="../../tests/Sdl" language="C#" type="Library">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin\Debug</OutputPath>
+		    <OutputPath>bin/Debug</OutputPath>
 		    <KeyFile>../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
 		    <XmlDocFile>Tao.Sdl.Tests.xml</XmlDocFile>
 		    <DebugInformation>true</DebugInformation>
@@ -77,7 +77,7 @@
 		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin\Release</OutputPath>
+		    <OutputPath>bin/Release</OutputPath>
 		    <KeyFile>../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
 		    <XmlDocFile>Tao.Sdl.Tests.xml</XmlDocFile>
 		    <DebugInformation>false</DebugInformation>
@@ -97,14 +97,14 @@
 		<File>SmpegTest.cs</File>
 	    </Files>
 	</Project>
-	<Project name="SdlExamples.Rectangles" path="..\\..\\examples\\SdlExamples\\Rectangles" language="C#" type="WinExe" startupObject="SdlExamples.Rectangles">
+	<Project name="SdlExamples.Rectangles" path="../../examples/SdlExamples/Rectangles" language="C#" type="WinExe" startupObject="SdlExamples.Rectangles">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <KeyFile>../../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
-		    <OutputPath>bin\Debug</OutputPath>
+		    <OutputPath>bin/Debug</OutputPath>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -114,7 +114,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <KeyFile>../../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
-		    <OutputPath>bin\Release</OutputPath>
+		    <OutputPath>bin/Release</OutputPath>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -125,14 +125,14 @@
 		<File>Rectangles.cs</File>
 	    </Files>
 	</Project>
-	<Project name="SdlExamples.SmpegPlayer" path="..\\..\\examples\\SdlExamples\\SmpegPlayer" language="C#" type="WinExe" startupObject="SdlExamples.SmpegPlayer">
+	<Project name="SdlExamples.SmpegPlayer" path="../../examples/SdlExamples/SmpegPlayer" language="C#" type="WinExe" startupObject="SdlExamples.SmpegPlayer">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <KeyFile>../../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
-		    <OutputPath>bin\Debug</OutputPath>
+		    <OutputPath>bin/Debug</OutputPath>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -142,7 +142,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <KeyFile>../../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
-		    <OutputPath>bin\Release</OutputPath>
+		    <OutputPath>bin/Release</OutputPath>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -153,14 +153,14 @@
 		<File>SmpegPlayer.cs</File>
 	    </Files>
 	</Project>
-	<Project name="SdlExamples.GfxPrimitives" path="..\\..\\examples\\SdlExamples\\GfxPrimitives" language="C#" type="WinExe" startupObject="SdlExamples.GfxPrimitives">
+	<Project name="SdlExamples.GfxPrimitives" path="../../examples/SdlExamples/GfxPrimitives" language="C#" type="WinExe" startupObject="SdlExamples.GfxPrimitives">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <KeyFile>../../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
-		    <OutputPath>bin\Debug</OutputPath>
+		    <OutputPath>bin/Debug</OutputPath>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -170,7 +170,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <KeyFile>../../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
-		    <OutputPath>bin\Release</OutputPath>
+		    <OutputPath>bin/Release</OutputPath>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>

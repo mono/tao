@@ -5,7 +5,7 @@
             <Options>
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
-                <OutputPath>bin\Debug</OutputPath>
+                <OutputPath>bin/Debug</OutputPath>
                 <AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>true</DebugInformation>
             </Options>
@@ -14,7 +14,7 @@
             <Options>
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
-                <OutputPath>bin\Release</OutputPath>
+                <OutputPath>bin/Release</OutputPath>
                 <AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>false</DebugInformation>
             </Options>
@@ -31,7 +31,7 @@
             <Options>
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
-                <OutputPath>bin\Debug</OutputPath>
+                <OutputPath>bin/Debug</OutputPath>
                 <XmlDocFile></XmlDocFile>
                 <KeyFile>Tao.Lua.snk</KeyFile>
                 <AllowUnsafe>true</AllowUnsafe>
@@ -42,7 +42,7 @@
             <Options>
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
-                <OutputPath>bin\Release</OutputPath>
+                <OutputPath>bin/Release</OutputPath>
                 <XmlDocFile>Tao.Lua.xml</XmlDocFile>
                 <KeyFile>Tao.Lua.snk</KeyFile>
                 <AllowUnsafe>true</AllowUnsafe>
@@ -55,13 +55,13 @@
                 <File>Lua.cs</File>
             </Files>
 	</Project>
-	<Project name="LuaExamples.Simple" path="..\\..\\examples\\LuaExamples\\Simple" language="C#" type="Exe" startupObject="LuaExamples.Simple">
+	<Project name="LuaExamples.Simple" path="../../examples/LuaExamples/Simple" language="C#" type="Exe" startupObject="LuaExamples.Simple">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin\Debug</OutputPath>
+		    <OutputPath>bin/Debug</OutputPath>
 		    <KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile>
 		    <XmlDocFile>LuaExamples.Simple.xml</XmlDocFile>
 		    <DebugInformation>true</DebugInformation>
@@ -72,7 +72,7 @@
 		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin\Release</OutputPath>
+		    <OutputPath>bin/Release</OutputPath>
 		    <KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile>
 		    <XmlDocFile>LuaExamples.Simple.xml</XmlDocFile>
 		    <DebugInformation>false</DebugInformation>
@@ -83,16 +83,16 @@
 	    <Files>
 		<File>AssemblyInfo.cs</File>
 		<File>Simple.cs</File>
-		<File buildAction="Content">Data\\LuaExamples.Simple.lua</File>
+		<File buildAction="Content">Data/LuaExamples.Simple.lua</File>
 	    </Files>
 	</Project>
-	<Project name="LuaExamples.Functions" path="..\\..\\examples\\LuaExamples\\Functions" language="C#" type="Exe" startupObject="LuaExamples.Functions">
+	<Project name="LuaExamples.Functions" path="../../examples/LuaExamples/Functions" language="C#" type="Exe" startupObject="LuaExamples.Functions">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin\Debug</OutputPath>
+		    <OutputPath>bin/Debug</OutputPath>
 		    <KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile>
 		    <XmlDocFile>LuaExamples.Functions.xml</XmlDocFile>
 		    <DebugInformation>true</DebugInformation>
@@ -103,7 +103,7 @@
 		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin\Release</OutputPath>
+		    <OutputPath>bin/Release</OutputPath>
 		    <KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile>
 		    <XmlDocFile>LuaExamples.Functions.xml</XmlDocFile>
 		    <DebugInformation>false</DebugInformation>
@@ -114,7 +114,7 @@
 	    <Files>
 		<File>AssemblyInfo.cs</File>
 		<File>Functions.cs</File>
-		<File buildAction="Content">Data\\LuaExamples.Functions.lua</File>
+		<File buildAction="Content">Data/LuaExamples.Functions.lua</File>
 	    </Files>
 	</Project>
     </Solution>

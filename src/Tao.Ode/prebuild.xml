@@ -5,7 +5,7 @@
             <Options>
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
-                <OutputPath>bin\Debug</OutputPath>
+                <OutputPath>bin/Debug</OutputPath>
 		<AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>true</DebugInformation>
             </Options>
@@ -14,7 +14,7 @@
             <Options>
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
-                <OutputPath>bin\Release</OutputPath>
+                <OutputPath>bin/Release</OutputPath>
 		<AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>false</DebugInformation>
             </Options>
@@ -30,7 +30,7 @@
             <Options>
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
-                <OutputPath>bin\Debug</OutputPath>
+                <OutputPath>bin/Debug</OutputPath>
                 <XmlDocFile>Tao.Ode.xml</XmlDocFile>
 		<KeyFile>Tao.Ode.snk</KeyFile>
 		<AllowUnsafe>true</AllowUnsafe>
@@ -41,7 +41,7 @@
             <Options>
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
-                <OutputPath>bin\Release</OutputPath>
+                <OutputPath>bin/Release</OutputPath>
 		<XmlDocFile>Tao.Ode.xml</XmlDocFile>
 		<KeyFile>Tao.Ode.snk</KeyFile>
 		<AllowUnsafe>true</AllowUnsafe>
@@ -54,13 +54,13 @@
                 <File>Ode.cs</File>
             </Files>
 	</Project>
-	<Project name="OdeExamples.Basic" path="..\\..\\examples\\OdeExamples\\Basic" language="C#" type="Exe" startupObject="OdeExamples.Basic">
+	<Project name="OdeExamples.Basic" path="../../examples/OdeExamples/Basic" language="C#" type="Exe" startupObject="OdeExamples.Basic">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin\Debug</OutputPath>
+		    <OutputPath>bin/Debug</OutputPath>
 		    <KeyFile>../../../src/Tao.Ode/Tao.Ode.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
@@ -70,7 +70,7 @@
 		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin\Release</OutputPath>
+		    <OutputPath>bin/Release</OutputPath>
 		    <KeyFile>../../../src/Tao.Ode/Tao.Ode.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>

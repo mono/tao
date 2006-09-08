@@ -5,7 +5,7 @@
 	    <Options>
 		<CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		<OptimizeCode>false</OptimizeCode>
-		<OutputPath>bin\Debug</OutputPath>
+		<OutputPath>bin/Debug</OutputPath>
 		<AllowUnsafe>true</AllowUnsafe>
 		<DebugInformation>true</DebugInformation>
 	    </Options>
@@ -14,7 +14,7 @@
 	    <Options>
 		<CompilerDefines>TRACE;WIN32</CompilerDefines>
 		<OptimizeCode>true</OptimizeCode>
-		<OutputPath>bin\Release</OutputPath>
+		<OutputPath>bin/Release</OutputPath>
 		<AllowUnsafe>true</AllowUnsafe>
 		<DebugInformation>false</DebugInformation>
 	    </Options>
@@ -29,8 +29,8 @@
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
-		    <OutputPath>bin\Debug</OutputPath>
-	    	    <KeyFile>..//Tao.GlGenerator//Tao.GlGenerator</KeyFile>
+		    <OutputPath>bin/Debug</OutputPath>
+	    	    <KeyFile>../Tao.GlGenerator/Tao.GlGenerator</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -38,7 +38,7 @@
 		<Options>
 		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>true</OptimizeCode>
-		    <OutputPath>bin\Release</OutputPath>
+		    <OutputPath>bin/Release</OutputPath>
 	    	    <KeyFile>..//Tao.GlGenerator//Tao.GlGenerator.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
