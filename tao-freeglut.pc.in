@@ -1,9 +1,0 @@
-prefix=@prefix@
-exec_prefix=${prefix}
-libdir=${exec_prefix}/lib
-
-Name: Tao.FreeGlut
-Description: FreeGlut portion of the Tao framework
-Version: @VERSION@
-Requires: tao-opengl
-Libs: -r:${libdir}/mono/tao/Tao.FreeGlut.dll
