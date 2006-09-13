@@ -128,7 +128,7 @@
 							<xs:enumeration value="OnBuildSuccess" />
 							<xs:enumeration value="Always" />
 							<xs:enumeration value="OnOutputUpdated" />
-				 		</xs:restriction>
+						</xs:restriction>
 					</xs:simpleType>
 				</xs:element>
 				<xs:element name="RunScript" type="xs:string" minOccurs="0" />
@@ -196,7 +196,7 @@
 	<xs:element name="Match">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element ref="Exclude" minOccurs="0" />
+				<xs:element ref="Exclude" minOccurs="0" maxOccurs="unbounded" />
 			</xs:sequence>
 			<xs:attribute name="path" type="xs:string" />
 			<xs:attribute name="pattern" type="xs:string" use="required" />
@@ -224,9 +224,9 @@
 			</xs:attribute>
 		</xs:complexType>
 	</xs:element>
-		<xs:element name="Exclude">
-			<xs:complexType>
-				<xs:attribute name="name" type="xs:string" use="required" />
-			</xs:complexType>
-		</xs:element>
+	<xs:element name="Exclude">
+		<xs:complexType>
+			<xs:attribute name="name" type="xs:string" use="required" />
+		</xs:complexType>
+	</xs:element>
 </xs:schema>
