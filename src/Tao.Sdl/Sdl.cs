@@ -8659,7 +8659,7 @@ namespace Tao.Sdl
         public static extern IntPtr SDL_RWFromFile(string file, string mode);
         #endregion IntPtr SDL_RWFromFile(string file, string mode)
 
-        #region IntPtr SDL_RWFromMem(byte[] mem, int size)
+        #region IntPtr SDL_RWFromMem(IntPtr mem, int size)
         /// <summary>
         /// Create SDL_RWops structures from memory.
         /// </summary>
@@ -8673,7 +8673,32 @@ namespace Tao.Sdl
         /// <returns>IntPtr to SDL_RWops</returns>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
-        public static extern IntPtr SDL_RWFromMem(byte[] mem, int size);
+        public static extern IntPtr SDL_RWFromMem(IntPtr mem, int size);
+        #endregion IntPtr SDL_RWFromMem(IntPtr mem, int size)
+
+        #region IntPtr SDL_RWFromMem(byte[] mem, int size)
+        /// <summary>
+        /// Create SDL_RWops structures from memory.
+        /// </summary>
+        /// <remarks>
+        /// <p>Binds to C-function call in SDL_rwops.h:
+        /// <code>
+        /// SDL_RWops * SDLCALL SDL_RWFromMem(void *mem, int size)
+        /// </code></p></remarks>
+        /// <param name="mem"></param>
+        /// <param name="size"></param>
+        /// <returns>IntPtr to SDL_RWops</returns>
+        public static IntPtr SDL_RWFromMem(byte[] mem, int size)
+        {
+            // Wraps SDL_RWFromMem to allow simpler access
+            IntPtr i = Marshal.AllocHGlobal(mem.Length);
+            Marshal.Copy(mem, 0, i, mem.Length);
+            IntPtr r = SDL_RWFromMem(i, size);
+
+            // If the IntPtr to the memory is freed here, some things will fail later (ie, SdlTtf.TTF_OpenFontRW)
+            //Marshal.FreeHGlobal(i);
+            return r;
+        }
         #endregion IntPtr SDL_RWFromMem(byte[] mem, int size)
 
         #region IntPtr SDL_RWFromFP(IntPtr fp, int autoclose)
@@ -8722,7 +8747,7 @@ namespace Tao.Sdl
         ///	 
         ///	 //Do something with img...
         /// </code></example>
-        /// <seealso cref="SDL_RWFromMem"/>
+        /// <seealso cref="SDL_RWFromMem(IntPtr, int)"/>
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
         SuppressUnmanagedCodeSecurity]
         public static extern IntPtr SDL_RWFromConstMem(IntPtr mem, int size);
