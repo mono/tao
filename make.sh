@@ -8,31 +8,45 @@ other/Prebuild/prebuild /target autotools /file prebuild.xml
 cd src
 
 cd Tao.DevIl
-autoreconf --make
+autoreconf -i -s
+./configure
+make
 cd ..
 
 cd Tao.GlGenerator
-autoreconf --make
+autoreconf -i -s
+./configure
+make
 cd ..
 
 cd Tao.Ode 
-autoreconf --make
+autoreconf -i -s
+./configure
+make
 cd ..
 
 cd Tao.PhysFs 
-autoreconf --make
+autoreconf -i -s
+./configure
+make
 cd ..
 
 cd Tao.Sdl
-autoreconf --make
+autoreconf -i -s
+./configure
+make
 cd ..
 
 cd Tao.Lua
-autoreconf --make
+autoreconf -i -s
+./configure
+make
 cd ..
 
 cd Tao.OpenGl 
-autoreconf --make
+autoreconf -i -s
+./configure
+make
 cd ../..
 
 # Copy Builds to Bin Directory 

@@ -6,13 +6,12 @@
 other\Prebuild\Prebuild.exe /target nant /file prebuild.xml 
 
 @REM Build Solutions Using NAnt 
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build build-release
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.GlGenerator/Tao.GlGenerator.build build-release
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build build-release
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build build-release
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build build-release
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build build-release
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build build-release
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build doc
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build doc
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build doc
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build doc
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build doc
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build doc
 
 @REM Copy Builds to Dist Directory 
 xcopy src\Tao.Cg\bin\Release\*.dll dist\bin\*.* /Q /Y
@@ -213,13 +212,6 @@ xcopy examples\SdlExamples\SmpegPlayer\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\SdlExamples\SmpegPlayer\Data\*.* dist\examples\Data\*.* /Q /Y
 
 @REM Build Documentation Using NAnt 
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build doc
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build doc
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build doc
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build doc
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build doc
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build doc
-
 @REM Copy Documentation To Dist Directory
 xcopy src\Tao.Cg\bin\Release\*.xml dist/doc /Q /Y
 xcopy src\Tao.DevIl\bin\Release\*.xml dist/doc /Q /Y

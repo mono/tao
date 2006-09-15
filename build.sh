@@ -5,15 +5,16 @@
 other/Prebuild/prebuild /target nant /file prebuild.xml 
 
 # Build Solutions Using NAnt 
-nant -t:mono-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build build-release 
-nant -t:mono-2.0 -buildfile:src/Tao.GlGenerator/Tao.GlGenerator.build build-release 
-nant -t:mono-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build build-release 
-nant -t:mono-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build build-release 
-nant -t:mono-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build build-release 
-nant -t:mono-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build build-release 
-nant -t:mono-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build build-release 
+nant -t:mono-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build doc
+nant -t:mono-2.0 -buildfile:src/Tao.GlGenerator/Tao.GlGenerator.build doc 
+nant -t:mono-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build doc 
+nant -t:mono-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build doc 
+nant -t:mono-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build doc 
+nant -t:mono-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build doc 
+nant -t:mono-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build doc 
 
 # Copy Builds to Bin Directory 
+mkdir -p dist/bin
 cp -f src/Tao.Cg/bin/Release/*.dll dist/bin
 cp -f src/Tao.DevIl/bin/Release/*.dll dist/bin
 cp -f src/Tao.FreeGlut/bin/Release/*.dll dist/bin
@@ -29,6 +30,7 @@ cp -f src/Tao.Platform.Windows/bin/Release/Tao.Platform.Windows.dll dist/bin
 cp -f src/Tao.Sdl/bin/Release/*.dll dist/bin
 
 # Copy Examples to Dist Directory
+mkdir -p dist/examples/Data
 cp -f dist/bin/*.dll dist/examples
 
 cp -f examples/CgExamples/Gl_01_vertex_program/bin/Release/*.exe dist/examples
@@ -39,7 +41,7 @@ cp -f examples/CgExamples/Gl_02_vertex_and_fragment_program/Data/*.* dist/exampl
 cp -f examples/DevIlExamples/SimpleExample/bin/Release/*.exe dist/examples
 cp -f examples/DevIlExamples/SimpleExample/Data/*.* dist/examples/Data
 
-cp -f examples/FreeGlutExamples/One/bin/Release/*.exe dist/examples /Q /Y
+cp -f examples/FreeGlutExamples/One/bin/Release/*.exe dist/examples
 
 cp -f examples/GeWang/ClippingPlanes/bin/Release/*.exe dist/examples
 cp -f examples/GeWang/Lorenz3d/bin/Release/*.exe dist/examples
@@ -83,7 +85,7 @@ cp -f examples/NeHe/Lesson06/bin/Release/*.exe dist/examples
 cp -f examples/NeHe/Lesson06/Data/*.* dist/examples/Data
 cp -f examples/NeHe/Lesson07/bin/Release/*.exe dist/examples
 cp -f examples/NeHe/Lesson07/Data/*.* dist/examples/Data
-cp -f examples/NeHe/Lesson08/bin/Release/*.exe dist/examples/*.*
+cp -f examples/NeHe/Lesson08/bin/Release/*.exe dist/examples
 cp -f examples/NeHe/Lesson08/Data/*.* dist/examples/Data
 cp -f examples/NeHe/Lesson09/bin/Release/*.exe dist/examples
 cp -f examples/NeHe/Lesson09/Data/*.* dist/examples/Data
@@ -212,13 +214,7 @@ cp -f examples/SdlExamples/SmpegPlayer/bin/Release/*.exe dist/examples
 cp -f examples/SdlExamples/SmpegPlayer/Data/*.* dist/examples/Data
 
 # Build Documentation Using NAnt 
-nant -t:mono-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build doc
-nant -t:mono-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build doc
-nant -t:mono-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build doc 
-nant -t:mono-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build doc 
-nant -t:mono-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build doc 
-nant -t:mono-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build doc 
-
+mkdir -p dist/doc
 cp -f src/Tao.Cg/bin/Release/*.xml dist/doc
 cp -f src/Tao.DevIl/bin/Release/*.xml dist/doc
 cp -f src/Tao.FreeGlut/bin/Release/*.xml dist/doc
