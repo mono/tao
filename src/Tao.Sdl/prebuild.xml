@@ -68,7 +68,6 @@
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Debug</OutputPath>
 		    <KeyFile>../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
-		    <XmlDocFile>Tao.Sdl.Tests.xml</XmlDocFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -79,7 +78,6 @@
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Release</OutputPath>
 		    <KeyFile>../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
-		    <XmlDocFile>Tao.Sdl.Tests.xml</XmlDocFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
