@@ -1,12 +1,15 @@
-Tao.DevIl 1.6.7.0
+Tao.DevIl 1.6.8.0
 Copyright ©2003-2006 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
-Tao.DevIl is a DevIL API binding for .NET, implementing DevIL 1.6.7.
+Tao.DevIl is a DevIL API binding for .NET, implementing DevIL 1.6.8 RC2.
 
 
 Change Log:
+1.6.8.0 - September 18, 2006
+    Updated to 1.6.8 RC2, still missing documentation.
+
 1.6.7.0 - December 2, 2004:
     Updated to 1.6.7, filled in a bunch of missing stuff.
 

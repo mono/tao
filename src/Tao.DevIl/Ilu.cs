@@ -29,13 +29,50 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace Tao.DevIl {
+#region Aliases
+using ILHANDLE = System.IntPtr;
+//typedef unsigned int   ILenum;
+using ILenum = System.Int32;
+//typedef unsigned char  ILboolean;
+using ILboolean = System.Boolean;
+//typedef unsigned int   ILbitfield;
+using ILbitfield = System.UInt32;
+//typedef char           ILbyte;
+using ILbyte = System.Byte;
+//typedef short          ILshort;
+using ILshort = System.Int16;
+//typedef int            ILint;
+using ILint = System.Int32;
+//typedef int            ILsizei;
+using ILsizei = System.Int32;
+//typedef unsigned char  ILubyte;
+using ILubyte = System.Byte;
+//typedef unsigned short ILushort;
+using ILushort = System.UInt16;
+//typedef unsigned int   ILuint;
+using ILuint = System.Int32;
+//typedef float          ILfloat;
+using ILfloat = System.Single;
+//typedef float          ILclampf;
+using ILclampf = System.Single;
+//typedef double         ILdouble;
+using ILdouble = System.Double;
+//typedef double         ILclampd;
+using ILclampd = System.Double;
+//typedef void           ILvoid;
+//using ILvoid = void;
+using ILstring = System.String;
+#endregion Aliases
+
+namespace Tao.DevIl
+{
     #region Class Documentation
     /// <summary>
     ///     DevIL (Developer's Image Library) ILU binding for .NET.
     /// </summary>
     #endregion Class Documentation
-    public sealed class Ilu {
+    public sealed class Ilu
+    {
         // --- Fields ---
         #region Private Constants
         #region CallingConvention CALLING_CONVENTION
@@ -58,817 +95,316 @@ namespace Tao.DevIl {
         /// the ".config" file mechanism.  Kudos to the Mono team for this
         /// simple yet elegant solution.
         /// </remarks>
-        private const string ILU_NATIVE_LIBRARY = "ilu.dll";
+        private const string ILU_NATIVE_LIBRARY = "ILU.dll";
         #endregion string ILU_NATIVE_LIBRARY
         #endregion Private Constants
 
         #region Public Constants
-        #region  Core Constants
-        #region ILU_VERSION_1_6_1
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_VERSION_1_6_1 = 1
-        public const int ILU_VERSION_1_6_1 = 1;
-        #endregion ILU_VERSION_1_6_1
 
-        #region ILU_VERSION
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_VERSION = 161
-        public const int ILU_VERSION = 161;
-        #endregion ILU_VERSION
-
-        #region ILU_FILTER
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_FILTER = 0x2600
+        // #define ILU_VERSION_1_6_8 1
+        public const int ILU_VERSION_1_6_8 = 1;
+        // #define ILU_VERSION       168
+        public const int ILU_VERSION = 168;
+        // #define ILU_FILTER         0x2600
         public const int ILU_FILTER = 0x2600;
-        #endregion ILU_FILTER
-
-        #region ILU_NEAREST
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_NEAREST = 0x2601
+        // #define ILU_NEAREST        0x2601
         public const int ILU_NEAREST = 0x2601;
-        #endregion ILU_NEAREST
-
-        #region ILU_LINEAR
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_LINEAR = 0x2602
+        // #define ILU_LINEAR         0x2602
         public const int ILU_LINEAR = 0x2602;
-        #endregion ILU_LINEAR
-
-        #region ILU_BILINEAR
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_BILINEAR = 0x2603
+        // #define ILU_BILINEAR       0x2603
         public const int ILU_BILINEAR = 0x2603;
-        #endregion ILU_BILINEAR
-
-        #region ILU_SCALE_BOX
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_SCALE_BOX = 0x2604
+        // #define ILU_SCALE_BOX      0x2604
         public const int ILU_SCALE_BOX = 0x2604;
-        #endregion ILU_SCALE_BOX
-
-        #region ILU_SCALE_TRIANGLE
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_SCALE_TRIANGLE = 0x2605
+        // #define ILU_SCALE_TRIANGLE 0x2605
         public const int ILU_SCALE_TRIANGLE = 0x2605;
-        #endregion ILU_SCALE_TRIANGLE
-
-        #region ILU_SCALE_BELL
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_SCALE_BELL = 0x2606
+        // #define ILU_SCALE_BELL     0x2606
         public const int ILU_SCALE_BELL = 0x2606;
-        #endregion ILU_SCALE_BELL
-
-        #region ILU_SCALE_BSPLINE
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_SCALE_BSPLINE = 0x2607
+        // #define ILU_SCALE_BSPLINE  0x2607
         public const int ILU_SCALE_BSPLINE = 0x2607;
-        #endregion ILU_SCALE_BSPLINE
-
-        #region ILU_SCALE_LANCZOS3
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_SCALE_LANCZOS3 = 0x2608
+        // #define ILU_SCALE_LANCZOS3 0x2608
         public const int ILU_SCALE_LANCZOS3 = 0x2608;
-        #endregion ILU_SCALE_LANCZOS3
-
-        #region ILU_SCALE_MITCHELL
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_SCALE_MITCHELL = 0x2609
+        // #define ILU_SCALE_MITCHELL 0x2609
         public const int ILU_SCALE_MITCHELL = 0x2609;
-        #endregion ILU_SCALE_MITCHELL
-        #endregion  Core Constants
-
-        #region  Error types
-        #region ILU_INVALID_ENUM
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_INVALID_ENUM = 0x0501
+        // #define ILU_INVALID_ENUM      0x0501
         public const int ILU_INVALID_ENUM = 0x0501;
-        #endregion ILU_INVALID_ENUM
-
-        #region ILU_OUT_OF_MEMORY
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_OUT_OF_MEMORY = 0x0502
+        // #define ILU_OUT_OF_MEMORY     0x0502
         public const int ILU_OUT_OF_MEMORY = 0x0502;
-        #endregion ILU_OUT_OF_MEMORY
-
-        #region ILU_INTERNAL_ERROR
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_INTERNAL_ERROR = 0x0504
+        // #define ILU_INTERNAL_ERROR    0x0504
         public const int ILU_INTERNAL_ERROR = 0x0504;
-        #endregion ILU_INTERNAL_ERROR
-
-        #region ILU_INVALID_VALUE
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_INVALID_VALUE = 0x0505
+        // #define ILU_INVALID_VALUE     0x0505
         public const int ILU_INVALID_VALUE = 0x0505;
-        #endregion ILU_INVALID_VALUE
-
-        #region ILU_ILLEGAL_OPERATION
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_ILLEGAL_OPERATION = 0x0506
+        // #define ILU_ILLEGAL_OPERATION 0x0506
         public const int ILU_ILLEGAL_OPERATION = 0x0506;
-        #endregion ILU_ILLEGAL_OPERATION
-
-        #region ILU_INVALID_PARAM
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_INVALID_PARAM = 0x0509
+        // #define ILU_INVALID_PARAM     0x0509
         public const int ILU_INVALID_PARAM = 0x0509;
-        #endregion ILU_INVALID_PARAM
-        #endregion  Error types
-
-        #region  Values
-        #region ILU_PLACEMENT
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_PLACEMENT = 0x0700
+        // #define ILU_PLACEMENT          0x0700
         public const int ILU_PLACEMENT = 0x0700;
-        #endregion ILU_PLACEMENT
-
-        #region ILU_LOWER_LEFT
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_LOWER_LEFT = 0x0701
+        // #define ILU_LOWER_LEFT         0x0701
         public const int ILU_LOWER_LEFT = 0x0701;
-        #endregion ILU_LOWER_LEFT
-
-        #region ILU_LOWER_RIGHT
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_LOWER_RIGHT = 0x0702
+        // #define ILU_LOWER_RIGHT        0x0702
         public const int ILU_LOWER_RIGHT = 0x0702;
-        #endregion ILU_LOWER_RIGHT
-
-        #region ILU_UPPER_LEFT
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_UPPER_LEFT = 0x0703
+        // #define ILU_UPPER_LEFT         0x0703
         public const int ILU_UPPER_LEFT = 0x0703;
-        #endregion ILU_UPPER_LEFT
-
-        #region ILU_UPPER_RIGHT
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_UPPER_RIGHT = 0x0704
+        // #define ILU_UPPER_RIGHT        0x0704
         public const int ILU_UPPER_RIGHT = 0x0704;
-        #endregion ILU_UPPER_RIGHT
-
-        #region ILU_CENTER
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_CENTER = 0x0705
+        // #define ILU_CENTER             0x0705
         public const int ILU_CENTER = 0x0705;
-        #endregion ILU_CENTER
-
-        #region ILU_CONVOLUTION_MATRIX
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_CONVOLUTION_MATRIX = 0x0710
+        // #define ILU_CONVOLUTION_MATRIX 0x0710
         public const int ILU_CONVOLUTION_MATRIX = 0x0710;
-        #endregion ILU_CONVOLUTION_MATRIX
+        // #define ILU_VERSION_NUM IL_VERSION_NUM
+        public const int ILU_VERSION_NUM = Il.IL_VERSION_NUM;
+        // #define ILU_VENDOR      IL_VENDOR
+        public const int ILU_VENDOR = Il.IL_VENDOR;
 
-        #region ILU_VERSION_NUM
-        /// <summary>
-        /// 
-        /// </summary>
-        // #define ILU_VERSION_NUM = 0x0DE2
-        public const int ILU_VERSION_NUM = 0x0DE2;
-        #endregion ILU_VERSION_NUM
-        #endregion  Values
         #endregion Public Constants
 
-        // --- Externs ---
         #region Externs
-        #region bool iluAlienify();
-        /// <summary>
-        ///	
-        /// </summary>
-        // ILAPI ILboolean ILAPIENTRY iluAlienify(ILvoid);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluAlienify();
-        #endregion bool iluAlienify();
 
-        #region bool iluBlurAvg(int Iter);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Iter"></param>
-        // ILAPI ILboolean ILAPIENTRY iluBlurAvg(ILuint Iter);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluBlurAvg(int Iter);
-        #endregion bool iluBlurAvg(int Iter);
-
-        #region bool iluBlurGaussian(int Iter);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Iter"></param>
-        // ILAPI ILboolean ILAPIENTRY iluBlurGaussian(ILuint Iter);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluBlurGaussian(int Iter);
-        #endregion bool iluBlurGaussian(int Iter);
-
-        #region bool iluBuildMipmaps();
-        /// <summary>
-        ///
-        /// </summary>
-        // ILAPI ILboolean ILAPIENTRY iluBuildMipmaps(ILvoid);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluBuildMipmaps();
-        #endregion bool iluBuildMipmaps();
-
-        #region int iluColoursUsed();
-        /// <summary>
-        ///
-        /// </summary>
-        // ILAPI ILuint ILAPIENTRY iluColoursUsed(ILvoid);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern int iluColoursUsed();
-        #endregion int iluColoursUsed();
-
-        #region bool iluCompareImage(int Comp);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Comp"></param>
-        // ILAPI ILboolean ILAPIENTRY iluCompareImage(ILuint Comp);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluCompareImage(int Comp);
-        #endregion bool iluCompareImage(int Comp);
-
-        #region bool iluContrast(float Contrast);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Contrast"></param>
-        // ILAPI ILboolean ILAPIENTRY iluContrast(ILfloat Contrast);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluContrast(float Contrast);
-        #endregion bool iluContrast(float Contrast);
-
-        #region bool iluCrop(int XOff, int YOff, int ZOff, int Width, int Height, int Depth);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="XOff"></param>
-        /// <param name="YOff"></param>
-        /// <param name="ZOff"></param>
-        /// <param name="Width"></param>
-        /// <param name="Height"></param>
-        /// <param name="Depth"></param>
-        // ILAPI ILboolean ILAPIENTRY iluCrop(ILuint XOff, ILuint YOff, ILuint ZOff, ILuint Width, ILuint Height, ILuint Depth);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluCrop(int XOff, int YOff, int ZOff, int Width, int Height, int Depth);
-        #endregion bool iluCrop(int XOff, int YOff, int ZOff, int Width, int Height, int Depth);
-
-        #region iluDeleteImage(int Id);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Id"></param>
-        // ILAPI ILvoid ILAPIENTRY iluDeleteImage(ILuint Id);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern void iluDeleteImage(int Id);
-        #endregion iluDeleteImage(int Id);
-
-        #region bool iluEdgeDetectE();
-        /// <summary>
-        ///
-        /// </summary>
-        // ILAPI ILboolean ILAPIENTRY iluEdgeDetectE(ILvoid);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluEdgeDetectE();
-        #endregion bool iluEdgeDetectE();
-
-        #region bool iluEdgeDetectP();
-        /// <summary>
-        ///
-        /// </summary>
-        // ILAPI ILboolean ILAPIENTRY iluEdgeDetectP(ILvoid);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluEdgeDetectP();
-        #endregion bool iluEdgeDetectP();
-
-        #region bool iluEdgeDetectS();
-        /// <summary>
-        ///
-        /// </summary>
-        // ILAPI ILboolean ILAPIENTRY iluEdgeDetectS(ILvoid);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluEdgeDetectS();
-        #endregion bool iluEdgeDetectS();
-
-        #region bool iluEmboss();
-        /// <summary>
-        ///
-        /// </summary>
-        // ILAPI ILboolean ILAPIENTRY iluEmboss(ILvoid);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluEmboss();
-        #endregion bool iluEmboss();
-
-        #region bool iluEnlargeCanvas(int Width, int Height, int Depth);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Width"></param>
-        /// <param name="Height"></param>
-        /// <param name="Depth"></param>
-        // ILAPI ILboolean ILAPIENTRY iluEnlargeCanvas(ILuint Width, ILuint Height, ILuint Depth);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluEnlargeCanvas(int Width, int Height, int Depth);
-        #endregion bool iluEnlargeCanvas(int Width, int Height, int Depth);
-
-        #region bool iluEnlargeImage(float XDim, float YDim, float ZDim);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="XDim"></param>
-        /// <param name="YDim"></param>
-        /// <param name="ZDim"></param>
-        // ILAPI ILboolean ILAPIENTRY iluEnlargeImage(ILfloat XDim, ILfloat YDim, ILfloat ZDim);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluEnlargeImage(float XDim, float YDim, float ZDim);
-        #endregion bool iluEnlargeImage(float XDim, float YDim, float ZDim);
-
-        #region bool iluEqualize();
-        /// <summary>
-        ///
-        /// </summary>
-        // ILAPI ILboolean ILAPIENTRY iluEqualize(ILvoid);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluEqualize();
-        #endregion bool iluEqualize();
-
-        #region string iluErrorString(int Error);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Error"></param>
-        // ILAPI ILstring ILAPIENTRY iluErrorString(ILenum Error);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern string iluErrorString(int Error);
-        #endregion string iluErrorString(int Error);
-
-        #region bool iluFlipImage();
-        /// <summary>
-        ///
-        /// </summary>
-        // ILAPI ILboolean ILAPIENTRY iluFlipImage(ILvoid);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluFlipImage();
-        #endregion bool iluFlipImage();
-
-        #region bool iluGammaCorrect(float Gamma);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Gamma"></param>
-        // ILAPI ILboolean ILAPIENTRY iluGammaCorrect(ILfloat Gamma);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluGammaCorrect(float Gamma);
-        #endregion bool iluGammaCorrect(float Gamma);
-
-        #region bool iluGammaCorrectInter(float Gamma);
-        /// <summary>
-        /// Greater than 1.0, the image is brightened. It uses interpolation so it's slower then iluGammaCorrectScale
-        /// </summary>
-        /// <param name="Gamma">Gamma correction.</param>
-        /// <returns></returns>
-        // ILboolean iluGammaCorrectInter( ILfloat Gamma );
+        // ILAPI ILboolean      ILAPIENTRY iluAlienify(ILvoid);
         [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluGammaCorrectInter(float Gamma);
-        #endregion bool iluGammaCorrectInter(float Gamma);
+        public static extern ILboolean iluAlienify();
 
-        #region bool iluGammaCorrectScale(float Gamma);
-        /// <summary>
-        ///  	These two functions adjust the gamma of the current image.
-        /// </summary>
-        /// <remarks> If Gamma is less than 1.0, the image is darkened. If Gamma is greater than 1.0, the image is brightened. iluGammaCorrectInter is a slower function and uses interpolation to achieve this effect. iluGammaCorrectScale achieves this effect by scaling the colours via iluScaleColours.</remarks>
-        /// <param name="Gamma">Gamma correction.</param>
-        /// <returns></returns>
-        // ILboolean iluGammaCorrectScale( ILfloat Gamma );
+        // ILAPI ILboolean      ILAPIENTRY iluBlurAvg(ILuint Iter);
         [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluGammaCorrectScale(float Gamma);
-        #endregion bool iluGammaCorrectScale(float Gamma);
+        public static extern ILboolean iluBlurAvg(ILuint Iter);
 
-        #region int iluGenImage();
-        /// <summary>
-        ///
-        /// </summary>
-        // ILAPI ILuint ILAPIENTRY iluGenImage(ILvoid);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern int iluGenImage();
-        #endregion int iluGenImage();
+        // ILAPI ILboolean      ILAPIENTRY iluBlurGaussian(ILuint Iter);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluBlurGaussian(ILuint Iter);
 
-        #region iluGetImageInfo(ref ILinfo Info);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Info"></param>
-        // ILAPI ILvoid ILAPIENTRY iluGetImageInfo(ILinfo* Info);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern void iluGetImageInfo(ref ILinfo Info);
-        #endregion iluGetImageInfo(ref ILinfo Info);
+        // ILAPI ILboolean      ILAPIENTRY iluBuildMipmaps(ILvoid);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluBuildMipmaps();
 
-        #region int iluGetInteger(int Mode);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Mode"></param>
-        // ILAPI ILint ILAPIENTRY iluGetInteger(ILenum Mode);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern int iluGetInteger(int Mode);
-        #endregion int iluGetInteger(int Mode);
+        // ILAPI ILuint         ILAPIENTRY iluColoursUsed(ILvoid);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILuint iluColoursUsed();
 
-        #region iluGetIntegerv(int Mode, ref int Param);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Mode"></param>
-        /// <param name="Param"></param>
-        // ILAPI ILvoid ILAPIENTRY iluGetIntegerv(ILenum Mode, ILint* Param);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern void iluGetIntegerv(int Mode, ref int Param);
-        #endregion iluGetIntegerv(int Mode, ref int Param);
+        // ILAPI ILboolean      ILAPIENTRY iluCompareImage(ILuint Comp);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluCompareImage(ILuint Comp);
 
-        #region string iluGetString(int StringName);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="StringName"></param>
-        // ILAPI ILstring ILAPIENTRY iluGetString(ILenum StringName);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern string iluGetString(int StringName);
-        #endregion string iluGetString(int StringName);
+        // ILAPI ILboolean      ILAPIENTRY iluContrast(ILfloat Contrast);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluContrast(ILfloat Contrast);
 
-        #region iluImageParameter(int PName, int Param);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="PName"></param>
-        /// <param name="Param"></param>
-        // ILAPI ILvoid ILAPIENTRY iluImageParameter(ILenum PName, ILenum Param);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern void iluImageParameter(int PName, int Param);
-        #endregion iluImageParameter(int PName, int Param);
+        // ILAPI ILboolean      ILAPIENTRY iluCrop(ILuint XOff, ILuint YOff, ILuint ZOff, ILuint Width, ILuint Height, ILuint Depth);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluCrop(ILuint XOff, ILuint YOff, ILuint ZOff, ILuint Width, ILuint Height, ILuint Depth);
 
-        #region iluInit();
-        /// <summary>
-        ///
-        /// </summary>
-        // ILAPI ILvoid ILAPIENTRY iluInit(ILvoid);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        // ILAPI ILvoid         ILAPIENTRY iluDeleteImage(ILuint Id);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void iluDeleteImage(ILuint Id);
+
+        // ILAPI ILboolean      ILAPIENTRY iluEdgeDetectE(ILvoid);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluEdgeDetectE();
+
+        // ILAPI ILboolean      ILAPIENTRY iluEdgeDetectP(ILvoid);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluEdgeDetectP();
+
+        // ILAPI ILboolean      ILAPIENTRY iluEdgeDetectS(ILvoid);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluEdgeDetectS();
+
+        // ILAPI ILboolean      ILAPIENTRY iluEmboss(ILvoid);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluEmboss();
+
+        // ILAPI ILboolean      ILAPIENTRY iluEnlargeCanvas(ILuint Width, ILuint Height, ILuint Depth);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluEnlargeCanvas(ILuint Width, ILuint Height, ILuint Depth);
+
+        // ILAPI ILboolean      ILAPIENTRY iluEnlargeImage(ILfloat XDim, ILfloat YDim, ILfloat ZDim);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluEnlargeImage(ILfloat XDim, ILfloat YDim, ILfloat ZDim);
+
+        // ILAPI ILboolean      ILAPIENTRY iluEqualize(ILvoid);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluEqualize();
+
+        // ILAPI ILstring 		 ILAPIENTRY iluErrorString(ILenum Error);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILstring iluErrorString(ILenum Error);
+
+        // ILAPI ILboolean      ILAPIENTRY iluConvolution(ILint *matrix, ILint scale, ILint bias);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluConvolution(ILint[] matrix, ILint scale, ILint bias);
+
+        // ILAPI ILboolean      ILAPIENTRY iluFlipImage(ILvoid);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluFlipImage();
+
+        // ILAPI ILboolean      ILAPIENTRY iluGammaCorrect(ILfloat Gamma);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluGammaCorrect(ILfloat Gamma);
+
+        // ILAPI ILuint         ILAPIENTRY iluGenImage(ILvoid);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILuint iluGenImage();
+
+        // ILAPI ILvoid         ILAPIENTRY iluGetImageInfo(ILinfo *Info);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void iluGetImageInfo(out ILinfo Info);
+
+        // ILAPI ILint          ILAPIENTRY iluGetInteger(ILenum Mode);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILint iluGetInteger(ILenum Mode);
+
+        // ILAPI ILvoid         ILAPIENTRY iluGetIntegerv(ILenum Mode, ILint *Param);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void iluGetIntegerv(ILenum Mode, out ILint Param);
+
+        // ILAPI ILstring 		 ILAPIENTRY iluGetString(ILenum StringName);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILstring iluGetString(ILenum StringName);
+
+        // ILAPI ILvoid         ILAPIENTRY iluImageParameter(ILenum PName, ILenum Param);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void iluImageParameter(ILenum PName, ILenum Param);
+
+        // ILAPI ILvoid         ILAPIENTRY iluInit(ILvoid);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void iluInit();
-        #endregion iluInit();
 
-        #region bool iluInvertAlpha();
-        /// <summary>
-        ///
-        /// </summary>
-        // ILAPI ILboolean ILAPIENTRY iluInvertAlpha(ILvoid);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluInvertAlpha();
-        #endregion bool iluInvertAlpha();
-
-        #region int iluLoadImage(string FileName);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="FileName"></param>
-        // ILAPI ILuint ILAPIENTRY iluLoadImage(ILstring FileName);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern int iluLoadImage(string FileName);
-        #endregion int iluLoadImage(string FileName);
-
-        #region bool iluMirror();
-        /// <summary>
-        ///
-        /// </summary>
-        // ILAPI ILboolean ILAPIENTRY iluMirror(ILvoid);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluMirror();
-        #endregion bool iluMirror();
-
-        #region bool iluNegative();
-        /// <summary>
-        ///
-        /// </summary>
-        // ILAPI ILboolean ILAPIENTRY iluNegative(ILvoid);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluNegative();
-        #endregion bool iluNegative();
-
-        #region bool iluNoisify(float Tolerance);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Tolerance"></param>
-        // ILAPI ILboolean ILAPIENTRY iluNoisify(ILclampf Tolerance);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluNoisify(float Tolerance);
-        #endregion bool iluNoisify(float Tolerance);
-
-        #region bool iluNoisify(float XDim, float YDim, float ZDim );
-        // ILAPI ILboolean ILAPIENTRY iluNoisify(ILclampf Tolerance);
-        /// <summary>
-        /// iluEnlargeImage enlarges an image's dimensions by multipliers, via iluScale. This function could be useful if you wanted to double the size of all images or something similar
-        /// </summary>
-        /// <param name="XDim">Width multiplier</param>
-        /// <param name="YDim">Height multiplier</param>
-        /// <param name="ZDim">Depth multiplier</param>
-        /// <returns></returns>
+        // ILAPI ILboolean      ILAPIENTRY iluInvertAlpha(ILvoid);
         [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluNoisify(float XDim, float YDim, float ZDim);
-        #endregion bool iluNoisify(float XDim, float YDim, float ZDim);
+        public static extern ILboolean iluInvertAlpha();
 
-        #region bool iluPixelize(int PixSize);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="PixSize"></param>
-        // ILAPI ILboolean ILAPIENTRY iluPixelize(ILuint PixSize);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluPixelize(int PixSize);
-        #endregion bool iluPixelize(int PixSize);
+        // ILAPI ILuint         ILAPIENTRY iluLoadImage(const ILstring FileName);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILuint iluLoadImage(ILstring FileName);
 
-        #region iluRegionfv(ILpointf[] Points, int n);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Points"></param>
-        /// <param name="n"></param>
-        // ILAPI ILvoid ILAPIENTRY iluRegionfv(ILpointf* Points, ILuint n);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern void iluRegionfv(ILpointf[] Points, int n);
-        #endregion iluRegionfv(ILpointf[] Points, int n);
+        // ILAPI ILboolean      ILAPIENTRY iluMirror(ILvoid);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluMirror();
 
-        #region iluRegioniv(ILpointi[] Points, int n);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Points"></param>
-        /// <param name="n"></param>
-        // ILAPI ILvoid ILAPIENTRY iluRegioniv(ILpointi* Points, ILuint n);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern void iluRegioniv(ILpointi[] Points, int n);
-        #endregion iluRegioniv(ILpointi[] Points, int n);
+        // ILAPI ILboolean      ILAPIENTRY iluNegative(ILvoid);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluNegative();
 
-        #region bool iluReplaceColour(byte Red, byte Green, byte Blue, float Tolerance);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Red"></param>
-        /// <param name="Green"></param>
-        /// <param name="Blue"></param>
-        /// <param name="Tolerance"></param>
-        // ILAPI ILboolean ILAPIENTRY iluReplaceColour(ILubyte Red, ILubyte Green, ILubyte Blue, ILfloat Tolerance);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluReplaceColour(byte Red, byte Green, byte Blue, float Tolerance);
-        #endregion bool iluReplaceColour(byte Red, byte Green, byte Blue, float Tolerance);
+        // ILAPI ILboolean      ILAPIENTRY iluNoisify(ILclampf Tolerance);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluNoisify(ILclampf Tolerance);
 
-        #region bool iluRotate(float Angle);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Angle"></param>
-        // ILAPI ILboolean ILAPIENTRY iluRotate(ILfloat Angle);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluRotate(float Angle);
-        #endregion bool iluRotate(float Angle);
+        // ILAPI ILboolean      ILAPIENTRY iluPixelize(ILuint PixSize);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluPixelize(ILuint PixSize);
 
-        #region bool iluRotate3D(float x, float y, float z, float Angle);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="x"></param>
-        /// <param name="y"></param>
-        /// <param name="z"></param>
-        /// <param name="Angle"></param>
-        // ILAPI ILboolean ILAPIENTRY iluRotate3D(ILfloat x, ILfloat y, ILfloat z, ILfloat Angle);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluRotate3D(float x, float y, float z, float Angle);
-        #endregion bool iluRotate3D(float x, float y, float z, float Angle);
+        // ILAPI ILvoid         ILAPIENTRY iluRegionfv(ILpointf *Points, ILuint n);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void iluRegionfv(ILpointf[] Points, ILuint n);
 
-        #region bool iluSaturate1f(float Saturation);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Saturation"></param>
-        // ILAPI ILboolean ILAPIENTRY iluSaturate1f(ILfloat Saturation);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluSaturate1f(float Saturation);
-        #endregion bool iluSaturate1f(float Saturation);
+        // ILAPI ILvoid         ILAPIENTRY iluRegioniv(ILpointi *Points, ILuint n);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void iluRegioniv(ILpointi[] Points, ILuint n);
 
-        #region bool iluSaturate4f(float r, float g, float b, float Saturation);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="r"></param>
-        /// <param name="g"></param>
-        /// <param name="b"></param>
-        /// <param name="Saturation"></param>
-        // ILAPI ILboolean ILAPIENTRY iluSaturate4f(ILfloat r, ILfloat g, ILfloat b, ILfloat Saturation);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluSaturate4f(float r, float g, float b, float Saturation);
-        #endregion bool iluSaturate4f(float r, float g, float b, float Saturation);
+        // ILAPI ILboolean      ILAPIENTRY iluReplaceColour(ILubyte Red, ILubyte Green, ILubyte Blue, ILfloat Tolerance);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluReplaceColour(ILubyte Red, ILubyte Green, ILubyte Blue, ILfloat Tolerance);
 
-        #region bool iluScale(int Width, int Height, int Depth);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Width"></param>
-        /// <param name="Height"></param>
-        /// <param name="Depth"></param>
-        // ILAPI ILboolean ILAPIENTRY iluScale(ILuint Width, ILuint Height, ILuint Depth);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluScale(int Width, int Height, int Depth);
-        #endregion bool iluScale(int Width, int Height, int Depth);
+        // ILAPI ILboolean      ILAPIENTRY iluRotate(ILfloat Angle);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluRotate(ILfloat Angle);
 
-        #region bool iluScaleColours(float r, float g, float b);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="r"></param>
-        /// <param name="g"></param>
-        /// <param name="b"></param>
-        // ILAPI ILboolean ILAPIENTRY iluScaleColours(ILfloat r, ILfloat g, ILfloat b);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluScaleColours(float r, float g, float b);
-        #endregion bool iluScaleColours(float r, float g, float b);
+        // ILAPI ILboolean      ILAPIENTRY iluRotate3D(ILfloat x, ILfloat y, ILfloat z, ILfloat Angle);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluRotate3D(ILfloat x, ILfloat y, ILfloat z, ILfloat Angle);
 
-        #region bool iluSharpen(float Factor, int Iter);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Factor"></param>
-        /// <param name="Iter"></param>
-        // ILAPI ILboolean ILAPIENTRY iluSharpen(ILfloat Factor, ILuint Iter);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluSharpen(float Factor, int Iter);
-        #endregion bool iluSharpen(float Factor, int Iter);
+        // ILAPI ILboolean      ILAPIENTRY iluSaturate1f(ILfloat Saturation);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluSaturate1f(ILfloat Saturation);
 
-        #region bool iluSwapColours();
-        /// <summary>
-        ///
-        /// </summary>
-        // ILAPI ILboolean ILAPIENTRY iluSwapColours(ILvoid);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluSwapColours();
-        #endregion bool iluSwapColours();
+        // ILAPI ILboolean      ILAPIENTRY iluSaturate4f(ILfloat r, ILfloat g, ILfloat b, ILfloat Saturation);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluSaturate4f(ILfloat r, ILfloat g, ILfloat b, ILfloat Saturation);
 
-        #region bool iluWave(float Angle);
-        /// <summary>
-        ///
-        /// </summary>
-        /// <param name="Angle"></param>
-        // ILAPI ILboolean ILAPIENTRY iluWave(ILfloat Angle);
-        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern bool iluWave(float Angle);
-        #endregion bool iluWave(float Angle);
+        // ILAPI ILboolean      ILAPIENTRY iluScale(ILuint Width, ILuint Height, ILuint Depth);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluScale(ILuint Width, ILuint Height, ILuint Depth);
+
+        // ILAPI ILboolean      ILAPIENTRY iluScaleColours(ILfloat r, ILfloat g, ILfloat b);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluScaleColours(ILfloat r, ILfloat g, ILfloat b);
+
+        // ILAPI ILboolean      ILAPIENTRY iluSharpen(ILfloat Factor, ILuint Iter);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluSharpen(ILfloat Factor, ILuint Iter);
+
+        // ILAPI ILboolean      ILAPIENTRY iluSwapColours(ILvoid);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluSwapColours();
+
+        // ILAPI ILboolean      ILAPIENTRY iluWave(ILfloat Angle);
+        [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern ILboolean iluWave(ILfloat Angle);
+        
         #endregion Externs
     }
 
     // --- Public Structs ---
     #region Public Structs
-    /// <summary>
-    ///     
-    /// </summary>
-    [StructLayout(LayoutKind.Sequential)]
-    public struct ILinfo {
-        /// <summary>
-        ///     The image's id.
-        /// </summary>
-        public int Id;
-        /// <summary>
-        ///     The image's data.
-        /// </summary>
-        // TODO: Was ILbyte*, confirm whether it should be array or IntPtr
-        public byte[] Data;
-        /// <summary>
-        ///     The image's width.
-        /// </summary>
-        public int Width;
-        /// <summary>
-        ///     The image's height.
-        /// </summary>
-        public int Height;
-        /// <summary>
-        ///     The image's depth.
-        /// </summary>
-        public int Depth;
-        /// <summary>
-        ///     Bytes per pixel (not bits) of the image.
-        /// </summary>
-        public byte Bpp;
-        /// <summary>
-        ///     The total size of the data (in bytes).
-        /// </summary>
-        public int SizeOfData;
-        /// <summary>
-        ///     Image format (in IL enum style).
-        /// </summary>
-        public int Format;
-        /// <summary>
-        ///     Image type (in IL enum style).
-        /// </summary>
-        public int Type;
-        /// <summary>
-        ///     Origin of the image.
-        /// </summary>
-        public int Origin;
-        /// <summary>
-        ///     The image's palette
-        /// </summary>
-        // TODO: Was ILbyte*, confirm whether it should be array or IntPtr
-        public byte[] Palette;
-        /// <summary>
-        ///     Palette type.
-        /// </summary>
-        public int PalType;
-        /// <summary>
-        ///     Palette size.
-        /// </summary>
-        public int PalSize;
-        /// <summary>
-        ///     Flags for what cube map sides are present.
-        /// </summary>
-        public int CubeFlags;
-        /// <summary>
-        ///     Number of images following.
-        /// </summary>
-        public int NumNext;
-        /// <summary>
-        ///     Number of mipmaps.
-        /// </summary>
-        public int NumMips;
-        /// <summary>
-        ///     Number of layers.
-        /// </summary>
-        public int NumLayers;
-    }
+    // typedef struct ILinfo
+    // {
+    // 	ILuint  Id;         // the image's id
+    // 	ILubyte *Data;      // the image's data
+    // 	ILuint  Width;      // the image's width
+    // 	ILuint  Height;     // the image's height
+    // 	ILuint  Depth;      // the image's depth
+    // 	ILubyte Bpp;        // bytes per pixel (not bits) of the image
+    // 	ILuint  SizeOfData; // the total size of the data (in bytes)
+    // 	ILenum  Format;     // image format (in IL enum style)
+    // 	ILenum  Type;       // image type (in IL enum style)
+    // 	ILenum  Origin;     // origin of the image
+    // 	ILubyte *Palette;   // the image's palette
+    // 	ILenum  PalType;    // palette type
+    // 	ILuint  PalSize;    // palette size
+    // 	ILenum  CubeFlags;  // flags for what cube map sides are present
+    // 	ILuint  NumNext;    // number of images following
+    // 	ILuint  NumMips;    // number of mipmaps
+    // 	ILuint  NumLayers;  // number of layers
+    // } ILinfo;
+    [StructLayout(LayoutKind.Sequential, Pack = 4)]
+    public struct ILinfo
+    {
+        ILuint Id;         // the image's id
+        ILubyte[] Data;      // the image's data
+        ILuint Width;      // the image's width
+        ILuint Height;     // the image's height
+        ILuint Depth;      // the image's depth
+        ILubyte Bpp;        // bytes per pixel (not bits) of the image
+        ILuint SizeOfData; // the total size of the data (in bytes)
+        ILenum Format;     // image format (in IL enum style)
+        ILenum Type;       // image type (in IL enum style)
+        ILenum Origin;     // origin of the image
+        ILubyte[] Palette;   // the image's palette
+        ILenum PalType;    // palette type
+        ILuint PalSize;    // palette size
+        ILenum CubeFlags;  // flags for what cube map sides are present
+        ILuint NumNext;    // number of images following
+        ILuint NumMips;    // number of mipmaps
+        ILuint NumLayers;  // number of layers
+    };
 
-    /// <summary>
-    ///     
-    /// </summary>
-    [StructLayout(LayoutKind.Sequential)]
-    public struct ILpointf {
-		/// <summary>
-		/// 
-		/// </summary>
-        public float x, y;
-    }
+    // typedef struct ILpointf
+    // {
+    // 	ILfloat x, y;
+    // } ILpointf;
+    [StructLayout(LayoutKind.Sequential, Pack = 4)]
+    public struct ILpointf
+    {
+        public ILfloat x, y;
+    };
 
-    /// <summary>
-    ///     
-    /// </summary>
-    [StructLayout(LayoutKind.Sequential)]
-    public struct ILpointi {
-		/// <summary>
-		/// 
-		/// </summary>
-        public int x, y;
-    }
+    // typedef struct ILpointi
+    // {
+    // 	ILint x, y;
+    // } ILpointi;
+    [StructLayout(LayoutKind.Sequential, Pack = 4)]
+    public struct ILpointi
+    {
+        public ILint x, y;
+    };
     #endregion Public Structs
 }
