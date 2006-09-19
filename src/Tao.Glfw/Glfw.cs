@@ -1330,8 +1330,8 @@ namespace Tao.Glfw {
 		/// <summary>
 		///     Callback function that will be called every time the window closes.
 		/// </summary>
-		// typedef void (GLFWCALL * GLFWwindowclosefun)(void);
-		public delegate void GLFWwindowclosefun();
+		// typedef int  (GLFWCALL * GLFWwindowclosefun)(void);
+		public delegate int GLFWwindowclosefun();
 		#endregion GLFWwindowclosefun()
 
 		#region GLFWwindowrefreshfun()
