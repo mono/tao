@@ -169,7 +169,7 @@
 		<xs:complexType>
 			<xs:simpleContent>
 				<xs:extension base="xs:string">
-				<xs:attribute name="resourceName" type="xs:string" default=""/>
+					<xs:attribute name="resourceName" type="xs:string" default="" />
 					<xs:attribute name="buildAction" default="Compile">
 						<xs:simpleType>
 							<xs:restriction base="xs:string">
@@ -187,6 +187,16 @@
 								<xs:enumeration value="Component" />
 								<xs:enumeration value="Form" />
 								<xs:enumeration value="UserControl" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+					<xs:attribute name="link" type="xs:boolean" />
+					<xs:attribute name="copyToOutput" default="Never">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="Never" />
+								<xs:enumeration value="Always" />
+								<xs:enumeration value="PreserveNewest" />
 							</xs:restriction>
 						</xs:simpleType>
 					</xs:attribute>
@@ -213,7 +223,7 @@
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:attribute>
-			<xs:attribute name="resourceName" type="xs:string" default=""/>
+			<xs:attribute name="resourceName" type="xs:string" default="" />
 			<xs:attribute name="subType" default="Code">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
@@ -221,6 +231,16 @@
 						<xs:enumeration value="Component" />
 						<xs:enumeration value="Form" />
 						<xs:enumeration value="UserControl" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="link" type="xs:boolean" />
+			<xs:attribute name="copyToOutput" default="Never">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="Never" />
+						<xs:enumeration value="Always" />
+						<xs:enumeration value="PreserveNewest" />
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:attribute>
