@@ -100,421 +100,480 @@ namespace Tao.DevIl
 
         #region Public Constants
 
-        // #define IL_FALSE							0
         public const int IL_FALSE = 0;
-        // #define IL_TRUE								1
         public const int IL_TRUE = 1;
-        // #define IL_COLOUR_INDEX     0x1900
         public const int IL_COLOUR_INDEX = 0x1900;
-        // #define IL_COLOR_INDEX      0x1900
         public const int IL_COLOR_INDEX = 0x1900;
-        // #define IL_RGB              0x1907
         public const int IL_RGB = 0x1907;
-        // #define IL_RGBA             0x1908
         public const int IL_RGBA = 0x1908;
-        // #define IL_BGR              0x80E0
         public const int IL_BGR = 0x80E0;
-        // #define IL_BGRA             0x80E1
         public const int IL_BGRA = 0x80E1;
-        // #define IL_LUMINANCE        0x1909
         public const int IL_LUMINANCE = 0x1909;
-        // #define IL_LUMINANCE_ALPHA  0x190A
         public const int IL_LUMINANCE_ALPHA = 0x190A;
-        // #define IL_BYTE           0x1400
         public const int IL_BYTE = 0x1400;
-        // #define IL_UNSIGNED_BYTE  0x1401
         public const int IL_UNSIGNED_BYTE = 0x1401;
-        // #define IL_SHORT          0x1402
         public const int IL_SHORT = 0x1402;
-        // #define IL_UNSIGNED_SHORT 0x1403
         public const int IL_UNSIGNED_SHORT = 0x1403;
-        // #define IL_INT            0x1404
         public const int IL_INT = 0x1404;
-        // #define IL_UNSIGNED_INT   0x1405
         public const int IL_UNSIGNED_INT = 0x1405;
-        // #define IL_FLOAT          0x1406
         public const int IL_FLOAT = 0x1406;
-        // #define IL_DOUBLE         0x140A
         public const int IL_DOUBLE = 0x140A;
-        // #define IL_VENDOR   0x1F00
+        /// <summary>
+        /// Describes the OpenIL vendor and should be used only with ilGetString
+        /// </summary>
         public const int IL_VENDOR = 0x1F00;
-        // #define IL_LOAD_EXT 0x1F01
         public const int IL_LOAD_EXT = 0x1F01;
-        // #define IL_SAVE_EXT 0x1F02
         public const int IL_SAVE_EXT = 0x1F02;
-        // #define IL_VERSION_1_6_8 1
         public const int IL_VERSION_1_6_8 = 1;
-        // #define IL_VERSION       168
+        /// <summary>
+        /// Used to retrive a string describing the current OpenIL version.
+        /// </summary>
         public const int IL_VERSION = 168;
-        // #define IL_ORIGIN_BIT          0x00000001
+        /// <summary>
+        /// Preserves the origin state set by ilOriginFunc.
+        /// </summary>
         public const int IL_ORIGIN_BIT = 0x00000001;
-        // #define IL_FILE_BIT            0x00000002
+        /// <summary>
+        /// Preserves whether OpenIL is allowed to overwrite files when saving (set by ilEnable, ilDisable).
+        /// </summary>
         public const int IL_FILE_BIT = 0x00000002;
-        // #define IL_PAL_BIT             0x00000004
+        /// <summary>
+        /// d to truecolour images (set by <see cref="ilEnable"/>, <see cref="ilDisable"/>).
+        /// </summary>
         public const int IL_PAL_BIT = 0x00000004;
-        // #define IL_FORMAT_BIT          0x00000008
         public const int IL_FORMAT_BIT = 0x00000008;
-        // #define IL_TYPE_BIT            0x00000010
         public const int IL_TYPE_BIT = 0x00000010;
-        // #define IL_COMPRESS_BIT        0x00000020
         public const int IL_COMPRESS_BIT = 0x00000020;
-        // #define IL_LOADFAIL_BIT        0x00000040
         public const int IL_LOADFAIL_BIT = 0x00000040;
-        // #define IL_FORMAT_SPECIFIC_BIT 0x00000080
         public const int IL_FORMAT_SPECIFIC_BIT = 0x00000080;
-        // #define IL_ALL_ATTRIB_BITS     0x000FFFFF
+        /// <summary>
+        /// Preserves all OpenIL states and attributes.
+        /// </summary>
         public const int IL_ALL_ATTRIB_BITS = 0x000FFFFF;
-        // #define IL_PAL_NONE   0x0400
         public const int IL_PAL_NONE = 0x0400;
-        // #define IL_PAL_RGB24  0x0401
         public const int IL_PAL_RGB24 = 0x0401;
-        // #define IL_PAL_RGB32  0x0402
         public const int IL_PAL_RGB32 = 0x0402;
-        // #define IL_PAL_RGBA32 0x0403
         public const int IL_PAL_RGBA32 = 0x0403;
-        // #define IL_PAL_BGR24  0x0404
         public const int IL_PAL_BGR24 = 0x0404;
-        // #define IL_PAL_BGR32  0x0405
         public const int IL_PAL_BGR32 = 0x0405;
-        // #define IL_PAL_BGRA32 0x0406
         public const int IL_PAL_BGRA32 = 0x0406;
-        // #define IL_TYPE_UNKNOWN 0x0000
+        /// <summary>
+        /// Tells OpenIL to try to determine the type of image present in FileName, File or Lump.
+        /// </summary>
         public const int IL_TYPE_UNKNOWN = 0x0000;
-        // #define IL_BMP          0x0420
+        /// <summary>
+        /// Microsoft bitmap .
+        /// </summary>
         public const int IL_BMP = 0x0420;
-        // #define IL_CUT          0x0421
+        /// <summary>
+        /// Dr. Halo .cut image.
+        /// </summary>
         public const int IL_CUT = 0x0421;
-        // #define IL_DOOM         0x0422
+        /// <summary>
+        /// Doom texture.
+        /// </summary>
         public const int IL_DOOM = 0x0422;
-        // #define IL_DOOM_FLAT    0x0423
+        /// <summary>
+        /// Doom flat (floor).
+        /// </summary>
         public const int IL_DOOM_FLAT = 0x0423;
-        // #define IL_ICO          0x0424
+        /// <summary>
+        /// Microsoft icon (.ico).
+        /// </summary>
         public const int IL_ICO = 0x0424;
-        // #define IL_JPG          0x0425
+        /// <summary>
+        /// Jpeg.
+        /// </summary>
         public const int IL_JPG = 0x0425;
-        // #define IL_JFIF         0x0425
         public const int IL_JFIF = 0x0425;
-        // #define IL_LBM          0x0426
         public const int IL_LBM = 0x0426;
-        // #define IL_PCD          0x0427
+        /// <summary>
+        /// Kodak PhotoCD image.
+        /// </summary>
         public const int IL_PCD = 0x0427;
-        // #define IL_PCX          0x0428
+        /// <summary>
+        ///  .pcx Image.
+        /// </summary>
         public const int IL_PCX = 0x0428;
-        // #define IL_PIC          0x0429
+        /// <summary>
+        /// Softimage Pic image.
+        /// </summary>
         public const int IL_PIC = 0x0429;
-        // #define IL_PNG          0x042A
+        /// <summary>
+        /// Portable Network Graphics (.png) image.
+        /// </summary>
         public const int IL_PNG = 0x042A;
-        // #define IL_PNM          0x042B
+        /// <summary>
+        /// Portable AnyMap (.pbm, .pgm or .ppm).
+        /// </summary>
         public const int IL_PNM = 0x042B;
-        // #define IL_SGI          0x042C
+        /// <summary>
+        /// SGI (.bw, .rgb, .rgba or .sgi).
+        /// </summary>
         public const int IL_SGI = 0x042C;
-        // #define IL_TGA          0x042D
+        /// <summary>
+        /// TrueVision Targa.
+        /// </summary>
         public const int IL_TGA = 0x042D;
-        // #define IL_TIF          0x042E
+        /// <summary>
+        /// TIFF (.tif or .tiff) image.
+        /// </summary>
         public const int IL_TIF = 0x042E;
-        // #define IL_CHEAD        0x042F
+        /// <summary>
+        /// C Header.
+        /// </summary>
         public const int IL_CHEAD = 0x042F;
-        // #define IL_RAW          0x0430
+        /// <summary>
+        /// Raw data with a 13-byte header.
+        /// </summary>
         public const int IL_RAW = 0x0430;
-        // #define IL_MDL          0x0431
+        /// <summary>
+        /// Half-Life model file (.mdl).
+        /// </summary>
         public const int IL_MDL = 0x0431;
-        // #define IL_WAL          0x0432
+        /// <summary>
+        /// Quake .wal texture.
+        /// </summary>
         public const int IL_WAL = 0x0432;
-        // #define IL_LIF          0x0434
+        /// <summary>
+        /// Homeworld image.
+        /// </summary>
         public const int IL_LIF = 0x0434;
-        // #define IL_MNG          0x0435
+        /// <summary>
+        /// Load a Multiple Network Graphics (.mng).
+        /// </summary>
         public const int IL_MNG = 0x0435;
-        // #define IL_JNG          0x0435
         public const int IL_JNG = 0x0435;
-        // #define IL_GIF          0x0436
+        /// <summary>
+        /// Graphics Interchange Format file.
+        /// </summary>
         public const int IL_GIF = 0x0436;
-        // #define IL_DDS          0x0437
+        /// <summary>
+        /// DirectDraw Surface image.
+        /// </summary>
         public const int IL_DDS = 0x0437;
-        // #define IL_DCX          0x0438
+        /// <summary>
+        /// .dcx image.
+        /// </summary>
         public const int IL_DCX = 0x0438;
-        // #define IL_PSD          0x0439
+        /// <summary>
+        /// PhotoShop (.psd) file.
+        /// </summary>
         public const int IL_PSD = 0x0439;
-        // #define IL_EXIF         0x043A
         public const int IL_EXIF = 0x043A;
-        // #define IL_PSP          0x043B
+        /// <summary>
+        /// Paint Shop Pro file.
+        /// </summary>
         public const int IL_PSP = 0x043B;
-        // #define IL_PIX          0x043C
+        /// <summary>
+        /// Alias | Wavefront .pix file.
+        /// </summary>
         public const int IL_PIX = 0x043C;
-        // #define IL_PXR          0x043D
+        /// <summary>
+        /// Pxrar (.pxr) file.
+        /// </summary>
         public const int IL_PXR = 0x043D;
-        // #define IL_XPM          0x043E
+        /// <summary>
+        /// .xpm file.
+        /// </summary>
         public const int IL_XPM = 0x043E;
-        // #define IL_HDR          0x043F
+        /// <summary>
+        /// RADIANCE High Dynamic Range Image.
+        /// </summary>
         public const int IL_HDR = 0x043F;
-        // #define IL_JASC_PAL     0x0475
+        /// <summary>
+        /// Load the file into the current image's palette as a Paint Shop Pro (Jasc) palette.
+        /// </summary>
         public const int IL_JASC_PAL = 0x0475;
-        // #define IL_NO_ERROR             0x0000
+        /// <summary>
+        /// No detectable error has occured.
+        /// </summary>
         public const int IL_NO_ERROR = 0x0000;
-        // #define IL_INVALID_ENUM         0x0501
+        /// <summary>
+        /// An invalid value have been used, which was not part of the set of values that can be used. In the function documentation there should be a more specific descriptionanation.
+        /// </summary>
         public const int IL_INVALID_ENUM = 0x0501;
-        // #define IL_OUT_OF_MEMORY        0x0502
+        /// <summary>
+        /// Could not allocate enough memory for the image data.
+        /// </summary>
         public const int IL_OUT_OF_MEMORY = 0x0502;
-        // #define IL_FORMAT_NOT_SUPPORTED 0x0503
+        /// <summary>
+        /// The format a function tried to use was not able to be used by that function.
+        /// </summary>
         public const int IL_FORMAT_NOT_SUPPORTED = 0x0503;
-        // #define IL_INTERNAL_ERROR       0x0504
+        /// <summary>
+        /// A serious error has occurred.
+        /// </summary>
         public const int IL_INTERNAL_ERROR = 0x0504;
-        // #define IL_INVALID_VALUE        0x0505
+        /// <summary>
+        /// An invalid value was passed to a function or was in a file.
+        /// </summary>
         public const int IL_INVALID_VALUE = 0x0505;
-        // #define IL_ILLEGAL_OPERATION    0x0506
+        /// <summary>
+        /// The operation attempted is not allowable in the current state. The function returns with no ill side effects. Generally there is currently no image bound or it has been deleted via ilDeleteImages. You should use ilGenImages and ilBindImage before calling the function.
+        /// </summary>
         public const int IL_ILLEGAL_OPERATION = 0x0506;
-        // #define IL_ILLEGAL_FILE_VALUE   0x0507
+        /// <summary>
+        /// An illegal value was found in a file trying to be loaded.
+        /// </summary>
         public const int IL_ILLEGAL_FILE_VALUE = 0x0507;
-        // #define IL_INVALID_FILE_HEADER  0x0508
+        /// <summary>
+        ///  	s header was incorrect.
+        /// </summary>
         public const int IL_INVALID_FILE_HEADER = 0x0508;
-        // #define IL_INVALID_PARAM        0x0509
+        /// <summary>
+        /// An invalid value have been used, which was not part of the set of values that can be used. In the function documentation there should be a more specific descriptionanation.
+        /// </summary>
         public const int IL_INVALID_PARAM = 0x0509;
-        // #define IL_COULD_NOT_OPEN_FILE  0x050A
+        /// <summary>
+        /// Could not open the file specified. The file may already be open by another app or may not exist.
+        /// </summary>
         public const int IL_COULD_NOT_OPEN_FILE = 0x050A;
-        // #define IL_INVALID_EXTENSION    0x050B
+        /// <summary>
+        /// The extension of the specified filename was not correct for the type of image-loading function.
+        /// </summary>
         public const int IL_INVALID_EXTENSION = 0x050B;
-        // #define IL_FILE_ALREADY_EXISTS  0x050C
+        /// <summary>
+        /// The filename specified already belongs to another file. To overwrite files by default read more at ilEnable function.
+        /// </summary>
         public const int IL_FILE_ALREADY_EXISTS = 0x050C;
-        // #define IL_OUT_FORMAT_SAME      0x050D
+        /// <summary>
+        /// Tried to convert an image from its format to the same format.
+        /// </summary>
         public const int IL_OUT_FORMAT_SAME = 0x050D;
-        // #define IL_STACK_OVERFLOW       0x050E
+        /// <summary>
+        /// One of the internal stacks was already filled, and the user tried to add on to the full stack.
+        /// </summary>
         public const int IL_STACK_OVERFLOW = 0x050E;
-        // #define IL_STACK_UNDERFLOW      0x050F
+        /// <summary>
+        /// One of the internal stacks was empty, and the user tried to empty the already empty stack.
+        /// </summary>
         public const int IL_STACK_UNDERFLOW = 0x050F;
-        // #define IL_INVALID_CONVERSION   0x0510
+        /// <summary>
+        /// During a conversion destination format and/or dest type was an invalid identifier. In the function documentation there should be a more specific descriptionanation.
+        /// </summary>
         public const int IL_INVALID_CONVERSION = 0x0510;
-        // #define IL_BAD_DIMENSIONS       0x0511
         public const int IL_BAD_DIMENSIONS = 0x0511;
-        // #define IL_FILE_READ_ERROR      0x0512  // 05/12/2002: Addition by Sam.
         public const int IL_FILE_READ_ERROR = 0x0512;
-        // #define IL_FILE_WRITE_ERROR     0x0512
         public const int IL_FILE_WRITE_ERROR = 0x0512;
-        // #define IL_LIB_GIF_ERROR  0x05E1
         public const int IL_LIB_GIF_ERROR = 0x05E1;
-        // #define IL_LIB_JPEG_ERROR 0x05E2
+        /// <summary>
+        /// An error occurred in the libjpeg library.
+        /// </summary>
         public const int IL_LIB_JPEG_ERROR = 0x05E2;
-        // #define IL_LIB_PNG_ERROR  0x05E3
+        /// <summary>
+        /// An error occurred in the libpng library.
+        /// </summary>
         public const int IL_LIB_PNG_ERROR = 0x05E3;
-        // #define IL_LIB_TIFF_ERROR 0x05E4
         public const int IL_LIB_TIFF_ERROR = 0x05E4;
-        // #define IL_LIB_MNG_ERROR  0x05E5
         public const int IL_LIB_MNG_ERROR = 0x05E5;
-        // #define IL_UNKNOWN_ERROR  0x05FF
+        /// <summary>
+        /// No function sets this yet, but it is possible (not probable) it may be used in the future.
+        /// </summary>
         public const int IL_UNKNOWN_ERROR = 0x05FF;
-        // #define IL_ORIGIN_SET        0x0600
+        /// <summary>
+        /// nabled, the origin is specified at an absolute position, and all images loaded or saved adhere to this set origin. For more information, check out ilOriginFunc.
+        /// </summary>
         public const int IL_ORIGIN_SET = 0x0600;
-        // #define IL_ORIGIN_LOWER_LEFT 0x0601
         public const int IL_ORIGIN_LOWER_LEFT = 0x0601;
-        // #define IL_ORIGIN_UPPER_LEFT 0x0602
         public const int IL_ORIGIN_UPPER_LEFT = 0x0602;
-        // #define IL_ORIGIN_MODE       0x0603
+        /// <summary>
+        /// Returns the current origin position.
+        /// </summary>
         public const int IL_ORIGIN_MODE = 0x0603;
-        // #define IL_FORMAT_SET  0x0610
+        /// <summary>
+        /// Returns whether all images loaded are converted to a specific format.
+        /// </summary>
         public const int IL_FORMAT_SET = 0x0610;
-        // #define IL_FORMAT_MODE 0x0611
         public const int IL_FORMAT_MODE = 0x0611;
-        // #define IL_TYPE_SET    0x0612
+        /// <summary>
+        /// Returns whether all images loaded are converted to a specific type.
+        /// </summary>
         public const int IL_TYPE_SET = 0x0612;
-        // #define IL_TYPE_MODE   0x0613
+        /// <summary>
+        /// Returns the type images are converted to upon loading.
+        /// </summary>
         public const int IL_TYPE_MODE = 0x0613;
-        // #define IL_FILE_OVERWRITE 0x0620
         public const int IL_FILE_OVERWRITE = 0x0620;
-        // #define IL_FILE_MODE      0x0621
+        /// <summary>
+        /// Returns whether file overwriting when saving is enabled.
+        /// </summary>
         public const int IL_FILE_MODE = 0x0621;
-        // #define IL_CONV_PAL 0x0630
+        /// <summary>
+        /// d images to their base types, e.g. converting to a bgra image.
+        /// </summary>
         public const int IL_CONV_PAL = 0x0630;
-        // #define IL_DEFAULT_ON_FAIL 0x0632
         public const int IL_DEFAULT_ON_FAIL = 0x0632;
-        // #define IL_USE_KEY_COLOUR 0x0635
+        /// <summary>
+        /// Returns whether OpenIL uses a key colour (not used yet).
+        /// </summary>
         public const int IL_USE_KEY_COLOUR = 0x0635;
-        // #define IL_USE_KEY_COLOR  0x0635
+        /// <summary>
+        /// Returns whether OpenIL uses a key colour (not used yet).
+        /// </summary>
         public const int IL_USE_KEY_COLOR = 0x0635;
-        // #define IL_SAVE_INTERLACED 0x0639
         public const int IL_SAVE_INTERLACED = 0x0639;
-        // #define IL_INTERLACE_MODE  0x063A
         public const int IL_INTERLACE_MODE = 0x063A;
-        // #define IL_QUANTIZATION_MODE 0x0640
         public const int IL_QUANTIZATION_MODE = 0x0640;
-        // #define IL_WU_QUANT          0x0641
         public const int IL_WU_QUANT = 0x0641;
-        // #define IL_NEU_QUANT         0x0642
         public const int IL_NEU_QUANT = 0x0642;
-        // #define IL_NEU_QUANT_SAMPLE  0x0643
         public const int IL_NEU_QUANT_SAMPLE = 0x0643;
-        // #define IL_MAX_QUANT_INDEXS  0x0644 //XIX : ILint : Maximum number of colors to reduce to, default of 256. and has a range of 2-256
         public const int IL_MAX_QUANT_INDEXS = 0x0644;
-        // #define IL_FASTEST          0x0660
+        /// <summary>
+        /// Makes the target use a faster but more memory-intensive algorithm.
+        /// </summary>
         public const int IL_FASTEST = 0x0660;
-        // #define IL_LESS_MEM         0x0661
+        /// <summary>
+        /// Makes the target use less memory but a potentially slower algorithm.
+        /// </summary>
         public const int IL_LESS_MEM = 0x0661;
-        // #define IL_DONT_CARE        0x0662
+        /// <summary>
+        /// The client does not have a preference.
+        /// </summary>
         public const int IL_DONT_CARE = 0x0662;
-        // #define IL_MEM_SPEED_HINT   0x0665
+        /// <summary>
+        /// Controls the memory used vs. speed tradeoff.
+        /// </summary>
         public const int IL_MEM_SPEED_HINT = 0x0665;
-        // #define IL_USE_COMPRESSION  0x0666
+        /// <summary>
+        /// Specifies that OpenIL should use compression when saving, if possible.
+        /// </summary>
         public const int IL_USE_COMPRESSION = 0x0666;
-        // #define IL_NO_COMPRESSION   0x0667
+        /// <summary>
+        /// Specifies that OpenIL should never use compression when saving.
+        /// </summary>
         public const int IL_NO_COMPRESSION = 0x0667;
-        // #define IL_COMPRESSION_HINT 0x0668
+        /// <summary>
+        /// Controls whether compression is used when saving images.
+        /// </summary>
         public const int IL_COMPRESSION_HINT = 0x0668;
-        // #define IL_SUB_NEXT   0x0680
         public const int IL_SUB_NEXT = 0x0680;
-        // #define IL_SUB_MIPMAP 0x0681
         public const int IL_SUB_MIPMAP = 0x0681;
-        // #define IL_SUB_LAYER  0x0682
         public const int IL_SUB_LAYER = 0x0682;
-        // #define IL_COMPRESS_MODE 0x0700
         public const int IL_COMPRESS_MODE = 0x0700;
-        // #define IL_COMPRESS_NONE 0x0701
         public const int IL_COMPRESS_NONE = 0x0701;
-        // #define IL_COMPRESS_RLE  0x0702
         public const int IL_COMPRESS_RLE = 0x0702;
-        // #define IL_COMPRESS_LZO  0x0703
         public const int IL_COMPRESS_LZO = 0x0703;
-        // #define IL_COMPRESS_ZLIB 0x0704
         public const int IL_COMPRESS_ZLIB = 0x0704;
-        // #define IL_TGA_CREATE_STAMP        0x0710
         public const int IL_TGA_CREATE_STAMP = 0x0710;
-        // #define IL_JPG_QUALITY             0x0711
         public const int IL_JPG_QUALITY = 0x0711;
-        // #define IL_PNG_INTERLACE           0x0712
         public const int IL_PNG_INTERLACE = 0x0712;
-        // #define IL_TGA_RLE                 0x0713
         public const int IL_TGA_RLE = 0x0713;
-        // #define IL_BMP_RLE                 0x0714
         public const int IL_BMP_RLE = 0x0714;
-        // #define IL_SGI_RLE                 0x0715
         public const int IL_SGI_RLE = 0x0715;
-        // #define IL_TGA_ID_STRING           0x0717
         public const int IL_TGA_ID_STRING = 0x0717;
-        // #define IL_TGA_AUTHNAME_STRING     0x0718
         public const int IL_TGA_AUTHNAME_STRING = 0x0718;
-        // #define IL_TGA_AUTHCOMMENT_STRING  0x0719
         public const int IL_TGA_AUTHCOMMENT_STRING = 0x0719;
-        // #define IL_PNG_AUTHNAME_STRING     0x071A
         public const int IL_PNG_AUTHNAME_STRING = 0x071A;
-        // #define IL_PNG_TITLE_STRING        0x071B
         public const int IL_PNG_TITLE_STRING = 0x071B;
-        // #define IL_PNG_DESCRIPTION_STRING  0x071C
         public const int IL_PNG_DESCRIPTION_STRING = 0x071C;
-        // #define IL_TIF_DESCRIPTION_STRING  0x071D
         public const int IL_TIF_DESCRIPTION_STRING = 0x071D;
-        // #define IL_TIF_HOSTCOMPUTER_STRING 0x071E
         public const int IL_TIF_HOSTCOMPUTER_STRING = 0x071E;
-        // #define IL_TIF_DOCUMENTNAME_STRING 0x071F
         public const int IL_TIF_DOCUMENTNAME_STRING = 0x071F;
-        // #define IL_TIF_AUTHNAME_STRING     0x0720
         public const int IL_TIF_AUTHNAME_STRING = 0x0720;
-        // #define IL_JPG_SAVE_FORMAT         0x0721
         public const int IL_JPG_SAVE_FORMAT = 0x0721;
-        // #define IL_CHEAD_HEADER_STRING     0x0722
         public const int IL_CHEAD_HEADER_STRING = 0x0722;
-        // #define IL_PCD_PICNUM              0x0723
         public const int IL_PCD_PICNUM = 0x0723;
-        // #define IL_PNG_ALPHA_INDEX 0x0724 //XIX : ILint : the color in the pallete at this index value (0-255) is considered transparent, -1 for no trasparent color
         public const int IL_PNG_ALPHA_INDEX = 0x0724;
-        // #define IL_DXTC_FORMAT      0x0705
         public const int IL_DXTC_FORMAT = 0x0705;
-        // #define IL_DXT1             0x0706
         public const int IL_DXT1 = 0x0706;
-        // #define IL_DXT2             0x0707
         public const int IL_DXT2 = 0x0707;
-        // #define IL_DXT3             0x0708
         public const int IL_DXT3 = 0x0708;
-        // #define IL_DXT4             0x0709
         public const int IL_DXT4 = 0x0709;
-        // #define IL_DXT5             0x070A
         public const int IL_DXT5 = 0x070A;
-        // #define IL_DXT_NO_COMP      0x070B
         public const int IL_DXT_NO_COMP = 0x070B;
-        // #define IL_KEEP_DXTC_DATA   0x070C
         public const int IL_KEEP_DXTC_DATA = 0x070C;
-        // #define IL_DXTC_DATA_FORMAT 0x070D
         public const int IL_DXTC_DATA_FORMAT = 0x070D;
-        // #define IL_3DC              0x070E
         public const int IL_3DC = 0x070E;
-        // #define IL_RXGB             0x070F
         public const int IL_RXGB = 0x070F;
-        // #define IL_ATI1N            0x0710
         public const int IL_ATI1N = 0x0710;
-        // #define IL_CUBEMAP_POSITIVEX 0x00000400
         public const int IL_CUBEMAP_POSITIVEX = 0x00000400;
-        // #define IL_CUBEMAP_NEGATIVEX 0x00000800
         public const int IL_CUBEMAP_NEGATIVEX = 0x00000800;
-        // #define IL_CUBEMAP_POSITIVEY 0x00001000
         public const int IL_CUBEMAP_POSITIVEY = 0x00001000;
-        // #define IL_CUBEMAP_NEGATIVEY 0x00002000
         public const int IL_CUBEMAP_NEGATIVEY = 0x00002000;
-        // #define IL_CUBEMAP_POSITIVEZ 0x00004000
         public const int IL_CUBEMAP_POSITIVEZ = 0x00004000;
-        // #define IL_CUBEMAP_NEGATIVEZ 0x00008000
         public const int IL_CUBEMAP_NEGATIVEZ = 0x00008000;
-        // #define IL_VERSION_NUM           0x0DE2
+        /// <summary>
+        /// Returns the version number of the shared library. This can be checked against the IL_VERSION #define.
+        /// </summary>
         public const int IL_VERSION_NUM = 0x0DE2;
-        // #define IL_IMAGE_WIDTH           0x0DE4
+        /// <summary>
+        /// s width.
+        /// </summary>
         public const int IL_IMAGE_WIDTH = 0x0DE4;
-        // #define IL_IMAGE_HEIGHT          0x0DE5
+        /// <summary>
+        /// s height.
+        /// </summary>
         public const int IL_IMAGE_HEIGHT = 0x0DE5;
-        // #define IL_IMAGE_DEPTH           0x0DE6
         public const int IL_IMAGE_DEPTH = 0x0DE6;
-        // #define IL_IMAGE_SIZE_OF_DATA    0x0DE7
         public const int IL_IMAGE_SIZE_OF_DATA = 0x0DE7;
-        // #define IL_IMAGE_BPP             0x0DE8
         public const int IL_IMAGE_BPP = 0x0DE8;
-        // #define IL_IMAGE_BYTES_PER_PIXEL 0x0DE8
+        /// <summary>
+        /// s data.
+        /// </summary>
         public const int IL_IMAGE_BYTES_PER_PIXEL = 0x0DE8;
-        // #define IL_IMAGE_BITS_PER_PIXEL  0x0DE9
+        /// <summary>
+        /// s data.
+        /// </summary>
         public const int IL_IMAGE_BITS_PER_PIXEL = 0x0DE9;
-        // #define IL_IMAGE_FORMAT          0x0DEA
+        /// <summary>
+        /// Returns the current image format.
+        /// </summary>
         public const int IL_IMAGE_FORMAT = 0x0DEA;
-        // #define IL_IMAGE_TYPE            0x0DEB
+        /// <summary>
+        /// Returns the current images type.
+        /// </summary>
         public const int IL_IMAGE_TYPE = 0x0DEB;
-        // #define IL_PALETTE_TYPE          0x0DEC
+        /// <summary>
+        /// Returns the palette type of the current image.
+        /// </summary>
         public const int IL_PALETTE_TYPE = 0x0DEC;
-        // #define IL_PALETTE_SIZE          0x0DED
         public const int IL_PALETTE_SIZE = 0x0DED;
-        // #define IL_PALETTE_BPP           0x0DEE
+        /// <summary>
+        /// Returns the bytes per pixel of the current images palette.
+        /// </summary>
         public const int IL_PALETTE_BPP = 0x0DEE;
-        // #define IL_PALETTE_NUM_COLS      0x0DEF
+        /// <summary>
+        /// Returns the number of colours of the current images palette.
+        /// </summary>
         public const int IL_PALETTE_NUM_COLS = 0x0DEF;
-        // #define IL_PALETTE_BASE_TYPE     0x0DF0
         public const int IL_PALETTE_BASE_TYPE = 0x0DF0;
-        // #define IL_NUM_IMAGES            0x0DF1
+        /// <summary>
+        /// Returns the number of images in the current image animation chain.
+        /// </summary>
         public const int IL_NUM_IMAGES = 0x0DF1;
-        // #define IL_NUM_MIPMAPS           0x0DF2
+        /// <summary>
+        /// Returns the number of mipmaps of the current image.
+        /// </summary>
         public const int IL_NUM_MIPMAPS = 0x0DF2;
-        // #define IL_NUM_LAYERS            0x0DF3
         public const int IL_NUM_LAYERS = 0x0DF3;
-        // #define IL_ACTIVE_IMAGE          0x0DF4
+        /// <summary>
+        /// Returns the current image number.
+        /// </summary>
         public const int IL_ACTIVE_IMAGE = 0x0DF4;
-        // #define IL_ACTIVE_MIPMAP         0x0DF5
+        /// <summary>
+        /// Returns the current mipmap number.
+        /// </summary>
         public const int IL_ACTIVE_MIPMAP = 0x0DF5;
-        // #define IL_ACTIVE_LAYER          0x0DF6
+        /// <summary>
+        /// Returns the current layer number.
+        /// </summary>
         public const int IL_ACTIVE_LAYER = 0x0DF6;
-        // #define IL_CUR_IMAGE             0x0DF7
+        /// <summary>
+        /// Returns the current bound image name.
+        /// </summary>
         public const int IL_CUR_IMAGE = 0x0DF7;
-        // #define IL_IMAGE_DURATION        0x0DF8
         public const int IL_IMAGE_DURATION = 0x0DF8;
-        // #define IL_IMAGE_PLANESIZE       0x0DF9
         public const int IL_IMAGE_PLANESIZE = 0x0DF9;
-        // #define IL_IMAGE_BPC             0x0DFA
         public const int IL_IMAGE_BPC = 0x0DFA;
-        // #define IL_IMAGE_OFFX            0x0DFB
         public const int IL_IMAGE_OFFX = 0x0DFB;
-        // #define IL_IMAGE_OFFY            0x0DFC
         public const int IL_IMAGE_OFFY = 0x0DFC;
-        // #define IL_IMAGE_CUBEFLAGS       0x0DFD
         public const int IL_IMAGE_CUBEFLAGS = 0x0DFD;
-        // #define IL_IMAGE_ORIGIN          0x0DFE
         public const int IL_IMAGE_ORIGIN = 0x0DFE;
-        // #define IL_IMAGE_CHANNELS        0x0DFF
         public const int IL_IMAGE_CHANNELS = 0x0DFF;
-        // #define IL_SEEK_SET	0
         public const int IL_SEEK_SET = 0;
-        // #define IL_SEEK_CUR	1
         public const int IL_SEEK_CUR = 1;
-        // #define IL_SEEK_END	2
         public const int IL_SEEK_END = 2;
-        // #define IL_EOF		-1
         public const int IL_EOF = -1;
 
         #endregion Public Constants
