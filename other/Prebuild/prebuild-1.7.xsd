@@ -72,6 +72,7 @@
 				<xs:element ref="Files" />
 			</xs:sequence>
 			<xs:attribute name="name" type="xs:string" use="required" />
+			<xs:attribute name="designerFolder" type="xs:string" default="" />
 			<xs:attribute name="filterGroups" type="xs:string" default="" />
 			<xs:attribute name="path" type="xs:string" default="" />
 			<xs:attribute name="icon" type="xs:string" default="" />

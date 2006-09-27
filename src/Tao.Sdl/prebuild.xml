@@ -24,7 +24,7 @@
 	    <File>Tao.Sdl.Readme.txt</File>
 	    <File>Tao.Sdl.dll.config</File>
 	</Files>
-	<Project name="Tao.Sdl" path="." language="C#" type="Library">
+	<Project name="Tao.Sdl" path="." language="C#" type="Library" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -49,18 +49,11 @@
 	    </Configuration>
 	    <Reference name="System" /> 
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>Sdl.cs</File>
-		<File>SdlImage.cs</File>
-		<File>SdlMixer.cs</File>
-		<File>SdlTtf.cs</File>
-		<File>SdlNet.cs</File>
-		<File>SdlGfx.cs</File>
-		<File>Smpeg.cs</File>
 	    	<File buildAction="None">Tao.Sdl.snk</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="Tao.Sdl.Tests" path="../../tests/Sdl" language="C#" type="Library">
+	<Project name="Tao.Sdl.Tests" path="../../tests/Sdl" language="C#" type="Library" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -85,17 +78,10 @@
 	    <Reference name="nunit.framework"/>
 	    <Reference name="Tao.Sdl" />
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>SdlTest.cs</File>
-		<File>SdlTestVideo.cs</File>
-		<File>SdlTestImage.cs</File>
-		<File>SdlTestTtf.cs</File>
-		<File>SdlTestMixer.cs</File>
-		<File>SdlTestGfx.cs</File>
-		<File>SmpegTest.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="SdlExamples.Rectangles" path="../../examples/SdlExamples/Rectangles" language="C#" type="WinExe" startupObject="SdlExamples.Rectangles">
+	<Project name="SdlExamples.Rectangles" path="../../examples/SdlExamples/Rectangles" language="C#" type="WinExe" startupObject="SdlExamples.Rectangles" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -119,11 +105,10 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.Sdl" />
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>Rectangles.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="SdlExamples.SmpegPlayer" path="../../examples/SdlExamples/SmpegPlayer" language="C#" type="WinExe" startupObject="SdlExamples.SmpegPlayer">
+	<Project name="SdlExamples.SmpegPlayer" path="../../examples/SdlExamples/SmpegPlayer" language="C#" type="WinExe" startupObject="SdlExamples.SmpegPlayer" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -147,11 +132,10 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.Sdl" />
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>SmpegPlayer.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="SdlExamples.GfxPrimitives" path="../../examples/SdlExamples/GfxPrimitives" language="C#" type="WinExe" startupObject="SdlExamples.GfxPrimitives">
+	<Project name="SdlExamples.GfxPrimitives" path="../../examples/SdlExamples/GfxPrimitives" language="C#" type="WinExe" startupObject="SdlExamples.GfxPrimitives" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -175,8 +159,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.Sdl" />
 	    <Files>
-		<File>AssemblyInfo.cs</File>
-		<File>GfxPrimitives.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
     </Solution>
