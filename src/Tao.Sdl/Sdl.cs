@@ -2611,12 +2611,7 @@ namespace Tao.Sdl
             /// Once the callback returns, the buffer will no longer be valid.
             /// Stereo samples are stored in a LRLRLR ordering.
             /// </summary>
-            /// <param name="userdata"></param>
-            /// <param name="stream"></param>
-            /// <param name="len"></param>
-            public delegate void callback(
-                IntPtr userdata,
-                byte[] stream, int len);
+            public IntPtr callback;
             /// <summary>
             /// Pointer the user data which is passed to the callback function
             /// </summary>
@@ -5263,6 +5258,17 @@ namespace Tao.Sdl
         #endregion Constructors & Destructors
 
         #region Public Delegates
+
+        #region SDL_audio.h
+	    #region AudioSpecCallbackDelegate(IntPtr userdata, IntPtr stream, int len)
+        /// <summary>
+        /// Used in the SDL_AudioSpec struct
+        /// </summary>
+	    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+    	public delegate void AudioSpecCallbackDelegate(IntPtr userdata, IntPtr stream, int len);
+	    #endregion AudioSpecCallbackDelegate(IntPtr userdata, IntPtr stream, int len)
+        #endregion SDL_audio.h
+
         #region SDL_events.h
         #region int SDL_EventFilter([Out] SDL_Event evt)
         /// <summary>
@@ -5510,12 +5516,12 @@ namespace Tao.Sdl
         public static int SDL_InitSubSystem(int flags)
         {
             // Mac OSX code
-            Assembly af = Assembly.Load("cocoa-sharp");
-            if (af != null)
-            {
-                obj = af.GetType("Cocoa.Application").InvokeMember("Init", BindingFlags.Static | BindingFlags.InvokeMethod, null, obj, null);
-                NSApplicationLoad();
-            }
+            // Assembly af = Assembly.Load("cocoa-sharp");
+            //if (af != null)
+            // {
+            //    obj = af.GetType("Cocoa.Application").InvokeMember("Init", BindingFlags.Static | BindingFlags.InvokeMethod, null, obj, null);
+            //    NSApplicationLoad();
+            // }
             return __SDL_InitSubSystem(flags);
         }
         #endregion int SDL_InitSubSystem(int flags)
