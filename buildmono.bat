@@ -217,28 +217,28 @@ NAnt.exe -t:mono-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build doc
 NAnt.exe -t:mono-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build doc
 
 @REM Copy Documentation To Dist Directory
-xcopy src\Tao.Cg\bin\Release\*.xml dist/doc /Q /Y
-xcopy src\Tao.DevIl\bin\Release\*.xml dist/doc /Q /Y
-xcopy src\Tao.FreeGlut\bin\Release\*.xml dist/doc /Q /Y
-xcopy src\Tao.Glfw\bin\Release\*.xml dist/doc /Q /Y
-xcopy src\Tao.Lua\bin\Release\*.xml dist/doc /Q /Y
-xcopy src\Tao.Ode\bin\Release\*.xml dist/doc /Q /Y
-xcopy src\Tao.OpenAl\bin\Release\*.xml dist/doc /Q /Y
-xcopy src\Tao.OpenGl.Glu\bin\Release\*.xml dist/doc /Q /Y
-xcopy src\Tao.PhysFs\bin\Release\*.xml dist/doc /Q /Y
-xcopy src\Tao.Platform.Windows\bin\Release\*.xml dist/doc /Q /Y
-xcopy src\Tao.Sdl\bin\Release\*.xml dist/doc /Q /Y
+xcopy src\Tao.Cg\bin\Release\*.xml dist\doc\*.* /Q /Y
+xcopy src\Tao.DevIl\bin\Release\*.xml dist\doc\*.* /Q /Y
+xcopy src\Tao.FreeGlut\bin\Release\*.xml dist\doc\*.* /Q /Y
+xcopy src\Tao.Glfw\bin\Release\*.xml dist\doc\*.* /Q /Y
+xcopy src\Tao.Lua\bin\Release\*.xml dist\doc\*.* /Q /Y
+xcopy src\Tao.Ode\bin\Release\*.xml dist\doc\*.* /Q /Y
+xcopy src\Tao.OpenAl\bin\Release\*.xml dist\doc\*.* /Q /Y
+xcopy src\Tao.OpenGl.Glu\bin\Release\*.xml dist\doc\*.* /Q /Y
+xcopy src\Tao.PhysFs\bin\Release\*.xml dist\doc\*.* /Q /Y
+xcopy src\Tao.Platform.Windows\bin\Release\*.xml dist\doc\*.* /Q /Y
+xcopy src\Tao.Sdl\bin\Release\*.xml dist\doc\*.* /Q /Y
 
-xcopy src\Tao.Cg\bin\Release\doc\*.chm dist/doc /Q /Y
-xcopy src\Tao.DevIl\bin\Release\doc\*.chm dist/doc /Q /Y
-xcopy src\Tao.FreeGlut\bin\Release\doc\*.chm dist/doc /Q /Y
-xcopy src\Tao.Glfw\bin\Release\doc\*.chm dist/doc /Q /Y
-xcopy src\Tao.Lua\bin\Release\doc\*.chm dist/doc /Q /Y
-xcopy src\Tao.Ode\bin\Release\doc\*.chm dist/doc /Q /Y
-xcopy src\Tao.OpenAl\bin\Release\doc\*.chm dist/doc /Q /Y
-xcopy src\Tao.OpenGl.Glu\bin\Release\doc\*.chm dist/doc /Q /Y
-xcopy src\Tao.PhysFs\bin\Release\doc\*.chm dist/doc /Q /Y
-xcopy src\Tao.Platform.Windows\bin\Release\doc\*.chm dist/doc /Q /Y
-xcopy src\Tao.Sdl\bin\Release\doc\*.chm dist/doc /Q /Y
+xcopy src\Tao.Cg\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
+xcopy src\Tao.DevIl\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
+xcopy src\Tao.FreeGlut\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
+xcopy src\Tao.Glfw\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
+xcopy src\Tao.Lua\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
+xcopy src\Tao.Ode\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
+xcopy src\Tao.OpenAl\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
+xcopy src\Tao.OpenGl.Glu\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
+xcopy src\Tao.PhysFs\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
+xcopy src\Tao.Platform.Windows\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
+xcopy src\Tao.Sdl\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
 
 pause 
