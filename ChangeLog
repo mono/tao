@@ -1,3 +1,7 @@
+2006-09-28  C.J. Collier  <cjcollier@colliertech.org>
+        turned on exec bit for shell scripts, got rid of \r\n newlines
+
+
 Tao.Ode 0.6.0.0 - July 25, 2006:
 	Update to ODE 0.6 and conversion to .NET 2.0 essentially complete.
 	The ODE 0.6 release consists of many bug fixes and
