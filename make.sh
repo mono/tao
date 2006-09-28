@@ -7,68 +7,43 @@ configure_args=$1
 other/Prebuild/prebuild /target autotools /file prebuild.xml 
 
 # Build Solutions Using autotools 
+PACKAGES="Tao.DevIl
+          Tao.GlGenerator
+	  Tao.Ode
+	  Tao.PhysFs
+	  Tao.Sdl
+	  Tao.Lua
+	  Tao.OpenGl
+	  Tao.OpenAl
+	  OpenGl.ExtensionLoader
+	  OpenGl.Glu
+	  "
+
+mkdir -p dist/bin
+
 cd src
 
-cd Tao.DevIl
-autoreconf -i -s
-./configure $configure_args
-make
+for thedir in $PACKAGES ;
+do
+  # If the configure.ac file exists, build
+  if [ -f $thedir/configure.ac ]
+  then
+    pushd $thedir &&
+    autoreconf -i -s &&
+    ./configure $configure_args &&
+    make &&
+    popd
+  fi
+
+done
+
+# Copy Builds to Bin Directory
+
+find ./ -name "Tao.*.dll" -exec cp \{\} ../dist/bin \;
+
 cd ..
-
-cd Tao.GlGenerator
-autoreconf -i -s
-./configure $configure_args
-make
-cd ..
-
-cd Tao.Ode 
-autoreconf -i -s
-./configure $configure_args
-make
-cd ..
-
-cd Tao.PhysFs 
-autoreconf -i -s
-./configure $configure_args
-make
-cd ..
-
-cd Tao.Sdl
-autoreconf -i -s
-./configure $configure_args
-make
-cd ..
-
-cd Tao.Lua
-autoreconf -i -s
-./configure $configure_args
-make
-cd ..
-
-cd Tao.OpenGl 
-autoreconf -i -s
-./configure $configure_args
-make
-cd ../..
-
-# Copy Builds to Bin Directory 
-mkdir -p dist/bin
-cp -f src/Tao.Cg/bin/Release/*.dll dist/bin
-cp -f src/Tao.DevIl/bin/Release/*.dll dist/bin
-cp -f src/Tao.FreeGlut/bin/Release/*.dll dist/bin
-cp -f src/Tao.Glfw/bin/Release/Tao.Glfw.dll dist/bin
-cp -f src/Tao.Lua/bin/Release/*.dll dist/bin
-cp -f src/Tao.Ode/bin/Release/*.dll dist/bin
-cp -f src/Tao.OpenAl/bin/Release/*.dll dist/bin
-cp -f src/Tao.OpenGl/bin/Release/*.dll dist/bin
-cp -f src/Tao.OpenGl.ExtensionLoader/bin/Release/*.dll dist/bin
-cp -f src/Tao.OpenGl.Glu/bin/Release/Tao.OpenGl.Glu.dll dist/bin
-cp -f src/Tao.PhysFs/bin/Release/*.dll dist/bin
-cp -f src/Tao.Platform.Windows/bin/Release/Tao.Platform.Windows.dll dist/bin
-cp -f src/Tao.Sdl/bin/Release/*.dll dist/bin
 
 # Copy Examples to Dist Directory
-mkdir -p dist/examples
 mkdir -p dist/examples/Data
 cp -f dist/bin/*.dll dist/examples
 
@@ -230,7 +205,7 @@ cp -f examples/Redbook/Smooth/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Stencil/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Stroke/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Surface/bin/Release/*.exe dist/examples
-cp -f examples/Redbook/Surfaceold/bin/Release/*.exe dist/examples
+cp -f examples/Redbook/SurfaceOld/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/TeaAmbient/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Teapots/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Tess/bin/Release/*.exe dist/examples

@@ -1,3 +1,8 @@
+2006-09-28T16:20  C.J. Collier  <cjcollier@colliertech.org>
+	* make.sh
+	- cleaned up some of the repetition
+	- fixed a case error
+
 2006-09-28T12:53  C.J. Collier  <cjcollier@colliertech.org>
 	* make.sh
 	- configure now uses args passed to "./make.sh"
