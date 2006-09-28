@@ -1,3 +1,7 @@
+2006-09-28T12:53  C.J. Collier  <cjcollier@colliertech.org>
+	* make.sh
+	- configure now uses args passed to "./make.sh"
+
 2006-09-28  C.J. Collier  <cjcollier@colliertech.org>
         turned on exec bit for shell scripts, got rid of \r\n newlines
 

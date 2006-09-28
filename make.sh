@@ -1,6 +1,8 @@
 #!/bin/sh
 # Builds the Tao Framework using both Prebuild and autotools 
 
+configure_args=$1
+
 # Create autotools Project Files 
 other/Prebuild/prebuild /target autotools /file prebuild.xml 
 
@@ -9,43 +11,43 @@ cd src
 
 cd Tao.DevIl
 autoreconf -i -s
-./configure
+./configure $configure_args
 make
 cd ..
 
 cd Tao.GlGenerator
 autoreconf -i -s
-./configure
+./configure $configure_args
 make
 cd ..
 
 cd Tao.Ode 
 autoreconf -i -s
-./configure
+./configure $configure_args
 make
 cd ..
 
 cd Tao.PhysFs 
 autoreconf -i -s
-./configure
+./configure $configure_args
 make
 cd ..
 
 cd Tao.Sdl
 autoreconf -i -s
-./configure
+./configure $configure_args
 make
 cd ..
 
 cd Tao.Lua
 autoreconf -i -s
-./configure
+./configure $configure_args
 make
 cd ..
 
 cd Tao.OpenGl 
 autoreconf -i -s
-./configure
+./configure $configure_args
 make
 cd ../..
 
