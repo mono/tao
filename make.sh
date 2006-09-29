@@ -37,7 +37,7 @@ done
 
 # Copy Builds to Bin Directory
 
-find ./ -name "Tao.*.dll" -exec cp \{\} ../dist/bin \;
+find ./ -name "Tao.*.dll" -exec cp \{\} ../../dist/bin/ \;
 
 cd ..
 
