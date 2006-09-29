@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Tao.GlBindGen.Properties" GeneratedClassName="Bind">
+  <Profiles />
+  <Settings>
+    <Setting Name="OutputNamespace" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Tao.OpenGl</Value>
+    </Setting>
+    <Setting Name="OutputClass" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Gl</Value>
+    </Setting>
+    <Setting Name="OutputPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.</Value>
+    </Setting>
+    <Setting Name="InputPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.</Value>
+    </Setting>
+    <Setting Name="InputSpecFilesPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Data</Value>
+    </Setting>
+    <Setting Name="Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>

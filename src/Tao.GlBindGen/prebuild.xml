@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Prebuild xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.7.xsd" version="1.7">
+    <Solution name="Tao.GlBindGen">
+	<Configuration name="Debug">
+	    <Options>
+		<CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		<OptimizeCode>false</OptimizeCode>
+		<OutputPath>bin/Debug</OutputPath>
+		<AllowUnsafe>true</AllowUnsafe>
+		<DebugInformation>true</DebugInformation>
+	    </Options>
+	</Configuration>
+	<Configuration name="Release">
+	    <Options>
+		<CompilerDefines>TRACE;WIN32</CompilerDefines>
+		<OptimizeCode>true</OptimizeCode>
+		<OutputPath>bin/Release</OutputPath>
+		<AllowUnsafe>true</AllowUnsafe>
+		<DebugInformation>false</DebugInformation>
+	    </Options>
+	</Configuration>
+	<Files>
+	    <File>../Tao.GlGenerator/Tao.GlGenerator.License.txt</File>
+	    <File>../Tao.GlGenerator/Tao.GlGenerator.Readme.txt</File>
+	    <File>../Tao.GlGenerator/Tao.GlGenerator.snk</File>
+	    <File>../Tao.GlBindGen/Tao.GlBindGen.License.txt</File>
+	    <File>../Tao.GlBindGen/Tao.GlBindGen.Readme.txt</File>
+	    <File>../Tao.GlBindGen/Tao.GlBindGen.snk</File>
+	</Files>
+	<Project name="Tao.GlGenerator" path="..//Tao.GlGenerator" language="C#" type="Exe" startupObject="Tao.GlGenerator">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <OutputPath>bin/Debug</OutputPath>
+	    	    <KeyFile>../Tao.GlGenerator/Tao.GlGenerator</KeyFile>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <OutputPath>bin/Release</OutputPath>
+	    	    <KeyFile>../Tao.GlGenerator/Tao.GlGenerator.snk</KeyFile>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" />
+	    <Reference name="System.Xml" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="false"/>
+	    </Files>
+	</Project>
+	<Project name="Tao.GlBindGen" path="..//Tao.GlBindGen" language="C#" type="Exe" startupObject="Tao.GlBindGen.MainClass" designerFolder="Properties">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <OutputPath>bin/Debug</OutputPath>
+	    	    <KeyFile>../Tao.GlBindGen/Tao.GlBindGen</KeyFile>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <OutputPath>bin/Release</OutputPath>
+	    	    <KeyFile>../Tao.GlBindGen/Tao.GlBindGen.snk</KeyFile>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" />
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="false"/>
+		<Match path="." pattern="*.config" recurse="false" buildAction="None"/>
+		<Match path="Data" pattern="*.txt" recurse="false" buildAction="Content"/>
+		<Match path="Data" pattern="*.spec" recurse="false" buildAction="None"/>
+		<Match path="Properties" pattern="*.cs" recurse="false">
+		    <Exclude name="Properties/Bind.Designer.cs"/>
+		</Match>
+		<Match path="Properties" pattern="Bind.Designer.cs" recurse="false" subType="Settings"/>
+		<Match path="Properties" pattern="*.settings" recurse="false" buildAction="None" subType="Settings"/>
+	    </Files>
+	</Project>
+    </Solution>
+    </Prebuild>
