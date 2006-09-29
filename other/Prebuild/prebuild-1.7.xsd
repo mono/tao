@@ -187,6 +187,7 @@
 								<xs:enumeration value="Code" />
 								<xs:enumeration value="Component" />
 								<xs:enumeration value="Form" />
+								<xs:enumeration value="Settings" />
 								<xs:enumeration value="UserControl" />
 							</xs:restriction>
 						</xs:simpleType>
@@ -231,6 +232,7 @@
 						<xs:enumeration value="Code" />
 						<xs:enumeration value="Component" />
 						<xs:enumeration value="Form" />
+						<xs:enumeration value="Settings" />
 						<xs:enumeration value="UserControl" />
 					</xs:restriction>
 				</xs:simpleType>
