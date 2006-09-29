@@ -39,7 +39,7 @@ done
 
 find ./ -name "Tao.*.dll" -exec cp \{\} ../../dist/bin/ \;
 
-cd ..
+cd ../..
 
 # Copy Examples to Dist Directory
 mkdir -p dist/examples/Data
