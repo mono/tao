@@ -22,8 +22,6 @@ xcopy src\Tao.Lua\bin\Release\*.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.Ode\bin\Release\*.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.OpenAl\bin\Release\*.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.OpenGl\bin\Release\*.dll dist\bin\*.* /Q /Y
-xcopy src\Tao.OpenGl.ExtensionLoader\bin\Release\*.dll dist\bin\*.* /Q /Y
-xcopy src\Tao.OpenGl.Glu\bin\Release\Tao.OpenGl.Glu.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.PhysFs\bin\Release\*.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.Platform.Windows\bin\Release\Tao.Platform.Windows.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.Sdl\bin\Release\*.dll dist\bin\*.* /Q /Y
@@ -220,7 +218,6 @@ xcopy src\Tao.Glfw\bin\Release\*.xml dist\doc\*.* /Q /Y
 xcopy src\Tao.Lua\bin\Release\*.xml dist\doc\*.* /Q /Y
 xcopy src\Tao.Ode\bin\Release\*.xml dist\doc\*.* /Q /Y
 xcopy src\Tao.OpenAl\bin\Release\*.xml dist\doc\*.* /Q /Y
-xcopy src\Tao.OpenGl.Glu\bin\Release\*.xml dist\doc\*.* /Q /Y
 xcopy src\Tao.PhysFs\bin\Release\*.xml dist\doc\*.* /Q /Y
 xcopy src\Tao.Platform.Windows\bin\Release\*.xml dist\doc\*.* /Q /Y
 xcopy src\Tao.Sdl\bin\Release\*.xml dist\doc\*.* /Q /Y
@@ -232,7 +229,6 @@ xcopy src\Tao.Glfw\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
 xcopy src\Tao.Lua\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
 xcopy src\Tao.Ode\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
 xcopy src\Tao.OpenAl\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
-xcopy src\Tao.OpenGl.Glu\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
 xcopy src\Tao.PhysFs\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
 xcopy src\Tao.Platform.Windows\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
 xcopy src\Tao.Sdl\bin\Release\doc\*.chm dist\doc\*.* /Q /Y

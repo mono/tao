@@ -27,7 +27,7 @@
 	    <File>../Tao.GlBindGen/Tao.GlBindGen.Readme.txt</File>
 	    <File>../Tao.GlBindGen/Tao.GlBindGen.snk</File>
 	</Files>
-	<Project name="Tao.GlGenerator" path="..//Tao.GlGenerator" language="C#" type="Exe" startupObject="Tao.GlGenerator">
+	<Project name="Tao.GlGenerator" path="../Tao.GlGenerator" language="C#" type="Exe" startupObject="Tao.GlGenerator">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -52,7 +52,7 @@
 		<Match path="." pattern="*.cs" recurse="false"/>
 	    </Files>
 	</Project>
-	<Project name="Tao.GlBindGen" path="..//Tao.GlBindGen" language="C#" type="Exe" startupObject="Tao.GlBindGen.MainClass" designerFolder="Properties">
+	<Project name="Tao.GlBindGen" path="../Tao.GlBindGen" language="C#" type="Exe" startupObject="Tao.GlBindGen.MainClass" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>

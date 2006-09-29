@@ -23,8 +23,6 @@ cp -f src/Tao.Lua/bin/Release/*.dll dist/bin
 cp -f src/Tao.Ode/bin/Release/*.dll dist/bin
 cp -f src/Tao.OpenAl/bin/Release/*.dll dist/bin
 cp -f src/Tao.OpenGl/bin/Release/*.dll dist/bin
-cp -f src/Tao.OpenGl.ExtensionLoader/bin/Release/*.dll dist/bin
-cp -f src/Tao.OpenGl.Glu/bin/Release/Tao.OpenGl.Glu.dll dist/bin
 cp -f src/Tao.PhysFs/bin/Release/*.dll dist/bin
 cp -f src/Tao.Platform.Windows/bin/Release/Tao.Platform.Windows.dll dist/bin
 cp -f src/Tao.Sdl/bin/Release/*.dll dist/bin
@@ -222,7 +220,6 @@ cp -f src/Tao.Glfw/bin/Release/*.xml dist/doc
 cp -f src/Tao.Lua/bin/Release/*.xml dist/doc
 cp -f src/Tao.Ode/bin/Release/*.xml dist/doc
 cp -f src/Tao.OpenAl/bin/Release/*.xml dist/doc
-cp -f src/Tao.OpenGl.Glu/bin/Release/*.xml dist/doc
 cp -f src/Tao.PhysFs/bin/Release/*.xml dist/doc
 cp -f src/Tao.Platform.Windows/bin/Release/*.xml dist/doc
 cp -f src/Tao.Sdl/bin/Release/*.xml dist/doc
@@ -234,7 +231,6 @@ cp -f src/Tao.Glfw/bin/Release/doc/*.chm dist/doc
 cp -f src/Tao.Lua/bin/Release/doc/*.chm dist/doc
 cp -f src/Tao.Ode/bin/Release/doc/*.chm dist/doc
 cp -f src/Tao.OpenAl/bin/Release/doc/*.chm dist/doc
-cp -f src/Tao.OpenGl.Glu/bin/Release/doc/*.chm dist/doc
 cp -f src/Tao.PhysFs/bin/Release/doc/*.chm dist/doc
 cp -f src/Tao.Platform.Windows/bin/Release/doc/*.chm dist/doc
 cp -f src/Tao.Sdl/bin/Release/doc/*.chm dist/doc

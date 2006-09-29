@@ -46,7 +46,7 @@ using System.Security.Permissions;
 [assembly: AssemblyTitle("Tao Framework OpenGL Binding For .NET")]
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
 [assembly: AssemblyVersion("1.5.0.4")]
-[assembly: CLSCompliant(true)]
+//[assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.SkipVerification)]

@@ -8,15 +8,13 @@ other/Prebuild/prebuild /target autotools /file prebuild.xml
 
 # Build Solutions Using autotools 
 PACKAGES="Tao.DevIl
-          Tao.GlGenerator
+          Tao.GlBindGen
 	  Tao.Ode
 	  Tao.PhysFs
 	  Tao.Sdl
 	  Tao.Lua
 	  Tao.OpenGl
 	  Tao.OpenAl
-	  OpenGl.ExtensionLoader
-	  OpenGl.Glu
 	  "
 
 mkdir -p dist/bin
@@ -236,7 +234,6 @@ cp -f src/Tao.Glfw/bin/Release/*.xml dist/doc
 cp -f src/Tao.Lua/bin/Release/*.xml dist/doc
 cp -f src/Tao.Ode/bin/Release/*.xml dist/doc
 cp -f src/Tao.OpenAl/bin/Release/*.xml dist/doc
-cp -f src/Tao.OpenGl.Glu/bin/Release/*.xml dist/doc
 cp -f src/Tao.PhysFs/bin/Release/*.xml dist/doc
 cp -f src/Tao.Platform.Windows/bin/Release/*.xml dist/doc
 cp -f src/Tao.Sdl/bin/Release/*.xml dist/doc
