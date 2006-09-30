@@ -131,17 +131,17 @@ namespace Redbook {
             DrawTriangle();
 
             Gl.glEnable(Gl.GL_LINE_STIPPLE);
-            Gl.glLineStipple(1, 0xF0F0);
+            Gl.glLineStipple(1, unchecked((short)0xF0F0));
             Gl.glLoadIdentity();
             Gl.glTranslatef(-20.0f, 0.0f, 0.0f);
             DrawTriangle();
 
-            Gl.glLineStipple(1, 0xF00F);
+            Gl.glLineStipple(1, unchecked((short)0xF00F));
             Gl.glLoadIdentity();
             Gl.glScalef(1.5f, 0.5f, 1.0f);
             DrawTriangle();
 
-            Gl.glLineStipple(1, 0x8888);
+            Gl.glLineStipple(1, unchecked((short)0x8888));
             Gl.glLoadIdentity();
             Gl.glRotatef(90.0f, 0.0f, 0.0f, 1.0f);
             DrawTriangle();
