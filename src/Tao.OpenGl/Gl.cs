@@ -13,13 +13,13 @@ namespace Tao.OpenGl
     using GLsizeiptr = System.IntPtr;
     using GLintptr = System.IntPtr;
     using GLenum = System.Int32;
-    using GLboolean = System.Boolean;
+    using GLboolean = System.Int32;
     using GLbitfield = System.Int32;
     using GLchar = System.Char;
-    using GLbyte = System.SByte;
+    using GLbyte = System.Byte;
     using GLshort = System.Int16;
     using GLint = System.Int32;
-    using GLubyte = System.SByte;
+    using GLubyte = System.Byte;
     using GLushort = System.Int16;
     using GLuint = System.Int32;
     using GLsizei = System.Int32;

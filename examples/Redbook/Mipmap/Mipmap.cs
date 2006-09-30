@@ -96,7 +96,7 @@ namespace Redbook {
         private static byte[ , , ] mipmapImage4 = new byte[4, 4, 4];
         private static byte[ , , ] mipmapImage2 = new byte[2, 2, 4];
         private static byte[ , , ] mipmapImage1 = new byte[1, 1, 4];
-        private static int texture;
+        private static int[] texture;
         #endregion Private Fields
 
         // --- Entry Point ---
@@ -125,8 +125,8 @@ namespace Redbook {
             MakeImages();
             Gl.glPixelStorei(Gl.GL_UNPACK_ALIGNMENT, 1);
 
-            Gl.glGenTextures(1, out texture);
-            Gl.glBindTexture(Gl.GL_TEXTURE_2D, texture);
+            Gl.glGenTextures(1, texture);
+            Gl.glBindTexture(Gl.GL_TEXTURE_2D, texture[0]);
             Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_S, Gl.GL_REPEAT);
             Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_T, Gl.GL_REPEAT);
             Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_MAG_FILTER, Gl.GL_NEAREST);
@@ -198,7 +198,7 @@ namespace Redbook {
         #region Display()
         private static void Display() {
             Gl.glClear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);
-            Gl.glBindTexture(Gl.GL_TEXTURE_2D, texture);
+            Gl.glBindTexture(Gl.GL_TEXTURE_2D, texture[0]);
             Gl.glBegin(Gl.GL_QUADS);
                 Gl.glTexCoord2f(0.0f, 0.0f);
                 Gl.glVertex3f(-2.0f, -1.0f, 0.0f);

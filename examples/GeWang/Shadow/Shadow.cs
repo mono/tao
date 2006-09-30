@@ -297,11 +297,11 @@ namespace GeWang {
         ///     Called to draw the client area.
         /// </summary>
         private static void Display() {
-            int buffer = 0;
+            int[] buffer = { };
             float[] p = lightPosition;
 
             // get the current color buffer being drawn to
-            Gl.glGetIntegerv(Gl.GL_DRAW_BUFFER, out buffer);
+            Gl.glGetIntegerv(Gl.GL_DRAW_BUFFER, buffer);
 
             // clear the color and depth buffer
             Gl.glClear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);
@@ -328,7 +328,7 @@ namespace GeWang {
                     Gl.glReadPixels(0, 0, windowWidth, windowHeight, Gl.GL_DEPTH_COMPONENT, Gl.GL_FLOAT, depthLight);
 
                     // enable drawing into color buffer
-                    Gl.glDrawBuffer(buffer);
+                    Gl.glDrawBuffer(buffer[0]);
                 Gl.glPopMatrix();
 
                 // clear the depth buffer

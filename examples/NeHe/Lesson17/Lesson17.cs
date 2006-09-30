@@ -593,7 +593,7 @@ namespace NeHe {
             if(textureImage[0] != null && textureImage[1] != null) {
                 status = true;                                                  // Set The Status To True
 
-                Gl.glGenTextures(2, out texture[0]);                            // Create Two Textures
+                Gl.glGenTextures(2, texture);                            // Create Two Textures
 
                 for(loop = 0; loop < textureImage.Length; loop++) {
                     // Flip The Bitmap Along The Y-Axis

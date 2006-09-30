@@ -10,15 +10,15 @@ GLcharARB,		Char
 GLsizeiptr,		IntPtr
 GLintptr,		IntPtr
 GLenum,			Int32
-GLboolean,		Boolean
+GLboolean,		Int32	#Boolean
 GLbitfield,		Int32	#UInt32
 # GLvoid*,		IntPtr
 # GLvoid,		void
 GLchar,			Char
-GLbyte,			SByte
+GLbyte,			Byte	#SByte
 GLshort,		Int16
 GLint,			Int32
-GLubyte,		SByte
+GLubyte,		Byte	#SByte
 GLushort,		Int16	#UInt16
 GLuint,			Int32	#UInt32
 GLsizei,		Int32

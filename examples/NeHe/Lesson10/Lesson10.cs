@@ -597,7 +597,7 @@ namespace NeHe {
             if(textureImage[0] != null) {
                 status = true;                                                  // Set The Status To True
 
-                Gl.glGenTextures(3, out texture[0]);                            // Create Three Texture
+                Gl.glGenTextures(3, texture);                            // Create Three Texture
 
                 textureImage[0].RotateFlip(RotateFlipType.RotateNoneFlipY);     // Flip The Bitmap Along The Y-Axis
                 // Rectangle For Locking The Bitmap In Memory

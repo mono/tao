@@ -97,7 +97,7 @@ namespace Redbook {
 
         #region Private Fields
         private static byte[ , , ] checkImage = new byte[CHECKHEIGHT, CHECKWIDTH, 4];
-        private static int texture;
+        private static int[] texture;
         #endregion Private Fields
 
         // --- Entry Point ---
@@ -127,8 +127,8 @@ namespace Redbook {
             MakeCheckImage();
             Gl.glPixelStorei(Gl.GL_UNPACK_ALIGNMENT, 1);
 
-            Gl.glGenTextures(1, out texture);
-            Gl.glBindTexture(Gl.GL_TEXTURE_2D, texture);
+            Gl.glGenTextures(1, texture);
+            Gl.glBindTexture(Gl.GL_TEXTURE_2D, texture[0]);
 
             Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_S, Gl.GL_REPEAT);
             Gl.glTexParameteri(Gl.GL_TEXTURE_2D, Gl.GL_TEXTURE_WRAP_T, Gl.GL_REPEAT);
@@ -166,7 +166,7 @@ namespace Redbook {
             Gl.glClear(Gl.GL_COLOR_BUFFER_BIT | Gl.GL_DEPTH_BUFFER_BIT);
             Gl.glEnable(Gl.GL_TEXTURE_2D);
             Gl.glTexEnvf(Gl.GL_TEXTURE_ENV, Gl.GL_TEXTURE_ENV_MODE, Gl.GL_DECAL);
-            Gl.glBindTexture(Gl.GL_TEXTURE_2D, texture);
+            Gl.glBindTexture(Gl.GL_TEXTURE_2D, texture[0]);
 
             Gl.glBegin(Gl.GL_QUADS);
                 Gl.glTexCoord2f(0.0f, 0.0f);

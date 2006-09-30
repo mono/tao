@@ -208,10 +208,10 @@ namespace GeWang {
         /// </summary>
         private static void Display() {
             float val = 0.8f;
-            int buffer = 0;
+            int[] buffer = { 0 };
 
             // get the current color buffer being drawn to
-            Gl.glGetIntegerv(Gl.GL_DRAW_BUFFER, out buffer);
+            Gl.glGetIntegerv(Gl.GL_DRAW_BUFFER, buffer);
             
             Gl.glPushMatrix();
                 // rotate the viewpoint
@@ -236,7 +236,7 @@ namespace GeWang {
                 Gl.glEnd();
 
                 // reenable drawing to color buffer
-                Gl.glDrawBuffer(buffer);
+                Gl.glDrawBuffer(buffer[0]);
                 // make stencil buffer read only
                 Gl.glStencilOp(Gl.GL_KEEP, Gl.GL_KEEP, Gl.GL_KEEP);
 
@@ -281,7 +281,7 @@ namespace GeWang {
                 Gl.glEnd();
 
                 // enable drawing to the color buffer
-                Gl.glDrawBuffer(buffer);
+                Gl.glDrawBuffer(buffer[0]);
 
                 // draw the normal image, without stencil test
                 Gl.glPushMatrix();
