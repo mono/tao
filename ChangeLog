@@ -1,3 +1,9 @@
+2006-09-28  C.J. Collier  <cjcollier@colliertech.org>
+	* make.sh
+	- cleared up directory changing stuff
+	* src/Tao.OpenGl/prebuild.xml
+	- commented out examples that don't build due to marshaling errors
+
 2006-09-28T16:20  C.J. Collier  <cjcollier@colliertech.org>
 	* make.sh
 	- cleaned up some of the repetition

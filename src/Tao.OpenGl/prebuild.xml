@@ -431,7 +431,7 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="GeWang.Shadow" path="../../examples/GeWang/Shadow" language="C#" type="WinExe" startupObject="GeWang.Shadow">
+	<!--Project name="GeWang.Shadow" path="../../examples/GeWang/Shadow" language="C#" type="WinExe" startupObject="GeWang.Shadow">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -458,7 +458,7 @@
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
-	</Project>
+	</Project-->
 	<Project name="GeWang.Starfield" path="../../examples/GeWang/Starfield" language="C#" type="WinExe" startupObject="GeWang.Starfield">
 	    <Configuration name="Debug">
 		<Options>
@@ -773,7 +773,7 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="NateRobins.Texture" path="../../examples/NateRobins/Texture" language="C#" type="WinExe" startupObject="NateRobins.Texture">
+	<!--Project name="NateRobins.Texture" path="../../examples/NateRobins/Texture" language="C#" type="WinExe" startupObject="NateRobins.Texture">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -802,7 +802,7 @@
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
-	</Project>
+	</Project-->
 	<Project name="NateRobins.Voronoi" path="../../examples/NateRobins/Voronoi" language="C#" type="WinExe" startupObject="NateRobins.Voronoi">
 	    <Configuration name="Debug">
 		<Options>
@@ -1873,7 +1873,7 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="Redbook.Bezcurve" path="../../examples/Redbook/Bezcurve" language="C#" type="WinExe" startupObject="Redbook.Bezcurve">
+	<!--Project name="Redbook.Bezcurve" path="../../examples/Redbook/Bezcurve" language="C#" type="WinExe" startupObject="Redbook.Bezcurve">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -1902,8 +1902,8 @@
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
-	</Project>
-	<Project name="Redbook.Bezmesh" path="../../examples/Redbook/Bezmesh" language="C#" type="WinExe" startupObject="Redbook.Bezmesh">
+	</Project-->
+	<!--Project name="Redbook.Bezmesh" path="../../examples/Redbook/Bezmesh" language="C#" type="WinExe" startupObject="Redbook.Bezmesh">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -1932,8 +1932,8 @@
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
-	</Project>
-	<Project name="Redbook.Bezsurf" path="../../examples/Redbook/Bezsurf" language="C#" type="WinExe" startupObject="Redbook.Bezsurf">
+	</Project-->
+	<!--Project name="Redbook.Bezsurf" path="../../examples/Redbook/Bezsurf" language="C#" type="WinExe" startupObject="Redbook.Bezsurf">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -1962,8 +1962,8 @@
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
-	</Project>
-	<Project name="Redbook.Checker" path="../../examples/Redbook/Checker" language="C#" type="WinExe" startupObject="Redbook.Checker">
+	</Project-->
+	<!--Project name="Redbook.Checker" path="../../examples/Redbook/Checker" language="C#" type="WinExe" startupObject="Redbook.Checker">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -1992,8 +1992,8 @@
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
-	</Project>
-	<Project name="Redbook.CheckerOld" path="../../examples/Redbook/CheckerOld" language="C#" type="WinExe" startupObject="Redbook.CheckerOld">
+	</Project-->
+	<!--Project name="Redbook.CheckerOld" path="../../examples/Redbook/CheckerOld" language="C#" type="WinExe" startupObject="Redbook.CheckerOld">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -2022,7 +2022,7 @@
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
-	</Project>
+	</Project-->
 	<Project name="Redbook.Clip" path="../../examples/Redbook/Clip" language="C#" type="WinExe" startupObject="Redbook.Clip">
 	    <Configuration name="Debug">
 		<Options>
@@ -2533,7 +2533,7 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="Redbook.TexBind" path="../../examples/Redbook/TexBind" language="C#" type="WinExe" startupObject="Redbook.TexBind">
+	<!--Project name="Redbook.TexBind" path="../../examples/Redbook/TexBind" language="C#" type="WinExe" startupObject="Redbook.TexBind">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -2562,7 +2562,7 @@
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
-	</Project>
+	</Project-->
 	<Project name="Redbook.Robot" path="../../examples/Redbook/Robot" language="C#" type="WinExe" startupObject="Redbook.Robot">
 	    <Configuration name="Debug">
 		<Options>
@@ -2653,7 +2653,7 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="Redbook.Mipmap" path="../../examples/Redbook/Mipmap" language="C#" type="WinExe" startupObject="Redbook.Mipmap">
+	<!--Project name="Redbook.Mipmap" path="../../examples/Redbook/Mipmap" language="C#" type="WinExe" startupObject="Redbook.Mipmap">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -2682,7 +2682,7 @@
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
-	</Project>
+	</Project-->
 	<Project name="Redbook.Model" path="../../examples/Redbook/Model" language="C#" type="WinExe" startupObject="Redbook.Model">
 	    <Configuration name="Debug">
 		<Options>
@@ -3013,7 +3013,7 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="Redbook.TexGen" path="../../examples/Redbook/TexGen" language="C#" type="WinExe" startupObject="Redbook.TexGen">
+	<!--Project name="Redbook.TexGen" path="../../examples/Redbook/TexGen" language="C#" type="WinExe" startupObject="Redbook.TexGen">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -3042,8 +3042,8 @@
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
-	</Project>
-	<Project name="Redbook.TexProx" path="../../examples/Redbook/TexProx" language="C#" type="WinExe" startupObject="Redbook.TexProx">
+	</Project-->
+	<!--Project name="Redbook.TexProx" path="../../examples/Redbook/TexProx" language="C#" type="WinExe" startupObject="Redbook.TexProx">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -3072,7 +3072,7 @@
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
-	</Project>
+	</Project-->
 	<Project name="Redbook.SceneBlueAmbient" path="../../examples/Redbook/SceneBlueAmbient" language="C#" type="WinExe" startupObject="Redbook.SceneBlueAmbient">
 	    <Configuration name="Debug">
 		<Options>
@@ -3463,7 +3463,7 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="Redbook.TexSub" path="../../examples/Redbook/TexSub" language="C#" type="WinExe" startupObject="Redbook.TexSub">
+	<!--Project name="Redbook.TexSub" path="../../examples/Redbook/TexSub" language="C#" type="WinExe" startupObject="Redbook.TexSub">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -3492,8 +3492,8 @@
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
-	</Project>
-	<Project name="Redbook.TextureSurf" path="../../examples/Redbook/TextureSurf" language="C#" type="WinExe" startupObject="Redbook.TextureSurf">
+	</Project-->
+	<!--Project name="Redbook.TextureSurf" path="../../examples/Redbook/TextureSurf" language="C#" type="WinExe" startupObject="Redbook.TextureSurf">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -3522,7 +3522,7 @@
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
-	</Project>
+	</Project-->
 	<Project name="Redbook.Torus" path="../../examples/Redbook/Torus" language="C#" type="WinExe" startupObject="Redbook.Torus">
 	    <Configuration name="Debug">
 		<Options>
@@ -3643,7 +3643,7 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="Redbook.Wrap" path="../../examples/Redbook/Wrap" language="C#" type="WinExe" startupObject="Redbook.Wrap">
+	<!--Project name="Redbook.Wrap" path="../../examples/Redbook/Wrap" language="C#" type="WinExe" startupObject="Redbook.Wrap">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -3672,7 +3672,7 @@
 	    <Files>
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
-	</Project>
+	</Project-->
 	<Project name="GlfwExamples.Boing" path="../../examples/GlfwExamples/Boing" language="C#" type="WinExe" startupObject="GlfwExamples.Boing">
 	    <Configuration name="Debug">
 		<Options>

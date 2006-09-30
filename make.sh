@@ -19,7 +19,9 @@ PACKAGES="Tao.DevIl
 
 mkdir -p dist/bin
 
-cd src
+ROOTDIR=$PWD
+
+cd $ROOTDIR/src
 
 for thedir in $PACKAGES ;
 do
@@ -30,16 +32,15 @@ do
     autoreconf -i -s &&
     ./configure $configure_args &&
     make &&
+    make install &&
     popd
   fi
-
 done
 
 # Copy Builds to Bin Directory
+find ./ -name "Tao.*.dll" -exec cp \{\} ../dist/bin/ \;
 
-find ./ -name "Tao.*.dll" -exec cp \{\} ../../dist/bin/ \;
-
-cd ../..
+cd $ROOTDIR
 
 # Copy Examples to Dist Directory
 mkdir -p dist/examples/Data
