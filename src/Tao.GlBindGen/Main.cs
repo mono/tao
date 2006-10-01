@@ -114,7 +114,7 @@ namespace Tao.GlBindGen
                 ticks = System.DateTime.Now.Ticks - ticks;
 
                 Console.WriteLine("Bindings generated in {0} seconds.", ticks / (double)10000000.0);
-                Thread.Sleep(1000); // In order to allow new files to be copied to be parsed by the OpenTK build target.
+                //Thread.Sleep(1000); // In order to allow new files to be copied to be parsed by the OpenTK build target.
             }
             catch (SecurityException e)
             {

@@ -117,7 +117,7 @@ namespace Redbook {
             Gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             Gl.glShadeModel(Gl.GL_FLAT);
             //Gl.glMap1f(Gl.GL_MAP1_VERTEX_3, 0.0f, 1.0f, 3, 4, controlPoints);
-	    Gl.glMap1f(Gl.GL_MAP1_VERTEX_3, 0.0f, 1.0f, 3, 4, ref controlPoints[0,0]);
+	    Gl.glMap1f(Gl.GL_MAP1_VERTEX_3, 0.0f, 1.0f, 3, 4, controlPoints);
             Gl.glEnable(Gl.GL_MAP1_VERTEX_3);
         }
         #endregion Init()

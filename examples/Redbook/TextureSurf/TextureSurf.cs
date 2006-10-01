@@ -154,8 +154,8 @@ namespace Redbook {
         // --- Application Methods ---
         #region Init()
         private static void Init() {
-            Gl.glMap2f(Gl.GL_MAP2_VERTEX_3, 0, 1, 3, 4, 0, 1, 12, 4, ref controlPoints[0,0,0]);
-            Gl.glMap2f(Gl.GL_MAP2_TEXTURE_COORD_2, 0, 1, 2, 2, 0, 1, 4, 2, ref texturePoints[0,0,0]);
+            Gl.glMap2f(Gl.GL_MAP2_VERTEX_3, 0, 1, 3, 4, 0, 1, 12, 4, controlPoints);
+            Gl.glMap2f(Gl.GL_MAP2_TEXTURE_COORD_2, 0, 1, 2, 2, 0, 1, 4, 2, texturePoints);
             Gl.glEnable(Gl.GL_MAP2_TEXTURE_COORD_2);
             Gl.glEnable(Gl.GL_MAP2_VERTEX_3);
             Gl.glMapGrid2f(20, 0, 1, 20, 0, 1);

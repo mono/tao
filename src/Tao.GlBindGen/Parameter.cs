@@ -51,7 +51,7 @@ namespace Tao.GlBindGen
 
         #endregion
 
-        #region _unmanaged_type property
+        #region UnmanagedType property
 
         UnmanagedType _unmanaged_type;
         /// <summary>
@@ -74,8 +74,26 @@ namespace Tao.GlBindGen
         public string Type
         {
             get { return _type; }
-            set { _type = value; }
+            set
+            {
+                if (_type != null)
+                    PreviousType = _type;
+                _type = value;
+            }
         }
+
+        #endregion
+
+        #region Previous type property
+
+        private string _previous_type;
+
+        public string PreviousType
+        {
+            get { return _previous_type; }
+            set { _previous_type = value; }
+        }
+	
 
         #endregion
 
@@ -137,7 +155,7 @@ namespace Tao.GlBindGen
             if (UnmanagedType == UnmanagedType.LPArray)
                 sb.Append("[MarshalAs(UnmanagedType.LPArray)] ");
 
-            if (Flow == FlowDirection.Out && !Array)
+            if (Flow == FlowDirection.Out && !Array && !(Type == "IntPtr"))
                 sb.Append("out ");
 
             sb.Append(Type);

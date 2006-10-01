@@ -59,7 +59,7 @@ cp -f examples/FreeGlutExamples/One/bin/Release/*.exe dist/examples
 cp -f examples/GeWang/ClippingPlanes/bin/Release/*.exe dist/examples
 cp -f examples/GeWang/Lorenz3d/bin/Release/*.exe dist/examples
 cp -f examples/GeWang/Mirror/bin/Release/*.exe dist/examples
-# cp -f examples/GeWang/Shadow/bin/Release/*.exe dist/examples
+cp -f examples/GeWang/Shadow/bin/Release/*.exe dist/examples
 cp -f examples/GeWang/Starfield/bin/Release/*.exe dist/examples
 cp -f examples/GeWang/Xform/bin/Release/*.exe dist/examples
 
@@ -86,7 +86,7 @@ cp -f examples/NateRobins/Qix/bin/Release/*.exe dist/examples
 cp -f examples/NateRobins/Rotate/bin/Release/*.exe dist/examples
 cp -f examples/NateRobins/Starfield/bin/Release/*.exe dist/examples
 cp -f examples/NateRobins/Strip/bin/Release/*.exe dist/examples
-#cp -f examples/NateRobins/Texture/bin/Release/*.exe dist/examples
+cp -f examples/NateRobins/Texture/bin/Release/*.exe dist/examples
 cp -f examples/NateRobins/Voronoi/bin/Release/*.exe dist/examples
 
 cp -f examples/NeHe/Lesson01/bin/Release/*.exe dist/examples
@@ -159,11 +159,11 @@ cp -f examples/Redbook/Accpersp/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Alpha/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Alpha3d/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Anti/bin/Release/*.exe dist/examples
-#cp -f examples/Redbook/Bezcurve/bin/Release/*.exe dist/examples
-#cp -f examples/Redbook/Bezmesh/bin/Release/*.exe dist/examples
-#cp -f examples/Redbook/Bezsurf/bin/Release/*.exe dist/examples
-#cp -f examples/Redbook/Checker/bin/Release/*.exe dist/examples
-#cp -f examples/Redbook/CheckerOld/bin/Release/*.exe dist/examples
+cp -f examples/Redbook/Bezcurve/bin/Release/*.exe dist/examples
+cp -f examples/Redbook/Bezmesh/bin/Release/*.exe dist/examples
+cp -f examples/Redbook/Bezsurf/bin/Release/*.exe dist/examples
+cp -f examples/Redbook/Checker/bin/Release/*.exe dist/examples
+cp -f examples/Redbook/CheckerOld/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Clip/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Colormat/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Cube/bin/Release/*.exe dist/examples
@@ -183,7 +183,7 @@ cp -f examples/Redbook/Light/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Lines/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/List/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Material/bin/Release/*.exe dist/examples
-#cp -f examples/Redbook/Mipmap/bin/Release/*.exe dist/examples
+cp -f examples/Redbook/Mipmap/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Model/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/MoveLight/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Nurbs/bin/Release/*.exe dist/examples
@@ -209,16 +209,16 @@ cp -f examples/Redbook/TeaAmbient/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Teapots/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Tess/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/TessWind/bin/Release/*.exe dist/examples
-#cp -f examples/Redbook/TexBind/bin/Release/*.exe dist/examples
-#cp -f examples/Redbook/TexGen/bin/Release/*.exe dist/examples
-#cp -f examples/Redbook/TexProx/bin/Release/*.exe dist/examples
-#cp -f examples/Redbook/TexSub/bin/Release/*.exe dist/examples
-#cp -f examples/Redbook/TextureSurf/bin/Release/*.exe dist/examples
+cp -f examples/Redbook/TexBind/bin/Release/*.exe dist/examples
+cp -f examples/Redbook/TexGen/bin/Release/*.exe dist/examples
+cp -f examples/Redbook/TexProx/bin/Release/*.exe dist/examples
+cp -f examples/Redbook/TexSub/bin/Release/*.exe dist/examples
+cp -f examples/Redbook/TextureSurf/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Torus/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Trim/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/UnProject/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Varray/bin/Release/*.exe dist/examples
-#cp -f examples/Redbook/Wrap/bin/Release/*.exe dist/examples
+cp -f examples/Redbook/Wrap/bin/Release/*.exe dist/examples
 
 cp -f examples/SdlExamples/GfxPrimitives/bin/Release/*.exe dist/examples
 cp -f examples/SdlExamples/Rectangles/bin/Release/*.exe dist/examples

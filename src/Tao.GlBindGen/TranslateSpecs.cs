@@ -31,6 +31,18 @@ using System.Text;
 
 namespace Tao.GlBindGen
 {
+    public enum WrapperTypes
+    {
+        None,
+        VoidPointerIn,
+        VoidPointerOut,
+        ArrayOut,
+        ArrayIn,
+        UShortMaskParameter,
+        ReturnsString,
+        ReturnsVoidPointer,
+    }
+
     static class Translation
     {
         public static char[] Separators = { ' ', '\n', ',', '(', ')', ';', '#' };
@@ -210,9 +222,11 @@ namespace Tao.GlBindGen
                     f.Name = "gl" + f.Name;
             }
         }
+
         #endregion
 
         #region TranslateReturnValue
+
         private static void TranslateReturnValue(Function f)
         {
             string s;
@@ -227,25 +241,32 @@ namespace Tao.GlBindGen
 
             if (f.ReturnValue == "void[]")
             {
+                f.NeedsWrapper = true;
+                f.WrapperType = WrapperTypes.ReturnsVoidPointer;
                 f.ReturnValue = "IntPtr";
             }
 
-            if (f.ReturnValue == "string")
-            {
-                f.ReturnValue = "IntPtr";
-            }
-
-            if (f.ReturnValue == "IntPtr")
+            if (f.ReturnValue == "GLstring")
             {
                 f.NeedsWrapper = true;
+                f.WrapperType = WrapperTypes.ReturnsString;
+                f.ReturnValue = "IntPtr";
             }
         }
+
         #endregion
 
         #region TranslateParameters
+
         private static void TranslateParameters(Function f)
         {
             string s;
+
+            if (f.Name.Contains("LineStipple"))
+            {
+                f.NeedsWrapper = true;
+                f.WrapperType = WrapperTypes.UShortMaskParameter;
+            }
 
             // Map parameters.
             foreach (Parameter p in f.Parameters)
@@ -255,46 +276,58 @@ namespace Tao.GlBindGen
 
                 if (GLtypes.TryGetValue(p.Type, out s))
                     p.Type = s;
-                //if (CStypes.TryGetValue(p.Type, out s))
-                //    p.Type = s;
 
-                if (p.Array && !p.Type.Contains("void"))
+                if (p.Array &&
+                    !p.Type.Contains("void") &&
+                    !p.Type.Contains("string") &&
+                    (p.Flow == Parameter.FlowDirection.In || p.Flow == Parameter.FlowDirection.Undefined))
+                {
+                    f.NeedsWrapper = true;
+                    f.WrapperType = WrapperTypes.ArrayIn;
+                    p.Type = "IntPtr";
+                    p.Array = false;
+                    //p.UnmanagedType = System.Runtime.InteropServices.UnmanagedType.LPArray;
+                }
+                if (p.Array && !p.Type.Contains("void") && (p.Flow == Parameter.FlowDirection.Out))
                 {
                     p.UnmanagedType = System.Runtime.InteropServices.UnmanagedType.LPArray;
+                    //f.NeedsWrapper = true;
+                    //f.WrapperType = WrapperTypes.ArrayOut;
                 }
-                else if (p.Array && p.Type.Contains("void"))
+                else if (p.Array && p.Type.Contains("void") && (p.Flow == Parameter.FlowDirection.In || p.Flow == Parameter.FlowDirection.Undefined))
                 {
+                    f.NeedsWrapper = true;
+                    f.WrapperType = WrapperTypes.VoidPointerIn;
                     p.Array = false;
                     p.Type = "IntPtr";
-                    f.NeedsWrapper = true;
                 }
-               
-                //if (p.Flow == Parameter.FlowDirection.Out && p.Type.Contains("string"))
-                //    p.Type.Replace("string", "StringBuilder");
-
-                //if (p.Type.Contains("[][]"))
-                //{
-                //    p.Type = "ref " + p.Type.Replace("[][]", "[]");
-                //}
+                else if (p.Array && p.Type.Contains("void") && (p.Flow == Parameter.FlowDirection.Out))
+                {
+                    f.NeedsWrapper = true;
+                    f.WrapperType = WrapperTypes.VoidPointerOut;
+                    p.Array = false;
+                    p.Type = "IntPtr";
+                }
             }
         }
+
         #endregion
 
         #region GenerateWrapper
+
+        // We need copy costructors for the Function, Parameter and ParameterCollection classes
+        // before we can do anything meaningful in this class.
         private static Function GenerateWrapper(Function f)
         {
+            //Function w = new Function();
+            //w.Name f.Name;
+            //w.
             if (!f.NeedsWrapper)
                 return null;
 
-            // These do not need wrapping!
-            if (f.Name.Contains("TexImage") || f.Name.Contains("TexSubImage"))
-            {
-                f.NeedsWrapper = false;
-                return null;
-            }
-
             return f;
         }
+
         #endregion
     }
 }

@@ -1,7 +1,0 @@
-0.7.3 -> 0.7.4
-+ Added the new typemap code, which allows opengl types to be aliased to the equivalent CLS types.
-+ Used the above to change uint constants to CLS compliant ints.
-+ Merged GlWrappers.cs and Gl.cs. Maybe the assembly compilation can be be done as a postprocess step to bind.
-+ Some minor bugfixes.
-+ Added the GLSL example (depends on GLFW and GLU).
-+ Update NeHe.Lesson06 to use ints instead of uints.

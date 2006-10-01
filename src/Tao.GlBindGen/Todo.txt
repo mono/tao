@@ -1,10 +1,7 @@
 Todo:
-+ Check the translate of [...]Pointer opengl types.
-+ Test vertex arrays.
 + Add the CLS compliant attribute to the Gl class.
 + Find the cause for the slow startup (probably the static constructor, but should investigate). Note that the equivalent opentk code does not suffer from this (why?)
 + See if anything can be done for the intellisense slowdown. Again, opentk does not suffer from this (or suffers to a lesser extent - probably the constants are killing it)
 + Find out why the shader compilation in the GLSL example seems to fail (although the cube renders correctly).
-+ Cleanup the code.
++ Clean up the code.
 + Add comments and documentation (faqs, pitfalls, best practices).
-+ Get rid of the dosx documentation.
