@@ -96,7 +96,7 @@ namespace Redbook {
         private static byte[ , , ] mipmapImage4 = new byte[4, 4, 4];
         private static byte[ , , ] mipmapImage2 = new byte[2, 2, 4];
         private static byte[ , , ] mipmapImage1 = new byte[1, 1, 4];
-        private static int[] texture;
+        private static int[] texture = new int[1];
         #endregion Private Fields
 
         // --- Entry Point ---

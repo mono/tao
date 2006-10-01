@@ -97,7 +97,7 @@ namespace Redbook {
 
         #region Private Fields
         private static byte[ , , ] checkImage = new byte[CHECKHEIGHT, CHECKWIDTH, 4];
-        private static int[] texture;
+        private static int[] texture = new int[1];
         #endregion Private Fields
 
         // --- Entry Point ---

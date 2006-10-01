@@ -99,7 +99,7 @@ namespace Redbook {
 
         #region Private Fields
         private static byte[] stripeImage = new byte[STRIPEWIDTH * 4];
-        private static int[] texture;
+        private static int[] texture = new int[1];
 
         // planes for texture coordinate generation
         private static float[] xequalzero = {1.0f, 0.0f, 0.0f, 0.0f};

@@ -297,7 +297,7 @@ namespace GeWang {
         ///     Called to draw the client area.
         /// </summary>
         private static void Display() {
-            int[] buffer = { };
+            int[] buffer = new int[1];
             float[] p = lightPosition;
 
             // get the current color buffer being drawn to
