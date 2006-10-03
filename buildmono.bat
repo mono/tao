@@ -2,11 +2,14 @@
 
 @ECHO OFF 
 
-@REM Create NAnt Project Files 
+ECHO -------------------------
+ECHO Create NAnt Project Files 
+ECHO -------------------------
 other\Prebuild\Prebuild.exe /target nant /file prebuild.xml 
 
-@REM Build Solutions Using NAnt 
-NAnt.exe -t:mono-2.0 -buildfile:src/Tao.Cg/Tao.Cg.build build-release
+ECHO --------------------------
+ECHO Build Solutions Using NAnt
+ECHO --------------------------
 NAnt.exe -t:mono-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build build-release
 NAnt.exe -t:mono-2.0 -buildfile:src/Tao.GlGenerator/Tao.GlGenerator.build build-release
 NAnt.exe -t:mono-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build build-release
@@ -15,7 +18,9 @@ NAnt.exe -t:mono-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build build-release
 NAnt.exe -t:mono-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build build-release
 NAnt.exe -t:mono-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build build-release
 
-@REM Copy Builds to Dist Directory 
+ECHO -----------------------------
+ECHO Copy Builds to Dist Directory
+ECHO -----------------------------
 xcopy src\Tao.Cg\bin\Release\*.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.DevIl\bin\Release\*.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.FreeGlut\bin\Release\Tao.FreeGlut.dll dist\bin\*.* /Q /Y
@@ -30,14 +35,30 @@ xcopy src\Tao.PhysFs\bin\Release\*.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.Platform.Windows\bin\Release\Tao.Platform.Windows.dll dist\bin\*.* /Q /Y
 xcopy src\Tao.Sdl\bin\Release\*.dll dist\bin\*.* /Q /Y
 
-@REM Copy Examples to Dist Directory
+
+ECHO -------------------------------
+ECHO Copy Examples to Dist Directory
+ECHO -------------------------------
 xcopy dist\bin\*.dll dist\examples\*.* /Q /Y
 
+ECHO.
+ECHO Cg Examples
+xcopy examples\CgExamples\Gl_01_vertex_program\bin\Release\*.exe dist\examples\*.* /Q /Y
+xcopy examples\CgExamples\Gl_01_vertex_program\Data\*.* dist\examples\Data\*.* /Q /Y
+xcopy examples\CgExamples\Gl_02_vertex_and_fragment_program\bin\Release\*.exe dist\examples\*.* /Q /Y
+xcopy examples\CgExamples\Gl_02_vertex_and_fragment_program\Data\*.* dist\examples\Data\*.* /Q /Y
+
+ECHO.
+ECHO DevIl Examples
 xcopy examples\DevIlExamples\SimpleExample\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\DevIlExamples\SimpleExample\Data\*.* dist\examples\Data\*.* /Q /Y
 
+ECHO.
+ECHO FreeGlut Examples
 xcopy examples\FreeGlutExamples\One\bin\Release\*.exe dist\examples\*.* /Q /Y
 
+ECHO.
+ECHO GeWang Examples
 xcopy examples\GeWang\ClippingPlanes\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\GeWang\Lorenz3d\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\GeWang\Mirror\bin\Release\*.exe dist\examples\*.* /Q /Y
@@ -45,6 +66,8 @@ xcopy examples\GeWang\Shadow\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\GeWang\Starfield\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\GeWang\Xform\bin\Release\*.exe dist\examples\*.* /Q /Y
 
+ECHO.
+ECHO GlfwExamples Examples
 xcopy examples\GlfwExamples\Boing\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\GlfwExamples\Gears\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\GlfwExamples\KeyTest\bin\Release\*.exe dist\examples\*.* /Q /Y
@@ -53,11 +76,15 @@ xcopy examples\GlfwExamples\Pong\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\GlfwExamples\Pong\Data\*.* dist\examples\Data\*.* /Q /Y
 xcopy examples\GlfwExamples\Triangle\bin\Release\*.exe dist\examples\*.* /Q /Y
 
+ECHO.
+ECHO Lua Examples
 xcopy examples\LuaExamples\Functions\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\LuaExamples\Functions\Data\*.* dist\examples\Data\*.* /Q /Y
 xcopy examples\LuaExamples\Simple\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\LuaExamples\Simple\Data\*.* dist\examples\Data\*.* /Q /Y
 
+ECHO.
+ECHO NateRobins Examples
 xcopy examples\NateRobins\Area\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\NateRobins\Maiden\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\NateRobins\Maiden\Data\*.* dist\examples\Data\*.* /Q /Y
@@ -71,6 +98,8 @@ xcopy examples\NateRobins\Strip\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\NateRobins\Texture\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\NateRobins\Voronoi\bin\Release\*.exe dist\examples\*.* /Q /Y
 
+ECHO.
+ECHO NeHe Examples
 xcopy examples\NeHe\Lesson01\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\NeHe\Lesson02\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\NeHe\Lesson03\bin\Release\*.exe dist\examples\*.* /Q /Y
@@ -115,8 +144,12 @@ xcopy examples\NeHe\Lesson26\Data\*.* dist\examples\Data\*.* /Q /Y
 xcopy examples\NeHe\Lesson34\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\NeHe\Lesson34\Data\*.* dist\examples\Data\*.* /Q /Y
 
+ECHO.
+ECHO Ode Examples
 xcopy examples\OdeExamples\Basic\bin\Release\*.exe dist\examples\*.* /Q /Y
 
+ECHO.
+ECHO OpenAl Examples
 xcopy examples\OpenAlExamples\Boxes\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\OpenAlExamples\Boxes\Data\*.* dist\examples\Data\*.* /Q /Y
 xcopy examples\OpenAlExamples\Lesson01\bin\Release\*.exe dist\examples\*.* /Q /Y
@@ -130,9 +163,13 @@ xcopy examples\OpenAlExamples\Lesson05\Data\*.* dist\examples\Data\*.* /Q /Y
 xcopy examples\OpenAlExamples\Waterfall\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\OpenAlExamples\Waterfall\Data\*.* dist\examples\Data\*.* /Q /Y
 
+ECHO.
+ECHO PhysFs Examples
 xcopy examples\PhysFsExamples\Simple\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\PhysFsExamples\Simple\Data\*.* dist\examples\Data\*.* /Q /Y
 
+ECHO.
+ECHO Redbook Examples
 xcopy examples\Redbook\Aaindex\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\Redbook\Aapoly\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\Redbook\Aargb\bin\Release\*.exe dist\examples\*.* /Q /Y
@@ -202,13 +239,17 @@ xcopy examples\Redbook\UnProject\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\Redbook\Varray\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\Redbook\Wrap\bin\Release\*.exe dist\examples\*.* /Q /Y
 
+ECHO.
+ECHO Sdl Examples
 xcopy examples\SdlExamples\GfxPrimitives\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\SdlExamples\Rectangles\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\SdlExamples\Rectangles\Data\*.* dist\examples\Data\*.* /Q /Y
 xcopy examples\SdlExamples\SmpegPlayer\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\SdlExamples\SmpegPlayer\Data\*.* dist\examples\Data\*.* /Q /Y
 
-@REM Build Documentation Using NAnt 
+ECHO ------------------------------
+ECHO Build Documentation Using NAnt
+ECHO ------------------------------
 NAnt.exe -t:mono-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build doc
 NAnt.exe -t:mono-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build doc
 NAnt.exe -t:mono-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build doc
@@ -216,7 +257,9 @@ NAnt.exe -t:mono-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build doc
 NAnt.exe -t:mono-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build doc
 NAnt.exe -t:mono-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build doc
 
-@REM Copy Documentation To Dist Directory
+ECHO --------------------------
+ECHO Move Documentation To Dist
+ECHO --------------------------
 xcopy src\Tao.Cg\bin\Release\*.xml dist\doc\*.* /Q /Y
 xcopy src\Tao.DevIl\bin\Release\*.xml dist\doc\*.* /Q /Y
 xcopy src\Tao.FreeGlut\bin\Release\*.xml dist\doc\*.* /Q /Y
