@@ -56,10 +56,13 @@ namespace Tao.GlBindGen
             sw.WriteLine("{");
 
             WriteTypes(sw);
-
+            sw.WriteLine("    /// <summary>");
+            sw.WriteLine("    /// ");
+            sw.WriteLine("    /// </summary>");
             sw.WriteLine("    public static partial class {0}", Properties.Bind.Default.OutputClass);
             sw.WriteLine("    {");
 
+            WritePrivateConstants(sw);
             WriteConstants(sw, constants);
             WriteFunctionSignatures(sw, functions);
             WriteDllImports(sw, functions);
@@ -118,24 +121,59 @@ namespace Tao.GlBindGen
             foreach (string key in Translation.CStypes.Keys)
             {
                 sw.WriteLine("    using {0} = System.{1};", key, Translation.CStypes[key]);
-                //sw.WriteLine("        public const {0};", c.ToString());
+                //sw.WriteLine("    public const {0};", c.ToString());
             }
             sw.WriteLine("    #endregion");
             sw.WriteLine();
         }
         #endregion
 
+        #region WritePrivateConstants
+        private static void WritePrivateConstants(StreamWriter streamWriter)
+        {
+            streamWriter.WriteLine("        #region Private Constants");
+            streamWriter.WriteLine("        #region string GL_NATIVE_LIBRARY");
+            streamWriter.WriteLine("        /// <summary>");
+            streamWriter.WriteLine("        /// Specifies OpenGl's native library archive.");
+            streamWriter.WriteLine("        /// </summary>");
+            streamWriter.WriteLine("        /// <remarks>");
+            streamWriter.WriteLine("        /// Specifies opengl32.dll everywhere; will be mapped via .config for mono.");
+            streamWriter.WriteLine("        /// </remarks>");
+            streamWriter.WriteLine("        private const string GL_NATIVE_LIBRARY = \"opengl32.dll\";");
+            streamWriter.WriteLine("        #endregion string GL_NATIVE_LIBRARY");
+            //streamWriter.WriteLine();
+            //streamWriter.WriteLine("        #region CallingConvention CALLING_CONVENTION");
+            //streamWriter.WriteLine("        /// <summary>");
+            //streamWriter.WriteLine("        /// Specifies the calling convention.");
+            //streamWriter.WriteLine("        /// </summary>");
+            //streamWriter.WriteLine("        /// <remarks>");
+            //streamWriter.WriteLine("        /// Specifies <see cref=\"CallingConvention.Cdecl\" /> ");
+            //streamWriter.WriteLine("        /// for Windows and Linux.");
+            //streamWriter.WriteLine("        /// </remarks>");
+            //streamWriter.WriteLine("        private const CallingConvention CALLING_CONVENTION = CallingConvention.Cdecl;");
+            //streamWriter.WriteLine("        #endregion CallingConvention CALLING_CONVENTION");
+            streamWriter.WriteLine("        #endregion Private Constants");
+            streamWriter.WriteLine();
+        }
+        #endregion WritePrivateConstants
+
         #region Write constants
         private static void WriteConstants(StreamWriter sw, List<Constant> constants)
         {
-            sw.WriteLine("        #region Constants");
+            sw.WriteLine("        #region Public Constants");
 
             foreach (Constant c in constants)
             {
+                sw.WriteLine("        #region GL_" + c.Name);
+                sw.WriteLine("        /// <summary>");
+                sw.WriteLine("        /// ");
+                sw.WriteLine("        /// </summary>");
                 sw.WriteLine("        public const GLuint {0};", c.ToString());
+                sw.WriteLine("        #endregion GL_" + c.Name);
+                sw.WriteLine();
             }
 
-            sw.WriteLine("        #endregion");
+            sw.WriteLine("        #endregion Public Constants");
             sw.WriteLine();
         }
         #endregion
@@ -154,7 +192,7 @@ namespace Tao.GlBindGen
             }
 
             sw.WriteLine("        }");
-            sw.WriteLine("        #endregion");
+            sw.WriteLine("        #endregion Function signatures");
             sw.WriteLine();
         }
         #endregion
@@ -171,13 +209,13 @@ namespace Tao.GlBindGen
             {
                 if (!f.Extension)
                 {
-                    sw.WriteLine("            [DllImport(\"opengl32\", EntryPoint = \"{0}\")]", f.Name.TrimEnd('_'));
+                    sw.WriteLine("            [DllImport(GL_NATIVE_LIBRARY, EntryPoint = \"{0}\")]", f.Name.TrimEnd('_'));
                     sw.WriteLine("            public static extern {0};", f.ToString());
                 }
             }
 
             sw.WriteLine("        }");
-            sw.WriteLine("        #endregion");
+            sw.WriteLine("        #endregion Imports");
             sw.WriteLine();
         }
         #endregion
@@ -190,10 +228,16 @@ namespace Tao.GlBindGen
 
             foreach (Function f in functions)
             {
+                sw.WriteLine("        #region " + f.Name);
+                sw.WriteLine("        /// <summary>");
+                sw.WriteLine("        /// ");
+                sw.WriteLine("        /// </summary>");
                 sw.WriteLine("        public static Delegates.{0} {0} = (Delegates.{0})GetAddress(\"{1}\", typeof(Delegates.{0}));", f.Name, f.Name.TrimEnd('_'));
+                sw.WriteLine("        #endregion " + f.Name);
+                sw.WriteLine();
             }
 
-            sw.WriteLine("        #endregion");
+            sw.WriteLine("        #endregion Function initialisation");
             sw.WriteLine();
         }
         #endregion
@@ -226,7 +270,7 @@ namespace Tao.GlBindGen
                             Properties.Bind.Default.OutputTaoClass,
                             f.Name);*/
                 }
-                sw.WriteLine("                #endregion");
+                sw.WriteLine("                #endregion Older Windows Core");
                 sw.WriteLine("            }");
             }
 
@@ -252,7 +296,7 @@ namespace Tao.GlBindGen
                             Properties.Bind.Default.OutputTaoClass,
                             f.Name);*/
                 }
-                sw.WriteLine("                #endregion");
+                sw.WriteLine("                #endregion Windows Vista Core");
                 sw.WriteLine("            }");
             }
 
@@ -278,14 +322,14 @@ namespace Tao.GlBindGen
                             Properties.Bind.Default.OutputTaoClass,
                             f.Name);*/
                 }
-                sw.WriteLine("                #endregion");
+                sw.WriteLine("                #endregion X11 Core");
                 sw.WriteLine("            }");
             }
 
             #endregion
 
             sw.WriteLine("        }");
-            sw.WriteLine("        #endregion");
+            sw.WriteLine("        #endregion static Constructor");
             sw.WriteLine();
         }
         #endregion
@@ -293,14 +337,20 @@ namespace Tao.GlBindGen
         #region Write GetAddress
         private static void WriteGetAddress(StreamWriter sw)
         {
+            sw.WriteLine("        #region Delegate GetAddress");
             sw.WriteLine("        public static Delegate GetAddress(string s, Type function_signature)");
             sw.WriteLine("        {");
             sw.WriteLine("            IntPtr address = Tao.OpenGl.GlExtensionLoader.GetProcAddress(s);");
             sw.WriteLine("            if (address == IntPtr.Zero)");
+            sw.WriteLine("            {");
             sw.WriteLine("                return null;");
+            sw.WriteLine("            }");
             sw.WriteLine("            else");
+            sw.WriteLine("            {");
             sw.WriteLine("                return Marshal.GetDelegateForFunctionPointer(address, function_signature);");
+            sw.WriteLine("            }");
             sw.WriteLine("        }");
+            sw.WriteLine("        #endregion Delegate GetAddress");
 
         }
         #endregion
@@ -328,21 +378,30 @@ namespace Tao.GlBindGen
                 
                 if (f.WrapperType == WrapperTypes.ReturnsString)
                 {
+                    sw.WriteLine("        /// <summary>");
+                    sw.WriteLine("        /// ");
+                    sw.WriteLine("        /// </summary>");
                     sw.WriteLine("        public static {0} {1}{2}", "string", f.Name.TrimEnd('_'), f.Parameters.ToString());
                     sw.WriteLine("        {");
-                    sw.WriteLine("             return Marshal.PtrToStringAnsi({0});", f.CallString());
+                    sw.WriteLine("            return Marshal.PtrToStringAnsi({0});", f.CallString());
                     sw.WriteLine("        }");
                 }
                 else if (f.Name.Contains("glLineStipple"))
                 {
+                    sw.WriteLine("        /// <summary>");
+                    sw.WriteLine("        /// ");
+                    sw.WriteLine("        /// </summary>");
                     sw.WriteLine("        public static {0} {1}{2}", f.ReturnValue, f.Name.TrimEnd('_'), f.Parameters.ToString().Replace("GLushort", "GLint"));
                     sw.WriteLine("        {");
-                    sw.WriteLine("             glLineStipple_({0}, unchecked((GLushort){1}));", f.Parameters[0].Name, f.Parameters[1].Name);
+                    sw.WriteLine("            glLineStipple_({0}, unchecked((GLushort){1}));", f.Parameters[0].Name, f.Parameters[1].Name);
                     sw.WriteLine("        }");
                 }
                 else if (f.WrapperType == WrapperTypes.VoidPointerIn || f.WrapperType == WrapperTypes.VoidPointerOut || f.WrapperType == WrapperTypes.ArrayIn)
                 {
                     // Add object overload (i.e. turn off type checking).
+                    sw.WriteLine("        /// <summary>");
+                    sw.WriteLine("        /// ");
+                    sw.WriteLine("        /// </summary>");
                     sw.WriteLine("        public static {0} {1}{2}", f.ReturnValue, f.Name.TrimEnd('_'), f.Parameters.ToString().Replace("IntPtr", "object"));
                     sw.WriteLine("        {");
                     int i = 0;
@@ -380,6 +439,9 @@ namespace Tao.GlBindGen
                     sw.WriteLine("        }");
 
                     // Add IntPtr overload.
+                    sw.WriteLine("        /// <summary>");
+                    sw.WriteLine("        /// ");
+                    sw.WriteLine("        /// </summary>");
                     sw.WriteLine("        public static {0} {1}{2}", f.ReturnValue, f.Name.TrimEnd('_'), f.Parameters.ToString());
                     sw.WriteLine("        {");
                     sb.Replace(", ", ")", sb.Length - 2, 2);
@@ -410,6 +472,9 @@ namespace Tao.GlBindGen
                         sb.Append(", ");
                     }
                     sb.Replace(", ", ")", sb.Length - 2, 2);
+                    sw.WriteLine("        /// <summary>");
+                    sw.WriteLine("        /// ");
+                    sw.WriteLine("        /// </summary>");
                     sw.WriteLine("        public static {0} {1}{2}", f.ReturnValue, f.Name.TrimEnd('_'), sb.ToString());
                     sw.WriteLine("        {");
                     int i = 0;
@@ -448,10 +513,10 @@ namespace Tao.GlBindGen
                 }
 
 
-                sw.WriteLine("        #endregion");
+                sw.WriteLine("        #endregion {0}", f.Name.TrimEnd('_'));
                 sw.WriteLine();
             }
-            sw.WriteLine("    #endregion");
+            sw.WriteLine("        #endregion Wrappers");
             sw.WriteLine();
         }
         #endregion
@@ -460,11 +525,17 @@ namespace Tao.GlBindGen
         private static bool IsImportFunction(Function f, string[] import_list)
         {
             if (f.Extension)
+            {
                 return false;
+            }
 
             foreach (string version in import_list)
+            {
                 if (f.Version == version)
+                {
                     return true;
+                }
+            }
 
             return false;
         }
