@@ -2116,7 +2116,7 @@ namespace Tao.OpenGl {
         ///         segments.  Evaluator state is preserved during rendering with
         ///         <c>Gl.glPushAttrib(Gl.GL_EVAL_BIT)</c> and <c>Gl.glPopAttrib</c>.  For
         ///         information on exactly what state these calls preserve, see
-        ///         <see cref="Gl.glPushAttrib(int)" />.
+        ///         <see cref="Gl.glPushAttrib" />.
         ///     </para>
         ///     <para>
         ///         <b>EXAMPLE</b>
@@ -2136,7 +2136,7 @@ namespace Tao.OpenGl {
         ///     </para>
         /// </remarks>
         /// <seealso cref="Gl.glPopAttrib" />
-        /// <seealso cref="Gl.glPushAttrib(int)" />
+        /// <seealso cref="Gl.glPushAttrib" />
         /// <seealso cref="gluBeginSurface" />
         /// <seealso cref="gluBeginTrim" />
         /// <seealso cref="gluNewNurbsRenderer" />
@@ -2238,7 +2238,7 @@ namespace Tao.OpenGl {
         ///         OpenGL evaluators are used to render the NURBS surface as a set of polygons.
         ///         Evaluator state is preserved during rendering with
         ///         <c>Gl.glPushAttrib(Gl.GL_EVAL_BIT)</c> and <c>Gl.glPopAttrib()</c>.  See the
-        ///         <see cref="Gl.glPushAttrib(int)" /> reference page for details on exactly what
+        ///         <see cref="Gl.glPushAttrib" /> reference page for details on exactly what
         ///         state these calls preserve.
         ///     </para>
         ///     <para>
@@ -2427,10 +2427,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -2453,7 +2453,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -2472,9 +2472,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -2552,13 +2552,13 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-		/// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-		/// <seealso cref="Gl.glGetTexLevelParameterfv(int, int, int, out float)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+		/// <seealso cref="Gl.glGetTexLevelParameteriv" />
+		/// <seealso cref="Gl.glGetTexLevelParameterfv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -2637,10 +2637,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -2663,7 +2663,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -2682,9 +2682,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -2762,13 +2762,13 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-		/// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-		/// <seealso cref="Gl.glGetTexLevelParameterfv(int, int, int, out float)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+		/// <seealso cref="Gl.glGetTexLevelParameteriv" />
+		/// <seealso cref="Gl.glGetTexLevelParameterfv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -2847,10 +2847,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -2873,7 +2873,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -2892,9 +2892,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -2972,13 +2972,13 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glGetTexLevelParameterfv(int, int, int, out float)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameterfv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -3057,10 +3057,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -3083,7 +3083,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -3102,9 +3102,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -3182,12 +3182,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -3266,10 +3266,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -3292,7 +3292,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -3311,9 +3311,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -3391,13 +3391,13 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-		/// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-		/// <seealso cref="Gl.glGetTexLevelParameterfv(int, int, int, out float)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+		/// <seealso cref="Gl.glGetTexLevelParameteriv" />
+		/// <seealso cref="Gl.glGetTexLevelParameterfv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -3476,10 +3476,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -3502,7 +3502,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -3521,9 +3521,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -3601,13 +3601,13 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-		/// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-		/// <seealso cref="Gl.glGetTexLevelParameterfv(int, int, int, out float)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+		/// <seealso cref="Gl.glGetTexLevelParameteriv" />
+		/// <seealso cref="Gl.glGetTexLevelParameterfv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -3686,10 +3686,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -3712,7 +3712,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -3731,9 +3731,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -3811,12 +3811,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -3895,10 +3895,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -3921,7 +3921,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -3940,9 +3940,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -4020,12 +4020,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -4104,10 +4104,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -4130,7 +4130,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -4149,9 +4149,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -4229,12 +4229,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -4313,10 +4313,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -4339,7 +4339,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -4358,9 +4358,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -4438,12 +4438,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -4522,10 +4522,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -4548,7 +4548,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -4567,9 +4567,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -4647,12 +4647,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -4731,10 +4731,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -4757,7 +4757,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -4776,9 +4776,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -4856,12 +4856,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -4940,10 +4940,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -4966,7 +4966,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -4985,9 +4985,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -5065,12 +5065,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -5149,10 +5149,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -5175,7 +5175,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -5194,9 +5194,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -5274,12 +5274,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -5358,10 +5358,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -5384,7 +5384,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -5403,9 +5403,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -5483,13 +5483,13 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-		/// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-		/// <seealso cref="Gl.glGetTexLevelParameterfv(int, int, int, out float)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+		/// <seealso cref="Gl.glGetTexLevelParameteriv" />
+		/// <seealso cref="Gl.glGetTexLevelParameterfv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -5568,10 +5568,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -5594,7 +5594,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -5613,9 +5613,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -5693,12 +5693,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -5777,10 +5777,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -5803,7 +5803,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -5822,9 +5822,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -5902,12 +5902,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -5986,10 +5986,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -6012,7 +6012,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -6031,9 +6031,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -6111,12 +6111,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -6195,10 +6195,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -6221,7 +6221,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -6240,9 +6240,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -6320,12 +6320,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -6404,10 +6404,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -6430,7 +6430,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -6449,9 +6449,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -6529,12 +6529,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -6613,10 +6613,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -6639,7 +6639,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -6658,9 +6658,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -6738,12 +6738,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -6822,10 +6822,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -6848,7 +6848,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -6867,9 +6867,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -6947,12 +6947,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -7031,10 +7031,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -7057,7 +7057,7 @@ namespace Tao.OpenGl {
         ///         A series of mipmap levels from <i>min</i> to <i>max</i> is built by
         ///         decimating data in half until size 1×1 is reached.  At each level, each texel
         ///         in the halved mipmap level is an average of the corresponding two texels in
-        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load
+        ///         the larger mipmap level.  <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load
         ///         these mipmap levels from <i>min</i> to <i>max</i>.  If <i>max</i> is larger
         ///         than the highest mipmap level for the texture of the specified size, then a
         ///         GLU error code is returned (see <see cref="gluErrorString" />) and nothing is
@@ -7076,9 +7076,9 @@ namespace Tao.OpenGl {
         ///         <c>log2((width)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>level</i> parameter.
         ///     </para>
         ///     <para>
@@ -7156,12 +7156,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -7263,7 +7263,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -7281,9 +7281,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -7291,7 +7291,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -7360,12 +7360,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -7467,7 +7467,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -7485,9 +7485,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -7495,7 +7495,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -7564,12 +7564,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -7671,7 +7671,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -7689,9 +7689,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -7699,7 +7699,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -7768,12 +7768,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -7875,7 +7875,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -7893,9 +7893,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -7903,7 +7903,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -7972,12 +7972,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -8079,7 +8079,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -8097,9 +8097,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -8107,7 +8107,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -8176,12 +8176,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -8283,7 +8283,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -8301,9 +8301,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -8311,7 +8311,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -8380,12 +8380,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -8487,7 +8487,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -8505,9 +8505,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -8515,7 +8515,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -8584,12 +8584,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -8691,7 +8691,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -8709,9 +8709,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -8719,7 +8719,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -8788,12 +8788,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -8895,7 +8895,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -8913,9 +8913,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -8923,7 +8923,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -8992,12 +8992,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -9099,7 +9099,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -9117,9 +9117,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -9127,7 +9127,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -9196,12 +9196,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -9303,7 +9303,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -9321,9 +9321,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -9331,7 +9331,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -9400,12 +9400,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -9507,7 +9507,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -9525,9 +9525,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -9535,7 +9535,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -9604,12 +9604,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -9711,7 +9711,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -9729,9 +9729,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -9739,7 +9739,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -9808,12 +9808,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -9915,7 +9915,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -9933,9 +9933,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -9943,7 +9943,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -10012,12 +10012,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -10119,7 +10119,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -10137,9 +10137,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -10147,7 +10147,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -10216,12 +10216,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -10323,7 +10323,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -10341,9 +10341,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -10351,7 +10351,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -10420,12 +10420,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -10527,7 +10527,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -10545,9 +10545,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -10555,7 +10555,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -10624,12 +10624,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -10731,7 +10731,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -10749,9 +10749,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -10759,7 +10759,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -10828,12 +10828,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -10935,7 +10935,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -10953,9 +10953,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -10963,7 +10963,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -11032,12 +11032,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -11139,7 +11139,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -11157,9 +11157,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -11167,7 +11167,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -11236,12 +11236,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -11343,7 +11343,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -11361,9 +11361,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -11371,7 +11371,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -11440,12 +11440,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -11547,7 +11547,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -11565,9 +11565,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -11575,7 +11575,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -11644,12 +11644,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -11751,7 +11751,7 @@ namespace Tao.OpenGl {
         ///         then a copy of <i>data</i> will scale up to 64 before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, width
         ///         is continually halved until it fits.
         ///     </para>
@@ -11769,9 +11769,9 @@ namespace Tao.OpenGl {
         ///         2×1 and 1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>type</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for the <i>data</i> parameter.
         ///     </para>
         ///     <para>
@@ -11779,7 +11779,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -11848,12 +11848,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -11936,10 +11936,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -11965,7 +11965,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -11984,9 +11984,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -12065,12 +12065,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -12153,10 +12153,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -12182,7 +12182,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -12201,9 +12201,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -12282,12 +12282,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -12370,10 +12370,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -12399,7 +12399,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -12418,9 +12418,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -12499,12 +12499,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -12587,10 +12587,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -12616,7 +12616,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -12635,9 +12635,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -12716,12 +12716,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -12804,10 +12804,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -12833,7 +12833,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -12852,9 +12852,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -12933,12 +12933,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -13021,10 +13021,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -13050,7 +13050,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -13069,9 +13069,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -13150,12 +13150,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -13238,10 +13238,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -13267,7 +13267,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -13286,9 +13286,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -13367,12 +13367,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -13455,10 +13455,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -13484,7 +13484,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -13503,9 +13503,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -13584,12 +13584,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -13672,10 +13672,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -13701,7 +13701,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -13720,9 +13720,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -13801,12 +13801,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -13889,10 +13889,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -13918,7 +13918,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -13937,9 +13937,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -14018,12 +14018,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -14106,10 +14106,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -14135,7 +14135,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -14154,9 +14154,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -14235,12 +14235,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -14323,10 +14323,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -14352,7 +14352,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -14371,9 +14371,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -14452,12 +14452,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -14540,10 +14540,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -14569,7 +14569,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -14588,9 +14588,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -14669,12 +14669,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -14757,10 +14757,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -14786,7 +14786,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -14805,9 +14805,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -14886,12 +14886,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -14974,10 +14974,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -15003,7 +15003,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -15022,9 +15022,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -15103,12 +15103,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -15191,10 +15191,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -15220,7 +15220,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -15239,9 +15239,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -15320,12 +15320,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -15408,10 +15408,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -15437,7 +15437,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -15456,9 +15456,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -15537,12 +15537,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -15625,10 +15625,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -15654,7 +15654,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -15673,9 +15673,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -15754,12 +15754,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -15842,10 +15842,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -15871,7 +15871,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -15890,9 +15890,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -15971,12 +15971,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -16059,10 +16059,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -16088,7 +16088,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -16107,9 +16107,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -16188,12 +16188,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -16276,10 +16276,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -16305,7 +16305,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -16324,9 +16324,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -16405,12 +16405,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -16493,10 +16493,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -16522,7 +16522,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -16541,9 +16541,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -16622,12 +16622,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -16710,10 +16710,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -16739,7 +16739,7 @@ namespace Tao.OpenGl {
         ///         of the corresponding four texels in the larger mipmap level.  (In the case of
         ///         rectangular images, the decimation will ultimately reach an N×1 or 1×N
         ///         configuration.  Here, two texels are averaged instead.)
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load these mipmap levels from
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load these mipmap levels from
         ///         <i>min</i> to <i>max</i>.  If <i>max</i> is larger than the highest mipmap
         ///         level for the texture of the specified size, then a GLU error code is
         ///         returned (see <see cref="gluErrorString" />) and nothing is loaded.
@@ -16758,9 +16758,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -16839,12 +16839,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
@@ -16951,11 +16951,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -16967,7 +16967,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -16975,9 +16975,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -16985,7 +16985,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -17055,12 +17055,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -17167,11 +17167,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -17183,7 +17183,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -17191,9 +17191,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -17201,7 +17201,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -17271,12 +17271,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -17383,11 +17383,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -17399,7 +17399,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -17407,9 +17407,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -17417,7 +17417,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -17487,12 +17487,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -17599,11 +17599,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -17615,7 +17615,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -17623,9 +17623,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -17633,7 +17633,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -17703,12 +17703,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -17815,11 +17815,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -17831,7 +17831,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -17839,9 +17839,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -17849,7 +17849,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -17919,12 +17919,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -18031,11 +18031,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -18047,7 +18047,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -18055,9 +18055,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -18065,7 +18065,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -18135,12 +18135,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -18247,11 +18247,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -18263,7 +18263,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -18271,9 +18271,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -18281,7 +18281,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -18351,12 +18351,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -18463,11 +18463,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -18479,7 +18479,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -18487,9 +18487,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -18497,7 +18497,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -18567,12 +18567,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -18679,11 +18679,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -18695,7 +18695,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -18703,9 +18703,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -18713,7 +18713,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -18783,12 +18783,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -18895,11 +18895,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -18911,7 +18911,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -18919,9 +18919,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -18929,7 +18929,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -18999,12 +18999,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -19111,11 +19111,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -19127,7 +19127,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -19135,9 +19135,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -19145,7 +19145,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -19215,12 +19215,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -19327,11 +19327,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -19343,7 +19343,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -19351,9 +19351,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -19361,7 +19361,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -19431,12 +19431,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -19543,11 +19543,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -19559,7 +19559,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -19567,9 +19567,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -19577,7 +19577,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -19647,12 +19647,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -19759,11 +19759,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -19775,7 +19775,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -19783,9 +19783,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -19793,7 +19793,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -19863,12 +19863,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -19975,11 +19975,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -19991,7 +19991,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -19999,9 +19999,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -20009,7 +20009,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -20079,12 +20079,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -20191,11 +20191,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -20207,7 +20207,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -20215,9 +20215,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -20225,7 +20225,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -20295,12 +20295,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -20407,11 +20407,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -20423,7 +20423,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -20431,9 +20431,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -20441,7 +20441,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -20511,12 +20511,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -20623,11 +20623,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -20639,7 +20639,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -20647,9 +20647,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -20657,7 +20657,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -20727,12 +20727,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -20839,11 +20839,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -20855,7 +20855,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -20863,9 +20863,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -20873,7 +20873,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -20943,12 +20943,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -21055,11 +21055,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -21071,7 +21071,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -21079,9 +21079,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -21089,7 +21089,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -21159,12 +21159,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -21271,11 +21271,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -21287,7 +21287,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -21295,9 +21295,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -21305,7 +21305,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -21375,12 +21375,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -21487,11 +21487,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -21503,7 +21503,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -21511,9 +21511,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -21521,7 +21521,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -21591,12 +21591,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -21703,11 +21703,11 @@ namespace Tao.OpenGl {
         ///         16 in depth, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv(int, out int)" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -21719,7 +21719,7 @@ namespace Tao.OpenGl {
         ///         texels are averaged instead.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height))</c>.  For example, if <i>width</i> is 64 and
         ///         <i>height</i> is 16 and the implementation can store a texture of this size,
@@ -21727,9 +21727,9 @@ namespace Tao.OpenGl {
         ///         1×1.  These correspond to levels 0 through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter. 
         ///     </para>
         ///     <para>
@@ -21737,7 +21737,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -21807,12 +21807,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -21897,10 +21897,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -21925,7 +21925,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -21945,9 +21945,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -22026,12 +22026,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -22116,10 +22116,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -22144,7 +22144,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -22164,9 +22164,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -22245,12 +22245,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -22335,10 +22335,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -22363,7 +22363,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -22383,9 +22383,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -22464,12 +22464,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -22554,10 +22554,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -22582,7 +22582,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -22602,9 +22602,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -22683,12 +22683,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -22773,10 +22773,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -22801,7 +22801,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -22821,9 +22821,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -22902,12 +22902,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -22992,10 +22992,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -23020,7 +23020,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -23040,9 +23040,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -23121,12 +23121,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -23211,10 +23211,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -23239,7 +23239,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -23259,9 +23259,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -23340,12 +23340,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -23430,10 +23430,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -23458,7 +23458,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -23478,9 +23478,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -23559,12 +23559,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -23649,10 +23649,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -23677,7 +23677,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -23697,9 +23697,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -23778,12 +23778,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -23868,10 +23868,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -23896,7 +23896,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -23916,9 +23916,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -23997,12 +23997,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -24087,10 +24087,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -24115,7 +24115,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -24135,9 +24135,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -24216,12 +24216,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -24306,10 +24306,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -24334,7 +24334,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -24354,9 +24354,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -24435,12 +24435,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -24525,10 +24525,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -24553,7 +24553,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -24573,9 +24573,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -24654,12 +24654,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -24744,10 +24744,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -24772,7 +24772,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -24792,9 +24792,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -24873,12 +24873,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -24963,10 +24963,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -24991,7 +24991,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -25011,9 +25011,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -25092,12 +25092,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -25182,10 +25182,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -25210,7 +25210,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -25230,9 +25230,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -25311,12 +25311,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -25401,10 +25401,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -25429,7 +25429,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -25449,9 +25449,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -25530,12 +25530,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -25620,10 +25620,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -25648,7 +25648,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -25668,9 +25668,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -25749,12 +25749,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -25839,10 +25839,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -25867,7 +25867,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -25887,9 +25887,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -25968,12 +25968,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -26058,10 +26058,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -26086,7 +26086,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -26106,9 +26106,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -26187,12 +26187,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -26277,10 +26277,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -26305,7 +26305,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -26325,9 +26325,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -26406,12 +26406,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -26496,10 +26496,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -26524,7 +26524,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -26544,9 +26544,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -26625,12 +26625,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -26715,10 +26715,10 @@ namespace Tao.OpenGl {
         ///     Specifies the mipmap level of the image data.
         /// </param>
         /// <param name="min">
-        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the minimum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="max">
-        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />.
+        ///     Specifies the maximum mipmap level to pass to <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />.
         /// </param>
         /// <param name="data">
         ///     Specifies a pointer to the image data in memory.
@@ -26743,7 +26743,7 @@ namespace Tao.OpenGl {
         ///          reached.  At each level, each texel in the halved mipmap level is an average
         ///          of the corresponding eight texels in the larger mipmap level.  (If exactly
         ///          one of the dimensions is 1, four texels are averaged.  If exactly two of the
-        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        ///          dimensions are 1, two texels are averaged.)  <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         ///          is called to load these mipmap levels from <i>min</i> to <i>max</i>.  If
         ///          <i>max</i> is larger than the highest mipmap level for the texture of the
         ///          specified size, then a GLU error code is returned (see
@@ -26763,9 +26763,9 @@ namespace Tao.OpenGl {
         ///         <c>log2(max(width,height,depth)*(2^level))</c>.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -26844,12 +26844,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -26959,7 +26959,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -26972,7 +26972,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -26981,9 +26981,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -26991,7 +26991,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -27066,12 +27066,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -27181,7 +27181,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -27194,7 +27194,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -27203,9 +27203,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -27213,7 +27213,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -27288,12 +27288,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -27403,7 +27403,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -27416,7 +27416,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -27425,9 +27425,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -27435,7 +27435,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -27510,12 +27510,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -27625,7 +27625,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -27638,7 +27638,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -27647,9 +27647,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -27657,7 +27657,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -27732,12 +27732,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -27847,7 +27847,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -27860,7 +27860,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -27869,9 +27869,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -27879,7 +27879,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -27954,12 +27954,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -28069,7 +28069,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -28082,7 +28082,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -28091,9 +28091,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -28101,7 +28101,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -28176,12 +28176,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -28291,7 +28291,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -28304,7 +28304,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -28313,9 +28313,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -28323,7 +28323,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -28398,12 +28398,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -28513,7 +28513,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -28526,7 +28526,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -28535,9 +28535,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -28545,7 +28545,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -28620,12 +28620,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -28735,7 +28735,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -28748,7 +28748,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -28757,9 +28757,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -28767,7 +28767,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -28842,12 +28842,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -28957,7 +28957,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -28970,7 +28970,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -28979,9 +28979,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -28989,7 +28989,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -29064,12 +29064,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -29179,7 +29179,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -29192,7 +29192,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -29201,9 +29201,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -29211,7 +29211,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -29286,12 +29286,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -29401,7 +29401,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -29414,7 +29414,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -29423,9 +29423,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -29433,7 +29433,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -29508,12 +29508,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -29623,7 +29623,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -29636,7 +29636,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -29645,9 +29645,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -29655,7 +29655,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -29730,12 +29730,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -29845,7 +29845,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -29858,7 +29858,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -29867,9 +29867,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -29877,7 +29877,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -29952,12 +29952,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -30067,7 +30067,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -30080,7 +30080,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -30089,9 +30089,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -30099,7 +30099,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -30174,12 +30174,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -30289,7 +30289,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -30302,7 +30302,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -30311,9 +30311,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -30321,7 +30321,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -30396,12 +30396,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -30511,7 +30511,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -30524,7 +30524,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -30533,9 +30533,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -30543,7 +30543,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -30618,12 +30618,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -30733,7 +30733,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -30746,7 +30746,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -30755,9 +30755,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -30765,7 +30765,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -30840,12 +30840,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -30955,7 +30955,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -30968,7 +30968,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -30977,9 +30977,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -30987,7 +30987,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -31062,12 +31062,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -31177,7 +31177,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -31190,7 +31190,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -31199,9 +31199,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -31209,7 +31209,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -31284,12 +31284,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -31399,7 +31399,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -31412,7 +31412,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -31421,9 +31421,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -31431,7 +31431,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -31506,12 +31506,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -31621,7 +31621,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -31634,7 +31634,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -31643,9 +31643,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -31653,7 +31653,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -31728,12 +31728,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -31843,7 +31843,7 @@ namespace Tao.OpenGl {
         ///         and up to 32 in <i>depth</i>, before mipmapping takes place.
         ///     </para>
         ///     <para>
-        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />) are used to
+        ///         Then, proxy textures (see <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />) are used to
         ///         determine if the implementation can fit the requested texture.  If not, all
         ///         three dimensions are continually halved until it fits.
         ///     </para>
@@ -31856,7 +31856,7 @@ namespace Tao.OpenGl {
         ///         dimensions are 1, two texels are averaged.)
         ///     </para>
         ///     <para>
-        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" /> is called to load each of these mipmap levels.
+        ///         <see cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" /> is called to load each of these mipmap levels.
         ///         Level 0 is a copy of <i>data</i>.  The highest level is
         ///         <c>log2(max(width,height,depth))</c>.  For example, if <i>width</i> is 64,
         ///         <i>height</i> is 16 and <i>depth</i> is 32, and the implementation can store
@@ -31865,9 +31865,9 @@ namespace Tao.OpenGl {
         ///         through 6, respectively.
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for <i>format</i> parameter.  See the
-        ///         <see cref="Gl.glDrawPixels(int, int, int, int, bool[])" /> reference page for a description of the
+        ///         <see cref="Gl.glDrawPixels(int, int, int, int, object)" /> reference page for a description of the
         ///         acceptable values for <i>type</i> parameter.
         ///     </para>
         ///     <para>
@@ -31875,7 +31875,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -31950,12 +31950,12 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, out int)" />
-        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
+        /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmapLevels(int, int, int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmapLevels(int, int, int, int, int, int, int, int, int, byte[])" />
@@ -32210,7 +32210,7 @@ namespace Tao.OpenGl {
         ///         segments.  Evaluator state is preserved during rendering with
         ///         <c>Gl.glPushAttrib(Gl.GL_EVAL_BIT)</c> and <c>Gl.glPopAttrib</c>.  For
         ///         information on exactly what state these calls preserve, see
-        ///         <see cref="Gl.glPushAttrib(int)" />.
+        ///         <see cref="Gl.glPushAttrib" />.
         ///     </para>
         ///     <para>
         ///         <b>EXAMPLE</b>
@@ -32230,7 +32230,7 @@ namespace Tao.OpenGl {
         ///     </para>
         /// </remarks>
         /// <seealso cref="Gl.glPopAttrib" />
-        /// <seealso cref="Gl.glPushAttrib(int)" />
+        /// <seealso cref="Gl.glPushAttrib" />
         /// <seealso cref="gluBeginSurface" />
         /// <seealso cref="gluBeginTrim" />
         /// <seealso cref="gluNewNurbsRenderer" />
@@ -32333,7 +32333,7 @@ namespace Tao.OpenGl {
         ///         OpenGL evaluators are used to render the NURBS surface as a set of polygons.
         ///         Evaluator state is preserved during rendering with
         ///         <c>Gl.glPushAttrib(Gl.GL_EVAL_BIT)</c> and <c>Gl.glPopAttrib()</c>.  See the
-        ///         <see cref="Gl.glPushAttrib(int)" /> reference page for details on exactly what
+        ///         <see cref="Gl.glPushAttrib" /> reference page for details on exactly what
         ///         state these calls preserve.
         ///     </para>
         ///     <para>
@@ -32731,7 +32731,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         <b>gluGetString</b> is an initialization routine.  Calling it after a
-        ///         <see cref="Gl.glNewList(int, int)" /> results in undefined behavior.
+        ///         <see cref="Gl.glNewList" /> results in undefined behavior.
         ///     </para>
         ///     <para>
         ///         <b>ERRORS</b>
@@ -32839,13 +32839,13 @@ namespace Tao.OpenGl {
         ///     The NURBS object (created with <see cref="gluNewNurbsRenderer" />).
         /// </param>
         /// <param name="modelMatrix">
-        ///     A modelview matrix (as from a <see cref="Gl.glGetFloatv(int, out float)" /> call).
+        ///     A modelview matrix (as from a <see cref="Gl.glGetFloatv" /> call).
         /// </param>
         /// <param name="projectionMatrix">
-        ///     A projection matrix (as from a <see cref="Gl.glGetFloatv(int, out float)" /> call).
+        ///     A projection matrix (as from a <see cref="Gl.glGetFloatv" /> call).
         /// </param>
         /// <param name="viewport">
-        ///     A viewport (as from a <see cref="Gl.glGetIntegerv(int, out int)" /> call).
+        ///     A viewport (as from a <see cref="Gl.glGetIntegerv" /> call).
         /// </param>
         /// <remarks>
         ///     <para>
@@ -32868,8 +32868,8 @@ namespace Tao.OpenGl {
         ///         viewport.)
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glGetFloatv(int, out float)" />
-        /// <seealso cref="Gl.glGetIntegerv(int, out int)" />
+        /// <seealso cref="Gl.glGetFloatv" />
+        /// <seealso cref="Gl.glGetIntegerv" />
         /// <seealso cref="gluGetNurbsProperty(Tao.OpenGl.Glu.GLUnurbs, int, float[])" />
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsProperty" />
@@ -38616,7 +38616,7 @@ namespace Tao.OpenGl {
         ///     The height of the picking region in window coordinates.
         /// </param>
         /// <param name="viewport">
-        ///     The current viewport (as from a <see cref="Gl.glGetIntegerv(int, out int)" /> call).
+        ///     The current viewport (as from a <see cref="Gl.glGetIntegerv" /> call).
         /// </param>
         /// <remarks>
         ///     <para>
@@ -38695,14 +38695,14 @@ namespace Tao.OpenGl {
         ///     The object's z axis coordinate.
         /// </param>
         /// <param name="modelMatrix">
-        ///     The current modelview matrix (as from a <see cref="Gl.glGetDoublev(int, out double)" /> call).
+        ///     The current modelview matrix (as from a <see cref="Gl.glGetDoublev" /> call).
         /// </param>
         /// <param name="projectionMatrix">
-        ///     The current projection matrix (as from a <see cref="Gl.glGetDoublev(int, out double)" />
+        ///     The current projection matrix (as from a <see cref="Gl.glGetDoublev" />
         ///     call).
         /// </param>
         /// <param name="viewport">
-        ///     The current viewport (as from a <see cref="Gl.glGetIntegerv(int, out int)" /> call).
+        ///     The current viewport (as from a <see cref="Gl.glGetIntegerv" /> call).
         /// </param>
         /// <param name="winX">
         ///     The computed window's x axis coordinate.
@@ -38749,8 +38749,8 @@ namespace Tao.OpenGl {
         ///         </code>
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glGetDoublev(int, out double)" />
-        /// <seealso cref="Gl.glGetIntegerv(int, out int)" />
+        /// <seealso cref="Gl.glGetDoublev" />
+        /// <seealso cref="Gl.glGetIntegerv" />
         /// <seealso cref="gluUnProject" />
         // int APIENTRY gluProject(GLdouble objx, GLdouble objy, GLdouble objz, const GLdouble modelMatrix[16], const GLdouble projMatrix[16], const GLint viewport[4], GLdouble *winx, GLdouble *winy, GLdouble *winz);
         [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
@@ -39229,7 +39229,7 @@ namespace Tao.OpenGl {
         ///         returned (see <see cref="gluErrorString" />).
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glReadPixels(int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glReadPixels(int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>format</i>, <i>typeIn</i>, and
         ///         <i>typeOut</i> parameters.
         ///     </para>
@@ -39300,8 +39300,8 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glReadPixels(int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glReadPixels(int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild3DMipmaps(int, int, int, int, int, int, int, byte[])" />
@@ -39402,7 +39402,7 @@ namespace Tao.OpenGl {
         ///         returned (see <see cref="gluErrorString" />).
         ///     </para>
         ///     <para>
-        ///         See the <see cref="Gl.glReadPixels(int, int, int, int, int, int, bool[])" /> reference page for a description of
+        ///         See the <see cref="Gl.glReadPixels(int, int, int, int, int, int, object)" /> reference page for a description of
         ///         the acceptable values for the <i>format</i>, <i>typeIn</i>, and
         ///         <i>typeOut</i> parameters.
         ///     </para>
@@ -39473,8 +39473,8 @@ namespace Tao.OpenGl {
         ///         <see cref="Gl.GL_RGBA" /> nor <see cref="Gl.GL_BGRA" />.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, bool[])" />
-        /// <seealso cref="Gl.glReadPixels(int, int, int, int, int, int, bool[])" />
+        /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
+        /// <seealso cref="Gl.glReadPixels(int, int, int, int, int, int, object)" />
         /// <seealso cref="gluBuild1DMipmaps(int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild2DMipmaps(int, int, int, int, int, int, byte[])" />
         /// <seealso cref="gluBuild3DMipmaps(int, int, int, int, int, int, int, byte[])" />
@@ -41296,7 +41296,7 @@ namespace Tao.OpenGl {
         ///                 <description>
         ///                     <para>
         ///                         The edge flag callback is similar to
-        ///                         <see cref="Gl.glEdgeFlag(int)" />.  The function takes a single
+        ///                         <see cref="Gl.glEdgeFlag" />.  The function takes a single
         ///                         boolean flag that indicates which edges lie on the polygon
         ///                         boundary.  If the flag is <see cref="Gl.GL_TRUE" />, then
         ///                         each vertex that follows begins an edge that lies on the
@@ -41480,7 +41480,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="TessVertexCallback" />
         /// <seealso cref="TessVertexDataCallback" />
         /// <seealso cref="Gl.glBegin" />
-        /// <seealso cref="Gl.glEdgeFlag(int)" />
+        /// <seealso cref="Gl.glEdgeFlag" />
         /// <seealso cref="gluErrorString" />
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessBeginContour" />
@@ -41620,7 +41620,7 @@ namespace Tao.OpenGl {
         ///                 <description>
         ///                     <para>
         ///                         The edge flag callback is similar to
-        ///                         <see cref="Gl.glEdgeFlag(int)" />.  The function takes a single
+        ///                         <see cref="Gl.glEdgeFlag" />.  The function takes a single
         ///                         boolean flag that indicates which edges lie on the polygon
         ///                         boundary.  If the flag is <see cref="Gl.GL_TRUE" />, then
         ///                         each vertex that follows begins an edge that lies on the
@@ -41804,7 +41804,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="TessVertexCallback" />
         /// <seealso cref="TessVertexDataCallback" />
         /// <seealso cref="Gl.glBegin" />
-        /// <seealso cref="Gl.glEdgeFlag(int)" />
+        /// <seealso cref="Gl.glEdgeFlag" />
         /// <seealso cref="gluErrorString" />
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessBeginContour" />
@@ -41944,7 +41944,7 @@ namespace Tao.OpenGl {
         ///                 <description>
         ///                     <para>
         ///                         The edge flag callback is similar to
-        ///                         <see cref="Gl.glEdgeFlag(int)" />.  The function takes a single
+        ///                         <see cref="Gl.glEdgeFlag" />.  The function takes a single
         ///                         boolean flag that indicates which edges lie on the polygon
         ///                         boundary.  If the flag is <see cref="Gl.GL_TRUE" />, then
         ///                         each vertex that follows begins an edge that lies on the
@@ -42128,7 +42128,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="TessVertexCallback" />
         /// <seealso cref="TessVertexDataCallback" />
         /// <seealso cref="Gl.glBegin" />
-        /// <seealso cref="Gl.glEdgeFlag(int)" />
+        /// <seealso cref="Gl.glEdgeFlag" />
         /// <seealso cref="gluErrorString" />
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessBeginContour" />
@@ -42268,7 +42268,7 @@ namespace Tao.OpenGl {
         ///                 <description>
         ///                     <para>
         ///                         The edge flag callback is similar to
-        ///                         <see cref="Gl.glEdgeFlag(int)" />.  The function takes a single
+        ///                         <see cref="Gl.glEdgeFlag" />.  The function takes a single
         ///                         boolean flag that indicates which edges lie on the polygon
         ///                         boundary.  If the flag is <see cref="Gl.GL_TRUE" />, then
         ///                         each vertex that follows begins an edge that lies on the
@@ -42452,7 +42452,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="TessVertexCallback" />
         /// <seealso cref="TessVertexDataCallback" />
         /// <seealso cref="Gl.glBegin" />
-        /// <seealso cref="Gl.glEdgeFlag(int)" />
+        /// <seealso cref="Gl.glEdgeFlag" />
         /// <seealso cref="gluErrorString" />
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessBeginContour" />
@@ -42592,7 +42592,7 @@ namespace Tao.OpenGl {
         ///                 <description>
         ///                     <para>
         ///                         The edge flag callback is similar to
-        ///                         <see cref="Gl.glEdgeFlag(int)" />.  The function takes a single
+        ///                         <see cref="Gl.glEdgeFlag" />.  The function takes a single
         ///                         boolean flag that indicates which edges lie on the polygon
         ///                         boundary.  If the flag is <see cref="Gl.GL_TRUE" />, then
         ///                         each vertex that follows begins an edge that lies on the
@@ -42776,7 +42776,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="TessVertexCallback" />
         /// <seealso cref="TessVertexDataCallback" />
         /// <seealso cref="Gl.glBegin" />
-        /// <seealso cref="Gl.glEdgeFlag(int)" />
+        /// <seealso cref="Gl.glEdgeFlag" />
         /// <seealso cref="gluErrorString" />
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessBeginContour" />
@@ -42916,7 +42916,7 @@ namespace Tao.OpenGl {
         ///                 <description>
         ///                     <para>
         ///                         The edge flag callback is similar to
-        ///                         <see cref="Gl.glEdgeFlag(int)" />.  The function takes a single
+        ///                         <see cref="Gl.glEdgeFlag" />.  The function takes a single
         ///                         boolean flag that indicates which edges lie on the polygon
         ///                         boundary.  If the flag is <see cref="Gl.GL_TRUE" />, then
         ///                         each vertex that follows begins an edge that lies on the
@@ -43100,7 +43100,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="TessVertexCallback" />
         /// <seealso cref="TessVertexDataCallback" />
         /// <seealso cref="Gl.glBegin" />
-        /// <seealso cref="Gl.glEdgeFlag(int)" />
+        /// <seealso cref="Gl.glEdgeFlag" />
         /// <seealso cref="gluErrorString" />
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessBeginContour" />
@@ -43240,7 +43240,7 @@ namespace Tao.OpenGl {
         ///                 <description>
         ///                     <para>
         ///                         The edge flag callback is similar to
-        ///                         <see cref="Gl.glEdgeFlag(int)" />.  The function takes a single
+        ///                         <see cref="Gl.glEdgeFlag" />.  The function takes a single
         ///                         boolean flag that indicates which edges lie on the polygon
         ///                         boundary.  If the flag is <see cref="Gl.GL_TRUE" />, then
         ///                         each vertex that follows begins an edge that lies on the
@@ -43424,7 +43424,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="TessVertexCallback" />
         /// <seealso cref="TessVertexDataCallback" />
         /// <seealso cref="Gl.glBegin" />
-        /// <seealso cref="Gl.glEdgeFlag(int)" />
+        /// <seealso cref="Gl.glEdgeFlag" />
         /// <seealso cref="gluErrorString" />
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessBeginContour" />
@@ -43564,7 +43564,7 @@ namespace Tao.OpenGl {
         ///                 <description>
         ///                     <para>
         ///                         The edge flag callback is similar to
-        ///                         <see cref="Gl.glEdgeFlag(int)" />.  The function takes a single
+        ///                         <see cref="Gl.glEdgeFlag" />.  The function takes a single
         ///                         boolean flag that indicates which edges lie on the polygon
         ///                         boundary.  If the flag is <see cref="Gl.GL_TRUE" />, then
         ///                         each vertex that follows begins an edge that lies on the
@@ -43748,7 +43748,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="TessVertexCallback" />
         /// <seealso cref="TessVertexDataCallback" />
         /// <seealso cref="Gl.glBegin" />
-        /// <seealso cref="Gl.glEdgeFlag(int)" />
+        /// <seealso cref="Gl.glEdgeFlag" />
         /// <seealso cref="gluErrorString" />
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessBeginContour" />
@@ -43888,7 +43888,7 @@ namespace Tao.OpenGl {
         ///                 <description>
         ///                     <para>
         ///                         The edge flag callback is similar to
-        ///                         <see cref="Gl.glEdgeFlag(int)" />.  The function takes a single
+        ///                         <see cref="Gl.glEdgeFlag" />.  The function takes a single
         ///                         boolean flag that indicates which edges lie on the polygon
         ///                         boundary.  If the flag is <see cref="Gl.GL_TRUE" />, then
         ///                         each vertex that follows begins an edge that lies on the
@@ -44072,7 +44072,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="TessVertexCallback" />
         /// <seealso cref="TessVertexDataCallback" />
         /// <seealso cref="Gl.glBegin" />
-        /// <seealso cref="Gl.glEdgeFlag(int)" />
+        /// <seealso cref="Gl.glEdgeFlag" />
         /// <seealso cref="gluErrorString" />
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessBeginContour" />
@@ -44212,7 +44212,7 @@ namespace Tao.OpenGl {
         ///                 <description>
         ///                     <para>
         ///                         The edge flag callback is similar to
-        ///                         <see cref="Gl.glEdgeFlag(int)" />.  The function takes a single
+        ///                         <see cref="Gl.glEdgeFlag" />.  The function takes a single
         ///                         boolean flag that indicates which edges lie on the polygon
         ///                         boundary.  If the flag is <see cref="Gl.GL_TRUE" />, then
         ///                         each vertex that follows begins an edge that lies on the
@@ -44396,7 +44396,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="TessVertexCallback" />
         /// <seealso cref="TessVertexDataCallback" />
         /// <seealso cref="Gl.glBegin" />
-        /// <seealso cref="Gl.glEdgeFlag(int)" />
+        /// <seealso cref="Gl.glEdgeFlag" />
         /// <seealso cref="gluErrorString" />
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessBeginContour" />
@@ -44536,7 +44536,7 @@ namespace Tao.OpenGl {
         ///                 <description>
         ///                     <para>
         ///                         The edge flag callback is similar to
-        ///                         <see cref="Gl.glEdgeFlag(int)" />.  The function takes a single
+        ///                         <see cref="Gl.glEdgeFlag" />.  The function takes a single
         ///                         boolean flag that indicates which edges lie on the polygon
         ///                         boundary.  If the flag is <see cref="Gl.GL_TRUE" />, then
         ///                         each vertex that follows begins an edge that lies on the
@@ -44720,7 +44720,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="TessVertexCallback" />
         /// <seealso cref="TessVertexDataCallback" />
         /// <seealso cref="Gl.glBegin" />
-        /// <seealso cref="Gl.glEdgeFlag(int)" />
+        /// <seealso cref="Gl.glEdgeFlag" />
         /// <seealso cref="gluErrorString" />
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessBeginContour" />
@@ -44860,7 +44860,7 @@ namespace Tao.OpenGl {
         ///                 <description>
         ///                     <para>
         ///                         The edge flag callback is similar to
-        ///                         <see cref="Gl.glEdgeFlag(int)" />.  The function takes a single
+        ///                         <see cref="Gl.glEdgeFlag" />.  The function takes a single
         ///                         boolean flag that indicates which edges lie on the polygon
         ///                         boundary.  If the flag is <see cref="Gl.GL_TRUE" />, then
         ///                         each vertex that follows begins an edge that lies on the
@@ -45044,7 +45044,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="TessVertexCallback" />
         /// <seealso cref="TessVertexDataCallback" />
         /// <seealso cref="Gl.glBegin" />
-        /// <seealso cref="Gl.glEdgeFlag(int)" />
+        /// <seealso cref="Gl.glEdgeFlag" />
         /// <seealso cref="gluErrorString" />
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessBeginContour" />
@@ -45184,7 +45184,7 @@ namespace Tao.OpenGl {
         ///                 <description>
         ///                     <para>
         ///                         The edge flag callback is similar to
-        ///                         <see cref="Gl.glEdgeFlag(int)" />.  The function takes a single
+        ///                         <see cref="Gl.glEdgeFlag" />.  The function takes a single
         ///                         boolean flag that indicates which edges lie on the polygon
         ///                         boundary.  If the flag is <see cref="Gl.GL_TRUE" />, then
         ///                         each vertex that follows begins an edge that lies on the
@@ -45368,7 +45368,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="TessVertexCallback" />
         /// <seealso cref="TessVertexDataCallback" />
         /// <seealso cref="Gl.glBegin" />
-        /// <seealso cref="Gl.glEdgeFlag(int)" />
+        /// <seealso cref="Gl.glEdgeFlag" />
         /// <seealso cref="gluErrorString" />
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessBeginContour" />
@@ -45508,7 +45508,7 @@ namespace Tao.OpenGl {
         ///                 <description>
         ///                     <para>
         ///                         The edge flag callback is similar to
-        ///                         <see cref="Gl.glEdgeFlag(int)" />.  The function takes a single
+        ///                         <see cref="Gl.glEdgeFlag" />.  The function takes a single
         ///                         boolean flag that indicates which edges lie on the polygon
         ///                         boundary.  If the flag is <see cref="Gl.GL_TRUE" />, then
         ///                         each vertex that follows begins an edge that lies on the
@@ -45692,7 +45692,7 @@ namespace Tao.OpenGl {
         /// <seealso cref="TessVertexCallback" />
         /// <seealso cref="TessVertexDataCallback" />
         /// <seealso cref="Gl.glBegin" />
-        /// <seealso cref="Gl.glEdgeFlag(int)" />
+        /// <seealso cref="Gl.glEdgeFlag" />
         /// <seealso cref="gluErrorString" />
         /// <seealso cref="gluNewTess" />
         /// <seealso cref="gluTessBeginContour" />
@@ -48185,13 +48185,13 @@ namespace Tao.OpenGl {
         ///     The window's z axis coordinate to be mapped.
         /// </param>
         /// <param name="modelMatrix">
-        ///     The modelview matrix (as from a <see cref="Gl.glGetDoublev(int, out double)" /> call).
+        ///     The modelview matrix (as from a <see cref="Gl.glGetDoublev" /> call).
         /// </param>
         /// <param name="projectionMatrix">
-        ///     The projection matrix (as from a <see cref="Gl.glGetDoublev(int, out double)" /> call).
+        ///     The projection matrix (as from a <see cref="Gl.glGetDoublev" /> call).
         /// </param>
         /// <param name="viewport">
-        ///     The viewport (as from a <see cref="Gl.glGetIntegerv(int, out int)" /> call).
+        ///     The viewport (as from a <see cref="Gl.glGetIntegerv" /> call).
         /// </param>
         /// <param name="objX">
         ///     The computed object's x axis coordinate.
@@ -48240,8 +48240,8 @@ namespace Tao.OpenGl {
         ///         consistent matrix notation. 
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glGetDoublev(int, out double)" />
-        /// <seealso cref="Gl.glGetIntegerv(int, out int)" />
+        /// <seealso cref="Gl.glGetDoublev" />
+        /// <seealso cref="Gl.glGetIntegerv" />
         /// <seealso cref="gluProject" />
         // int APIENTRY gluUnProject(GLdouble winx, GLdouble winy, GLdouble winz, const GLdouble modelMatrix[16], const GLdouble projMatrix[16], const GLint viewport[4], GLdouble *objx, GLdouble *objy, GLdouble *objz);
         [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
@@ -48265,19 +48265,19 @@ namespace Tao.OpenGl {
         ///     The clip w coordinate to be mapped.
         /// </param>
         /// <param name="modelMatrix">
-        ///     The modelview matrix (as from a <see cref="Gl.glGetDoublev(int, out double)" /> call).
+        ///     The modelview matrix (as from a <see cref="Gl.glGetDoublev" /> call).
         /// </param>
         /// <param name="projectionMatrix">
-        ///     The projection matrix (as from a <see cref="Gl.glGetDoublev(int, out double)" /> call).
+        ///     The projection matrix (as from a <see cref="Gl.glGetDoublev" /> call).
         /// </param>
         /// <param name="viewport">
-        ///     The viewport (as from a <see cref="Gl.glGetIntegerv(int, out int)" /> call).
+        ///     The viewport (as from a <see cref="Gl.glGetIntegerv" /> call).
         /// </param>
         /// <param name="nearVal">
-        ///     The near plane (as from a <see cref="Gl.glGetDoublev(int, out double)" /> call).
+        ///     The near plane (as from a <see cref="Gl.glGetDoublev" /> call).
         /// </param>
         /// <param name="farVal">
-        ///     The far plane (as from a <see cref="Gl.glGetDoublev(int, out double)" /> call).
+        ///     The far plane (as from a <see cref="Gl.glGetDoublev" /> call).
         /// </param>
         /// <param name="objX">
         ///     The computed object's x axis coordinate.
@@ -48302,7 +48302,7 @@ namespace Tao.OpenGl {
         ///         object coordinates (<i>objX</i>, <i>objY</i>, <i>objZ</i>, <i>objW</i>)
         ///         using <i>modelMatrix</i>, <i>projectionMatrix</i> and <i>viewport</i>.
         ///         <i>clipW</i> can be other than 1 as for vertices in
-        ///         <see cref="Gl.glFeedbackBuffer(int, int, out float)" /> when data type
+        ///         <see cref="Gl.glFeedbackBuffer" /> when data type
         ///         <see cref="Gl.GL_4D_COLOR_TEXTURE" /> is returned.  This also handles the
         ///         case where the <i>nearVal</i> and <i>farVal</i> planes are different from the
         ///         default, 0 and 1, respectively.  A return value of <see cref="Gl.GL_TRUE" />
@@ -48343,9 +48343,9 @@ namespace Tao.OpenGl {
         ///         <b>gluUnProject4</b> is available only if the GLU version is 1.3 or greater.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glFeedbackBuffer(int, int, out float)" />
-        /// <seealso cref="Gl.glGetDoublev(int, out double)" />
-        /// <seealso cref="Gl.glGetIntegerv(int, out int)" />
+        /// <seealso cref="Gl.glFeedbackBuffer" />
+        /// <seealso cref="Gl.glGetDoublev" />
+        /// <seealso cref="Gl.glGetIntegerv" />
         /// <seealso cref="gluProject" />
         /// <seealso cref="gluUnProject" />
         // GLAPI GLint GLAPIENTRY gluUnProject4 (GLdouble winX, GLdouble winY, GLdouble winZ, GLdouble clipW, const GLdouble *model, const GLdouble *proj, const GLint *view, GLdouble nearVal, GLdouble farVal, GLdouble* objX, GLdouble* objY, GLdouble* objZ, GLdouble* objW);

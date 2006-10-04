@@ -19850,1429 +19850,5698 @@ namespace Tao.OpenGl
 
         #region Function signatures
 
+        /// <summary>
+        /// 
+        /// </summary>
         public static class Delegates
         {
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNewList(GLuint list, GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEndList();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCallList(GLuint list);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCallLists_(GLsizei n, GLenum type, IntPtr lists);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteLists(GLuint list, GLsizei range);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLuint glGenLists(GLsizei range);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glListBase(GLuint @base);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBegin(GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBitmap_(GLsizei width, GLsizei height, GLfloat xorig, GLfloat yorig, GLfloat xmove, GLfloat ymove, IntPtr bitmap);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3b(GLbyte red, GLbyte green, GLbyte blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3bv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3d(GLdouble red, GLdouble green, GLdouble blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3dv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3f(GLfloat red, GLfloat green, GLfloat blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3fv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3i(GLint red, GLint green, GLint blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3iv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3s(GLshort red, GLshort green, GLshort blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3sv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3ub(GLubyte red, GLubyte green, GLubyte blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3ubv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3ui(GLuint red, GLuint green, GLuint blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3uiv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3us(GLushort red, GLushort green, GLushort blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3usv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4b(GLbyte red, GLbyte green, GLbyte blue, GLbyte alpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4bv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4d(GLdouble red, GLdouble green, GLdouble blue, GLdouble alpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4dv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4f(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4fv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4i(GLint red, GLint green, GLint blue, GLint alpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4iv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4s(GLshort red, GLshort green, GLshort blue, GLshort alpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4sv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4ub(GLubyte red, GLubyte green, GLubyte blue, GLubyte alpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4ubv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4ui(GLuint red, GLuint green, GLuint blue, GLuint alpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4uiv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4us(GLushort red, GLushort green, GLushort blue, GLushort alpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4usv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEdgeFlag(GLboolean flag);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEdgeFlagv_(IntPtr flag);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEnd();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glIndexd(GLdouble c);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glIndexdv_(IntPtr c);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glIndexf(GLfloat c);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glIndexfv_(IntPtr c);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glIndexi(GLint c);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glIndexiv_(IntPtr c);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glIndexs(GLshort c);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glIndexsv_(IntPtr c);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormal3b(GLbyte nx, GLbyte ny, GLbyte nz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormal3bv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormal3d(GLdouble nx, GLdouble ny, GLdouble nz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormal3dv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormal3f(GLfloat nx, GLfloat ny, GLfloat nz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormal3fv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormal3i(GLint nx, GLint ny, GLint nz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormal3iv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormal3s(GLshort nx, GLshort ny, GLshort nz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormal3sv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos2d(GLdouble x, GLdouble y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos2dv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos2f(GLfloat x, GLfloat y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos2fv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos2i(GLint x, GLint y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos2iv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos2s(GLshort x, GLshort y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos2sv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos3d(GLdouble x, GLdouble y, GLdouble z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos3dv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos3f(GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos3fv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos3i(GLint x, GLint y, GLint z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos3iv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos3s(GLshort x, GLshort y, GLshort z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos3sv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos4d(GLdouble x, GLdouble y, GLdouble z, GLdouble w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos4dv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos4f(GLfloat x, GLfloat y, GLfloat z, GLfloat w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos4fv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos4i(GLint x, GLint y, GLint z, GLint w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos4iv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos4s(GLshort x, GLshort y, GLshort z, GLshort w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRasterPos4sv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRectd(GLdouble x1, GLdouble y1, GLdouble x2, GLdouble y2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRectdv_(IntPtr v1, IntPtr v2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRectf(GLfloat x1, GLfloat y1, GLfloat x2, GLfloat y2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRectfv_(IntPtr v1, IntPtr v2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRecti(GLint x1, GLint y1, GLint x2, GLint y2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRectiv_(IntPtr v1, IntPtr v2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRects(GLshort x1, GLshort y1, GLshort x2, GLshort y2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRectsv_(IntPtr v1, IntPtr v2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord1d(GLdouble s);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord1dv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord1f(GLfloat s);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord1fv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord1i(GLint s);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord1iv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord1s(GLshort s);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord1sv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2d(GLdouble s, GLdouble t);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2dv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2f(GLfloat s, GLfloat t);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2fv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2i(GLint s, GLint t);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2iv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2s(GLshort s, GLshort t);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2sv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord3d(GLdouble s, GLdouble t, GLdouble r);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord3dv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord3f(GLfloat s, GLfloat t, GLfloat r);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord3fv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord3i(GLint s, GLint t, GLint r);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord3iv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord3s(GLshort s, GLshort t, GLshort r);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord3sv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord4d(GLdouble s, GLdouble t, GLdouble r, GLdouble q);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord4dv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord4f(GLfloat s, GLfloat t, GLfloat r, GLfloat q);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord4fv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord4i(GLint s, GLint t, GLint r, GLint q);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord4iv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord4s(GLshort s, GLshort t, GLshort r, GLshort q);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord4sv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex2d(GLdouble x, GLdouble y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex2dv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex2f(GLfloat x, GLfloat y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex2fv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex2i(GLint x, GLint y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex2iv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex2s(GLshort x, GLshort y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex2sv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex3d(GLdouble x, GLdouble y, GLdouble z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex3dv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex3f(GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex3fv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex3i(GLint x, GLint y, GLint z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex3iv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex3s(GLshort x, GLshort y, GLshort z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex3sv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex4d(GLdouble x, GLdouble y, GLdouble z, GLdouble w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex4dv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex4f(GLfloat x, GLfloat y, GLfloat z, GLfloat w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex4fv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex4i(GLint x, GLint y, GLint z, GLint w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex4iv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex4s(GLshort x, GLshort y, GLshort z, GLshort w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex4sv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glClipPlane_(GLenum plane, IntPtr equation);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorMaterial(GLenum face, GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCullFace(GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogf(GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogfv_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogi(GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogiv_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFrontFace(GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glHint(GLenum target, GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLightf(GLenum light, GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLightfv_(GLenum light, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLighti(GLenum light, GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLightiv_(GLenum light, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLightModelf(GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLightModelfv_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLightModeli(GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLightModeliv_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLineStipple_(GLint factor, GLushort pattern);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLineWidth(GLfloat width);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMaterialf(GLenum face, GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMaterialfv_(GLenum face, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMateriali(GLenum face, GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMaterialiv_(GLenum face, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPointSize(GLfloat size);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPolygonMode(GLenum face, GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPolygonStipple_(IntPtr mask);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glScissor(GLint x, GLint y, GLsizei width, GLsizei height);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glShadeModel(GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexParameterf(GLenum target, GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexParameterfv_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexParameteri(GLenum target, GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexParameteriv_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexImage1D_(GLenum target, GLint level, GLint internalformat, GLsizei width, GLint border, GLenum format, GLenum type, IntPtr pixels);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexImage2D_(GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLint border, GLenum format, GLenum type, IntPtr pixels);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexEnvf(GLenum target, GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexEnvfv_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexEnvi(GLenum target, GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexEnviv_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexGend(GLenum coord, GLenum pname, GLdouble param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexGendv_(GLenum coord, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexGenf(GLenum coord, GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexGenfv_(GLenum coord, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexGeni(GLenum coord, GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexGeniv_(GLenum coord, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFeedbackBuffer(GLsizei size, GLenum type, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] buffer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSelectBuffer(GLsizei size, [MarshalAs(UnmanagedType.LPArray)] GLuint[] buffer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLint glRenderMode(GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glInitNames();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLoadName(GLuint name);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPassThrough(GLfloat token);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPopName();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPushName(GLuint name);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDrawBuffer(GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glClear(GLbitfield mask);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glClearAccum(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glClearIndex(GLfloat c);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glClearColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glClearStencil(GLint s);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glClearDepth(GLclampd depth);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glStencilMask(GLuint mask);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorMask(GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDepthMask(GLboolean flag);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glIndexMask(GLuint mask);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glAccum(GLenum op, GLfloat value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDisable(GLenum cap);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEnable(GLenum cap);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFinish();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFlush();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPopAttrib();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPushAttrib(GLbitfield mask);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMap1d_(GLenum target, GLdouble u1, GLdouble u2, GLint stride, GLint order, IntPtr points);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMap1f_(GLenum target, GLfloat u1, GLfloat u2, GLint stride, GLint order, IntPtr points);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMap2d_(GLenum target, GLdouble u1, GLdouble u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint vstride, GLint vorder, IntPtr points);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMap2f_(GLenum target, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride, GLint vorder, IntPtr points);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMapGrid1d(GLint un, GLdouble u1, GLdouble u2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMapGrid1f(GLint un, GLfloat u1, GLfloat u2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMapGrid2d(GLint un, GLdouble u1, GLdouble u2, GLint vn, GLdouble v1, GLdouble v2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMapGrid2f(GLint un, GLfloat u1, GLfloat u2, GLint vn, GLfloat v1, GLfloat v2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEvalCoord1d(GLdouble u);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEvalCoord1dv_(IntPtr u);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEvalCoord1f(GLfloat u);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEvalCoord1fv_(IntPtr u);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEvalCoord2d(GLdouble u, GLdouble v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEvalCoord2dv_(IntPtr u);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEvalCoord2f(GLfloat u, GLfloat v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEvalCoord2fv_(IntPtr u);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEvalMesh1(GLenum mode, GLint i1, GLint i2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEvalPoint1(GLint i);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEvalMesh2(GLenum mode, GLint i1, GLint i2, GLint j1, GLint j2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEvalPoint2(GLint i, GLint j);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glAlphaFunc(GLenum func, GLclampf reference);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBlendFunc(GLenum sfactor, GLenum dfactor);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLogicOp(GLenum opcode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glStencilFunc(GLenum func, GLint reference, GLuint mask);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glStencilOp(GLenum fail, GLenum zfail, GLenum zpass);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDepthFunc(GLenum func);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelZoom(GLfloat xfactor, GLfloat yfactor);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelTransferf(GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelTransferi(GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelStoref(GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelStorei(GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelMapfv_(GLenum map, GLint mapsize, IntPtr values);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelMapuiv_(GLenum map, GLint mapsize, IntPtr values);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelMapusv_(GLenum map, GLint mapsize, IntPtr values);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReadBuffer(GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyPixels(GLint x, GLint y, GLsizei width, GLsizei height, GLenum type);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReadPixels_(GLint x, GLint y, GLsizei width, GLsizei height, GLenum format, GLenum type, IntPtr pixels);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDrawPixels_(GLsizei width, GLsizei height, GLenum format, GLenum type, IntPtr pixels);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetBooleanv(GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLboolean[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetClipPlane(GLenum plane, [MarshalAs(UnmanagedType.LPArray)] GLdouble[] equation);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetDoublev(GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLdouble[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLenum glGetError();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetFloatv(GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetIntegerv(GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetLightfv(GLenum light, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetLightiv(GLenum light, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetMapdv(GLenum target, GLenum query, [MarshalAs(UnmanagedType.LPArray)] GLdouble[] v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetMapfv(GLenum target, GLenum query, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetMapiv(GLenum target, GLenum query, [MarshalAs(UnmanagedType.LPArray)] GLint[] v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetMaterialfv(GLenum face, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetMaterialiv(GLenum face, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetPixelMapfv(GLenum map, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] values);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetPixelMapuiv(GLenum map, [MarshalAs(UnmanagedType.LPArray)] GLuint[] values);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetPixelMapusv(GLenum map, [MarshalAs(UnmanagedType.LPArray)] GLushort[] values);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetPolygonStipple([MarshalAs(UnmanagedType.LPArray)] GLubyte[] mask);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate IntPtr glGetString_(GLenum name);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetTexEnvfv(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetTexEnviv(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetTexGendv(GLenum coord, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLdouble[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetTexGenfv(GLenum coord, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetTexGeniv(GLenum coord, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetTexImage_(GLenum target, GLint level, GLenum format, GLenum type, IntPtr pixels);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetTexParameterfv(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetTexParameteriv(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetTexLevelParameterfv(GLenum target, GLint level, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetTexLevelParameteriv(GLenum target, GLint level, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsEnabled(GLenum cap);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsList(GLuint list);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDepthRange(GLclampd near, GLclampd far);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFrustum(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLoadIdentity();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLoadMatrixf_(IntPtr m);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLoadMatrixd_(IntPtr m);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMatrixMode(GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultMatrixf_(IntPtr m);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultMatrixd_(IntPtr m);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glOrtho(GLdouble left, GLdouble right, GLdouble bottom, GLdouble top, GLdouble zNear, GLdouble zFar);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPopMatrix();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPushMatrix();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRotated(GLdouble angle, GLdouble x, GLdouble y, GLdouble z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRotatef(GLfloat angle, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glScaled(GLdouble x, GLdouble y, GLdouble z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glScalef(GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTranslated(GLdouble x, GLdouble y, GLdouble z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTranslatef(GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glViewport(GLint x, GLint y, GLsizei width, GLsizei height);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glArrayElement(GLint i);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorPointer_(GLint size, GLenum type, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDisableClientState(GLenum array);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDrawArrays(GLenum mode, GLint first, GLsizei count);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDrawElements_(GLenum mode, GLsizei count, GLenum type, IntPtr indices);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEdgeFlagPointer_(GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEnableClientState(GLenum array);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetPointerv(GLenum pname, [MarshalAs(UnmanagedType.LPArray)] IntPtr[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glIndexPointer_(GLenum type, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glInterleavedArrays_(GLenum format, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormalPointer_(GLenum type, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoordPointer_(GLint size, GLenum type, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexPointer_(GLint size, GLenum type, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPolygonOffset(GLfloat factor, GLfloat units);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyTexImage1D(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLint border);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyTexImage2D(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyTexSubImage1D(GLenum target, GLint level, GLint xoffset, GLint x, GLint y, GLsizei width);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyTexSubImage2D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint x, GLint y, GLsizei width, GLsizei height);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexSubImage1D_(GLenum target, GLint level, GLint xoffset, GLsizei width, GLenum format, GLenum type, IntPtr pixels);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexSubImage2D_(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, IntPtr pixels);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glAreTexturesResident_(GLsizei n, IntPtr textures, [MarshalAs(UnmanagedType.LPArray)] GLboolean[] residences);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBindTexture(GLenum target, GLuint texture);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteTextures_(GLsizei n, IntPtr textures);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGenTextures(GLsizei n, [MarshalAs(UnmanagedType.LPArray)] GLuint[] textures);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsTexture(GLuint texture);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPrioritizeTextures_(GLsizei n, IntPtr textures, IntPtr priorities);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glIndexub(GLubyte c);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glIndexubv_(IntPtr c);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPopClientAttrib();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPushClientAttrib(GLbitfield mask);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBlendColor(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBlendEquation(GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDrawRangeElements_(GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, IntPtr indices);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorTable_(GLenum target, GLenum internalformat, GLsizei width, GLenum format, GLenum type, IntPtr table);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorTableParameterfv_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorTableParameteriv_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyColorTable(GLenum target, GLenum internalformat, GLint x, GLint y, GLsizei width);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetColorTable_(GLenum target, GLenum format, GLenum type, IntPtr table);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetColorTableParameterfv(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetColorTableParameteriv(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorSubTable_(GLenum target, GLsizei start, GLsizei count, GLenum format, GLenum type, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyColorSubTable(GLenum target, GLsizei start, GLint x, GLint y, GLsizei width);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glConvolutionFilter1D_(GLenum target, GLenum internalformat, GLsizei width, GLenum format, GLenum type, IntPtr image);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glConvolutionFilter2D_(GLenum target, GLenum internalformat, GLsizei width, GLsizei height, GLenum format, GLenum type, IntPtr image);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glConvolutionParameterf(GLenum target, GLenum pname, GLfloat parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glConvolutionParameterfv_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glConvolutionParameteri(GLenum target, GLenum pname, GLint parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glConvolutionParameteriv_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyConvolutionFilter1D(GLenum target, GLenum internalformat, GLint x, GLint y, GLsizei width);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyConvolutionFilter2D(GLenum target, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetConvolutionFilter_(GLenum target, GLenum format, GLenum type, IntPtr image);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetConvolutionParameterfv(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetConvolutionParameteriv(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetSeparableFilter_(GLenum target, GLenum format, GLenum type, IntPtr row, IntPtr column, IntPtr span);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSeparableFilter2D_(GLenum target, GLenum internalformat, GLsizei width, GLsizei height, GLenum format, GLenum type, IntPtr row, IntPtr column);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetHistogram_(GLenum target, GLboolean reset, GLenum format, GLenum type, IntPtr values);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetHistogramParameterfv(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetHistogramParameteriv(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetMinmax_(GLenum target, GLboolean reset, GLenum format, GLenum type, IntPtr values);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetMinmaxParameterfv(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetMinmaxParameteriv(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glHistogram(GLenum target, GLsizei width, GLenum internalformat, GLboolean sink);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMinmax(GLenum target, GLenum internalformat, GLboolean sink);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glResetHistogram(GLenum target);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glResetMinmax(GLenum target);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexImage3D_(GLenum target, GLint level, GLint internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLenum format, GLenum type, IntPtr pixels);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexSubImage3D_(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, IntPtr pixels);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyTexSubImage3D(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLint x, GLint y, GLsizei width, GLsizei height);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glActiveTexture(GLenum texture);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glClientActiveTexture(GLenum texture);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1d(GLenum target, GLdouble s);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1dv_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1f(GLenum target, GLfloat s);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1fv_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1i(GLenum target, GLint s);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1iv_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1s(GLenum target, GLshort s);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1sv_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2d(GLenum target, GLdouble s, GLdouble t);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2dv_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2f(GLenum target, GLfloat s, GLfloat t);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2fv_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2i(GLenum target, GLint s, GLint t);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2iv_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2s(GLenum target, GLshort s, GLshort t);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2sv_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3d(GLenum target, GLdouble s, GLdouble t, GLdouble r);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3dv_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3f(GLenum target, GLfloat s, GLfloat t, GLfloat r);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3fv_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3i(GLenum target, GLint s, GLint t, GLint r);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3iv_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3s(GLenum target, GLshort s, GLshort t, GLshort r);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3sv_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4d(GLenum target, GLdouble s, GLdouble t, GLdouble r, GLdouble q);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4dv_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4f(GLenum target, GLfloat s, GLfloat t, GLfloat r, GLfloat q);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4fv_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4i(GLenum target, GLint s, GLint t, GLint r, GLint q);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4iv_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4s(GLenum target, GLshort s, GLshort t, GLshort r, GLshort q);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4sv_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLoadTransposeMatrixf_(IntPtr m);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLoadTransposeMatrixd_(IntPtr m);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultTransposeMatrixf_(IntPtr m);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultTransposeMatrixd_(IntPtr m);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSampleCoverage(GLclampf value, GLboolean invert);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCompressedTexImage3D_(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLsizei imageSize, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCompressedTexImage2D_(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLint border, GLsizei imageSize, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCompressedTexImage1D_(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLint border, GLsizei imageSize, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCompressedTexSubImage3D_(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLsizei imageSize, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCompressedTexSubImage2D_(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLsizei imageSize, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCompressedTexSubImage1D_(GLenum target, GLint level, GLint xoffset, GLsizei width, GLenum format, GLsizei imageSize, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetCompressedTexImage_(GLenum target, GLint level, IntPtr img);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBlendFuncSeparate(GLenum sfactorRGB, GLenum dfactorRGB, GLenum sfactorAlpha, GLenum dfactorAlpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogCoordf(GLfloat coord);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogCoordfv_(IntPtr coord);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogCoordd(GLdouble coord);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogCoorddv_(IntPtr coord);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogCoordPointer_(GLenum type, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiDrawArrays(GLenum mode, [MarshalAs(UnmanagedType.LPArray)] GLint[] first, [MarshalAs(UnmanagedType.LPArray)] GLsizei[] count, GLsizei primcount);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiDrawElements_(GLenum mode, IntPtr count, GLenum type, IntPtr indices, GLsizei primcount);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPointParameterf(GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPointParameterfv_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPointParameteri(GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPointParameteriv_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3b(GLbyte red, GLbyte green, GLbyte blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3bv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3d(GLdouble red, GLdouble green, GLdouble blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3dv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3f(GLfloat red, GLfloat green, GLfloat blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3fv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3i(GLint red, GLint green, GLint blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3iv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3s(GLshort red, GLshort green, GLshort blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3sv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3ub(GLubyte red, GLubyte green, GLubyte blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3ubv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3ui(GLuint red, GLuint green, GLuint blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3uiv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3us(GLushort red, GLushort green, GLushort blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3usv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColorPointer_(GLint size, GLenum type, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2d(GLdouble x, GLdouble y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2dv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2f(GLfloat x, GLfloat y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2fv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2i(GLint x, GLint y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2iv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2s(GLshort x, GLshort y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2sv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3d(GLdouble x, GLdouble y, GLdouble z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3dv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3f(GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3fv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3i(GLint x, GLint y, GLint z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3iv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3s(GLshort x, GLshort y, GLshort z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3sv_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGenQueries(GLsizei n, [MarshalAs(UnmanagedType.LPArray)] GLuint[] ids);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteQueries_(GLsizei n, IntPtr ids);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsQuery(GLuint id);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBeginQuery(GLenum target, GLuint id);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEndQuery(GLenum target);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetQueryiv(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetQueryObjectiv(GLuint id, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetQueryObjectuiv(GLuint id, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLuint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBindBuffer(GLenum target, GLuint buffer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteBuffers_(GLsizei n, IntPtr buffers);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGenBuffers(GLsizei n, [MarshalAs(UnmanagedType.LPArray)] GLuint[] buffers);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsBuffer(GLuint buffer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBufferData_(GLenum target, GLsizeiptr size, IntPtr data, GLenum usage);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBufferSubData_(GLenum target, GLintptr offset, GLsizeiptr size, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetBufferSubData_(GLenum target, GLintptr offset, GLsizeiptr size, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate IntPtr glMapBuffer(GLenum target, GLenum access);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glUnmapBuffer(GLenum target);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetBufferParameteriv(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetBufferPointerv(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] IntPtr[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBlendEquationSeparate(GLenum modeRGB, GLenum modeAlpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDrawBuffers_(GLsizei n, IntPtr bufs);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glStencilOpSeparate(GLenum face, GLenum sfail, GLenum dpfail, GLenum dppass);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glStencilFuncSeparate(GLenum frontfunc, GLenum backfunc, GLint reference, GLuint mask);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glStencilMaskSeparate(GLenum face, GLuint mask);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glAttachShader(GLuint program, GLuint shader);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBindAttribLocation_(GLuint program, GLuint index, IntPtr name);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCompileShader(GLuint shader);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLuint glCreateProgram();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLuint glCreateShader(GLenum type);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteProgram(GLuint program);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteShader(GLuint shader);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDetachShader(GLuint program, GLuint shader);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDisableVertexAttribArray(GLuint index);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEnableVertexAttribArray(GLuint index);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetActiveAttrib(GLuint program, GLuint index, GLsizei bufSize, [MarshalAs(UnmanagedType.LPArray)] GLsizei[] length, [MarshalAs(UnmanagedType.LPArray)] GLint[] size, [MarshalAs(UnmanagedType.LPArray)] GLenum[] type, [MarshalAs(UnmanagedType.LPArray)] GLchar[] name);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetActiveUniform(GLuint program, GLuint index, GLsizei bufSize, [MarshalAs(UnmanagedType.LPArray)] GLsizei[] length, [MarshalAs(UnmanagedType.LPArray)] GLint[] size, [MarshalAs(UnmanagedType.LPArray)] GLenum[] type, [MarshalAs(UnmanagedType.LPArray)] GLchar[] name);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetAttachedShaders(GLuint program, GLsizei maxCount, [MarshalAs(UnmanagedType.LPArray)] GLsizei[] count, [MarshalAs(UnmanagedType.LPArray)] GLuint[] obj);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLint glGetAttribLocation_(GLuint program, IntPtr name);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetProgramiv(GLuint program, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetProgramInfoLog(GLuint program, GLsizei bufSize, [MarshalAs(UnmanagedType.LPArray)] GLsizei[] length, [MarshalAs(UnmanagedType.LPArray)] GLchar[] infoLog);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetShaderiv(GLuint shader, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetShaderInfoLog(GLuint shader, GLsizei bufSize, [MarshalAs(UnmanagedType.LPArray)] GLsizei[] length, [MarshalAs(UnmanagedType.LPArray)] GLchar[] infoLog);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetShaderSource(GLuint shader, GLsizei bufSize, [MarshalAs(UnmanagedType.LPArray)] GLsizei[] length, [MarshalAs(UnmanagedType.LPArray)] GLchar[] source);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLint glGetUniformLocation_(GLuint program, IntPtr name);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetUniformfv(GLuint program, GLint location, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetUniformiv(GLuint program, GLint location, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVertexAttribdv(GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLdouble[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVertexAttribfv(GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVertexAttribiv(GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVertexAttribPointerv(GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] IntPtr[] pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsProgram(GLuint program);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsShader(GLuint shader);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLinkProgram(GLuint program);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glShaderSource_(GLuint shader, GLsizei count, string[] @string, IntPtr length);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUseProgram(GLuint program);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform1f(GLint location, GLfloat v0);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform2f(GLint location, GLfloat v0, GLfloat v1);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform3f(GLint location, GLfloat v0, GLfloat v1, GLfloat v2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform4f(GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform1i(GLint location, GLint v0);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform2i(GLint location, GLint v0, GLint v1);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform3i(GLint location, GLint v0, GLint v1, GLint v2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform4i(GLint location, GLint v0, GLint v1, GLint v2, GLint v3);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform1fv_(GLint location, GLsizei count, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform2fv_(GLint location, GLsizei count, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform3fv_(GLint location, GLsizei count, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform4fv_(GLint location, GLsizei count, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform1iv_(GLint location, GLsizei count, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform2iv_(GLint location, GLsizei count, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform3iv_(GLint location, GLsizei count, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform4iv_(GLint location, GLsizei count, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniformMatrix2fv_(GLint location, GLsizei count, GLboolean transpose, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniformMatrix3fv_(GLint location, GLsizei count, GLboolean transpose, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniformMatrix4fv_(GLint location, GLsizei count, GLboolean transpose, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glValidateProgram(GLuint program);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1d(GLuint index, GLdouble x);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1dv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1f(GLuint index, GLfloat x);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1fv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1s(GLuint index, GLshort x);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1sv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2d(GLuint index, GLdouble x, GLdouble y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2dv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2f(GLuint index, GLfloat x, GLfloat y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2fv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2s(GLuint index, GLshort x, GLshort y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2sv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3d(GLuint index, GLdouble x, GLdouble y, GLdouble z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3dv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3f(GLuint index, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3fv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3s(GLuint index, GLshort x, GLshort y, GLshort z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3sv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4Nbv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4Niv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4Nsv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4Nub(GLuint index, GLubyte x, GLubyte y, GLubyte z, GLubyte w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4Nubv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4Nuiv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4Nusv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4bv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4d(GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4dv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4f(GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4fv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4iv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4s(GLuint index, GLshort x, GLshort y, GLshort z, GLshort w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4sv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4ubv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4uiv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4usv_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribPointer_(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glActiveTextureARB(GLenum texture);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glClientActiveTextureARB(GLenum texture);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1dARB(GLenum target, GLdouble s);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1dvARB_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1fARB(GLenum target, GLfloat s);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1fvARB_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1iARB(GLenum target, GLint s);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1ivARB_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1sARB(GLenum target, GLshort s);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1svARB_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2dARB(GLenum target, GLdouble s, GLdouble t);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2dvARB_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2fARB(GLenum target, GLfloat s, GLfloat t);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2fvARB_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2iARB(GLenum target, GLint s, GLint t);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2ivARB_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2sARB(GLenum target, GLshort s, GLshort t);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2svARB_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3dARB(GLenum target, GLdouble s, GLdouble t, GLdouble r);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3dvARB_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3fARB(GLenum target, GLfloat s, GLfloat t, GLfloat r);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3fvARB_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3iARB(GLenum target, GLint s, GLint t, GLint r);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3ivARB_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3sARB(GLenum target, GLshort s, GLshort t, GLshort r);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3svARB_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4dARB(GLenum target, GLdouble s, GLdouble t, GLdouble r, GLdouble q);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4dvARB_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4fARB(GLenum target, GLfloat s, GLfloat t, GLfloat r, GLfloat q);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4fvARB_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4iARB(GLenum target, GLint s, GLint t, GLint r, GLint q);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4ivARB_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4sARB(GLenum target, GLshort s, GLshort t, GLshort r, GLshort q);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4svARB_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLoadTransposeMatrixfARB_(IntPtr m);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLoadTransposeMatrixdARB_(IntPtr m);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultTransposeMatrixfARB_(IntPtr m);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultTransposeMatrixdARB_(IntPtr m);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSampleCoverageARB(GLclampf value, GLboolean invert);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCompressedTexImage3DARB_(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLsizei imageSize, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCompressedTexImage2DARB_(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLint border, GLsizei imageSize, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCompressedTexImage1DARB_(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLint border, GLsizei imageSize, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCompressedTexSubImage3DARB_(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLsizei imageSize, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCompressedTexSubImage2DARB_(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLsizei imageSize, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCompressedTexSubImage1DARB_(GLenum target, GLint level, GLint xoffset, GLsizei width, GLenum format, GLsizei imageSize, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetCompressedTexImageARB_(GLenum target, GLint level, IntPtr img);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPointParameterfARB(GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPointParameterfvARB_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWeightbvARB_(GLint size, IntPtr weights);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWeightsvARB_(GLint size, IntPtr weights);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWeightivARB_(GLint size, IntPtr weights);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWeightfvARB_(GLint size, IntPtr weights);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWeightdvARB_(GLint size, IntPtr weights);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWeightubvARB_(GLint size, IntPtr weights);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWeightusvARB_(GLint size, IntPtr weights);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWeightuivARB_(GLint size, IntPtr weights);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWeightPointerARB_(GLint size, GLenum type, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexBlendARB(GLint count);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCurrentPaletteMatrixARB(GLint index);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMatrixIndexubvARB_(GLint size, IntPtr indices);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMatrixIndexusvARB_(GLint size, IntPtr indices);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMatrixIndexuivARB_(GLint size, IntPtr indices);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMatrixIndexPointerARB_(GLint size, GLenum type, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2dARB(GLdouble x, GLdouble y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2dvARB_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2fARB(GLfloat x, GLfloat y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2fvARB_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2iARB(GLint x, GLint y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2ivARB_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2sARB(GLshort x, GLshort y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2svARB_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3dARB(GLdouble x, GLdouble y, GLdouble z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3dvARB_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3fARB(GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3fvARB_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3iARB(GLint x, GLint y, GLint z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3ivARB_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3sARB(GLshort x, GLshort y, GLshort z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3svARB_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1dARB(GLuint index, GLdouble x);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1dvARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1fARB(GLuint index, GLfloat x);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1fvARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1sARB(GLuint index, GLshort x);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1svARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2dARB(GLuint index, GLdouble x, GLdouble y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2dvARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2fARB(GLuint index, GLfloat x, GLfloat y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2fvARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2sARB(GLuint index, GLshort x, GLshort y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2svARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3dARB(GLuint index, GLdouble x, GLdouble y, GLdouble z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3dvARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3fARB(GLuint index, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3fvARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3sARB(GLuint index, GLshort x, GLshort y, GLshort z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3svARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4NbvARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4NivARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4NsvARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4NubARB(GLuint index, GLubyte x, GLubyte y, GLubyte z, GLubyte w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4NubvARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4NuivARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4NusvARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4bvARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4dARB(GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4dvARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4fARB(GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4fvARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4ivARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4sARB(GLuint index, GLshort x, GLshort y, GLshort z, GLshort w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4svARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4ubvARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4uivARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4usvARB_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribPointerARB_(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEnableVertexAttribArrayARB(GLuint index);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDisableVertexAttribArrayARB(GLuint index);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramStringARB_(GLenum target, GLenum format, GLsizei len, IntPtr @string);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBindProgramARB(GLenum target, GLuint program);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteProgramsARB_(GLsizei n, IntPtr programs);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGenProgramsARB(GLsizei n, [MarshalAs(UnmanagedType.LPArray)] GLuint[] programs);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramEnvParameter4dARB(GLenum target, GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramEnvParameter4dvARB_(GLenum target, GLuint index, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramEnvParameter4fARB(GLenum target, GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramEnvParameter4fvARB_(GLenum target, GLuint index, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramLocalParameter4dARB(GLenum target, GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramLocalParameter4dvARB_(GLenum target, GLuint index, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramLocalParameter4fARB(GLenum target, GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramLocalParameter4fvARB_(GLenum target, GLuint index, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetProgramEnvParameterdvARB(GLenum target, GLuint index, [MarshalAs(UnmanagedType.LPArray)] GLdouble[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetProgramEnvParameterfvARB(GLenum target, GLuint index, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetProgramLocalParameterdvARB(GLenum target, GLuint index, [MarshalAs(UnmanagedType.LPArray)] GLdouble[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetProgramLocalParameterfvARB(GLenum target, GLuint index, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetProgramivARB(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetProgramStringARB_(GLenum target, GLenum pname, IntPtr @string);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVertexAttribdvARB(GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLdouble[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVertexAttribfvARB(GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVertexAttribivARB(GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVertexAttribPointervARB(GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] IntPtr[] pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsProgramARB(GLuint program);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBindBufferARB(GLenum target, GLuint buffer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteBuffersARB_(GLsizei n, IntPtr buffers);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGenBuffersARB(GLsizei n, [MarshalAs(UnmanagedType.LPArray)] GLuint[] buffers);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsBufferARB(GLuint buffer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBufferDataARB_(GLenum target, GLsizeiptrARB size, IntPtr data, GLenum usage);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBufferSubDataARB_(GLenum target, GLintptrARB offset, GLsizeiptrARB size, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetBufferSubDataARB_(GLenum target, GLintptrARB offset, GLsizeiptrARB size, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate IntPtr glMapBufferARB(GLenum target, GLenum access);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glUnmapBufferARB(GLenum target);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetBufferParameterivARB(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetBufferPointervARB(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] IntPtr[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGenQueriesARB(GLsizei n, [MarshalAs(UnmanagedType.LPArray)] GLuint[] ids);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteQueriesARB_(GLsizei n, IntPtr ids);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsQueryARB(GLuint id);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBeginQueryARB(GLenum target, GLuint id);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEndQueryARB(GLenum target);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetQueryivARB(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetQueryObjectivARB(GLuint id, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetQueryObjectuivARB(GLuint id, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLuint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteObjectARB(GLhandleARB obj);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLhandleARB glGetHandleARB(GLenum pname);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDetachObjectARB(GLhandleARB containerObj, GLhandleARB attachedObj);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLhandleARB glCreateShaderObjectARB(GLenum shaderType);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glShaderSourceARB_(GLhandleARB shaderObj, GLsizei count, IntPtr @string, IntPtr length);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCompileShaderARB(GLhandleARB shaderObj);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLhandleARB glCreateProgramObjectARB();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glAttachObjectARB(GLhandleARB containerObj, GLhandleARB obj);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLinkProgramARB(GLhandleARB programObj);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUseProgramObjectARB(GLhandleARB programObj);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glValidateProgramARB(GLhandleARB programObj);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform1fARB(GLint location, GLfloat v0);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform2fARB(GLint location, GLfloat v0, GLfloat v1);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform3fARB(GLint location, GLfloat v0, GLfloat v1, GLfloat v2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform4fARB(GLint location, GLfloat v0, GLfloat v1, GLfloat v2, GLfloat v3);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform1iARB(GLint location, GLint v0);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform2iARB(GLint location, GLint v0, GLint v1);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform3iARB(GLint location, GLint v0, GLint v1, GLint v2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform4iARB(GLint location, GLint v0, GLint v1, GLint v2, GLint v3);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform1fvARB_(GLint location, GLsizei count, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform2fvARB_(GLint location, GLsizei count, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform3fvARB_(GLint location, GLsizei count, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform4fvARB_(GLint location, GLsizei count, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform1ivARB_(GLint location, GLsizei count, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform2ivARB_(GLint location, GLsizei count, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform3ivARB_(GLint location, GLsizei count, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniform4ivARB_(GLint location, GLsizei count, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniformMatrix2fvARB_(GLint location, GLsizei count, GLboolean transpose, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniformMatrix3fvARB_(GLint location, GLsizei count, GLboolean transpose, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUniformMatrix4fvARB_(GLint location, GLsizei count, GLboolean transpose, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetObjectParameterfvARB(GLhandleARB obj, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetObjectParameterivARB(GLhandleARB obj, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetInfoLogARB(GLhandleARB obj, GLsizei maxLength, [MarshalAs(UnmanagedType.LPArray)] GLsizei[] length, [MarshalAs(UnmanagedType.LPArray)] GLcharARB[] infoLog);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetAttachedObjectsARB(GLhandleARB containerObj, GLsizei maxCount, [MarshalAs(UnmanagedType.LPArray)] GLsizei[] count, [MarshalAs(UnmanagedType.LPArray)] GLhandleARB[] obj);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLint glGetUniformLocationARB_(GLhandleARB programObj, IntPtr name);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetActiveUniformARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, [MarshalAs(UnmanagedType.LPArray)] GLsizei[] length, [MarshalAs(UnmanagedType.LPArray)] GLint[] size, [MarshalAs(UnmanagedType.LPArray)] GLenum[] type, [MarshalAs(UnmanagedType.LPArray)] GLcharARB[] name);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetUniformfvARB(GLhandleARB programObj, GLint location, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetUniformivARB(GLhandleARB programObj, GLint location, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetShaderSourceARB(GLhandleARB obj, GLsizei maxLength, [MarshalAs(UnmanagedType.LPArray)] GLsizei[] length, [MarshalAs(UnmanagedType.LPArray)] GLcharARB[] source);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBindAttribLocationARB_(GLhandleARB programObj, GLuint index, IntPtr name);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetActiveAttribARB(GLhandleARB programObj, GLuint index, GLsizei maxLength, [MarshalAs(UnmanagedType.LPArray)] GLsizei[] length, [MarshalAs(UnmanagedType.LPArray)] GLint[] size, [MarshalAs(UnmanagedType.LPArray)] GLenum[] type, [MarshalAs(UnmanagedType.LPArray)] GLcharARB[] name);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLint glGetAttribLocationARB_(GLhandleARB programObj, IntPtr name);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDrawBuffersARB_(GLsizei n, IntPtr bufs);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glClampColorARB(GLenum target, GLenum clamp);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBlendColorEXT(GLclampf red, GLclampf green, GLclampf blue, GLclampf alpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPolygonOffsetEXT(GLfloat factor, GLfloat bias);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexImage3DEXT_(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth, GLint border, GLenum format, GLenum type, IntPtr pixels);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexSubImage3DEXT_(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLsizei width, GLsizei height, GLsizei depth, GLenum format, GLenum type, IntPtr pixels);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetTexFilterFuncSGIS(GLenum target, GLenum filter, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] weights);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexFilterFuncSGIS_(GLenum target, GLenum filter, GLsizei n, IntPtr weights);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexSubImage1DEXT_(GLenum target, GLint level, GLint xoffset, GLsizei width, GLenum format, GLenum type, IntPtr pixels);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexSubImage2DEXT_(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLsizei width, GLsizei height, GLenum format, GLenum type, IntPtr pixels);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyTexImage1DEXT(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLint border);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyTexImage2DEXT(GLenum target, GLint level, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height, GLint border);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyTexSubImage1DEXT(GLenum target, GLint level, GLint xoffset, GLint x, GLint y, GLsizei width);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyTexSubImage2DEXT(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint x, GLint y, GLsizei width, GLsizei height);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyTexSubImage3DEXT(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLint x, GLint y, GLsizei width, GLsizei height);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetHistogramEXT_(GLenum target, GLboolean reset, GLenum format, GLenum type, IntPtr values);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetHistogramParameterfvEXT(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetHistogramParameterivEXT(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetMinmaxEXT_(GLenum target, GLboolean reset, GLenum format, GLenum type, IntPtr values);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetMinmaxParameterfvEXT(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetMinmaxParameterivEXT(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glHistogramEXT(GLenum target, GLsizei width, GLenum internalformat, GLboolean sink);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMinmaxEXT(GLenum target, GLenum internalformat, GLboolean sink);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glResetHistogramEXT(GLenum target);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glResetMinmaxEXT(GLenum target);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glConvolutionFilter1DEXT_(GLenum target, GLenum internalformat, GLsizei width, GLenum format, GLenum type, IntPtr image);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glConvolutionFilter2DEXT_(GLenum target, GLenum internalformat, GLsizei width, GLsizei height, GLenum format, GLenum type, IntPtr image);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glConvolutionParameterfEXT(GLenum target, GLenum pname, GLfloat parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glConvolutionParameterfvEXT_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glConvolutionParameteriEXT(GLenum target, GLenum pname, GLint parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glConvolutionParameterivEXT_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyConvolutionFilter1DEXT(GLenum target, GLenum internalformat, GLint x, GLint y, GLsizei width);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyConvolutionFilter2DEXT(GLenum target, GLenum internalformat, GLint x, GLint y, GLsizei width, GLsizei height);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetConvolutionFilterEXT_(GLenum target, GLenum format, GLenum type, IntPtr image);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetConvolutionParameterfvEXT(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetConvolutionParameterivEXT(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetSeparableFilterEXT_(GLenum target, GLenum format, GLenum type, IntPtr row, IntPtr column, IntPtr span);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSeparableFilter2DEXT_(GLenum target, GLenum internalformat, GLsizei width, GLsizei height, GLenum format, GLenum type, IntPtr row, IntPtr column);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorTableSGI_(GLenum target, GLenum internalformat, GLsizei width, GLenum format, GLenum type, IntPtr table);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorTableParameterfvSGI_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorTableParameterivSGI_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyColorTableSGI(GLenum target, GLenum internalformat, GLint x, GLint y, GLsizei width);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetColorTableSGI_(GLenum target, GLenum format, GLenum type, IntPtr table);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetColorTableParameterfvSGI(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetColorTableParameterivSGI(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelTexGenSGIX(GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelTexGenParameteriSGIS(GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelTexGenParameterivSGIS_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelTexGenParameterfSGIS(GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelTexGenParameterfvSGIS_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetPixelTexGenParameterivSGIS(GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetPixelTexGenParameterfvSGIS(GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexImage4DSGIS_(GLenum target, GLint level, GLenum internalformat, GLsizei width, GLsizei height, GLsizei depth, GLsizei size4d, GLint border, GLenum format, GLenum type, IntPtr pixels);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexSubImage4DSGIS_(GLenum target, GLint level, GLint xoffset, GLint yoffset, GLint zoffset, GLint woffset, GLsizei width, GLsizei height, GLsizei depth, GLsizei size4d, GLenum format, GLenum type, IntPtr pixels);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glAreTexturesResidentEXT_(GLsizei n, IntPtr textures, [MarshalAs(UnmanagedType.LPArray)] GLboolean[] residences);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBindTextureEXT(GLenum target, GLuint texture);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteTexturesEXT_(GLsizei n, IntPtr textures);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGenTexturesEXT(GLsizei n, [MarshalAs(UnmanagedType.LPArray)] GLuint[] textures);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsTextureEXT(GLuint texture);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPrioritizeTexturesEXT_(GLsizei n, IntPtr textures, IntPtr priorities);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDetailTexFuncSGIS_(GLenum target, GLsizei n, IntPtr points);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetDetailTexFuncSGIS(GLenum target, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] points);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSharpenTexFuncSGIS_(GLenum target, GLsizei n, IntPtr points);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetSharpenTexFuncSGIS(GLenum target, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] points);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSampleMaskSGIS(GLclampf value, GLboolean invert);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSamplePatternSGIS(GLenum pattern);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glArrayElementEXT(GLint i);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorPointerEXT_(GLint size, GLenum type, GLsizei stride, GLsizei count, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDrawArraysEXT(GLenum mode, GLint first, GLsizei count);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEdgeFlagPointerEXT_(GLsizei stride, GLsizei count, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetPointervEXT(GLenum pname, [MarshalAs(UnmanagedType.LPArray)] IntPtr[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glIndexPointerEXT_(GLenum type, GLsizei stride, GLsizei count, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormalPointerEXT_(GLenum type, GLsizei stride, GLsizei count, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoordPointerEXT_(GLint size, GLenum type, GLsizei stride, GLsizei count, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexPointerEXT_(GLint size, GLenum type, GLsizei stride, GLsizei count, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBlendEquationEXT(GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSpriteParameterfSGIX(GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSpriteParameterfvSGIX_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSpriteParameteriSGIX(GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSpriteParameterivSGIX_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPointParameterfEXT(GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPointParameterfvEXT_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPointParameterfSGIS(GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPointParameterfvSGIS_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLint glGetInstrumentsSGIX();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glInstrumentsBufferSGIX(GLsizei size, [MarshalAs(UnmanagedType.LPArray)] GLint[] buffer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLint glPollInstrumentsSGIX([MarshalAs(UnmanagedType.LPArray)] GLint[] marker_p);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReadInstrumentsSGIX(GLint marker);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glStartInstrumentsSGIX();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glStopInstrumentsSGIX(GLint marker);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFrameZoomSGIX(GLint factor);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTagSampleBufferSGIX();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeformationMap3dSGIX_(GLenum target, GLdouble u1, GLdouble u2, GLint ustride, GLint uorder, GLdouble v1, GLdouble v2, GLint vstride, GLint vorder, GLdouble w1, GLdouble w2, GLint wstride, GLint worder, IntPtr points);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeformationMap3fSGIX_(GLenum target, GLfloat u1, GLfloat u2, GLint ustride, GLint uorder, GLfloat v1, GLfloat v2, GLint vstride, GLint vorder, GLfloat w1, GLfloat w2, GLint wstride, GLint worder, IntPtr points);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeformSGIX(GLbitfield mask);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLoadIdentityDeformationMapSGIX(GLbitfield mask);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReferencePlaneSGIX_(IntPtr equation);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFlushRasterSGIX();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogFuncSGIS_(GLsizei n, IntPtr points);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetFogFuncSGIS([MarshalAs(UnmanagedType.LPArray)] GLfloat[] points);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glImageTransformParameteriHP(GLenum target, GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glImageTransformParameterfHP(GLenum target, GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glImageTransformParameterivHP_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glImageTransformParameterfvHP_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetImageTransformParameterivHP(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetImageTransformParameterfvHP(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorSubTableEXT_(GLenum target, GLsizei start, GLsizei count, GLenum format, GLenum type, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCopyColorSubTableEXT(GLenum target, GLsizei start, GLint x, GLint y, GLsizei width);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glHintPGI(GLenum target, GLint mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorTableEXT_(GLenum target, GLenum internalFormat, GLsizei width, GLenum format, GLenum type, IntPtr table);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetColorTableEXT_(GLenum target, GLenum format, GLenum type, IntPtr data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetColorTableParameterivEXT(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetColorTableParameterfvEXT(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetListParameterfvSGIX(GLuint list, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetListParameterivSGIX(GLuint list, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glListParameterfSGIX(GLuint list, GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glListParameterfvSGIX_(GLuint list, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glListParameteriSGIX(GLuint list, GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glListParameterivSGIX_(GLuint list, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glIndexMaterialEXT(GLenum face, GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glIndexFuncEXT(GLenum func, GLclampf reference);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLockArraysEXT(GLint first, GLsizei count);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUnlockArraysEXT();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCullParameterdvEXT(GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLdouble[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCullParameterfvEXT(GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFragmentColorMaterialSGIX(GLenum face, GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFragmentLightfSGIX(GLenum light, GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFragmentLightfvSGIX_(GLenum light, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFragmentLightiSGIX(GLenum light, GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFragmentLightivSGIX_(GLenum light, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFragmentLightModelfSGIX(GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFragmentLightModelfvSGIX_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFragmentLightModeliSGIX(GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFragmentLightModelivSGIX_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFragmentMaterialfSGIX(GLenum face, GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFragmentMaterialfvSGIX_(GLenum face, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFragmentMaterialiSGIX(GLenum face, GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFragmentMaterialivSGIX_(GLenum face, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetFragmentLightfvSGIX(GLenum light, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetFragmentLightivSGIX(GLenum light, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetFragmentMaterialfvSGIX(GLenum face, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetFragmentMaterialivSGIX(GLenum face, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLightEnviSGIX(GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDrawRangeElementsEXT_(GLenum mode, GLuint start, GLuint end, GLsizei count, GLenum type, IntPtr indices);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glApplyTextureEXT(GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTextureLightEXT(GLenum pname);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTextureMaterialEXT(GLenum face, GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glAsyncMarkerSGIX(GLuint marker);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLint glFinishAsyncSGIX([MarshalAs(UnmanagedType.LPArray)] GLuint[] markerp);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLint glPollAsyncSGIX([MarshalAs(UnmanagedType.LPArray)] GLuint[] markerp);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLuint glGenAsyncMarkersSGIX(GLsizei range);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteAsyncMarkersSGIX(GLuint marker, GLsizei range);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsAsyncMarkerSGIX(GLuint marker);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexPointervINTEL_(GLint size, GLenum type, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormalPointervINTEL_(GLenum type, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorPointervINTEL_(GLint size, GLenum type, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoordPointervINTEL_(GLint size, GLenum type, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelTransformParameteriEXT(GLenum target, GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelTransformParameterfEXT(GLenum target, GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelTransformParameterivEXT_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelTransformParameterfvEXT_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3bEXT(GLbyte red, GLbyte green, GLbyte blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3bvEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3dEXT(GLdouble red, GLdouble green, GLdouble blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3dvEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3fEXT(GLfloat red, GLfloat green, GLfloat blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3fvEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3iEXT(GLint red, GLint green, GLint blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3ivEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3sEXT(GLshort red, GLshort green, GLshort blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3svEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3ubEXT(GLubyte red, GLubyte green, GLubyte blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3ubvEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3uiEXT(GLuint red, GLuint green, GLuint blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3uivEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3usEXT(GLushort red, GLushort green, GLushort blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3usvEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColorPointerEXT_(GLint size, GLenum type, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTextureNormalEXT(GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiDrawArraysEXT(GLenum mode, [MarshalAs(UnmanagedType.LPArray)] GLint[] first, [MarshalAs(UnmanagedType.LPArray)] GLsizei[] count, GLsizei primcount);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiDrawElementsEXT_(GLenum mode, IntPtr count, GLenum type, IntPtr indices, GLsizei primcount);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogCoordfEXT(GLfloat coord);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogCoordfvEXT_(IntPtr coord);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogCoorddEXT(GLdouble coord);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogCoorddvEXT_(IntPtr coord);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogCoordPointerEXT_(GLenum type, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTangent3bEXT(GLbyte tx, GLbyte ty, GLbyte tz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTangent3bvEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTangent3dEXT(GLdouble tx, GLdouble ty, GLdouble tz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTangent3dvEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTangent3fEXT(GLfloat tx, GLfloat ty, GLfloat tz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTangent3fvEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTangent3iEXT(GLint tx, GLint ty, GLint tz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTangent3ivEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTangent3sEXT(GLshort tx, GLshort ty, GLshort tz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTangent3svEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBinormal3bEXT(GLbyte bx, GLbyte by, GLbyte bz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBinormal3bvEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBinormal3dEXT(GLdouble bx, GLdouble by, GLdouble bz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBinormal3dvEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBinormal3fEXT(GLfloat bx, GLfloat by, GLfloat bz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBinormal3fvEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBinormal3iEXT(GLint bx, GLint by, GLint bz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBinormal3ivEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBinormal3sEXT(GLshort bx, GLshort by, GLshort bz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBinormal3svEXT_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTangentPointerEXT_(GLenum type, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBinormalPointerEXT_(GLenum type, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFinishTextureSUNX();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGlobalAlphaFactorbSUN(GLbyte factor);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGlobalAlphaFactorsSUN(GLshort factor);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGlobalAlphaFactoriSUN(GLint factor);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGlobalAlphaFactorfSUN(GLfloat factor);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGlobalAlphaFactordSUN(GLdouble factor);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGlobalAlphaFactorubSUN(GLubyte factor);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGlobalAlphaFactorusSUN(GLushort factor);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGlobalAlphaFactoruiSUN(GLuint factor);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuiSUN(GLuint code);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeusSUN(GLushort code);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeubSUN(GLubyte code);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuivSUN_(IntPtr code);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeusvSUN_(IntPtr code);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeubvSUN_(IntPtr code);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodePointerSUN_(GLenum type, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4ubVertex2fSUN(GLubyte r, GLubyte g, GLubyte b, GLubyte a, GLfloat x, GLfloat y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4ubVertex2fvSUN_(IntPtr c, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4ubVertex3fSUN(GLubyte r, GLubyte g, GLubyte b, GLubyte a, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4ubVertex3fvSUN_(IntPtr c, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3fVertex3fSUN(GLfloat r, GLfloat g, GLfloat b, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3fVertex3fvSUN_(IntPtr c, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormal3fVertex3fSUN(GLfloat nx, GLfloat ny, GLfloat nz, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormal3fVertex3fvSUN_(IntPtr n, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4fNormal3fVertex3fSUN(GLfloat r, GLfloat g, GLfloat b, GLfloat a, GLfloat nx, GLfloat ny, GLfloat nz, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4fNormal3fVertex3fvSUN_(IntPtr c, IntPtr n, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2fVertex3fSUN(GLfloat s, GLfloat t, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2fVertex3fvSUN_(IntPtr tc, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord4fVertex4fSUN(GLfloat s, GLfloat t, GLfloat p, GLfloat q, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord4fVertex4fvSUN_(IntPtr tc, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2fColor4ubVertex3fSUN(GLfloat s, GLfloat t, GLubyte r, GLubyte g, GLubyte b, GLubyte a, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2fColor4ubVertex3fvSUN_(IntPtr tc, IntPtr c, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2fColor3fVertex3fSUN(GLfloat s, GLfloat t, GLfloat r, GLfloat g, GLfloat b, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2fColor3fVertex3fvSUN_(IntPtr tc, IntPtr c, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2fNormal3fVertex3fSUN(GLfloat s, GLfloat t, GLfloat nx, GLfloat ny, GLfloat nz, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2fNormal3fVertex3fvSUN_(IntPtr tc, IntPtr n, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2fColor4fNormal3fVertex3fSUN(GLfloat s, GLfloat t, GLfloat r, GLfloat g, GLfloat b, GLfloat a, GLfloat nx, GLfloat ny, GLfloat nz, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2fColor4fNormal3fVertex3fvSUN_(IntPtr tc, IntPtr c, IntPtr n, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord4fColor4fNormal3fVertex4fSUN(GLfloat s, GLfloat t, GLfloat p, GLfloat q, GLfloat r, GLfloat g, GLfloat b, GLfloat a, GLfloat nx, GLfloat ny, GLfloat nz, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord4fColor4fNormal3fVertex4fvSUN_(IntPtr tc, IntPtr c, IntPtr n, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuiVertex3fSUN(GLuint rc, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuiVertex3fvSUN_(IntPtr rc, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuiColor4ubVertex3fSUN(GLuint rc, GLubyte r, GLubyte g, GLubyte b, GLubyte a, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuiColor4ubVertex3fvSUN_(IntPtr rc, IntPtr c, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuiColor3fVertex3fSUN(GLuint rc, GLfloat r, GLfloat g, GLfloat b, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuiColor3fVertex3fvSUN_(IntPtr rc, IntPtr c, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuiNormal3fVertex3fSUN(GLuint rc, GLfloat nx, GLfloat ny, GLfloat nz, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuiNormal3fVertex3fvSUN_(IntPtr rc, IntPtr n, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuiColor4fNormal3fVertex3fSUN(GLuint rc, GLfloat r, GLfloat g, GLfloat b, GLfloat a, GLfloat nx, GLfloat ny, GLfloat nz, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuiColor4fNormal3fVertex3fvSUN_(IntPtr rc, IntPtr c, IntPtr n, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuiTexCoord2fVertex3fSUN(GLuint rc, GLfloat s, GLfloat t, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuiTexCoord2fVertex3fvSUN_(IntPtr rc, IntPtr tc, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuiTexCoord2fNormal3fVertex3fSUN(GLuint rc, GLfloat s, GLfloat t, GLfloat nx, GLfloat ny, GLfloat nz, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuiTexCoord2fNormal3fVertex3fvSUN_(IntPtr rc, IntPtr tc, IntPtr n, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fSUN(GLuint rc, GLfloat s, GLfloat t, GLfloat r, GLfloat g, GLfloat b, GLfloat a, GLfloat nx, GLfloat ny, GLfloat nz, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glReplacementCodeuiTexCoord2fColor4fNormal3fVertex3fvSUN_(IntPtr rc, IntPtr tc, IntPtr c, IntPtr n, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBlendFuncSeparateEXT(GLenum sfactorRGB, GLenum dfactorRGB, GLenum sfactorAlpha, GLenum dfactorAlpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBlendFuncSeparateINGR(GLenum sfactorRGB, GLenum dfactorRGB, GLenum sfactorAlpha, GLenum dfactorAlpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexWeightfEXT(GLfloat weight);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexWeightfvEXT_(IntPtr weight);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexWeightPointerEXT_(GLsizei size, GLenum type, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFlushVertexArrayRangeNV();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexArrayRangeNV_(GLsizei length, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCombinerParameterfvNV_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCombinerParameterfNV(GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCombinerParameterivNV_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCombinerParameteriNV(GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCombinerInputNV(GLenum stage, GLenum portion, GLenum variable, GLenum input, GLenum mapping, GLenum componentUsage);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCombinerOutputNV(GLenum stage, GLenum portion, GLenum abOutput, GLenum cdOutput, GLenum sumOutput, GLenum scale, GLenum bias, GLboolean abDotProduct, GLboolean cdDotProduct, GLboolean muxSum);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFinalCombinerInputNV(GLenum variable, GLenum input, GLenum mapping, GLenum componentUsage);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetCombinerInputParameterfvNV(GLenum stage, GLenum portion, GLenum variable, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetCombinerInputParameterivNV(GLenum stage, GLenum portion, GLenum variable, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetCombinerOutputParameterfvNV(GLenum stage, GLenum portion, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetCombinerOutputParameterivNV(GLenum stage, GLenum portion, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetFinalCombinerInputParameterfvNV(GLenum variable, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetFinalCombinerInputParameterivNV(GLenum variable, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glResizeBuffersMESA();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2dMESA(GLdouble x, GLdouble y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2dvMESA_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2fMESA(GLfloat x, GLfloat y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2fvMESA_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2iMESA(GLint x, GLint y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2ivMESA_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2sMESA(GLshort x, GLshort y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos2svMESA_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3dMESA(GLdouble x, GLdouble y, GLdouble z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3dvMESA_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3fMESA(GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3fvMESA_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3iMESA(GLint x, GLint y, GLint z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3ivMESA_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3sMESA(GLshort x, GLshort y, GLshort z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos3svMESA_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos4dMESA(GLdouble x, GLdouble y, GLdouble z, GLdouble w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos4dvMESA_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos4fMESA(GLfloat x, GLfloat y, GLfloat z, GLfloat w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos4fvMESA_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos4iMESA(GLint x, GLint y, GLint z, GLint w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos4ivMESA_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos4sMESA(GLshort x, GLshort y, GLshort z, GLshort w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWindowPos4svMESA_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiModeDrawArraysIBM_(IntPtr mode, IntPtr first, IntPtr count, GLsizei primcount, GLint modestride);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiModeDrawElementsIBM_(IntPtr mode, IntPtr count, GLenum type, IntPtr indices, GLsizei primcount, GLint modestride);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorPointerListIBM_(GLint size, GLenum type, GLint stride, IntPtr pointer, GLint ptrstride);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColorPointerListIBM_(GLint size, GLenum type, GLint stride, IntPtr pointer, GLint ptrstride);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEdgeFlagPointerListIBM_(GLint stride, IntPtr pointer, GLint ptrstride);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogCoordPointerListIBM_(GLenum type, GLint stride, IntPtr pointer, GLint ptrstride);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glIndexPointerListIBM_(GLenum type, GLint stride, IntPtr pointer, GLint ptrstride);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormalPointerListIBM_(GLenum type, GLint stride, IntPtr pointer, GLint ptrstride);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoordPointerListIBM_(GLint size, GLenum type, GLint stride, IntPtr pointer, GLint ptrstride);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexPointerListIBM_(GLint size, GLenum type, GLint stride, IntPtr pointer, GLint ptrstride);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTbufferMask3DFX(GLuint mask);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSampleMaskEXT(GLclampf value, GLboolean invert);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSamplePatternEXT(GLenum pattern);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTextureColorMaskSGIS(GLboolean red, GLboolean green, GLboolean blue, GLboolean alpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glIglooInterfaceSGIX_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteFencesNV_(GLsizei n, IntPtr fences);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGenFencesNV(GLsizei n, [MarshalAs(UnmanagedType.LPArray)] GLuint[] fences);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsFenceNV(GLuint fence);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glTestFenceNV(GLuint fence);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetFenceivNV(GLuint fence, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFinishFenceNV(GLuint fence);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSetFenceNV(GLuint fence, GLenum condition);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMapControlPointsNV_(GLenum target, GLuint index, GLenum type, GLsizei ustride, GLsizei vstride, GLint uorder, GLint vorder, GLboolean packed, IntPtr points);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMapParameterivNV_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMapParameterfvNV_(GLenum target, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetMapControlPointsNV_(GLenum target, GLuint index, GLenum type, GLsizei ustride, GLsizei vstride, GLboolean packed, IntPtr points);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetMapParameterivNV(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetMapParameterfvNV(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetMapAttribParameterivNV(GLenum target, GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetMapAttribParameterfvNV(GLenum target, GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEvalMapsNV(GLenum target, GLenum mode);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glCombinerStageParameterfvNV_(GLenum stage, GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetCombinerStageParameterfvNV(GLenum stage, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glAreProgramsResidentNV_(GLsizei n, IntPtr programs, [MarshalAs(UnmanagedType.LPArray)] GLboolean[] residences);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBindProgramNV(GLenum target, GLuint id);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteProgramsNV_(GLsizei n, IntPtr programs);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glExecuteProgramNV_(GLenum target, GLuint id, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGenProgramsNV(GLsizei n, [MarshalAs(UnmanagedType.LPArray)] GLuint[] programs);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetProgramParameterdvNV(GLenum target, GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLdouble[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetProgramParameterfvNV(GLenum target, GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetProgramivNV(GLuint id, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetProgramStringNV(GLuint id, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLubyte[] program);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetTrackMatrixivNV(GLenum target, GLuint address, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVertexAttribdvNV(GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLdouble[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVertexAttribfvNV(GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVertexAttribivNV(GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVertexAttribPointervNV(GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] IntPtr[] pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsProgramNV(GLuint id);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glLoadProgramNV_(GLenum target, GLuint id, GLsizei len, IntPtr program);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramParameter4dNV(GLenum target, GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramParameter4dvNV_(GLenum target, GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramParameter4fNV(GLenum target, GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramParameter4fvNV_(GLenum target, GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramParameters4dvNV_(GLenum target, GLuint index, GLuint count, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramParameters4fvNV_(GLenum target, GLuint index, GLuint count, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRequestResidentProgramsNV_(GLsizei n, IntPtr programs);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTrackMatrixNV(GLenum target, GLuint address, GLenum matrix, GLenum transform);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribPointerNV_(GLuint index, GLint fsize, GLenum type, GLsizei stride, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1dNV(GLuint index, GLdouble x);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1dvNV_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1fNV(GLuint index, GLfloat x);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1fvNV_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1sNV(GLuint index, GLshort x);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1svNV_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2dNV(GLuint index, GLdouble x, GLdouble y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2dvNV_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2fNV(GLuint index, GLfloat x, GLfloat y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2fvNV_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2sNV(GLuint index, GLshort x, GLshort y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2svNV_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3dNV(GLuint index, GLdouble x, GLdouble y, GLdouble z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3dvNV_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3fNV(GLuint index, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3fvNV_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3sNV(GLuint index, GLshort x, GLshort y, GLshort z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3svNV_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4dNV(GLuint index, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4dvNV_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4fNV(GLuint index, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4fvNV_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4sNV(GLuint index, GLshort x, GLshort y, GLshort z, GLshort w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4svNV_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4ubNV(GLuint index, GLubyte x, GLubyte y, GLubyte z, GLubyte w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4ubvNV_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribs1dvNV_(GLuint index, GLsizei count, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribs1fvNV_(GLuint index, GLsizei count, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribs1svNV_(GLuint index, GLsizei count, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribs2dvNV_(GLuint index, GLsizei count, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribs2fvNV_(GLuint index, GLsizei count, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribs2svNV_(GLuint index, GLsizei count, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribs3dvNV_(GLuint index, GLsizei count, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribs3fvNV_(GLuint index, GLsizei count, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribs3svNV_(GLuint index, GLsizei count, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribs4dvNV_(GLuint index, GLsizei count, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribs4fvNV_(GLuint index, GLsizei count, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribs4svNV_(GLuint index, GLsizei count, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribs4ubvNV_(GLuint index, GLsizei count, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexBumpParameterivATI_(GLenum pname, IntPtr param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexBumpParameterfvATI_(GLenum pname, IntPtr param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetTexBumpParameterivATI(GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetTexBumpParameterfvATI(GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLuint glGenFragmentShadersATI(GLuint range);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBindFragmentShaderATI(GLuint id);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteFragmentShaderATI(GLuint id);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBeginFragmentShaderATI();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEndFragmentShaderATI();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPassTexCoordATI(GLuint dst, GLuint coord, GLenum swizzle);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSampleMapATI(GLuint dst, GLuint interp, GLenum swizzle);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorFragmentOp1ATI(GLenum op, GLuint dst, GLuint dstMask, GLuint dstMod, GLuint arg1, GLuint arg1Rep, GLuint arg1Mod);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorFragmentOp2ATI(GLenum op, GLuint dst, GLuint dstMask, GLuint dstMod, GLuint arg1, GLuint arg1Rep, GLuint arg1Mod, GLuint arg2, GLuint arg2Rep, GLuint arg2Mod);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColorFragmentOp3ATI(GLenum op, GLuint dst, GLuint dstMask, GLuint dstMod, GLuint arg1, GLuint arg1Rep, GLuint arg1Mod, GLuint arg2, GLuint arg2Rep, GLuint arg2Mod, GLuint arg3, GLuint arg3Rep, GLuint arg3Mod);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glAlphaFragmentOp1ATI(GLenum op, GLuint dst, GLuint dstMod, GLuint arg1, GLuint arg1Rep, GLuint arg1Mod);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glAlphaFragmentOp2ATI(GLenum op, GLuint dst, GLuint dstMod, GLuint arg1, GLuint arg1Rep, GLuint arg1Mod, GLuint arg2, GLuint arg2Rep, GLuint arg2Mod);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glAlphaFragmentOp3ATI(GLenum op, GLuint dst, GLuint dstMod, GLuint arg1, GLuint arg1Rep, GLuint arg1Mod, GLuint arg2, GLuint arg2Rep, GLuint arg2Mod, GLuint arg3, GLuint arg3Rep, GLuint arg3Mod);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSetFragmentShaderConstantATI_(GLuint dst, IntPtr value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPNTrianglesiATI(GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPNTrianglesfATI(GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLuint glNewObjectBufferATI_(GLsizei size, IntPtr pointer, GLenum usage);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsObjectBufferATI(GLuint buffer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUpdateObjectBufferATI_(GLuint buffer, GLuint offset, GLsizei size, IntPtr pointer, GLenum preserve);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetObjectBufferfvATI(GLuint buffer, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetObjectBufferivATI(GLuint buffer, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFreeObjectBufferATI(GLuint buffer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glArrayObjectATI(GLenum array, GLint size, GLenum type, GLsizei stride, GLuint buffer, GLuint offset);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetArrayObjectfvATI(GLenum array, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetArrayObjectivATI(GLenum array, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVariantArrayObjectATI(GLuint id, GLenum type, GLsizei stride, GLuint buffer, GLuint offset);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVariantArrayObjectfvATI(GLuint id, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVariantArrayObjectivATI(GLuint id, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBeginVertexShaderEXT();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEndVertexShaderEXT();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBindVertexShaderEXT(GLuint id);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLuint glGenVertexShadersEXT(GLuint range);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteVertexShaderEXT(GLuint id);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glShaderOp1EXT(GLenum op, GLuint res, GLuint arg1);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glShaderOp2EXT(GLenum op, GLuint res, GLuint arg1, GLuint arg2);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glShaderOp3EXT(GLenum op, GLuint res, GLuint arg1, GLuint arg2, GLuint arg3);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSwizzleEXT(GLuint res, GLuint @in, GLenum outX, GLenum outY, GLenum outZ, GLenum outW);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glWriteMaskEXT(GLuint res, GLuint @in, GLenum outX, GLenum outY, GLenum outZ, GLenum outW);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glInsertComponentEXT(GLuint res, GLuint src, GLuint num);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glExtractComponentEXT(GLuint res, GLuint src, GLuint num);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLuint glGenSymbolsEXT(GLenum datatype, GLenum storagetype, GLenum range, GLuint components);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSetInvariantEXT_(GLuint id, GLenum type, IntPtr addr);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSetLocalConstantEXT_(GLuint id, GLenum type, IntPtr addr);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVariantbvEXT_(GLuint id, IntPtr addr);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVariantsvEXT_(GLuint id, IntPtr addr);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVariantivEXT_(GLuint id, IntPtr addr);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVariantfvEXT_(GLuint id, IntPtr addr);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVariantdvEXT_(GLuint id, IntPtr addr);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVariantubvEXT_(GLuint id, IntPtr addr);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVariantusvEXT_(GLuint id, IntPtr addr);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVariantuivEXT_(GLuint id, IntPtr addr);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVariantPointerEXT_(GLuint id, GLenum type, GLuint stride, IntPtr addr);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEnableVariantClientStateEXT(GLuint id);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDisableVariantClientStateEXT(GLuint id);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLuint glBindLightParameterEXT(GLenum light, GLenum value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLuint glBindMaterialParameterEXT(GLenum face, GLenum value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLuint glBindTexGenParameterEXT(GLenum unit, GLenum coord, GLenum value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLuint glBindTextureUnitParameterEXT(GLenum unit, GLenum value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLuint glBindParameterEXT(GLenum value);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsVariantEnabledEXT(GLuint id, GLenum cap);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVariantBooleanvEXT(GLuint id, GLenum value, [MarshalAs(UnmanagedType.LPArray)] GLboolean[] data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVariantIntegervEXT(GLuint id, GLenum value, [MarshalAs(UnmanagedType.LPArray)] GLint[] data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVariantFloatvEXT(GLuint id, GLenum value, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVariantPointervEXT(GLuint id, GLenum value, [MarshalAs(UnmanagedType.LPArray)] IntPtr[] data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetInvariantBooleanvEXT(GLuint id, GLenum value, [MarshalAs(UnmanagedType.LPArray)] GLboolean[] data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetInvariantIntegervEXT(GLuint id, GLenum value, [MarshalAs(UnmanagedType.LPArray)] GLint[] data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetInvariantFloatvEXT(GLuint id, GLenum value, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetLocalConstantBooleanvEXT(GLuint id, GLenum value, [MarshalAs(UnmanagedType.LPArray)] GLboolean[] data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetLocalConstantIntegervEXT(GLuint id, GLenum value, [MarshalAs(UnmanagedType.LPArray)] GLint[] data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetLocalConstantFloatvEXT(GLuint id, GLenum value, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] data);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream1sATI(GLenum stream, GLshort x);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream1svATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream1iATI(GLenum stream, GLint x);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream1ivATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream1fATI(GLenum stream, GLfloat x);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream1fvATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream1dATI(GLenum stream, GLdouble x);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream1dvATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream2sATI(GLenum stream, GLshort x, GLshort y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream2svATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream2iATI(GLenum stream, GLint x, GLint y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream2ivATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream2fATI(GLenum stream, GLfloat x, GLfloat y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream2fvATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream2dATI(GLenum stream, GLdouble x, GLdouble y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream2dvATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream3sATI(GLenum stream, GLshort x, GLshort y, GLshort z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream3svATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream3iATI(GLenum stream, GLint x, GLint y, GLint z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream3ivATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream3fATI(GLenum stream, GLfloat x, GLfloat y, GLfloat z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream3fvATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream3dATI(GLenum stream, GLdouble x, GLdouble y, GLdouble z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream3dvATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream4sATI(GLenum stream, GLshort x, GLshort y, GLshort z, GLshort w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream4svATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream4iATI(GLenum stream, GLint x, GLint y, GLint z, GLint w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream4ivATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream4fATI(GLenum stream, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream4fvATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream4dATI(GLenum stream, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexStream4dvATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormalStream3bATI(GLenum stream, GLbyte nx, GLbyte ny, GLbyte nz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormalStream3bvATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormalStream3sATI(GLenum stream, GLshort nx, GLshort ny, GLshort nz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormalStream3svATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormalStream3iATI(GLenum stream, GLint nx, GLint ny, GLint nz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormalStream3ivATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormalStream3fATI(GLenum stream, GLfloat nx, GLfloat ny, GLfloat nz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormalStream3fvATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormalStream3dATI(GLenum stream, GLdouble nx, GLdouble ny, GLdouble nz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormalStream3dvATI_(GLenum stream, IntPtr coords);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glClientActiveVertexStreamATI(GLenum stream);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexBlendEnviATI(GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexBlendEnvfATI(GLenum pname, GLfloat param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glElementPointerATI_(GLenum type, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDrawElementArrayATI(GLenum mode, GLsizei count);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDrawRangeElementArrayATI(GLenum mode, GLuint start, GLuint end, GLsizei count);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDrawMeshArraysSUN(GLenum mode, GLint first, GLsizei count, GLsizei width);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGenOcclusionQueriesNV(GLsizei n, [MarshalAs(UnmanagedType.LPArray)] GLuint[] ids);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteOcclusionQueriesNV_(GLsizei n, IntPtr ids);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsOcclusionQueryNV(GLuint id);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBeginOcclusionQueryNV(GLuint id);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glEndOcclusionQueryNV();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetOcclusionQueryivNV(GLuint id, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetOcclusionQueryuivNV(GLuint id, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLuint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPointParameteriNV(GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPointParameterivNV_(GLenum pname, IntPtr parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glActiveStencilFaceEXT(GLenum face);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glElementPointerAPPLE_(GLenum type, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDrawElementArrayAPPLE(GLenum mode, GLint first, GLsizei count);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDrawRangeElementArrayAPPLE(GLenum mode, GLuint start, GLuint end, GLint first, GLsizei count);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiDrawElementArrayAPPLE_(GLenum mode, IntPtr first, IntPtr count, GLsizei primcount);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiDrawRangeElementArrayAPPLE_(GLenum mode, GLuint start, GLuint end, IntPtr first, IntPtr count, GLsizei primcount);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGenFencesAPPLE(GLsizei n, [MarshalAs(UnmanagedType.LPArray)] GLuint[] fences);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteFencesAPPLE_(GLsizei n, IntPtr fences);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSetFenceAPPLE(GLuint fence);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsFenceAPPLE(GLuint fence);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glTestFenceAPPLE(GLuint fence);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFinishFenceAPPLE(GLuint fence);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glTestObjectAPPLE(GLenum @object, GLuint name);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFinishObjectAPPLE(GLenum @object, GLint name);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBindVertexArrayAPPLE(GLuint array);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteVertexArraysAPPLE_(GLsizei n, IntPtr arrays);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGenVertexArraysAPPLE_(GLsizei n, IntPtr arrays);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsVertexArrayAPPLE(GLuint array);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexArrayRangeAPPLE_(GLsizei length, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFlushVertexArrayRangeAPPLE_(GLsizei length, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexArrayParameteriAPPLE(GLenum pname, GLint param);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDrawBuffersATI_(GLsizei n, IntPtr bufs);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramNamedParameter4fNV_(GLuint id, GLsizei len, IntPtr name, GLfloat x, GLfloat y, GLfloat z, GLfloat w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramNamedParameter4dNV_(GLuint id, GLsizei len, IntPtr name, GLdouble x, GLdouble y, GLdouble z, GLdouble w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramNamedParameter4fvNV_(GLuint id, GLsizei len, IntPtr name, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glProgramNamedParameter4dvNV_(GLuint id, GLsizei len, IntPtr name, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetProgramNamedParameterfvNV_(GLuint id, GLsizei len, IntPtr name, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetProgramNamedParameterdvNV_(GLuint id, GLsizei len, IntPtr name, [MarshalAs(UnmanagedType.LPArray)] GLdouble[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex2hNV(GLhalfNV x, GLhalfNV y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex2hvNV_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex3hNV(GLhalfNV x, GLhalfNV y, GLhalfNV z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex3hvNV_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex4hNV(GLhalfNV x, GLhalfNV y, GLhalfNV z, GLhalfNV w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertex4hvNV_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormal3hNV(GLhalfNV nx, GLhalfNV ny, GLhalfNV nz);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glNormal3hvNV_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3hNV(GLhalfNV red, GLhalfNV green, GLhalfNV blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor3hvNV_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4hNV(GLhalfNV red, GLhalfNV green, GLhalfNV blue, GLhalfNV alpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glColor4hvNV_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord1hNV(GLhalfNV s);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord1hvNV_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2hNV(GLhalfNV s, GLhalfNV t);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord2hvNV_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord3hNV(GLhalfNV s, GLhalfNV t, GLhalfNV r);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord3hvNV_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord4hNV(GLhalfNV s, GLhalfNV t, GLhalfNV r, GLhalfNV q);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glTexCoord4hvNV_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1hNV(GLenum target, GLhalfNV s);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord1hvNV_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2hNV(GLenum target, GLhalfNV s, GLhalfNV t);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord2hvNV_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3hNV(GLenum target, GLhalfNV s, GLhalfNV t, GLhalfNV r);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord3hvNV_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4hNV(GLenum target, GLhalfNV s, GLhalfNV t, GLhalfNV r, GLhalfNV q);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glMultiTexCoord4hvNV_(GLenum target, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogCoordhNV(GLhalfNV fog);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFogCoordhvNV_(IntPtr fog);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3hNV(GLhalfNV red, GLhalfNV green, GLhalfNV blue);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glSecondaryColor3hvNV_(IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexWeighthNV(GLhalfNV weight);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexWeighthvNV_(IntPtr weight);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1hNV(GLuint index, GLhalfNV x);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib1hvNV_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2hNV(GLuint index, GLhalfNV x, GLhalfNV y);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib2hvNV_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3hNV(GLuint index, GLhalfNV x, GLhalfNV y, GLhalfNV z);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib3hvNV_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4hNV(GLuint index, GLhalfNV x, GLhalfNV y, GLhalfNV z, GLhalfNV w);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttrib4hvNV_(GLuint index, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribs1hvNV_(GLuint index, GLsizei n, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribs2hvNV_(GLuint index, GLsizei n, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribs3hvNV_(GLuint index, GLsizei n, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribs4hvNV_(GLuint index, GLsizei n, IntPtr v);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPixelDataRangeNV_(GLenum target, GLsizei length, IntPtr pointer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFlushPixelDataRangeNV(GLenum target);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPrimitiveRestartNV();
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glPrimitiveRestartIndexNV(GLuint index);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate IntPtr glMapObjectBufferATI(GLuint buffer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glUnmapObjectBufferATI(GLuint buffer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glStencilOpSeparateATI(GLenum face, GLenum sfail, GLenum dpfail, GLenum dppass);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glStencilFuncSeparateATI(GLenum frontfunc, GLenum backfunc, GLint reference, GLuint mask);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glVertexAttribArrayObjectATI(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, GLuint buffer, GLuint offset);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVertexAttribArrayObjectfvATI(GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLfloat[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetVertexAttribArrayObjectivATI(GLuint index, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDepthBoundsEXT(GLclampd zmin, GLclampd zmax);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBlendEquationSeparateEXT(GLenum modeRGB, GLenum modeAlpha);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsRenderbufferEXT(GLuint renderbuffer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBindRenderbufferEXT(GLenum target, GLuint renderbuffer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteRenderbuffersEXT_(GLsizei n, IntPtr renderbuffers);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGenRenderbuffersEXT(GLsizei n, [MarshalAs(UnmanagedType.LPArray)] GLuint[] renderbuffers);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glRenderbufferStorageEXT(GLenum target, GLenum internalformat, GLsizei width, GLsizei height);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetRenderbufferParameterivEXT(GLenum target, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLboolean glIsFramebufferEXT(GLuint framebuffer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glBindFramebufferEXT(GLenum target, GLuint framebuffer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glDeleteFramebuffersEXT_(GLsizei n, IntPtr framebuffers);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGenFramebuffersEXT(GLsizei n, [MarshalAs(UnmanagedType.LPArray)] GLuint[] framebuffers);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate GLenum glCheckFramebufferStatusEXT(GLenum target);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFramebufferTexture1DEXT(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFramebufferTexture2DEXT(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFramebufferTexture3DEXT(GLenum target, GLenum attachment, GLenum textarget, GLuint texture, GLint level, GLint zoffset);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glFramebufferRenderbufferEXT(GLenum target, GLenum attachment, GLenum renderbuffertarget, GLuint renderbuffer);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGetFramebufferAttachmentParameterivEXT(GLenum target, GLenum attachment, GLenum pname, [MarshalAs(UnmanagedType.LPArray)] GLint[] parameters);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glGenerateMipmapEXT(GLenum target);
+            /// <summary>
+            /// 
+            /// </summary>
             public delegate void glStringMarkerGREMEDY_(GLsizei len, IntPtr @string);
         }
         #endregion Function signatures
@@ -42621,6 +46890,9 @@ namespace Tao.OpenGl
         #endregion static Constructor
 
         #region Delegate GetAddress
+        /// <summary>
+        /// 
+        /// </summary>
         public static Delegate GetAddress(string s, Type function_signature)
         {
             IntPtr address = Tao.OpenGl.GlExtensionLoader.GetProcAddress(s);

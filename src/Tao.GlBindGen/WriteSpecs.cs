@@ -183,11 +183,17 @@ namespace Tao.GlBindGen
         {
             sw.WriteLine("        #region Function signatures");
             sw.WriteLine();
+            sw.WriteLine("        /// <summary>");
+            sw.WriteLine("        /// ");
+            sw.WriteLine("        /// </summary>");
             sw.WriteLine("        public static class Delegates");
             sw.WriteLine("        {");
 
             foreach (Function f in functions)
             {
+                sw.WriteLine("            /// <summary>");
+                sw.WriteLine("            /// ");
+                sw.WriteLine("            /// </summary>");
                 sw.WriteLine("            public delegate {0};", f.ToString());
             }
 
@@ -338,6 +344,9 @@ namespace Tao.GlBindGen
         private static void WriteGetAddress(StreamWriter sw)
         {
             sw.WriteLine("        #region Delegate GetAddress");
+            sw.WriteLine("        /// <summary>");
+            sw.WriteLine("        /// ");
+            sw.WriteLine("        /// </summary>");
             sw.WriteLine("        public static Delegate GetAddress(string s, Type function_signature)");
             sw.WriteLine("        {");
             sw.WriteLine("            IntPtr address = Tao.OpenGl.GlExtensionLoader.GetProcAddress(s);");
