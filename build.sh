@@ -1,17 +1,18 @@
 #!/bin/sh
 # Builds the Tao Framework using both Prebuild and NAnt 
+rm -rf dist
 
 # Create NAnt Project Files 
 other/Prebuild/prebuild /target nant /file prebuild.xml 
 
 # Build Solutions Using NAnt 
-nant -t:mono-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build build-release
-nant -t:mono-2.0 -buildfile:src/Tao.GlGenerator/Tao.GlGenerator.build build-release 
-nant -t:mono-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build build-release 
-nant -t:mono-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build build-release 
-nant -t:mono-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build build-release 
-nant -t:mono-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build build-release 
-nant -t:mono-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build build-release 
+nant -t:mono-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build package
+nant -t:mono-2.0 -buildfile:src/Tao.GlGenerator/Tao.GlGenerator.build package 
+nant -t:mono-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build package 
+nant -t:mono-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build package 
+nant -t:mono-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build package 
+nant -t:mono-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build package 
+nant -t:mono-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build package 
 
 # Copy Builds to Bin Directory 
 mkdir -p dist/bin
@@ -211,15 +212,6 @@ cp -f examples/SdlExamples/Rectangles/Data/*.* dist/examples/Data
 cp -f examples/SdlExamples/SmpegPlayer/bin/Release/*.exe dist/examples
 cp -f examples/SdlExamples/SmpegPlayer/Data/*.* dist/examples/Data
 
-# Build Documentation Using NAnt 
-nant -t:mono-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build doc
-nant -t:mono-2.0 -buildfile:src/Tao.GlGenerator/Tao.GlGenerator.build doc 
-nant -t:mono-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build doc 
-nant -t:mono-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build doc 
-nant -t:mono-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build doc 
-nant -t:mono-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build doc 
-nant -t:mono-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build doc 
-
 # Move Documentation to Dist Directory
 mkdir -p dist/doc
 cp -f src/Tao.Cg/bin/Release/*.xml dist/doc
@@ -229,6 +221,7 @@ cp -f src/Tao.Glfw/bin/Release/*.xml dist/doc
 cp -f src/Tao.Lua/bin/Release/*.xml dist/doc
 cp -f src/Tao.Ode/bin/Release/*.xml dist/doc
 cp -f src/Tao.OpenAl/bin/Release/*.xml dist/doc
+cp -f src/Tao.OpenGl/bin/Release/*.xml dist/doc
 cp -f src/Tao.PhysFs/bin/Release/*.xml dist/doc
 cp -f src/Tao.Platform.Windows/bin/Release/*.xml dist/doc
 cp -f src/Tao.Sdl/bin/Release/*.xml dist/doc
@@ -240,6 +233,7 @@ cp -f src/Tao.Glfw/bin/Release/doc/*.chm dist/doc
 cp -f src/Tao.Lua/bin/Release/doc/*.chm dist/doc
 cp -f src/Tao.Ode/bin/Release/doc/*.chm dist/doc
 cp -f src/Tao.OpenAl/bin/Release/doc/*.chm dist/doc
+cp -f src/Tao.OpenGl/bin/Release/doc/*.chm dist/doc
 cp -f src/Tao.PhysFs/bin/Release/doc/*.chm dist/doc
 cp -f src/Tao.Platform.Windows/bin/Release/doc/*.chm dist/doc
 cp -f src/Tao.Sdl/bin/Release/doc/*.chm dist/doc

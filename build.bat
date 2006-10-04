@@ -1,6 +1,7 @@
 @REM Builds the Tao Framework using both Prebuild and NAnt 
 
 @ECHO OFF 
+rmdir /s /q dist
 
 ECHO -------------------------
 ECHO Create NAnt Project Files 
@@ -10,12 +11,12 @@ other\Prebuild\Prebuild.exe /target nant /file prebuild.xml
 ECHO --------------------------
 ECHO Build Solutions Using NAnt
 ECHO --------------------------
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build build-release
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build build-release
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build build-release
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build build-release
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build build-release
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build build-release
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build package
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build package
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build package
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build package
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build package
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build package
 
 ECHO -----------------------------
 ECHO Copy Builds to Dist Directory
@@ -243,17 +244,6 @@ xcopy examples\SdlExamples\Rectangles\Data\*.* dist\examples\Data\*.* /Q /Y
 xcopy examples\SdlExamples\SmpegPlayer\bin\Release\*.exe dist\examples\*.* /Q /Y
 xcopy examples\SdlExamples\SmpegPlayer\Data\*.* dist\examples\Data\*.* /Q /Y
 
-
-ECHO ------------------------------
-ECHO Build Documentation Using NAnt
-ECHO ------------------------------
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build doc
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build doc
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build doc
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build doc
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build doc
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build doc
-
 ECHO --------------------------
 ECHO Move Documentation To Dist
 ECHO --------------------------
@@ -264,6 +254,7 @@ xcopy src\Tao.Glfw\bin\Release\*.xml dist\doc\*.* /Q /Y
 xcopy src\Tao.Lua\bin\Release\*.xml dist\doc\*.* /Q /Y
 xcopy src\Tao.Ode\bin\Release\*.xml dist\doc\*.* /Q /Y
 xcopy src\Tao.OpenAl\bin\Release\*.xml dist\doc\*.* /Q /Y
+xcopy src\Tao.OpenGl\bin\Release\*.xml dist\doc\*.* /Q /Y
 xcopy src\Tao.PhysFs\bin\Release\*.xml dist\doc\*.* /Q /Y
 xcopy src\Tao.Platform.Windows\bin\Release\*.xml dist\doc\*.* /Q /Y
 xcopy src\Tao.Sdl\bin\Release\*.xml dist\doc\*.* /Q /Y
@@ -275,6 +266,7 @@ xcopy src\Tao.Glfw\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
 xcopy src\Tao.Lua\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
 xcopy src\Tao.Ode\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
 xcopy src\Tao.OpenAl\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
+xcopy src\Tao.OpenGl\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
 xcopy src\Tao.PhysFs\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
 xcopy src\Tao.Platform.Windows\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
 xcopy src\Tao.Sdl\bin\Release\doc\*.chm dist\doc\*.* /Q /Y
