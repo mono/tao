@@ -1,3 +1,9 @@
+2006-10-05  C.J. Collier  <cjcollier@colliertech.org>
+	* clean.sh
+	- created - supposedly reverses make.sh
+	* CodingStandards
+	- A place for proposed coding standards (patch formats, etc)
+
 2006-09-28  C.J. Collier  <cjcollier@colliertech.org>
 	* make.sh
 	- cleared up directory changing stuff

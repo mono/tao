@@ -1,0 +1,16 @@
+Hey folks,
+
+Please propose standards here.
+
+Proposition: Patches should be submitted in either Unified or Context
+diff format.  These diffs can be generated and consumed by many tools.
+On unix-like operating systems, a unified diff of two directories
+(presumably, the changed directory and the head of svn) can be created
+thus:
+
+
+$ ls
+buildDiff.sh  tao.autotools  tao-buildchange  tao-head
+tao_2_0       tao.build      tao-cjcollier
+
+$ diff -x ".svn" -ru tao-head tao-cjcollier > cjcollier.patch
