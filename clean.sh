@@ -5,7 +5,7 @@ configure_args=$1
 
 # clean autotools Project Files 
 #other/Prebuild/prebuild /target autotools /file prebuild.xml /clean
-other/Prebuild/prebuild /file prebuild.xml /clean
+other/Prebuild/prebuild /file prebuild.xml /clean /yes
 
 # Build Solutions Using autotools 
 PACKAGES="Tao.DevIl
