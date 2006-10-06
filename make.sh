@@ -32,7 +32,7 @@ do
     autoreconf -i -s &&
     ./configure $configure_args &&
     make &&
-    make install &&
+    make install || exit -1
     popd
   fi
 done
