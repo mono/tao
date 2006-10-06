@@ -53,6 +53,7 @@ for i in \
     configure.ac \
     Makefile \
     Makefile.am \
+    Makefile.in \
     install-sh \
     missing \
     '*.pc' \
