@@ -46,7 +46,7 @@ for i in \
     autom4te.cache \
     aclocal.m4 \
     config.log \
-    config.status
+    config.status \
     config.guess \
     configure \
     config.sub \
