@@ -13,4 +13,4 @@ $ ls
 buildDiff.sh  tao.autotools  tao-buildchange  tao-head
 tao_2_0       tao.build      tao-cjcollier
 
-$ diff -x ".svn" -ru tao-head tao-cjcollier > cjcollier.patch
+$ diff -x ".svn" -aruN tao-head tao-cjcollier > cjcollier.patch
