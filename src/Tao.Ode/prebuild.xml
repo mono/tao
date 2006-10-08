@@ -31,8 +31,8 @@
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
                 <OutputPath>bin/Debug</OutputPath>
-                <XmlDocFile>Tao.Ode.xml</XmlDocFile>
-		<KeyFile>Tao.Ode.snk</KeyFile>
+                <!-- XmlDocFile>Tao.Ode.xml</XmlDocFile -->
+		<!-- KeyFile>Tao.Ode.snk</KeyFile -->
 		<AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>true</DebugInformation>
             </Options>
@@ -42,8 +42,8 @@
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
                 <OutputPath>bin/Release</OutputPath>
-		<XmlDocFile>Tao.Ode.xml</XmlDocFile>
-		<KeyFile>Tao.Ode.snk</KeyFile>
+		<!-- XmlDocFile>Tao.Ode.xml</XmlDocFile -->
+		<!-- KeyFile>Tao.Ode.snk</KeyFile -->
 		<AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>false</DebugInformation>
             </Options>
@@ -61,7 +61,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.Ode/Tao.Ode.snk</KeyFile>
+		    <!-- KeyFile>../../../src/Tao.Ode/Tao.Ode.snk</KeyFile -->
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -71,7 +71,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.Ode/Tao.Ode.snk</KeyFile>
+		    <!-- KeyFile>../../../src/Tao.Ode/Tao.Ode.snk</KeyFile -->
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>

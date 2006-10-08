@@ -1,25 +1,35 @@
-2006-10-05  C.J. Collier  <cjcollier@colliertech.org>
+2006-10-07  C.J. Adams-Collier  <cjcollier@colliertech.org>
+	* src/Tao.DevIl/prebuild.xml, src/Tao.Ode/prebuild.xml,
+	  src/Tao.OpenGl/prebuild.xml, src/Tao.Lua/prebuild.xml
+	- commented <KeyFile> and <XmlDocFile> elements that were causing
+	  nant build failure
+	* build.sh
+	- removed GlGenerator from the list to build due to a "File Not
+	  Found" error
+	- removed copy commands for builds and docs that are broken
+	
+2006-10-05  C.J. Adams-Collier  <cjcollier@colliertech.org>
 	* clean.sh
 	- created - supposedly reverses make.sh
 	* CodingStandards
 	- A place for proposed coding standards (patch formats, etc)
 
-2006-09-28  C.J. Collier  <cjcollier@colliertech.org>
+2006-09-28  C.J. Adams-Collier  <cjcollier@colliertech.org>
 	* make.sh
 	- cleared up directory changing stuff
 	* src/Tao.OpenGl/prebuild.xml
 	- commented out examples that don't build due to marshaling errors
 
-2006-09-28T16:20  C.J. Collier  <cjcollier@colliertech.org>
+2006-09-28T16:20  C.J. Adams-Collier  <cjcollier@colliertech.org>
 	* make.sh
 	- cleaned up some of the repetition
 	- fixed a case error
 
-2006-09-28T12:53  C.J. Collier  <cjcollier@colliertech.org>
+2006-09-28T12:53  C.J. Adams-Collier  <cjcollier@colliertech.org>
 	* make.sh
 	- configure now uses args passed to "./make.sh"
 
-2006-09-28  C.J. Collier  <cjcollier@colliertech.org>
+2006-09-28  C.J. Adams-Collier  <cjcollier@colliertech.org>
         turned on exec bit for shell scripts, got rid of \r\n newlines
 
 

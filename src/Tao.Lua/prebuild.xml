@@ -32,8 +32,8 @@
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
                 <OutputPath>bin/Debug</OutputPath>
-                <XmlDocFile></XmlDocFile>
-                <KeyFile>Tao.Lua.snk</KeyFile>
+                <!-- XmlDocFile></XmlDocFile -->
+                <!-- KeyFile>Tao.Lua.snk</KeyFile -->
                 <AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>true</DebugInformation>
             </Options>
@@ -43,8 +43,8 @@
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
                 <OutputPath>bin/Release</OutputPath>
-                <XmlDocFile>Tao.Lua.xml</XmlDocFile>
-                <KeyFile>Tao.Lua.snk</KeyFile>
+                <!-- XmlDocFile>Tao.Lua.xml</XmlDocFile -->
+                <!-- KeyFile>Tao.Lua.snk</KeyFile -->
                 <AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>false</DebugInformation>
             </Options>
@@ -62,7 +62,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile>
+		    <!-- KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile -->
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -72,7 +72,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile>
+		    <!-- KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile -->
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -91,8 +91,8 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile>
-		    <XmlDocFile>LuaExamples.Functions.xml</XmlDocFile>
+		    <!-- KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile -->
+		    <!-- XmlDocFile>LuaExamples.Functions.xml</XmlDocFile -->
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -102,8 +102,8 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile>
-		    <XmlDocFile>LuaExamples.Functions.xml</XmlDocFile>
+		    <!-- KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile -->
+		    <!-- XmlDocFile>LuaExamples.Functions.xml</XmlDocFile -->
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>

@@ -7,7 +7,7 @@ other/Prebuild/prebuild /target nant /file prebuild.xml
 
 # Build Solutions Using NAnt 
 nant -t:mono-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build package
-nant -t:mono-2.0 -buildfile:src/Tao.GlGenerator/Tao.GlGenerator.build package 
+#nant -t:mono-2.0 -buildfile:src/Tao.GlGenerator/Tao.GlGenerator.build package 
 nant -t:mono-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build package 
 nant -t:mono-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build package 
 nant -t:mono-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build package 
@@ -24,9 +24,9 @@ cp -f src/Tao.Lua/bin/Release/*.dll dist/bin
 cp -f src/Tao.Ode/bin/Release/*.dll dist/bin
 cp -f src/Tao.OpenAl/bin/Release/*.dll dist/bin
 cp -f src/Tao.OpenGl/bin/Release/*.dll dist/bin
-cp -f src/Tao.PhysFs/bin/Release/*.dll dist/bin
+#cp -f src/Tao.PhysFs/bin/Release/*.dll dist/bin
 cp -f src/Tao.Platform.Windows/bin/Release/Tao.Platform.Windows.dll dist/bin
-cp -f src/Tao.Sdl/bin/Release/*.dll dist/bin
+#cp -f src/Tao.Sdl/bin/Release/*.dll dist/bin
 
 # Copy Examples to Dist Directory
 mkdir -p dist/examples/Data
@@ -134,11 +134,11 @@ cp -f examples/OpenAlExamples/Lesson05/Data/*.* dist/examples/Data
 cp -f examples/OpenAlExamples/Waterfall/bin/Release/*.exe dist/examples
 cp -f examples/OpenAlExamples/Waterfall/Data/*.* dist/examples/Data
 
-cp -f examples/PhysFsExamples/Simple/bin/Release/*.exe dist/examples
+#cp -f examples/PhysFsExamples/Simple/bin/Release/*.exe dist/examples
 cp -f examples/PhysFsExamples/Simple/Data/*.* dist/examples/Data
 
 cp -f examples/Redbook/Aaindex/bin/Release/*.exe dist/examples
-cp -f examples/Redbook/Aapoly/bin/Release/*.exe dist/examples
+#cp -f examples/Redbook/Aapoly/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Aargb/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Accanti/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Accpersp/bin/Release/*.exe dist/examples
@@ -190,7 +190,7 @@ cp -f examples/Redbook/Smooth/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Stencil/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Stroke/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Surface/bin/Release/*.exe dist/examples
-cp -f examples/Redbook/Surfaceold/bin/Release/*.exe dist/examples
+#cp -f examples/Redbook/Surfaceold/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/TeaAmbient/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Teapots/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Tess/bin/Release/*.exe dist/examples
@@ -206,34 +206,34 @@ cp -f examples/Redbook/UnProject/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Varray/bin/Release/*.exe dist/examples
 cp -f examples/Redbook/Wrap/bin/Release/*.exe dist/examples
 
-cp -f examples/SdlExamples/GfxPrimitives/bin/Release/*.exe dist/examples
-cp -f examples/SdlExamples/Rectangles/bin/Release/*.exe dist/examples
+#cp -f examples/SdlExamples/GfxPrimitives/bin/Release/*.exe dist/examples
+#cp -f examples/SdlExamples/Rectangles/bin/Release/*.exe dist/examples
 cp -f examples/SdlExamples/Rectangles/Data/*.* dist/examples/Data
-cp -f examples/SdlExamples/SmpegPlayer/bin/Release/*.exe dist/examples
+#cp -f examples/SdlExamples/SmpegPlayer/bin/Release/*.exe dist/examples
 cp -f examples/SdlExamples/SmpegPlayer/Data/*.* dist/examples/Data
 
 # Move Documentation to Dist Directory
 mkdir -p dist/doc
-cp -f src/Tao.Cg/bin/Release/*.xml dist/doc
-cp -f src/Tao.DevIl/bin/Release/*.xml dist/doc
+#cp -f src/Tao.Cg/bin/Release/*.xml dist/doc
+#cp -f src/Tao.DevIl/bin/Release/*.xml dist/doc
 cp -f src/Tao.FreeGlut/bin/Release/*.xml dist/doc
-cp -f src/Tao.Glfw/bin/Release/*.xml dist/doc
-cp -f src/Tao.Lua/bin/Release/*.xml dist/doc
-cp -f src/Tao.Ode/bin/Release/*.xml dist/doc
+#cp -f src/Tao.Glfw/bin/Release/*.xml dist/doc
+#cp -f src/Tao.Lua/bin/Release/*.xml dist/doc
+#cp -f src/Tao.Ode/bin/Release/*.xml dist/doc
 cp -f src/Tao.OpenAl/bin/Release/*.xml dist/doc
 cp -f src/Tao.OpenGl/bin/Release/*.xml dist/doc
-cp -f src/Tao.PhysFs/bin/Release/*.xml dist/doc
+#cp -f src/Tao.PhysFs/bin/Release/*.xml dist/doc
 cp -f src/Tao.Platform.Windows/bin/Release/*.xml dist/doc
-cp -f src/Tao.Sdl/bin/Release/*.xml dist/doc
+#cp -f src/Tao.Sdl/bin/Release/*.xml dist/doc
 
-cp -f src/Tao.Cg/bin/Release/doc/*.chm dist/doc
-cp -f src/Tao.DevIl/bin/Release/doc/*.chm dist/doc
-cp -f src/Tao.FreeGlut/bin/Release/doc/*.chm dist/doc
-cp -f src/Tao.Glfw/bin/Release/doc/*.chm dist/doc
-cp -f src/Tao.Lua/bin/Release/doc/*.chm dist/doc
-cp -f src/Tao.Ode/bin/Release/doc/*.chm dist/doc
-cp -f src/Tao.OpenAl/bin/Release/doc/*.chm dist/doc
-cp -f src/Tao.OpenGl/bin/Release/doc/*.chm dist/doc
-cp -f src/Tao.PhysFs/bin/Release/doc/*.chm dist/doc
-cp -f src/Tao.Platform.Windows/bin/Release/doc/*.chm dist/doc
-cp -f src/Tao.Sdl/bin/Release/doc/*.chm dist/doc
+#cp -f src/Tao.Cg/bin/Release/doc/*.chm dist/doc
+#cp -f src/Tao.DevIl/bin/Release/doc/*.chm dist/doc
+#cp -f src/Tao.FreeGlut/bin/Release/doc/*.chm dist/doc
+#cp -f src/Tao.Glfw/bin/Release/doc/*.chm dist/doc
+#cp -f src/Tao.Lua/bin/Release/doc/*.chm dist/doc
+#cp -f src/Tao.Ode/bin/Release/doc/*.chm dist/doc
+#cp -f src/Tao.OpenAl/bin/Release/doc/*.chm dist/doc
+#cp -f src/Tao.OpenGl/bin/Release/doc/*.chm dist/doc
+#cp -f src/Tao.PhysFs/bin/Release/doc/*.chm dist/doc
+#cp -f src/Tao.Platform.Windows/bin/Release/doc/*.chm dist/doc
+#cp -f src/Tao.Sdl/bin/Release/doc/*.chm dist/doc
