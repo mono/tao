@@ -1,18 +1,22 @@
+2006-10-08  C.J. Adams-Collier  <cjcollier@colliertech.org>
+	* prj2make.sh
+	- added this file.  This will be used by the build verification
+	  tests (http://taobvt.colliertech.org) to verify the msvc build
+	- note that the build currently fails.  This is better than the
+	  "always fail" case that's currently happening, though.
+	
 2006-10-07  C.J. Adams-Collier  <cjcollier@colliertech.org>
 	* src/Tao.DevIl/prebuild.xml, src/Tao.Ode/prebuild.xml,
-	  src/Tao.OpenGl/prebuild.xml, src/Tao.Lua/prebuild.xml
-	- commented <KeyFile> and <XmlDocFile> elements that were causing
-	  nant build failure
-	* build.sh
-	- removed GlGenerator from the list to build due to a "File Not
-	  Found" error
-	- removed copy commands for builds and docs that are broken
+	  src/Tao.OpenGl/prebuild.xml, src/Tao.Lua/prebuild.xml -
+	  commented <KeyFile> and <XmlDocFile> elements that were causing
+	  nant build failure * build.sh - removed GlGenerator from the
+	  list to build due to a "File Not Found" error - removed copy
+	  commands for builds and docs that are broken
 	
 2006-10-05  C.J. Adams-Collier  <cjcollier@colliertech.org>
-	* clean.sh
-	- created - supposedly reverses make.sh
-	* CodingStandards
-	- A place for proposed coding standards (patch formats, etc)
+	* clean.sh - created - supposedly reverses make.sh *
+	CodingStandards - A place for proposed coding standards (patch
+	formats, etc)
 
 2006-09-28  C.J. Adams-Collier  <cjcollier@colliertech.org>
 	* make.sh
