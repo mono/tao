@@ -31,9 +31,12 @@ using System.Text;
 
 namespace Tao.GlBindGen
 {
+    #region Constant class
+
     /// <summary>
     /// Represents an opengl constant in C# format. Both the constant name and value
-    /// can be retrieved or set. All opengl constants are translated to 'const uint'.
+    /// can be retrieved or set. The value can be either a number, another constant
+    /// or an alias to a constant 
     /// </summary>
     public class Constant
     {
@@ -47,7 +50,7 @@ namespace Tao.GlBindGen
         public string Name
         {
             get { return _name; }
-            set 
+            set
             {
                 if (!String.IsNullOrEmpty(value))
                     _name = value.Trim();
@@ -97,18 +100,20 @@ namespace Tao.GlBindGen
 
         #endregion
 
-        #region Helper functions
+        #region public string ToString() (override)
 
         /// <summary>
         /// Returns a string that represents the full constant declaration without decorations
         /// (eg const uint GL_XXX_YYY = 0xDEADBEEF).
         /// </summary>
         /// <returns></returns>
-        new public string ToString()
+        override public string ToString()
         {
             return Name + " = " + Value;
         }
 
         #endregion
     }
+
+    #endregion
 }

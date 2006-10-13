@@ -41,9 +41,11 @@ namespace Tao.GlBindGen
     {
         static void Main(string[] arguments)
         {
-            Console.WriteLine("{0} {1} by Stephen Apostolopoulos (stapostol@gmail.com)",
-                System.Reflection.Assembly.GetExecutingAssembly().GetName().Name,
+            Console.WriteLine("OpenGL binding generator {0} for the Tao framework.",
                 System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString());
+            Console.WriteLine("For comments, bugs and suggestions visit www.taoframework.com");
+            Console.WriteLine(" - the Tao framework team");
+            Console.WriteLine();
 
             #region Handle Arguments
 
@@ -94,6 +96,11 @@ namespace Tao.GlBindGen
             {
                 long ticks = System.DateTime.Now.Ticks;
 
+                // GL binding generation.
+
+                Translation.GLTypes = SpecReader.ReadTypeMap("gl.tm");
+                Translation.CSTypes = SpecReader.ReadTypeMap("csharp.tm");
+
                 List<Function> wrappers;
                 List<Function> functions = SpecReader.ReadFunctionSpecs("gl.spec");
                 List<Constant> constants = SpecReader.ReadConstantSpecs("enum.spec");
@@ -102,32 +109,22 @@ namespace Tao.GlBindGen
                     if (!SpecReader.ListContainsConstant(constants, c))
                         constants.Add(c);
 
-                Translation.GLtypes = SpecReader.ReadTypeMap("gl_types.txt");
-                Translation.CStypes = SpecReader.ReadTypeMap("cs_types.txt");
-
                 Translation.TranslateFunctions(functions, out wrappers);
                 constants = Translation.TranslateConstants(constants);
 
                 SpecWriter.WriteSpecs(Properties.Bind.Default.OutputPath, functions, wrappers, constants);
-                //SpecWriter.WriteWrappers(Properties.Bind.Default.OutputPath, wrappers);
 
                 ticks = System.DateTime.Now.Ticks - ticks;
 
                 Console.WriteLine("Bindings generated in {0} seconds.", ticks / (double)10000000.0);
-                //Thread.Sleep(1000); // In order to allow new files to be copied to be parsed by the OpenTK build target.
+                Console.WriteLine("Press any key to quit...");
+                Console.ReadLine();
             }
             catch (SecurityException e)
             {
                 Console.WriteLine("Security violation \"{0}\" in method \"{1}\".", e.Message, e.Method);
                 Console.WriteLine("This application does not have permission to take the requested actions.");
             }
-            
-            /*finally
-            {
-                Console.WriteLine("Press any key to continue...");
-                while (!Console.KeyAvailable)
-                    Thread.Sleep(100);
-            }*/
         }
     }
 }

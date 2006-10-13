@@ -31,12 +31,61 @@ using System.Text;
 
 namespace Tao.GlBindGen
 {
+    #region class Function
+
     /// <summary>
     /// Represents an opengl function.
     /// The return value, function name, function parameters and opengl version can be retrieved or set.
     /// </summary>
     public class Function
     {
+        #region Constructors
+
+        public Function()
+        {
+            Parameters = new ParameterCollection();
+            Body = new FunctionBody();
+        }
+
+        public Function(Function f)
+        {
+            this.Body = new FunctionBody(f.Body);
+            this.Category = new string(f.Category.ToCharArray());
+            this.Extension = f.Extension;
+            this.Name = new string(f.Name.ToCharArray());
+            this.NeedsWrapper = f.NeedsWrapper;
+            this.Parameters = new ParameterCollection(f.Parameters);
+            this.ReturnValue = new string(f.ReturnValue.ToCharArray());
+            this.Version = new string(f.Version.ToCharArray());
+            this.WrapperType = f.WrapperType;
+        }
+
+        #endregion
+
+        #region Function body
+
+        FunctionBody _body;
+
+        public FunctionBody Body
+        {
+            get { return _body; }
+            set { _body = value; }
+        }
+
+        #endregion
+
+        #region Category property
+
+        private string _category;
+
+        public string Category
+        {
+            get { return _category; }
+            set { _category = value; }
+        }
+
+        #endregion
+
         #region Wrapper type property
 
         private WrapperTypes _wrapper_type = WrapperTypes.None;
@@ -102,7 +151,7 @@ namespace Tao.GlBindGen
 
         #region Parameter collection property
 
-        ParameterCollection _parameters = new ParameterCollection();
+        ParameterCollection _parameters;
 
         public ParameterCollection Parameters
         {
@@ -139,29 +188,6 @@ namespace Tao.GlBindGen
 
         #endregion
 
-        #region Constructor
-
-        public Function()
-        {
-        }
-
-        #endregion
-        
-        #region ToString function
-
-        /// <summary>
-        /// Gets the string representing the full function declaration without decorations
-        /// (ie "void glClearColor(float red, float green, float blue, float alpha)"
-        /// </summary>
-        override public string ToString()
-        {
-            StringBuilder sb = new StringBuilder();
-            sb.Append(ReturnValue + " " + Name + Parameters.ToString());
-            return sb.ToString();
-        }
-
-        #endregion
-
         #region Call function string
 
         public string CallString()
@@ -171,7 +197,14 @@ namespace Tao.GlBindGen
             sb.Append("(");
             foreach (Parameter p in Parameters)
             {
+                if (p.Unchecked)
+                    sb.Append("unchecked((" + p.Type + ")");
+
                 sb.Append(p.Name);
+
+                if (p.Unchecked)
+                    sb.Append(")");
+
                 sb.Append(", ");
             }
             sb.Replace(", ", ")", sb.Length - 2, 2);
@@ -180,5 +213,76 @@ namespace Tao.GlBindGen
         }
 
         #endregion
+
+        #region ToString function
+
+        /// <summary>
+        /// Gets the string representing the full function declaration without decorations
+        /// (ie "void glClearColor(float red, float green, float blue, float alpha)"
+        /// </summary>
+        override public string ToString()
+        {
+            return ToString("");
+        }
+
+        public string ToString(string indentation)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append(indentation + ReturnValue + " " + Name + Parameters.ToString());
+            if (Body.Count > 0)
+            {
+                sb.AppendLine();
+                sb.Append(Body.ToString(indentation));
+            }
+
+            return sb.ToString();
+        }
+
+        #endregion
+
     }
+
+    #endregion
+
+    #region class FunctionBody : List<string>
+
+    public class FunctionBody : List<string>
+    {
+        public FunctionBody()
+        {
+        }
+
+        public FunctionBody(FunctionBody fb)
+        {
+            foreach (string s in fb)
+            {
+                this.Add(s);
+            }
+        }
+
+        public override string ToString()
+        {
+            return ToString("");
+        }
+
+        public string ToString(string indentation)
+        {
+            if (this.Count == 0)
+                return String.Empty;
+
+            StringBuilder sb = new StringBuilder(this.Count);
+
+            sb.AppendLine(indentation + "{");
+            foreach (string s in this)
+            {
+                sb.AppendLine(indentation + "    " + s);
+            }
+            sb.AppendLine(indentation + "}");
+
+            return sb.ToString();
+        }
+    }
+
+    #endregion
 }

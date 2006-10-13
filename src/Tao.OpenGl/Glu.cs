@@ -2554,8 +2554,8 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-		/// <seealso cref="Gl.glGetTexLevelParameteriv" />
-		/// <seealso cref="Gl.glGetTexLevelParameterfv" />
+		/// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
+		/// <seealso cref="Gl.glGetTexLevelParameterfv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -2764,8 +2764,8 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-		/// <seealso cref="Gl.glGetTexLevelParameteriv" />
-		/// <seealso cref="Gl.glGetTexLevelParameterfv" />
+		/// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
+		/// <seealso cref="Gl.glGetTexLevelParameterfv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -2974,8 +2974,8 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
-        /// <seealso cref="Gl.glGetTexLevelParameterfv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
+        /// <seealso cref="Gl.glGetTexLevelParameterfv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -3184,7 +3184,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -3393,8 +3393,8 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-		/// <seealso cref="Gl.glGetTexLevelParameteriv" />
-		/// <seealso cref="Gl.glGetTexLevelParameterfv" />
+		/// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
+		/// <seealso cref="Gl.glGetTexLevelParameterfv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -3603,8 +3603,8 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-		/// <seealso cref="Gl.glGetTexLevelParameteriv" />
-		/// <seealso cref="Gl.glGetTexLevelParameterfv" />
+		/// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
+		/// <seealso cref="Gl.glGetTexLevelParameterfv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -3813,7 +3813,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -4022,7 +4022,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -4231,7 +4231,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -4440,7 +4440,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -4649,7 +4649,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -4858,7 +4858,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -5067,7 +5067,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -5276,7 +5276,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -5485,8 +5485,8 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-		/// <seealso cref="Gl.glGetTexLevelParameteriv" />
-		/// <seealso cref="Gl.glGetTexLevelParameterfv" />
+		/// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
+		/// <seealso cref="Gl.glGetTexLevelParameterfv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -5695,7 +5695,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -5904,7 +5904,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -6113,7 +6113,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -6322,7 +6322,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -6531,7 +6531,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -6740,7 +6740,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -6949,7 +6949,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -7158,7 +7158,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -7291,7 +7291,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -7362,7 +7362,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -7495,7 +7495,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -7566,7 +7566,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -7699,7 +7699,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -7770,7 +7770,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -7903,7 +7903,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -7974,7 +7974,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -8107,7 +8107,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -8178,7 +8178,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -8311,7 +8311,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -8382,7 +8382,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -8515,7 +8515,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -8586,7 +8586,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -8719,7 +8719,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -8790,7 +8790,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -8923,7 +8923,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -8994,7 +8994,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -9127,7 +9127,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -9198,7 +9198,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -9331,7 +9331,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -9402,7 +9402,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -9535,7 +9535,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -9606,7 +9606,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -9739,7 +9739,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -9810,7 +9810,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -9943,7 +9943,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -10014,7 +10014,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -10147,7 +10147,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -10218,7 +10218,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -10351,7 +10351,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -10422,7 +10422,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -10555,7 +10555,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -10626,7 +10626,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -10759,7 +10759,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -10830,7 +10830,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -10963,7 +10963,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -11034,7 +11034,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -11167,7 +11167,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -11238,7 +11238,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -11371,7 +11371,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -11442,7 +11442,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -11575,7 +11575,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -11646,7 +11646,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -11779,7 +11779,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         Note that there is no direct way of querying the maximum level.  This can be
-        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First,
+        ///         derived indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First,
         ///         query for the width actually used at level 0.  (The width may not be equal to
         ///         <i>width</i> since proxy textures might have scaled it to fit the
         ///         implementation.)  Then the maximum level can be derived from the formula
@@ -11850,7 +11850,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -12067,7 +12067,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -12284,7 +12284,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -12501,7 +12501,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -12718,7 +12718,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -12935,7 +12935,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -13152,7 +13152,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -13369,7 +13369,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -13586,7 +13586,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -13803,7 +13803,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -14020,7 +14020,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -14237,7 +14237,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -14454,7 +14454,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -14671,7 +14671,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -14888,7 +14888,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -15105,7 +15105,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -15322,7 +15322,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -15539,7 +15539,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -15756,7 +15756,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -15973,7 +15973,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -16190,7 +16190,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -16407,7 +16407,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -16624,7 +16624,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -16841,7 +16841,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -16955,7 +16955,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -16985,7 +16985,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -17057,7 +17057,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -17171,7 +17171,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -17201,7 +17201,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -17273,7 +17273,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -17387,7 +17387,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -17417,7 +17417,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -17489,7 +17489,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -17603,7 +17603,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -17633,7 +17633,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -17705,7 +17705,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -17819,7 +17819,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -17849,7 +17849,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -17921,7 +17921,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -18035,7 +18035,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -18065,7 +18065,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -18137,7 +18137,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -18251,7 +18251,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -18281,7 +18281,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -18353,7 +18353,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -18467,7 +18467,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -18497,7 +18497,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -18569,7 +18569,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -18683,7 +18683,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -18713,7 +18713,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -18785,7 +18785,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -18899,7 +18899,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -18929,7 +18929,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -19001,7 +19001,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -19115,7 +19115,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -19145,7 +19145,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -19217,7 +19217,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -19331,7 +19331,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -19361,7 +19361,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -19433,7 +19433,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -19547,7 +19547,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -19577,7 +19577,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -19649,7 +19649,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -19763,7 +19763,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -19793,7 +19793,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -19865,7 +19865,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -19979,7 +19979,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -20009,7 +20009,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -20081,7 +20081,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -20195,7 +20195,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -20225,7 +20225,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -20297,7 +20297,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -20411,7 +20411,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -20441,7 +20441,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -20513,7 +20513,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -20627,7 +20627,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -20657,7 +20657,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -20729,7 +20729,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -20843,7 +20843,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -20873,7 +20873,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -20945,7 +20945,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -21059,7 +21059,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -21089,7 +21089,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -21161,7 +21161,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -21275,7 +21275,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -21305,7 +21305,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -21377,7 +21377,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -21491,7 +21491,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -21521,7 +21521,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -21593,7 +21593,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -21707,7 +21707,7 @@ namespace Tao.OpenGl {
         ///         determine if the implementation can fit the requested texture.  If not, both
         ///         dimensions are continually halved until it fits.  (If the OpenGL version is
         ///         &lt;= 1.0, both maximum texture dimensions are clamped to the value returned
-        ///         by <see cref="Gl.glGetIntegerv" /> with the argument
+        ///         by <see cref="Gl.glGetIntegerv(int, IntPtr)" /> with the argument
         ///         <see cref="Gl.GL_MAX_TEXTURE_SIZE" />.)
         ///     </para>
         ///     <para>
@@ -21737,7 +21737,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width and height actually used at level 0.  (The width and height may not
         ///         be equal to <i>width</i> and <i>height</i> respectively since proxy textures
         ///         might have scaled them to fit the implementation.)  Then the maximum level
@@ -21809,7 +21809,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -22028,7 +22028,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -22247,7 +22247,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -22466,7 +22466,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -22685,7 +22685,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -22904,7 +22904,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -23123,7 +23123,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -23342,7 +23342,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -23561,7 +23561,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -23780,7 +23780,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -23999,7 +23999,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -24218,7 +24218,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -24437,7 +24437,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -24656,7 +24656,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -24875,7 +24875,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -25094,7 +25094,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -25313,7 +25313,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -25532,7 +25532,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -25751,7 +25751,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -25970,7 +25970,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -26189,7 +26189,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -26408,7 +26408,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -26627,7 +26627,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -26846,7 +26846,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -26991,7 +26991,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -27068,7 +27068,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -27213,7 +27213,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -27290,7 +27290,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -27435,7 +27435,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -27512,7 +27512,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -27657,7 +27657,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -27734,7 +27734,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -27879,7 +27879,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -27956,7 +27956,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -28101,7 +28101,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -28178,7 +28178,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -28323,7 +28323,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -28400,7 +28400,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -28545,7 +28545,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -28622,7 +28622,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -28767,7 +28767,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -28844,7 +28844,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -28989,7 +28989,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -29066,7 +29066,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -29211,7 +29211,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -29288,7 +29288,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -29433,7 +29433,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -29510,7 +29510,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -29655,7 +29655,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -29732,7 +29732,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -29877,7 +29877,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -29954,7 +29954,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -30099,7 +30099,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -30176,7 +30176,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -30321,7 +30321,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -30398,7 +30398,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -30543,7 +30543,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -30620,7 +30620,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -30765,7 +30765,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -30842,7 +30842,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -30987,7 +30987,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -31064,7 +31064,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -31209,7 +31209,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -31286,7 +31286,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -31431,7 +31431,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -31508,7 +31508,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -31653,7 +31653,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -31730,7 +31730,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -31875,7 +31875,7 @@ namespace Tao.OpenGl {
         ///     </para>
         ///     <para>
         ///         There is no direct way of querying the maximum level.  This can be derived
-        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv" />.  First, query for
+        ///         indirectly via <see cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />.  First, query for
         ///         the width, height and depth actually used at level 0.  (The width, height
         ///         and depth may not be equal to <i>width</i>, <i>height</i> and <i>depth</i>
         ///         respectively since proxy textures might have scaled them to fit the
@@ -31952,7 +31952,7 @@ namespace Tao.OpenGl {
         /// </remarks>
         /// <seealso cref="Gl.glDrawPixels(int, int, int, int, object)" />
         /// <seealso cref="Gl.glGetTexImage(int, int, int, int, object)" />
-        /// <seealso cref="Gl.glGetTexLevelParameteriv" />
+        /// <seealso cref="Gl.glGetTexLevelParameteriv(int, int, int, IntPtr)" />
         /// <seealso cref="Gl.glTexImage1D(int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage2D(int, int, int, int, int, int, int, int, object)" />
         /// <seealso cref="Gl.glTexImage3D(int, int, int, int, int, int, int, int, int, object)" />
@@ -32839,13 +32839,13 @@ namespace Tao.OpenGl {
         ///     The NURBS object (created with <see cref="gluNewNurbsRenderer" />).
         /// </param>
         /// <param name="modelMatrix">
-        ///     A modelview matrix (as from a <see cref="Gl.glGetFloatv" /> call).
+        ///     A modelview matrix (as from a <see cref="Gl.glGetFloatv(int, IntPtr)" /> call).
         /// </param>
         /// <param name="projectionMatrix">
-        ///     A projection matrix (as from a <see cref="Gl.glGetFloatv" /> call).
+        ///     A projection matrix (as from a <see cref="Gl.glGetFloatv(int, IntPtr)" /> call).
         /// </param>
         /// <param name="viewport">
-        ///     A viewport (as from a <see cref="Gl.glGetIntegerv" /> call).
+        ///     A viewport (as from a <see cref="Gl.glGetIntegerv(int, IntPtr)" /> call).
         /// </param>
         /// <remarks>
         ///     <para>
@@ -32868,8 +32868,8 @@ namespace Tao.OpenGl {
         ///         viewport.)
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glGetFloatv" />
-        /// <seealso cref="Gl.glGetIntegerv" />
+        /// <seealso cref="Gl.glGetFloatv(int, IntPtr)" />
+        /// <seealso cref="Gl.glGetIntegerv(int, IntPtr)" />
         /// <seealso cref="gluGetNurbsProperty(Tao.OpenGl.Glu.GLUnurbs, int, float[])" />
         /// <seealso cref="gluNewNurbsRenderer" />
         /// <seealso cref="gluNurbsProperty" />
@@ -38616,7 +38616,7 @@ namespace Tao.OpenGl {
         ///     The height of the picking region in window coordinates.
         /// </param>
         /// <param name="viewport">
-        ///     The current viewport (as from a <see cref="Gl.glGetIntegerv" /> call).
+        ///     The current viewport (as from a <see cref="Gl.glGetIntegerv(int, IntPtr)" /> call).
         /// </param>
         /// <remarks>
         ///     <para>
@@ -38695,14 +38695,14 @@ namespace Tao.OpenGl {
         ///     The object's z axis coordinate.
         /// </param>
         /// <param name="modelMatrix">
-        ///     The current modelview matrix (as from a <see cref="Gl.glGetDoublev" /> call).
+        ///     The current modelview matrix (as from a <see cref="Gl.glGetDoublev(int, IntPtr)" /> call).
         /// </param>
         /// <param name="projectionMatrix">
-        ///     The current projection matrix (as from a <see cref="Gl.glGetDoublev" />
+        ///     The current projection matrix (as from a <see cref="Gl.glGetDoublev(int, IntPtr)" />
         ///     call).
         /// </param>
         /// <param name="viewport">
-        ///     The current viewport (as from a <see cref="Gl.glGetIntegerv" /> call).
+        ///     The current viewport (as from a <see cref="Gl.glGetIntegerv(int, IntPtr)" /> call).
         /// </param>
         /// <param name="winX">
         ///     The computed window's x axis coordinate.
@@ -38749,8 +38749,8 @@ namespace Tao.OpenGl {
         ///         </code>
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glGetDoublev" />
-        /// <seealso cref="Gl.glGetIntegerv" />
+        /// <seealso cref="Gl.glGetDoublev(int, IntPtr)" />
+        /// <seealso cref="Gl.glGetIntegerv(int, IntPtr)" />
         /// <seealso cref="gluUnProject" />
         // int APIENTRY gluProject(GLdouble objx, GLdouble objy, GLdouble objz, const GLdouble modelMatrix[16], const GLdouble projMatrix[16], const GLint viewport[4], GLdouble *winx, GLdouble *winy, GLdouble *winz);
         [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
@@ -48185,13 +48185,13 @@ namespace Tao.OpenGl {
         ///     The window's z axis coordinate to be mapped.
         /// </param>
         /// <param name="modelMatrix">
-        ///     The modelview matrix (as from a <see cref="Gl.glGetDoublev" /> call).
+        ///     The modelview matrix (as from a <see cref="Gl.glGetDoublev(int, IntPtr)" /> call).
         /// </param>
         /// <param name="projectionMatrix">
-        ///     The projection matrix (as from a <see cref="Gl.glGetDoublev" /> call).
+        ///     The projection matrix (as from a <see cref="Gl.glGetDoublev(int, IntPtr)" /> call).
         /// </param>
         /// <param name="viewport">
-        ///     The viewport (as from a <see cref="Gl.glGetIntegerv" /> call).
+        ///     The viewport (as from a <see cref="Gl.glGetIntegerv(int, IntPtr)" /> call).
         /// </param>
         /// <param name="objX">
         ///     The computed object's x axis coordinate.
@@ -48240,8 +48240,8 @@ namespace Tao.OpenGl {
         ///         consistent matrix notation. 
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glGetDoublev" />
-        /// <seealso cref="Gl.glGetIntegerv" />
+        /// <seealso cref="Gl.glGetDoublev(int, IntPtr)" />
+        /// <seealso cref="Gl.glGetIntegerv(int, IntPtr)" />
         /// <seealso cref="gluProject" />
         // int APIENTRY gluUnProject(GLdouble winx, GLdouble winy, GLdouble winz, const GLdouble modelMatrix[16], const GLdouble projMatrix[16], const GLint viewport[4], GLdouble *objx, GLdouble *objy, GLdouble *objz);
         [DllImport("glu32.dll", CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
@@ -48265,19 +48265,19 @@ namespace Tao.OpenGl {
         ///     The clip w coordinate to be mapped.
         /// </param>
         /// <param name="modelMatrix">
-        ///     The modelview matrix (as from a <see cref="Gl.glGetDoublev" /> call).
+        ///     The modelview matrix (as from a <see cref="Gl.glGetDoublev(int, IntPtr)" /> call).
         /// </param>
         /// <param name="projectionMatrix">
-        ///     The projection matrix (as from a <see cref="Gl.glGetDoublev" /> call).
+        ///     The projection matrix (as from a <see cref="Gl.glGetDoublev(int, IntPtr)" /> call).
         /// </param>
         /// <param name="viewport">
-        ///     The viewport (as from a <see cref="Gl.glGetIntegerv" /> call).
+        ///     The viewport (as from a <see cref="Gl.glGetIntegerv(int, IntPtr)" /> call).
         /// </param>
         /// <param name="nearVal">
-        ///     The near plane (as from a <see cref="Gl.glGetDoublev" /> call).
+        ///     The near plane (as from a <see cref="Gl.glGetDoublev(int, IntPtr)" /> call).
         /// </param>
         /// <param name="farVal">
-        ///     The far plane (as from a <see cref="Gl.glGetDoublev" /> call).
+        ///     The far plane (as from a <see cref="Gl.glGetDoublev(int, IntPtr)" /> call).
         /// </param>
         /// <param name="objX">
         ///     The computed object's x axis coordinate.
@@ -48302,7 +48302,7 @@ namespace Tao.OpenGl {
         ///         object coordinates (<i>objX</i>, <i>objY</i>, <i>objZ</i>, <i>objW</i>)
         ///         using <i>modelMatrix</i>, <i>projectionMatrix</i> and <i>viewport</i>.
         ///         <i>clipW</i> can be other than 1 as for vertices in
-        ///         <see cref="Gl.glFeedbackBuffer" /> when data type
+        ///         <see cref="Gl.glFeedbackBuffer(int, int, IntPtr)" /> when data type
         ///         <see cref="Gl.GL_4D_COLOR_TEXTURE" /> is returned.  This also handles the
         ///         case where the <i>nearVal</i> and <i>farVal</i> planes are different from the
         ///         default, 0 and 1, respectively.  A return value of <see cref="Gl.GL_TRUE" />
@@ -48343,9 +48343,9 @@ namespace Tao.OpenGl {
         ///         <b>gluUnProject4</b> is available only if the GLU version is 1.3 or greater.
         ///     </para>
         /// </remarks>
-        /// <seealso cref="Gl.glFeedbackBuffer" />
-        /// <seealso cref="Gl.glGetDoublev" />
-        /// <seealso cref="Gl.glGetIntegerv" />
+        /// <seealso cref="Gl.glFeedbackBuffer(int, int, IntPtr)" />
+        /// <seealso cref="Gl.glGetDoublev(int, IntPtr)" />
+        /// <seealso cref="Gl.glGetIntegerv(int, IntPtr)" />
         /// <seealso cref="gluProject" />
         /// <seealso cref="gluUnProject" />
         // GLAPI GLint GLAPIENTRY gluUnProject4 (GLdouble winX, GLdouble winY, GLdouble winZ, GLdouble clipW, const GLdouble *model, const GLdouble *proj, const GLint *view, GLdouble nearVal, GLdouble farVal, GLdouble* objX, GLdouble* objY, GLdouble* objZ, GLdouble* objW);

@@ -67,7 +67,7 @@ namespace Tao.GlBindGen
                     line.StartsWith("dlflags:") ||
                     line.StartsWith("glxflags:") ||
                     line.StartsWith("vectorequiv:") ||
-                    line.StartsWith("category:") ||
+                    //line.StartsWith("category:") ||
                     line.StartsWith("version:") ||
                     line.StartsWith("glxsingle:") ||
                     line.StartsWith("glxropcode:") ||
@@ -133,6 +133,9 @@ namespace Tao.GlBindGen
                             case "version":
                                 f.Version = words[1];
                                 break;
+                            case "category":
+                                f.Category = words[1];
+                                break;
                         }
                     }
                     while (!sr.EndOfStream);
@@ -192,6 +195,7 @@ namespace Tao.GlBindGen
             {
                 string line = sr.ReadLine().Trim();
 
+                // This if clause needs cleaning up.
                 if (String.IsNullOrEmpty(line) ||
                     line.StartsWith("#") ||  // Disregard comments.
                     line.StartsWith("passthru") ||  // Disregard passthru statements.
