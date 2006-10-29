@@ -39,7 +39,7 @@ namespace Tao.Cg
 	///     Binds functions and definitions in cgGL.dll or libcgGL.so.
 	/// </remarks>
 	#endregion Class Documentation
-	public sealed class CgGl 
+    public static class CgGl 
 	{
 		#region Private Constants
 		#region string CGGL_NATIVE_LIBRARY
@@ -147,16 +147,6 @@ namespace Tao.Cg
 		#endregion Enums
 
 		#endregion Public Constants
-
-		// --- Constructors & Destructors ---
-		#region CgGl()
-		/// <summary>
-		///     Prevents instantiation.
-		/// </summary>
-		private CgGl() 
-		{
-		}
-		#endregion CgGl()
 
 		// --- Public Externs ---
 		#region Program Functions

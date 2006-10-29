@@ -57,7 +57,7 @@ namespace Tao.PhysFs
 	///	</remarks>
 	#endregion Class Documentation
 	[SuppressUnmanagedCodeSecurityAttribute()]
-	public sealed class Fs
+	public static class Fs
 	{
 		#region Private Constants
 		#region string PHYSFS_NATIVE_LIBRARY
@@ -83,15 +83,6 @@ namespace Tao.PhysFs
 		private const CallingConvention CALLING_CONVENTION = CallingConvention.Cdecl;
 		#endregion CallingConvention CALLING_CONVENTION
 		#endregion Private Constants
-
-		#region Fs()
-		/// <summary>
-		///     Empty constructor - prevents instantiation.
-		/// </summary>
-		private Fs()
-		{
-		}
-		#endregion Fs()
 
 		#region physfs.h
 		#region Public Structs

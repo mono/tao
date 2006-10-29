@@ -37,7 +37,8 @@ namespace Tao.FreeGlut {
     ///     FreeGLUT (OpenGL Utility Toolkit) binding for .NET, implementing FreeGlut 2.4.0.
     /// </summary>
     #endregion Class Documentation
-    public sealed class Glut {
+    public static class Glut
+    {
         // --- Fields ---
         #region Private Constants
 	#region string FREEGLUT_NATIVE_LIBRARY
@@ -1869,14 +1870,6 @@ namespace Tao.FreeGlut {
 //            GLUT_BITMAP_HELVETICA_18 = glutBitmapHelvetica18();
         }
         #endregion Static Glut()
-
-        #region Glut()
-        /// <summary>
-        ///     Prevents instantiation.
-        /// </summary>
-        private Glut() {
-        }
-        #endregion Glut()
 
         // --- Public Delegates ---
         #region Callbacks

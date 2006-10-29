@@ -42,7 +42,8 @@ namespace Tao.Platform.Windows {
     ///     </para>
     /// </remarks>
     #endregion Class Documentation
-    public sealed class Wgl {
+    public static class Wgl
+    {
         // --- Fields ---
         #region Private Constants
         #region string WGL_NATIVE_LIBRARY
@@ -405,15 +406,6 @@ namespace Tao.Platform.Windows {
         #endregion int WGL_FONT_POLYGONS
         #endregion wglUseFontOutlines Formats
         #endregion Public Constants
-
-        // --- Constructors & Destructors ---
-        #region Wgl()
-        /// <summary>
-        ///     Prevents instantiation.
-        /// </summary>
-        private Wgl() {
-        }
-        #endregion Wgl()
 
         // --- Public Externs ---
         #region bool wglCopyContext(IntPtr source, IntPtr destination, int mask)

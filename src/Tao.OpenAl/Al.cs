@@ -39,7 +39,7 @@ namespace Tao.OpenAl
 	///     Binds functions and definitions in OpenAL32.dll or libAL.so.
 	/// </remarks>
 	#endregion Class Documentation
-	public sealed class Al 
+	public static class Al 
 	{
 		// --- Fields ---
 		#region Private Constants
@@ -801,16 +801,6 @@ namespace Tao.OpenAl
 		public const int AL_ENV_HIGH_FREQUENCY_REFERENCE_IASIG = 0x300B;
 		#endregion AL_ENV_HIGH_FREQUENCY_REFERENCE_IASIG
 		#endregion Public OpenAL 1.1 Constants
-
-		// --- Constructors & Destructors ---
-		#region Al()
-		/// <summary>
-		///     Prevents instantiation.
-		/// </summary>
-		private Al() 
-		{
-		}
-		#endregion Al()
 
 		// --- Public Externs ---
 		#region Public OpenAL 1.1 Methods

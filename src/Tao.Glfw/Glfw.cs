@@ -82,7 +82,8 @@ namespace Tao.Glfw {
     ///     </para>
     /// </remarks>
     #endregion Class Documentation
-    public sealed class Glfw {
+    public static class Glfw
+    {
 
 		#region Private Constants
 
@@ -1394,16 +1395,6 @@ namespace Tao.Glfw {
 		#endregion void GLFWthreadfun(IntPtr arg)
 
         #endregion Public Delegates
-
-        // --- Constructors & Destructors ---
-        #region Glfw()
-        /// <summary>
-        ///     Prevents instantiation.
-        /// </summary>
-        private Glfw() 
-		{
-        }
-        #endregion Glfw()
 
         // --- Public Externs ---
         #region Initialization, Termination, and Version Querying

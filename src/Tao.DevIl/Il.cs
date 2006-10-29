@@ -71,7 +71,7 @@ namespace Tao.DevIl
     ///     DevIL (Developer's Image Library) IL binding for .NET, implementing DevIL 1.6.8 RC2.
     /// </summary>
     #endregion Class Documentation
-    public sealed class Il
+    public static class Il
     {
         // --- Fields ---
         #region Private Constants

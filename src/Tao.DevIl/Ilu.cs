@@ -71,7 +71,7 @@ namespace Tao.DevIl
     ///     DevIL (Developer's Image Library) ILU binding for .NET.
     /// </summary>
     #endregion Class Documentation
-    public sealed class Ilu
+    public static class Ilu
     {
         // --- Fields ---
         #region Private Constants
@@ -529,6 +529,8 @@ namespace Tao.DevIl
 
     // --- Public Structs ---
     #region Public Structs
+
+    #region ILinfo
     // typedef struct ILinfo
     // {
     // 	ILuint  Id;         // the image's id
@@ -570,7 +572,9 @@ namespace Tao.DevIl
         ILuint NumMips;    // number of mipmaps
         ILuint NumLayers;  // number of layers
     };
+    #endregion ILinfo
 
+    #region ILpointf
     // typedef struct ILpointf
     // {
     // 	ILfloat x, y;
@@ -580,7 +584,9 @@ namespace Tao.DevIl
     {
         public ILfloat x, y;
     };
+    #endregion ILpointf
 
+    #region ILpointi
     // typedef struct ILpointi
     // {
     // 	ILint x, y;
@@ -590,5 +596,7 @@ namespace Tao.DevIl
     {
         public ILint x, y;
     };
+    #endregion ILpointi
+
     #endregion Public Structs
 }

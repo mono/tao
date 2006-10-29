@@ -39,7 +39,8 @@ namespace Tao.Platform.Windows {
     ///     Binds functions and definitions in winmm.dll.
     /// </remarks>
     #endregion Class Documentation
-    public sealed class Winmm {
+    public static class Winmm
+    {
         // --- Fields ---
         #region Private Constants
         #region String WINMM_NATIVE_LIBRARY
@@ -634,15 +635,6 @@ namespace Tao.Platform.Windows {
         #endregion Int32 MM_JOY2ZMOVE
 
         #endregion Public Constants
-
-        // --- Constructors & Destructors ---
-        #region Winmm()
-        /// <summary>
-        ///     Prevents instantiation.
-        /// </summary>
-        private Winmm() {
-        }
-        #endregion Winmm()
 
         // --- Structures & Classes ---
         #region JOYCAPS

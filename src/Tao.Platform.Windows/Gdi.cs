@@ -38,7 +38,8 @@ namespace Tao.Platform.Windows {
     ///     Binds functions and definitions in gdi32.dll.
     /// </remarks>
     #endregion Class Documentation
-    public sealed class Gdi {
+    public static class Gdi
+    {
         // --- Fields ---
         #region Private Constants
         #region string GDI_NATIVE_LIBRARY
@@ -1103,15 +1104,6 @@ namespace Tao.Platform.Windows {
             public float Y;
         };
         #endregion POINTFLOAT Struct
-
-        // --- Constructors & Destructors ---
-        #region Gdi()
-        /// <summary>
-        ///     Prevents instantiation.
-        /// </summary>
-        private Gdi() {
-        }
-        #endregion Gdi()
 
         // --- Private Externs ---
         #region bool _SetPixelFormat(IntPtr deviceContext, int pixelFormat, ref PIXELFORMATDESCRIPTOR pixelFormatDescriptor)

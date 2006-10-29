@@ -39,7 +39,8 @@ namespace Tao.Platform.Windows {
     ///     Binds functions and definitions in kernel32.dll.
     /// </remarks>
     #endregion Class Documentation
-    public sealed class Kernel {
+    public static class Kernel
+    {
         // --- Fields ---
         #region Private Constants
         #region string KERNEL_NATIVE_LIBRARY
@@ -546,15 +547,6 @@ namespace Tao.Platform.Windows {
         }
         #endregion SYSTEM_INFO_UNION
         #endregion Public Structs
-
-        // --- Constructors & Destructors ---
-        #region Kernel()
-        /// <summary>
-        ///     Prevents instantiation.
-        /// </summary>
-        private Kernel() {
-        }
-        #endregion Kernel()
 
         // --- Public Externs ---
         #region bool Beep(int frequency, int duration)

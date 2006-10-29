@@ -62,7 +62,8 @@ namespace Tao.OpenGl {
     ///     </para>
     /// </remarks>
     #endregion Class Documentation
-    public sealed class Glu {
+    public static class Glu
+    {
         // --- Fields ---
         #region Private Constants
         #region CallingConvention CALLING_CONVENTION
@@ -1494,15 +1495,6 @@ namespace Tao.OpenGl {
         private static TessVertexCallback1 tessVertexCallback1;
         private static TessVertexDataCallback tessVertexDataCallback;
         #endregion Private Fields
-
-        // --- Constructors & Destructors ---
-        #region Glu()
-        /// <summary>
-        ///     Prevents instantiation.
-        /// </summary>
-        private Glu() {
-        }
-        #endregion Glu()
 
         // --- Public Delegates ---
         #region NurbsBeginCallback(int type)

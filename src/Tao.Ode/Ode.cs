@@ -50,7 +50,7 @@ namespace Tao.Ode
 	/// 	ODE Version: 0.6
 	/// </summary>
 	#endregion Class Documentation
-	public sealed class Ode
+	public static class Ode
 	{
 		#region Private Constants
 		#region string ODE_NATIVE_LIBRARY
@@ -528,15 +528,6 @@ namespace Tao.Ode
 		}
 		#endregion Contact Flags
 		#endregion Public Constants
-
-		#region Ode()
-		/// <summary>
-		///     Empty constructor - prevents instantiation.
-		/// </summary>
-		private Ode()
-		{
-		}
-		#endregion Ode()
 
 		#region Public Structs
 		/// <summary>

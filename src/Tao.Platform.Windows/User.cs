@@ -38,7 +38,8 @@ namespace Tao.Platform.Windows {
     ///     Binds functions and definitions in user32.dll.
     /// </remarks>
     #endregion Class Documentation
-    public sealed class User {
+    public static class User
+    {
         // --- Fields ---
         #region Private Constants
         #region string USER_NATIVE_LIBRARY
@@ -199,15 +200,6 @@ namespace Tao.Platform.Windows {
 
 
         #endregion Public Constants
-
-        // --- Constructors & Destructors ---
-        #region User()
-        /// <summary>
-        ///     Prevents instantiation.
-        /// </summary>
-        private User() {
-        }
-        #endregion User()
 
         // --- Public Externs ---
         #region int ChangeDisplaySettings(ref Gdi.DEVMODE devMode, int flags)

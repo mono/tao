@@ -41,7 +41,7 @@ namespace Tao.OpenAl
 	/// ALUT is non-standard.
 	/// </remarks>
 	#endregion Class Documentation
-	public sealed class Alut
+    public static class Alut
 	{
 		// --- Fields ---
 		#region Private Constants
@@ -180,16 +180,6 @@ namespace Tao.OpenAl
 		/// </summary>
 		public const int ALUT_LOADER_MEMORY = 0x301;
 		#endregion Public OpenAL 1.1 Constants
-
-		// --- Constructors & Destructors ---
-		#region Alut()
-		/// <summary>
-		/// Prevents instantiation.
-		/// </summary>
-		private Alut()
-		{
-		}
-		#endregion Alut()
 
 		// --- Public Methods ---		
 		/// <summary>

@@ -73,7 +73,7 @@ namespace Tao.DevIl
     ///     DevIL (Developer's Image Library) ILUT binding for .NET.
     /// </summary>
     #endregion Class Documentation
-    public sealed class Ilut
+    public static class Ilut
     {
         // --- Fields ---
         #region Private Constants

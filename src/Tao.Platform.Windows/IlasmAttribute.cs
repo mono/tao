@@ -38,15 +38,8 @@ namespace Tao.Platform.Windows {
     /// </remarks>
     #endregion Class Documentation
     [AttributeUsage(AttributeTargets.Method, AllowMultiple=false, Inherited=false)]
-    public sealed class IlasmAttribute : Attribute {
-        // --- Constructors & Destructors ---
-        #region IlasmAttribute()
-        /// <summary>
-        ///     Prevent instantiation without providing MSIL.
-        /// </summary>
-        private IlasmAttribute() {}
-        #endregion IlasmAttribute()
-
+    public sealed class IlasmAttribute : Attribute
+    {
         #region IlasmAttribute(string msil)
         /// <summary>
         ///     Injects the supplied MSIL into the tagged method's body.

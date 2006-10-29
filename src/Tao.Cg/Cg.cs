@@ -39,7 +39,7 @@ namespace Tao.Cg
 	///     Binds functions and definitions in cg.dll or libcg.so.
 	/// </remarks>
 	#endregion Class Documentation
-	public sealed class Cg 
+    public static class Cg 
 	{
 		#region Private Constants
 		#region string CG_NATIVE_LIBRARY
@@ -3918,16 +3918,6 @@ namespace Tao.Cg
 		#endregion DirectX9
 		#endregion Profiles
 		#endregion Public Constants
-
-		// --- Constructors & Destructors ---
-		#region Cg()
-		/// <summary>
-		///     Prevents instantiation.
-		/// </summary>
-		private Cg() 
-		{
-		}
-		#endregion Cg()
 
 		// --- Public Externs ---
 		#region Type Functions

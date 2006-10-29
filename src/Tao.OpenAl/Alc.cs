@@ -39,7 +39,7 @@ namespace Tao.OpenAl
 	///     Binds functions and definitions in OpenAL32.dll or libAL.so.
 	/// </remarks>
 	#endregion Class Documentation
-	public sealed class Alc 
+	public static class Alc 
 	{
 		// --- Fields ---
 		#region Private Constants
@@ -235,16 +235,6 @@ namespace Tao.OpenAl
 		public const int ALC_OUT_OF_MEMORY = 0xA005;
 		#endregion ALC_OUT_OF_MEMORY
 		#endregion Public OpenAL 1.0 Constants
-
-		// --- Constructors & Destructors ---
-		#region Alc()
-		/// <summary>
-		///     Prevents instantiation.
-		/// </summary>
-		private Alc() 
-		{
-		}
-		#endregion Alc()
 
 		// --- Public Externs ---
 		#region Public OpenAL 1.1 Methods

@@ -35,7 +35,8 @@ namespace Tao.Platform.Windows {
     ///     WinNT binding for .NET, implementing Windows NT-specific functionality.
     /// </summary>
     #endregion Class Documentation
-    public sealed class WinNt {
+    public static class WinNt
+    {
         // --- Fields ---
         #region Public Constants
         #region int PROCESSOR_INTEL_386
@@ -406,14 +407,5 @@ namespace Tao.Platform.Windows {
         public const int PF_XMMI64_INSTRUCTIONS_AVAILABLE = 10;
         #endregion int PF_XMMI64_INSTRUCTIONS_AVAILABLE
         #endregion Public Constants
-
-        // --- Constructors & Destructors ---
-        #region WinNt()
-        /// <summary>
-        ///     Prevents instantiation.
-        /// </summary>
-        private WinNt() {
-        }
-        #endregion WinNt()
     }
 }

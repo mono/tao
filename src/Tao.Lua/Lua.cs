@@ -78,7 +78,7 @@ namespace Tao.Lua
 	///	<p>More information can be found at the official website (http://www.lua.org).</p>
 	///	</remarks>
 	/// #endregion Class Documentation
-    public sealed class Lua
+    public static class Lua
     {
         #region Private Constants
 
@@ -138,7 +138,7 @@ namespace Tao.Lua
         /// </summary>
         /// <param name="i"></param>
         /// <returns></returns>
-        public int lua_upvalueindex(int i) { return LUA_GLOBALSINDEX - i; }
+        public static int lua_upvalueindex(int i) { return LUA_GLOBALSINDEX - i; }
 
         // thread status; 0 is OK 
         /// <summary>
