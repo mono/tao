@@ -97,7 +97,7 @@ namespace Tao.Sdl
 	/// </remarks>
 	#endregion Class Documentation
 	[SuppressUnmanagedCodeSecurityAttribute()]
-	public sealed class SdlMixer 
+	public static class SdlMixer 
 	{
 		#region Private Constants
 		#region string SDL_MIXER_NATIVE_LIBRARY
@@ -321,17 +321,6 @@ namespace Tao.Sdl
 		} 
 		#endregion Mix_Chunk
 		#endregion Public Structs
-
-		#region Constructors & Destructors
-		#region SdlMixer()
-		/// <summary>
-		///     Prevents instantiation.
-		/// </summary>
-		private SdlMixer() 
-		{
-		}
-		#endregion SdlMixer()
-		#endregion Constructors & Destructors
 
 		#region Public Delegates
 		#region void MusicFinishedDelegate()

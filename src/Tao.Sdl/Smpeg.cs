@@ -41,7 +41,7 @@ namespace Tao.Sdl
 	/// </remarks>
 	#endregion Class Documentation
 	[SuppressUnmanagedCodeSecurityAttribute()]
-	public sealed class Smpeg 
+	public static class Smpeg 
 	{
 		#region Private Constants
 		#region string SMPEG_NATIVE_LIBRARY
@@ -291,17 +291,6 @@ namespace Tao.Sdl
 		#endregion SMPEG_Info
 		#endregion smpeg.h
 		#endregion Public Structs
-
-		#region Constructors & Destructors
-		#region Smpeg()
-		/// <summary>
-		/// Prevents instantiation.
-		/// </summary>
-		private Smpeg() 
-		{
-		}
-		#endregion Smpeg()
-		#endregion Constructors & Destructors
 
 		#region Public Delegates
 		#region MPEGfilter.h
@@ -754,7 +743,7 @@ namespace Tao.Sdl
 		/// </code></p></remarks>
 		/// <param name="mpeg">Handle to MPEG file.</param>
 		/// <param name="on"></param>
-		public void SMPEG_double( IntPtr mpeg, int on )
+		public static void SMPEG_double( IntPtr mpeg, int on )
 		{
 			if (on != 0)
 			{

@@ -49,7 +49,7 @@ namespace Tao.Sdl
 	/// </summary>
 	#endregion Class Documentation
 	[SuppressUnmanagedCodeSecurityAttribute()]
-	public sealed class SdlGfx
+	public static class SdlGfx
 	{
 		#region Private Constants
 		#region string SDL_GFX_NATIVE_LIBRARY
@@ -195,17 +195,6 @@ namespace Tao.Sdl
 
 		// SDL_imageFilter.h -- none
 		#endregion Public Structs
-
-		#region Constructors & Destructors
-		#region SdlGfx()
-		/// <summary>
-		/// Prevents instantiation.
-		/// </summary>
-		private SdlGfx()
-		{
-		}
-		#endregion SdlGfx()
-		#endregion Constructors & Destructors
 
 		#region SdlGfx Methods
 		#region SDL_gfxPrimitives.h

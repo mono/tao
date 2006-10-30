@@ -64,7 +64,7 @@ namespace Tao.Sdl
 	/// </remarks>
 	#endregion Class Documentation
 	[SuppressUnmanagedCodeSecurityAttribute()]
-	public sealed class SdlTtf 
+	public static class SdlTtf 
 	{
 		#region Private Constants
 		#region string SDL_TTF_NATIVE_LIBRARY
@@ -161,18 +161,7 @@ namespace Tao.Sdl
 		}
 		#endregion TTF_Font
 		#endregion Public Structs
-
-		#region Constructors & Destructors
-		#region SdlTtf()
-		/// <summary>
-		///     Prevents instantiation.
-		/// </summary>
-		private SdlTtf() 
-		{
-		}
-		#endregion SdlTtf()
-		#endregion Constructors & Destructors
-		
+	
 		#region SdlTtf Methods
 		#region SDL_version TTF_VERSION() 
 		/// <summary>

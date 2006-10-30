@@ -49,7 +49,7 @@ namespace Tao.Sdl
     /// </remarks>
     #endregion Class Documentation
     [SuppressUnmanagedCodeSecurityAttribute()]
-    public sealed class Sdl
+    public static class Sdl
     {
         #region Private Constants
         #region string SDL_NATIVE_LIBRARY
@@ -232,14 +232,14 @@ namespace Tao.Sdl
         /// <summary>
         /// Unsigned 16-bit little-endian samples
         /// </summary>
-        public readonly short AUDIO_U16 = AUDIO_U16LSB;
+        public static readonly short AUDIO_U16 = AUDIO_U16LSB;
         #endregion AUDIO_U16
 
         #region AUDIO_S16
         /// <summary>
         /// Signed 16-bit little-endian samples
         /// </summary>
-        public readonly short AUDIO_S16 = unchecked((short)AUDIO_S16LSB);
+        public static readonly short AUDIO_S16 = unchecked((short)AUDIO_S16LSB);
         #endregion AUDIO_S16
 
         #region SDL_MIX_MAXVOLUME
@@ -5233,7 +5233,7 @@ namespace Tao.Sdl
         #region Private Static Fields
         // Private pointers to NSApplication class for Cocoa# on OS X.
         // Used for <see cref="SDL_Init"/> and <see cref="SDL_InitSubSystem"/>.
-        private static object obj;
+        //private static object obj;
 
         /// <summary>
         ///		Private byte array holding the internal keyboard state.
@@ -5245,17 +5245,6 @@ namespace Tao.Sdl
         private static byte[] keyboardState = new byte[(int)Sdl.SDLK_LAST];
 
         #endregion Private Static Fields
-
-        #region Constructors & Destructors
-        #region Sdl()
-        /// <summary>
-        ///     Prevents instantiation.
-        /// </summary>
-        private Sdl()
-        {
-        }
-        #endregion Sdl()
-        #endregion Constructors & Destructors
 
         #region Public Delegates
 

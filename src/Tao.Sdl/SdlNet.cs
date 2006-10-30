@@ -38,7 +38,7 @@ namespace Tao.Sdl
 	/// </summary>
 	#endregion Class Documentation
 	[SuppressUnmanagedCodeSecurityAttribute()]
-	public sealed class SdlNet
+	public static class SdlNet
 	{
 		#region Private Constants
 		#region string SDL_NET_NATIVE_LIBRARY
@@ -291,17 +291,6 @@ namespace Tao.Sdl
 		}
 		#endregion SDLNet_GenericSocket
 		#endregion Public Structs
-		
-		#region Constructors & Destructors
-		#region SdlNet()
-		/// <summary>
-		///     Prevents instantiation.
-		/// </summary>
-		private SdlNet()
-		{	
-		}
-		#endregion SdlNet()
-		#endregion Constructors & Destructors
 		
 		#region SdlNet Methods
 		#region General
@@ -2234,8 +2223,8 @@ namespace Tao.Sdl
 		#endregion Socket Sets		
 		#endregion SdlNet Methods
 
-		// Not Yet implemented
-//		/* Inline macro functions to read/write network data */
+        #region Not Yet implemented
+        //		/* Inline macro functions to read/write network data */
 //
 //		/* Warning, some systems have data access alignment restrictions */
 //#if defined(sparc) || defined(mips)
@@ -2325,6 +2314,7 @@ namespace Tao.Sdl
 //	((((Uint8 *)areap)[3] << 24) | (((Uint8 *)areap)[2] << 16) | \
 //	 (((Uint8 *)areap)[1] <<  8) |  ((Uint8 *)areap)[0] <<  0)
 //#endif
-//#endif /* !SDL_DATA_ALIGNED */
-	}
+        //#endif /* !SDL_DATA_ALIGNED */
+        #endregion Not Yet implemented
+    }
 }

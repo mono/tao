@@ -102,7 +102,7 @@ namespace Tao.Sdl
 	/// </remarks>
 	#endregion Class Documentation
 	[SuppressUnmanagedCodeSecurityAttribute()]
-	public sealed class SdlImage 
+	public static class SdlImage 
 	{
 		#region Private Constants
 		#region string SDL_IMAGE_NATIVE_LIBRARY
@@ -143,17 +143,6 @@ namespace Tao.Sdl
 		/// </summary>
 		public const int SDL_IMAGE_PATCHLEVEL = 5;
 		#endregion Public Constants
-
-		#region Constructors & Destructors
-		#region SdlImage()
-		/// <summary>
-		/// Prevents instantiation.
-		/// </summary>
-		private SdlImage() 
-		{
-		}
-		#endregion SdlImage()
-		#endregion Constructors & Destructors
 		
 		#region SdlImage Methods
 		#region SDL_version SDL_IMAGE_VERSION() 
