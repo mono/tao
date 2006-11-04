@@ -6,7 +6,6 @@ PROJECTS="
     Tao.Glfw
     Tao.DevIl
     Tao.Ode
-    Tao.GlGenerator
     Tao.PhysFs
     Tao.Platform.Windows
     Tao.FreeGlut

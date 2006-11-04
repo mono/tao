@@ -1,3 +1,22 @@
+2006-11-03T18:04  C.J. Adams-Collier  <cjcollier@colliertech.org>
+	* prj2make.sh
+	- removed GlGenerator
+	* src/Tao.OpenAl/AUTHORS
+	- added Randy, Rob, Dave and myself
+	* src/Tao.OpenAl/prebuild.xml
+	- created.  You'll see more of these as I pull the non-OpenGl bits
+	out of OpenGl's prebuild.xml file
+	* src/Tao.OpenAl/(NEWS, README)
+	* created; empty
+	- src/Tao.(DevIl,Lua,OpenGl,Ode)/prebuild.xml
+	* removed XmlDocFile from its comment
+	- src/Tao.OpenGl/prebuild.xml
+	* not matching AssemblyInfo.cs from non-self packages
+	- prebuild.xml
+	* Added Tao.OpenAl
+	
+
+
 2006-10-08  C.J. Adams-Collier  <cjcollier@colliertech.org>
 	* prj2make.sh
 	- added this file.  This will be used by the build verification

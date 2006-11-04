@@ -29,7 +29,7 @@
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
                 <OutputPath>bin/Debug</OutputPath>
-                <!-- XmlDocFile>Tao.DevIl.xml</XmlDocFile -->
+                <XmlDocFile>Tao.DevIl.xml</XmlDocFile>
 		<!-- KeyFile>Tao.DevIl.snk</KeyFile -->
                 <DebugInformation>true</DebugInformation>
             </Options>
@@ -39,7 +39,7 @@
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
                 <OutputPath>bin/Release</OutputPath>
-                <!-- XmlDocFile>Tao.DevIl.xml</XmlDocFile -->
+                <XmlDocFile>Tao.DevIl.xml</XmlDocFile>
 		<!-- KeyFile>Tao.DevIl.snk</KeyFile -->
                 <DebugInformation>false</DebugInformation>
             </Options>

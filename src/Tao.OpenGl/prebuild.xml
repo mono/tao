@@ -61,7 +61,7 @@
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
                 <OutputPath>bin/Debug</OutputPath>
-		<!-- XmlDocFile>Tao.Cg.xml</XmlDocFile -->
+		<XmlDocFile>Tao.Cg.xml</XmlDocFile>
 		<!-- KeyFile>../Tao.Cg/Tao.Cg.snk</KeyFile -->
 		<AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>true</DebugInformation>
@@ -72,7 +72,7 @@
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
                 <OutputPath>bin/Release</OutputPath>
-                <!-- XmlDocFile>Tao.Cg.xml</XmlDocFile -->
+                <XmlDocFile>Tao.Cg.xml</XmlDocFile>
 		<!-- KeyFile>../Tao.Cg/Tao.Cg.snk</KeyFile -->
 		<AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>false</DebugInformation>
@@ -80,7 +80,7 @@
         </Configuration>
 	    <Reference name="System" />
             <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+              <Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
             </Files>
 	</Project>
 	<Project name="Tao.OpenAl" path="../Tao.OpenAl" language="C#" type="Library">
@@ -108,7 +108,7 @@
 	    </Configuration>
 	    <Reference name="System" />
             <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+	      <Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
             </Files>
 	</Project>
 	    <!--
@@ -137,7 +137,7 @@
 	    </Configuration>
 	    <Reference name="System" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+			      <Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	-->
@@ -196,7 +196,7 @@
 	    <Reference name="System" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+			      <Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	-->
@@ -226,7 +226,7 @@
 	    <Reference name="System" />
 	    <Reference name="Tao.OpenGl" localCopy="true"/>
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+			      <Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Tao.Glfw" path="../Tao.Glfw" language="C#" type="Library">
@@ -235,7 +235,7 @@
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <OutputPath>bin/Debug</OutputPath>
-		    <!-- XmlDocFile>Tao.Glfw.xml</XmlDocFile -->
+		    <XmlDocFile>Tao.Glfw.xml</XmlDocFile>
 	    	    <!-- KeyFile>../Tao.Glfw/Tao.Glfw.snk</KeyFile -->
 		    <AllowUnsafe>true</AllowUnsafe>
 		    <DebugInformation>true</DebugInformation>
@@ -246,7 +246,7 @@
 		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>true</OptimizeCode>
 		    <OutputPath>bin/Release</OutputPath>
-		    <!-- XmlDocFile>Tao.Glfw.xml</XmlDocFile -->
+		    <XmlDocFile>Tao.Glfw.xml</XmlDocFile>
 	    	    <!-- KeyFile>../Tao.Glfw/Tao.Glfw.snk</KeyFile -->
 		    <AllowUnsafe>true</AllowUnsafe>
 		    <DebugInformation>false</DebugInformation>
@@ -255,7 +255,7 @@
 	    <Reference name="System" />
 	    <Reference name="Tao.OpenGl" localCopy="true"/>
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+			      <Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	    <!--
@@ -284,7 +284,7 @@
 	    <Reference name="Tao.OpenGl" localCopy="true"/>
 	    
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+			      <Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	-->
@@ -317,7 +317,7 @@
 	    <Reference name="Tao.OpenGl" localCopy="true"/>
 	    
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="FreeGlutExamples.One" path="../../examples/FreeGlutExamples/One" language="C#" type="WinExe" startupObject="FreeGlutExamples.One">
@@ -402,7 +402,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="GeWang.Mirror" path="../../examples/GeWang/Mirror" language="C#" type="WinExe" startupObject="GeWang.Mirror">
@@ -430,7 +430,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="GeWang.Shadow" path="../../examples/GeWang/Shadow" language="C#" type="WinExe" startupObject="GeWang.Shadow">
@@ -458,7 +458,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="GeWang.Starfield" path="../../examples/GeWang/Starfield" language="C#" type="WinExe" startupObject="GeWang.Starfield">
@@ -486,7 +486,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="GeWang.Xform" path="../../examples/GeWang/Xform" language="C#" type="WinExe" startupObject="GeWang.Xform">
@@ -514,7 +514,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NateRobins.Area" path="../../examples/NateRobins/Area" language="C#" type="WinExe" startupObject="NateRobins.Area">
@@ -542,7 +542,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NateRobins.Maiden" path="../../examples/NateRobins/Maiden" language="C#" type="WinExe" startupObject="NateRobins.Maiden">
@@ -572,7 +572,7 @@
 	    
 	    
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NateRobins.MultiView" path="../../examples/NateRobins/MultiView" language="C#" type="WinExe" startupObject="NateRobins.MultiView">
@@ -600,7 +600,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NateRobins.Nii" path="../../examples/NateRobins/Nii" language="C#" type="WinExe" startupObject="NateRobins.Nii">
@@ -628,7 +628,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NateRobins.Null" path="../../examples/NateRobins/Null" language="C#" type="WinExe" startupObject="NateRobins.Null">
@@ -656,7 +656,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NateRobins.Qix" path="../../examples/NateRobins/Qix" language="C#" type="WinExe" startupObject="NateRobins.Qix">
@@ -684,7 +684,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NateRobins.Rotate" path="../../examples/NateRobins/Rotate" language="C#" type="WinExe" startupObject="NateRobins.Rotate">
@@ -712,7 +712,7 @@
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NateRobins.Starfield" path="../../examples/NateRobins/Starfield" language="C#" type="WinExe" startupObject="NateRobins.Starfield">
@@ -742,7 +742,7 @@
 	    
 	    
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NateRobins.Strip" path="../../examples/NateRobins/Strip" language="C#" type="WinExe" startupObject="NateRobins.Strip">
@@ -772,7 +772,7 @@
 	    
 	    
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NateRobins.Texture" path="../../examples/NateRobins/Texture" language="C#" type="WinExe" startupObject="NateRobins.Texture">
@@ -802,7 +802,7 @@
 	    
 	    
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NateRobins.Voronoi" path="../../examples/NateRobins/Voronoi" language="C#" type="WinExe" startupObject="NateRobins.Voronoi">
@@ -832,7 +832,7 @@
 	    
 	    
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson01" path="../../examples/NeHe/Lesson01" language="C#" type="WinExe" startupObject="NeHe.Lesson01">
@@ -864,7 +864,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson02" path="../../examples/NeHe/Lesson02" language="C#" type="WinExe" startupObject="NeHe.Lesson02">
@@ -896,7 +896,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson03" path="../../examples/NeHe/Lesson03" language="C#" type="WinExe" startupObject="NeHe.Lesson03">
@@ -928,7 +928,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson04" path="../../examples/NeHe/Lesson04" language="C#" type="WinExe" startupObject="NeHe.Lesson04">
@@ -960,7 +960,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson05" path="../../examples/NeHe/Lesson05" language="C#" type="WinExe" startupObject="NeHe.Lesson05">
@@ -992,7 +992,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson06" path="../../examples/NeHe/Lesson06" language="C#" type="WinExe" startupObject="NeHe.Lesson06">
@@ -1024,7 +1024,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson07" path="../../examples/NeHe/Lesson07" language="C#" type="WinExe" startupObject="NeHe.Lesson07">
@@ -1056,7 +1056,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson08" path="../../examples/NeHe/Lesson08" language="C#" type="WinExe" startupObject="NeHe.Lesson08">
@@ -1088,7 +1088,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson09" path="../../examples/NeHe/Lesson09" language="C#" type="WinExe" startupObject="NeHe.Lesson09">
@@ -1120,7 +1120,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson10" path="../../examples/NeHe/Lesson10" language="C#" type="WinExe" startupObject="NeHe.Lesson10">
@@ -1152,7 +1152,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson11" path="../../examples/NeHe/Lesson11" language="C#" type="WinExe" startupObject="NeHe.Lesson11">
@@ -1184,7 +1184,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson12" path="../../examples/NeHe/Lesson12" language="C#" type="WinExe" startupObject="NeHe.Lesson12">
@@ -1216,7 +1216,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson13" path="../../examples/NeHe/Lesson13" language="C#" type="WinExe" startupObject="NeHe.Lesson13">
@@ -1248,7 +1248,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson14" path="../../examples/NeHe/Lesson14" language="C#" type="WinExe" startupObject="NeHe.Lesson14">
@@ -1280,7 +1280,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson15" path="../../examples/NeHe/Lesson15" language="C#" type="WinExe" startupObject="NeHe.Lesson15">
@@ -1312,7 +1312,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson16" path="../../examples/NeHe/Lesson16" language="C#" type="WinExe" startupObject="NeHe.Lesson16">
@@ -1344,7 +1344,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson17" path="../../examples/NeHe/Lesson17" language="C#" type="WinExe" startupObject="NeHe.Lesson17">
@@ -1376,7 +1376,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson18" path="../../examples/NeHe/Lesson18" language="C#" type="WinExe" startupObject="NeHe.Lesson18">
@@ -1408,7 +1408,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson19" path="../../examples/NeHe/Lesson19" language="C#" type="WinExe" startupObject="NeHe.Lesson19">
@@ -1440,7 +1440,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson20" path="../../examples/NeHe/Lesson20" language="C#" type="WinExe" startupObject="NeHe.Lesson20">
@@ -1472,7 +1472,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson21" path="../../examples/NeHe/Lesson21" language="C#" type="WinExe" startupObject="NeHe.Lesson21">
@@ -1504,7 +1504,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson23" path="../../examples/NeHe/Lesson23" language="C#" type="WinExe" startupObject="NeHe.Lesson23">
@@ -1536,7 +1536,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson25" path="../../examples/NeHe/Lesson25" language="C#" type="WinExe" startupObject="NeHe.Lesson25">
@@ -1568,7 +1568,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson26" path="../../examples/NeHe/Lesson26" language="C#" type="WinExe" startupObject="NeHe.Lesson26">
@@ -1600,7 +1600,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson34" path="../../examples/NeHe/Lesson34" language="C#" type="WinExe" startupObject="NeHe.Lesson34">
@@ -1632,7 +1632,7 @@
 	    
 	    <Reference name="Tao.Platform.Windows" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Aaindex" path="../../examples/Redbook/Aaindex" language="C#" type="WinExe" startupObject="Redbook.Aaindex">
@@ -1662,7 +1662,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<!--Project name="Redbook.Aapoly" path="../../examples/Redbook/Aapoly" language="C#" type="WinExe" startupObject="Redbook.Aapoly">
@@ -1690,7 +1690,7 @@
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project -->
 	<Project name="Redbook.Aargb" path="../../examples/Redbook/Aargb" language="C#" type="WinExe" startupObject="Redbook.Aargb">
@@ -1720,7 +1720,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Accanti" path="../../examples/Redbook/Accanti" language="C#" type="WinExe" startupObject="Redbook.Accanti">
@@ -1750,7 +1750,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Accpersp" path="../../examples/Redbook/Accpersp" language="C#" type="WinExe" startupObject="Redbook.Accpersp">
@@ -1780,7 +1780,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Alpha" path="../../examples/Redbook/Alpha" language="C#" type="WinExe" startupObject="Redbook.Alpha">
@@ -1810,7 +1810,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Alpha3d" path="../../examples/Redbook/Alpha3d" language="C#" type="WinExe" startupObject="Redbook.Alpha3d">
@@ -1840,7 +1840,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Anti" path="../../examples/Redbook/Anti" language="C#" type="WinExe" startupObject="Redbook.Anti">
@@ -1870,7 +1870,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Bezcurve" path="../../examples/Redbook/Bezcurve" language="C#" type="WinExe" startupObject="Redbook.Bezcurve">
@@ -1900,7 +1900,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Bezmesh" path="../../examples/Redbook/Bezmesh" language="C#" type="WinExe" startupObject="Redbook.Bezmesh">
@@ -1930,7 +1930,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Bezsurf" path="../../examples/Redbook/Bezsurf" language="C#" type="WinExe" startupObject="Redbook.Bezsurf">
@@ -1960,7 +1960,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Checker" path="../../examples/Redbook/Checker" language="C#" type="WinExe" startupObject="Redbook.Checker">
@@ -1990,7 +1990,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.CheckerOld" path="../../examples/Redbook/CheckerOld" language="C#" type="WinExe" startupObject="Redbook.CheckerOld">
@@ -2020,7 +2020,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Clip" path="../../examples/Redbook/Clip" language="C#" type="WinExe" startupObject="Redbook.Clip">
@@ -2050,7 +2050,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Colormat" path="../../examples/Redbook/Colormat" language="C#" type="WinExe" startupObject="Redbook.Colormat">
@@ -2080,7 +2080,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Cube" path="../../examples/Redbook/Cube" language="C#" type="WinExe" startupObject="Redbook.Cube">
@@ -2110,7 +2110,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.DepthCue" path="../../examples/Redbook/DepthCue" language="C#" type="WinExe" startupObject="Redbook.DepthCue">
@@ -2140,7 +2140,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Dof" path="../../examples/Redbook/Dof" language="C#" type="WinExe" startupObject="Redbook.Dof">
@@ -2170,7 +2170,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Double" path="../../examples/Redbook/Double" language="C#" type="WinExe" startupObject="Redbook.Double">
@@ -2200,7 +2200,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Drawf" path="../../examples/Redbook/Drawf" language="C#" type="WinExe" startupObject="Redbook.Drawf">
@@ -2230,7 +2230,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Feedback" path="../../examples/Redbook/Feedback" language="C#" type="WinExe" startupObject="Redbook.Feedback">
@@ -2260,7 +2260,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Fog" path="../../examples/Redbook/Fog" language="C#" type="WinExe" startupObject="Redbook.Fog">
@@ -2290,7 +2290,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.FogIndex" path="../../examples/Redbook/FogIndex" language="C#" type="WinExe" startupObject="Redbook.FogIndex">
@@ -2320,7 +2320,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.FogIndexOld" path="../../examples/Redbook/FogIndexOld" language="C#" type="WinExe" startupObject="Redbook.FogIndexOld">
@@ -2350,7 +2350,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.FogOld" path="../../examples/Redbook/FogOld" language="C#" type="WinExe" startupObject="Redbook.FogOld">
@@ -2380,7 +2380,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Font" path="../../examples/Redbook/Font" language="C#" type="WinExe" startupObject="Redbook.Font">
@@ -2410,7 +2410,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Hello" path="../../examples/Redbook/Hello" language="C#" type="WinExe" startupObject="Redbook.Hello">
@@ -2440,7 +2440,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Image" path="../../examples/Redbook/Image" language="C#" type="WinExe" startupObject="Redbook.Image">
@@ -2470,7 +2470,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Light" path="../../examples/Redbook/Light" language="C#" type="WinExe" startupObject="Redbook.Light">
@@ -2500,7 +2500,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.List" path="../../examples/Redbook/List" language="C#" type="WinExe" startupObject="Redbook.List">
@@ -2530,7 +2530,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.TexBind" path="../../examples/Redbook/TexBind" language="C#" type="WinExe" startupObject="Redbook.TexBind">
@@ -2560,7 +2560,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Robot" path="../../examples/Redbook/Robot" language="C#" type="WinExe" startupObject="Redbook.Robot">
@@ -2590,7 +2590,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Scene" path="../../examples/Redbook/Scene" language="C#" type="WinExe" startupObject="Redbook.Scene">
@@ -2620,7 +2620,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Material" path="../../examples/Redbook/Material" language="C#" type="WinExe" startupObject="Redbook.Material">
@@ -2650,7 +2650,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Mipmap" path="../../examples/Redbook/Mipmap" language="C#" type="WinExe" startupObject="Redbook.Mipmap">
@@ -2680,7 +2680,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Model" path="../../examples/Redbook/Model" language="C#" type="WinExe" startupObject="Redbook.Model">
@@ -2710,7 +2710,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.MoveLight" path="../../examples/Redbook/MoveLight" language="C#" type="WinExe" startupObject="Redbook.MoveLight">
@@ -2740,7 +2740,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Nurbs" path="../../examples/Redbook/Nurbs" language="C#" type="WinExe" startupObject="Redbook.Nurbs">
@@ -2770,7 +2770,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.PickDepth" path="../../examples/Redbook/PickDepth" language="C#" type="WinExe" startupObject="Redbook.PickDepth">
@@ -2800,7 +2800,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.PickSquare" path="../../examples/Redbook/PickSquare" language="C#" type="WinExe" startupObject="Redbook.PickSquare">
@@ -2830,7 +2830,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Plane" path="../../examples/Redbook/Plane" language="C#" type="WinExe" startupObject="Redbook.Plane">
@@ -2860,7 +2860,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Planet" path="../../examples/Redbook/Planet" language="C#" type="WinExe" startupObject="Redbook.Planet">
@@ -2890,7 +2890,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.PolyOff" path="../../examples/Redbook/PolyOff" language="C#" type="WinExe" startupObject="Redbook.PolyOff">
@@ -2920,7 +2920,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Polys" path="../../examples/Redbook/Polys" language="C#" type="WinExe" startupObject="Redbook.Polys">
@@ -2950,7 +2950,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Lines" path="../../examples/Redbook/Lines" language="C#" type="WinExe" startupObject="Redbook.Lines">
@@ -2980,7 +2980,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.TessWind" path="../../examples/Redbook/TessWind" language="C#" type="WinExe" startupObject="Redbook.TessWind">
@@ -3010,7 +3010,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.TexGen" path="../../examples/Redbook/TexGen" language="C#" type="WinExe" startupObject="Redbook.TexGen">
@@ -3040,7 +3040,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.TexProx" path="../../examples/Redbook/TexProx" language="C#" type="WinExe" startupObject="Redbook.TexProx">
@@ -3070,7 +3070,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.SceneBlueAmbient" path="../../examples/Redbook/SceneBlueAmbient" language="C#" type="WinExe" startupObject="Redbook.SceneBlueAmbient">
@@ -3100,7 +3100,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.SceneColorLight" path="../../examples/Redbook/SceneColorLight" language="C#" type="WinExe" startupObject="Redbook.SceneColorLight">
@@ -3130,7 +3130,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.SceneFlat" path="../../examples/Redbook/SceneFlat" language="C#" type="WinExe" startupObject="Redbook.SceneFlat">
@@ -3160,7 +3160,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Select" path="../../examples/Redbook/Select" language="C#" type="WinExe" startupObject="Redbook.Select">
@@ -3190,7 +3190,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Smooth" path="../../examples/Redbook/Smooth" language="C#" type="WinExe" startupObject="Redbook.Smooth">
@@ -3220,7 +3220,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Stencil" path="../../examples/Redbook/Stencil" language="C#" type="WinExe" startupObject="Redbook.Stencil">
@@ -3250,7 +3250,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Stroke" path="../../examples/Redbook/Stroke" language="C#" type="WinExe" startupObject="Redbook.Stroke">
@@ -3280,7 +3280,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Surface" path="../../examples/Redbook/Surface" language="C#" type="WinExe" startupObject="Redbook.Surface">
@@ -3310,7 +3310,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.SurfaceOld" path="../../examples/Redbook/SurfaceOld" language="C#" type="WinExe" startupObject="Redbook.SurfaceOld">
@@ -3340,7 +3340,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.TeaAmbient" path="../../examples/Redbook/TeaAmbient" language="C#" type="WinExe" startupObject="Redbook.TeaAmbient">
@@ -3370,7 +3370,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Teapots" path="../../examples/Redbook/Teapots" language="C#" type="WinExe" startupObject="Redbook.Teapots">
@@ -3400,7 +3400,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Quadric" path="../../examples/Redbook/Quadric" language="C#" type="WinExe" startupObject="Redbook.Quadric">
@@ -3430,7 +3430,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Tess" path="../../examples/Redbook/Tess" language="C#" type="WinExe" startupObject="Redbook.Tess">
@@ -3460,7 +3460,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.TexSub" path="../../examples/Redbook/TexSub" language="C#" type="WinExe" startupObject="Redbook.TexSub">
@@ -3490,7 +3490,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.TextureSurf" path="../../examples/Redbook/TextureSurf" language="C#" type="WinExe" startupObject="Redbook.TextureSurf">
@@ -3520,7 +3520,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Torus" path="../../examples/Redbook/Torus" language="C#" type="WinExe" startupObject="Redbook.Torus">
@@ -3550,7 +3550,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Trim" path="../../examples/Redbook/Trim" language="C#" type="WinExe" startupObject="Redbook.Trim">
@@ -3580,7 +3580,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.UnProject" path="../../examples/Redbook/UnProject" language="C#" type="WinExe" startupObject="Redbook.UnProject">
@@ -3610,7 +3610,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Varray" path="../../examples/Redbook/Varray" language="C#" type="WinExe" startupObject="Redbook.Varray">
@@ -3640,7 +3640,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="Redbook.Wrap" path="../../examples/Redbook/Wrap" language="C#" type="WinExe" startupObject="Redbook.Wrap">
@@ -3670,7 +3670,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="GlfwExamples.Boing" path="../../examples/GlfwExamples/Boing" language="C#" type="WinExe" startupObject="GlfwExamples.Boing">
@@ -3700,7 +3700,7 @@
 	    
 	    
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="GlfwExamples.Gears" path="../../examples/GlfwExamples/Gears" language="C#" type="WinExe" startupObject="GlfwExamples.Gears">
@@ -3730,7 +3730,7 @@
 	    
 	    
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="GlfwExamples.KeyTest" path="../../examples/GlfwExamples/KeyTest" language="C#" type="WinExe" startupObject="GlfwExamples.KeyTest">
@@ -3760,7 +3760,7 @@
 	    
 	    
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="GlfwExamples.ListModes" path="../../examples/GlfwExamples/ListModes" language="C#" type="Exe" startupObject="GlfwExamples.ListModes">
@@ -3790,7 +3790,7 @@
 	    
 	    
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="GlfwExamples.Pong" path="../../examples/GlfwExamples/Pong" language="C#" type="WinExe" startupObject="GlfwExamples.Pong">
@@ -3820,7 +3820,7 @@
 	    
 	    
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="GlfwExamples.Triangle" path="../../examples/GlfwExamples/Triangle" language="C#" type="WinExe" startupObject="GlfwExamples.Triangle">
@@ -3850,7 +3850,7 @@
 	    
 	    
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="OpenAlExamples.Boxes" path="../../examples/OpenAlExamples/Boxes" language="C#" type="WinExe" startupObject="OpenAlExamples.Boxes">
@@ -3881,7 +3881,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="OpenAlExamples.Lesson01" path="../../examples/OpenAlExamples/Lesson01" language="C#" type="Exe" startupObject="OpenAlExamples.Lesson01">
@@ -3908,7 +3908,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenAl" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="OpenAlExamples.Lesson02" path="../../examples/OpenAlExamples/Lesson02" language="C#" type="Exe" startupObject="OpenAlExamples.Lesson02">
@@ -3935,7 +3935,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenAl" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="OpenAlExamples.Lesson03" path="../../examples/OpenAlExamples/Lesson03" language="C#" type="Exe" startupObject="OpenAlExamples.Lesson03">
@@ -3962,7 +3962,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenAl" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="OpenAlExamples.Lesson05" path="../../examples/OpenAlExamples/Lesson05" language="C#" type="Exe" startupObject="OpenAlExamples.Lesson05">
@@ -3989,7 +3989,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.OpenAl" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="OpenAlExamples.Waterfall" path="../../examples/OpenAlExamples/Waterfall" language="C#" type="WinExe" startupObject="OpenAlExamples.Waterfall">
@@ -4019,7 +4019,7 @@
 	    <Reference name="Tao.OpenGl" />
 	    <Reference name="Tao.FreeGlut" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="CgExamples.Gl_01_vertex_program" path="../../examples/CgExamples/Gl_01_vertex_program" language="C#" type="WinExe" startupObject="CgExamples.Gl_01_vertex_program">
@@ -4048,7 +4048,7 @@
 	    <Reference name="Tao.OpenGl" />
 	    <Reference name="Tao.FreeGlut" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="CgExamples.Gl_02_vertex_and_fragment_program" path="../../examples/CgExamples/Gl_02_vertex_and_fragment_program" language="C#" type="WinExe" startupObject="CgExamples.Gl_02_vertex_and_fragment_program">
@@ -4079,7 +4079,7 @@
 	    
 	    <Reference name="Tao.FreeGlut" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="GlslExamples.Lesson01" path="../../examples/GlslExamples/Lesson01" language="C#" type="WinExe" startupObject="GlslExamples.Lesson01" designerFolder="Properties">
@@ -4107,7 +4107,7 @@
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Reference name="Tao.Glfw" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
     </Solution>

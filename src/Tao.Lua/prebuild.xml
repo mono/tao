@@ -43,7 +43,7 @@
                 <CompilerDefines>TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>true</OptimizeCode>
                 <OutputPath>bin/Release</OutputPath>
-                <!-- XmlDocFile>Tao.Lua.xml</XmlDocFile -->
+                <XmlDocFile>Tao.Lua.xml</XmlDocFile>
                 <!-- KeyFile>Tao.Lua.snk</KeyFile -->
                 <AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>false</DebugInformation>
@@ -92,7 +92,7 @@
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Debug</OutputPath>
 		    <!-- KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile -->
-		    <!-- XmlDocFile>LuaExamples.Functions.xml</XmlDocFile -->
+		    <XmlDocFile>LuaExamples.Functions.xml</XmlDocFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -103,7 +103,7 @@
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Release</OutputPath>
 		    <!-- KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile -->
-		    <!-- XmlDocFile>LuaExamples.Functions.xml</XmlDocFile -->
+		    <XmlDocFile>LuaExamples.Functions.xml</XmlDocFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
