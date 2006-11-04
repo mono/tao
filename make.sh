@@ -33,6 +33,7 @@ do
     ./configure $configure_args &&
     make &&
     make install || exit -1
+    make install-data-local
     popd
   fi
 done

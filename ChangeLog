@@ -1,3 +1,11 @@
+2006-11-03T18:36  C.J. Adams-Collier  <cjcollier@colliertech.org>
+	* make.sh
+	- Added install-data-local so that the .dlls get installed; hacky
+	* src/Tao.(GlBindGen,OpenAl)/(INSTALL,COPYING)
+	- Added.  empty	
+	* src/Tao.OpenGl/Tao.OpenAl.snk
+	- symlink to src/Tao.OpenAl/Tao.OpenAl.snk
+
 2006-11-03T18:04  C.J. Adams-Collier  <cjcollier@colliertech.org>
 	* prj2make.sh
 	- removed GlGenerator
