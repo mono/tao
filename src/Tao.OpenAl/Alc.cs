@@ -129,8 +129,32 @@ namespace Tao.OpenAl
 		public const int ALC_ALL_ATTRIBUTES = 0x1003;
 		#endregion ALC_ALL_ATTRIBUTES
 
-		#region ALC_DEFAULT_DEVICE_SPECIFIER
-		/// <summary>
+        #region ALC_CAPTURE_DEVICE_SPECIFIER
+        /// <summary>
+        ///     Capture device specifier.
+        /// </summary>
+        // #define ALC_CAPTURE_DEVICE_SPECIFIER 0x310
+        public const int ALC_CAPTURE_DEVICE_SPECIFIER = 0x310;
+        #endregion ALC_CAPTURE_DEVICE_SPECIFIER
+
+        #region ALC_CAPTURE_DEFAULT_DEVICE_SPECIFIER
+        /// <summary>
+        ///     Capture default device specifier.
+        /// </summary>
+        // #define ALC_CAPTURE_DEFAULT_DEVICE_SPECIFIER 0x311
+        public const int ALC_CAPTURE_DEFAULT_DEVICE_SPECIFIER = 0x311;
+        #endregion ALC_CAPTURE_DEFAULT_DEVICE_SPECIFIER
+
+        #region ALC_CAPTURE_SAMPLES
+        /// <summary>
+        ///     Capture samples.
+        /// </summary>
+        // #define ALC_CAPTURE_SAMPLES 0x312
+        public const int ALC_CAPTURE_SAMPLES = 0x312;
+        #endregion ALC_CAPTURE_SAMPLES
+
+        #region ALC_DEFAULT_DEVICE_SPECIFIER
+        /// <summary>
 		///     Default device specifier.
 		/// </summary>
 		// #define ALC_DEFAULT_DEVICE_SPECIFIER 0x1004
