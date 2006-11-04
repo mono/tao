@@ -34,7 +34,6 @@ using Settings = Tao.OpenGl.Bind.Properties.Bind;
 using System.Threading;
 using System.Collections.Generic;
 
-[assembly:CLSCompliant(true), FileIOPermission(SecurityAction.RequestMinimum, Unrestricted = true)]
 namespace Tao.GlBindGen
 {
     static class MainClass
