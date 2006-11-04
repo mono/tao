@@ -1,3 +1,17 @@
+2006-11-04T00:26  C.J. Adams-Collier  <cjcollier@colliertech.org>
+	* other/Prebuild/Prebuild.exe
+	- new version places AssemblyInfo.cs into Properties/ directory
+	* src/Tao.OpenAl/prebuild.xml
+	- added regex to skip AssemblyInfo.cs, since it's now auto-included
+	* src/Tao.OpenGl/prebuild.xml
+	- moved examples to ../Examples
+	* src/Examples/prebuild.xml
+	- this is where the examples now live
+	* src/Examples/Properties/AssemblyInfo.cs
+	- generated AssemblyInfo.cs for those who don't generate their own
+	* prebuild.xml
+	- now including src/Examples/prebuild.xml
+
 2006-11-03T18:36  C.J. Adams-Collier  <cjcollier@colliertech.org>
 	* make.sh
 	- Added install-data-local so that the .dlls get installed; hacky

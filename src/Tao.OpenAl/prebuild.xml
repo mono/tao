@@ -50,7 +50,7 @@
 	    </Configuration>
 	    <Reference name="System" />
             <Files>
-	      <Match path="." pattern="*.cs" recurse="true"/>
+              <Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
             </Files>
 	</Project>
     </Solution>
