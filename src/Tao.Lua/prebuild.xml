@@ -51,7 +51,7 @@
         </Configuration>
 	    <Reference name="System" />
             <Files>
-                <File>AssemblyInfo.cs</File>
+                <File>Properties/AssemblyInfo.cs</File>
                 <File>Lua.cs</File>
             </Files>
 	</Project>
@@ -79,7 +79,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.Lua" />
 	    <Files>
-		<File>AssemblyInfo.cs</File>
+		<File>Properties/AssemblyInfo.cs</File>
 		<File>Simple.cs</File>
 		<File buildAction="Content">Data/LuaExamples.Simple.lua</File>
 	    </Files>
@@ -110,7 +110,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.Lua" />
 	    <Files>
-		<File>AssemblyInfo.cs</File>
+		<File>Properties/AssemblyInfo.cs</File>
 		<File>Functions.cs</File>
 		<File buildAction="Content">Data/LuaExamples.Functions.lua</File>
 	    </Files>

@@ -50,7 +50,7 @@
         </Configuration>
 	    <Reference name="System" />
             <Files>
-                <File>AssemblyInfo.cs</File>
+                <File>Properties/AssemblyInfo.cs</File>
                 <File>Fs.cs</File>
             </Files>
 	</Project>
@@ -78,7 +78,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.PhysFs" />
 	    <Files>
-		<File>AssemblyInfo.cs</File>
+		<File>Properties/AssemblyInfo.cs</File>
 		<File>Simple.cs</File>
 	    </Files>
 	</Project>

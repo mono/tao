@@ -78,7 +78,7 @@
 	    <Reference name="nunit.framework"/>
 	    <Reference name="Tao.Sdl" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+              <Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="SdlExamples.Rectangles" path="../../examples/SdlExamples/Rectangles" language="C#" type="WinExe" startupObject="SdlExamples.Rectangles" designerFolder="Properties">
@@ -105,7 +105,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.Sdl" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+              <Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="SdlExamples.SmpegPlayer" path="../../examples/SdlExamples/SmpegPlayer" language="C#" type="WinExe" startupObject="SdlExamples.SmpegPlayer" designerFolder="Properties">
@@ -132,7 +132,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.Sdl" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+              <Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
 	<Project name="SdlExamples.GfxPrimitives" path="../../examples/SdlExamples/GfxPrimitives" language="C#" type="WinExe" startupObject="SdlExamples.GfxPrimitives" designerFolder="Properties">
@@ -159,7 +159,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.Sdl" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+              <Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
 	    </Files>
 	</Project>
     </Solution>

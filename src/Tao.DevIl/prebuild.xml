@@ -46,7 +46,7 @@
         </Configuration>
 	    <Reference name="System" />
             <Files>
-                <File>AssemblyInfo.cs</File>
+                <File>Properties/AssemblyInfo.cs</File>
                 <File>Il.cs</File>
                 <File>Ilu.cs</File>
                 <File>Ilut.cs</File>
@@ -76,7 +76,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.DevIl" />
 	    <Files>
-		<File>AssemblyInfo.cs</File>
+		<File>Properties/AssemblyInfo.cs</File>
 		<File>SimpleExample.cs</File>
 	    </Files>
 	</Project>
