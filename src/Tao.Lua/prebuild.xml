@@ -26,14 +26,14 @@
             <File>Tao.Lua.dll.config</File>
             <File>prebuild.xml</File>
         </Files>
-	<Project name="Tao.Lua" path="." language="C#" type="Library">
+	<Project name="Tao.Lua" path="." language="C#" type="Library" designerFolder="Properties">
         <Configuration name="Debug">
             <Options>
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
                 <OutputPath>bin/Debug</OutputPath>
-                <!-- XmlDocFile></XmlDocFile -->
-                <!-- KeyFile>Tao.Lua.snk</KeyFile -->
+                <XmlDocFile></XmlDocFile>
+                <KeyFile>Tao.Lua.snk</KeyFile>
                 <AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>true</DebugInformation>
             </Options>
@@ -44,25 +44,24 @@
                 <OptimizeCode>true</OptimizeCode>
                 <OutputPath>bin/Release</OutputPath>
                 <XmlDocFile>Tao.Lua.xml</XmlDocFile>
-                <!-- KeyFile>Tao.Lua.snk</KeyFile -->
+                <KeyFile>Tao.Lua.snk</KeyFile>
                 <AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>false</DebugInformation>
             </Options>
         </Configuration>
 	    <Reference name="System" />
             <Files>
-                <File>Properties/AssemblyInfo.cs</File>
-                <File>Lua.cs</File>
+                <Match path="." pattern="*.cs" recurse="true"/>
             </Files>
 	</Project>
-	<Project name="LuaExamples.Simple" path="../../examples/LuaExamples/Simple" language="C#" type="Exe" startupObject="LuaExamples.Simple">
+	<Project name="LuaExamples.Simple" path="../../examples/LuaExamples/Simple" language="C#" type="Exe" startupObject="LuaExamples.Simple" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Debug</OutputPath>
-		    <!-- KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile -->
+		    <KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -72,27 +71,25 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Release</OutputPath>
-		    <!-- KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile -->
+		    <KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
 	    <Reference name="System" /> 
 	    <Reference name="Tao.Lua" />
 	    <Files>
-		<File>Properties/AssemblyInfo.cs</File>
-		<File>Simple.cs</File>
 		<File buildAction="Content">Data/LuaExamples.Simple.lua</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="LuaExamples.Functions" path="../../examples/LuaExamples/Functions" language="C#" type="Exe" startupObject="LuaExamples.Functions">
+	<Project name="LuaExamples.Functions" path="../../examples/LuaExamples/Functions" language="C#" type="Exe" startupObject="LuaExamples.Functions" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Debug</OutputPath>
-		    <!-- KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile -->
-		    <XmlDocFile>LuaExamples.Functions.xml</XmlDocFile>
+		    <KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -102,17 +99,15 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Release</OutputPath>
-		    <!-- KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile -->
-		    <XmlDocFile>LuaExamples.Functions.xml</XmlDocFile>
+		    <KeyFile>../../../src/Tao.Lua/Tao.Lua.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
 	    <Reference name="System" /> 
 	    <Reference name="Tao.Lua" />
 	    <Files>
-		<File>Properties/AssemblyInfo.cs</File>
-		<File>Functions.cs</File>
 		<File buildAction="Content">Data/LuaExamples.Functions.lua</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
     </Solution>

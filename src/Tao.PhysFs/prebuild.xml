@@ -25,7 +25,7 @@
             <File>Tao.PhysFs.snk</File>
 	    <File>Tao.PhysFs.dll.config</File>
         </Files>
-	<Project name="Tao.PhysFs" path="." language="C#" type="Library">
+	<Project name="Tao.PhysFs" path="." language="C#" type="Library" designerFolder="Properties">
         <Configuration name="Debug">
             <Options>
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -50,11 +50,10 @@
         </Configuration>
 	    <Reference name="System" />
             <Files>
-                <File>Properties/AssemblyInfo.cs</File>
-                <File>Fs.cs</File>
+                <Match path="." pattern="*.cs" recurse="true"/>
             </Files>
 	</Project>
-	<Project name="PhysFsExamples.Simple" path="../../examples/PhysFsExamples/Simple" language="C#" type="Exe" startupObject="PhysFsExamples.Simple">
+	<Project name="PhysFsExamples.Simple" path="../../examples/PhysFsExamples/Simple" language="C#" type="Exe" startupObject="PhysFsExamples.Simple" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -78,8 +77,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.PhysFs" />
 	    <Files>
-		<File>Properties/AssemblyInfo.cs</File>
-		<File>Simple.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
     </Solution>
