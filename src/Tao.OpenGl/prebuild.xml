@@ -20,12 +20,11 @@
 	    </Options>
 	</Configuration>
 	<Files>
-	    <File>../Tao.OpenGl/Tao.OpenGl.License.txt</File>
-	    <File>../Tao.OpenGl/Tao.OpenGl.Readme.txt</File>
-	    <File>../Tao.OpenGl/Tao.OpenGl.snk</File>
-	    <File>../Tao.OpenGl/Tao.OpenGl.dll.config</File>
+	    <File>Tao.OpenGl.License.txt</File>
+	    <File>Tao.OpenGl.Readme.txt</File>
+	    <File>Tao.OpenGl.dll.config</File>
 	</Files>
-	<Project name="Tao.OpenGl" path="../Tao.OpenGl" language="C#" type="Library" >
+	<Project name="Tao.OpenGl" path="." language="C#" type="Library" designerFolder="Properties" >
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -33,7 +32,7 @@
 		    <AllowUnsafe>true</AllowUnsafe>
 		    <OutputPath>bin/Debug</OutputPath>
 		    <XmlDocFile>Tao.OpenGl.xml</XmlDocFile>
-	    	    <!-- KeyFile>../Tao.OpenGl/Tao.OpenGl.snk</KeyFile -->
+		    <KeyFile>Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -44,13 +43,14 @@
 		    <AllowUnsafe>true</AllowUnsafe>
 		    <OutputPath>bin/Release</OutputPath>
 		    <XmlDocFile>Tao.OpenGl.xml</XmlDocFile>
-	    	    <!-- KeyFile>../Tao.OpenGl/Tao.OpenGl.snk</KeyFile -->
+	    	    <KeyFile>Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
 	    <Reference name="System" />
 	    <Files>
-              <Match path="." pattern="(?&lt;!AssemblyInfo)\.cs$" recurse="true" useRegex="true"/>
+	      <File buildAction="None">Tao.OpenGl.snk</File>
+              <Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
     </Solution>
