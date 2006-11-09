@@ -42,7 +42,6 @@ using System.Security.Permissions;
 [assembly: AssemblyFileVersion("2.1.0.0")]
 [assembly: AssemblyInformationalVersion("2.1.0.0")]
 [assembly: AssemblyKeyName("")]
-[assembly:AssemblyKeyFile("Tao.GlBindGen.snk")]
 [assembly: AssemblyProduct("Tao.GlBindGen.dll")]
 [assembly: AssemblyTitle("Tao Framework Tao.GlBindGen Binding For .NET")]
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]

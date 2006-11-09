@@ -20,17 +20,17 @@
 	    </Options>
 	</Configuration>
 	<Files>
-	    <File>../Tao.GlBindGen/Tao.GlBindGen.License.txt</File>
-	    <File>../Tao.GlBindGen/Tao.GlBindGen.Readme.txt</File>
-	    <File>../Tao.GlBindGen/Tao.GlBindGen.snk</File>
+	    <File>Tao.GlBindGen.License.txt</File>
+	    <File>Tao.GlBindGen.Readme.txt</File>
+	    <File>Tao.GlBindGen.snk</File>
 	</Files>
-	<Project name="Tao.GlBindGen" path="../Tao.GlBindGen" language="C#" type="Exe" startupObject="Tao.GlBindGen.MainClass" designerFolder="Properties">
+	<Project name="Tao.GlBindGen" path="." language="C#" type="Exe" startupObject="Tao.GlBindGen.MainClass" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <OutputPath>bin/Debug</OutputPath>
-	    	    <KeyFile>../Tao.GlBindGen/Tao.GlBindGen</KeyFile>
+	    	    <KeyFile>Tao.GlBindGen.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -39,7 +39,7 @@
 		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>true</OptimizeCode>
 		    <OutputPath>bin/Release</OutputPath>
-	    	    <KeyFile>../Tao.GlBindGen/Tao.GlBindGen.snk</KeyFile>
+	    	    <KeyFile>Tao.GlBindGen.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
