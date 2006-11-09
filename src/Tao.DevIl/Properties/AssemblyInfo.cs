@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright ©2003-2006 Tao Framework Team
+Copyright (c)2003-2006 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -34,18 +34,18 @@ using System.Security.Permissions;
 [assembly: AllowPartiallyTrustedCallers]
 [assembly: AssemblyCompany("Tao Framework -- http://www.taoframework.com")]
 [assembly: AssemblyConfiguration("Retail")]
-[assembly: AssemblyCopyright("Copyright ©2003-2006 Tao Framework Team.  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright (c)2003-2006 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.DevIl")]
 [assembly: AssemblyDelaySign(false)]
-[assembly: AssemblyDescription("Tao Framework DevIL Binding For .NET")]
-[assembly: AssemblyFileVersion("1.6.8.0")]
-[assembly: AssemblyInformationalVersion("1.6.8.0")]
+[assembly: AssemblyDescription("Tao Framework Tao.DevIl Binding For .NET")]
+[assembly: AssemblyFileVersion("2.1.0.0")]
+[assembly: AssemblyInformationalVersion("2.1.0.0")]
 [assembly: AssemblyKeyName("")]
 [assembly: AssemblyProduct("Tao.DevIl.dll")]
-[assembly: AssemblyTitle("Tao Framework DevIL Binding For .NET")]
+[assembly: AssemblyTitle("Tao Framework Tao.DevIl Binding For .NET")]
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
-[assembly: AssemblyVersion("1.6.8.0")]
+[assembly: AssemblyVersion("2.1.0.0")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]
