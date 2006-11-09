@@ -249,14 +249,14 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="GeWang" path="../../examples/GeWang" language="C#" type="WinExe" startupObject="GeWang.Program" designerFolder="Properties">
+	<Project name="GeWangExamples" path="../../examples/GeWangExamples" language="C#" type="WinExe" startupObject="GeWangExamples.Program" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
+		    <KeyFile>../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -266,24 +266,24 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
+		    <KeyFile>../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
 	    <Reference name="System" /> 
 	    <Reference name="System.Windows.Forms" /> 
 	    <Reference name="System.Data" /> 
-	    <Reference name="SystemDrawing" /> 
+	    <Reference name="System.Drawing" /> 
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Files>
-		<File subType="Form" resourceName="GeWang">GeWang.cs</File>
+		<File subType="Form" resourceName="GeWangExamples">GeWangExamples.cs</File>
 		<Match path="." pattern="*.cs" recurse="true">
-		    <Exclude name="GeWang.cs"/>
+		    <Exclude name="GeWangExamples.cs"/>
 		</Match>
 	    </Files>
 	</Project>
-	<Project name="GlfwExamples" path="../../examples/Glfw" language="C#" type="WinExe" startupObject="GlfwExamples.Program" designerFolder="Properties">
+	<Project name="GlfwExamples" path="../../examples/GlfwExamples" language="C#" type="WinExe" startupObject="GlfwExamples.Program" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -307,7 +307,7 @@
 	    <Reference name="System" /> 
 	    <Reference name="System.Windows.Forms" /> 
 	    <Reference name="System.Data" /> 
-	    <Reference name="SystemDrawing" /> 
+	    <Reference name="System.Drawing" /> 
 	    <Reference name="Tao.Glfw" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Files>
