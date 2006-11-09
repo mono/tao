@@ -102,28 +102,64 @@ namespace Tao.DevIl
         #region Public Constants
 
         // #define ILU_VERSION_1_6_8 1
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_VERSION_1_6_8 = 1;
         // #define ILU_VERSION       168
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_VERSION = 168;
         // #define ILU_FILTER         0x2600
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_FILTER = 0x2600;
         // #define ILU_NEAREST        0x2601
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_NEAREST = 0x2601;
         // #define ILU_LINEAR         0x2602
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_LINEAR = 0x2602;
         // #define ILU_BILINEAR       0x2603
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_BILINEAR = 0x2603;
         // #define ILU_SCALE_BOX      0x2604
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_SCALE_BOX = 0x2604;
         // #define ILU_SCALE_TRIANGLE 0x2605
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_SCALE_TRIANGLE = 0x2605;
         // #define ILU_SCALE_BELL     0x2606
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_SCALE_BELL = 0x2606;
         // #define ILU_SCALE_BSPLINE  0x2607
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_SCALE_BSPLINE = 0x2607;
         // #define ILU_SCALE_LANCZOS3 0x2608
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_SCALE_LANCZOS3 = 0x2608;
         // #define ILU_SCALE_MITCHELL 0x2609
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_SCALE_MITCHELL = 0x2609;
         /// <summary>
         /// A Parameter was invalid or out of range
@@ -156,22 +192,49 @@ namespace Tao.DevIl
         // #define ILU_INVALID_PARAM     0x0509
         public const int ILU_INVALID_PARAM = 0x0509;
         // #define ILU_PLACEMENT          0x0700
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_PLACEMENT = 0x0700;
         // #define ILU_LOWER_LEFT         0x0701
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_LOWER_LEFT = 0x0701;
         // #define ILU_LOWER_RIGHT        0x0702
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_LOWER_RIGHT = 0x0702;
         // #define ILU_UPPER_LEFT         0x0703
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_UPPER_LEFT = 0x0703;
         // #define ILU_UPPER_RIGHT        0x0704
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_UPPER_RIGHT = 0x0704;
         // #define ILU_CENTER             0x0705
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_CENTER = 0x0705;
         // #define ILU_CONVOLUTION_MATRIX 0x0710
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_CONVOLUTION_MATRIX = 0x0710;
         // #define ILU_VERSION_NUM IL_VERSION_NUM
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_VERSION_NUM = Il.IL_VERSION_NUM;
         // #define ILU_VENDOR      IL_VENDOR
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILU_VENDOR = Il.IL_VENDOR;
 
         #endregion Public Constants
@@ -304,10 +367,21 @@ namespace Tao.DevIl
         public static extern ILboolean iluEnlargeCanvas(ILuint Width, ILuint Height, ILuint Depth);
 
         // ILAPI ILboolean      ILAPIENTRY iluEnlargeImage(ILfloat XDim, ILfloat YDim, ILfloat ZDim);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="XDim"></param>
+        /// <param name="YDim"></param>
+        /// <param name="ZDim"></param>
+        /// <returns></returns>
         [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean iluEnlargeImage(ILfloat XDim, ILfloat YDim, ILfloat ZDim);
 
         // ILAPI ILboolean      ILAPIENTRY iluEqualize(ILvoid);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean iluEqualize();
 
@@ -321,6 +395,13 @@ namespace Tao.DevIl
         public static extern ILstring iluErrorString(ILenum Error);
 
         // ILAPI ILboolean      ILAPIENTRY iluConvolution(ILint *matrix, ILint scale, ILint bias);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="matrix"></param>
+        /// <param name="scale"></param>
+        /// <param name="bias"></param>
+        /// <returns></returns>
         [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean iluConvolution(ILint[] matrix, ILint scale, ILint bias);
 
@@ -409,6 +490,11 @@ namespace Tao.DevIl
         public static extern ILboolean iluInvertAlpha();
 
         // ILAPI ILuint         ILAPIENTRY iluLoadImage(const ILstring FileName);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="FileName"></param>
+        /// <returns></returns>
         [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILuint iluLoadImage(ILstring FileName);
 
@@ -429,6 +515,11 @@ namespace Tao.DevIl
         public static extern ILboolean iluNegative();
 
         // ILAPI ILboolean      ILAPIENTRY iluNoisify(ILclampf Tolerance);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Tolerance"></param>
+        /// <returns></returns>
         [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean iluNoisify(ILclampf Tolerance);
 
@@ -442,14 +533,32 @@ namespace Tao.DevIl
         public static extern ILboolean iluPixelize(ILuint PixSize);
 
         // ILAPI ILvoid         ILAPIENTRY iluRegionfv(ILpointf *Points, ILuint n);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Points"></param>
+        /// <param name="n"></param>
         [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void iluRegionfv(ILpointf[] Points, ILuint n);
 
         // ILAPI ILvoid         ILAPIENTRY iluRegioniv(ILpointi *Points, ILuint n);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Points"></param>
+        /// <param name="n"></param>
         [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void iluRegioniv(ILpointi[] Points, ILuint n);
 
         // ILAPI ILboolean      ILAPIENTRY iluReplaceColour(ILubyte Red, ILubyte Green, ILubyte Blue, ILfloat Tolerance);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Red"></param>
+        /// <param name="Green"></param>
+        /// <param name="Blue"></param>
+        /// <param name="Tolerance"></param>
+        /// <returns></returns>
         [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean iluReplaceColour(ILubyte Red, ILubyte Green, ILubyte Blue, ILfloat Tolerance);
 
@@ -463,6 +572,14 @@ namespace Tao.DevIl
         public static extern ILboolean iluRotate(ILfloat Angle);
 
         // ILAPI ILboolean      ILAPIENTRY iluRotate3D(ILfloat x, ILfloat y, ILfloat z, ILfloat Angle);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        /// <param name="Angle"></param>
+        /// <returns></returns>
         [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean iluRotate3D(ILfloat x, ILfloat y, ILfloat z, ILfloat Angle);
 
@@ -499,6 +616,13 @@ namespace Tao.DevIl
         public static extern ILboolean iluScale(ILuint Width, ILuint Height, ILuint Depth);
 
         // ILAPI ILboolean      ILAPIENTRY iluScaleColours(ILfloat r, ILfloat g, ILfloat b);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="r"></param>
+        /// <param name="g"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
         [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean iluScaleColours(ILfloat r, ILfloat g, ILfloat b);
 
@@ -521,6 +645,11 @@ namespace Tao.DevIl
         public static extern ILboolean iluSwapColours();
 
         // ILAPI ILboolean      ILAPIENTRY iluWave(ILfloat Angle);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Angle"></param>
+        /// <returns></returns>
         [DllImport(ILU_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean iluWave(ILfloat Angle);
         
@@ -551,25 +680,79 @@ namespace Tao.DevIl
     // 	ILuint  NumMips;    // number of mipmaps
     // 	ILuint  NumLayers;  // number of layers
     // } ILinfo;
+    /// <summary>
+    /// 
+    /// </summary>
     [StructLayout(LayoutKind.Sequential, Pack = 4)]
     public struct ILinfo
     {
+        /// <summary>
+        /// /\
+        /// </summary>
         ILuint Id;         // the image's id
+        /// <summary>
+        /// 
+        /// </summary>
         ILubyte[] Data;      // the image's data
+        /// <summary>
+        /// 
+        /// </summary>
         ILuint Width;      // the image's width
+        /// <summary>
+        /// 
+        /// </summary>
         ILuint Height;     // the image's height
+        /// <summary>
+        /// 
+        /// </summary>
         ILuint Depth;      // the image's depth
+        /// <summary>
+        /// 
+        /// </summary>
         ILubyte Bpp;        // bytes per pixel (not bits) of the image
+        /// <summary>
+        /// 
+        /// </summary>
         ILuint SizeOfData; // the total size of the data (in bytes)
+        /// <summary>
+        /// 
+        /// </summary>
         ILenum Format;     // image format (in IL enum style)
+        /// <summary>
+        /// 
+        /// </summary>
         ILenum Type;       // image type (in IL enum style)
+        /// <summary>
+        /// 
+        /// </summary>
         ILenum Origin;     // origin of the image
+        /// <summary>
+        /// 
+        /// </summary>
         ILubyte[] Palette;   // the image's palette
+        /// <summary>
+        /// 
+        /// </summary>
         ILenum PalType;    // palette type
+        /// <summary>
+        /// 
+        /// </summary>
         ILuint PalSize;    // palette size
+        /// <summary>
+        /// 
+        /// </summary>
         ILenum CubeFlags;  // flags for what cube map sides are present
+        /// <summary>
+        /// 
+        /// </summary>
         ILuint NumNext;    // number of images following
+        /// <summary>
+        /// 
+        /// </summary>
         ILuint NumMips;    // number of mipmaps
+        /// <summary>
+        /// 
+        /// </summary>
         ILuint NumLayers;  // number of layers
     };
     #endregion ILinfo
@@ -579,10 +762,20 @@ namespace Tao.DevIl
     // {
     // 	ILfloat x, y;
     // } ILpointf;
+    /// <summary>
+    /// 
+    /// </summary>
     [StructLayout(LayoutKind.Sequential, Pack = 4)]
     public struct ILpointf
     {
-        public ILfloat x, y;
+        /// <summary>
+        /// 
+        /// </summary>
+        public ILfloat x;
+        /// <summary>
+        /// 
+        /// </summary>
+        public ILfloat y;
     };
     #endregion ILpointf
 
@@ -591,10 +784,20 @@ namespace Tao.DevIl
     // {
     // 	ILint x, y;
     // } ILpointi;
+    /// <summary>
+    /// 
+    /// </summary>
     [StructLayout(LayoutKind.Sequential, Pack = 4)]
     public struct ILpointi
     {
-        public ILint x, y;
+        /// <summary>
+        /// 
+        /// </summary>
+        public ILint x;
+        /// <summary>
+        /// 
+        /// </summary>
+        public ILint y;
     };
     #endregion ILpointi
 

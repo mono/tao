@@ -100,30 +100,93 @@ namespace Tao.DevIl
 
         #region Public Constants
 
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_FALSE = 0;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_TRUE = 1;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_COLOUR_INDEX = 0x1900;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_COLOR_INDEX = 0x1900;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_RGB = 0x1907;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_RGBA = 0x1908;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_BGR = 0x80E0;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_BGRA = 0x80E1;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_LUMINANCE = 0x1909;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_LUMINANCE_ALPHA = 0x190A;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_BYTE = 0x1400;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_UNSIGNED_BYTE = 0x1401;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_SHORT = 0x1402;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_UNSIGNED_SHORT = 0x1403;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_INT = 0x1404;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_UNSIGNED_INT = 0x1405;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_FLOAT = 0x1406;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_DOUBLE = 0x140A;
         /// <summary>
         /// Describes the OpenIL vendor and should be used only with ilGetString
         /// </summary>
         public const int IL_VENDOR = 0x1F00;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_LOAD_EXT = 0x1F01;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_SAVE_EXT = 0x1F02;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_VERSION_1_6_8 = 1;
         /// <summary>
         /// Used to retrive a string describing the current OpenIL version.
@@ -141,21 +204,57 @@ namespace Tao.DevIl
         /// d to truecolour images (set by <see cref="ilEnable"/>, <see cref="ilDisable"/>).
         /// </summary>
         public const int IL_PAL_BIT = 0x00000004;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_FORMAT_BIT = 0x00000008;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_TYPE_BIT = 0x00000010;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_COMPRESS_BIT = 0x00000020;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_LOADFAIL_BIT = 0x00000040;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_FORMAT_SPECIFIC_BIT = 0x00000080;
         /// <summary>
         /// Preserves all OpenIL states and attributes.
         /// </summary>
         public const int IL_ALL_ATTRIB_BITS = 0x000FFFFF;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_PAL_NONE = 0x0400;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_PAL_RGB24 = 0x0401;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_PAL_RGB32 = 0x0402;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_PAL_RGBA32 = 0x0403;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_PAL_BGR24 = 0x0404;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_PAL_BGR32 = 0x0405;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_PAL_BGRA32 = 0x0406;
         /// <summary>
         /// Tells OpenIL to try to determine the type of image present in FileName, File or Lump.
@@ -185,7 +284,13 @@ namespace Tao.DevIl
         /// Jpeg.
         /// </summary>
         public const int IL_JPG = 0x0425;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_JFIF = 0x0425;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_LBM = 0x0426;
         /// <summary>
         /// Kodak PhotoCD image.
@@ -243,6 +348,9 @@ namespace Tao.DevIl
         /// Load a Multiple Network Graphics (.mng).
         /// </summary>
         public const int IL_MNG = 0x0435;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_JNG = 0x0435;
         /// <summary>
         /// Graphics Interchange Format file.
@@ -260,6 +368,9 @@ namespace Tao.DevIl
         /// PhotoShop (.psd) file.
         /// </summary>
         public const int IL_PSD = 0x0439;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_EXIF = 0x043A;
         /// <summary>
         /// Paint Shop Pro file.
@@ -353,9 +464,21 @@ namespace Tao.DevIl
         /// During a conversion destination format and/or dest type was an invalid identifier. In the function documentation there should be a more specific descriptionanation.
         /// </summary>
         public const int IL_INVALID_CONVERSION = 0x0510;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_BAD_DIMENSIONS = 0x0511;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_FILE_READ_ERROR = 0x0512;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_FILE_WRITE_ERROR = 0x0512;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_LIB_GIF_ERROR = 0x05E1;
         /// <summary>
         /// An error occurred in the libjpeg library.
@@ -365,7 +488,13 @@ namespace Tao.DevIl
         /// An error occurred in the libpng library.
         /// </summary>
         public const int IL_LIB_PNG_ERROR = 0x05E3;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_LIB_TIFF_ERROR = 0x05E4;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_LIB_MNG_ERROR = 0x05E5;
         /// <summary>
         /// No function sets this yet, but it is possible (not probable) it may be used in the future.
@@ -375,7 +504,13 @@ namespace Tao.DevIl
         /// nabled, the origin is specified at an absolute position, and all images loaded or saved adhere to this set origin. For more information, check out ilOriginFunc.
         /// </summary>
         public const int IL_ORIGIN_SET = 0x0600;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_ORIGIN_LOWER_LEFT = 0x0601;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_ORIGIN_UPPER_LEFT = 0x0602;
         /// <summary>
         /// Returns the current origin position.
@@ -385,6 +520,9 @@ namespace Tao.DevIl
         /// Returns whether all images loaded are converted to a specific format.
         /// </summary>
         public const int IL_FORMAT_SET = 0x0610;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_FORMAT_MODE = 0x0611;
         /// <summary>
         /// Returns whether all images loaded are converted to a specific type.
@@ -394,6 +532,10 @@ namespace Tao.DevIl
         /// Returns the type images are converted to upon loading.
         /// </summary>
         public const int IL_TYPE_MODE = 0x0613;
+
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_FILE_OVERWRITE = 0x0620;
         /// <summary>
         /// Returns whether file overwriting when saving is enabled.
@@ -403,6 +545,9 @@ namespace Tao.DevIl
         /// d images to their base types, e.g. converting to a bgra image.
         /// </summary>
         public const int IL_CONV_PAL = 0x0630;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_DEFAULT_ON_FAIL = 0x0632;
         /// <summary>
         /// Returns whether OpenIL uses a key colour (not used yet).
@@ -412,12 +557,33 @@ namespace Tao.DevIl
         /// Returns whether OpenIL uses a key colour (not used yet).
         /// </summary>
         public const int IL_USE_KEY_COLOR = 0x0635;
+        /// <summary>
+        /// /
+        /// </summary>
         public const int IL_SAVE_INTERLACED = 0x0639;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_INTERLACE_MODE = 0x063A;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_QUANTIZATION_MODE = 0x0640;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_WU_QUANT = 0x0641;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_NEU_QUANT = 0x0642;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_NEU_QUANT_SAMPLE = 0x0643;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_MAX_QUANT_INDEXS = 0x0644;
         /// <summary>
         /// Makes the target use a faster but more memory-intensive algorithm.
@@ -447,51 +613,190 @@ namespace Tao.DevIl
         /// Controls whether compression is used when saving images.
         /// </summary>
         public const int IL_COMPRESSION_HINT = 0x0668;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_SUB_NEXT = 0x0680;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_SUB_MIPMAP = 0x0681;
+
+        /// <summary>
+        /// /
+        /// </summary>
         public const int IL_SUB_LAYER = 0x0682;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_COMPRESS_MODE = 0x0700;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_COMPRESS_NONE = 0x0701;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_COMPRESS_RLE = 0x0702;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_COMPRESS_LZO = 0x0703;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_COMPRESS_ZLIB = 0x0704;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_TGA_CREATE_STAMP = 0x0710;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_JPG_QUALITY = 0x0711;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_PNG_INTERLACE = 0x0712;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_TGA_RLE = 0x0713;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_BMP_RLE = 0x0714;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_SGI_RLE = 0x0715;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_TGA_ID_STRING = 0x0717;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_TGA_AUTHNAME_STRING = 0x0718;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_TGA_AUTHCOMMENT_STRING = 0x0719;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_PNG_AUTHNAME_STRING = 0x071A;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_PNG_TITLE_STRING = 0x071B;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_PNG_DESCRIPTION_STRING = 0x071C;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_TIF_DESCRIPTION_STRING = 0x071D;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_TIF_HOSTCOMPUTER_STRING = 0x071E;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_TIF_DOCUMENTNAME_STRING = 0x071F;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_TIF_AUTHNAME_STRING = 0x0720;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_JPG_SAVE_FORMAT = 0x0721;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_CHEAD_HEADER_STRING = 0x0722;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_PCD_PICNUM = 0x0723;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_PNG_ALPHA_INDEX = 0x0724;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_DXTC_FORMAT = 0x0705;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_DXT1 = 0x0706;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_DXT2 = 0x0707;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_DXT3 = 0x0708;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_DXT4 = 0x0709;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_DXT5 = 0x070A;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_DXT_NO_COMP = 0x070B;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_KEEP_DXTC_DATA = 0x070C;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_DXTC_DATA_FORMAT = 0x070D;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_3DC = 0x070E;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_RXGB = 0x070F;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_ATI1N = 0x0710;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_CUBEMAP_POSITIVEX = 0x00000400;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_CUBEMAP_NEGATIVEX = 0x00000800;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_CUBEMAP_POSITIVEY = 0x00001000;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_CUBEMAP_NEGATIVEY = 0x00002000;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_CUBEMAP_POSITIVEZ = 0x00004000;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_CUBEMAP_NEGATIVEZ = 0x00008000;
         /// <summary>
         /// Returns the version number of the shared library. This can be checked against the IL_VERSION #define.
@@ -505,8 +810,17 @@ namespace Tao.DevIl
         /// s height.
         /// </summary>
         public const int IL_IMAGE_HEIGHT = 0x0DE5;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_IMAGE_DEPTH = 0x0DE6;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_IMAGE_SIZE_OF_DATA = 0x0DE7;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_IMAGE_BPP = 0x0DE8;
         /// <summary>
         /// s data.
@@ -528,6 +842,9 @@ namespace Tao.DevIl
         /// Returns the palette type of the current image.
         /// </summary>
         public const int IL_PALETTE_TYPE = 0x0DEC;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_PALETTE_SIZE = 0x0DED;
         /// <summary>
         /// Returns the bytes per pixel of the current images palette.
@@ -537,6 +854,9 @@ namespace Tao.DevIl
         /// Returns the number of colours of the current images palette.
         /// </summary>
         public const int IL_PALETTE_NUM_COLS = 0x0DEF;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_PALETTE_BASE_TYPE = 0x0DF0;
         /// <summary>
         /// Returns the number of images in the current image animation chain.
@@ -546,6 +866,9 @@ namespace Tao.DevIl
         /// Returns the number of mipmaps of the current image.
         /// </summary>
         public const int IL_NUM_MIPMAPS = 0x0DF2;
+        /// <summary>
+        /// /
+        /// </summary>
         public const int IL_NUM_LAYERS = 0x0DF3;
         /// <summary>
         /// Returns the current image number.
@@ -563,17 +886,53 @@ namespace Tao.DevIl
         /// Returns the current bound image name.
         /// </summary>
         public const int IL_CUR_IMAGE = 0x0DF7;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_IMAGE_DURATION = 0x0DF8;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_IMAGE_PLANESIZE = 0x0DF9;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_IMAGE_BPC = 0x0DFA;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_IMAGE_OFFX = 0x0DFB;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_IMAGE_OFFY = 0x0DFC;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_IMAGE_CUBEFLAGS = 0x0DFD;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_IMAGE_ORIGIN = 0x0DFE;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_IMAGE_CHANNELS = 0x0DFF;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_SEEK_SET = 0;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_SEEK_CUR = 1;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_SEEK_END = 2;
+        /// <summary>
+        /// 
+        /// </summary>
         public const int IL_EOF = -1;
 
         #endregion Public Constants
@@ -582,60 +941,152 @@ namespace Tao.DevIl
 
         // Callback functions for file reading
         //typedef ILvoid    (ILAPIENTRY *fCloseRProc)(ILHANDLE);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="handle"></param>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void fCloseRProc(ILHANDLE handle);
         //typedef ILboolean (ILAPIENTRY *fEofProc)   (ILHANDLE);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="handle"></param>
+        /// <returns></returns>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate ILboolean fEofProc(ILHANDLE handle);
         //typedef ILint     (ILAPIENTRY *fGetcProc)  (ILHANDLE);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="handle"></param>
+        /// <returns></returns>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate ILint fGetcProc(ILHANDLE handle);
         //typedef ILHANDLE  (ILAPIENTRY *fOpenRProc) (const ILstring);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate ILHANDLE fOpenRProc(ILstring str);
         //typedef ILint     (ILAPIENTRY *fReadProc)  (void*, ILuint, ILuint, ILHANDLE);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ptr"></param>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="handle"></param>
+        /// <returns></returns>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate ILint fReadProc(IntPtr ptr, ILuint a, ILuint b, ILHANDLE handle);
         //typedef ILint     (ILAPIENTRY *fSeekRProc) (ILHANDLE, ILint, ILint);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="handle"></param>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate ILint fSeekRProc(ILHANDLE handle, ILint a, ILint b);
         //typedef ILint     (ILAPIENTRY *fTellRProc) (ILHANDLE);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="handle"></param>
+        /// <returns></returns>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate ILint fTellRProc(ILHANDLE handle);
 
         // Callback functions for file writing
         //typedef ILvoid   (ILAPIENTRY *fCloseWProc)(ILHANDLE);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="handle"></param>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void fCloseWProc(ILHANDLE handle);
         //typedef ILHANDLE (ILAPIENTRY *fOpenWProc) (const ILstring);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate ILHANDLE fOpenWProc(ILstring str);
         //typedef ILint    (ILAPIENTRY *fPutcProc)  (ILubyte, ILHANDLE);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="byt"></param>
+        /// <param name="handle"></param>
+        /// <returns></returns>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate ILint fPutcProc(ILubyte byt, ILHANDLE handle);
         //typedef ILint    (ILAPIENTRY *fSeekWProc) (ILHANDLE, ILint, ILint);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="handle"></param>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate ILint fSeekWProc(ILHANDLE handle, ILint a, ILint b);
         //typedef ILint    (ILAPIENTRY *fTellWProc) (ILHANDLE);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="handle"></param>
+        /// <returns></returns>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate ILint fTellWProc(ILHANDLE handle);
         //typedef ILint    (ILAPIENTRY *fWriteProc) (const void*, ILuint, ILuint, ILHANDLE);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ptr"></param>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="handle"></param>
+        /// <returns></returns>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate ILint fWriteProc(IntPtr ptr, ILuint a, ILuint b, ILHANDLE handle);
 
         // Callback functions for allocation and deallocation
         //typedef ILvoid* (ILAPIENTRY *mAlloc)(ILuint);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a"></param>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void mAlloc(ILuint a);
         //typedef ILvoid  (ILAPIENTRY *mFree) (ILvoid*);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ptr"></param>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate void mFree(IntPtr ptr);
 
         // Registered format procedures
         //typedef ILenum (ILAPIENTRY *IL_LOADPROC)(const ILstring);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate ILenum IL_LOADPROC(ILstring str);
         //typedef ILenum (ILAPIENTRY *IL_SAVEPROC)(const ILstring);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="str"></param>
+        /// <returns></returns>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
         public delegate ILenum IL_SAVEPROC(ILstring str);
 
@@ -672,6 +1123,11 @@ namespace Tao.DevIl
         public static extern ILboolean ilActiveMipmap(ILuint Number);
 
         // ILAPI ILboolean ILAPIENTRY ilApplyPal(const ILstring FileName);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="FileName"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilApplyPal(ILstring FileName);
 
@@ -694,6 +1150,20 @@ namespace Tao.DevIl
         public static extern void ilBindImage(ILuint Image);
 
         // ILAPI ILboolean ILAPIENTRY ilBlit(ILuint Source, ILint DestX, ILint DestY, ILint DestZ, ILuint SrcX, ILuint SrcY, ILuint SrcZ, ILuint Width, ILuint Height, ILuint Depth);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Source"></param>
+        /// <param name="DestX"></param>
+        /// <param name="DestY"></param>
+        /// <param name="DestZ"></param>
+        /// <param name="SrcX"></param>
+        /// <param name="SrcY"></param>
+        /// <param name="SrcZ"></param>
+        /// <param name="Width"></param>
+        /// <param name="Height"></param>
+        /// <param name="Depth"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilBlit(ILuint Source, ILint DestX, ILint DestY, ILint DestZ, ILuint SrcX, ILuint SrcY, ILuint SrcZ, ILuint Width, ILuint Height, ILuint Depth);
 
@@ -725,6 +1195,11 @@ namespace Tao.DevIl
         public static extern ILuint ilCloneCurImage();
 
         // ILAPI ILboolean ILAPIENTRY ilCompressFunc(ILenum Mode);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mode"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilCompressFunc(ILenum Mode);
 
@@ -774,6 +1249,12 @@ namespace Tao.DevIl
         public static extern ILuint ilCopyPixels(ILuint XOff, ILuint YOff, ILuint ZOff, ILuint Width, ILuint Height, ILuint Depth, ILenum Format, ILenum Type, IntPtr Data);
 
         // ILAPI ILuint    ILAPIENTRY ilCreateSubImage(ILenum Type, ILuint Num);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Num"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILuint ilCreateSubImage(ILenum Type, ILuint Num);
 
@@ -786,6 +1267,10 @@ namespace Tao.DevIl
         public static extern ILboolean ilDefaultImage();
 
         // ILAPI ILvoid    ILAPIENTRY ilDeleteImage(const ILuint Num);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Num"></param>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilDeleteImage(ILuint Num);
 
@@ -836,6 +1321,11 @@ namespace Tao.DevIl
         public static extern ILboolean ilEnable(ILenum Mode);
 
         // ILAPI ILboolean ILAPIENTRY ilFormatFunc(ILenum Mode);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mode"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilFormatFunc(ILenum Mode);
 
@@ -858,10 +1348,19 @@ namespace Tao.DevIl
         public static extern void ilGenImages(ILsizei Num, [Out] ILuint[] Images);
 
         // ILAPI ILint		ILAPIENTRY ilGenImage();
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILint ilGenImage();
 
         // ILAPI ILubyte*  ILAPIENTRY ilGetAlpha(ILenum Type);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr ilGetAlpha(ILenum Type);
 
@@ -946,6 +1445,13 @@ namespace Tao.DevIl
         public static extern IntPtr ilGetData();
 
         // ILAPI ILuint    ILAPIENTRY ilGetDXTCData(ILvoid *Buffer, ILuint BufferSize, ILenum DXTCFormat);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Buffer"></param>
+        /// <param name="BufferSize"></param>
+        /// <param name="DXTCFormat"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILuint ilGetDXTCData(IntPtr Buffer, ILuint BufferSize, ILenum DXTCFormat);
 
@@ -985,6 +1491,10 @@ namespace Tao.DevIl
         public static extern void ilGetIntegerv(ILenum Mode, [Out] ILint[] Param);
 
         // ILAPI ILuint    ILAPIENTRY ilGetLumpPos(ILvoid);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILuint ilGetLumpPos();
 
@@ -1049,22 +1559,55 @@ namespace Tao.DevIl
         public static extern ILboolean ilIsImage(ILuint Image);
 
         // ILAPI ILboolean ILAPIENTRY ilIsValid(ILenum Type, ILstring FileName);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="FileName"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilIsValid(ILenum Type, ILstring FileName);
 
         // ILAPI ILboolean ILAPIENTRY ilIsValidF(ILenum Type, ILHANDLE File);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="File"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilIsValidF(ILenum Type, ILHANDLE File);
 
         // ILAPI ILboolean ILAPIENTRY ilIsValidL(ILenum Type, ILvoid *Lump, ILuint Size);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Lump"></param>
+        /// <param name="Size"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilIsValidL(ILenum Type, IntPtr Lump, ILuint Size);
 
         // ILAPI ILboolean ILAPIENTRY ilIsValidL(ILenum Type, ILvoid *Lump, ILuint Size);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Type"></param>
+        /// <param name="Lump"></param>
+        /// <param name="Size"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilIsValidL(ILenum Type, byte[] Lump, ILuint Size);
 
         // ILAPI ILvoid    ILAPIENTRY ilKeyColour(ILclampf Red, ILclampf Green, ILclampf Blue, ILclampf Alpha);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Red"></param>
+        /// <param name="Green"></param>
+        /// <param name="Blue"></param>
+        /// <param name="Alpha"></param>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilKeyColour(ILclampf Red, ILclampf Green, ILclampf Blue, ILclampf Alpha);
 
@@ -1129,6 +1672,10 @@ namespace Tao.DevIl
         public static extern ILboolean ilLoadPal(ILstring FileName);
 
         // ILAPI ILvoid    ILAPIENTRY ilModAlpha( ILdouble AlphaValue );
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="AlphaValue"></param>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilModAlpha(ILdouble AlphaValue);
 
@@ -1259,6 +1806,9 @@ namespace Tao.DevIl
         public static extern ILboolean ilRemoveSave(ILstring Ext);
 
         // ILAPI ILvoid    ILAPIENTRY ilResetMemory(ILvoid);
+        /// <summary>
+        /// 
+        /// </summary>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilResetMemory();
 
@@ -1337,6 +1887,10 @@ namespace Tao.DevIl
         public static extern ILboolean ilSavePal(ILstring FileName);
 
         // ILAPI ILvoid    ILAPIENTRY ilSetAlpha( ILdouble AlphaValue );
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="AlphaValue"></param>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilSetAlpha(ILdouble AlphaValue);
 
@@ -1429,6 +1983,9 @@ namespace Tao.DevIl
         public static extern void ilSetWrite(fOpenWProc Open, fCloseWProc Close, fPutcProc Putc, fSeekWProc Seek, fTellWProc Tell, fWriteProc Write);
 
         // ILAPI ILvoid    ILAPIENTRY ilShutDown(ILvoid);
+        /// <summary>
+        /// 
+        /// </summary>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilShutDown();
 
@@ -1448,38 +2005,101 @@ namespace Tao.DevIl
         public static extern ILboolean ilTexImage(ILuint Width, ILuint Height, ILuint Depth, ILubyte numChannels, ILenum Format, ILenum Type, IntPtr Data);
 
         // ILAPI ILenum    ILAPIENTRY ilTypeFromExt(const ILstring FileName);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="FileName"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILenum ilTypeFromExt(ILstring FileName);
 
         // ILAPI ILboolean ILAPIENTRY ilTypeFunc(ILenum Mode);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mode"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilTypeFunc(ILenum Mode);
 
         // ILAPI ILboolean ILAPIENTRY ilLoadData(const ILstring FileName, ILuint Width, ILuint Height, ILuint Depth, ILubyte Bpp);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="FileName"></param>
+        /// <param name="Width"></param>
+        /// <param name="Height"></param>
+        /// <param name="Depth"></param>
+        /// <param name="Bpp"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilLoadData(ILstring FileName, ILuint Width, ILuint Height, ILuint Depth, ILubyte Bpp);
 
         // ILAPI ILboolean ILAPIENTRY ilLoadDataF(ILHANDLE File, ILuint Width, ILuint Height, ILuint Depth, ILubyte Bpp);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="File"></param>
+        /// <param name="Width"></param>
+        /// <param name="Height"></param>
+        /// <param name="Depth"></param>
+        /// <param name="Bpp"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilLoadDataF(ILHANDLE File, ILuint Width, ILuint Height, ILuint Depth, ILubyte Bpp);
 
         // ILAPI ILboolean ILAPIENTRY ilLoadDataL(ILvoid *Lump, ILuint Size, ILuint Width, ILuint Height, ILuint Depth, ILubyte Bpp);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Lump"></param>
+        /// <param name="Size"></param>
+        /// <param name="Width"></param>
+        /// <param name="Height"></param>
+        /// <param name="Depth"></param>
+        /// <param name="Bpp"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilLoadDataL(IntPtr Lump, ILuint Size, ILuint Width, ILuint Height, ILuint Depth, ILubyte Bpp);
 
         // ILAPI ILboolean ILAPIENTRY ilLoadDataL(ILvoid *Lump, ILuint Size, ILuint Width, ILuint Height, ILuint Depth, ILubyte Bpp);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Lump"></param>
+        /// <param name="Size"></param>
+        /// <param name="Width"></param>
+        /// <param name="Height"></param>
+        /// <param name="Depth"></param>
+        /// <param name="Bpp"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilLoadDataL(byte[] Lump, ILuint Size, ILuint Width, ILuint Height, ILuint Depth, ILubyte Bpp);
 
         // ILAPI ILboolean ILAPIENTRY ilSaveData(const ILstring FileName);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="FileName"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilSaveData(ILstring FileName);
 
         // ILAPI ILboolean ILAPIENTRY ilLoadFromJpegStruct(ILvoid* JpegDecompressorPtr);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="JpegDecompressorPtr"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilLoadFromJpegStruct(IntPtr JpegDecompressorPtr);
 
         // ILAPI ILboolean ILAPIENTRY ilSaveFromJpegStruct(ILvoid* JpegCompressorPtr);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="JpegCompressorPtr"></param>
+        /// <returns></returns>
         [DllImport(DEVIL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilSaveFromJpegStruct(IntPtr JpegCompressorPtr);
 

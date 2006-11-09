@@ -103,14 +103,29 @@ namespace Tao.DevIl
         #region Public Constants
 
         // #define ILUT_VERSION_1_6_8 1
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_VERSION_1_6_8 = 1;
         // #define ILUT_VERSION       168
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_VERSION = 168;
         // #define ILUT_OPENGL_BIT      0x00000001
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_OPENGL_BIT = 0x00000001;
         // #define ILUT_D3D_BIT         0x00000002
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_D3D_BIT = 0x00000002;
         // #define ILUT_ALL_ATTRIB_BITS 0x000FFFFF
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_ALL_ATTRIB_BITS = 0x000FFFFF;
         /// <summary>
         /// An unacceptable enumerated value was passed to a function.
@@ -153,6 +168,9 @@ namespace Tao.DevIl
         // #define ILUT_STACK_UNDERFLOW     0x050F
         public const int ILUT_STACK_UNDERFLOW = 0x050F;
         // #define ILUT_BAD_DIMENSIONS      0x0511
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_BAD_DIMENSIONS = 0x0511;
         /// <summary>
         /// A type is valid but not supported in the current build.
@@ -170,32 +188,74 @@ namespace Tao.DevIl
         // #define ILUT_OPENGL_CONV          0x0610
         public const int ILUT_OPENGL_CONV = 0x0610;
         // #define ILUT_D3D_MIPLEVELS        0x0620
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_D3D_MIPLEVELS = 0x0620;
         // #define ILUT_MAXTEX_WIDTH         0x0630
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_MAXTEX_WIDTH = 0x0630;
         // #define ILUT_MAXTEX_HEIGHT        0x0631
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_MAXTEX_HEIGHT = 0x0631;
         // #define ILUT_MAXTEX_DEPTH         0x0632
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_MAXTEX_DEPTH = 0x0632;
         // #define ILUT_GL_USE_S3TC          0x0634
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_GL_USE_S3TC = 0x0634;
         // #define ILUT_D3D_USE_DXTC         0x0634
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_D3D_USE_DXTC = 0x0634;
         // #define ILUT_GL_GEN_S3TC          0x0635
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_GL_GEN_S3TC = 0x0635;
         // #define ILUT_D3D_GEN_DXTC         0x0635
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_D3D_GEN_DXTC = 0x0635;
         // #define ILUT_S3TC_FORMAT          0x0705
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_S3TC_FORMAT = 0x0705;
         // #define ILUT_DXTC_FORMAT          0x0705
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_DXTC_FORMAT = 0x0705;
         // #define ILUT_D3D_POOL             0x0706
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_D3D_POOL = 0x0706;
         // #define ILUT_D3D_ALPHA_KEY_COLOR  0x0707
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_D3D_ALPHA_KEY_COLOR = 0x0707;
         // #define ILUT_D3D_ALPHA_KEY_COLOUR 0x0707
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_D3D_ALPHA_KEY_COLOUR = 0x0707;
         // #define ILUT_GL_AUTODETECT_TEXTURE_TARGET 0x0807
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_GL_AUTODETECT_TEXTURE_TARGET = 0x0807;
         /// <summary>
         /// Returns the version number of the shared library. This can be checked against the ILUT_VERSION #define
@@ -203,16 +263,34 @@ namespace Tao.DevIl
         // #define ILUT_VERSION_NUM IL_VERSION_NUM
         public const int ILUT_VERSION_NUM = Il.IL_VERSION_NUM;
         // #define ILUT_VENDOR      IL_VENDOR
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_VENDOR = Il.IL_VENDOR;
         // #define ILUT_OPENGL    0
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_OPENGL = 0;
         // #define ILUT_ALLEGRO   1
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_ALLEGRO = 1;
         // #define ILUT_WIN32     2
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_WIN32 = 2;
         // #define ILUT_DIRECT3D8 3
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_DIRECT3D8 = 3;
         // #define	ILUT_DIRECT3D9 4
+        /// <summary>
+        /// 
+        /// </summary>
         public const int ILUT_DIRECT3D9 = 4;
 
         #endregion Public Constants
@@ -220,10 +298,20 @@ namespace Tao.DevIl
         #region Externs
         
         // ILAPI ILboolean		ILAPIENTRY ilutDisable(ILenum Mode);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mode"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutDisable(ILenum Mode);
 
         // ILAPI ILboolean		ILAPIENTRY ilutEnable(ILenum Mode);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mode"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutEnable(ILenum Mode);
 
@@ -264,10 +352,20 @@ namespace Tao.DevIl
         public static extern ILint ilutGetInteger(ILenum Mode);
 
         // ILAPI ILvoid		ILAPIENTRY ilutGetIntegerv(ILenum Mode, ILint *Param);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mode"></param>
+        /// <param name="Param"></param>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilutGetIntegerv(ILenum Mode, out int Param);
 
         // ILAPI ILstring		ILAPIENTRY ilutGetString(ILenum StringName);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="StringName"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILstring ilutGetString(ILenum StringName);
 
@@ -303,15 +401,30 @@ namespace Tao.DevIl
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilutPopAttrib();
 
+        
         // ILAPI ILvoid		ILAPIENTRY ilutPushAttrib(ILuint Bits);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Bits"></param>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilutPushAttrib(ILenum Bits);
 
         // ILAPI ILvoid		ILAPIENTRY ilutSetInteger(ILenum Mode, ILint Param);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Mode"></param>
+        /// <param name="Param"></param>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilutSetInteger(ILenum Mode, int Param);
 
         // ILAPI ILboolean	ILAPIENTRY ilutRenderer(ILenum Renderer);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Renderer"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutRenderer(ILenum Renderer);
 
@@ -365,10 +478,21 @@ namespace Tao.DevIl
         public static extern ILboolean ilutGLScreenie();
 
         // 	ILAPI ILboolean	ILAPIENTRY ilutGLSaveImage(ILstring FileName, GLuint TexID);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="FileName"></param>
+        /// <param name="TexID"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutGLSaveImage(ILstring FileName, GLuint TexID);
 
         // 	ILAPI ILboolean	ILAPIENTRY ilutGLSetTex(GLuint TexID);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="TexID"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutGLSetTex(GLuint TexID);
 
@@ -382,30 +506,66 @@ namespace Tao.DevIl
         public static extern ILboolean ilutGLTexImage(GLuint Level);
 
         // 	ILAPI ILboolean ILAPIENTRY ilutGLSubTex(GLuint TexID, ILuint XOff, ILuint YOff);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="TexID"></param>
+        /// <param name="XOff"></param>
+        /// <param name="YOff"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutGLSubTex(GLuint TexID, ILuint XOff, ILuint YOff);
 
         // 	ILAPI BITMAP* ILAPIENTRY ilutAllegLoadImage(Lstring FileName);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="FileName"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr ilutAllegLoadImage(Lstring FileName);
 
         // 	ILAPI BITMAP* ILAPIENTRY ilutConvertToAlleg(PALETTE Pal);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Pal"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr ilutConvertToAlleg(IntPtr Pal);
 
         // 	ILAPI struct SDL_Surface* ILAPIENTRY ilutConvertToSDLSurface(unsigned int flags);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="flags"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr ilutConvertToSDLSurface(ILenum flags);
 
         // 	ILAPI struct SDL_Surface* ILAPIENTRY ilutSDLSurfaceLoadImage(ILstring FileName);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="FileName"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr ilutSDLSurfaceLoadImage(ILstring FileName);
 
         // 	ILAPI ILboolean    ILAPIENTRY ilutSDLSurfaceFromBitmap(struct SDL_Surface *Bitmap);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Bitmap"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutSDLSurfaceFromBitmap(IntPtr Bitmap);
 
         // 	ILAPI BBitmap ILAPIENTRY ilutConvertToBBitmap(ILvoid);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr ilutConvertToBBitmap();
 
@@ -419,14 +579,28 @@ namespace Tao.DevIl
         public static extern IntPtr ilutConvertToHBitmap(IntPtr hDC);
 
         // 	ILAPI HBITMAP	ILAPIENTRY ilutConvertSliceToHBitmap(HDC hDC, ILuint slice);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="hDC"></param>
+        /// <param name="slice"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr ilutConvertSliceToHBitmap(IntPtr hDC, ILenum slice);
 
         // 	ILAPI ILvoid	ILAPIENTRY ilutFreePaddedData(ILubyte *Data);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Data"></param>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilutFreePaddedData(ILubyte[] Data);
 
         // 	ILAPI ILvoid	ILAPIENTRY ilutFreePaddedData(ILubyte *Data);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Data"></param>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void ilutFreePaddedData(IntPtr Data);
 
@@ -511,10 +685,24 @@ namespace Tao.DevIl
         public static extern IntPtr ilutWinLoadImage(ILstring FileName, IntPtr hDC);
 
         // 	ILAPI ILboolean	ILAPIENTRY ilutWinLoadUrl(ILstring Url);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Url"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutWinLoadUrl(ILstring Url);
 
         // 	ILAPI ILboolean ILAPIENTRY ilutWinPrint(ILuint XPos, ILuint YPos, ILuint Width, ILuint Height, HDC hDC);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="XPos"></param>
+        /// <param name="YPos"></param>
+        /// <param name="Width"></param>
+        /// <param name="Height"></param>
+        /// <param name="hDC"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutWinPrint(ILuint XPos, ILuint YPos, ILuint Width, ILuint Height, IntPtr hDC);
 
@@ -530,6 +718,11 @@ namespace Tao.DevIl
 
         // #endif//ILUT_USE_WIN32
         // 	ILAPI struct IDirect3DTexture8* ILAPIENTRY ilutD3D8Texture(struct IDirect3DDevice8 *Device);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr ilutD3D8Texture(IntPtr Device);
 
@@ -543,6 +736,13 @@ namespace Tao.DevIl
         public static extern IntPtr ilutD3D8VolumeTexture(IntPtr Device);
 
         // 	ILAPI ILboolean	ILAPIENTRY ilutD3D8TexFromFile(struct IDirect3DDevice8 *Device, char *FileName, struct IDirect3DTexture8 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="FileName"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D8TexFromFile(IntPtr Device, string FileName, IntPtr Texture);
 
@@ -628,90 +828,247 @@ namespace Tao.DevIl
         public static extern ILboolean ilutD3D8VolTexFromFileHandle(IntPtr Device, ILHANDLE File, IntPtr Texture);
 
         // 	ILAPI ILboolean ILAPIENTRY ilutD3D8TexFromResource(struct IDirect3DDevice8 *Device, HMODULE SrcModule, char *SrcResource, struct IDirect3DTexture8 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="SrcModule"></param>
+        /// <param name="SrcResource"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D8TexFromResource(IntPtr Device, IntPtr SrcModule, string SrcResource, IntPtr Texture);
 
         // 	ILAPI ILboolean ILAPIENTRY ilutD3D8VolTexFromResource(struct IDirect3DDevice8 *Device, HMODULE SrcModule, char *SrcResource, struct IDirect3DVolumeTexture8 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="SrcModule"></param>
+        /// <param name="SrcResource"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D8VolTexFromResource(IntPtr Device, IntPtr SrcModule, string SrcResource, IntPtr Texture);
 
         // 	ILAPI ILboolean ILAPIENTRY ilutD3D8LoadSurface(struct IDirect3DDevice8 *Device, struct IDirect3DSurface8 *Surface);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="Surface"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D8LoadSurface(IntPtr Device, IntPtr Surface);
 
         // 	ILAPI struct IDirect3DTexture9*       ILAPIENTRY ilutD3D9Texture       (struct IDirect3DDevice9* Device);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr ilutD3D9Texture(IntPtr Device);
 
         // 	ILAPI struct IDirect3DVolumeTexture9* ILAPIENTRY ilutD3D9VolumeTexture (struct IDirect3DDevice9* Device);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr ilutD3D9VolumeTexture(IntPtr Device);
 
         //     ILAPI struct IDirect3DCubeTexture9*       ILAPIENTRY ilutD3D9CubeTexture (struct IDirect3DDevice9* Device);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr ilutD3D9CubeTexture(IntPtr Device);
 
         //     ILAPI ILboolean ILAPIENTRY ilutD3D9CubeTexFromFile(struct IDirect3DDevice9 *Device, char *FileName, struct IDirect3DCubeTexture9 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="FileName"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D9CubeTexFromFile(IntPtr Device, string FileName, IntPtr Texture);
 
         //     ILAPI ILboolean ILAPIENTRY ilutD3D9CubeTexFromFileInMemory(struct IDirect3DDevice9 *Device, ILvoid *Lump, ILuint Size, struct IDirect3DCubeTexture9 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="Lump"></param>
+        /// <param name="Size"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D9CubeTexFromFileInMemory(IntPtr Device, IntPtr Lump, ILuint Size, IntPtr Texture);
 
         //     ILAPI ILboolean ILAPIENTRY ilutD3D9CubeTexFromFileInMemory(struct IDirect3DDevice9 *Device, ILvoid *Lump, ILuint Size, struct IDirect3DCubeTexture9 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="Lump"></param>
+        /// <param name="Size"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D9CubeTexFromFileInMemory(IntPtr Device, byte[] Lump, ILuint Size, IntPtr Texture);
 
         //     ILAPI ILboolean ILAPIENTRY ilutD3D9CubeTexFromFileHandle(struct IDirect3DDevice9 *Device, ILHANDLE File, struct IDirect3DCubeTexture9 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="File"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D9CubeTexFromFileHandle(IntPtr Device, ILHANDLE File, IntPtr Texture);
 
         //     ILAPI ILboolean ILAPIENTRY ilutD3D9CubeTexFromResource(struct IDirect3DDevice9 *Device, HMODULE SrcModule, char *SrcResource, struct IDirect3DCubeTexture9 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="SrcModule"></param>
+        /// <param name="SrcResource"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D9CubeTexFromResource(IntPtr Device, IntPtr SrcModule, string SrcResource, IntPtr Texture);
 
         // 	ILAPI ILboolean	ILAPIENTRY ilutD3D9TexFromFile(struct IDirect3DDevice9 *Device, char *FileName, struct IDirect3DTexture9 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="FileName"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D9TexFromFile(IntPtr Device, string FileName, IntPtr Texture);
 
         // 	ILAPI ILboolean	ILAPIENTRY ilutD3D9VolTexFromFile(struct IDirect3DDevice9 *Device, char *FileName, struct IDirect3DVolumeTexture9 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="FileName"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D9VolTexFromFile(IntPtr Device, string FileName, IntPtr Texture);
 
         // 	ILAPI ILboolean	ILAPIENTRY ilutD3D9TexFromFileInMemory(struct IDirect3DDevice9 *Device, ILvoid *Lump, ILuint Size, struct IDirect3DTexture9 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="Lump"></param>
+        /// <param name="Size"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D9TexFromFileInMemory(IntPtr Device, IntPtr Lump, ILuint Size, IntPtr Texture);
 
         // 	ILAPI ILboolean	ILAPIENTRY ilutD3D9VolTexFromFileInMemory(struct IDirect3DDevice9 *Device, ILvoid *Lump, ILuint Size, struct IDirect3DVolumeTexture9 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="Lump"></param>
+        /// <param name="Size"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D9VolTexFromFileInMemory(IntPtr Device, IntPtr Lump, ILuint Size, IntPtr Texture);
 
         // 	ILAPI ILboolean	ILAPIENTRY ilutD3D9TexFromFileInMemory(struct IDirect3DDevice9 *Device, ILvoid *Lump, ILuint Size, struct IDirect3DTexture9 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="Lump"></param>
+        /// <param name="Size"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D9TexFromFileInMemory(IntPtr Device, byte[] Lump, ILuint Size, IntPtr Texture);
 
         // 	ILAPI ILboolean	ILAPIENTRY ilutD3D9VolTexFromFileInMemory(struct IDirect3DDevice9 *Device, ILvoid *Lump, ILuint Size, struct IDirect3DVolumeTexture9 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="Lump"></param>
+        /// <param name="Size"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D9VolTexFromFileInMemory(IntPtr Device, byte[] Lump, ILuint Size, IntPtr Texture);
-
+        
         // 	ILAPI ILboolean	ILAPIENTRY ilutD3D9TexFromFileHandle(struct IDirect3DDevice9 *Device, ILHANDLE File, struct IDirect3DTexture9 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="File"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D9TexFromFileHandle(IntPtr Device, ILHANDLE File, IntPtr Texture);
 
         // 	ILAPI ILboolean	ILAPIENTRY ilutD3D9VolTexFromFileHandle(struct IDirect3DDevice9 *Device, ILHANDLE File, struct IDirect3DVolumeTexture9 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="File"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D9VolTexFromFileHandle(IntPtr Device, ILHANDLE File, IntPtr Texture);
 
         // 	ILAPI ILboolean ILAPIENTRY ilutD3D9TexFromResource(struct IDirect3DDevice9 *Device, HMODULE SrcModule, char *SrcResource, struct IDirect3DTexture9 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="SrcModule"></param>
+        /// <param name="SrcResource"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D9TexFromResource(IntPtr Device, IntPtr SrcModule, string SrcResource, IntPtr Texture);
 
         // 	ILAPI ILboolean ILAPIENTRY ilutD3D9VolTexFromResource(struct IDirect3DDevice9 *Device, HMODULE SrcModule, char *SrcResource, struct IDirect3DVolumeTexture9 **Texture);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="SrcModule"></param>
+        /// <param name="SrcResource"></param>
+        /// <param name="Texture"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D9VolTexFromResource(IntPtr Device, IntPtr SrcModule, string SrcResource, IntPtr Texture);
 
         // 	ILAPI ILboolean ILAPIENTRY ilutD3D9LoadSurface(struct IDirect3DDevice9 *Device, struct IDirect3DSurface9 *Surface);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="Device"></param>
+        /// <param name="Surface"></param>
+        /// <returns></returns>
         [DllImport(ILUT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern ILboolean ilutD3D9LoadSurface(IntPtr Device, IntPtr Surface);
 
