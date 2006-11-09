@@ -38,7 +38,8 @@ using System;
 using Tao.FreeGlut;
 using Tao.OpenGl;
 
-namespace GeWang {
+namespace GeWangExamples
+{
     #region Class Documentation
     /// <summary>
     ///     2 pass z buffer algorithm using OpenGL.
@@ -85,9 +86,10 @@ namespace GeWang {
         #endregion Private Fields
 
         // --- Entry Point ---
-        #region Main(string[] args)
+        #region Run()
         [STAThread]
-        public static void Main(string[] args) {
+        public static void Run()
+        {
             // initialize GLUT
             Glut.glutInit();
             // double buffer, use rgb color, enable depth buffer
@@ -121,7 +123,7 @@ namespace GeWang {
             // let GLUT handle the current thread from here
             Glut.glutMainLoop();
         }
-        #endregion Main(string[] args)
+        #endregion Run()
 
         // --- Application Methods ---
         #region Init()

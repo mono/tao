@@ -38,7 +38,8 @@ using System;
 using Tao.FreeGlut;
 using Tao.OpenGl;
 
-namespace GeWang {
+namespace GeWangExamples
+{
     #region Class Documentation
     /// <summary>
     ///     3D starfield.
@@ -54,7 +55,8 @@ namespace GeWang {
     ///     </para>
     /// </remarks>
     #endregion Class Documentation
-    public sealed class Starfield {
+    public sealed class Starfield
+    {
         // --- Fields ---
         #region Private Constants
         private const int NUMBER_STARS = 400;
@@ -74,7 +76,7 @@ namespace GeWang {
         private static int windowHeight = 480;
 
         // light position
-        private static float[] lightPosition = {0.0f, 0.0f, 3.0f, 1.0f};
+        private static float[] lightPosition = { 0.0f, 0.0f, 3.0f, 1.0f };
 
         // the location
         private static float[][] xyz = new float[NUMBER_STARS][];
@@ -91,9 +93,9 @@ namespace GeWang {
         #endregion Private Fields
 
         // --- Entry Point ---
-        #region Main(string[] args)
-        [STAThread]
-        public static void Main(string[] args) {
+        #region Run()
+        public static void Run()
+        {
             // initialize GLUT
             Glut.glutInit();
             // double buffer, use rgb color, enable depth buffers
@@ -122,14 +124,15 @@ namespace GeWang {
             // let GLUT handle the current thread from here
             Glut.glutMainLoop();
         }
-        #endregion Main(string[] args)
+        #endregion Run()
 
         // --- Application Methods ---
         #region Init()
         /// <summary>
         ///     Sets initial OpenGL states and initializes any application data.
         /// </summary>
-        private static void Init() {
+        private static void Init()
+        {
             // set the GL clear color - use when the color buffer is cleared
             Gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             // set the shading model to 'smooth'
@@ -161,16 +164,17 @@ namespace GeWang {
             Gl.glClear(Gl.GL_COLOR_BUFFER_BIT);
 
             // randomly generate
-            for(int i = 0; i < NUMBER_STARS; i++) {
+            for (int i = 0; i < NUMBER_STARS; i++)
+            {
                 xyz[i] = new float[3];
-                xyz[i][0] = ((float) rand.Next(RAND_MAX) / RAND_MAX - 0.5f) * FIELD_WIDTH;
-                xyz[i][1] = ((float) rand.Next(RAND_MAX) / RAND_MAX - 0.5f) * FIELD_HEIGHT;
-                xyz[i][2] = ((float) rand.Next(RAND_MAX) / RAND_MAX) * (NEAR_PLANE - FAR_PLANE + GAP) + FAR_PLANE;
+                xyz[i][0] = ((float)rand.Next(RAND_MAX) / RAND_MAX - 0.5f) * FIELD_WIDTH;
+                xyz[i][1] = ((float)rand.Next(RAND_MAX) / RAND_MAX - 0.5f) * FIELD_HEIGHT;
+                xyz[i][2] = ((float)rand.Next(RAND_MAX) / RAND_MAX) * (NEAR_PLANE - FAR_PLANE + GAP) + FAR_PLANE;
 
                 colors[i] = new float[3];
-                colors[i][0] = (float) rand.Next(RAND_MAX) / RAND_MAX;
-                colors[i][1] = (float) rand.Next(RAND_MAX) / RAND_MAX;
-                colors[i][2] = (float) rand.Next(RAND_MAX) / RAND_MAX;
+                colors[i][0] = (float)rand.Next(RAND_MAX) / RAND_MAX;
+                colors[i][1] = (float)rand.Next(RAND_MAX) / RAND_MAX;
+                colors[i][2] = (float)rand.Next(RAND_MAX) / RAND_MAX;
             }
 
             Console.WriteLine("--------------------------------------------------");
@@ -188,38 +192,44 @@ namespace GeWang {
         #endregion Init()
 
         #region Render()
-        private static void Render() {
+        private static void Render()
+        {
             inc += 0.01f;
-            Gl.glRotatef(50 * (float) (Math.Cos(inc)), 0.0f, 0.0f, 1.0f);
+            Gl.glRotatef(50 * (float)(Math.Cos(inc)), 0.0f, 0.0f, 1.0f);
 
             speed += speedIncrement;
-            for(int i = 0; i < NUMBER_STARS; i++) {
+            for (int i = 0; i < NUMBER_STARS; i++)
+            {
                 Gl.glPushMatrix();
-                    Gl.glTranslatef(xyz[i][0], xyz[i][1], xyz[i][2]);
-                    Gl.glColor3fv(colors[i]);
-                    Glut.glutSolidSphere(0.1f, 5, 5);
+                Gl.glTranslatef(xyz[i][0], xyz[i][1], xyz[i][2]);
+                Gl.glColor3fv(colors[i]);
+                Glut.glutSolidSphere(0.1f, 5, 5);
                 Gl.glPopMatrix();
 
                 // increment z
                 xyz[i][2] += speed;
 
                 // check to see if passed view
-                if(xyz[i][2] > NEAR_PLANE + GAP) {
+                if (xyz[i][2] > NEAR_PLANE + GAP)
+                {
                     float d;
-                    if(( d = (float) (Math.Sqrt(xyz[i][0] * xyz[i][0] + xyz[i][1] * xyz[i][1]))) < RADIUS) {
+                    if ((d = (float)(Math.Sqrt(xyz[i][0] * xyz[i][0] + xyz[i][1] * xyz[i][1]))) < RADIUS)
+                    {
                         red += (RADIUS - d) / RADIUS;
-                        if(red > 2.5f) {
+                        if (red > 2.5f)
+                        {
                             red = 2.5f;
                         }
                     }
 
-                    xyz[i][0] = ((float) rand.Next(RAND_MAX) / RAND_MAX - 0.5f) * FIELD_WIDTH;
-                    xyz[i][1] = ((float) rand.Next(RAND_MAX) / RAND_MAX - 0.5f) * FIELD_HEIGHT;
+                    xyz[i][0] = ((float)rand.Next(RAND_MAX) / RAND_MAX - 0.5f) * FIELD_WIDTH;
+                    xyz[i][1] = ((float)rand.Next(RAND_MAX) / RAND_MAX - 0.5f) * FIELD_HEIGHT;
                     xyz[i][2] = FAR_PLANE;
                 }
-                else if(xyz[i][2] < FAR_PLANE) {
-                    xyz[i][0] = ((float) rand.Next(RAND_MAX) / RAND_MAX - 0.5f) * FIELD_WIDTH;
-                    xyz[i][1] = ((float) rand.Next(RAND_MAX) / RAND_MAX - 0.5f) * FIELD_HEIGHT;
+                else if (xyz[i][2] < FAR_PLANE)
+                {
+                    xyz[i][0] = ((float)rand.Next(RAND_MAX) / RAND_MAX - 0.5f) * FIELD_WIDTH;
+                    xyz[i][1] = ((float)rand.Next(RAND_MAX) / RAND_MAX - 0.5f) * FIELD_HEIGHT;
                     xyz[i][2] = NEAR_PLANE;
                 }
             }
@@ -231,7 +241,8 @@ namespace GeWang {
         /// <summary>
         ///     Called to draw the client area.
         /// </summary>
-        private static void Display() {
+        private static void Display()
+        {
             // clear the depth buffer
             Gl.glClear(Gl.GL_DEPTH_BUFFER_BIT);
 
@@ -248,16 +259,17 @@ namespace GeWang {
 
             // reduce the red component
             red -= 0.02f;
-            if(red < 0.0f) {
+            if (red < 0.0f)
+            {
                 red = 0.0f;
             }
 
             // draw the polygons
             Gl.glBegin(Gl.GL_QUADS);
-                Gl.glVertex3f(-1.0f, -1.0f, 2.0f);
-                Gl.glVertex3f(-1.0f, 1.0f, 2.0f);
-                Gl.glVertex3f(1.0f, 1.0f, 2.0f);
-                Gl.glVertex3f(1.0f, -1.0f, 2.0f);
+            Gl.glVertex3f(-1.0f, -1.0f, 2.0f);
+            Gl.glVertex3f(-1.0f, 1.0f, 2.0f);
+            Gl.glVertex3f(1.0f, 1.0f, 2.0f);
+            Gl.glVertex3f(1.0f, -1.0f, 2.0f);
             Gl.glEnd();
 
             // enable lighting
@@ -271,10 +283,10 @@ namespace GeWang {
             // not persist across displayFunc calls, since we
             // will do a glPopMatrix() at the end of this function
             Gl.glPushMatrix();
-                // render the scene
-                Render();
+            // render the scene
+            Render();
             // restore the matrix state
-            Gl.glPopMatrix( );
+            Gl.glPopMatrix();
 
             // flush the buffer
             Gl.glFlush();
@@ -287,23 +299,27 @@ namespace GeWang {
         /// <summary>
         ///     Called on a key event.
         /// </summary>
-        private static void Keyboard(byte key, int x, int y) {
-            switch(key) {
+        private static void Keyboard(byte key, int x, int y)
+        {
+            switch (key)
+            {
                 case 27:
-                case (byte) 'Q':
-                case (byte) 'q':
+                case (byte)'Q':
+                case (byte)'q':
                     Environment.Exit(0);
                     break;
-                case (byte) '+':
-                case (byte) '=':
+                case (byte)'+':
+                case (byte)'=':
                     alpha -= 0.02f;
-                    if(alpha < 0.05f) {
+                    if (alpha < 0.05f)
+                    {
                         alpha = 0.05f;
                     }
                     break;
-                case (byte) '-':
+                case (byte)'-':
                     alpha += 0.02f;
-                    if(alpha > 1.0f) {
+                    if (alpha > 1.0f)
+                    {
                         alpha = 1.0f;
                     }
                     break;
@@ -314,7 +330,8 @@ namespace GeWang {
         #endregion Keyboard(byte key, int x, int y)
 
         #region Idle()
-        private static void Idle() {
+        private static void Idle()
+        {
             // invalidates the current window, so GLUT will call display function
             Glut.glutPostRedisplay();
         }
@@ -324,27 +341,36 @@ namespace GeWang {
         /// <summary>
         ///     Called on a mouse event.
         /// </summary>
-        private static void Mouse(int button, int state, int x, int y) {
-            if(button == Glut.GLUT_LEFT_BUTTON) {
+        private static void Mouse(int button, int state, int x, int y)
+        {
+            if (button == Glut.GLUT_LEFT_BUTTON)
+            {
                 // when left mouse button is down, go forward faster
-                if(state == Glut.GLUT_DOWN) {
+                if (state == Glut.GLUT_DOWN)
+                {
                     speedIncrement += 0.02f;
                 }
-                else if(state == Glut.GLUT_UP) {
+                else if (state == Glut.GLUT_UP)
+                {
                     speedIncrement -= 0.02f;
                 }
             }
-            else if( button == Glut.GLUT_RIGHT_BUTTON) {
+            else if (button == Glut.GLUT_RIGHT_BUTTON)
+            {
                 // when right mouse button down, go backwards faster
-                if(state == Glut.GLUT_DOWN) {
+                if (state == Glut.GLUT_DOWN)
+                {
                     speedIncrement -= 0.02f;
                 }
-                else if(state == Glut.GLUT_UP) {
+                else if (state == Glut.GLUT_UP)
+                {
                     speedIncrement += 0.02f;
                 }
             }
-            else if(button == Glut.GLUT_MIDDLE_BUTTON) {
-                if(state == Glut.GLUT_DOWN) {
+            else if (button == Glut.GLUT_MIDDLE_BUTTON)
+            {
+                if (state == Glut.GLUT_DOWN)
+                {
                     speed = DEFAULT_SPEED;
                     speedIncrement = 0;
                 }
@@ -356,7 +382,8 @@ namespace GeWang {
         /// <summary>
         ///     Called when window size changes.
         /// </summary>
-        private static void Reshape(int w, int h) {
+        private static void Reshape(int w, int h)
+        {
             // save the new window size
             windowWidth = w;
             windowHeight = h;
@@ -367,7 +394,7 @@ namespace GeWang {
             // load the identity matrix
             Gl.glLoadIdentity();
             // create the viewing frustum
-            Glu.gluPerspective(64.0, (float) w / (float) h, 0.1, 300.0);
+            Glu.gluPerspective(64.0, (float)w / (float)h, 0.1, 300.0);
             // set the matrix mode to modelview
             Gl.glMatrixMode(Gl.GL_MODELVIEW);
             // load the identity matrix
