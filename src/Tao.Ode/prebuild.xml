@@ -25,14 +25,14 @@
             <File>Tao.Ode.snk</File>
             <File>Tao.Ode.dll.config</File>
         </Files>
-	<Project name="Tao.Ode" path="." language="C#" type="Library">
+	<Project name="Tao.Ode" path="." language="C#" type="Library" designerFolder="Properties">
         <Configuration name="Debug">
             <Options>
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
                 <OutputPath>bin/Debug</OutputPath>
                 <XmlDocFile>Tao.Ode.xml</XmlDocFile>
-		<!-- KeyFile>Tao.Ode.snk</KeyFile -->
+		<KeyFile>Tao.Ode.snk</KeyFile>
 		<AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>true</DebugInformation>
             </Options>
@@ -43,25 +43,24 @@
                 <OptimizeCode>true</OptimizeCode>
                 <OutputPath>bin/Release</OutputPath>
 		<XmlDocFile>Tao.Ode.xml</XmlDocFile>
-		<!-- KeyFile>Tao.Ode.snk</KeyFile -->
+		<KeyFile>Tao.Ode.snk</KeyFile>
 		<AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>false</DebugInformation>
             </Options>
         </Configuration>
 	    <Reference name="System" />
             <Files>
-                <File>Properties/AssemblyInfo.cs</File>
-                <File>Ode.cs</File>
+                <Match path="." pattern="*.cs" recurse="true"/>
             </Files>
 	</Project>
-	<Project name="OdeExamples.Basic" path="../../examples/OdeExamples/Basic" language="C#" type="Exe" startupObject="OdeExamples.Basic">
+	<Project name="OdeExamples.Basic" path="../../examples/OdeExamples/Basic" language="C#" type="Exe" startupObject="OdeExamples.Basic" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Debug</OutputPath>
-		    <!-- KeyFile>../../../src/Tao.Ode/Tao.Ode.snk</KeyFile -->
+		    <KeyFile>../../../src/Tao.Ode/Tao.Ode.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -71,15 +70,14 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Release</OutputPath>
-		    <!-- KeyFile>../../../src/Tao.Ode/Tao.Ode.snk</KeyFile -->
+		    <KeyFile>../../../src/Tao.Ode/Tao.Ode.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
 	    <Reference name="System" /> 
 	    <Reference name="Tao.Ode" />
 	    <Files>
-		<File>Properties/AssemblyInfo.cs</File>
-		<File>Basic.cs</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
     </Solution>
