@@ -420,14 +420,14 @@
 		</Match>
 	    </Files>
 	</Project>
-	<Project name="OpenAlExamples.Boxes" path="../../examples/OpenAlExamples/Boxes" language="C#" type="WinExe" startupObject="OpenAlExamples.Boxes">
+	<Project name="OpenAlExamples" path="../../examples/OpenAl" language="C#" type="WinExe" startupObject="OpenAlExamples.Program" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
+		    <KeyFile>../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -437,156 +437,22 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
+		    <KeyFile>../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
 	    <Reference name="System" /> 
-	    <Reference name="Tao.OpenAl" />
-	    <Reference name="Tao.OpenGl" />
-	    
-	    
-	    <Reference name="Tao.FreeGlut" />
-	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="OpenAlExamples.Lesson01" path="../../examples/OpenAlExamples/Lesson01" language="C#" type="Exe" startupObject="OpenAlExamples.Lesson01">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.OpenAl" />
-	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="OpenAlExamples.Lesson02" path="../../examples/OpenAlExamples/Lesson02" language="C#" type="Exe" startupObject="OpenAlExamples.Lesson02">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.OpenAl" />
-	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="OpenAlExamples.Lesson03" path="../../examples/OpenAlExamples/Lesson03" language="C#" type="Exe" startupObject="OpenAlExamples.Lesson03">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.OpenAl" />
-	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="OpenAlExamples.Lesson05" path="../../examples/OpenAlExamples/Lesson05" language="C#" type="Exe" startupObject="OpenAlExamples.Lesson05">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.OpenAl" />
-	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="OpenAlExamples.Waterfall" path="../../examples/OpenAlExamples/Waterfall" language="C#" type="WinExe" startupObject="OpenAlExamples.Waterfall">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenAl/Tao.OpenAl.snk</KeyFile>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
+	    <Reference name="System.Windows.Forms" /> 
+	    <Reference name="System.Data" /> 
 	    <Reference name="System.Drawing" /> 
 	    <Reference name="Tao.OpenAl" />
 	    <Reference name="Tao.OpenGl" />
 	    <Reference name="Tao.FreeGlut" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<File subType="Form" resourceName="OpenAlExamples">OpenAlExamples.cs</File>
+		<Match path="." pattern="*.cs" recurse="true">
+		    <Exclude name="OpenAlExamples.cs"/>
+		</Match>
 	    </Files>
 	</Project>
 	<Project name="CgExamples.Gl_01_vertex_program" path="../../examples/CgExamples/Gl_01_vertex_program" language="C#" type="WinExe" startupObject="CgExamples.Gl_01_vertex_program">
