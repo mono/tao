@@ -1,0 +1,20 @@
+NeHe
+Copyright ©2003-2005 Tao Framework Team
+http://www.taoframework.com
+All rights reserved.
+
+These are C# ports of examples found at http://nehe.gamedev.net.
+They make use of Windows API calls.
+
+These examples are well documented, however, do not take them to be 'best
+practices' for .NET OpenGL development.  The intent of these ports is as
+an introduction or as a comparison against the original native versions.
+
+Randy Ridge
+http://www.taoframework.com
+
+
+Change Log:
+
+April 25, 2004
+    Initial release, version 1.0.0.0.
