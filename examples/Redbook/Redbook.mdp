@@ -1,0 +1,102 @@
+<Project name="Redbook" description="" standardNamespace="Redbook" newfilesearch="None" enableviewstate="True" fileversion="2.0" language="C#" ctype="DotNetProject">
+  <Configurations active="Debug">
+    <Configuration name="Release" ctype="DotNetProjectConfiguration">
+      <Output directory=".\bin\Release\" assembly="Redbook" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+      <Build debugmode="True" target="Exe" />
+      <Execution runwithwarnings="True" consolepause="True" runtime="MsNet" />
+      <CodeGeneration compiler="Csc" warninglevel="4" nowarn="" includedebuginformation="False" optimize="True" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="Redbook.Program" target="WinExe" definesymbols="TRACE;WIN32" generatexmldocumentation="False" win32Icon="" ctype="CSharpCompilerParameters" />
+    </Configuration>
+    <Configuration name="Debug" ctype="DotNetProjectConfiguration">
+      <Output directory=".\bin\Debug\" assembly="Redbook" executeScript="" executeBeforeBuild="" executeAfterBuild="" executeBeforeBuildArguments="" executeAfterBuildArguments="" />
+      <Build debugmode="True" target="Exe" />
+      <Execution runwithwarnings="True" consolepause="True" runtime="MsNet" />
+      <CodeGeneration compiler="Csc" warninglevel="4" nowarn="" includedebuginformation="True" optimize="False" unsafecodeallowed="False" generateoverflowchecks="False" mainclass="Redbook.Program" target="WinExe" definesymbols="DEBUG;TRACE;WIN32" generatexmldocumentation="False" win32Icon="" ctype="CSharpCompilerParameters" />
+    </Configuration>
+  </Configurations>
+  <DeploymentInformation target="" script="" strategy="File">
+    <excludeFiles />
+  </DeploymentInformation>
+  <Contents>
+    <File name=".\Redbook.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Aaindex.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Aapoly.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Aargb.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Accanti.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Accpersp.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Alpha.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Alpha3d.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Anti.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\AssemblyInfo.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Bezcurve.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Bezmesh.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Bezsurf.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Checker.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\CheckerOld.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Clip.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Colormat.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Cube.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\DepthCue.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Dof.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Double.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Drawf.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Feedback.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Fog.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FogIndex.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FogIndexOld.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\FogOld.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Font.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Hello.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Image.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Jitter.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Light.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Lines.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\List.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Material.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Mipmap.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Model.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\MoveLight.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Nurbs.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\PickDepth.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\PickSquare.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Plane.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Planet.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\PolyOff.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Polys.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Program.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Quadric.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Redbook.Designer.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Robot.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Scene.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\SceneBlueAmbient.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\SceneColorLight.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\SceneFlat.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Select.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Smooth.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Stencil.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Stroke.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Surface.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\SurfaceOld.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\TeaAmbient.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Teapots.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Tess.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\TessWind.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\TexBind.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\TexGen.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\TexProx.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\TexSub.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\TextureSurf.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Torus.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Trim.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\UnProject.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Varray.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+    <File name=".\Wrap.cs" subtype="Code" buildaction="Compile" dependson="" data="" />
+  </Contents>
+  <References>
+    <ProjectReference type="Gac" localcopy="False" refto="System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <ProjectReference type="Gac" localcopy="False" refto="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <ProjectReference type="Gac" localcopy="False" refto="System.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+    <ProjectReference type="Gac" localcopy="False" refto="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <ProjectReference type="Project" localcopy="True" refto="Tao.FreeGlut" />
+    <ProjectReference type="Project" localcopy="True" refto="Tao.OpenGl" />
+  </References>
+</Project>
