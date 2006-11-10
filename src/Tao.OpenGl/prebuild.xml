@@ -420,7 +420,7 @@
 		</Match>
 	    </Files>
 	</Project>
-	<Project name="OpenAlExamples" path="../../examples/OpenAl" language="C#" type="WinExe" startupObject="OpenAlExamples.Program" designerFolder="Properties">
+	<Project name="OpenAlExamples" path="../../examples/OpenAlExamples" language="C#" type="WinExe" startupObject="OpenAlExamples.Program" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
