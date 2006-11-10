@@ -317,14 +317,14 @@
 		</Match>
 	    </Files>
 	</Project>
-	<Project name="NateRobins.Area" path="../../examples/NateRobins/Area" language="C#" type="WinExe" startupObject="NateRobins.Area">
+	<Project name="NateRobins" path="../../examples/NateRobinsExamples" language="C#" type="WinExe" startupObject="NateRobins.Program" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
+		    <KeyFile>../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -334,305 +334,21 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
+		    <KeyFile>../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
 	    <Reference name="System" /> 
+	    <Reference name="System.Windows.Forms" /> 
+	    <Reference name="System.Data" /> 
+	    <Reference name="System.Drawing" /> 
 	    <Reference name="Tao.FreeGlut" localCopy="true" />
 	    <Reference name="Tao.OpenGl" localCopy="true" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="NateRobins.Maiden" path="../../examples/NateRobins/Maiden" language="C#" type="WinExe" startupObject="NateRobins.Maiden">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.FreeGlut" localCopy="true" />
-	    <Reference name="Tao.OpenGl" localCopy="true" />
-	    
-	    
-	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="NateRobins.MultiView" path="../../examples/NateRobins/MultiView" language="C#" type="WinExe" startupObject="NateRobins.MultiView">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.FreeGlut" localCopy="true" />
-	    <Reference name="Tao.OpenGl" localCopy="true" />
-	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="NateRobins.Nii" path="../../examples/NateRobins/Nii" language="C#" type="WinExe" startupObject="NateRobins.Nii">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.FreeGlut" localCopy="true" />
-	    <Reference name="Tao.OpenGl" localCopy="true" />
-	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="NateRobins.Null" path="../../examples/NateRobins/Null" language="C#" type="WinExe" startupObject="NateRobins.Null">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.FreeGlut" localCopy="true" />
-	    <Reference name="Tao.OpenGl" localCopy="true" />
-	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="NateRobins.Qix" path="../../examples/NateRobins/Qix" language="C#" type="WinExe" startupObject="NateRobins.Qix">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.FreeGlut" localCopy="true" />
-	    <Reference name="Tao.OpenGl" localCopy="true" />
-	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="NateRobins.Rotate" path="../../examples/NateRobins/Rotate" language="C#" type="WinExe" startupObject="NateRobins.Rotate">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.FreeGlut" localCopy="true" />
-	    <Reference name="Tao.OpenGl" localCopy="true" />
-	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="NateRobins.Starfield" path="../../examples/NateRobins/Starfield" language="C#" type="WinExe" startupObject="NateRobins.Starfield">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.FreeGlut" localCopy="true" />
-	    <Reference name="Tao.OpenGl" localCopy="true" />
-	    
-	    
-	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="NateRobins.Strip" path="../../examples/NateRobins/Strip" language="C#" type="WinExe" startupObject="NateRobins.Strip">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.FreeGlut" localCopy="true" />
-	    <Reference name="Tao.OpenGl" localCopy="true" />
-	    
-	    
-	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="NateRobins.Texture" path="../../examples/NateRobins/Texture" language="C#" type="WinExe" startupObject="NateRobins.Texture">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.FreeGlut" localCopy="true" />
-	    <Reference name="Tao.OpenGl" localCopy="true" />
-	    
-	    
-	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="NateRobins.Voronoi" path="../../examples/NateRobins/Voronoi" language="C#" type="WinExe" startupObject="NateRobins.Voronoi">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.FreeGlut" localCopy="true" />
-	    <Reference name="Tao.OpenGl" localCopy="true" />
-	    
-	    
-	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<File subType="Form" resourceName="NateRobins">NateRobins.cs</File>
+		<Match path="." pattern="*.cs" recurse="true">
+		    <Exclude name="NateRobins.cs"/>
+		</Match>
 	    </Files>
 	</Project>
 	<Project name="NeHe.Lesson01" path="../../examples/NeHe/Lesson01" language="C#" type="WinExe" startupObject="NeHe.Lesson01">
