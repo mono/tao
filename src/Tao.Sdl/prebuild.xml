@@ -81,13 +81,13 @@
               <Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="SdlExamples.Rectangles" path="../../examples/SdlExamples/Rectangles" language="C#" type="WinExe" startupObject="SdlExamples.Rectangles" designerFolder="Properties">
+	<Project name="SdlExamples" path="../../examples/SdlExamples" language="C#" type="WinExe" startupObject="SdlExamples.Program" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
-		    <KeyFile>../../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
+		    <KeyFile>../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
 		    <OutputPath>bin/Debug</OutputPath>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
@@ -97,69 +97,21 @@
 		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
-		    <KeyFile>../../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
+		    <KeyFile>../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
 		    <OutputPath>bin/Release</OutputPath>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
 	    <Reference name="System" /> 
+	    <Reference name="System.Windows.Forms" /> 
+	    <Reference name="System.Data" /> 
+	    <Reference name="System.Drawing" />
 	    <Reference name="Tao.Sdl" />
 	    <Files>
-              <Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="SdlExamples.SmpegPlayer" path="../../examples/SdlExamples/SmpegPlayer" language="C#" type="WinExe" startupObject="SdlExamples.SmpegPlayer" designerFolder="Properties">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <KeyFile>../../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <KeyFile>../../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
-		    <OutputPath>bin/Release</OutputPath>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.Sdl" />
-	    <Files>
-              <Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="SdlExamples.GfxPrimitives" path="../../examples/SdlExamples/GfxPrimitives" language="C#" type="WinExe" startupObject="SdlExamples.GfxPrimitives" designerFolder="Properties">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <KeyFile>../../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <KeyFile>../../../src/Tao.Sdl/Tao.Sdl.snk</KeyFile>
-		    <OutputPath>bin/Release</OutputPath>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.Sdl" />
-	    <Files>
-              <Match path="." pattern="*.cs" recurse="true"/>
+		<File subType="Form" resourceName="SdlExamples">SdlExamples.cs</File>
+		<Match path="." pattern="*.cs" recurse="true">
+		    <Exclude name="SdlExamples.cs"/>
+		</Match>
 	    </Files>
 	</Project>
     </Solution>
