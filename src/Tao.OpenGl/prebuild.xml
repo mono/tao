@@ -46,7 +46,7 @@
             <File>../Tao.Cg/Tao.Cg.snk</File>
             <File>../Tao.Cg/Tao.Cg.dll.config</File>
 	</Files>
-	<Project name="Tao.Cg" path="../Tao.Cg" language="C#" type="Library">
+	<Project name="Tao.Cg" path="../Tao.Cg" language="C#" type="Library" designerFolder="Properties">
         <Configuration name="Debug">
             <Options>
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -74,7 +74,7 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
             </Files>
 	</Project>
-	<Project name="Tao.OpenAl" path="../Tao.OpenAl" language="C#" type="Library">
+	<Project name="Tao.OpenAl" path="../Tao.OpenAl" language="C#" type="Library" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -102,7 +102,7 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
             </Files>
 	</Project>
-	<Project name="Tao.OpenGl" path="../Tao.OpenGl" language="C#" type="Library" >
+	<Project name="Tao.OpenGl" path="../Tao.OpenGl" language="C#" type="Library" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -127,10 +127,10 @@
 	    </Configuration>
 	    <Reference name="System" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="false"/>
+		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="Tao.FreeGlut" path="../Tao.FreeGlut" language="C#" type="Library">
+	<Project name="Tao.FreeGlut" path="../Tao.FreeGlut" language="C#" type="Library" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -159,7 +159,7 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="Tao.Glfw" path="../Tao.Glfw" language="C#" type="Library">
+	<Project name="Tao.Glfw" path="../Tao.Glfw" language="C#" type="Library" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -188,7 +188,7 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="Tao.Platform.Windows" path="../Tao.Platform.Windows" language="C#" type="Library">
+	<Project name="Tao.Platform.Windows" path="../Tao.Platform.Windows" language="C#" type="Library" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -220,7 +220,7 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="FreeGlutExamples.One" path="../../examples/FreeGlutExamples/One" language="C#" type="WinExe" startupObject="FreeGlutExamples.One">
+	<Project name="FreeGlutExamples.One" path="../../examples/FreeGlutExamples/One" language="C#" type="WinExe" startupObject="FreeGlutExamples.One" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>

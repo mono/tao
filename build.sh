@@ -34,15 +34,15 @@ cp -f dist/bin/*.dll dist/examples
 cp -f examples/CgExamples/bin/Release/*.exe dist/examples
 cp -f examples/CgExamples/Data/*.* dist/examples/Data
 
-cp -f examples/DevIlExamples/bin/Release/*.exe dist/examples
-cp -f examples/DevIlExamples/Data/*.* dist/examples/Data
+cp -f examples/DevIlExamples/SimpleExample/bin/Release/*.exe dist/examples
+cp -f examples/DevIlExamples/SimpleExample/Data/*.* dist/examples/Data
 
 cp -f examples/FreeGlutExamples/One/bin/Release/*.exe dist/examples
 
 cp -f examples/GeWangExamples/bin/Release/*.exe dist/examples
 
 cp -f examples/GlfwExamples/bin/Release/*.exe dist/examples
-cp -f examples/GlfwExamples/Data/*.exe dist/examples/Data
+cp -f examples/GlfwExamples/Data/*.* dist/examples/Data
 
 cp -f examples/LuaExamples/Functions/bin/Release/*.exe dist/examples
 cp -f examples/LuaExamples/Functions/Data/*.* dist/examples/Data
