@@ -32,7 +32,7 @@
                 <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
                 <OptimizeCode>false</OptimizeCode>
                 <OutputPath>bin/Debug</OutputPath>
-                <XmlDocFile></XmlDocFile>
+                <XmlDocFile>Tao.Lua.xml</XmlDocFile>
                 <KeyFile>Tao.Lua.snk</KeyFile>
                 <AllowUnsafe>true</AllowUnsafe>
                 <DebugInformation>true</DebugInformation>
