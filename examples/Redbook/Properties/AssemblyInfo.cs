@@ -32,17 +32,26 @@ using System.Security.Permissions;
 
 [assembly: AllowPartiallyTrustedCallers]
 [assembly: AssemblyCompany("Tao Framework - http://www.taoframework.com")]
+#if DEBUG
+[assembly: AssemblyConfiguration("Debug")]
+#else
 [assembly: AssemblyConfiguration("Retail")]
-[assembly: AssemblyCopyright("Copyright ©2003-2006 Tao Framework Team.  All rights reserved.")]
+#endif
+[assembly: AssemblyCopyright("Copyright ©2003-2005 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
-[assembly: AssemblyDefaultAlias("SdlExamples")]
+[assembly: AssemblyDefaultAlias("Redbook")]
 [assembly: AssemblyDelaySign(false)]
-[assembly: AssemblyDescription("Sdl examples")]
+[assembly: AssemblyDescription("Redbook examples")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: AssemblyInformationalVersion("1.0.0.0")]
+
 [assembly: AssemblyKeyName("")]
-[assembly: AssemblyProduct("Sdl.Examples")]
-[assembly: AssemblyTitle("Sdl Example")]
+#if DEBUG
+[assembly: AssemblyProduct("Redbook Examples *** Debug Build ***")]
+#else
+[assembly: AssemblyProduct("Redbook Examples")]
+#endif
+[assembly: AssemblyTitle("Redbook examples")]
 [assembly: AssemblyTrademark("Tao Framework - http://www.taoframework.com")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: CLSCompliant(true)]

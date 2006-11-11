@@ -39,18 +39,18 @@ using System.Security.Permissions;
 #endif
 [assembly: AssemblyCopyright("©2003-2004 Randy Ridge.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
-[assembly: AssemblyDefaultAlias("GlfwExamples.Triangle")]
+[assembly: AssemblyDefaultAlias("GlfwExamples")]
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyDescription("GLFW Triangle example.")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: AssemblyInformationalVersion("1.0.0.0")]
 [assembly: AssemblyKeyName("")]
 #if DEBUG
-[assembly: AssemblyProduct("GlfwExamples.Triangle.exe *** Debug Build ***")]
+[assembly: AssemblyProduct("GlfwExamples *** Debug Build ***")]
 #else
-[assembly: AssemblyProduct("GlfwExamples.Triangle.exe")]
+[assembly: AssemblyProduct("GlfwExamples")]
 #endif
-[assembly: AssemblyTitle("GLFW Triangle Example")]
+[assembly: AssemblyTitle("GLFW Examples")]
 [assembly: AssemblyTrademark("Randy Ridge")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: CLSCompliant(true)]

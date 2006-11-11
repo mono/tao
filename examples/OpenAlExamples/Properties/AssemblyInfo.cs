@@ -39,19 +39,19 @@ using System.Security.Permissions;
 #endif
 [assembly: AssemblyCopyright("Copyright ©2003-2005 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
-[assembly: AssemblyDefaultAlias("OpenAlExamples.Lesson01")]
+[assembly: AssemblyDefaultAlias("OpenAlExamples")]
 [assembly: AssemblyDelaySign(false)]
-[assembly: AssemblyDescription("OpenAL Lesson 01 example.")]
+[assembly: AssemblyDescription("OpenAL examples")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: AssemblyInformationalVersion("1.0.0.0")]
 
 [assembly: AssemblyKeyName("")]
 #if DEBUG
-[assembly: AssemblyProduct("OpenAlExamples.Lesson01.exe *** Debug Build ***")]
+[assembly: AssemblyProduct("OpenAlExamples *** Debug Build ***")]
 #else
-[assembly: AssemblyProduct("OpenAlExamples.Lesson01.exe")]
+[assembly: AssemblyProduct("OpenAlExamples")]
 #endif
-[assembly: AssemblyTitle("OpenAL Lesson 01 example.")]
+[assembly: AssemblyTitle("OpenAL examples")]
 [assembly: AssemblyTrademark("Tao Framework - http://www.taoframework.com")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: CLSCompliant(true)]

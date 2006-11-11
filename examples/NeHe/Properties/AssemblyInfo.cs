@@ -39,19 +39,19 @@ using System.Security.Permissions;
 #endif
 [assembly: AssemblyCopyright("Copyright ©2003-2005 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
-[assembly: AssemblyDefaultAlias("NeHe.Lesson01")]
+[assembly: AssemblyDefaultAlias("NeHe")]
 [assembly: AssemblyDelaySign(false)]
-[assembly: AssemblyDescription("NeHe's Lesson 01 example.")]
+[assembly: AssemblyDescription("NeHe examples")]
 [assembly: AssemblyFileVersion("1.0.0.0")]
 [assembly: AssemblyInformationalVersion("1.0.0.0")]
 
 [assembly: AssemblyKeyName("")]
 #if DEBUG
-[assembly: AssemblyProduct("NeHe.Lesson01.exe *** Debug Build ***")]
+[assembly: AssemblyProduct("NeHe Examples *** Debug Build ***")]
 #else
-[assembly: AssemblyProduct("NeHe.Lesson01.exe")]
+[assembly: AssemblyProduct("NeHe Examples")]
 #endif
-[assembly: AssemblyTitle("NeHe's Lesson 01 example.")]
+[assembly: AssemblyTitle("NeHe examples")]
 [assembly: AssemblyTrademark("Tao Framework - http://www.taoframework.com")]
 [assembly: AssemblyVersion("1.0.0.0")]
 [assembly: CLSCompliant(true)]
