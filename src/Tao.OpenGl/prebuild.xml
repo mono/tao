@@ -490,33 +490,5 @@
 		</Match>
 	    </Files>
 	</Project>
-	<Project name="GlslExamples.Lesson01" path="../../examples/GlslExamples/Lesson01" language="C#" type="WinExe" startupObject="GlslExamples.Lesson01" designerFolder="Properties">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.OpenGl" localCopy="true" />
-	    <Reference name="Tao.Glfw" localCopy="true" />
-	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
     </Solution>
 </Prebuild>

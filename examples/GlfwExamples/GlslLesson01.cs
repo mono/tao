@@ -28,15 +28,15 @@ SOFTWARE.
 using System;
 using System.Collections.Generic;
 
-namespace GlslExamples
+namespace GlfwExamples
 {
-    static class Lesson01
+    static class GlslLesson01
     {
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        public static void Run()
         {
             //Application.EnableVisualStyles();
             //Application.SetCompatibleTextRenderingDefault(false);

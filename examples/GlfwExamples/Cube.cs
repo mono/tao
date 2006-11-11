@@ -31,7 +31,7 @@ using System.Text;
 using Tao.Glfw;
 using Tao.OpenGl;
 
-namespace GlslExamples
+namespace GlfwExamples
 {
     class Cube : IDisposable
     {
