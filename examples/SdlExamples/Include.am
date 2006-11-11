@@ -1,0 +1,22 @@
+SdlExamples.exe:
+	mkdir -p ../../examples/Sdl/$(BUILD_DIR)/$(CONFIG)/
+	resgen ../../examples/Sdl/SdlExamples.resx ../../examples/Sdl/SdlExamples.SdlExamples.resources
+	$(CSC)	/out:../../examples/Sdl/$(BUILD_DIR)/$(CONFIG)/SdlExamples.exe \
+		/target:winexe \
+		/reference:System.dll,System.Windows.Forms.dll,System.Data.dll,System.Drawing.dll,../Tao.Sdl/$(BUILD_DIR)/$(CONFIG)/Tao.Sdl.dll \
+		Properties/AssemblyInfo.cs \
+		/resource:../../examples/Sdl/SdlExamples.SdlExamples.resources,SdlExamples.SdlExamples.resources \
+		/keyfile:../../examples/Sdl/../../src/Tao.Sdl/Tao.Sdl.snk \
+		/define:DEBUG,TRACE,WIN32 \
+		\
+		..\\..\\examples\\Sdl\\SdlExamples.cs		\
+		..\\..\\examples\\Sdl\\GfxPrimitives.cs		\
+		..\\..\\examples\\Sdl\\Program.cs		\
+		..\\..\\examples\\Sdl\\Rectangles.cs		\
+		..\\..\\examples\\Sdl\\SdlExamples.Designer.cs		\
+		..\\..\\examples\\Sdl\\SmpegPlayer.cs		\
+		..\\..\\examples\\Sdl\\Properties\\AssemblyInfo.cs
+
+CLEANFILES = $(BUILD_DIR)/$(CONFIG)/SdlExamples.exe $(BUILD_DIR)/$(CONFIG)/SdlExamples.mdb $(BUILD_DIR)/$(CONFIG)/SdlExamples.pdb SdlExamples.xml
+EXTRA_DIST = \
+	$(FILES) \	../../src/Tao.Sdl/Tao.Sdl.snk
