@@ -290,7 +290,7 @@
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
+		    <KeyFile>../../src/Tao.Glfw/Tao.Glfw.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -300,7 +300,7 @@
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Release</OutputPath>
-		    <KeyFile>../../src/Tao.OpenGl/Tao.OpenGl.snk</KeyFile>
+		    <KeyFile>../../src/Tao.Glfw/Tao.Glfw.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -455,14 +455,14 @@
 		</Match>
 	    </Files>
 	</Project>
-	<Project name="CgExamples.Gl_01_vertex_program" path="../../examples/CgExamples/Gl_01_vertex_program" language="C#" type="WinExe" startupObject="CgExamples.Gl_01_vertex_program">
+	<Project name="CgExamples" path="../../examples/CgExamples" language="C#" type="WinExe" startupObject="CgExamples.Program" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>false</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
 		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.Cg/Tao.Cg.snk</KeyFile>
+		    <KeyFile>../../src/Tao.Cg/Tao.Cg.snk</KeyFile>
 		    <DebugInformation>true</DebugInformation>
 		</Options>
 	    </Configuration>
@@ -471,48 +471,23 @@
 		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
 		    <OptimizeCode>true</OptimizeCode>
 		    <AllowUnsafe>false</AllowUnsafe>
-		    <KeyFile>../../../src/Tao.Cg/Tao.Cg.snk</KeyFile>
 		    <OutputPath>bin/Release</OutputPath>
+		    <KeyFile>../../src/Tao.Cg/Tao.Cg.snk</KeyFile>
 		    <DebugInformation>false</DebugInformation>
 		</Options>
 	    </Configuration>
 	    <Reference name="System" /> 
+	    <Reference name="System.Windows.Forms" /> 
+	    <Reference name="System.Data" /> 
+	    <Reference name="System.Drawing" /> 
 	    <Reference name="Tao.Cg" />
-	    <Reference name="Tao.OpenGl" />
 	    <Reference name="Tao.FreeGlut" />
-	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
-	    </Files>
-	</Project>
-	<Project name="CgExamples.Gl_02_vertex_and_fragment_program" path="../../examples/CgExamples/Gl_02_vertex_and_fragment_program" language="C#" type="WinExe" startupObject="CgExamples.Gl_02_vertex_and_fragment_program">
-	    <Configuration name="Debug">
-		<Options>
-		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>false</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <OutputPath>bin/Debug</OutputPath>
-		    <KeyFile>../../../src/Tao.Cg/Tao.Cg.snk</KeyFile>
-		    <DebugInformation>true</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Configuration name="Release">
-		<Options>
-		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
-		    <OptimizeCode>true</OptimizeCode>
-		    <AllowUnsafe>false</AllowUnsafe>
-		    <KeyFile>../../../src/Tao.Cg/Tao.Cg.snk</KeyFile>
-		    <OutputPath>bin/Release</OutputPath>
-		    <DebugInformation>false</DebugInformation>
-		</Options>
-	    </Configuration>
-	    <Reference name="System" /> 
-	    <Reference name="Tao.Cg" />
 	    <Reference name="Tao.OpenGl" />
-	    
-	    
-	    <Reference name="Tao.FreeGlut" />
 	    <Files>
-		<Match path="." pattern="*.cs" recurse="true"/>
+		<File subType="Form" resourceName="CgExamples">CgExamples.cs</File>
+		<Match path="." pattern="*.cs" recurse="true">
+		    <Exclude name="CgExamples.cs"/>
+		</Match>
 	    </Files>
 	</Project>
 	<Project name="GlslExamples.Lesson01" path="../../examples/GlslExamples/Lesson01" language="C#" type="WinExe" startupObject="GlslExamples.Lesson01" designerFolder="Properties">
