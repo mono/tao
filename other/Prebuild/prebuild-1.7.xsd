@@ -104,7 +104,8 @@
 			<xs:attribute name="startupObject" type="xs:string" default="" />
 			<xs:attribute name="rootNamespace" type="xs:string" />
 			<xs:attribute name="assemblyName" type="xs:string" />
-		</xs:complexType>
+      <xs:attribute name="generateAssemblyInfoFile" type="xs:boolean" default="false"/>
+    </xs:complexType>
 	</xs:element>
 	<xs:element name="Configuration">
 		<xs:complexType>
@@ -155,7 +156,7 @@
 				<xs:element name="FileAlignment" type="xs:integer" minOccurs="0" />
 				<xs:element name="NoStdLib" type="xs:boolean" minOccurs="0" />
 				<xs:element name="KeyFile" type="xs:string" minOccurs="0" />
-			</xs:all>
+        </xs:all>
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="Files">
