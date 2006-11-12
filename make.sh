@@ -8,13 +8,11 @@ other/Prebuild/prebuild /target autotools /file prebuild.xml
 
 # Build Solutions Using autotools 
 PACKAGES="Tao.DevIl
-          Tao.GlBindGen
 	  Tao.Ode
 	  Tao.PhysFs
 	  Tao.Sdl
 	  Tao.Lua
 	  Tao.OpenGl
-	  Tao.OpenAl
 	  "
 
 mkdir -p dist/bin
