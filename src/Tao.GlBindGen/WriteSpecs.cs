@@ -325,7 +325,7 @@ namespace Tao.GlBindGen
 
             {
                 // Load core for windows X11.
-                sw.WriteLine("            else if (Environment.OSVersion.Platform == PlatformID.Unix)");
+                sw.WriteLine("            else if (Environment.OSVersion.Platform == 4 || Environment.OSVersion.Platform == 128)");
                 sw.WriteLine("            {");
                 sw.WriteLine("                #region X11 Core");
                 string[] import_list = { "1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "2.0", "2.1" };
