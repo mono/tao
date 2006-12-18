@@ -5233,7 +5233,7 @@ namespace Tao.Sdl
         #region Private Static Fields
         // Private pointers to NSApplication class for Cocoa# on OS X.
         // Used for <see cref="SDL_Init"/> and <see cref="SDL_InitSubSystem"/>.
-        //private static object obj;
+        private static object obj;
 
         /// <summary>
         ///		Private byte array holding the internal keyboard state.
@@ -5249,13 +5249,13 @@ namespace Tao.Sdl
         #region Public Delegates
 
         #region SDL_audio.h
-	    #region AudioSpecCallbackDelegate(IntPtr userdata, IntPtr stream, int len)
+        #region AudioSpecCallbackDelegate(IntPtr userdata, IntPtr stream, int len)
         /// <summary>
         /// Used in the SDL_AudioSpec struct
         /// </summary>
-	    [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-    	public delegate void AudioSpecCallbackDelegate(IntPtr userdata, IntPtr stream, int len);
-	    #endregion AudioSpecCallbackDelegate(IntPtr userdata, IntPtr stream, int len)
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void AudioSpecCallbackDelegate(IntPtr userdata, IntPtr stream, int len);
+        #endregion AudioSpecCallbackDelegate(IntPtr userdata, IntPtr stream, int len)
         #endregion SDL_audio.h
 
         #region SDL_events.h
@@ -5424,12 +5424,12 @@ namespace Tao.Sdl
         public static int SDL_Init(int flags)
         {
             ////Mac OSX code
-            //Assembly af = Assembly.Load("cocoa-sharp");
-            //if (af != null) 
-            //{
-            //    obj = af.GetType("Cocoa.Application").InvokeMember("Init", BindingFlags.Static | BindingFlags.InvokeMethod, null, obj, null);
-            //    NSApplicationLoad();
-            //}
+            Assembly af = Assembly.Load("cocoa-sharp");
+            if (af != null)
+            {
+                obj = af.GetType("Cocoa.Application").InvokeMember("Init", BindingFlags.Static | BindingFlags.InvokeMethod, null, obj, null);
+                NSApplicationLoad();
+            }
             return __SDL_Init(flags);
         }
         #endregion int SDL_Init(int flags)
@@ -5505,12 +5505,12 @@ namespace Tao.Sdl
         public static int SDL_InitSubSystem(int flags)
         {
             // Mac OSX code
-            // Assembly af = Assembly.Load("cocoa-sharp");
-            //if (af != null)
-            // {
-            //    obj = af.GetType("Cocoa.Application").InvokeMember("Init", BindingFlags.Static | BindingFlags.InvokeMethod, null, obj, null);
-            //    NSApplicationLoad();
-            // }
+            Assembly af = Assembly.Load("cocoa-sharp");
+            if (af != null)
+            {
+                obj = af.GetType("Cocoa.Application").InvokeMember("Init", BindingFlags.Static | BindingFlags.InvokeMethod, null, obj, null);
+                NSApplicationLoad();
+            }
             return __SDL_InitSubSystem(flags);
         }
         #endregion int SDL_InitSubSystem(int flags)
