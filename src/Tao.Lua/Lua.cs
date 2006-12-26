@@ -1947,11 +1947,11 @@ namespace Tao.Lua
             /// <summary>
             /// 
             /// </summary>
-            string name;
+            public string name;
             /// <summary>
             /// 
             /// </summary>
-            Lua.lua_CFunction func;
+            public Lua.lua_CFunction func;
         }
 
         //LUALIB_API void (luaI_openlib) (lua_State *L, const char *libname, const luaL_Reg *l, int nup);
@@ -2383,7 +2383,7 @@ namespace Tao.Lua
         /// <returns>It returns 0 if there are no errors or 1 in case of errors.</returns>
         public static int luaL_dofile(lua_State L, string fn)
         {
-            return luaL_loadfile(L, fn) | lua_pcall(L, 0, 0, 0);
+            return luaL_loadfile(L, fn) | lua_pcall(L, LUA_MULTRET, 0, 0);
         }
 
         //#define luaL_dostring(L, s)	(luaL_loadstring(L, s) || lua_pcall(L, 0, 0, 0))
@@ -2395,7 +2395,7 @@ namespace Tao.Lua
         /// <returns>It returns 0 if there are no errors or 1 in case of errors.</returns>
         public static int luaL_dostring(lua_State L, string s)
         {
-            return luaL_loadstring(L, s) | lua_pcall(L, 0, 0, 0);
+            return luaL_loadstring(L, s) | lua_pcall(L, LUA_MULTRET, 0, 0);
         }
 
         //#define luaL_getmetatable(L,n)	(lua_getfield(L, LUA_REGISTRYINDEX, (n)))
