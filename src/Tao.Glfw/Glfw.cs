@@ -1871,14 +1871,14 @@ namespace Tao.Glfw {
         public static extern int glfwGetJoystickParam(int joystick, int parameter);
 		#endregion int glfwGetJoystickParam(int joystick, int parameter)
 
-		#region int glfwGetJoystickPos(int joy, out float position, int numberOfAxes)
+		#region int glfwGetJoystickPos(int joy, [Out] float[] position, int numberOfAxes)
         /// <summary>
         /// 
         /// </summary>
         // GLFWAPI int GLFWAPIENTRY glfwGetJoystickPos(int joy, float *pos, int numaxes);
         [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
-		public static extern int glfwGetJoystickPos(int joy, out float position, int numberOfAxes);
-		#endregion int glfwGetJoystickPos(int joy, out float position, int numberOfAxes)
+		public static extern int glfwGetJoystickPos(int joy, [Out] float[] position, int numberOfAxes);
+		#endregion int glfwGetJoystickPos(int joy, [Out] float[] position, int numberOfAxes)
 
 		#region int glfwGetJoystickButtons(int joystick, [Out] byte[] buttons, int numberOfButtons)
         /// <summary>
