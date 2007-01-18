@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright ©2003-2005 Tao Framework Team
+Copyright ©2003-2007 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -33,19 +33,23 @@ using System.Security.Permissions;
 
 [assembly: AllowPartiallyTrustedCallers]
 [assembly: AssemblyCompany("Tao Framework -- http://www.taoframework.com")]
+#if DEBUG
+[assembly: AssemblyConfiguration("Debug")]
+#else
 [assembly: AssemblyConfiguration("Retail")]
-[assembly: AssemblyCopyright("Copyright ©2003-2005 Tao Framework Team.  All rights reserved.")]
+#endif
+[assembly: AssemblyCopyright("Copyright ©2003-2007 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.Lua")]
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyDescription("Tao Framework Lua Binding For .NET")]
-[assembly: AssemblyFileVersion("5.1.0.0")]
-[assembly: AssemblyInformationalVersion("5.1.0.0")]
+[assembly: AssemblyFileVersion("5.1.1.0")]
+[assembly: AssemblyInformationalVersion("5.1.1.0")]
 [assembly: AssemblyKeyName("")]
 [assembly: AssemblyProduct("Tao.Lua.dll")]
 [assembly: AssemblyTitle("Tao Framework Lua Binding For .NET")]
 [assembly: AssemblyTrademark("Tao Framework -- http://www.taoframework.com")]
-[assembly: AssemblyVersion("5.1.0.0")]
+[assembly: AssemblyVersion("5.1.1.0")]
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, Flags = SecurityPermissionFlag.Execution)]

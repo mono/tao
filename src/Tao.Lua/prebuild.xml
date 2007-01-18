@@ -78,8 +78,8 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.Lua" />
 	    <Files>
-		<File buildAction="Content">Data/LuaExamples.Simple.lua</File>
-		<Match path="." pattern="*.cs" recurse="true"/>
+        <Match path="Data" pattern="*.lua" recurse="true" buildAction="Content" copyToOutput="PreserveNewest" />
+        <Match path="." pattern="*.cs" recurse="true" />
 	    </Files>
 	</Project>
 	<Project name="LuaExamples.Functions" path="../../examples/LuaExamples/Functions" language="C#" type="Exe" startupObject="LuaExamples.Functions" designerFolder="Properties">
@@ -106,8 +106,8 @@
 	    <Reference name="System" /> 
 	    <Reference name="Tao.Lua" />
 	    <Files>
-		<File buildAction="Content">Data/LuaExamples.Functions.lua</File>
-		<Match path="." pattern="*.cs" recurse="true"/>
+        <Match path="Data" pattern="*.lua" recurse="true" buildAction="Content" copyToOutput="PreserveNewest" />
+		    <Match path="." pattern="*.cs" recurse="true" />
 	    </Files>
 	</Project>
     </Solution>

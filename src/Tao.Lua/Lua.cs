@@ -1,7 +1,7 @@
 #region License
 /*
  MIT License
- Copyright 2003-2005 Tao Framework Team
+ Copyright 2003-2007 Tao Framework Team
  http://www.taoframework.com
  All rights reserved.
  
@@ -66,18 +66,18 @@ namespace Tao.Lua
     using lua_Integer = System.Int32;
     using lua_Debug = System.IntPtr;
     #endregion Aliases
-	
-	/// #region Class Documentation
-	/// <summary>
-	///     Lua bindings for .NET, implementing Lua 5.1 (http://www.lua.org).
-	/// </summary>
-	/// <remarks>
-	///		Lua is a powerful light-weight programming language designed for
-	///		extending applications. Lua is also frequently used as a
-	///		general-purpose, stand-alone language.
-	///	<p>More information can be found at the official website (http://www.lua.org).</p>
-	///	</remarks>
-	/// #endregion Class Documentation
+
+    /// #region Class Documentation
+    /// <summary>
+    ///     Lua bindings for .NET, implementing Lua 5.1 (http://www.lua.org).
+    /// </summary>
+    /// <remarks>
+    ///		Lua is a powerful light-weight programming language designed for
+    ///		extending applications. Lua is also frequently used as a
+    ///		general-purpose, stand-alone language.
+    ///	<p>More information can be found at the official website (http://www.lua.org).</p>
+    ///	</remarks>
+    /// #endregion Class Documentation
     public static class Lua
     {
         #region Private Constants
@@ -98,11 +98,15 @@ namespace Tao.Lua
         /// <summary>
         /// 
         /// </summary>
+        public const string LUA_RELEASE = "Lua 5.1.1";
+        /// <summary>
+        /// 
+        /// </summary>
         public const int LUA_VERSION_NUM = 501;
         /// <summary>
         /// 
         /// </summary>
-        public const string LUA_COPYRIGHT = "Copyright (C) 1994-2004 Tecgraf, PUC-Rio";
+        public const string LUA_COPYRIGHT = "Copyright (C) 1994-2006 Lua.org, PUC-Rio";
         /// <summary>
         /// 
         /// </summary>
@@ -206,7 +210,7 @@ namespace Tao.Lua
         ///     The block must exist until the reader function is called again.
         /// </remarks>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		[CLSCompliant(false)]
+        [CLSCompliant(false)]
         public delegate string lua_Reader(lua_State L, IntPtr ud, ref size_t sz);
 
         //typedef int (*lua_Writer) (lua_State *L, const void* p, size_t sz, void* ud);
@@ -221,7 +225,7 @@ namespace Tao.Lua
         ///     The writer returns an error code: 0 means no errors; any other value means an error and stops lua_dump from calling the writer again.
         /// </returns>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		[CLSCompliant(false)]
+        [CLSCompliant(false)]
         public delegate int lua_Writer(lua_State L, IntPtr p, size_t sz, IntPtr ud);
 
         //typedef void * (*lua_Alloc) (void *ud, void *ptr, size_t osize, size_t nsize);
@@ -289,7 +293,7 @@ namespace Tao.Lua
         public const int LUA_MINSTACK = 20;
 
         #endregion Basic Types
-        
+
         #region Public Functions
 
         #region Basic State Management
@@ -795,7 +799,7 @@ namespace Tao.Lua
         /// <param name="k"></param>
         [DllImport(LUA_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public extern static void lua_getfield(lua_State L, int idx, string k);
-        
+
         //LUA_API void  (lua_rawget) (lua_State *L, int idx);
         /// <summary>
         ///     Similar to lua_gettable, but does a raw access (i.e., without
@@ -849,7 +853,7 @@ namespace Tao.Lua
         ///     metamethod and marks the userdata as finalized. When this userdata is
         ///     collected again then Lua frees its corresponding memory.
         /// </remarks>
-		[CLSCompliant(false)]
+        [CLSCompliant(false)]
         [DllImport(LUA_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public extern static IntPtr lua_newuserdata(lua_State L, size_t sz);
 
@@ -956,9 +960,9 @@ namespace Tao.Lua
         public extern static int lua_setfenv(lua_State L, int idx);
 
         #endregion Set Functions (stack -> Lua)
-        
+
         #region Load and Call Functions (Load and Run Lua code)
-        
+
         //LUA_API void  (lua_call) (lua_State *L, int nargs, int nresults);
         /// <summary>
         /// 
@@ -1025,23 +1029,23 @@ namespace Tao.Lua
         [DllImport(LUA_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public extern static int lua_cpcall(lua_State L, lua_CFunction func, IntPtr ud);
 
-		//LUA_API int   (lua_load) (lua_State *L, lua_Reader reader, void *dt, const char *chunkname);
-		/// <summary>
+        //LUA_API int   (lua_load) (lua_State *L, lua_Reader reader, void *dt, const char *chunkname);
+        /// <summary>
         ///     Loads a Lua chunk. If there are no errors, lua_load pushes the compiled
         ///     chunk as a Lua function on top of the stack. Otherwise, it pushes an
         ///     error message.
-		/// </summary>
-		/// <param name="L"></param>
-		/// <param name="reader"></param>
+        /// </summary>
+        /// <param name="L"></param>
+        /// <param name="reader"></param>
         /// <param name="data">The data argument is an opaque value passed to the reader function.</param>
         /// <param name="chunkname">The chunkname argument gives a name to the chunk, which is used for error messages and in debug information.</param>
-		/// <returns>0: no errors.  LUA_ERRSYNTAX: syntax error during pre-compilation. LUA_ERRMEM: memory allocation error.</returns>
+        /// <returns>0: no errors.  LUA_ERRSYNTAX: syntax error during pre-compilation. LUA_ERRMEM: memory allocation error.</returns>
         /// <remarks>This function only loads a chunk; it does not run it. lua_load automatically detects whether the chunk is text or binary, and loads it accordingly (see program luac). lua_load uses a user-supplied reader function to read the chunk (see lua_Reader).</remarks>
         [CLSCompliant(false)]
         [DllImport(LUA_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public extern static int lua_load(lua_State L, lua_Reader reader, IntPtr data, string chunkname);
 
-		//LUA_API int (lua_dump) (lua_State *L, lua_Writer writer, void *data);
+        //LUA_API int (lua_dump) (lua_State *L, lua_Writer writer, void *data);
         /// <summary>
         ///     Dumps a function as a binary chunk. Receives a Lua function on the
         ///     top of the stack and produces a binary chunk that, if loaded again,
@@ -1059,7 +1063,7 @@ namespace Tao.Lua
         /// <remarks>
         ///     This function does not pop the Lua function from the stack.
         /// </remarks>
-		[CLSCompliant(false)]
+        [CLSCompliant(false)]
         [DllImport(LUA_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public extern static int lua_dump(lua_State L, lua_Writer writer, IntPtr data);
 
@@ -1513,7 +1517,7 @@ namespace Tao.Lua
         }
 
         #endregion Compatibility Macros and Functions
-        
+
         #region Debug API
 
         #region Event Codes
@@ -1718,22 +1722,22 @@ namespace Tao.Lua
             /// <summary>
             ///     a reasonable name for the given function. Because functions in Lua are first-class values, they do not have a fixed name: some functions may be the value of multiple global variables, while others may be stored only in a table field. The lua_getinfo function checks how the function was called to find a suitable name. If it cannot find a name, then name is set to NULL.
             /// </summary>
-			[CLSCompliant(false)]
-			public sbyte name;
+            [CLSCompliant(false)]
+            public sbyte name;
             /// <summary>
             ///     explains the name field. The value of namewhat can be "global", "local", "method", "field", "upvalue", or "" (the empty string), according to how the function was called. (Lua uses the empty string when no other option seems to apply.)
             /// </summary>
-			[CLSCompliant(false)]
-			public sbyte namewhat;
+            [CLSCompliant(false)]
+            public sbyte namewhat;
             /// <summary>
             /// the string "Lua" if the function is a Lua function, "C" if it is a C function, "main" if it is the main part of a chunk, and "tail" if it was a function that did a tail call. In the latter case, Lua has no other information about the function.
             /// </summary>
-			[CLSCompliant(false)]
-			public sbyte what;
+            [CLSCompliant(false)]
+            public sbyte what;
             /// <summary>
             /// If the function was defined in a string, then source is that string. If the function was defined in a file, then source starts with a '@' followed by the file name.
             /// </summary>
-			[CLSCompliant(false)]
+            [CLSCompliant(false)]
             public sbyte source;
             /// <summary>
             /// the current line where the given function is executing. When no line information is available, currentline is set to -1.
@@ -1759,7 +1763,7 @@ namespace Tao.Lua
         };
 
         #endregion Event Masks
-        
+
         #endregion Debug API
 
         #endregion Public Functions
@@ -1767,6 +1771,12 @@ namespace Tao.Lua
         #endregion Lua.h
 
         #region LuaLib.h
+
+        //#define LUA_FILEHANDLE		"FILE*"
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string LUA_FILEHANDLE = "FILE*";
 
         //#define LUA_COLIBNAME	"coroutine"
         /// <summary>
@@ -2483,8 +2493,7 @@ namespace Tao.Lua
         /// <param name="c"></param>
         public static void luaL_putchar(ref luaL_Buffer B, char c)
         {
-            // TODO: Implement luaL_putchar
-            throw new NotImplementedException("The function you have called, luaL_putchar, is not yet implemented.");
+            luaL_addchar(ref B, c);
         }
 
         //#define luaL_addsize(B,n)	((B)->p += (n))
@@ -2495,7 +2504,8 @@ namespace Tao.Lua
         /// <param name="n"></param>
         public static void luaL_addsize(luaL_Buffer B, int n)
         {
-            B.p += n;
+            // TODO: Implement luaL_addsize
+            throw new NotImplementedException("The function you have called, luaL_addsize, is not yet implemented.");
         }
 
         #endregion Compatibility Only
@@ -2556,7 +2566,7 @@ namespace Tao.Lua
         public extern static void luaL_pushresult(ref luaL_Buffer B);
 
         #endregion Generic Buffer Manipulation
-        
+
         #region Compatibility With Ref System
 
         //#define LUA_NOREF       (-2)
@@ -2621,6 +2631,96 @@ namespace Tao.Lua
         /// 
         /// </summary>
         public const int LUA_IDSIZE = 60;
+
+        //#define LUA_PROMPT		"> "
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string UA_PROMPT = "> ";
+
+        //#define LUA_PROMPT2		">> "
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string LUA_PROMT2 = ">> ";
+
+        //#define LUA_PROGNAME		"lua"
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string LUA_PROGNAME = "lua";
+
+        //#define LUA_MAXINPUT	512
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int LUA_MAXINPUT = 512;
+
+        //#define LUAI_GCPAUSE	200  /* 200% (wait memory to double before next GC) */
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int LUAI_GCPAUSE = 200;
+
+        //#define LUAI_GCMUL	200
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int LUAI_GCMUL = 200;
+
+        //#define LUA_COMPAT_LSTR		1
+        /// <summary>
+        /// 
+        /// </summary>
+        public const byte LUA_COMPAT_LSTR = 1;
+
+        //#define LUAI_MAXCALLS	20000
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int LUAI_MAXCALLS = 20000;
+
+        //#define LUAI_MAXCSTACK	2048
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int LUAI_MAXCSTACK = 2048;
+
+        //#define LUAI_MAXCCALLS		200
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int LUAI_MAXCCALLS = 200;
+
+        //#define LUAI_MAXVARS		200
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int LUAI_MAXVARS = 200;
+
+        //#define LUAI_MAXUPVALUES	60
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int LUAI_MAXUPVALUES = 60;
+
+        //#define LUAL_BUFFERSIZE		BUFSIZ
+        /// <summary>
+        /// 
+        /// </summary>
+        public const int LUAL_BUFFERSIZE = 1028;
+
+        //#define LUA_MAXCAPTURES		32
+        /// <summary>
+        /// 
+        /// </summary>
+        public const byte LUA_MAXCAPTURES = 32;
+
+        //#define LUAI_EXTRASPACE		0
+        /// <summary>
+        /// 
+        /// </summary>
+        public const byte LUAI_EXTRASPACE = 0;
 
         #endregion LuaConf.h
     }

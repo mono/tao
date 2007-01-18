@@ -33,20 +33,7 @@ namespace LuaExamples
 		[STAThread]
 		static void Main(string[] args)
 		{
-            string filePath = Path.Combine("..", "..");
-            string fileDirectory = "Data";
-            string fileName = "LuaExamples.Simple.lua";
-			if (File.Exists(fileName))
-			{
-				filePath = "";
-                fileDirectory = "";
-			}
-            else if (File.Exists(Path.Combine(fileDirectory, fileName)))
-            {
-                filePath = "";
-            }
-
-            string file = Path.Combine(Path.Combine(filePath, fileDirectory), fileName);
+            string file = Path.Combine("Data", "LuaExamples.Simple.lua");
 
 			IntPtr L = Lua.luaL_newstate();
 

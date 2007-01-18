@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright ©2003-2005 Tao Framework Team
+Copyright ©2003-2007 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -33,8 +33,8 @@ using System.Runtime.CompilerServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 //
-[assembly: AssemblyTitle("")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("LuaExamples.Simple")]
+[assembly: AssemblyDescription("A simple example of Lua executing a script.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("")]
