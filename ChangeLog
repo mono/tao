@@ -1,3 +1,8 @@
+2007-01-18T018:30  Rob Loach <http://www.robloach.net>
+  - Tao.Lua updated to Lua 5.1.1
+  - Glfw.glfwGetJoystickPos argument fix
+  - Documentation
+
 2006-11-04T00:26  C.J. Adams-Collier  <cjcollier@colliertech.org>
 	* other/Prebuild/Prebuild.exe
 	- new version places AssemblyInfo.cs into Properties/ directory

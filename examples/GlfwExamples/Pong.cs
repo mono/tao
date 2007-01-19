@@ -388,8 +388,8 @@ namespace GlfwExamples {
 			float[] joy2pos = new float[2];
 			
 			// Get joystick X & Y axis positions
-			Glfw.glfwGetJoystickPos(Glfw.GLFW_JOYSTICK_1, out joy1pos[0], 2);
-			Glfw.glfwGetJoystickPos(Glfw.GLFW_JOYSTICK_2, out joy2pos[0], 2);
+			Glfw.glfwGetJoystickPos(Glfw.GLFW_JOYSTICK_1, joy1pos, 2);
+			Glfw.glfwGetJoystickPos(Glfw.GLFW_JOYSTICK_2, joy2pos, 2);
 			
 			// Player 1 control
 			if(Glfw.glfwGetKey('A') == Gl.GL_TRUE || joy1pos[1] > 0.2f) {
