@@ -147,6 +147,7 @@
 				<xs:element name="WarningsAsErrors" type="xs:boolean" minOccurs="0" />
 				<xs:element name="SuppressWarnings" type="xs:string" minOccurs="0" />
 				<xs:element name="OutputPath" type="xs:string" minOccurs="0" />
+				<xs:element name="GenerateDocumentation" type="xs:boolean" minOccurs="0" />
 				<xs:element name="XmlDocFile" type="xs:string" minOccurs="0" />
 				<xs:element name="DebugInformation" type="xs:boolean" minOccurs="0" />
 				<xs:element name="RegisterComInterop" type="xs:boolean" minOccurs="0" />
@@ -232,6 +233,7 @@
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="Code" />
 						<xs:enumeration value="Component" />
+						<xs:enumeration value="Designer" />
 						<xs:enumeration value="Form" />
 						<xs:enumeration value="Settings" />
 						<xs:enumeration value="UserControl" />
