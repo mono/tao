@@ -13,10 +13,10 @@ ECHO Build Solutions Using NAnt
 ECHO --------------------------
 NAnt.exe -t:net-2.0 -buildfile:src/Tao.DevIl/Tao.DevIl.build package
 NAnt.exe -t:net-2.0 -buildfile:src/Tao.Ode/Tao.Ode.build package
-NAnt.exe -t:net-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build package
 NAnt.exe -t:net-2.0 -buildfile:src/Tao.PhysFs/Tao.PhysFs.build package
 NAnt.exe -t:net-2.0 -buildfile:src/Tao.Sdl/Tao.Sdl.build package
 NAnt.exe -t:net-2.0 -buildfile:src/Tao.Lua/Tao.Lua.build package
+NAnt.exe -t:net-2.0 -buildfile:src/Tao.OpenGl/Tao.OpenGl.build package
 
 ECHO -----------------------------
 ECHO Copy Builds to Dist Directory
