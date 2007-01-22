@@ -54,7 +54,7 @@
 	    <nant buildfile="${src.dir}/Tao.Ode/Tao.Ode.build" target="mono-2.0 package" />
 	    <nant buildfile="${src.dir}/Tao.PhysFs/Tao.PhysFs.build" target="mono-2.0 package" />
 	    <nant buildfile="${src.dir}/Tao.Sdl/Tao.Sdl.build" target="mono-2.0 package" />
-	    <nant buildfile="${src.dir}/Tao.Lua/Tao.Lua.build" target="net-2.0 package" />
+	    <nant buildfile="${src.dir}/Tao.Lua/Tao.Lua.build" target="mono-2.0 package" />
 	    <nant buildfile="${src.dir}/Tao.OpenGl/Tao.OpenGl.build" target="mono-2.0 package" />
 	</if>
 	<call target="copyfiles" />
