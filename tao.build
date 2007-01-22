@@ -1,0 +1,172 @@
+<?xml version="1.0" ?>
+<project name="Tao" default="package">
+    <!--
+    Targets:
+    buildrelease: builds release versions of libraries and examples.
+    package: creates release zip file for .NET and Mono.
+    -->
+    <echo message="Using '${nant.settings.currentframework}' Framework"/>
+
+    <!-- global project settings -->
+    <property name="project.config" value="Release" />
+    <property name="project.version" value="2.0.0RC1" />
+    <property name="src.dir" value="src" />
+    <property name="examples.dir" value="examples" />
+    <property name="tests.dir" value="tests" />
+    <property name="dist.dir" value="dist" />
+    <property name="source.dir" value="source" />
+    <property name="bin.dir" value="bin" />
+    <property name="obj.dir" value="obj" />
+    <property name="lib.dir" value="lib" />
+    <property name="doc.dir" value="doc" />
+
+    <target name="net-2.0" description="Sets framework to .NET 2.0">
+        <property name="nant.settings.currentframework" value="net-2.0" />
+    </target>
+
+    <target name="mono-2.0" description="Sets framework to mono 2.0">
+        <property name="nant.settings.currentframework" value="mono-2.0" />
+    </target>
+
+    <target name="clean" description="Clean project">
+	<delete dir="${bin.dir}" failonerror="false" />
+	<delete dir="${obj.dir}" failonerror="false" />
+	<delete dir="${dist.dir}" failonerror="false" />
+	<nant buildfile="${src.dir}/Tao.DevIl/Tao.DevIl.build" target="clean" />
+	<nant buildfile="${src.dir}/Tao.Ode/Tao.Ode.build" target="clean" />
+	<nant buildfile="${src.dir}/Tao.PhysFs/Tao.PhysFs.build" target="clean" />
+	<nant buildfile="${src.dir}/Tao.Sdl/Tao.Sdl.build" target="clean" />
+	<nant buildfile="${src.dir}/Tao.Lua/Tao.Lua.build" target="clean" />
+	<nant buildfile="${src.dir}/Tao.OpenGl/Tao.OpenGl.build" target="clean" />
+    </target>
+
+    <target name="package" depends="clean" description="Package">
+	<if test="${platform::is-win32()}">
+	    <nant buildfile="${src.dir}/Tao.DevIl/Tao.DevIl.build" target="net-2.0 package" />
+	    <nant buildfile="${src.dir}/Tao.Ode/Tao.Ode.build" target="net-2.0 package" />
+	    <nant buildfile="${src.dir}/Tao.PhysFs/Tao.PhysFs.build" target="net-2.0 package" />
+	    <nant buildfile="${src.dir}/Tao.Sdl/Tao.Sdl.build" target="net-2.0 package" />
+	    <nant buildfile="${src.dir}/Tao.Lua/Tao.Lua.build" target="net-2.0 package" />
+	    <nant buildfile="${src.dir}/Tao.OpenGl/Tao.OpenGl.build" target="net-2.0 package" />
+	</if>
+	<if test="${platform::is-unix()}">
+	    <nant buildfile="${src.dir}/Tao.DevIl/Tao.DevIl.build" target="mono-2.0 package" />
+	    <nant buildfile="${src.dir}/Tao.Ode/Tao.Ode.build" target="mono-2.0 package" />
+	    <nant buildfile="${src.dir}/Tao.PhysFs/Tao.PhysFs.build" target="mono-2.0 package" />
+	    <nant buildfile="${src.dir}/Tao.Sdl/Tao.Sdl.build" target="mono-2.0 package" />
+	    <nant buildfile="${src.dir}/Tao.Lua/Tao.Lua.build" target="net-2.0 package" />
+	    <nant buildfile="${src.dir}/Tao.OpenGl/Tao.OpenGl.build" target="mono-2.0 package" />
+	</if>
+	<call target="copyfiles" />
+	<call target="zip" />
+    </target>
+
+    <!-- copy project files -->
+    <target name="copyfiles">
+	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${source.dir}">
+	    <fileset>
+		<include name="**" />
+		<exclude name="**/${obj.dir}/**" />
+		<exclude name="**/${bin.dir}/**" />
+		<exclude name="**/*j.user" />
+		<exclude name="**.suo" />
+		<exclude name="**/*.build" />
+		<exclude name="**/*.mdp" />
+		<exclude name="**/*.mds" />
+		<exclude name="**/*.sln" />
+		<exclude name="**/*.cmbx" />
+		<exclude name="**/*.csproj" />
+		<exclude name="**/*.old" />
+		<exclude name="**/*.prjx" />
+		<exclude name="**/*.am" />
+		<exclude name="**/Makefile" />
+		<exclude name="**/configure" />
+		<exclude name="**/configure.ac" />
+		<exclude name="**/*.in" />
+		<exclude name="**/*.pc" />
+		<exclude name="**/*.stackdump" />
+		<exclude name="**/*.lnk" />
+		<exclude name="**/config.status" />
+		<exclude name="**/config.log" />
+		<exclude name="**/aclocal.m4" />
+		<exclude name="**/doc/**" />
+		<exclude name="**/dist/**" />
+		<exclude name="**/autom4te.cache/**" />
+		<exclude name="**/Debug/**" />
+		<exclude name="**/Release/**" />
+		<exclude name="**.swp" />
+		<exclude name="**.bak" />
+		<exclude name="**.project" />
+	    </fileset>
+	</copy>
+
+	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${doc.dir}" flatten="true">
+	    <fileset basedir="${src.dir}">
+		<include name="**/*.chm"/>
+		<include name="**/*.xml"/>
+		<exclude name="**/prebuild.xml"/>
+	    </fileset>
+	</copy>
+
+	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${doc.dir}/${(project::get-name())}">
+	    <fileset basedir="${src.dir}/${bin.dir}/${project.config}/doc">
+		<include name="*" />
+		<exclude name="*.chm"/>
+	    </fileset>
+	</copy>
+	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/assemblies" flatten="true">
+	    <fileset basedir="${src.dir}">
+		<include name="**/*.dll"/>
+		<include name="**/*.xml"/>
+		<exclude name="**/prebuild.xml"/>
+		<exclude name="**/nunit.framework.dll"/>
+		<include name="**/*.config"/>
+		<exclude name="**/app.config"/>
+		<exclude name="**/*Bind*"/>
+	    </fileset>
+	</copy>
+	<if test="${platform::is-win32()}">
+	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/win32deps">
+		<fileset basedir="${project::get-base-directory()}/${lib.dir}/win32deps">
+		    <include name="**"/>
+		</fileset>
+	    </copy>
+	</if>
+	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/${examples.dir}" flatten="true">
+	    <fileset>
+		<include name="${examples.dir}/**/*.sh" />
+		<include name="${examples.dir}/**/*.exe" />
+		<include name="${src.dir}/**/*.dll" />
+		<exclude name="**/nunit.framework.dll"/>
+		<include name="**/*.config"/>
+		<exclude name="**/app.config"/>
+		<exclude name="**/*Bind*"/>
+	    </fileset>
+	</copy>
+	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/${examples.dir}/Data" flatten="true">
+	    <fileset>
+		<include name="${examples.dir}/**/Data/**" />
+	    </fileset>
+	</copy>
+    </target>
+
+    <!-- create zip file -->
+    <target name="zip" description="zip/gzip files">
+	<property name="project.zip-path" value="${project::get-base-directory()}/${dist.dir}/${string::to-lower(project::get-name())}-${project.version}"/>
+	<if test="${platform::is-unix()}">
+	    <tar destfile="${project.zip-path}.tar.gz" compression="GZip">
+		<fileset basedir="${dist.dir}">
+		    <include name="${project.zip-path}/**" />
+		</fileset>
+	    </tar>
+	</if>
+	<if test="${platform::is-win32()}">
+	    <zip zipfile="${project.zip-path}.zip">
+		<fileset basedir="${dist.dir}">
+		    <include name="${project.zip-path}/**" />
+		</fileset>
+	    </zip>
+	</if>
+	<echo message="Created '${project::get-name()}' packages at ${project.zip-path}" />
+    </target>
+</project>

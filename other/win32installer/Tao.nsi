@@ -1,14 +1,19 @@
 !verbose 3
 
 !define PRODUCT_NAME "Tao"
-!define PRODUCT_VERSION "2.0.0"
+!define PRODUCT_LNAME "tao"
+!define PRODUCT_VERSION "2.0.0RC1"
 !define PRODUCT_BUILD "1"
 !define PRODUCT_PUBLISHER "Tao"
 !define PRODUCT_WEB_SITE "http://www.taoframework.com"
 !define PRODUCT_DIR_REGKEY "Software\Microsoft\Windows\CurrentVersion\App Paths\Tao"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\Tao"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
-!define PRODUCT_PATH "../../dist"
+!define PRODUCT_DIR "..\..\dist"
+!define PRODUCT_PATH "${PRODUCT_DIR}\${PRODUCT_LNAME}-${PRODUCT_VERSION}"
+!define PRODUCT_SOURCE "${PRODUCT_PATH}\source"
+!define PRODUCT_BIN "${PRODUCT_PATH}\bin"
+!define PRODUCT_DOC "${PRODUCT_PATH}\doc"
 
 ;!define MUI_WELCOMEFINISHPAGE_BITMAP "TaoLogo.bmp"
 ;!define MUI_WELCOMEFINISHPAGE_BITMAP_NOSTRETCH
@@ -27,8 +32,8 @@ CRCCheck on
 
 ; MUI Settings
 !define MUI_ABORTWARNING
-!define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\modern-install.ico"
-!define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
+!define MUI_ICON "${NSISDIR}/Contrib/Graphics/Icons/modern-install.ico"
+!define MUI_UNICON "${NSISDIR}/Contrib/Graphics/Icons/modern-uninstall.ico"
 
 ;--------------------------------
 ;Variables
@@ -37,7 +42,6 @@ Var STARTMENU_FOLDER
 Var INI_VALUE
 Var file_handle
 Var filename
-Var example_dir
 
 ;--------------------------------
 ;Installer Pages
@@ -45,7 +49,7 @@ Var example_dir
 ; Welcome page
 !insertmacro MUI_PAGE_WELCOME
 ; License page
-!insertmacro MUI_PAGE_LICENSE "..\..\LICENSE.txt"
+!insertmacro MUI_PAGE_LICENSE "${PRODUCT_SOURCE}\COPYING"
 ; Components Page
 !insertmacro MUI_PAGE_COMPONENTS
 ; Directory page
@@ -85,7 +89,7 @@ ReserveFile "runtime.ini"
 
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "..\..\dist\${PRODUCT_PUBLISHER}-${PRODUCT_VERSION}-setup.exe"
+OutFile "${PRODUCT_DIR}/${PRODUCT_PUBLISHER}-${PRODUCT_VERSION}-setup.exe"
 InstallDir "$PROGRAMFILES\Tao"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
@@ -120,23 +124,23 @@ FunctionEnd
 Section "Source" SecSrc
   SetOverwrite ifnewer
   
-  SetOutPath "$INSTDIR\source\config"
-  File /r /x .svn ..\..\config\*.*
+  SetOutPath "$INSTDIR\source\m4"
+  File /r /x .svn ${PRODUCT_SOURCE}\m4\*.*
 
   SetOutPath "$INSTDIR\source\tests"
-  File /r /x obj /x .svn ..\..\tests\*.*
+  File /r /x obj /x .svn ${PRODUCT_SOURCE}\tests\*.*
 
   SetOutPath "$INSTDIR\source\src"
-  File /r /x obj /x bin /x doc /x .svn ..\..\src\*.*
+  File /r /x obj /x bin /x doc /x .svn ${PRODUCT_SOURCE}\src\*.*
 
   SetOutPath "$INSTDIR\source\other"
-  File /r /x .svn /x *.swp ..\..\other\*.*
+  File /r /x .svn /x *.swp ${PRODUCT_SOURCE}\other\*.*
 
   SetOutPath "$INSTDIR\source\gpg"
-  File /r /x .svn /x *.swp ..\..\gpg\*.*
+  File /r /x .svn /x *.swp ${PRODUCT_SOURCE}\gpg\*.*
 
   SetOutPath "$INSTDIR\source"
-  File /x .svn ..\..\*.*
+  File /x .svn ${PRODUCT_SOURCE}\*.*
 
   ;Store installation folder
   WriteRegStr HKCU "Software\Tao" "" $INSTDIR
@@ -146,10 +150,10 @@ SectionEnd
 Section "Runtime" SecRuntime
   SetOverwrite ifnewer
   SetOutPath "$INSTDIR\bin"
-  File /r /x .svn /x *.config ..\..\dist\bin\*.*
+  File /r /x .svn /x *.config ${PRODUCT_BIN}\assemblies\*.*
   
   SetOutPath "$INSTDIR\lib\win32deps"
-  File /r /x .svn ..\..\lib\win32deps\*.*
+  File /r /x .svn ${PRODUCT_SOURCE}\lib\win32deps\*.*
 
   ;Store installation folder
   WriteRegStr HKCU "Software\Tao" "" $INSTDIR
@@ -158,7 +162,7 @@ Section "Runtime" SecRuntime
   !insertmacro MUI_INSTALLOPTIONS_READ $INI_VALUE "runtime.ini" "Field 3" "State"
   StrCmp $INI_VALUE "1" "" +3
   SetOutPath "$SYSDIR"
-  File /r /x .svn ..\..\lib\win32deps\*.*
+  File /r /x .svn ${PRODUCT_SOURCE}\lib\win32deps\*.*
   
   !insertmacro MUI_INSTALLOPTIONS_READ $INI_VALUE "runtime.ini" "Field 2" "State"
   StrCmp $INI_VALUE "1" "" +4
@@ -171,49 +175,14 @@ Section "Examples" SecExamples
   SetOverwrite ifnewer
 
   SetOutPath "$INSTDIR\source\examples"
-  File /r /x obj /x bin /x .svn ..\..\examples\*.*
+  File /r /x obj /x bin /x .svn ${PRODUCT_SOURCE}\examples\*.*
   
   SetOutPath "$INSTDIR\examples"
-  File /r /x obj ..\..\dist\examples\*.*
-  File /r /x .svn ..\..\dist\bin\*.dll
+  File /r /x obj ${PRODUCT_BIN}\examples\*.*
+  File /r /x .svn ${PRODUCT_BIN}\assemblies\*.dll
 
   CreateDirectory "$SMPROGRAMS\Tao"
   CreateDirectory "$SMPROGRAMS\Tao\Examples"
-  CreateDirectory "$SMPROGRAMS\Tao\Examples\DevIlExamples"
-  StrCpy $example_dir "DevIlExamples"
-  call CreateExampleShortcuts
-  CreateDirectory "$SMPROGRAMS\Tao\Examples\FreeGlutExamples"
-  StrCpy $example_dir "FreeGlutExamples"
-  call CreateExampleShortcuts
-  CreateDirectory "$SMPROGRAMS\Tao\Examples\GeWang"
-  StrCpy $example_dir "GeWang"
-  call CreateExampleShortcuts
-  CreateDirectory "$SMPROGRAMS\Tao\Examples\GlfwExamples"
-  StrCpy $example_dir "GlfwExamples"
-  call CreateExampleShortcuts
-  CreateDirectory "$SMPROGRAMS\Tao\Examples\LuaExamples"
-  StrCpy $example_dir "LuaExamples"
-  call CreateExampleShortcuts
-  CreateDirectory "$SMPROGRAMS\Tao\Examples\NateRobbins"
-  StrCpy $example_dir "NateRobbins"
-  call CreateExampleShortcuts
-  CreateDirectory "$SMPROGRAMS\Tao\Examples\NeHe"
-  StrCpy $example_dir "NeHe"
-  call CreateExampleShortcuts
-  CreateDirectory "$SMPROGRAMS\Tao\Examples\OdeExamples"
-  StrCpy $example_dir "OdeExamples"
-  call CreateExampleShortcuts
-  CreateDirectory "$SMPROGRAMS\Tao\Examples\OpenAlExamples"
-  StrCpy $example_dir "OpenAlExamples"
-  call CreateExampleShortcuts
-  CreateDirectory "$SMPROGRAMS\Tao\Examples\PhysFsExamples"
-  StrCpy $example_dir "PhysFsExamples"
-  call CreateExampleShortcuts
-  CreateDirectory "$SMPROGRAMS\Tao\Examples\Redbook"
-  StrCpy $example_dir "Redbook"
-  call CreateExampleShortcuts
-  CreateDirectory "$SMPROGRAMS\Tao\Examples\SdlExamples"
-  StrCpy $example_dir "SdlExamples"
   call CreateExampleShortcuts
 
   ;Store installation folder
@@ -224,8 +193,8 @@ SectionEnd
 Section "Documentation" SecDocs
   SetOverwrite ifnewer
   SetOutPath "$INSTDIR\doc"
-  File /r ..\..\dist\doc\*.chm
-  File /r ..\..\dist\doc\*.xml
+  File /r ${PRODUCT_DOC}\*.chm
+  File /r ${PRODUCT_DOC}\*.xml
   
   CreateDirectory "$SMPROGRAMS\Tao\Documentation"
   call CreateDocShortcuts
@@ -400,19 +369,15 @@ FunctionEnd
 
 Function AddExampleToStartMenu
     Pop $0 ; link
-    Pop $1 ; dir
-    Pop $2 ; file
-    IfFileExists $INSTDIR\examples\$2 0 +2
-      CreateShortCut $SMPROGRAMS\Tao\Examples\$1\$0.lnk $INSTDIR\examples\$2
+    IfFileExists $INSTDIR\examples\$0 0 +2
+      CreateShortCut $SMPROGRAMS\Tao\Examples\$0.lnk $INSTDIR\examples\$0
 FunctionEnd
 
 Function CreateExampleShortcuts
-  FindFirst $file_handle $filename $INSTDIR\examples\$example_dir.*.exe
+  FindFirst $file_handle $filename $INSTDIR\examples\*.exe
   loop:
 	StrCmp $filename "" done
   	Push $filename
-	Push $example_dir
-	Push $filename
   	call AddExampleToStartMenu
 	FindNext $file_handle $filename
   	Goto loop
@@ -456,13 +421,12 @@ Function un.GACUnInstall
 	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.DevIl"'
 	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.FreeGlut"'
 	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.Glfw"'
+	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.Lua"'
 	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.Ode"'
 	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.OpenAl"'
 	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.OpenGl"'
-	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.OpenGl.ExtensionLoader"'
-	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.OpenGl.Glu"'
+	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.PhysFs"'
 	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.Platform.Windows"'
 	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.Sdl"'
-	nsExec::Exec '"$WINDIR\Microsoft.NET\Framework\v1.1.4322\gacutil.exe" /u "Tao.PhysFs"'
 FunctionEnd
 
