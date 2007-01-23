@@ -143,26 +143,40 @@ namespace SdlExamples
 			//Smpeg.SMPEG_loop(intPtr, 1);
 			//Smpeg.SMPEG_enableaudio(intPtr, 1);
 
-			while ((Smpeg.SMPEG_status(intPtr) == Smpeg.SMPEG_PLAYING) &&
-				(quitFlag == false))
-			{
-				Sdl.SDL_PollEvent(out evt);
+            try
+            {
+                while ((Smpeg.SMPEG_status(intPtr) == Smpeg.SMPEG_PLAYING) &&
+                    (quitFlag == false))
+                {
+                    Sdl.SDL_PollEvent(out evt);
 
-				if (evt.type == Sdl.SDL_QUIT)
-				{
-					quitFlag = true;
-				}
-				else if (evt.type == Sdl.SDL_KEYDOWN)
-				{
-					if ((evt.key.keysym.sym == (int)Sdl.SDLK_ESCAPE) ||
-						(evt.key.keysym.sym == (int)Sdl.SDLK_q))
-					{
-						quitFlag = true;
-					}
-				}
-			}
-			Smpeg.SMPEG_stop(intPtr);
-			Smpeg.SMPEG_delete(intPtr);
+                    if (evt.type == Sdl.SDL_QUIT)
+                    {
+                        quitFlag = true;
+                    }
+                    else if (evt.type == Sdl.SDL_KEYDOWN)
+                    {
+                        if ((evt.key.keysym.sym == (int)Sdl.SDLK_ESCAPE) ||
+                            (evt.key.keysym.sym == (int)Sdl.SDLK_q))
+                        {
+                            quitFlag = true;
+                        }
+                    }
+                }
+            }
+            catch
+            {
+                Smpeg.SMPEG_stop(intPtr);
+                Smpeg.SMPEG_delete(intPtr);
+                Sdl.SDL_Quit();
+                throw; 
+            }
+            finally
+            {
+                Smpeg.SMPEG_stop(intPtr);
+                Smpeg.SMPEG_delete(intPtr);
+                Sdl.SDL_Quit();
+            }
 		} 
 
 //		private void player(IntPtr one, byte[] temp, int len)

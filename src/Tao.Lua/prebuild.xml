@@ -54,7 +54,7 @@
                 <Match path="." pattern="*.cs" recurse="true"/>
             </Files>
 	</Project>
-	<Project name="LuaExamples.Simple" path="../../examples/LuaExamples/Simple" language="C#" type="Exe" startupObject="LuaExamples.Simple" designerFolder="Properties">
+	<Project name="LuaExamples.Simple" icon="App.ico" path="../../examples/LuaExamples/Simple" language="C#" type="Exe" startupObject="LuaExamples.Simple" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -82,7 +82,7 @@
         <Match path="." pattern="*.cs" recurse="true" />
 	    </Files>
 	</Project>
-	<Project name="LuaExamples.Functions" path="../../examples/LuaExamples/Functions" language="C#" type="Exe" startupObject="LuaExamples.Functions" designerFolder="Properties">
+	<Project name="LuaExamples.Functions" icon="App.ico" path="../../examples/LuaExamples/Functions" language="C#" type="Exe" startupObject="LuaExamples.Functions" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>

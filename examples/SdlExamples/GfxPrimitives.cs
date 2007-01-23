@@ -129,6 +129,10 @@ namespace SdlExamples
 				Sdl.SDL_Quit();
 				throw; 
 			}
+            finally
+            {
+                Sdl.SDL_Quit();
+            }
 		}
 		#endregion Run()
 	}

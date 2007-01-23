@@ -28,6 +28,7 @@ namespace NeHe
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NeHe));
             this.lstExamples = new System.Windows.Forms.ListBox();
             this.btnRun = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -52,7 +53,7 @@ namespace NeHe
             this.btnRun.UseVisualStyleBackColor = true;
             this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
             // 
-            // NeHeExamples
+            // NeHe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -60,8 +61,9 @@ namespace NeHe
             this.Controls.Add(this.btnRun);
             this.Controls.Add(this.lstExamples);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "NeHeExamples";
+            this.Name = "NeHe";
             this.Text = "NeHeExamples";
             this.Load += new System.EventHandler(this.frmExamples_Load);
             this.ResumeLayout(false);

@@ -220,7 +220,7 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="FreeGlutExamples.One" path="../../examples/FreeGlutExamples/One" language="C#" type="WinExe" startupObject="FreeGlutExamples.One" designerFolder="Properties">
+	<Project name="FreeGlutExamples.One" icon="App.ico" path="../../examples/FreeGlutExamples/One" language="C#" type="WinExe" startupObject="FreeGlutExamples.One" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -249,7 +249,7 @@
 		<Match path="." pattern="*.cs" recurse="true"/>
 	    </Files>
 	</Project>
-	<Project name="GeWangExamples" path="../../examples/GeWangExamples" language="C#" type="WinExe" startupObject="GeWangExamples.Program" designerFolder="Properties">
+	<Project name="GeWangExamples" icon="App.ico" path="../../examples/GeWangExamples" language="C#" type="WinExe" startupObject="GeWangExamples.Program" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -283,7 +283,7 @@
 		</Match>
 	    </Files>
 	</Project>
-	<Project name="GlfwExamples" path="../../examples/GlfwExamples" language="C#" type="WinExe" startupObject="GlfwExamples.Program" designerFolder="Properties">
+	<Project name="GlfwExamples" icon="App.ico" path="../../examples/GlfwExamples" language="C#" type="WinExe" startupObject="GlfwExamples.Program" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -317,7 +317,7 @@
 		</Match>
 	    </Files>
 	</Project>
-	<Project name="NateRobins" path="../../examples/NateRobins" language="C#" type="WinExe" startupObject="NateRobins.Program" designerFolder="Properties">
+	<Project name="NateRobins" icon="App.ico" path="../../examples/NateRobins" language="C#" type="WinExe" startupObject="NateRobins.Program" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -351,7 +351,7 @@
 		</Match>
 	    </Files>
 	</Project>
-	<Project name="NeHe" path="../../examples/NeHe" language="C#" type="WinExe" startupObject="NeHe.Program" designerFolder="Properties">
+	<Project name="NeHe" icon="App.ico" path="../../examples/NeHe" language="C#" type="WinExe" startupObject="NeHe.Program" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -386,7 +386,7 @@
 		</Match>
 	    </Files>
 	</Project>
-	<Project name="Redbook" path="../../examples/Redbook" language="C#" type="WinExe" startupObject="Redbook.Program" designerFolder="Properties">
+	<Project name="Redbook" icon="App.ico" path="../../examples/Redbook" language="C#" type="WinExe" startupObject="Redbook.Program" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -420,7 +420,7 @@
 		</Match>
 	    </Files>
 	</Project>
-	<Project name="OpenAlExamples" path="../../examples/OpenAlExamples" language="C#" type="WinExe" startupObject="OpenAlExamples.Program" designerFolder="Properties">
+	<Project name="OpenAlExamples" icon="App.ico" path="../../examples/OpenAlExamples" language="C#" type="WinExe" startupObject="OpenAlExamples.Program" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
@@ -455,7 +455,7 @@
 		</Match>
 	    </Files>
 	</Project>
-	<Project name="CgExamples" path="../../examples/CgExamples" language="C#" type="WinExe" startupObject="CgExamples.Program" designerFolder="Properties">
+	<Project name="CgExamples" icon="App.ico" path="../../examples/CgExamples" language="C#" type="WinExe" startupObject="CgExamples.Program" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>

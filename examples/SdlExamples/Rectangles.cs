@@ -99,150 +99,154 @@ namespace SdlExamples
 
 			Sdl.SDL_Event evt;
 
-			try 
-			{
-				Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
-				Sdl.SDL_WM_SetCaption("Tao.Sdl Example - Rectangles", "");
-				IntPtr surfacePtr = Sdl.SDL_SetVideoMode(
-					width, 
-					height, 
-					bpp, 
-					flags);
+            try
+            {
+                Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+                Sdl.SDL_WM_SetCaption("Tao.Sdl Example - Rectangles", "");
+                IntPtr surfacePtr = Sdl.SDL_SetVideoMode(
+                    width,
+                    height,
+                    bpp,
+                    flags);
 
-				int result = SdlMixer.Mix_OpenAudio(
-					SdlMixer.MIX_DEFAULT_FREQUENCY, 
-					(short) SdlMixer.MIX_DEFAULT_FORMAT, 
-					2, 
-					1024);
-				IntPtr chunkPtr = SdlMixer.Mix_LoadMUS(file);
+                int result = SdlMixer.Mix_OpenAudio(
+                    SdlMixer.MIX_DEFAULT_FREQUENCY,
+                    (short)SdlMixer.MIX_DEFAULT_FORMAT,
+                    2,
+                    1024);
+                IntPtr chunkPtr = SdlMixer.Mix_LoadMUS(file);
 
-				SdlMixer.MusicFinishedDelegate musicStopped = 
-					new SdlMixer.MusicFinishedDelegate(musicHasStopped);
-				SdlMixer.Mix_HookMusicFinished(musicStopped);
+                SdlMixer.MusicFinishedDelegate musicStopped =
+                    new SdlMixer.MusicFinishedDelegate(musicHasStopped);
+                SdlMixer.Mix_HookMusicFinished(musicStopped);
 
-				result = SdlMixer.Mix_PlayMusic( chunkPtr, 1);
-				if (result == -1)
-				{
-					Console.WriteLine("Music Error: " + Sdl.SDL_GetError());
-				}
+                result = SdlMixer.Mix_PlayMusic(chunkPtr, 1);
+                if (result == -1)
+                {
+                    Console.WriteLine("Music Error: " + Sdl.SDL_GetError());
+                }
 
-				int rmask = 0x00000000;
-				int gmask = 0x00ff0000;
-				int bmask = 0x0000ff00;
-				int amask = 0x000000ff;
+                int rmask = 0x00000000;
+                int gmask = 0x00ff0000;
+                int bmask = 0x0000ff00;
+                int amask = 0x000000ff;
 
-				IntPtr rgbSurfacePtr = Sdl.SDL_CreateRGBSurface(
-					flags, 
-					width, 
-					height, 
-					bpp, 
-					rmask,
-					gmask, 
-					bmask, 
-					amask);
+                IntPtr rgbSurfacePtr = Sdl.SDL_CreateRGBSurface(
+                    flags,
+                    width,
+                    height,
+                    bpp,
+                    rmask,
+                    gmask,
+                    bmask,
+                    amask);
 
-				Sdl.SDL_Rect rect = new Sdl.SDL_Rect(
-					0, 
-					0,
-					(short) width,
-					(short) height);
-				result = Sdl.SDL_FillRect(rgbSurfacePtr, ref rect, 0);
+                Sdl.SDL_Rect rect = new Sdl.SDL_Rect(
+                    0,
+                    0,
+                    (short)width,
+                    (short)height);
+                result = Sdl.SDL_FillRect(rgbSurfacePtr, ref rect, 0);
 
-				Sdl.SDL_Rect rect2;
+                Sdl.SDL_Rect rect2;
 
-				IntPtr videoInfoPointer = Sdl.SDL_GetVideoInfo();
-				if(videoInfoPointer == IntPtr.Zero) 
-				{
-					throw new ApplicationException(string.Format("Video query failed: {0}", Sdl.SDL_GetError()));
-				}
+                IntPtr videoInfoPointer = Sdl.SDL_GetVideoInfo();
+                if (videoInfoPointer == IntPtr.Zero)
+                {
+                    throw new ApplicationException(string.Format("Video query failed: {0}", Sdl.SDL_GetError()));
+                }
 
-				Sdl.SDL_VideoInfo videoInfo = (Sdl.SDL_VideoInfo)
-					Marshal.PtrToStructure(videoInfoPointer, 
-					typeof(Sdl.SDL_VideoInfo));
-				Console.WriteLine("Hi There");
+                Sdl.SDL_VideoInfo videoInfo = (Sdl.SDL_VideoInfo)
+                    Marshal.PtrToStructure(videoInfoPointer,
+                    typeof(Sdl.SDL_VideoInfo));
+                Console.WriteLine("Hi There");
 
-				Sdl.SDL_PixelFormat pixelFormat = (Sdl.SDL_PixelFormat)
-					Marshal.PtrToStructure(videoInfo.vfmt, 
-					typeof(Sdl.SDL_PixelFormat));
+                Sdl.SDL_PixelFormat pixelFormat = (Sdl.SDL_PixelFormat)
+                    Marshal.PtrToStructure(videoInfo.vfmt,
+                    typeof(Sdl.SDL_PixelFormat));
 
-				Console.WriteLine(videoInfo.hw_available);
-				Console.WriteLine(videoInfo.wm_available);
-				Console.WriteLine(videoInfo.blit_hw);
-				Console.WriteLine(videoInfo.blit_hw_CC);
-				Console.WriteLine(videoInfo.blit_hw_A);
-				Console.WriteLine(videoInfo.blit_sw);
-				Console.WriteLine(videoInfo.blit_hw_CC);
-				Console.WriteLine(videoInfo.blit_hw_A);
-				Console.WriteLine(videoInfo.blit_fill);
-				Console.WriteLine(videoInfo.video_mem);
-				Console.WriteLine(pixelFormat.BitsPerPixel);
-				Console.WriteLine(pixelFormat.BytesPerPixel);
-				Console.WriteLine(pixelFormat.Rmask);
-				Console.WriteLine(pixelFormat.Gmask);
-				Console.WriteLine(pixelFormat.Bmask);
-				Console.WriteLine(pixelFormat.Amask);
+                Console.WriteLine(videoInfo.hw_available);
+                Console.WriteLine(videoInfo.wm_available);
+                Console.WriteLine(videoInfo.blit_hw);
+                Console.WriteLine(videoInfo.blit_hw_CC);
+                Console.WriteLine(videoInfo.blit_hw_A);
+                Console.WriteLine(videoInfo.blit_sw);
+                Console.WriteLine(videoInfo.blit_hw_CC);
+                Console.WriteLine(videoInfo.blit_hw_A);
+                Console.WriteLine(videoInfo.blit_fill);
+                Console.WriteLine(videoInfo.video_mem);
+                Console.WriteLine(pixelFormat.BitsPerPixel);
+                Console.WriteLine(pixelFormat.BytesPerPixel);
+                Console.WriteLine(pixelFormat.Rmask);
+                Console.WriteLine(pixelFormat.Gmask);
+                Console.WriteLine(pixelFormat.Bmask);
+                Console.WriteLine(pixelFormat.Amask);
 
-				int numevents= 10;
-				Sdl.SDL_Event[] events = new Sdl.SDL_Event[numevents];
-				events[0].type = Sdl.SDL_KEYDOWN;
-				events[0].key.keysym.sym = (int)Sdl.SDLK_p;
-				events[1].type = Sdl.SDL_KEYDOWN;
-				events[1].key.keysym.sym = (int)Sdl.SDLK_z;
-				int result2 = Sdl.SDL_PeepEvents(events, numevents, Sdl.SDL_ADDEVENT, Sdl.SDL_KEYDOWNMASK);
-				Console.WriteLine("Addevent result: " + result2);
+                int numevents = 10;
+                Sdl.SDL_Event[] events = new Sdl.SDL_Event[numevents];
+                events[0].type = Sdl.SDL_KEYDOWN;
+                events[0].key.keysym.sym = (int)Sdl.SDLK_p;
+                events[1].type = Sdl.SDL_KEYDOWN;
+                events[1].key.keysym.sym = (int)Sdl.SDLK_z;
+                int result2 = Sdl.SDL_PeepEvents(events, numevents, Sdl.SDL_ADDEVENT, Sdl.SDL_KEYDOWNMASK);
+                Console.WriteLine("Addevent result: " + result2);
 
-				while (quitFlag == false) 
-				{
-					result = Sdl.SDL_PollEvent(out evt);
+                while (quitFlag == false)
+                {
+                    result = Sdl.SDL_PollEvent(out evt);
 
-					if (evt.type == Sdl.SDL_QUIT)
-					{
-						quitFlag = true;
-					}
-					else if (evt.type == Sdl.SDL_KEYDOWN)
-					{
-						if ((evt.key.keysym.sym == (int)Sdl.SDLK_ESCAPE) ||
-							(evt.key.keysym.sym == (int)Sdl.SDLK_q))
-						{
-							quitFlag = true;
-						}
-						if (evt.key.keysym.sym == (int)Sdl.SDLK_p)
-						{
-							Console.WriteLine("Key p event was added");
-						}
-						if (evt.key.keysym.sym == (int)Sdl.SDLK_z)
-						{
-							Console.WriteLine("Key z event was added");
-						}
-					}
+                    if (evt.type == Sdl.SDL_QUIT)
+                    {
+                        quitFlag = true;
+                    }
+                    else if (evt.type == Sdl.SDL_KEYDOWN)
+                    {
+                        if ((evt.key.keysym.sym == (int)Sdl.SDLK_ESCAPE) ||
+                            (evt.key.keysym.sym == (int)Sdl.SDLK_q))
+                        {
+                            quitFlag = true;
+                        }
+                        if (evt.key.keysym.sym == (int)Sdl.SDLK_p)
+                        {
+                            Console.WriteLine("Key p event was added");
+                        }
+                        if (evt.key.keysym.sym == (int)Sdl.SDLK_z)
+                        {
+                            Console.WriteLine("Key z event was added");
+                        }
+                    }
 
-					rect2 = new Sdl.SDL_Rect(
-						(short)rand.Next(-300, width),
-						(short) rand.Next(-300, height),
-						(short) rand.Next(20, 300),
-						(short) rand.Next(20, 300));
+                    rect2 = new Sdl.SDL_Rect(
+                        (short)rand.Next(-300, width),
+                        (short)rand.Next(-300, height),
+                        (short)rand.Next(20, 300),
+                        (short)rand.Next(20, 300));
 
-					try 
-					{
-						result = Sdl.SDL_FillRect(
-							surfacePtr, 
-							ref rect2, 
-							rand.Next(100000));
-						result = Sdl.SDL_BlitSurface(
-							rgbSurfacePtr, 
-							ref rect2, 
-							surfacePtr, 
-							ref rect);
-						result = Sdl.SDL_Flip(surfacePtr);
-					} 
-					catch (Exception) {}
-				}
-			} 
-			catch 
-			{
-				Sdl.SDL_Quit();
-				throw; 
-			}
+                    try
+                    {
+                        result = Sdl.SDL_FillRect(
+                            surfacePtr,
+                            ref rect2,
+                            rand.Next(100000));
+                        result = Sdl.SDL_BlitSurface(
+                            rgbSurfacePtr,
+                            ref rect2,
+                            surfacePtr,
+                            ref rect);
+                        result = Sdl.SDL_Flip(surfacePtr);
+                    }
+                    catch (Exception) { }
+                }
+            }
+            catch
+            {
+                Sdl.SDL_Quit();
+                throw;
+            }
+            finally
+            {
+                Sdl.SDL_Quit();
+            }
 		}
 		#endregion Run()
 

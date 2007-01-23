@@ -28,6 +28,7 @@ namespace CgExamples
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CgExamples));
             this.lstExamples = new System.Windows.Forms.ListBox();
             this.btnRun = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -52,7 +53,7 @@ namespace CgExamples
             this.btnRun.UseVisualStyleBackColor = true;
             this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
             // 
-            // CgExamplesExamples
+            // CgExamples
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -60,8 +61,9 @@ namespace CgExamples
             this.Controls.Add(this.btnRun);
             this.Controls.Add(this.lstExamples);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.Name = "CgExamplesExamples";
+            this.Name = "CgExamples";
             this.Text = "CgExamplesExamples";
             this.Load += new System.EventHandler(this.frmExamples_Load);
             this.ResumeLayout(false);

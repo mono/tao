@@ -53,7 +53,7 @@
                 <Match path="." pattern="*.cs" recurse="true"/>
             </Files>
 	</Project>
-	<Project name="PhysFsExamples.Simple" path="../../examples/PhysFsExamples/Simple" language="C#" type="Exe" startupObject="PhysFsExamples.Simple" designerFolder="Properties">
+	<Project name="PhysFsExamples.Simple" icon="App.ico" path="../../examples/PhysFsExamples/Simple" language="C#" type="Exe" startupObject="PhysFsExamples.Simple" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>

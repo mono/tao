@@ -49,7 +49,7 @@
                 <Match path="." pattern="*.cs" recurse="true"/>
             </Files>
 	</Project>
-	<Project name="DevIlExamples.SimpleExample" path="../../examples/DevIlExamples/SimpleExample" language="C#" type="Exe" startupObject="DevIlExamples.SimpleExample" designerFolder="Properties">
+	<Project name="DevIlExamples.SimpleExample" icon="App.ico" path="../../examples/DevIlExamples/SimpleExample" language="C#" type="Exe" startupObject="DevIlExamples.SimpleExample" designerFolder="Properties">
 	    <Configuration name="Debug">
 		<Options>
 		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
