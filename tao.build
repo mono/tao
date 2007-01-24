@@ -21,11 +21,11 @@
     <property name="doc.dir" value="doc" />
 
     <target name="net-2.0" description="Sets framework to .NET 2.0">
-        <property name="nant.settings.currentframework" value="net-2.0" />
+	<property name="nant.settings.currentframework" value="net-2.0" />
     </target>
 
     <target name="mono-2.0" description="Sets framework to mono 2.0">
-        <property name="nant.settings.currentframework" value="mono-2.0" />
+	<property name="nant.settings.currentframework" value="mono-2.0" />
     </target>
 
     <target name="clean" description="Clean project">
@@ -107,13 +107,14 @@
 		<exclude name="**/prebuild.xml"/>
 	    </fileset>
 	</copy>
-
-	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${doc.dir}/${(project::get-name())}">
-	    <fileset basedir="${src.dir}/${bin.dir}/${project.config}/doc">
-		<include name="*" />
-		<exclude name="*.chm"/>
-	    </fileset>
-	</copy>
+	<if test="${platform::is-unix()}">
+	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${doc.dir}/${(project::get-name())}">
+		<fileset basedir="${src.dir}/${bin.dir}/${project.config}/doc">
+		    <include name="*" />
+		    <exclude name="*.chm"/>
+		</fileset>
+	    </copy>
+	</if>
 	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/assemblies" flatten="true">
 	    <fileset basedir="${src.dir}">
 		<include name="**/*.dll"/>
