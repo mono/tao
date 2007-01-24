@@ -1,7 +1,7 @@
 !verbose 3
 
 !define PRODUCT_NAME "Tao"
-!define PRODUCT_LNAME "tao"
+!define PRODUCT_PACKAGE "tao"
 !define PRODUCT_VERSION "2.0.0RC1"
 !define PRODUCT_BUILD "1"
 !define PRODUCT_PUBLISHER "Tao"
@@ -10,7 +10,7 @@
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\Tao"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 !define PRODUCT_DIR "..\..\dist"
-!define PRODUCT_PATH "${PRODUCT_DIR}\${PRODUCT_LNAME}-${PRODUCT_VERSION}"
+!define PRODUCT_PATH "${PRODUCT_DIR}\${PRODUCT_PACKAGE}-${PRODUCT_VERSION}"
 !define PRODUCT_SOURCE "${PRODUCT_PATH}\source"
 !define PRODUCT_BIN "${PRODUCT_PATH}\bin"
 !define PRODUCT_DOC "${PRODUCT_PATH}\doc"
@@ -20,7 +20,7 @@
 ;!define MUI_UNWELCOMEFINISHPAGE_BITMAP "TaoLogo.bmp"
 ;!define MUI_UNWELCOMEFINISHPAGE_BITMAP_NOSTRETCH
 
-BrandingText "© 2003-2006 Tao Framework Team, http://www.taoframework.com"
+BrandingText "© 2003-2007 Tao Framework Team, http://www.taoframework.com"
 SetCompressor lzma
 CRCCheck on
 
@@ -89,7 +89,7 @@ ReserveFile "runtime.ini"
 
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "${PRODUCT_DIR}/${PRODUCT_PUBLISHER}-${PRODUCT_VERSION}-setup.exe"
+OutFile "${PRODUCT_DIR}\${PRODUCT_PUBLISHER}-${PRODUCT_VERSION}-setup.exe"
 InstallDir "$PROGRAMFILES\Tao"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
@@ -97,12 +97,12 @@ ShowUnInstDetails show
 
 ; .NET Framework check
 ; http://msdn.microsoft.com/netframework/default.aspx?pull=/library/en-us/dnnetdep/html/redistdeploy1_1.asp
-; Section "Detecting that the .NET Framework 1.1 is installed"
+; Section "Detecting that the .NET Framework 2.0 is installed"
 Function .onInit
 !insertmacro MUI_INSTALLOPTIONS_EXTRACT "runtime.ini"
-	ReadRegDWORD $R0 HKLM "SOFTWARE\Microsoft\NET Framework Setup\NDP\v1.1.4322" Install
+	ReadRegDWORD $R0 HKLM "SOFTWARE\Microsoft\NET Framework Setup\NDP\v2.0.50727" Install
 	StrCmp $R0 "" 0 CheckPreviousVersion
-	MessageBox MB_OK "Microsoft .NET Framework 1.1 was not found on this system.$\r$\n$\r$\nUnable to continue this installation."
+	MessageBox MB_OK "Microsoft .NET Framework 2.0 was not found on this system.$\r$\n$\r$\nUnable to continue this installation."
 	Abort
 
   CheckPreviousVersion:
