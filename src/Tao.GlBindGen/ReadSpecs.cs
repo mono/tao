@@ -60,8 +60,8 @@ namespace Tao.GlBindGen
                 string line = sr.ReadLine().Trim();
 
                 if (String.IsNullOrEmpty(line) ||
-                    line.StartsWith("#") ||  // Disregard comments.
-                    line.StartsWith("passthru") ||  // Disregard passthru statements.
+                    line.StartsWith("#") ||                 // Disregard comments.
+                    line.StartsWith("passthru") ||          // Disregard passthru statements.
                     line.StartsWith("required-props:") ||
                     line.StartsWith("param:") ||
                     line.StartsWith("dlflags:") ||
@@ -285,6 +285,8 @@ namespace Tao.GlBindGen
                     map.Add("VoidPointer", "IntPtr");
                 else if (words[0] == "CharPointer")
                     map.Add("CharPointer", "string");
+                else if (words[0] == "charPointerARB")
+                    map.Add("charPointerARB", "string");
                 else
                     map.Add(words[0], words[1]);
             }

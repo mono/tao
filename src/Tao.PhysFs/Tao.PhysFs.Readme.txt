@@ -1,5 +1,5 @@
 Tao.PhysFs 1.0.0.0
-Copyright ©2003-2005 Tao Framework Team
+Copyright Â©2003-2005 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 

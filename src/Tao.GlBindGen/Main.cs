@@ -116,7 +116,8 @@ namespace Tao.GlBindGen
                 ticks = System.DateTime.Now.Ticks - ticks;
 
                 Console.WriteLine("Bindings generated in {0} seconds.", ticks / (double)10000000.0);
-                Console.WriteLine("Press any key to quit...");
+                Console.WriteLine();
+                Console.WriteLine("Press enter to continue...");
                 Console.ReadLine();
             }
             catch (SecurityException e)

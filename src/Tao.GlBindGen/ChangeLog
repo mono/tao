@@ -1,3 +1,25 @@
+2.1.0.0 -> 2.1.0.2
++ Version numbers changed. Now they correspond to the OpenGL version that is translated.
++ All delegate signatures and delegate declarations now reside in the static internal Delegates class.
+	+ Added an empty static constructor to the Delegates class to ensure proper initialization.
+	+ This means we no longer have expose functions with trailing underscores in the public API.
+	+ It also simplifies the translation code (less "gl" and trailing underscores prefixes to work with).
++ All import signatures now reside in the static internal Imports class.
+	+ Added an empty static constructor to the Imports class to ensure proper initialization.
++ Added wrapper functions for all OpenGL functions.
+	+ This provides a homogenous API to the user (only functions are exposed, not delegates mixed with functions).
+	+ It also allows to produce proper inline documentation blocks (though they are empty for the time being).
+	+ Most wrappers just call the underlying Delegate, but some need to do additional work.
++ Removed several functions that are not used by the SpecWriter anymore.
+	+ Beautified SpecWriter output.
+	+ Updated the static constructor - now it will correctly identify all statically exported functions and use the corresponding Import. This works for all platforms.
++ Removed the Typemap.txt document from the Data folder as it was not used, and corrected several typemap definitions.
++ Added a new special case to the SpecReaders. Now both charPointerARB and CharPointer types are correctly mapped. This fixes some reported problems with function wrappers.
++ The function class now contains a Body property. This contains the function definition and is used by Wrappers.
++ Added a solution folder for typemaps to prebuild.xml.
++ Added a newline before printing "Press any key to continue..."
+
+
 0.7.5 -> 0.7.6
 + Changed the name of cs_types.txt and gl_types.txt to cstypes.tm and gl.tm.
 + Updated to the latest opengl specs (2.1, were 2.0 before) - needed some new types in cstypes.tm.

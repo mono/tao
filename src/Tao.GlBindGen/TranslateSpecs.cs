@@ -150,11 +150,6 @@ namespace Tao.GlBindGen
             {
                 TranslateReturnValue(f);
                 TranslateParameters(f);
-
-                if (f.NeedsWrapper)
-                    f.Name = f.Name + "_";
-
-                f.Name = "gl" + f.Name;
             }
 
             wrappers = GenerateWrappers(functions);
@@ -195,6 +190,9 @@ namespace Tao.GlBindGen
         {
             string s;
 
+            if (f.Name.Contains("ShaderSource"))
+                f.Name = f.Name;
+
             foreach (Parameter p in f.Parameters)   // Translate each parameter of the function, and check for needed wrappers.
             {
                 #region Translate parameter name
@@ -205,11 +203,6 @@ namespace Tao.GlBindGen
                 #endregion
 
                 #region Translate parameter type
-
-                //if (p.Type.Contains("bool"))
-                //{
-                //    p.Type = "[MarshalAs(UnmanagedType.Bool)] ";
-                //}
                 
                 if (GLTypes.TryGetValue(p.Type, out s))
                     p.Type = s;
@@ -272,12 +265,12 @@ namespace Tao.GlBindGen
 
             foreach (Function f in functions)
             {
-                if (f.NeedsWrapper)
+                //if (f.NeedsWrapper)
                 {
                     if (f.WrapperType == WrapperTypes.UncheckedParameter)
                     {
                         w = new Function(f);
-                        w.Name = w.Name.TrimEnd('_');
+                        //w.Name = w.Name.TrimEnd('_');
 
                         // Search and replace ushort parameters with ints.
                         Predicate<Parameter> is_ushort_parameter = new Predicate<Parameter>(delegate(Parameter p) { return p.Type == "GLushort"; });
@@ -288,7 +281,7 @@ namespace Tao.GlBindGen
 
                         // Call the low-level function wrapping (all parameters marked with Unchecked will automatically
                         // be decorated with the unchecked keyword).
-                        w.Body.Add((f.ReturnValue.Contains("void") ? "" : "return ") + f.CallString() + ";");
+                        w.Body.Add((f.ReturnValue.Contains("void") ? "" : "return ") + "Delegates. " + f.CallString() + ";");
 
                         // Add the wrapper.
                         wrappers.Add(w);
@@ -299,13 +292,13 @@ namespace Tao.GlBindGen
                     if (f.WrapperType == WrapperTypes.ReturnsString)
                     {
                         w = new Function(f);
-                        w.Name = w.Name.TrimEnd('_');
+                        //w.Name = w.Name.TrimEnd('_');
 
                         // Replace the IntPtr return value with string.
                         w.ReturnValue = "string";
 
                         // Wrap the call to the low-level function (marshal the IntPtr to string).
-                        w.Body.Add("return Marshal.PtrToStringAnsi(" + f.CallString() + ");");
+                        w.Body.Add("return Marshal.PtrToStringAnsi(Delegates." + f.CallString() + ");");
 
                         // Add the wrapper.
                         wrappers.Add(w);
@@ -313,19 +306,15 @@ namespace Tao.GlBindGen
                         continue;
                     }
 
-                    if (f.WrapperType == WrapperTypes.Bool)
+                    if (f.WrapperType == WrapperTypes.None)
                     {
                         w = new Function(f);
-                        w.Name.TrimEnd('_');
 
+                        wrappers.Add(w);
 
+                        w.Body.Add((f.ReturnValue.Contains("void") ? "" : "return ") + "Delegates." + f.CallString() + ";");
 
-                        // Search and replace bool parameters with ints.
-                        Predicate<Parameter> is_ushort_parameter = new Predicate<Parameter>(delegate(Parameter p) { return p.Type == "GLushort"; });
-                        Parameter oldp = w.Parameters.Find(is_ushort_parameter);
-                        Parameter newp = new Parameter(oldp);
-                        newp.Type = "GLint";
-                        w.Parameters = w.Parameters.ReplaceAll(oldp, newp);
+                        continue;
                     }
 
                     WrapPointers(f, wrappers);
@@ -341,7 +330,7 @@ namespace Tao.GlBindGen
         // This function needs some heavy refactoring.
         // What it does is this: it adds to the wrapper list all possible wrapper permutations
         // for functions that have more than one IntPtr parameter. Example:
-        // "void f_(IntPtr p, IntPtr q)" where p and q are pointers to void arrays needs the following wrappers:
+        // "void Delegates.f(IntPtr p, IntPtr q)" where p and q are pointers to void arrays needs the following wrappers:
         // "void f(IntPtr p, IntPtr q)"
         // "void f(IntPtr p, object q)"
         // "void f(object p, IntPtr q)"
@@ -395,9 +384,8 @@ namespace Tao.GlBindGen
         private static Function IntPtrToIntPtr(Function f)
         {
             Function w = new Function(f);
-            w.Name = w.Name.TrimEnd('_');
 
-            w.Body.Add((f.ReturnValue.Contains("void") ? "" : "return ") + f.CallString() + ";");
+            w.Body.Add((f.ReturnValue.Contains("void") ? "" : "return ") + "Delegates." + f.CallString() + ";");
             return w;
         }
 
@@ -408,7 +396,6 @@ namespace Tao.GlBindGen
         private static Function IntPtrToObject(Function f, int index)
         {
             Function w = new Function(f);
-            w.Name = w.Name.TrimEnd('_');
 
             Parameter newp = new Parameter(f.Parameters[index]);
             newp.Type = "object";
@@ -431,7 +418,6 @@ namespace Tao.GlBindGen
         private static Function IntPtrToArray(Function f, int index)
         {
             Function w = new Function(f);
-            w.Name = w.Name.TrimEnd('_');
 
             // Search and replace IntPtr parameters with the know parameter types:
             Parameter newp = new Parameter(f.Parameters[index]);
@@ -478,7 +464,7 @@ namespace Tao.GlBindGen
             body.Add(
                 "    " +
                 (w.ReturnValue.Contains("void") ? "" : "return ") +
-                w.Name + "_" +
+                "Delegates.gl" + w.Name +
                 sb.ToString() +
                 ";");
             body.Add("}");

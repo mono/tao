@@ -44,46 +44,38 @@ namespace Tao.GlBindGen
             if (!Directory.Exists(Properties.Bind.Default.OutputPath))
                 Directory.CreateDirectory(Properties.Bind.Default.OutputPath);
 
-            StreamWriter sw = new StreamWriter(filename, false);
+            using (StreamWriter sw = new StreamWriter(filename, false))
+            {
 
-            Console.WriteLine("Writing Tao.OpenGl.Gl class to {0}", filename);
+                Console.WriteLine("Writing Tao.OpenGl.Gl class to {0}", filename);
 
-            WriteLicense(sw);
-            sw.WriteLine();
-            sw.WriteLine("using System;");
-            sw.WriteLine("using System.Runtime.InteropServices;");
-            sw.WriteLine("using System.Text;");
-            sw.WriteLine();
-            sw.WriteLine("namespace {0}", Properties.Bind.Default.OutputNamespace);
-            sw.WriteLine("{");
+                WriteLicense(sw);
+                sw.WriteLine();
+                sw.WriteLine("using System;");
+                sw.WriteLine("using System.Runtime.InteropServices;");
+                sw.WriteLine("using System.Text;");
+                sw.WriteLine();
+                sw.WriteLine("namespace {0}", Properties.Bind.Default.OutputNamespace);
+                sw.WriteLine("{");
 
-            sw.WriteLine("    #pragma warning disable 1591");   // Disable "misising XML documentation warning" - there isn't any documentation yet!
+                WriteTypes(sw);
 
-            WriteTypes(sw);
-            sw.WriteLine("    /// <summary>");
-            sw.WriteLine("    /// ");
-            sw.WriteLine("    /// </summary>");
-            sw.WriteLine("    public static partial class {0}", Properties.Bind.Default.OutputClass);
-            sw.WriteLine("    {");
+                sw.WriteLine("    public static partial class {0}", Properties.Bind.Default.OutputClass);
+                sw.WriteLine("    {");
 
-            WritePrivateConstants(sw);
-            WriteConstants(sw, constants);
-            WriteFunctionSignatures(sw, functions);
-            WriteDllImports(sw, functions);
-            WriteFunctions(sw, functions);
-            WriteWrappers(sw, wrappers);
-            WriteConstructor(sw, functions);
-            WriteGetAddress(sw);
+                WritePrivateConstants(sw);
+                WriteConstants(sw, constants);
+                WriteFunctionSignatures(sw, functions);
+                WriteDllImports(sw, functions);
+                WriteWrappers(sw, wrappers);
+                WriteConstructor(sw, functions);
 
-            sw.WriteLine("    }");
-            
-            sw.WriteLine("    #pragma warning restore 1591");   // Disable "misising XML documentation warning" - there isn't any documentation yet!
+                sw.WriteLine("    }");
 
-            sw.WriteLine("}");
-            sw.WriteLine();
+                sw.WriteLine("}");
 
-            sw.Flush();
-            sw.Close();
+                sw.Flush();
+            }
         }
 
         #endregion
@@ -125,26 +117,31 @@ namespace Tao.GlBindGen
 
         #endregion
 
-        #region WriteTypes
+        #region Write types
 
         private static void WriteTypes(StreamWriter sw)
         {
             sw.WriteLine("    #region Types");
+            sw.WriteLine();
             foreach (string key in Translation.CSTypes.Keys)
             {
                 sw.WriteLine("    using {0} = System.{1};", key, Translation.CSTypes[key]);
             }
+            sw.WriteLine();
             sw.WriteLine("    #endregion");
             sw.WriteLine();
         }
 
         #endregion
 
-        #region WritePrivateConstants
+        #region Write private constants
+
         private static void WritePrivateConstants(StreamWriter streamWriter)
         {
             streamWriter.WriteLine("        #region Private Constants");
+            streamWriter.WriteLine();
             streamWriter.WriteLine("        #region string GL_NATIVE_LIBRARY");
+            streamWriter.WriteLine();
             streamWriter.WriteLine("        /// <summary>");
             streamWriter.WriteLine("        /// Specifies OpenGl's native library archive.");
             streamWriter.WriteLine("        /// </summary>");
@@ -152,69 +149,87 @@ namespace Tao.GlBindGen
             streamWriter.WriteLine("        /// Specifies opengl32.dll everywhere; will be mapped via .config for mono.");
             streamWriter.WriteLine("        /// </remarks>");
             streamWriter.WriteLine("        private const string GL_NATIVE_LIBRARY = \"opengl32.dll\";");
+            streamWriter.WriteLine();
             streamWriter.WriteLine("        #endregion string GL_NATIVE_LIBRARY");
-            //streamWriter.WriteLine();
-            //streamWriter.WriteLine("        #region CallingConvention CALLING_CONVENTION");
-            //streamWriter.WriteLine("        /// <summary>");
-            //streamWriter.WriteLine("        /// Specifies the calling convention.");
-            //streamWriter.WriteLine("        /// </summary>");
-            //streamWriter.WriteLine("        /// <remarks>");
-            //streamWriter.WriteLine("        /// Specifies <see cref=\"CallingConvention.Cdecl\" /> ");
-            //streamWriter.WriteLine("        /// for Windows and Linux.");
-            //streamWriter.WriteLine("        /// </remarks>");
-            //streamWriter.WriteLine("        private const CallingConvention CALLING_CONVENTION = CallingConvention.Cdecl;");
-            //streamWriter.WriteLine("        #endregion CallingConvention CALLING_CONVENTION");
+            streamWriter.WriteLine();
             streamWriter.WriteLine("        #endregion Private Constants");
             streamWriter.WriteLine();
         }
+
         #endregion WritePrivateConstants
 
-        #region Write constants
+        #region Write public constants
 
         private static void WriteConstants(StreamWriter sw, List<Constant> constants)
         {
             sw.WriteLine("        #region Public Constants");
+            sw.WriteLine();
+
+            // Disable "misising XML documentation warning". No documentation is available
+            // on these constants, and adding empty comments and regions grind C# code editors
+            // to a halt.
+            sw.WriteLine("        #pragma warning disable 1591");
+            sw.WriteLine();
 
             foreach (Constant c in constants)
             {
-                sw.WriteLine("        #region " + c.Name);
-                //sw.WriteLine("        /// <summary>");
-                //sw.WriteLine("        /// ");
-                //sw.WriteLine("        /// </summary>");
                 sw.WriteLine("        public const GLuint {0};", c.ToString());
-                sw.WriteLine("        #endregion " + c.Name);
-                sw.WriteLine();
             }
 
+            // Re-enable "misising XML documentation warning".
+            sw.WriteLine();
+            sw.WriteLine("        #pragma warning restore 1591");
+
+            sw.WriteLine();
             sw.WriteLine("        #endregion Public Constants");
             sw.WriteLine();
         }
 
         #endregion
 
-        #region Write function signatures
+        #region Write delegate signatures
 
+        /// <summary>
+        /// Writes the delegate signatures and the delegate declarations for all opengl functions.
+        /// These are put inside the static class: Tao.OpenGl.Gl.Delegates
+        /// </summary>
+        /// <param name="sw"></param>
+        /// <param name="functions"></param>
         private static void WriteFunctionSignatures(StreamWriter sw, List<Function> functions)
         {
-            sw.WriteLine("        #region Function signatures");
+            sw.WriteLine("        #region internal static class Delegates");
             sw.WriteLine();
             sw.WriteLine("        /// <summary>");
-            sw.WriteLine("        /// ");
+            sw.WriteLine("        /// Contains delegate signatures for all OpenGL functions.");
             sw.WriteLine("        /// </summary>");
-            sw.WriteLine("        public static class Delegates");
+            sw.WriteLine("        internal static class Delegates");
             sw.WriteLine("        {");
+
+            // ATTENTION! Do not remove this line unless the default behaviour of BeforeFieldInit
+            // is changed, or an attribute is introduced to change this behaviour!
+            // This empty static constructor ensures that all fields are initialized before a function call
+            // (in the parent class) takes place. Without this, a function call will not cause the
+            // proper initialization to take place (but only in Release builds, when run outside the devenv.
+            // Try this for a hard-to-track down bug :) )
+            sw.WriteLine("            static Delegates() { }");
+            sw.WriteLine();
 
             foreach (Function f in functions)
             {
-                //sw.WriteLine("            /// <summary>");
-                //sw.WriteLine("            /// ");
-                //sw.WriteLine("            /// </summary>");
+                sw.WriteLine("            #region " + f.Name);
+                sw.WriteLine();
+                sw.WriteLine("            /// <summary>");
+                sw.WriteLine("            /// ");
+                sw.WriteLine("            /// </summary>");
                 sw.WriteLine("            public delegate {0};", f.ToString());
+                sw.WriteLine("            public static {0} gl{0} = ({0})GetDelegateForExtensionMethod(\"gl{0}\", typeof(Delegates.{0}));", f.Name);
+                sw.WriteLine();
+                sw.WriteLine("            #endregion " + f.Name);
                 sw.WriteLine();
             }
 
             sw.WriteLine("        }");
-            sw.WriteLine("        #endregion Function signatures");
+            sw.WriteLine("        #endregion internal static class Delegates");
             sw.WriteLine();
         }
 
@@ -224,47 +239,35 @@ namespace Tao.GlBindGen
 
         private static void WriteDllImports(StreamWriter sw, List<Function> functions)
         {
-            sw.WriteLine("        #region Imports");
+            sw.WriteLine("        #region internal static class Imports");
             sw.WriteLine();
-            sw.WriteLine("        internal class Imports");
+            sw.WriteLine("        /// <summary>");
+            sw.WriteLine("        /// Contains dll import signatures for OpenGL core (1.0 - 2.1) functions.");
+            sw.WriteLine("        /// </summary>");
+            sw.WriteLine("        internal static class Imports");
             sw.WriteLine("        {");
+
+            // ATTENTION! Do not remove this line unless the default behaviour of BeforeFieldInit
+            // is changed, or an attribute is introduced to change this behaviour!
+            // This empty static constructor ensures that all fields are initialized before a function call
+            // (in the parent class) takes place. Without this, a function call will not cause the
+            // proper initialization to take place (but only in Release builds, when run outside the devenv.
+            // Try this for a hard-to-track down bug :) )
+            sw.WriteLine("            static Imports() { }");
+            sw.WriteLine();
 
             foreach (Function f in functions)
             {
                 if (!f.Extension)
                 {
-                    sw.WriteLine("            [DllImport(GL_NATIVE_LIBRARY, EntryPoint = \"{0}\")]", f.Name.TrimEnd('_'));
+                    sw.WriteLine("            [DllImport(GL_NATIVE_LIBRARY, EntryPoint = \"gl{0}\")]", f.Name);
                     sw.WriteLine("            public static extern {0};", f.ToString());
                     sw.WriteLine();
                 }
             }
 
             sw.WriteLine("        }");
-            sw.WriteLine("        #endregion Imports");
-            sw.WriteLine();
-        }
-
-        #endregion
-
-        #region Write functions
-
-        private static void WriteFunctions(StreamWriter sw, List<Function> functions)
-        {
-            sw.WriteLine("        #region Function initialisation");
-            sw.WriteLine();
-
-            foreach (Function f in functions)
-            {
-                sw.WriteLine("        #region " + f.Name);
-                //sw.WriteLine("        /// <summary>");
-                //sw.WriteLine("        /// ");
-                //sw.WriteLine("        /// </summary>");
-                sw.WriteLine("        public static Delegates.{0} {0} = (Delegates.{0})GetAddress(\"{1}\", typeof(Delegates.{0}));", f.Name, f.Name.TrimEnd('_'));
-                sw.WriteLine("        #endregion " + f.Name);
-                sw.WriteLine();
-            }
-
-            sw.WriteLine("        #endregion Function initialisation");
+            sw.WriteLine("        #endregion internal static class Imports");
             sw.WriteLine();
         }
 
@@ -276,101 +279,34 @@ namespace Tao.GlBindGen
         {
             sw.WriteLine("        #region static Constructor");
             sw.WriteLine();
+            sw.WriteLine("        /// <summary>");
+            sw.WriteLine("        /// Loads statically exported core OpenGL functions that do cannot be dynamically loaded.");
+            sw.WriteLine("        /// </summary>");
+            sw.WriteLine("        /// <remarks>");
+            sw.WriteLine("        /// Statically exported functions are assumed not to be dynamically exported, something");
+            sw.WriteLine("        /// that holds true for Mesa3D, but may or may not hold true for other driver providers.");
+            sw.WriteLine("        /// </remarks>");
             sw.WriteLine("        static {0}()", Properties.Bind.Default.OutputClass);
             sw.WriteLine("        {");
 
-            #region Older Windows Core
+            string[] core = { "1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "2.0", "2.1" };
 
+            foreach (Function f in functions)
             {
-                // Load core for older windows versions.
-                sw.WriteLine("            if (Environment.OSVersion.Platform == PlatformID.Win32NT && Environment.OSVersion.Version.Major < 6 || Environment.OSVersion.Platform == PlatformID.Win32Windows)");
-                sw.WriteLine("            {");
-                sw.WriteLine("                #region Older Windows Core");
-                string[] import_list = { "1.0", "1.1" };
-                foreach (Function f in functions)
+                if (IsCoreFunction(f, core))
                 {
-                    if (IsImportFunction(f, import_list))
-                        sw.WriteLine("                {0}.{1} = new {0}.Delegates.{1}(Imports.{1});",
-                            Properties.Bind.Default.OutputClass,
-                            f.Name);
+                    sw.WriteLine("            if (Delegates.gl{0} == null)", f.Name);
+                    sw.WriteLine("            {");
+                    sw.WriteLine("                {0}.Delegates.gl{1} = new {0}.Delegates.{1}({0}.Imports.{1});",
+                        Properties.Bind.Default.OutputClass,
+                        f.Name);
+                    sw.WriteLine("            }");
                 }
-                sw.WriteLine("                #endregion Older Windows Core");
-                sw.WriteLine("            }");
             }
-
-            #endregion
-
-            #region Windows Vista Core
-
-            {
-                // Load core for windows vista.
-                sw.WriteLine("            else if (Environment.OSVersion.Platform == PlatformID.Win32NT && Environment.OSVersion.Version.Major >= 6)");
-                sw.WriteLine("            {");
-                sw.WriteLine("                #region Windows Vista Core");
-                string[] import_list = { "1.0", "1.1", "1.2", "1.3", "1.4" };
-                foreach (Function f in functions)
-                {
-                    if (IsImportFunction(f, import_list))
-                        sw.WriteLine("                {0}.{1} = new {0}.Delegates.{1}(Imports.{1});",
-                            Properties.Bind.Default.OutputClass,
-                            f.Name);
-                }
-                sw.WriteLine("                #endregion Windows Vista Core");
-                sw.WriteLine("            }");
-            }
-
-            #endregion
-
-            #region X11 Core
-
-            {
-                // Load core for windows X11.
-                sw.WriteLine("            else if (Environment.OSVersion.Platform == 4 || Environment.OSVersion.Platform == 128)");
-                sw.WriteLine("            {");
-                sw.WriteLine("                #region X11 Core");
-                string[] import_list = { "1.0", "1.1", "1.2", "1.3", "1.4", "1.5", "2.0", "2.1" };
-                foreach (Function f in functions)
-                {
-                    if (IsImportFunction(f, import_list))
-                        sw.WriteLine("                {0}.{1} = new {0}.Delegates.{1}(Imports.{1});",
-                            Properties.Bind.Default.OutputClass,
-                            f.Name);
-                }
-                sw.WriteLine("                #endregion X11 Core");
-                sw.WriteLine("            }");
-            }
-
-            #endregion
 
             sw.WriteLine("        }");
-            sw.WriteLine("        #endregion static Constructor");
             sw.WriteLine();
-        }
-
-        #endregion
-
-        #region Write GetAddress
-
-        private static void WriteGetAddress(StreamWriter sw)
-        {
-            sw.WriteLine("        #region Delegate GetAddress");
-            //sw.WriteLine("        /// <summary>");
-            //sw.WriteLine("        /// ");
-            //sw.WriteLine("        /// </summary>");
-            sw.WriteLine("        public static Delegate GetAddress(string s, Type function_signature)");
-            sw.WriteLine("        {");
-            sw.WriteLine("            IntPtr address = Tao.OpenGl.GlExtensionLoader.GetProcAddress(s);");
-            sw.WriteLine("            if (address == IntPtr.Zero)");
-            sw.WriteLine("            {");
-            sw.WriteLine("                return null;");
-            sw.WriteLine("            }");
-            sw.WriteLine("            else");
-            sw.WriteLine("            {");
-            sw.WriteLine("                return Marshal.GetDelegateForFunctionPointer(address, function_signature);");
-            sw.WriteLine("            }");
-            sw.WriteLine("        }");
-            sw.WriteLine("        #endregion Delegate GetAddress");
-
+            sw.WriteLine("        #endregion static Constructor");
         }
 
         #endregion
@@ -389,8 +325,10 @@ namespace Tao.GlBindGen
                     sw.WriteLine("        #region {0}{1}", w.Name, w.Parameters.ToString());
                     sw.WriteLine();
 
-                    sw.WriteLine("        public static");
-                    sw.WriteLine(w.ToString("        "));
+                    sw.WriteLine("        /// <summary>");
+                    sw.WriteLine("        /// ");
+                    sw.WriteLine("        /// </summary>");
+                    sw.WriteLine("        public static {0}", w.ToString("        ", true));
 
                     sw.WriteLine("        #endregion");
                     sw.WriteLine();
@@ -405,7 +343,7 @@ namespace Tao.GlBindGen
 
         #region IsImport
 
-        private static bool IsImportFunction(Function f, string[] import_list)
+        private static bool IsCoreFunction(Function f, string[] import_list)
         {
             if (f.Extension)
             {

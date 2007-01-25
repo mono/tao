@@ -69,7 +69,7 @@ namespace Tao.Lua
 
     /// #region Class Documentation
     /// <summary>
-    ///     Lua bindings for .NET, implementing Lua 5.1 (http://www.lua.org).
+    ///     Lua bindings for .NET, implementing Lua 5.1.1 (http://www.lua.org).
     /// </summary>
     /// <remarks>
     ///		Lua is a powerful light-weight programming language designed for
@@ -549,7 +549,7 @@ namespace Tao.Lua
 
         //LUA_API lua_Number      (lua_tonumber) (lua_State *L, int idx);
         /// <summary>
-        ///     Converts the Lua value at the given acceptable index to a number (see lua_Number). The Lua value must be a number or a string convertible to a number (see ง2.2.1); otherwise, lua_tonumber returns 0.
+        ///     Converts the Lua value at the given acceptable index to a number (see lua_Number). The Lua value must be a number or a string convertible to a number (see ยง2.2.1); otherwise, lua_tonumber returns 0.
         /// </summary>
         /// <param name="L"></param>
         /// <param name="idx"></param>
@@ -559,7 +559,7 @@ namespace Tao.Lua
 
         //LUA_API lua_Integer     (lua_tointeger) (lua_State *L, int idx);
         /// <summary>
-        ///     Converts the Lua value at the given acceptable index to the signed integral type lua_Integer. The Lua value must be a number or a string convertible to a number (see ง2.2.1); otherwise, lua_tointeger returns 0.
+        ///     Converts the Lua value at the given acceptable index to the signed integral type lua_Integer. The Lua value must be a number or a string convertible to a number (see ยง2.2.1); otherwise, lua_tointeger returns 0.
         /// </summary>
         /// <param name="L"></param>
         /// <param name="idx"></param>
@@ -721,7 +721,7 @@ namespace Tao.Lua
         /// <param name="n"></param>
         /// <remarks>
         ///     When a C function is created, it is possible to associate some values
-        ///     with it, thus creating a C closure (see ง3.4); these values are then
+        ///     with it, thus creating a C closure (see ยง3.4); these values are then
         ///     accessible to the function whenever it is called. To associate values
         ///     with a C function, first these values should be pushed onto the stack
         ///     (when there are multiple values, the first value is pushed first).
@@ -1189,8 +1189,8 @@ namespace Tao.Lua
         ///         LUA_GCCOUNT: returns the current amount of memory (in Kbytes) in use by Lua.
         ///         LUA_GCCOUNTB: returns the remainder of dividing the current amount of bytes of memory in use by Lua by 1024.
         ///         LUA_GCSTEP: performs an incremental step of garbage collection. The step "size" is controlled by data (larger values mean more steps) in a non-specified way. If you want to control the step size you must experimentally tune the value of data. The function returns 1 if the step finished a garbage-collection cycle.
-        ///         LUA_GCSETPAUSE: sets data/100 as the new value for the pause of the collector (see ง2.10). The function returns the previous value of the pause.
-        ///         LUA_GCSETSTEPMUL: sets arg/100 as the new value for the step multiplier of the collector (see ง2.10). The function returns the previous value of the step multiplier.
+        ///         LUA_GCSETPAUSE: sets data/100 as the new value for the pause of the collector (see ยง2.10). The function returns the previous value of the pause.
+        ///         LUA_GCSETSTEPMUL: sets arg/100 as the new value for the step multiplier of the collector (see ยง2.10). The function returns the previous value of the step multiplier.
         /// </remarks>
         [DllImport(LUA_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public extern static int lua_gc(lua_State L, int what, int data);

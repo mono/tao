@@ -1,7 +1,7 @@
 #region License
 /*
 MIT License
-Copyright ©2003-2006 Tao Framework Team
+Copyright Â©2003-2006 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
@@ -34,7 +34,7 @@ using System.Security.Permissions;
 [assembly: AllowPartiallyTrustedCallers]
 [assembly: AssemblyCompany("Tao Framework -- http://www.taoframework.com")]
 [assembly: AssemblyConfiguration("Retail")]
-[assembly: AssemblyCopyright("Copyright ©2003-2006 Tao Framework Team.  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright Â©2003-2006 Tao Framework Team.  All rights reserved.")]
 [assembly: AssemblyCulture("")]
 [assembly: AssemblyDefaultAlias("Tao.PhysFs")]
 [assembly: AssemblyDelaySign(false)]

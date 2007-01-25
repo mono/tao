@@ -46,7 +46,7 @@ namespace Tao.PhysFs
 
 	#region Class Documentation
 	/// <summary>
-	///     PhysFS bindings for .NET, implementing PhysFS 1.0.0 (http://icculus.org/physfs/).
+	///     PhysFS bindings for .NET, implementing PhysFS 1.0.1 (http://icculus.org/physfs/).
 	/// </summary>
 	/// <remarks>
 	///		PhysicsFS is a library to provide abstract access to
