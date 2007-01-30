@@ -41,22 +41,12 @@
     </target>
 
     <target name="package" depends="clean" description="Package">
-	<if test="${platform::is-win32()}">
-	    <nant buildfile="${src.dir}/Tao.DevIl/Tao.DevIl.build" target="net-2.0 package" />
-	    <nant buildfile="${src.dir}/Tao.Ode/Tao.Ode.build" target="net-2.0 package" />
-	    <nant buildfile="${src.dir}/Tao.PhysFs/Tao.PhysFs.build" target="net-2.0 package" />
-	    <nant buildfile="${src.dir}/Tao.Sdl/Tao.Sdl.build" target="net-2.0 package" />
-	    <nant buildfile="${src.dir}/Tao.Lua/Tao.Lua.build" target="net-2.0 package" />
-	    <nant buildfile="${src.dir}/Tao.OpenGl/Tao.OpenGl.build" target="net-2.0 package" />
-	</if>
-	<if test="${platform::is-unix()}">
-	    <nant buildfile="${src.dir}/Tao.DevIl/Tao.DevIl.build" target="mono-2.0 package" />
-	    <nant buildfile="${src.dir}/Tao.Ode/Tao.Ode.build" target="mono-2.0 package" />
-	    <nant buildfile="${src.dir}/Tao.PhysFs/Tao.PhysFs.build" target="mono-2.0 package" />
-	    <nant buildfile="${src.dir}/Tao.Sdl/Tao.Sdl.build" target="mono-2.0 package" />
-	    <nant buildfile="${src.dir}/Tao.Lua/Tao.Lua.build" target="mono-2.0 package" />
-	    <nant buildfile="${src.dir}/Tao.OpenGl/Tao.OpenGl.build" target="mono-2.0 package" />
-	</if>
+	    <nant buildfile="${src.dir}/Tao.DevIl/Tao.DevIl.build" target="${nant.settings.currentframework} package" />
+	    <nant buildfile="${src.dir}/Tao.Ode/Tao.Ode.build" target="${nant.settings.currentframework} package" />
+	    <nant buildfile="${src.dir}/Tao.PhysFs/Tao.PhysFs.build" target="${nant.settings.currentframework} package" />
+	    <nant buildfile="${src.dir}/Tao.Sdl/Tao.Sdl.build" target="${nant.settings.currentframework} package" />
+	    <nant buildfile="${src.dir}/Tao.Lua/Tao.Lua.build" target="${nant.settings.currentframework} package" />
+	    <nant buildfile="${src.dir}/Tao.OpenGl/Tao.OpenGl.build" target="${nant.settings.currentframework} package" />
 	<call target="copyfiles" />
 	<call target="zip" />
     </target>

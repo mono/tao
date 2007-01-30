@@ -10,11 +10,29 @@ namespace SdlExamples
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args)
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SdlExamples());
+            bool consoleMode = false;
+            foreach (string arg in args)
+            {
+                if (arg == "--console")
+                {
+                    consoleMode = true;
+                }
+            }
+
+            if (consoleMode)
+            {
+                SdlExamplesConsole t = new SdlExamplesConsole();
+                t.Go();
+            }
+            else
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new SdlExamples());
+            }
+            
         }
     }
 }
