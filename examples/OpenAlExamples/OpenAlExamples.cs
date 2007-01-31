@@ -26,6 +26,10 @@ namespace OpenAlExamples
                 {
                     lstExamples.Items.Add(type.Name);
                 }
+                if (lstExamples.Items.Count > 0)
+                {
+                    this.lstExamples.SelectedIndex = 0;
+                }
             }
         }
 
@@ -36,8 +40,11 @@ namespace OpenAlExamples
 
         private void SelectExample()
         {
-            Type example = Assembly.GetExecutingAssembly().GetType("OpenAlExamples." + lstExamples.SelectedItem.ToString(), true, true);
-            example.InvokeMember("Run", BindingFlags.InvokeMethod, null, null, null);
+            if (lstExamples.SelectedItem != null)
+            {
+                Type example = Assembly.GetExecutingAssembly().GetType("OpenAlExamples." + lstExamples.SelectedItem.ToString(), true, true);
+                example.InvokeMember("Run", BindingFlags.InvokeMethod, null, null, null);
+            }
         }
 
         private void lstExamples_SelectedIndexChanged(object sender, EventArgs e)
