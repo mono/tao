@@ -28,6 +28,8 @@ SOFTWARE.
 using System;
 using System.Runtime.InteropServices;
 using System.Security;
+using System.Collections.Generic;
+using System.Text;
 
 namespace Tao.OpenAl 
 {
@@ -619,8 +621,63 @@ namespace Tao.OpenAl
 		///     Returns a pointer to a string.
 		/// </returns>
 		// ALCAPI ALCubyte* ALCAPIENTRY alcGetString(ALCdevice *device, ALCenum param);
-		[DllImport(ALC_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, CharSet=CharSet.Ansi), SuppressUnmanagedCodeSecurity]
-		public static extern string alcGetString([In] IntPtr device, int attribute);
+        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, CharSet = CharSet.Ansi, EntryPoint = "alcGetString"), SuppressUnmanagedCodeSecurity]
+        public static extern string alcGetString([In] IntPtr device, int attribute);
+        [DllImport(ALC_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, CharSet = CharSet.Ansi, EntryPoint = "alcGetString"), SuppressUnmanagedCodeSecurity]
+        private static extern IntPtr alcGetStringInternal([In] IntPtr device, int attribute);
+
+        /// <summary>
+        ///     Returns strings related to the context.
+        /// </summary>
+        /// <param name="device">
+        ///     The device to be queried.
+        /// </param>
+        /// <param name="attribute">
+        ///     <para>
+        ///         An attribute to be retrieved:
+        ///     </para>
+        ///     <para>
+        ///         <list type="bullet">
+        ///             <item><see cref="ALC_DEFAULT_DEVICE_SPECIFIER" /></item>
+        ///             <item><see cref="ALC_DEVICE_SPECIFIER" /></item>
+        ///             <item><see cref="ALC_EXTENSIONS" /></item>
+        ///         </list>
+        ///     </para>
+        /// </param>
+        /// <returns>
+        ///     Returns a pointer to a string.
+        /// </returns>
+        public static string[] alcGetStringv([In] IntPtr device, int attribute)
+        {
+            return GetStringArray(alcGetStringInternal(device, attribute));
+        }
+
+        private static string[] GetStringArray(IntPtr ptr)
+        {
+            List<string> rv = new List<string>();
+            StringBuilder builder = new StringBuilder();
+            for (int index = 0; ; index++)
+            {
+                char ch = (char)Marshal.ReadByte(ptr, index);
+                if (ch == '\0')
+                {
+                    if (builder.Length == 0)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        rv.Add(builder.ToString());
+                        builder.Length = 0;
+                    }
+                }
+                else
+                {
+                    builder.Append(ch);
+                }
+            }
+            return rv.ToArray();
+        }
 		#endregion string alcGetString([In] IntPtr device, int attribute)
 
 		#region int alcIsExtensionPresent([In] IntPtr device, string extensionName)
