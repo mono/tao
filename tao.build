@@ -138,7 +138,6 @@
 	    <fileset>
 		<include name="${examples.dir}/**/*.sh" />
 		<include name="${examples.dir}/**/*.exe" />
-		<include name="${src.dir}/**/*.des.dir}/**/*.sh" />
 		<include name="${src.dir}/**/*.dll" />
 		<exclude name="**/nunit.framework.dll"/>
 		<include name="**/*.config"/>
