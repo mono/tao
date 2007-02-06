@@ -27,51 +27,22 @@ SOFTWARE.
 
 #region Original Credits / License
 //-----------------------------------------------------------------------------
-/* 01_vertex_program.c - OpenGL-based very simple vertex program example
-   using Cg program from Chapter 2 of "The Cg Tutorial" (Addison-Wesley,
-   ISBN 0321194969). */
-
-/* Requires the OpenGL Utility Toolkit (GLUT) and Cg runtime (version
-   1.0 or higher). */
-//-----------------------------------------------------------------------------
-#endregion Original Credits / License
-#region License
-/*
-MIT License
-Copyright ©2003-2005 Tao Framework Team
-http://www.taoframework.com
-All rights reserved.
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-*/
-#endregion License
-
-#region Original Credits / License
-//-----------------------------------------------------------------------------
-/* 02_vertex_twisting_program.c - OpenGL-based example using a Cg
-   vertex and a Cg fragment programs from Chapter 6 of "The Cg Tutorial"
+/* 02_vertex_and_fragment_program.c - OpenGL-based example using a Cg
+   vertex and a Cg fragment programs from Chapter 2 of "The Cg Tutorial"
    (Addison-Wesley, ISBN 0321194969). */
 
 /* Requires the OpenGL Utility Toolkit (GLUT) and Cg runtime (version
    1.0 or higher). */
 //-----------------------------------------------------------------------------
 #endregion Original Credits / License
+
+#region Porting Credits
+//-----------------------------------------------------------------------------
+/*  Ported from C to C# by Marek Wyborski for the Tao Framework.
+    02/05/07
+*/
+//-----------------------------------------------------------------------------
+#endregion Porting Credits
 
 using System;
 using System.IO;
@@ -83,38 +54,33 @@ namespace CgExamples
 {
     #region Class Documentation
     /// <summary>
-    ///     Displays a triangle
+    ///     Displays an animated Triangle
     /// </summary>
     /// <remarks>
     ///     <para>
-    ///         OpenGL-based very simple vertex program example
-    ///         using Cg program from Chapter 2 of "The Cg Tutorial" (Addison-Wesley,
-    ///         ISBN 0321194969)
     ///     </para>
     /// </remarks>
     #endregion Class Documentation
-    public sealed class Gl_06_vertex_twisting_program
+    public sealed class Gl_06_vertex_twisting
     {
-        static IntPtr myCgContext;
-        static int myCgVertexProfile,
-                   myCgFragmentProfile;
-        static IntPtr myCgVertexProgram,
-                   myCgFragmentProgram;
-        static IntPtr myCgVertexParam_twisting;
+        static IntPtr   myCgContext;
+        static int      myCgVertexProfile,
+                        myCgFragmentProfile;
+        static IntPtr   myCgVertexProgram,
+                        myCgFragmentProgram;
+        static IntPtr   myCgVertexParam_twisting;
 
         static string myProgramName = "06_vertex_twisting",
-                        myVertexProgramFileName = "C3E4v_twist.cg",
             /* Page 79 */   myVertexProgramName = "C3E4v_twist",
-                        myFragmentProgramFileName = "C2E2f_passthru.cg",
             /* Page 53 */   myFragmentProgramName = "C2E2f_passthru";
 
         static float myTwisting = 2.9f, /* Twisting angle in radians. */
                      myTwistDirection = 0.1f; /* Animation delta for twist. */
 
         // Tao Delegates
-        static Glut.KeyboardCallback KeyboardDelegate;
-        static Glut.CreateMenuCallback MenuDelegate;
-        static Glut.IdleCallback IdleDelegate;
+        static Glut.KeyboardCallback keyboardDelegate;
+        static Glut.CreateMenuCallback menuDelegate;
+        static Glut.IdleCallback idleDelegate;
 
         //
         static bool animating = false,
@@ -137,6 +103,13 @@ namespace CgExamples
                 Environment.Exit(0);
             }
         }
+
+        // --- Entry Point ---
+        #region Run())
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="args"></param>
         [STAThread]
         public static void Run()
         {
@@ -157,17 +130,18 @@ namespace CgExamples
             string myVertexProgramFileName = Path.Combine(Path.Combine(filePath, fileDirectory), vertexFileName);
             string myFragmentProgramFileName = Path.Combine(Path.Combine(filePath, fileDirectory), fragmentFileName);
 
-            KeyboardDelegate += keyboard;
-            MenuDelegate += menu;
-            IdleDelegate += Idle;
+            // Callback Delegates
+            keyboardDelegate += keyboard;
+            menuDelegate += menu;
+            idleDelegate += idle;
 
             Glut.glutInitWindowSize(400, 400);
-            Glut.glutInitDisplayMode(Glut.GLUT_RGB | Glut.GLUT_DOUBLE | Glut.GLUT_DEPTH);
+            Glut.glutInitDisplayMode(Glut.GLUT_RGB | Glut.GLUT_DOUBLE | Glut.GLUT_DEPTH );
             Glut.glutInit();
 
             Glut.glutCreateWindow(myProgramName);
             Glut.glutDisplayFunc(display);
-            Glut.glutKeyboardFunc(KeyboardDelegate);
+            Glut.glutKeyboardFunc(keyboardDelegate);
 
             Gl.glClearColor(1.0f, 1.0f, 1.0f, 1.0f);  /* White background */
 
@@ -199,37 +173,34 @@ namespace CgExamples
             checkForCgError("selecting fragment profile");
 
             myCgFragmentProgram =
-    Cg.cgCreateProgramFromFile(
-      myCgContext,                /* Cg runtime context */
-      Cg.CG_SOURCE,                  /* Program in human-readable form */
-      myFragmentProgramFileName,  /* Name of file containing program */
-      myCgFragmentProfile,        /* Profile: OpenGL ARB vertex program */
-      myFragmentProgramName,      /* Entry function name */
-      null);                      /* No extra compiler options */
+                Cg.cgCreateProgramFromFile(
+                myCgContext,                /* Cg runtime context */
+                Cg.CG_SOURCE,                  /* Program in human-readable form */
+                myFragmentProgramFileName,  /* Name of file containing program */
+                myCgFragmentProfile,        /* Profile: OpenGL ARB vertex program */
+                myFragmentProgramName,      /* Entry function name */
+                null);                      /* No extra compiler options */
             checkForCgError("creating fragment program from file");
             CgGl.cgGLLoadProgram(myCgFragmentProgram);
             checkForCgError("loading fragment program");
 
             /* No uniform fragment program parameters expected. */
 
-            Glut.glutCreateMenu(MenuDelegate);
+            Glut.glutCreateMenu(menuDelegate);
             Glut.glutAddMenuEntry("[ ] Animate", ' ');
             Glut.glutAddMenuEntry("[w] Wireframe", 'w');
             Glut.glutAttachMenu(Glut.GLUT_RIGHT_BUTTON);
 
+            // Change Animation to true, so that it starts with action ;-)
+            keyboard((byte)' ', 0, 0);
+
             Glut.glutMainLoop();
         }
+        #endregion Run())
 
         /// <summary>
         /// Apply an inefficient but simple-to-implement subdivision scheme for a triangle.
         /// </summary>
-        /// <param name="depth"></param>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <param name="c"></param>
-        /// <param name="ca"></param>
-        /// <param name="cb"></param>
-        /// <param name="cc"></param>
         static void triangleDivide(int depth,
                                    float[] a, float[] b, float[] c,
                                    float[] ca, float[] cb, float[] cc)
@@ -266,7 +237,6 @@ namespace CgExamples
         /// require a high degree of tessellation.  This routine draws a
         /// triangle recursively subdivided to provide sufficient tessellation.
         /// </summary>
-        /// <param name="subdivisions"></param>
         static void drawSubDividedTriangle(int subdivisions)
         {
             float[] a = { -0.8f, 0.8f },
@@ -310,7 +280,7 @@ namespace CgExamples
             Glut.glutSwapBuffers();
         }
 
-        static void Idle()
+        static void idle()
         {
             if (myTwisting > 3f)
             {
@@ -335,7 +305,7 @@ namespace CgExamples
                     animating = !animating; /* Toggle */
                     if (animating)
                     {
-                        Glut.glutIdleFunc(IdleDelegate);
+                        Glut.glutIdleFunc(idleDelegate);
                     }
                     else
                     {
@@ -373,4 +343,3 @@ namespace CgExamples
         }
     }
 }
-
