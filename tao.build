@@ -9,7 +9,7 @@
 
     <!-- global project settings -->
     <property name="project.config" value="Release" />
-    <property name="project.version" value="2.0.0RC1" />
+    <property name="project.version" value="2.0.0RC2" />
     <property name="src.dir" value="src" />
     <property name="examples.dir" value="examples" />
     <property name="tests.dir" value="tests" />
