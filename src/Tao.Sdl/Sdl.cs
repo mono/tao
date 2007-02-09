@@ -30,6 +30,7 @@ using System.Collections;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Security;
+using System.Text;
 
 namespace Tao.Sdl
 {
@@ -5812,10 +5813,16 @@ namespace Tao.Sdl
         /// </returns>
         /// <param name="namebuf"></param>
         /// <param name="maxlen"></param>
-        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        public static string SDL_AudioDriverName(string namebuf, int maxlen)
+        {
+            StringBuilder stringBuilder = new StringBuilder(namebuf);
+            __SDL_AudioDriverName(stringBuilder, maxlen);
+            return stringBuilder.ToString();
+        }
+
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, EntryPoint = "SDL_AudioDriverName"),
         SuppressUnmanagedCodeSecurity]
-        public static extern string SDL_AudioDriverName(
-            string namebuf, int maxlen);
+        private static extern void __SDL_AudioDriverName(StringBuilder namebuf, int maxlen);
         #endregion string SDL_AudioDriverName(string namebuf, int maxlen)
 
         #region int SDL_OpenAudio(IntPtr desired, IntPtr obtained)
@@ -7883,9 +7890,14 @@ namespace Tao.Sdl
         /// <returns>
         /// Returns the SDL-defined name of the SDLKey key.
         /// </returns>
-        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
-        SuppressUnmanagedCodeSecurity]
-        public static extern string SDL_GetKeyName(int key);
+        public static string SDL_GetKeyName(int key)
+        {
+            return Marshal.PtrToStringAnsi(__SDL_GetKeyName(key));
+        }
+
+        // Called from SDL_GetKeyName()
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, EntryPoint = "SDL_GetKeyName"), SuppressUnmanagedCodeSecurity]
+        private static extern IntPtr __SDL_GetKeyName(int key);
         #endregion string SDL_GetKeyName(int key)
         #endregion SDL_keyboard.h
 
@@ -9051,8 +9063,16 @@ namespace Tao.Sdl
         ///     </p>
         /// </remarks>
         /// <seealso cref="SDL_putenv" />
-        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern string SDL_getenv(string name);
+        public static string SDL_getenv(string name)
+        {
+            StringBuilder stringBuilder = new StringBuilder(name);
+            __SDL_getenv(stringBuilder);
+            return stringBuilder.ToString();
+        }
+
+        // Called from SDL_getenv()
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, EntryPoint = "SDL_getenv"), SuppressUnmanagedCodeSecurity]
+        private static extern IntPtr __SDL_getenv(StringBuilder name);
         #endregion string SDL_getenv(string name)
         #endregion SDL_stdinc.h
 
@@ -9597,10 +9617,16 @@ namespace Tao.Sdl
         /// <param name="namebuf">
         /// A dummy string that must be initialized before being passed in.
         /// </param>
-        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION),
+        public static string SDL_VideoDriverName(string namebuf, int maxlen)
+        {
+            StringBuilder stringBuilder = new StringBuilder(namebuf);
+            __SDL_VideoDriverName(stringBuilder, maxlen);
+            return stringBuilder.ToString();
+        }
+
+        [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, EntryPoint = "SDL_VideoDriverName"),
         SuppressUnmanagedCodeSecurity]
-        public static extern string SDL_VideoDriverName(string namebuf,
-            int maxlen);
+        private static extern IntPtr __SDL_VideoDriverName(StringBuilder namebuf, int maxlen);
         #endregion string SDL_VideoDriverName(string namebuf, int maxlen)
 
         #region IntPtr SDL_GetVideoSurface()

@@ -361,9 +361,38 @@ namespace Tao.Sdl
 			string result = Sdl.SDL_AudioDriverName(driver,20);
 			Assert.IsNotNull(result);
 			
-			//Console.WriteLine("audio driver: " + result);
+			Console.WriteLine("audio driver: " + result);
 			this.Quit();
 		}
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Test]
+        public void GetKeyName()
+        {
+            Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
+            //The letter 'a'
+            string result = Sdl.SDL_GetKeyName(97);
+            Assert.AreEqual("a", result);
+
+            Console.WriteLine("key name: " + result);
+            this.Quit();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [Test]
+        public void GetKeyNameFalse()
+        {
+            Sdl.SDL_Init(Sdl.SDL_INIT_VIDEO);
+            //The letter 'a'
+            string result = Sdl.SDL_GetKeyName(97);
+            Console.WriteLine("key name: " + result);
+            Assert.AreNotEqual("b", result);
+            this.Quit();
+        }
 		/// <summary>
 		/// 
 		/// </summary>
