@@ -1,4 +1,7 @@
-2007-01-18T018:30  Rob Loach <http://www.robloach.net>
+2007-02-10T06:00  David Hudson <jendave@yahoo.com>
+	- Updated Tao.Sdl to Sdl_gfx 2.0.16
+
+2007-01-18T18:30  Rob Loach <http://www.robloach.net>
   - Tao.Lua updated to Lua 5.1.1
   - Glfw.glfwGetJoystickPos argument fix
   - Documentation
