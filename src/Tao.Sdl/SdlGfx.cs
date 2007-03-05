@@ -1259,6 +1259,30 @@ namespace Tao.Sdl
             IntPtr src, double angle, double zoom, int smooth);
         #endregion IntPtr rotozoomSurface(...)
 
+        #region IntPtr rotozoomSurfaceXY(...)
+        /// <summary>
+        /// Rotates and zoomes a 32bit or 8bit 'src' surface to newly created 'dst' surface. 
+        /// 'angle' is the rotation in degrees. 
+        /// 'zoomx' and 'zoomy' are scaling factors that  can also be negative. 
+        /// In this case the corresponding axis is flipped.  
+        /// If 'smooth'   is 1 then the destination 32bit surface is anti-aliased. 
+        /// If the surface is not 8bit  or 32bit RGBA/ABGR it will be converted into 
+        /// a 32bit RGBA format on the fly.   
+        /// Note: Flipping currently only works with antialiasing turned off.
+        /// </summary>
+        /// <param name="src"></param>
+        /// <param name="angle"></param>
+        /// <param name="zoomx"></param>
+        /// <param name="zoomy"></param>
+        /// <param name="smooth"></param>
+        /// <returns></returns>
+        [DllImport(SDL_GFX_NATIVE_LIBRARY,
+             CallingConvention = CALLING_CONVENTION),
+        SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr rotozoomSurfaceXY(
+            IntPtr src, double angle, double zoomx, double zoomy, int smooth);
+        #endregion IntPtr rotozoomSurfaceXY(...)
+
         #region void rotozoomSurfaceSize(...)
         /// <summary>
         /// Returns the size of the target surface for a rotozoomSurface() call
