@@ -592,7 +592,7 @@ namespace Tao.Lua
         /// </returns>
         [CLSCompliant(false)]
         [DllImport(LUA_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public extern static string lua_tolstring(lua_State L, int idx, ref size_t len);
+        public extern static string lua_tolstring(lua_State L, int idx, out size_t len);
 
         //LUA_API size_t          (lua_objlen) (lua_State *L, int idx);
         /// <summary>
@@ -1477,8 +1477,12 @@ namespace Tao.Lua
         /// <returns></returns>
         public static string lua_tostring(lua_State L, int i)
         {
-            uint blah = 0;
-            return lua_tolstring(L, i, ref blah);
+            int strlen;
+            IntPtr str = lua_tolstring(L, i, out strlen);
+            if (str != IntPtr.Zero)
+                return Marshal.PtrToStringAnsi(str, strlen);
+            else
+                return null;
         }
 
         #endregion Some Useful Macros
