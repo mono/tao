@@ -592,7 +592,7 @@ namespace Tao.Lua
         /// </returns>
         [CLSCompliant(false)]
         [DllImport(LUA_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public extern static string lua_tolstring(lua_State L, int idx, out size_t len);
+        public extern static IntPtr lua_tolstring(lua_State L, int idx, out int len);
 
         //LUA_API size_t          (lua_objlen) (lua_State *L, int idx);
         /// <summary>
