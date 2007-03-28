@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # Builds the Tao Framework using both Prebuild and autotools 
 
 configure_args=$1
