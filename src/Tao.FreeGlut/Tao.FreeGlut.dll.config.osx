@@ -1,0 +1,3 @@
+<configuration>
+	<dllmap dll="freeglut.dll" target="/System/Library/Frameworks/GLUT.framework/GLUT" />
+</configuration>
