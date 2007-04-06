@@ -45,7 +45,7 @@ namespace Tao.OpenGl
     /// <summary>
     /// 
     /// </summary>
-    [Obsolete("This attribute is obsolete. Extension loading is handled by the Tao.OpenGl.Gl class")]
+    [Obsolete("This attribute is obsolete. Extension loading is now handled by the Tao.OpenGl.Gl class")]
     [AttributeUsage(AttributeTargets.Field | AttributeTargets.Method)]
     public class OpenGLExtensionImport : Attribute
     {
@@ -77,7 +77,7 @@ namespace Tao.OpenGl
     /// <summary>
     /// 
     /// </summary>
-    [Obsolete("This class is obsolete. Extension loading is handled by the Tao.OpenGl.Gl class")]
+    [Obsolete("This class is obsolete. Extension loading is now handled by the Tao.OpenGl.Gl class")]
     public class GlExtensionLoader
     {
         //

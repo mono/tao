@@ -87,11 +87,11 @@ namespace Redbook {
     public sealed class Bezcurve {
         // --- Fields ---
         #region Private Fields
-        private static float[/*4*/, /*3*/] controlPoints = {
-            {-4.0f, -4.0f, 0.0f},
-            {-2.0f,  4.0f, 0.0f},
-            { 2.0f, -4.0f, 0.0f},
-            { 4.0f,  4.0f, 0.0f}
+        private static float[/* 4*3 */] controlPoints = {
+            -4.0f, -4.0f, 0.0f,
+            -2.0f,  4.0f, 0.0f,
+             2.0f, -4.0f, 0.0f,
+             4.0f,  4.0f, 0.0f
         };
         #endregion Private Fields
 
@@ -116,8 +116,7 @@ namespace Redbook {
         private static void Init() {
             Gl.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
             Gl.glShadeModel(Gl.GL_FLAT);
-            //Gl.glMap1f(Gl.GL_MAP1_VERTEX_3, 0.0f, 1.0f, 3, 4, controlPoints);
-	    Gl.glMap1f(Gl.GL_MAP1_VERTEX_3, 0.0f, 1.0f, 3, 4, controlPoints);
+	        Gl.glMap1f(Gl.GL_MAP1_VERTEX_3, 0.0f, 1.0f, 3, 4, controlPoints);
             Gl.glEnable(Gl.GL_MAP1_VERTEX_3);
         }
         #endregion Init()
@@ -139,7 +138,7 @@ namespace Redbook {
             Gl.glColor3f(1.0f, 1.0f, 0.0f);
             Gl.glBegin(Gl.GL_POINTS);
                 for (i = 0; i < 4; i++) {
-                    Gl.glVertex3f(controlPoints[i, 0], controlPoints[i, 1], controlPoints[i, 2]);
+                    Gl.glVertex3f(controlPoints[i], controlPoints[i + 1], controlPoints[i + 2]);
                 }
             Gl.glEnd();
             Gl.glFlush();

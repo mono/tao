@@ -95,42 +95,34 @@ namespace Redbook {
         #region Private Fields
         private static byte[] image = new byte[IMAGEWIDTH * IMAGEHEIGHT * 3];
 
-        private static float[ , , ] controlPoints = {
-            {
-                {-1.5f, -1.5f, 4.0f},
-                {-0.5f, -1.5f, 2.0f},
-                {0.5f, -1.5f, -1.0f},
-                {1.5f, -1.5f, 2.0f}
-            },
-            {
-                {-1.5f, -0.5f, 1.0f},
-                {-0.5f, -0.5f, 3.0f},
-                {0.5f, -0.5f, 0.0f},
-                {1.5f, -0.5f, -1.0f}
-            },
-            {
-                {-1.5f, 0.5f, 4.0f},
-                {-0.5f, 0.5f, 0.0f},
-                {0.5f, 0.5f, 3.0f},
-                {1.5f, 0.5f, 4.0f}
-            },
-            {
-                {-1.5f, 1.5f, -2.0f},
-                {-0.5f, 1.5f, -2.0f},
-                {0.5f, 1.5f, 0.0f},
-                {1.5f, 1.5f, -1.0f}
-            }
+        private static float[/* 4*4*3 */] controlPoints = {
+            -1.5f, -1.5f, 4.0f,
+            -0.5f, -1.5f, 2.0f,
+            0.5f, -1.5f, -1.0f,
+            1.5f, -1.5f, 2.0f,
+        
+            -1.5f, -0.5f, 1.0f,
+            -0.5f, -0.5f, 3.0f,
+            0.5f, -0.5f, 0.0f,
+            1.5f, -0.5f, -1.0f,
+        
+            -1.5f, 0.5f, 4.0f,
+            -0.5f, 0.5f, 0.0f,
+            0.5f, 0.5f, 3.0f,
+            1.5f, 0.5f, 4.0f,
+        
+            -1.5f, 1.5f, -2.0f,
+            -0.5f, 1.5f, -2.0f,
+            0.5f, 1.5f, 0.0f,
+            1.5f, 1.5f, -1.0f
         };
 
-        private static float[ , , ] texturePoints = {
-            {
-                {0.0f, 0.0f},
-                {0.0f, 1.0f}
-            },
-            {
-                {1.0f, 0.0f},
-                {1.0f, 1.0f}
-            }
+        private static float[/* 2*2*2 */] texturePoints = {
+                0.0f, 0.0f,
+                0.0f, 1.0f,
+            
+                1.0f, 0.0f,
+                1.0f, 1.0f
         };
         #endregion Private Fields
 

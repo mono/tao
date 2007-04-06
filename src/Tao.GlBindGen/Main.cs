@@ -33,6 +33,7 @@ using System.Security.Permissions;
 using Settings = Tao.OpenGl.Bind.Properties.Bind;
 using System.Threading;
 using System.Collections.Generic;
+using System.CodeDom;
 
 namespace Tao.GlBindGen
 {
@@ -95,23 +96,35 @@ namespace Tao.GlBindGen
             {
                 long ticks = System.DateTime.Now.Ticks;
 
-                // GL binding generation.
+                SpecTranslator.GLTypes = SpecReader.ReadTypeMap("gl.tm");
+                SpecTranslator.CSTypes = SpecReader.ReadTypeMap("csharp.tm");
+                
+                List<CodeMemberMethod> functions;
+                List<CodeTypeDelegate> delegates;
+                List<CodeMemberField> constants;
+                List<CodeMemberField> constants2;
 
-                Translation.GLTypes = SpecReader.ReadTypeMap("gl.tm");
-                Translation.CSTypes = SpecReader.ReadTypeMap("csharp.tm");
-
-                List<Function> wrappers;
-                List<Function> functions = SpecReader.ReadFunctionSpecs("gl.spec");
-                List<Constant> constants = SpecReader.ReadConstantSpecs("enum.spec");
-                List<Constant> constants2 = SpecReader.ReadConstantSpecs("enumext.spec");
-                foreach (Constant c in constants2)
+                //List<Function> wrappers;
+                SpecReader.ReadFunctionSpecs("gl.spec", out delegates, out functions);
+                SpecReader.ReadConstantSpecs("enum.spec", out constants);
+                SpecReader.ReadConstantSpecs("enumext.spec", out constants2);
+                foreach (CodeMemberField c in constants2)
+                {
                     if (!SpecReader.ListContainsConstant(constants, c))
+                    {
                         constants.Add(c);
+                    }
+                }
 
-                Translation.TranslateFunctions(functions, out wrappers);
-                constants = Translation.TranslateConstants(constants);
+                // Hack: Add some regions for quicker browsing:
+                //constants[0].StartDirectives.Add(new CodeRegionDirective(CodeRegionMode.Start, "OpenGL constants"));
+                //constants[constants.Count - 1].EndDirectives.Add(new CodeRegionDirective(CodeRegionMode.End, "OpenGL constants"));
+                //functions[0].StartDirectives.Add(new CodeRegionDirective(CodeRegionMode.Start, "OpenGL functions"));
+                //functions[functions.Count - 1].EndDirectives.Add(new CodeRegionDirective(CodeRegionMode.End, "OpenGL functions"));
 
-                SpecWriter.WriteSpecs(Properties.Bind.Default.OutputPath, functions, wrappers, constants);
+
+                // Generate the code
+                SpecWriter.Generate(Properties.Bind.Default.OutputPath, delegates, functions, constants);
 
                 ticks = System.DateTime.Now.Ticks - ticks;
 

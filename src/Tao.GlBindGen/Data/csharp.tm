@@ -6,7 +6,7 @@ GLenum,             Int32
 GLboolean,          Int32    #Boolean
 GLbitfield,         Int32    #UInt32
 # GLvoid*,          IntPtr
-# GLvoid,           void
+GLvoid,				Object
 GLchar,             Char
 GLbyte,             Byte    #SByte
 GLubyte,            Byte

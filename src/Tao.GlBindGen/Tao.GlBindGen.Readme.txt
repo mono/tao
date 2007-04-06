@@ -1,3 +1,18 @@
+The Tao.GlBindGen project is responsible for interpreting the OpenGL
+specification files (http://opengl.org/registry) and generating the
+respective C# bindings. The current version creates bindings for the
+.Net 2.0 or Mono 1.2 runtime.
+
+Tao.GlBindGen started as an internal project for the OpenTK
+library but was adapted and cleaned-up for use with Tao. The current
+version (2.1.x.x) can interpret the v2.1 specs (x.y denote the
+minor and bugfix releases, respectively).
+
+Please, report bugs and problems to the Tao Framework team!
+
+- Stephen Apostolopoulos (stapostol@gmail.com), April 2007
+
+========================= Original Readme =============================
 
 This file holds the tools used to generate Tao's Gl.cs OpenGL
 bindings.  The .spec files come from the SGI OpenGL sample
