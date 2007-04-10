@@ -1,3 +1,7 @@
+2007-04-10T14:52  C.J. Adams-Collier <cjac@colliertech.org>
+	* other/Prebuild/Prebuild.exe, other/Prebuild/prebuild-1.7.xsd
+	- updated to new binary from Prebuild-cjac
+
 2007-02-10T06:00  David Hudson <jendave@yahoo.com>
 	- Updated Tao.Sdl to Sdl_gfx 2.0.16
 

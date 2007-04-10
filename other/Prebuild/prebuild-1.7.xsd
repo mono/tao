@@ -3,12 +3,16 @@
 	xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.7.xsd">
 	<xs:annotation>
 		<xs:documentation>
-			Copyright (c) 2004-2005 Matthew Holmes (calefaction at houston . rr . com), Dan Moorehead (dan05a at gmail . com), David Hudson (jendave at  yahoo dot com)
+			Copyright (c) 2004-2007
+			Matthew Holmes (calefaction at houston . rr . com),
+			Dan Moorehead (dan05a at gmail . com),
+			David Hudson (jendave at  yahoo dot com),
+			C.J. Adams-Collier (cjac at colliertech dot com)
 
 			.NET Prebuild is a cross-platform XML-driven pre-build tool which
 			allows developers to easily generate project or make files for major
-			IDE's and .NET development tools including: Visual Studio .NET 2002 and
-			2003, SharpDevelop, MonoDevelop, and NAnt.
+			IDE's and .NET development tools including: Visual Studio .NET 2002,
+			2003, and 2005, SharpDevelop, MonoDevelop, NAnt and the GNU Autotools.
 
 			BSD License:
 			
@@ -54,11 +58,14 @@
 			<xs:attribute name="name" type="xs:string" use="required" />
 			<xs:attribute name="activeConfig" type="xs:string" default="Debug" />
 			<xs:attribute name="path" type="xs:string" default="" />
+			<xs:attribute name="version" type="xs:string" default="1.0.0" />
 		</xs:complexType>
 	</xs:element>
 	<xs:element name="Project">
 		<xs:complexType>
 			<xs:sequence>
+				<xs:element name="Author" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+				<xs:element name="Description" type="xs:string" minOccurs="0" maxOccurs="1" />
 				<xs:element ref="Configuration" minOccurs="0" maxOccurs="unbounded" />
 				<xs:element name="ReferencePath" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
 				<xs:element name="Reference" minOccurs="0" maxOccurs="unbounded">
@@ -66,7 +73,7 @@
 						<xs:attribute name="name" type="xs:string" use="required" />
 						<xs:attribute name="path" type="xs:string" />
 						<xs:attribute name="localCopy" type="xs:boolean" />
-						<xs:attribute name="version" type="xs:string" />
+						<xs:attribute name="version" type="xs:string" default="1.0.0"/>
 					</xs:complexType>
 				</xs:element>
 				<xs:element ref="Files" />
@@ -76,7 +83,8 @@
 			<xs:attribute name="filterGroups" type="xs:string" default="" />
 			<xs:attribute name="path" type="xs:string" default="" />
 			<xs:attribute name="icon" type="xs:string" default="" />
-			<xs:attribute name="language" default="C#">
+			<xs:attribute name="version" type="xs:string" default="1.0.0" />
+			<xs:attribute name="language" default="C#">			
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
 						<xs:enumeration value="C#" />
