@@ -25,7 +25,14 @@
     </target>
 
     <target name="mono-2.0" description="Sets framework to mono 2.0">
+	<call target="check-osx" />
 	<property name="nant.settings.currentframework" value="mono-2.0" />
+    </target>
+
+    <target name="check-osx" description="Checks if running on OSX">
+	<if test="${file::exists('/System/Library/Frameworks/Cocoa.framework/Cocoa')}">
+	    <property name="is-osx" value="true" />
+	</if>
     </target>
 
     <target name="clean" description="Clean project">
@@ -49,6 +56,12 @@
 	    <nant buildfile="${src.dir}/Tao.OpenGl/Tao.OpenGl.build" target="${nant.settings.currentframework} package" />
 	<call target="copyfiles" />
 	<call target="zip" />
+    </target>
+
+    <target name="package-debug" description="Package Debug Mode" depends="clean">
+	<property name="project.config" value="Debug" />
+	<nant buildfile="SdlDotNet.build" target="${nant.settings.currentframework} clean build-debug" />
+	<call target="copyfiles" />
     </target>
 
     <!-- copy project files -->
