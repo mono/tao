@@ -48,66 +48,71 @@
     </target>
 
     <target name="package" depends="clean" description="Package">
-	    <nant buildfile="${src.dir}/Tao.DevIl/Tao.DevIl.build" target="${nant.settings.currentframework} package" />
-	    <nant buildfile="${src.dir}/Tao.Ode/Tao.Ode.build" target="${nant.settings.currentframework} package" />
-	    <nant buildfile="${src.dir}/Tao.PhysFs/Tao.PhysFs.build" target="${nant.settings.currentframework} package" />
-	    <nant buildfile="${src.dir}/Tao.Sdl/Tao.Sdl.build" target="${nant.settings.currentframework} package" />
-	    <nant buildfile="${src.dir}/Tao.Lua/Tao.Lua.build" target="${nant.settings.currentframework} package" />
-	    <nant buildfile="${src.dir}/Tao.OpenGl/Tao.OpenGl.build" target="${nant.settings.currentframework} package" />
+	<nant buildfile="${src.dir}/Tao.DevIl/Tao.DevIl.build" target="${nant.settings.currentframework} package" />
+	<nant buildfile="${src.dir}/Tao.Ode/Tao.Ode.build" target="${nant.settings.currentframework} package" />
+	<nant buildfile="${src.dir}/Tao.PhysFs/Tao.PhysFs.build" target="${nant.settings.currentframework} package" />
+	<nant buildfile="${src.dir}/Tao.Sdl/Tao.Sdl.build" target="${nant.settings.currentframework} package" />
+	<nant buildfile="${src.dir}/Tao.Lua/Tao.Lua.build" target="${nant.settings.currentframework} package" />
+	<nant buildfile="${src.dir}/Tao.OpenGl/Tao.OpenGl.build" target="${nant.settings.currentframework} package" />
 	<call target="copyfiles" />
 	<call target="zip" />
     </target>
 
     <target name="package-debug" description="Package Debug Mode" depends="clean">
 	<property name="project.config" value="Debug" />
-	<nant buildfile="SdlDotNet.build" target="${nant.settings.currentframework} clean build-debug" />
+	<nant buildfile="${src.dir}/Tao.DevIl/Tao.DevIl.build" target="${nant.settings.currentframework} clean build-debug" />
+	<nant buildfile="${src.dir}/Tao.Ode/Tao.Ode.build" target="${nant.settings.currentframework} clean build-debug" />
+	<nant buildfile="${src.dir}/Tao.PhysFs/Tao.PhysFs.build" target="${nant.settings.currentframework} clean build-debug" />
+	<nant buildfile="${src.dir}/Tao.Sdl/Tao.Sdl.build" target="${nant.settings.currentframework} clean build-debug" />
+	<nant buildfile="${src.dir}/Tao.Lua/Tao.Lua.build" target="${nant.settings.currentframework} clean build-debug" />
+	<nant buildfile="${src.dir}/Tao.OpenGl/Tao.OpenGl.build" target="${nant.settings.currentframework} clean build-debug" />
 	<call target="copyfiles" />
     </target>
 
     <!-- copy project files -->
     <target name="copyfiles">
-	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${source.dir}">
-	    <fileset>
-		<include name="**" />
-		<exclude name="**/${obj.dir}/**" />
-		<exclude name="**/${bin.dir}/**" />
-		<exclude name="**/*j.user" />
-		<exclude name="**.suo" />
-		<exclude name="**/*.build" />
-		<exclude name="**/*.mdp" />
-		<exclude name="**/*.mds" />
-		<exclude name="**/*.sln" />
-		<exclude name="**/*.cmbx" />
-		<exclude name="**/*.csproj" />
-		<exclude name="**/*.old" />
-		<exclude name="**/*.prjx" />
-		<exclude name="**/*.am" />
-		<exclude name="**/Makefile" />
-		<exclude name="**/configure" />
-		<exclude name="**/configure.ac" />
-		<exclude name="**/*.in" />
-		<exclude name="**/*.pc" />
-		<exclude name="**/*.stackdump" />
-		<exclude name="**/*.lnk" />
-		<exclude name="**/config.status" />
-		<exclude name="**/config.log" />
-		<exclude name="**/aclocal.m4" />
-		<exclude name="**/doc/**" />
-		<exclude name="**/dist/**" />
-		<exclude name="**/autom4te.cache/**" />
-		<exclude name="**/Debug/**" />
-		<exclude name="**/Release/**" />
-		<exclude name="**.swp" />
-		<exclude name="**.bak" />
-		<exclude name="**.project" />
-	    </fileset>
-	</copy>
+	<if test="${project.config=='Release'}">
+	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${source.dir}">
+		<fileset>
+		    <include name="**" />
+		    <exclude name="**/${obj.dir}/**" />
+		    <exclude name="**/${bin.dir}/**" />
+		    <exclude name="**/*j.user" />
+		    <exclude name="**.suo" />
+		    <exclude name="**/*.build" />
+		    <exclude name="**/*.mdp" />
+		    <exclude name="**/*.mds" />
+		    <exclude name="**/*.sln" />
+		    <exclude name="**/*.cmbx" />
+		    <exclude name="**/*.csproj" />
+		    <exclude name="**/*.old" />
+		    <exclude name="**/*.prjx" />
+		    <exclude name="**/*.am" />
+		    <exclude name="**/Makefile" />
+		    <exclude name="**/configure" />
+		    <exclude name="**/configure.ac" />
+		    <exclude name="**/*.in" />
+		    <exclude name="**/*.pc" />
+		    <exclude name="**/*.stackdump" />
+		    <exclude name="**/*.lnk" />
+		    <exclude name="**/config.status" />
+		    <exclude name="**/config.log" />
+		    <exclude name="**/aclocal.m4" />
+		    <exclude name="**/doc/**" />
+		    <exclude name="**/dist/**" />
+		    <exclude name="**/autom4te.cache/**" />
+		    <exclude name="**/Debug/**" />
+		    <exclude name="**/Release/**" />
+		    <exclude name="**.swp" />
+		    <exclude name="**.bak" />
+		    <exclude name="**.project" />
+		</fileset>
+	    </copy>
+	</if>
 
 	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${doc.dir}" flatten="true">
 	    <fileset basedir="${src.dir}">
 		<include name="**/*.chm"/>
-		<include name="**/*.xml"/>
-		<exclude name="**/prebuild.xml"/>
 	    </fileset>
 	</copy>
 
@@ -135,11 +140,24 @@
 		<include name="**/*.xml"/>
 		<exclude name="**/prebuild.xml"/>
 		<exclude name="**/nunit.framework.dll"/>
-		<include name="**/*.config"/>
-		<exclude name="**/app.config"/>
 		<exclude name="**/*Bind*"/>
 	    </fileset>
 	</copy>
+	<if test="${platform::is-unix() and not is-osx}">
+	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/assemblies" flatten="true">
+		<fileset basedir="${src.dir}">
+		    <include name="**/*.config"/>
+		    <exclude name="**/app.config"/>
+		</fileset>
+	    </copy>
+	</if>
+	<if test="${is-osx}">
+	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/assemblies" flatten="true">
+		<fileset basedir="${src.dir}">
+		    <include name="**/*.config.osx"/>
+		</fileset>
+	    </copy>
+	</if>
 	<if test="${platform::is-win32()}">
 	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/win32deps">
 		<fileset basedir="${project::get-base-directory()}/${lib.dir}/win32deps">
@@ -158,6 +176,21 @@
 		<exclude name="**/*Bind*"/>
 	    </fileset>
 	</copy>
+	<if test="${platform::is-unix() and not is-osx}">
+	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/${examples.dir}" flatten="true">
+		<fileset basedir="${src.dir}">
+		    <include name="**/*.config"/>
+		    <exclude name="**/app.config"/>
+		</fileset>
+	    </copy>
+	</if>
+	<if test="${is-osx}">
+	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/${examples.dir}" flatten="true">
+		<fileset basedir="${src.dir}">
+		    <include name="**/*.config.osx"/>
+		</fileset>
+	    </copy>
+	</if>
 	<copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/${examples.dir}/Data" flatten="true">
 	    <fileset>
 		<include name="${examples.dir}/**/Data/**" />
