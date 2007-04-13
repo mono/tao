@@ -40,7 +40,7 @@ using System.Security.Permissions;
 [assembly: AssemblyDelaySign(false)]
 [assembly: AssemblyDescription("Tao Framework OpenGL Binding For .NET")]
 [assembly: AssemblyFileVersion("2.1.0.3")]
-[assembly: AssemblyInformationalVersion("2.1.0.2")]
+[assembly: AssemblyInformationalVersion("2.1.0.3")]
 [assembly: AssemblyKeyName("")]
 [assembly: AssemblyProduct("Tao.OpenGl.dll")]
 [assembly: AssemblyTitle("Tao Framework OpenGL Binding For .NET")]
