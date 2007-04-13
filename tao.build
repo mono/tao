@@ -172,7 +172,6 @@
 		<include name="${examples.dir}/**/*.exe" />
 		<include name="${src.dir}/**/*.dll" />
 		<exclude name="**/nunit.framework.dll"/>
-		<include name="**/*.config"/>
 		<exclude name="**/app.config"/>
 		<exclude name="**/*Bind*"/>
 	    </fileset>
@@ -187,8 +186,8 @@
 	</if>
 	<if test="${is-osx}">
 	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${bin.dir}/${examples.dir}" flatten="true">
-		<fileset basedir="${src.dir}">
-		    <include name="**/*.config.osx"/>
+		<fileset basedir="other/config/osx">
+		    <include name="**/*.config"/>
 		</fileset>
 	    </copy>
 	</if>
