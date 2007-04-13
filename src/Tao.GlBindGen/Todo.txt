@@ -1,6 +1,4 @@
 Todo:
-+ See if anything can be done for the intellisense slowdown. Again, opentk does not suffer from this (or suffers to a lesser extent - probably the constants are killing it)
-+ Find out why the shader compilation in the GLSL example seems to fail (although the cube renders correctly).
 + Clean up the code. Almost there!
 + Add comments and documentation (faqs, pitfalls, best practices).
 + Add the license to the generated Gl.cs class.

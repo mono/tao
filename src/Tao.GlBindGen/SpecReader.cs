@@ -233,9 +233,11 @@ namespace Tao.GlBindGen
                                 d.Parameters.Add(p);
                                 break;
 
+                            /* version directive is not used. GetTexParameterIivEXT and GetTexParameterIuivEXT define two(!) versions (why?)
                             case "version": // Line denotes function version (i.e. 1.0, 1.2, 1.5)
                                 d.UserData.Add("version", words[1]);
                                 break;
+                            */
                         }
                     }
                     while (!sr.EndOfStream);
