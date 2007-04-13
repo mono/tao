@@ -89,7 +89,7 @@ ReserveFile "runtime.ini"
 
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
-OutFile "${PRODUCT_DIR}\${PRODUCT_PUBLISHER}-${PRODUCT_VERSION}-setup.exe"
+OutFile "${PRODUCT_DIR}\${PRODUCT_PACKAGE}-${PRODUCT_VERSION}-setup.exe"
 InstallDir "$PROGRAMFILES\Tao"
 InstallDirRegKey HKLM "${PRODUCT_DIR_REGKEY}" ""
 ShowInstDetails show
