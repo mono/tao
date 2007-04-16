@@ -82,6 +82,16 @@ namespace Tao.Sdl
         // OS X compatibility.
         [DllImport("/System/Library/Frameworks/Cocoa.framework/Cocoa", EntryPoint = "NSApplicationLoad")]
         private static extern void NSApplicationLoad();
+
+        [DllImport("libobjc.dylib", EntryPoint="objc_getClass")]
+        public static extern int objc_getClass(string name);
+
+        [DllImport("libobjc.dylib", EntryPoint="sel_registerName")]
+        public static extern int sel_registerName(string name);
+
+        [DllImport("libobjc.dylib", EntryPoint="objc_msgSend")]
+        public static extern int objc_msgSend(int self, int cmd);
+
         #endregion Private Methods
 
         #region Public Constants
@@ -5232,9 +5242,6 @@ namespace Tao.Sdl
         #endregion Public Structs
 
         #region Private Static Fields
-        // Private pointers to NSApplication class for Cocoa# on OS X.
-        // Used for <see cref="SDL_Init"/> and <see cref="SDL_InitSubSystem"/>.
-        private static object obj;
 
         /// <summary>
         ///		Private byte array holding the internal keyboard state.
@@ -5427,8 +5434,8 @@ namespace Tao.Sdl
             try
             {
                 ////Mac OSX code
-                Assembly af = Assembly.Load("cocoa-sharp, Version=1.9.0.0, Culture=neutral, PublicKeyToken=a2b5f5c17ce02f1d");
-                obj = af.GetType("Cocoa.Application").InvokeMember("Init", BindingFlags.Static | BindingFlags.InvokeMethod, null, obj, null);
+                int NSAutoreleasePool = objc_getClass("NSAutoreleasePool");
+                objc_msgSend(NSAutoreleasePool, sel_registerName("new"));
                 NSApplicationLoad();
             }
             catch
@@ -5512,8 +5519,8 @@ namespace Tao.Sdl
             try
             {
                 ////Mac OSX code
-                Assembly af = Assembly.Load("cocoa-sharp, Version=1.9.0.0, Culture=neutral, PublicKeyToken=a2b5f5c17ce02f1d");
-                obj = af.GetType("Cocoa.Application").InvokeMember("Init", BindingFlags.Static | BindingFlags.InvokeMethod, null, obj, null);
+                int NSAutoreleasePool = objc_getClass("NSAutoreleasePool");
+                objc_msgSend(NSAutoreleasePool, sel_registerName("new"));
                 NSApplicationLoad();
             }
             catch
