@@ -19,6 +19,7 @@
     <property name="obj.dir" value="obj" />
     <property name="lib.dir" value="lib" />
     <property name="doc.dir" value="doc" />
+    <property name="dmg.dir" value="TaoFramework" />
     <property name="is-osx" value="false"/>
 
     <target name="net-2.0" description="Sets framework to .NET 2.0">
@@ -72,6 +73,9 @@
 
     <!-- copy project files -->
     <target name="copyfiles">
+	<if test="${is-osx}">
+	    <property name="dist.dir" value="${dist.dir}/${dmg.dir}" />
+	</if>
 	<if test="${project.config=='Release'}">
 	    <copy todir="${dist.dir}/${string::to-lower(project::get-name())}-${project.version}/${source.dir}">
 		<fileset>
@@ -201,7 +205,7 @@
     <!-- create zip file -->
     <target name="zip" description="zip/gzip files">
 	<property name="project.zip-path" value="${project::get-base-directory()}/${dist.dir}/${string::to-lower(project::get-name())}-${project.version}"/>
-	<if test="${platform::is-unix()}">
+	<if test="${platform::is-unix() and not is-osx}">
 	    <tar destfile="${project.zip-path}.tar.gz" compression="GZip">
 		<fileset basedir="${dist.dir}">
 		    <include name="${project.zip-path}/**" />
