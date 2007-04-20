@@ -179,8 +179,8 @@ namespace Tao.GlBindGen
                         d.UserData.Add("Extension", false);
                     }
 
-                    d.StartDirectives.Add(new CodeRegionDirective(CodeRegionMode.Start, d.Name));
-                    d.EndDirectives.Add(new CodeRegionDirective(CodeRegionMode.End, d.Name));
+                    //d.StartDirectives.Add(new CodeRegionDirective(CodeRegionMode.Start, d.Name));
+                    //d.EndDirectives.Add(new CodeRegionDirective(CodeRegionMode.End, d.Name));
 
                     // Get function parameters and return value:
                     do
@@ -197,12 +197,11 @@ namespace Tao.GlBindGen
                         {
                             case "return":  // Line denotes return value
                                 CodeTypeReference tr = new CodeTypeReference(
-                                    //SpecTranslator.GetEquivalentType(words[1])
                                     words[1]
                                 );
 
-                                if (tr.BaseType == "GLvoid")
-                                    tr.BaseType = "System.Void";
+                                //if (tr.BaseType == "GLvoid")
+                                //    tr.BaseType = "System.Void";
 
                                 d.ReturnType = tr;
                                 break;
@@ -212,23 +211,10 @@ namespace Tao.GlBindGen
                                     new CodeParameterDeclarationExpression();
                                 p.Name = words[1];
                                 p.Type = new CodeTypeReference(words[2]);
-                                //p.Direction = words[3] == "in" ? FieldDirection.In : FieldDirection.Ref;
+                                p.Direction = words[3] == "in" ? FieldDirection.In : FieldDirection.Out;
                                 if (words[3] != "in")
                                     p.CustomAttributes.Add(new CodeAttributeDeclaration("In, Out"));
                                 p.Type.ArrayRank = words[4] == "array" ? 1 : 0;
-
-                                /*
-                                CodeParameterDeclarationExpression p =
-                                    new CodeParameterDeclarationExpression(
-                                        SpecTranslator.GetEquivalentType(words[2]),
-                                        SpecTranslator.GetEquivalentName(words[1])
-                                    );
-
-                                if (p.Type.BaseType == "GLvoid")
-                                {
-                                    p.Type.BaseType = "System.Object";
-                                }
-                                */
 
                                 d.Parameters.Add(p);
                                 break;
@@ -241,8 +227,6 @@ namespace Tao.GlBindGen
                         }
                     }
                     while (!sr.EndOfStream);
-
-                    //functions.Add(f);
 
                     List<CodeMemberMethod> wrappers;
                     SpecTranslator.TranslateDelegate(d, out wrappers);

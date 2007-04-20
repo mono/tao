@@ -37,29 +37,60 @@ namespace Tao.GlBindGen
 
     public enum WrapperTypes
     {
+        /// <summary>
+        /// No wrapper needed.
+        /// </summary>
         None,
-        Bool,
-        VoidArray,
-        Array,
+        /// <summary>
+        /// Function takes bool parameter - C uses Int for bools, so we have to marshal.
+        /// </summary>
+        BoolParameter,
+        /// <summary>
+        /// Function takes generic parameters - add ref/out generic and generic overloads.
+        /// </summary>
+        GenericParameter,
+        /// <summary>
+        /// Function takes arrays as parameters - add ref/out and ([Out]) array overloads.
+        /// </summary>
+        ArrayParameter,
+        /// <summary>
+        /// Function with bitmask parameters. Bitmask parameters map to UInt, but since we can only use signed
+        /// types (for CLS compliance), we must add the unchecked keyword.
+        /// Usually found in bitmasks
+        /// </summary>
         UncheckedParameter,
-        ReturnsString,
-        ReturnsVoidPointer,
+        /// <summary>
+        /// Function returns string - needs manual marshalling through IntPtr to prevent the managed GC
+        /// from freeing memory allocated on the unmanaged side (e.g. glGetString).
+        /// </summary>
+        StringReturnValue,
+        /// <summary>
+        /// Function returns a void pointer - maps to IntPtr, and the user has to manually marshal the type.
+        /// </summary>
+        GenericReturnValue,
+        /// <summary>
+        /// Function returns a typed pointer - we have to copy the data to an array to protect it from the GC.
+        /// </summary>
+        ArrayReturnValue
     }
 
     #endregion
 
     static class SpecTranslator
     {
+        #region static SpecTranslator()
         // Do not remove! - forces BeforeFieldInit to false.
         static SpecTranslator()
         {
         }
+        #endregion
 
+        #region Fields and Properties
         public static char[] Separators = { ' ', '\n', ',', '(', ')', ';', '#' };
 
         #region GL types dictionary
 
-        private static Dictionary<string, CodeTypeReference> _gl_types;
+        private static Dictionary<string, CodeTypeReference> _gl_types = SpecReader.ReadTypeMap("gl.tm");
 
         public static Dictionary<string, CodeTypeReference> GLTypes
         {
@@ -71,7 +102,7 @@ namespace Tao.GlBindGen
 
         #region CS types dictionary
 
-        private static Dictionary<string, CodeTypeReference> _cs_types;
+        private static Dictionary<string, CodeTypeReference> _cs_types = SpecReader.ReadTypeMap("csharp.tm");
 
         public static Dictionary<string, CodeTypeReference> CSTypes
         {
@@ -104,6 +135,7 @@ namespace Tao.GlBindGen
         }
 
         #endregion
+        #endregion
 
         #region public static void TranslateDelegate(CodeTypeDelegate d, out List<CodeTypeMember> wrappers)
         public static void TranslateDelegate(CodeTypeDelegate d, out List<CodeMemberMethod> wrappers)
@@ -125,22 +157,17 @@ namespace Tao.GlBindGen
             if (GLTypes.TryGetValue(d.ReturnType.BaseType, out s))
                 d.ReturnType = s;
 
-            if (d.ReturnType.BaseType == "void[]")
-            {
-                d.ReturnType = new CodeTypeReference("IntPtr");
-                d.ReturnType.UserData.Add("Wrapper", WrapperTypes.ReturnsVoidPointer);
-            }
-
             if (d.ReturnType.BaseType == "GLstring")
             {
                 d.ReturnType = new CodeTypeReference("IntPtr");
-                d.ReturnType.UserData.Add("Wrapper", WrapperTypes.ReturnsString);
+                d.ReturnType.UserData.Add("Wrapper", WrapperTypes.StringReturnValue);
             }
 
             if (d.ReturnType.BaseType.ToLower().Contains("object"))
             {
-                d.ReturnType = new CodeTypeReference("IntPtr");
-                d.ReturnType.UserData.Add("Wrapper", WrapperTypes.ReturnsVoidPointer);
+                d.ReturnType.BaseType = "IntPtr";
+                d.ReturnType.UserData.Add("Wrapper", WrapperTypes.GenericReturnValue);
+                d.ReturnType.ArrayRank = 0;
             }
 
             if (d.ReturnType.UserData.Contains("Wrapper"))
@@ -178,7 +205,9 @@ namespace Tao.GlBindGen
                     // to simplify the next if-statements.
                     // p.Type.ArrayRank = 0;
                 }
-                else if (p.Type.ArrayRank > 0 && p.Type.BaseType.Contains("char"))
+                else if (p.Type.ArrayRank > 0 && p.Type.BaseType.Contains("char") ||
+                        p.Type.ArrayRank == 0 && p.Type.BaseType.Contains("String"))
+
                 {
                     // GLchar[] parameters should become (in) string or (out) StringBuilder
                     if (p.Direction == FieldDirection.Out || p.Direction == FieldDirection.Ref)
@@ -191,11 +220,11 @@ namespace Tao.GlBindGen
                     // All other array parameters need wrappers (around IntPtr).
                     if (p.Type.BaseType.Contains("void") || p.Type.BaseType.Contains("Void"))
                     {
-                        p.UserData.Add("Wrapper", WrapperTypes.VoidArray);
+                        p.UserData.Add("Wrapper", WrapperTypes.GenericParameter);
                     }
                     else
                     {
-                        p.UserData.Add("Wrapper", WrapperTypes.Array);
+                        p.UserData.Add("Wrapper", WrapperTypes.ArrayParameter);
                         p.UserData.Add("OriginalType", new string(p.Type.BaseType.ToCharArray()));
                     }
 
@@ -212,6 +241,8 @@ namespace Tao.GlBindGen
                     // If there is at least 1 parameter that needs wrappers, mark the funcction for wrapping.
                     d.UserData.Add("Wrapper", null);
                 }
+
+                p.Direction = FieldDirection.In;
             }
         }
         #endregion
@@ -226,16 +257,12 @@ namespace Tao.GlBindGen
             if (!d.UserData.Contains("Wrapper"))
             {
                 // If not, add just add a function that calls the delegate.
-                f = CreateWrapperForDelegate(d);
+                f = CreatePrototype(d);
 
                 if (!f.ReturnType.BaseType.Contains("Void"))
-                {
                     f.Statements.Add(new CodeMethodReturnStatement(GenerateInvokeExpression(f)));
-                }
                 else
-                {
                     f.Statements.Add(GenerateInvokeExpression(f));
-                }
 
                 wrappers.Add(f);
             }
@@ -246,33 +273,49 @@ namespace Tao.GlBindGen
                 // First, check if the return type needs wrapping:
                 if (d.ReturnType.UserData.Contains("Wrapper"))
                 {
-                    // If the function returns a string (glGetString) we must manually marshal it
-                    // using Marshal.PtrToStringXXX. Otherwise, the GC will try to free the memory
-                    // used by the string, resulting in corruption (the memory belongs to the
-                    // unmanaged boundary).
-                    if ((WrapperTypes)d.ReturnType.UserData["Wrapper"] == WrapperTypes.ReturnsString)
+                    switch ((WrapperTypes)d.ReturnType.UserData["Wrapper"])
                     {
-                        f = CreateWrapperForDelegate(d);
-                        f.ReturnType = new CodeTypeReference("System.String");
+                        // If the function returns a string (glGetString) we must manually marshal it
+                        // using Marshal.PtrToStringXXX. Otherwise, the GC will try to free the memory
+                        // used by the string, resulting in corruption (the memory belongs to the
+                        // unmanaged boundary).
+                        case WrapperTypes.StringReturnValue:
+                            f = CreatePrototype(d);
+                            f.ReturnType = new CodeTypeReference("System.String");
 
-                        f.Statements.Add(
-                            new CodeMethodReturnStatement(
-                                new CodeMethodInvokeExpression(
-                                    new CodeTypeReferenceExpression("Marshal"),
-                                    "PtrToStringAnsi",
-                                    new CodeExpression[] { GenerateInvokeExpression(f) }
+                            f.Statements.Add(
+                                new CodeMethodReturnStatement(
+                                    new CodeMethodInvokeExpression(
+                                        new CodeTypeReferenceExpression("Marshal"),
+                                        "PtrToStringAnsi",
+                                        new CodeExpression[] { GenerateInvokeExpression(f) }
+                                    )
                                 )
-                            )
-                        );
+                            );
+                            
+                            wrappers.Add(f);
+                            break;
 
-                        wrappers.Add(f);
+                        // If the function returns a void* (GenericReturnValue), we'll have to return an IntPtr.
+                        // The user will unfortunately need to marshal this IntPtr to a data type manually.
+                        case WrapperTypes.GenericReturnValue:
+                            f = CreatePrototype(d);
+
+                            if (!f.ReturnType.BaseType.Contains("Void"))
+                                f.Statements.Add(new CodeMethodReturnStatement(GenerateInvokeExpression(f)));
+                            else
+                                f.Statements.Add(GenerateInvokeExpression(f));
+
+                            wrappers.Add(f);
+                            break;
                     }
                 }
 
                 if (d.Name.Contains("LineStipple"))
                 {
-                    f = CreateWrapperForDelegate(d);
-                    //f.Parameters[1].Type.BaseType = "unchecked(GLushort)";
+                    // glLineStipple accepts a GLushort bitfield. Since GLushort is mapped to Int16, not UInt16
+                    // (for CLS compliance), we'll have to add the unchecked keyword.
+                    f = CreatePrototype(d);
 
                     CodeSnippetExpression e =
                         new CodeSnippetExpression("Delegates.glLineStipple(factor, unchecked((GLushort)pattern))");
@@ -281,7 +324,7 @@ namespace Tao.GlBindGen
                     wrappers.Add(f);
                 }
 
-                WrapPointersMonsterFunctionMK2(String.IsNullOrEmpty(f.Name) ? CreateWrapperForDelegate(d) : f, wrappers);
+                WrapPointersMonsterFunctionMK2(String.IsNullOrEmpty(f.Name) ? CreatePrototype(d) : f, wrappers);
             }
         }
         #endregion
@@ -330,7 +373,7 @@ namespace Tao.GlBindGen
                     //WrapPointersMonsterFunctionMK2(d, wrappers);
                     //--count;
 
-                    if ((WrapperTypes)f.Parameters[count].UserData["Wrapper"] == WrapperTypes.Array)
+                    if ((WrapperTypes)f.Parameters[count].UserData["Wrapper"] == WrapperTypes.ArrayParameter)
                     {
                         ++count;
                         WrapPointersMonsterFunctionMK2(f, wrappers);
@@ -350,7 +393,7 @@ namespace Tao.GlBindGen
                         WrapPointersMonsterFunctionMK2(w, wrappers);
                         --count;*/
                     }
-                    else if ((WrapperTypes)f.Parameters[count].UserData["Wrapper"] == WrapperTypes.VoidArray)
+                    else if ((WrapperTypes)f.Parameters[count].UserData["Wrapper"] == WrapperTypes.GenericParameter)
                     {
                         ++count;
                         WrapPointersMonsterFunctionMK2(f, wrappers);
@@ -378,7 +421,7 @@ namespace Tao.GlBindGen
         #region private static CodeMemberMethod IntPtrToIntPtr(CodeMemberMethod f)
         private static CodeMemberMethod IntPtrToIntPtr(CodeMemberMethod f)
         {
-            CodeMemberMethod w = CreateWrapperFromMethod(f);
+            CodeMemberMethod w = CreatePrototype(f);
             if (!w.ReturnType.BaseType.Contains("Void"))
             {
                 w.Statements.Add(new CodeMethodReturnStatement(GenerateInvokeExpression(w)));
@@ -394,7 +437,7 @@ namespace Tao.GlBindGen
         #region private static CodeMemberMethod IntPtrToObject(CodeMemberMethod f, int index)
         private static CodeMemberMethod IntPtrToObject(CodeMemberMethod f, int index)
         {
-            CodeMemberMethod w = CreateWrapperFromMethod(f);
+            CodeMemberMethod w = CreatePrototype(f);
 
             CodeParameterDeclarationExpression newp = new CodeParameterDeclarationExpression();
             newp.Name = f.Parameters[index].Name;
@@ -415,7 +458,7 @@ namespace Tao.GlBindGen
         // IntPtr -> GL[...] wrapper.
         private static CodeMemberMethod IntPtrToArray(CodeMemberMethod f, int index)
         {
-            CodeMemberMethod w = CreateWrapperFromMethod(f);
+            CodeMemberMethod w = CreatePrototype(f);
 
             // Search and replace IntPtr parameters with the known parameter types:
             CodeParameterDeclarationExpression newp = new CodeParameterDeclarationExpression();
@@ -442,7 +485,7 @@ namespace Tao.GlBindGen
         /// <returns></returns>
         private static CodeMemberMethod IntPtrToReference(CodeMemberMethod f, int index)
         {
-            CodeMemberMethod w = CreateWrapperFromMethod(f);
+            CodeMemberMethod w = CreatePrototype(f);
 
             // Search and replace IntPtr parameters with the known parameter types:
             CodeParameterDeclarationExpression newp = new CodeParameterDeclarationExpression();
@@ -459,8 +502,8 @@ namespace Tao.GlBindGen
         }
         #endregion
 
-        #region private static CodeMemberMethod CreateWrapperForDelegate(CodeTypeDelegate d)
-        private static CodeMemberMethod CreateWrapperForDelegate(CodeTypeDelegate d)
+        #region private static CodeMemberMethod CreatePrototype(CodeTypeDelegate d)
+        private static CodeMemberMethod CreatePrototype(CodeTypeDelegate d)
         {
             CodeMemberMethod f = new CodeMemberMethod();
 
@@ -469,8 +512,8 @@ namespace Tao.GlBindGen
             f.ReturnType = d.ReturnType;
             f.Attributes = MemberAttributes.Static | MemberAttributes.Public;
 
-            f.StartDirectives.Add(new CodeRegionDirective(CodeRegionMode.Start, f.Name));
-            f.EndDirectives.Add(new CodeRegionDirective(CodeRegionMode.End, f.Name));
+            //f.StartDirectives.Add(new CodeRegionDirective(CodeRegionMode.Start, f.Name));
+            //f.EndDirectives.Add(new CodeRegionDirective(CodeRegionMode.End, f.Name));
 
             /*f.Comments.Add(new CodeCommentStatement("<summary>", true));
             f.Comments.Add(new CodeCommentStatement(" ", true));
@@ -480,8 +523,8 @@ namespace Tao.GlBindGen
         }
         #endregion
 
-        #region private static CodeMemberMethod CreateWrapperFromMethod(CodeMemberMethod d)
-        private static CodeMemberMethod CreateWrapperFromMethod(CodeMemberMethod d)
+        #region private static CodeMemberMethod CreatePrototype(CodeMemberMethod d)
+        private static CodeMemberMethod CreatePrototype(CodeMemberMethod d)
         {
             CodeMemberMethod f = new CodeMemberMethod();
 
@@ -490,8 +533,8 @@ namespace Tao.GlBindGen
             f.ReturnType = d.ReturnType;
             f.Attributes = MemberAttributes.Static | MemberAttributes.Public;
 
-            f.StartDirectives.Add(new CodeRegionDirective(CodeRegionMode.Start, f.Name));
-            f.EndDirectives.Add(new CodeRegionDirective(CodeRegionMode.End, f.Name));
+            //f.StartDirectives.Add(new CodeRegionDirective(CodeRegionMode.Start, f.Name));
+            //f.EndDirectives.Add(new CodeRegionDirective(CodeRegionMode.End, f.Name));
 
             foreach (object key in d.UserData.Keys)
             {

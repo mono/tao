@@ -96,9 +96,6 @@ namespace Tao.GlBindGen
             {
                 long ticks = System.DateTime.Now.Ticks;
 
-                SpecTranslator.GLTypes = SpecReader.ReadTypeMap("gl.tm");
-                SpecTranslator.CSTypes = SpecReader.ReadTypeMap("csharp.tm");
-                
                 List<CodeMemberMethod> functions;
                 List<CodeTypeDelegate> delegates;
                 List<CodeMemberField> constants;
@@ -115,13 +112,6 @@ namespace Tao.GlBindGen
                         constants.Add(c);
                     }
                 }
-
-                // Hack: Add some regions for quicker browsing:
-                //constants[0].StartDirectives.Add(new CodeRegionDirective(CodeRegionMode.Start, "OpenGL constants"));
-                //constants[constants.Count - 1].EndDirectives.Add(new CodeRegionDirective(CodeRegionMode.End, "OpenGL constants"));
-                //functions[0].StartDirectives.Add(new CodeRegionDirective(CodeRegionMode.Start, "OpenGL functions"));
-                //functions[functions.Count - 1].EndDirectives.Add(new CodeRegionDirective(CodeRegionMode.End, "OpenGL functions"));
-
 
                 // Generate the code
                 SpecWriter.Generate(Properties.Bind.Default.OutputPath, delegates, functions, constants);
