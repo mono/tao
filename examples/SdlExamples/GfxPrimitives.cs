@@ -49,91 +49,91 @@ using System;
 using System.Threading;
 using Tao.Sdl;
 
-namespace SdlExamples 
+namespace SdlExamples
 {
-	#region Class Documentation
-	/// <summary>
-	/// Simple Tao.Sdl Example
-	/// </summary>
-	/// <remarks>
-	/// Just draws a bunch of rectangles to the screen. 
-	/// To quit, you can close the window, 
-	/// press the Escape key or press the 'q' key
-	/// <p>Written by David Hudson (jendave@yahoo.com)</p>
-	/// <p>This is a reimplementation of an example 
-	/// written by Will Weisser (ogl@9mm.com)</p>
-	/// </remarks>
-	#endregion Class Documentation
-	public class GfxPrimitives 
-	{		
-		#region Run()
-		/// <summary>
-		///  
-		/// </summary>
+    #region Class Documentation
+    /// <summary>
+    /// Simple Tao.Sdl Example
+    /// </summary>
+    /// <remarks>
+    /// Just draws a bunch of rectangles to the screen. 
+    /// To quit, you can close the window, 
+    /// press the Escape key or press the 'q' key
+    /// <p>Written by David Hudson (jendave@yahoo.com)</p>
+    /// <p>This is a reimplementation of an example 
+    /// written by Will Weisser (ogl@9mm.com)</p>
+    /// </remarks>
+    #endregion Class Documentation
+    public class GfxPrimitives
+    {
+        #region Run()
+        /// <summary>
+        ///  
+        /// </summary>
         [STAThread]
-		public static void Run() 
-		{
-			int flags = (Sdl.SDL_HWSURFACE|Sdl.SDL_DOUBLEBUF|Sdl.SDL_ANYFORMAT);
-			int bpp = 16;
-			int width = 640;
-			int height = 480;
-			bool quitFlag = false;
+        public static void Run()
+        {
+            int flags = (Sdl.SDL_HWSURFACE | Sdl.SDL_DOUBLEBUF | Sdl.SDL_ANYFORMAT);
+            int bpp = 16;
+            int width = 640;
+            int height = 480;
+            bool quitFlag = false;
 
-			Random rand = new Random();
-			
-			//string musicFile = "Data/SdlExamples.Reactangles.sound.ogg";
+            Random rand = new Random();
 
-			Sdl.SDL_Event evt;
+            //string musicFile = "Data/SdlExamples.Reactangles.sound.ogg";
 
-			try 
-			{
-				Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
-				Sdl.SDL_WM_SetCaption("Tao.Sdl Example - GfxPrimitives", "");
-				IntPtr surfacePtr = Sdl.SDL_SetVideoMode(
-					width, 
-					height, 
-					bpp, 
-					flags);
+            Sdl.SDL_Event evt;
 
-				Sdl.SDL_Rect rect2 = 
-					new Sdl.SDL_Rect(0,0, (short) width, (short) height);
-				Sdl.SDL_SetClipRect(surfacePtr, ref rect2);
-				while (quitFlag == false) 
-				{
-					Sdl.SDL_PollEvent(out evt);
+            try
+            {
+                Sdl.SDL_Init(Sdl.SDL_INIT_EVERYTHING);
+                Sdl.SDL_WM_SetCaption("Tao.Sdl Example - GfxPrimitives", "");
+                IntPtr surfacePtr = Sdl.SDL_SetVideoMode(
+                    width,
+                    height,
+                    bpp,
+                    flags);
 
-					if (evt.type == Sdl.SDL_QUIT)
-					{
-						quitFlag = true;
-					}
-					else if (evt.type == Sdl.SDL_KEYDOWN)
-					{
-						if ((evt.key.keysym.sym == (int)Sdl.SDLK_ESCAPE) ||
-							(evt.key.keysym.sym == (int)Sdl.SDLK_q))
-						{
-							quitFlag = true;
-						}
-					}
+                Sdl.SDL_Rect rect2 =
+                    new Sdl.SDL_Rect(0, 0, (short)width, (short)height);
+                Sdl.SDL_SetClipRect(surfacePtr, ref rect2);
+                while (quitFlag == false)
+                {
+                    Sdl.SDL_PollEvent(out evt);
 
-					try 
-					{
-						SdlGfx.filledCircleRGBA(surfacePtr, (short)rand.Next(10,width - 100),(short)rand.Next(10, height - 100), (short)rand.Next(10,100),(byte)rand.Next(255), (byte)rand.Next(255),(byte)rand.Next(255), (byte)rand.Next(255));
-						Sdl.SDL_Flip(surfacePtr);
-						Thread.Sleep(100);
-					} 
-					catch (Exception) {}
-				}
-			} 
-			catch 
-			{
-				Sdl.SDL_Quit();
-				throw; 
-			}
+                    if (evt.type == Sdl.SDL_QUIT)
+                    {
+                        quitFlag = true;
+                    }
+                    else if (evt.type == Sdl.SDL_KEYDOWN)
+                    {
+                        if ((evt.key.keysym.sym == (int)Sdl.SDLK_ESCAPE) ||
+                            (evt.key.keysym.sym == (int)Sdl.SDLK_q))
+                        {
+                            quitFlag = true;
+                        }
+                    }
+
+                    try
+                    {
+                        SdlGfx.filledCircleRGBA(surfacePtr, (short)rand.Next(10, width - 100), (short)rand.Next(10, height - 100), (short)rand.Next(10, 100), (byte)rand.Next(255), (byte)rand.Next(255), (byte)rand.Next(255), (byte)rand.Next(255));
+                        Sdl.SDL_Flip(surfacePtr);
+                        Thread.Sleep(100);
+                    }
+                    catch (Exception) { }
+                }
+            }
+            catch
+            {
+                Sdl.SDL_Quit();
+                throw;
+            }
             finally
             {
                 Sdl.SDL_Quit();
             }
-		}
-		#endregion Run()
-	}
+        }
+        #endregion Run()
+    }
 }

@@ -26,6 +26,7 @@ SOFTWARE.
 #endregion License
 
 using System;
+using System.IO;
 using System.Collections;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -83,13 +84,29 @@ namespace Tao.Sdl
         [DllImport("/System/Library/Frameworks/Cocoa.framework/Cocoa", EntryPoint = "NSApplicationLoad")]
         private static extern void NSApplicationLoad();
 
-        [DllImport("libobjc.dylib", EntryPoint="objc_getClass")]
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        [DllImport("libobjc.dylib", EntryPoint = "objc_getClass")]
         public static extern int objc_getClass(string name);
 
-        [DllImport("libobjc.dylib", EntryPoint="sel_registerName")]
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        [DllImport("libobjc.dylib", EntryPoint = "sel_registerName")]
         public static extern int sel_registerName(string name);
 
-        [DllImport("libobjc.dylib", EntryPoint="objc_msgSend")]
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="self"></param>
+        /// <param name="cmd"></param>
+        /// <returns></returns>
+        [DllImport("libobjc.dylib", EntryPoint = "objc_msgSend")]
         public static extern int objc_msgSend(int self, int cmd);
 
         #endregion Private Methods
@@ -5434,9 +5451,12 @@ namespace Tao.Sdl
             try
             {
                 ////Mac OSX code
-                int NSAutoreleasePool = objc_getClass("NSAutoreleasePool");
-                objc_msgSend(NSAutoreleasePool, sel_registerName("new"));
-                NSApplicationLoad();
+                if (File.Exists("/System/Library/Frameworks/Cocoa.framework/Cocoa"))
+                {
+                    int NSAutoreleasePool = objc_getClass("NSAutoreleasePool");
+                    objc_msgSend(NSAutoreleasePool, sel_registerName("new"));
+                    NSApplicationLoad();
+                }
             }
             catch
             {
@@ -5518,10 +5538,13 @@ namespace Tao.Sdl
         {
             try
             {
-                ////Mac OSX code
-                int NSAutoreleasePool = objc_getClass("NSAutoreleasePool");
-                objc_msgSend(NSAutoreleasePool, sel_registerName("new"));
-                NSApplicationLoad();
+                if (File.Exists("/System/Library/Frameworks/Cocoa.framework/Cocoa"))
+                {
+                    ////Mac OSX code
+                    int NSAutoreleasePool = objc_getClass("NSAutoreleasePool");
+                    objc_msgSend(NSAutoreleasePool, sel_registerName("new"));
+                    NSApplicationLoad();
+                }
             }
             catch
             {
