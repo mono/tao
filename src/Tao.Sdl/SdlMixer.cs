@@ -336,7 +336,7 @@ namespace Tao.Sdl
 		/// 
 		/// </summary>
 		[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-		public delegate void MixFunctionDelegate(IntPtr udata, byte[] stream, int len);
+		public delegate void MixFunctionDelegate(IntPtr udata, [Out, MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 2)] byte[] stream, int len);
 		#endregion void MixFunctionDelegate(IntPtr udata, IntPtr stream, int len)
 
 		#region void ChannelFinishedDelegate(int channel)
