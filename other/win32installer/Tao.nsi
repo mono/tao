@@ -2,7 +2,7 @@
 
 !define PRODUCT_NAME "Tao"
 !define PRODUCT_PACKAGE "tao"
-!define PRODUCT_VERSION "2.0.0RC2"
+!define PRODUCT_VERSION "2.0.0"
 !define PRODUCT_BUILD "1"
 !define PRODUCT_PUBLISHER "Tao"
 !define PRODUCT_WEB_SITE "http://www.taoframework.com"
