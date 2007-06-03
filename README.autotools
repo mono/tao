@@ -1,0 +1,59 @@
+To build an autotools tarball of, for instance Tao.OpenGL, you
+currently need either the (bleeding edge) Prebuild-cjac branch of dnpb
+or the Prebuild.exe from said branch.  To get the whole package, do
+the following:
+
+svn co https://dnpb.svn.sourceforge.net/svnroot/dnpb/branches/Prebuild-cjac &&
+cd Prebuild-cjac                 &&
+./Prebuild.exe /target autotools &&
+cd autotools/Prebuild/Prebuild   &&
+sh autogen.sh                    &&
+make                             &&
+sudo make install
+
+This will put a script called 'prebuild' in /usr/local/bin, which is
+probably in your PATH.  The 'prebuild' script takes the same arguments
+as Prebuild.exe.  To see the usage docs, run the following:
+
+prebuild /usage
+
+Now that you have the bleeding edge prebuild, prebuild /target
+autotools will create an autotools/ directory which contains the files
+needed to create autotools distributions of prebuild packages.
+
+Let's try this on Tao.OpenGL:
+
+svn co http://anonsvn.mono-project.com/source/trunk/tao &&
+cd tao/src/Tao.OpenGL &&
+prebuild /target autotools &&
+cd autotools/Tao.OpenGL &&
+sh autogen.sh &&
+make
+
+You should now have all of the .dll files required to use Tao.OpenGL.
+To install a given package, cd to its directory and run 'sudo make install':
+
+cd Tao.OpenGL && sudo make install
+
+You should now have:
+* Tao.OpenGl.pc in /usr/local/lib/pkgconfig/
+* Tao.OpenGl.dll in /usr/local/lib/mono/Tao.OpenGl/
+* Tao.OpenGl in your GAC
+
+You can now run something like this:
+
+$ pkg-config --modversion Tao.OpenGl
+2.1.0.4
+
+You can now add a dependence on Tao.OpenGl into your application by
+adding something like the following to your configure.ac (or
+configure.in, if you like using deprecated filenames):
+
+TAO_OPENGL_REQUIRED_VERSION=2.1.0
+
+PKG_CHECK_MODULES(TAO_OPENGL_DEPENDENCIES,
+                  Tao.OpenGl >= $TAO_OPENGL_REQUIRED_VERSION,
+		  has_tao_opengl=yes,
+		  has_tao_opengl=no
+		  )
+
