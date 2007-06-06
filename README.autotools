@@ -57,3 +57,10 @@ PKG_CHECK_MODULES(TAO_OPENGL_DEPENDENCIES,
 		  has_tao_opengl=no
 		  )
 
+if test "x$has_tao_opengl" = "xno"; then
+  AC_MSG_WARN([Tao.OpenGl not detected; examples will not be built])
+else
+  AC_MSG_NOTICE([Tao.OpenGl found; examples will be built])
+fi
+
+AM_CONDITIONAL(HAS_TAO_OPENGL, test x$has_tao_opengl = xyes)
