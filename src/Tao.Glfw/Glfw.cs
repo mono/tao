@@ -33,7 +33,7 @@ using Tao.OpenGl;
 namespace Tao.Glfw {
     #region Class Documentation
     /// <summary>
-    ///     GLFW (OpenGL Framework) binding for .NET, implementing GLFW 2.5.0.
+    ///     GLFW (OpenGL Framework) binding for .NET, implementing GLFW 2.6 Beta 1.
     /// </summary>
     /// <remarks>
     ///     <para>
@@ -119,7 +119,7 @@ namespace Tao.Glfw {
         ///     Minor version number.
         /// </summary>
         // #define GLFW_VERSION_MINOR 5
-        public const int GLFW_VERSION_MINOR = 5;
+        public const int GLFW_VERSION_MINOR = 6;
         #endregion GLFW_VERSION_MINOR
 
         #region GLFW_VERSION_REVISION
@@ -1075,6 +1075,22 @@ namespace Tao.Glfw {
         // #define GLFW_STEREO 0x00020011
         public const int GLFW_STEREO = 0x00020011;
         #endregion GLFW_STEREO
+
+        #region GLFW_WINDOW_NO_RESIZE
+        /// <summary>
+        /// 
+        /// </summary>
+        // #define GLFW_WINDOW_NO_RESIZE 0x00020012
+        public const int GLFW_WINDOW_NO_RESIZE = 0x00020012;
+        #endregion GLFW_WINDOW_NO_RESIZE
+
+        #region GLFW_FSAA_SAMPLES
+        /// <summary>
+        /// 
+        /// </summary>
+        // #define GLFW_FSAA_SAMPLES 0x00020013
+        public const int GLFW_FSAA_SAMPLES = 0x00020013;
+        #endregion GLFW_FSAA_SAMPLES
         #endregion glfwGetWindowParam/glfwOpenWindowHint Tokens
 
         #region glfwEnable/glfwDisable Tokens
@@ -2142,9 +2158,18 @@ namespace Tao.Glfw {
         // GLFWAPI int GLFWAPIENTRY glfwReadImage(const char *name, GLFWimage *img, int flags);
         [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern int glfwReadImage(string name, out GLFWimage image, int flags);
-		#endregion int glfwReadImage(string name, out GLFWimage image, int flags)
+        #endregion int glfwReadImage(string name, out GLFWimage image, int flags)
 
-		#region void glfwFreeImage(ref GLFWimage image)
+        #region int glfwReadMemoryImage(IntPtr data, int size, ref GLFWimage image, int flags)
+        /// <summary>
+        /// 
+        /// </summary>
+        // GLFWAPI int glfwReadMemoryImage( const void *data, long size, GLFWimage *img, int flags );
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+        public static extern int glfwReadMemoryImage(IntPtr data, int size, ref GLFWimage image, int flags);
+        #endregion int glfwReadMemoryImage(IntPtr data, int size, ref GLFWimage image, int flags)
+
+        #region void glfwFreeImage(ref GLFWimage image)
         /// <summary>
         /// 
         /// </summary>
@@ -2161,6 +2186,24 @@ namespace Tao.Glfw {
         [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
         public static extern int glfwLoadTexture2D(string name, int flags);
 		#endregion int glfwLoadTexture2D(string name, int flags)
+
+		#region int glfwLoadMemoryTexture2D(IntPtr data, int size, int flags)
+        /// <summary>
+        /// 
+        /// </summary>
+        // GLFWAPI int glfwLoadMemoryTexture2D( const void *data, long size, int flags )
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+        public static extern int glfwLoadMemoryTexture2D(IntPtr data, int size, int flags);
+		#endregion int glfwLoadMemoryTexture2D(IntPtr data, int size, int flags)
+
+		#region int glfwLoadTextureImage2D(ref GLFWimage img, int flags)
+        /// <summary>
+        /// 
+        /// </summary>
+        // GLFWAPI int glfwLoadTextureImage2D( GLFWimage *img, int flags )
+        [DllImport(GLFW_NATIVE_LIBRARY), SuppressUnmanagedCodeSecurity]
+        public static extern int glfwLoadTextureImage2D(ref GLFWimage img, int flags);
+		#endregion int glfwLoadTextureImage2D(ref GLFWimage img, int flags)
 
         #endregion Image/Texture I/O Support
     }
