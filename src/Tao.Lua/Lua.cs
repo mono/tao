@@ -1578,7 +1578,7 @@ namespace Tao.Lua
         ///     While Lua is running a hook, it disables other calls to hooks. Therefore, if a hook calls back Lua to execute a function or a chunk, this execution occurs without any calls to hooks.
         /// </remarks>
         [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-        public delegate void lua_Hook(lua_State L, lua_Debug ar);
+        public delegate void lua_Hook(lua_State L, ref lua_Debug ar);
 
         //LUA_API int lua_getstack (lua_State *L, int level, lua_Debug *ar);
         /// <summary>
@@ -1590,7 +1590,7 @@ namespace Tao.Lua
         /// <returns>When there are no errors, lua_getstack returns 1; when called with a level greater than the stack depth, it returns 0.</returns>
         /// <remarks>This function fills parts of a lua_Debug structure with an identification of the activation record of the function executing at a given level. Level 0 is the current running function, whereas level n+1 is the function that has called level n.</remarks>
         [DllImport(LUA_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public extern static int lua_getstack(lua_State L, int level, lua_Debug ar);
+        public extern static int lua_getstack(lua_State L, int level, ref lua_Debug ar);
 
         //LUA_API int lua_getinfo (lua_State *L, const char *what, lua_Debug *ar);
         /// <summary>
@@ -1604,7 +1604,7 @@ namespace Tao.Lua
         ///     To get information about a function invocation, the parameter ar must be a valid activation record that was filled by a previous call to lua_getstack or given as argument to a hook (see lua_Hook).
         /// </remarks>
         [DllImport(LUA_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public extern static int lua_getinfo(lua_State L, string what, lua_Debug ar);
+        public extern static int lua_getinfo(lua_State L, string what, ref lua_Debug ar);
 
         //LUA_API const char *lua_getlocal (lua_State *L, const lua_Debug *ar, int n);
         /// <summary>
@@ -1618,7 +1618,7 @@ namespace Tao.Lua
         ///     Variable names starting with '(' (open parentheses) represent internal variables (loop control variables, temporaries, and C function locals).
         /// </remarks>
         [DllImport(LUA_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public extern static string lua_getlocal(lua_State L, lua_Debug ar, int n);
+        public extern static string lua_getlocal(lua_State L, ref lua_Debug ar, int n);
 
         //LUA_API const char *lua_setlocal (lua_State *L, const lua_Debug *ar, int n);
         /// <summary>
@@ -1629,7 +1629,7 @@ namespace Tao.Lua
         /// <param name="n">Parameters ar and n are as in lua_getlocal (see lua_getlocal). lua_setlocal assigns the value at the top of the stack to the variable and returns its name. It also pops the value from the stack.</param>
         /// <returns>Returns NULL (and pops nothing) when the index is greater than the number of active local variables.</returns>
         [DllImport(LUA_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public extern static string lua_setlocal(lua_State L, lua_Debug ar, int n);
+        public extern static string lua_setlocal(lua_State L, ref lua_Debug ar, int n);
 
         //LUA_API const char *lua_getupvalue (lua_State *L, int funcindex, int n);
         /// <summary>
@@ -1726,23 +1726,23 @@ namespace Tao.Lua
             /// <summary>
             ///     a reasonable name for the given function. Because functions in Lua are first-class values, they do not have a fixed name: some functions may be the value of multiple global variables, while others may be stored only in a table field. The lua_getinfo function checks how the function was called to find a suitable name. If it cannot find a name, then name is set to NULL.
             /// </summary>
-            [CLSCompliant(false)]
-            public sbyte name;
+            [MarshalAs(UnmanagedType.LPStr)]
+            public string name;
             /// <summary>
             ///     explains the name field. The value of namewhat can be "global", "local", "method", "field", "upvalue", or "" (the empty string), according to how the function was called. (Lua uses the empty string when no other option seems to apply.)
             /// </summary>
-            [CLSCompliant(false)]
-            public sbyte namewhat;
+            [MarshalAs(UnmanagedType.LPStr)]
+            public string namewhat;
             /// <summary>
             /// the string "Lua" if the function is a Lua function, "C" if it is a C function, "main" if it is the main part of a chunk, and "tail" if it was a function that did a tail call. In the latter case, Lua has no other information about the function.
             /// </summary>
-            [CLSCompliant(false)]
-            public sbyte what;
+            [MarshalAs(UnmanagedType.LPStr)]
+            public string what;
             /// <summary>
             /// If the function was defined in a string, then source is that string. If the function was defined in a file, then source starts with a '@' followed by the file name.
             /// </summary>
-            [CLSCompliant(false)]
-            public sbyte source;
+            [MarshalAs(UnmanagedType.LPStr)]
+            public string source;
             /// <summary>
             /// the current line where the given function is executing. When no line information is available, currentline is set to -1.
             /// </summary>
@@ -1758,8 +1758,8 @@ namespace Tao.Lua
             /// <summary>
             /// a "printable" version of source, to be used in error messages.
             /// </summary>
-            [MarshalAs(UnmanagedType.ByValArray, SizeConst = LUA_IDSIZE)]
-            public char[] short_src;
+            [MarshalAs(UnmanagedType.LPStr)]
+            public string short_src;
             /// <summary>
             /// 
             /// </summary>
