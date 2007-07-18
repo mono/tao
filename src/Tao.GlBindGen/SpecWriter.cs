@@ -172,6 +172,12 @@ namespace Tao.GlBindGen
 
             foreach (CodeTypeDelegate d in delegates)
             {
+                // Hack - turn FieldDirection.Out parameters to FieldDirection.In. The parameter flow
+                // is handle by the [In, Out()] parameter attribute.
+                foreach (CodeParameterDeclarationExpression p in d.Parameters)
+                {
+                    p.Direction = FieldDirection.In;
+                }
                 delegate_class.Members.Add(d);
 
                 CodeMemberField m = new CodeMemberField();

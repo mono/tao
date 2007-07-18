@@ -119,12 +119,29 @@ namespace Tao.OpenGl
         #endregion
 
         #region internal static IntPtr aglGetProcAddress(string s)
-        // osx gets complicated
-        [DllImport(GL_NATIVE_LIBRARY, EntryPoint = "NSIsSymbolNameDefined")]
-        internal static extern bool NSIsSymbolNameDefined(string s);
+        /*
+        internal enum NSAddImageOptions
+        {
+            NSADDIMAGE_OPTION_NONE = 0x0,
+            NSADDIMAGE_OPTION_RETURN_ON_ERROR = 0x1,
+            NSADDIMAGE_OPTION_WITH_SEARCHING = 0x2,
+            NSADDIMAGE_OPTION_RETURN_ONLY_IF_LOADED = 0x4
+        }
+
+        [DllImport("???", EntryPoint = "NSAddImage")]
+        internal static extern IntPrt NSAddImage(string imageName, NSAddImageOptions options);
         [DllImport(GL_NATIVE_LIBRARY, EntryPoint = "NSLookupAndBindSymbol")]
         internal static extern IntPtr NSLookupAndBindSymbol(string s);
         [DllImport(GL_NATIVE_LIBRARY, EntryPoint = "NSAddressOfSymbol")]
+        internal static extern IntPtr NSAddressOfSymbol(IntPtr symbol);
+        */
+
+        // osx gets complicated
+        [DllImport("libdl.dylib", EntryPoint = "NSIsSymbolNameDefined")]
+        internal static extern bool NSIsSymbolNameDefined(string s);
+        [DllImport("libdl.dylib", EntryPoint = "NSLookupAndBindSymbol")]
+        internal static extern IntPtr NSLookupAndBindSymbol(string s);
+        [DllImport("libdl.dylib", EntryPoint = "NSAddressOfSymbol")]
         internal static extern IntPtr NSAddressOfSymbol(IntPtr symbol);
 
         internal static IntPtr aglGetProcAddress(string s)
@@ -139,6 +156,7 @@ namespace Tao.OpenGl
 
             return symbol;
         }
+
         #endregion
 
         #region public static IntPtr GetFunctionPointerForExtensionMethod(string name)
@@ -245,7 +263,9 @@ namespace Tao.OpenGl
         public static Delegate GetDelegateForExtensionMethod(string name, Type signature)
         {
             IntPtr address = GetFunctionPointerForExtensionMethod(name);
-            if (address == IntPtr.Zero)
+            if (address == IntPtr.Zero ||
+                address == new IntPtr(1) ||     // Workaround for buggy nvidia drivers which return
+                address == new IntPtr(2))       // 1 or 2 instead of IntPtr.Zero for some extensions.
             {
                 return null;
             }
@@ -259,11 +279,14 @@ namespace Tao.OpenGl
 
         #region public static Delegate GetDelegateForMethod(string name, Type signature)
         /// <summary>
-        /// 
+        /// Creates a callable delegate for the specified OpenGL function (core or extension), if it exists.
         /// </summary>
-        /// <param name="methodName"></param>
-        /// <param name="signature"></param>
-        /// <returns></returns>
+        /// <param name="methodName">The OpenGL function name (e.g. glVertex3f)</param>
+        /// <param name="signature">The signature of the delegate to return.</param>
+        /// <returns>
+        /// A delegate with the specified signature which can be used to call the specified OpenGL
+        /// function, or null if the function does not exist.
+        /// </returns>
         public static Delegate GetDelegateForMethod(string methodName, Type signature)
         {
             Delegate d;
@@ -279,7 +302,6 @@ namespace Tao.OpenGl
             }
 
             return d;
-            //Delegate.CreateDelegate(f.FieldType, imports_class.GetMethod(f.Name.Substring(2)), true);
         }
         #endregion
 
@@ -426,8 +448,8 @@ namespace Tao.OpenGl
         /// </para>
         /// <para>
         /// Calling this function before the automatic initialisation has taken place will result
-        /// in the Gl class being initialised twice. This is harmless, but given the automatic
-        /// initialisation should be preferred.
+        /// in the Gl class being initialised twice. This is harmless, but, given the choice, 
+        /// the automatic initialisation should be preferred.
         /// </para>
         /// </remarks>
         public static void ReloadFunctions()

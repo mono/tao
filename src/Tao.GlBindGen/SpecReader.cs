@@ -99,7 +99,10 @@ namespace Tao.GlBindGen
                     function_name.EndsWith("INTEL") ||
                     function_name.EndsWith("PGI") ||
                     function_name.EndsWith("INGR") ||
-                    function_name.EndsWith("APPLE"));
+                    function_name.EndsWith("APPLE") ||
+                    function_name.EndsWith("OML") ||
+                    function_name.EndsWith("I3D")
+                    );
         }
         #endregion
 

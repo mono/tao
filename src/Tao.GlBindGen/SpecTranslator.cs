@@ -60,6 +60,10 @@ namespace Tao.GlBindGen
         /// </summary>
         UncheckedParameter,
         /// <summary>
+        /// Function that takes (in/ref/out) a naked pointer as a parameter - we pass an IntPtr.
+        /// </summary>
+        PointerParameter,
+        /// <summary>
         /// Function returns string - needs manual marshalling through IntPtr to prevent the managed GC
         /// from freeing memory allocated on the unmanaged side (e.g. glGetString).
         /// </summary>
@@ -182,7 +186,7 @@ namespace Tao.GlBindGen
         {
             CodeTypeReference s;
 
-            if (d.Name == "ShaderSource")
+            if (d.Name == "GetBufferPointerv")
             {
             }
 
@@ -222,6 +226,10 @@ namespace Tao.GlBindGen
                     {
                         p.UserData.Add("Wrapper", WrapperTypes.GenericParameter);
                     }
+                    else if (p.Type.BaseType.Contains("IntPtr"))
+                    {
+                        //p.UserData.Add("Wrapper", WrapperTypes.PointerParameter);
+                    }
                     else
                     {
                         p.UserData.Add("Wrapper", WrapperTypes.ArrayParameter);
@@ -232,17 +240,18 @@ namespace Tao.GlBindGen
                     p.Type = new CodeTypeReference();
                     p.Type.BaseType = "System.IntPtr";
                     p.Type.ArrayRank = 0;
+                    p.UserData.Add("Flow", p.Direction);
                     // The same wrapper works for either in or out parameters.
                     //p.CustomAttributes.Add(new CodeAttributeDeclaration("In, Out"));
                 }
 
                 if (p.UserData.Contains("Wrapper") && !d.UserData.Contains("Wrapper"))
                 {
-                    // If there is at least 1 parameter that needs wrappers, mark the funcction for wrapping.
+                    // If there is at least 1 parameter that needs wrappers, mark the function for wrapping.
                     d.UserData.Add("Wrapper", null);
                 }
 
-                p.Direction = FieldDirection.In;
+                //p.Direction = FieldDirection.In;
             }
         }
         #endregion
@@ -386,12 +395,12 @@ namespace Tao.GlBindGen
                         WrapPointersMonsterFunctionMK2(w, wrappers);
                         --count;
 
-                        /*w = IntPtrToReference(f, count);
+                        w = IntPtrToReference(f, count);
                         wrappers.Add(w);
 
                         ++count;
                         WrapPointersMonsterFunctionMK2(w, wrappers);
-                        --count;*/
+                        --count;
                     }
                     else if ((WrapperTypes)f.Parameters[count].UserData["Wrapper"] == WrapperTypes.GenericParameter)
                     {
@@ -422,6 +431,7 @@ namespace Tao.GlBindGen
         private static CodeMemberMethod IntPtrToIntPtr(CodeMemberMethod f)
         {
             CodeMemberMethod w = CreatePrototype(f);
+
             if (!w.ReturnType.BaseType.Contains("Void"))
             {
                 w.Statements.Add(new CodeMethodReturnStatement(GenerateInvokeExpression(w)));
@@ -477,8 +487,7 @@ namespace Tao.GlBindGen
 
         #region private static CodeMemberMethod IntPtrToReference(CodeMemberMethod f, int index)
         /// <summary>
-        /// This function is not working yet! How can we obtain a pinned IntPtr from a ref
-        /// without resorting to unsafe code?
+        /// Obtain an IntPtr to the reference passed by the user.
         /// </summary>
         /// <param name="f"></param>
         /// <param name="index"></param>
@@ -491,7 +500,11 @@ namespace Tao.GlBindGen
             CodeParameterDeclarationExpression newp = new CodeParameterDeclarationExpression();
             newp.Name = f.Parameters[index].Name;
             newp.Type.BaseType = (string)f.Parameters[index].UserData["OriginalType"];
-            newp.Direction = FieldDirection.Ref;
+            if (f.Parameters[index].UserData.Contains("Flow") &&
+                (FieldDirection)f.Parameters[index].UserData["Flow"] == FieldDirection.Out)
+                newp.Direction = FieldDirection.Out;
+            else
+                newp.Direction = FieldDirection.Ref;
             w.Parameters[index] = newp;
 
             // In the function body we should pin all objects in memory before calling the
@@ -580,8 +593,22 @@ namespace Tao.GlBindGen
             {
                 // Do manual marshalling for objects and arrays, but not strings.
                 if (p.Type.BaseType.ToLower().Contains("object") ||
-                    (p.Type.ArrayRank > 0 && !p.Type.BaseType.ToLower().Contains("string")))
+                   (p.Type.ArrayRank > 0 && !p.Type.BaseType.ToLower().Contains("string")) ||
+                   ((p.Direction == FieldDirection.Ref ||
+                     p.Direction == FieldDirection.Out) &&
+                     !p.Type.BaseType.ToLower().Contains("string")))
                 {
+                    
+                    if (p.Direction == FieldDirection.Out)
+                    {
+                        statements.Add(
+                            new CodeAssignStatement(
+                                new CodeVariableReferenceExpression(p.Name),
+                                new CodeSnippetExpression("default(" + p.Type.BaseType + ")")
+                            )
+                        );
+                    }
+
                     // Pin the object and store the resulting GCHandle to h0, h1, ...
                     CodeVariableDeclarationStatement s = new CodeVariableDeclarationStatement();
                     s.Type = new CodeTypeReference("GCHandle");
@@ -604,9 +631,20 @@ namespace Tao.GlBindGen
                             "Free"
                         )
                     );
-
                     // Add the h(n) variable to the list of parameters
                     parameters[i] = new CodeVariableReferenceExpression("h" + h + ".AddrOfPinnedObject()");
+
+                    // Add an assignment statement: "variable_name = (variable_type)h(n).Target" for out parameters.
+                    if (p.Direction == FieldDirection.Out)
+                    {
+                        m.TryStatements.Add(
+                            new CodeAssignStatement(
+                                new CodeVariableReferenceExpression(p.Name),
+                                new CodeSnippetExpression("(" + p.Type.BaseType + ")h" + h + ".Target")
+                            )
+                        );
+                    }
+
                     h++;
                 }
                 else
@@ -617,10 +655,10 @@ namespace Tao.GlBindGen
                 i++;
             }
 
-            if (!f.ReturnType.BaseType.Contains("Void"))
+            if (f.ReturnType.BaseType.Contains("Void"))
             {
-                m.TryStatements.Add(
-                    new CodeMethodReturnStatement(
+                m.TryStatements.Insert(0, 
+                    new CodeExpressionStatement(
                         new CodeMethodInvokeExpression(
                             new CodeTypeReferenceExpression("Delegates"),
                             f.Name,
@@ -631,16 +669,23 @@ namespace Tao.GlBindGen
             }
             else
             {
-                m.TryStatements.Add(
-                    new CodeMethodInvokeExpression(
-                        new CodeTypeReferenceExpression("Delegates"),
-                        f.Name,
-                        parameters
+                m.TryStatements.Insert(0, new CodeVariableDeclarationStatement(f.ReturnType, "retval"));
+                m.TryStatements.Insert(1, 
+                    new CodeAssignStatement(
+                        new CodeVariableReferenceExpression("retval"),
+                        new CodeMethodInvokeExpression(
+                            new CodeTypeReferenceExpression("Delegates"),
+                            f.Name,
+                            parameters
+                        )
                     )
                 );
+            
+                m.TryStatements.Add(
+                    new CodeMethodReturnStatement(new CodeVariableReferenceExpression("retval"))
+                );
             }
-
-
+            
             statements.Add(m);
 
             return statements;
