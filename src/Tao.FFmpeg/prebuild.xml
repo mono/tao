@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Prebuild xmlns="http://dnpb.sourceforge.net/schemas/prebuild-1.7.xsd" version="1.7">
+    <Solution name="Tao.FFmpeg">
+	<Configuration name="Debug">
+	    <Options>
+		<CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		<OptimizeCode>false</OptimizeCode>
+		<AllowUnsafe>true</AllowUnsafe>
+		<OutputPath>bin/Debug</OutputPath>
+		<DebugInformation>true</DebugInformation>
+	    </Options>
+	</Configuration>
+	<Configuration name="Release">
+	    <Options>
+		<CompilerDefines>TRACE;WIN32</CompilerDefines>
+		<OptimizeCode>true</OptimizeCode>
+		<AllowUnsafe>true</AllowUnsafe>
+		<OutputPath>bin/Release</OutputPath>
+		<DebugInformation>false</DebugInformation>
+	    </Options>
+	</Configuration>
+	<Files>
+	    <File>Tao.FFmpeg.License.txt</File>
+	    <File>Tao.FFmpeg.Readme.txt</File>
+	    <File>Tao.FFmpeg.dll.config</File>
+	</Files>
+	<Project name="Tao.FFmpeg" path="." language="C#" type="Library" designerFolder="Properties">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>true</AllowUnsafe>
+		    <OutputPath>bin/Debug</OutputPath>
+		    <XmlDocFile>Tao.FFmpeg.xml</XmlDocFile>
+		    <KeyFile>Tao.FFmpeg.snk</KeyFile>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>true</AllowUnsafe>
+		    <OutputPath>bin/Release</OutputPath>
+		    <XmlDocFile>Tao.FFmpeg.xml</XmlDocFile>
+		    <KeyFile>Tao.FFmpeg.snk</KeyFile>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Files>
+	    	<File buildAction="None">Tao.FFmpeg.snk</File>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+	<Project name="FFmpegExamples" path="../../examples/FFmpegExamples/FFmpegPlayer" icon="App.ico" language="C#" type="WinExe" startupObject="FFmpegExamples.Program" designerFolder="Properties">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <KeyFile>../../../src/Tao.FFmpeg/Tao.FFmpeg.snk</KeyFile>
+		    <OutputPath>bin/Debug</OutputPath>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <AllowUnsafe>false</AllowUnsafe>
+		    <KeyFile>../../../src/Tao.FFmpeg/Tao.FFmpeg.snk</KeyFile>
+		    <OutputPath>bin/Release</OutputPath>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" /> 
+	    <Reference name="System.Windows.Forms" /> 
+	    <Reference name="System.Data" /> 
+	    <Reference name="System.Drawing" />
+	    <Reference name="Tao.FFmpeg" />
+	    <Reference name="Tao.OpenAl" localCopy="true"/>
+	    <Files>
+		<File subType="Form" resourceName="Player">Player.cs</File>
+		<File buildAction="EmbeddedResource">Resources/RapidBaccarat_Green.bmp</File>
+		<Match buildAction="EmbeddedResource" subType="Designer" pattern="Resources.resx" recurse="true"/>
+		<Match path="." pattern="*.cs" recurse="true">
+		    <Exclude name="Player.cs"/>
+		    <Exclude name="Properties/Resources.Designer.cs"/>
+		</Match>
+	    </Files>
+	</Project>
+    </Solution>
+</Prebuild>
