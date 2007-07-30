@@ -35,7 +35,7 @@ namespace Tao.FFmpeg
     /// <summary>
     /// 
     /// </summary>
-    public static class AVFormat
+    public static partial class FFmpeg
     {
         #region Private Constants
         #region string AVFORMAT_NATIVE_LIBRARY
@@ -47,19 +47,6 @@ namespace Tao.FFmpeg
         /// </remarks>
         private const string AVFORMAT_NATIVE_LIBRARY = "avformat-51.dll";
         #endregion string AVFORMAT_NATIVE_LIBRARY
-
-        #region CallingConvention CALLING_CONVENTION
-        /// <summary>
-        ///     Specifies the calling convention.
-        /// </summary>
-        /// <remarks>
-        ///     Specifies <see cref="CallingConvention.Cdecl" /> 
-        ///     for Windows and Linux.
-        /// </remarks>
-        private const CallingConvention CALLING_CONVENTION =
-            CallingConvention.Cdecl;
-        #endregion CallingConvention CALLING_CONVENTION
-
         #endregion Private Constants
 
         /// <summary>
@@ -146,7 +133,7 @@ namespace Tao.FFmpeg
         /// <param name="filename"></param>
         /// <returns></returns>
         [DllImport(AVFORMAT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern AVCodec.CodecID av_guess_image2_codec([MarshalAs(UnmanagedType.LPTStr)]
+        public static extern CodecID av_guess_image2_codec([MarshalAs(UnmanagedType.LPTStr)]
 String filename);
 
         /// <summary>
@@ -230,14 +217,14 @@ String mime_type);
         /// <param name="type"></param>
         /// <returns></returns>
         [DllImport(AVFORMAT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern AVCodec.CodecID av_guess_codec(IntPtr pAVOutoutFormat,
+        public static extern CodecID av_guess_codec(IntPtr pAVOutoutFormat,
         [MarshalAs(UnmanagedType.LPTStr)]
 String short_name,
         [MarshalAs(UnmanagedType.LPTStr)]
 String filename,
         [MarshalAs(UnmanagedType.LPTStr)]
 String mime_type,
-        AVCodec.CodecType type);
+        CodecType type);
 
         /// <summary>
         ///
@@ -894,12 +881,12 @@ String url,
         [StructLayout(LayoutKind.Sequential)]
         public struct AVFormatParameters
         {
-            AVUtil.AVRational time_base;
+            AVRational time_base;
             int sample_rate;
             int channels;
             int width;
             int height;
-            AVUtil.PixelFormat pix_fmt;
+            PixelFormat pix_fmt;
             IntPtr image_format; // AVImageFormat
             int channel;
             [MarshalAs(UnmanagedType.LPStr)]
@@ -929,11 +916,11 @@ String url,
             /// <summary>
             /// 
             /// </summary>
-            AVCodec.CodecID video_codec_id;
+            CodecID video_codec_id;
             /// <summary>
             /// 
             /// </summary>
-            AVCodec.CodecID audio_codec_id;
+            CodecID audio_codec_id;
         };
 
         /// <summary>
@@ -992,9 +979,9 @@ String url,
 
             int priv_data_size;
 
-            AVCodec.CodecID audio_codec;
+            CodecID audio_codec;
 
-            AVCodec.CodecID video_codec;
+            CodecID video_codec;
 
             [MarshalAs(UnmanagedType.FunctionPtr)]
             WriteHeader write_header;
@@ -1166,7 +1153,7 @@ String url,
             * for example if the timebase is 1/90000 and all frames have either
             * approximately 3600 or 1800 timer ticks then r_frame_rate will be 50/1
             */
-            public AVUtil.AVRational r_frame_rate;
+            public AVRational r_frame_rate;
 
             /// <summary>
             /// 
@@ -1196,7 +1183,7 @@ String url,
             * timebase should be 1/framerate and timestamp increments should be
             * identically 1.
             */
-            public AVUtil.AVRational time_base;
+            public AVRational time_base;
 
             /// <summary>
             /// 
@@ -1213,7 +1200,7 @@ String url,
             /// <summary>
             /// 
             /// </summary>
-            public AVCodec.AVDiscard discard; // selects which packets can be discarded at will and dont need to be demuxed
+            public AVDiscard discard; // selects which packets can be discarded at will and dont need to be demuxed
 
             /// <summary>
             /// 
@@ -1331,7 +1318,7 @@ String url,
             /// <summary>
             /// 
             /// </summary>
-            public AVUtil.ByteIOContext pb;
+            public ByteIOContext pb;
 
             /// <summary>
             /// 
@@ -1555,7 +1542,7 @@ String url,
         [StructLayout(LayoutKind.Sequential)]
         public struct AVImageInfo
         {
-            AVUtil.PixelFormat pix_fmt; // requested pixel format
+            PixelFormat pix_fmt; // requested pixel format
 
             [MarshalAs(UnmanagedType.I4)]
             int width; // requested width
@@ -1566,7 +1553,7 @@ String url,
             [MarshalAs(UnmanagedType.I4)]
             int interleaved; // image is interleaved (e.g. interleaved GIF)
 
-            AVCodec.AVPicture pict; // returned allocated image
+            AVPicture pict; // returned allocated image
         };
 
         /// <summary>

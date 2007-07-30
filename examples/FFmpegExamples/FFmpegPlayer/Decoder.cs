@@ -14,16 +14,16 @@ namespace FFmpegExamples
        // public static string text;
 
         private IntPtr pFormatContext;
-        private AVFormat.AVFormatContext formatContext;
+        private FFmpeg.AVFormatContext formatContext;
 
-        private AVCodec.AVCodecContext audioCodecContext;
+        private FFmpeg.AVCodecContext audioCodecContext;
         private IntPtr pAudioCodecContext;
 
-        private AVUtil.AVRational timebase;
+        private FFmpeg.AVRational timebase;
         private IntPtr pAudioStream;
 
         private IntPtr pAudioCodec;
-        //private AVCodec.AVCodecStruct audioCodec;
+        //private FFmpeg.AVCodecStruct audioCodec;
 
         //private readonly String path;
         private int audioStartIndex = -1;
@@ -40,20 +40,20 @@ namespace FFmpegExamples
 
         public Decoder()
         {
-            AVFormat.av_register_all();
+            FFmpeg.av_register_all();
         }
 
         ~Decoder()
         {
             if (pFormatContext != IntPtr.Zero)
-                AVFormat.av_close_input_file(pFormatContext);
-            AVCodec.av_free_static();
+                FFmpeg.av_close_input_file(pFormatContext);
+            FFmpeg.av_free_static();
         }
 
         public void Reset()
         {
             if (pFormatContext != IntPtr.Zero)
-                AVFormat.av_close_input_file(pFormatContext);
+                FFmpeg.av_close_input_file(pFormatContext);
             sampleSize = -1;
             audioStartIndex = -1;
         }
@@ -63,31 +63,31 @@ namespace FFmpegExamples
             Reset();
 
             int ret;
-            ret = AVFormat.av_open_input_file(out pFormatContext, path, IntPtr.Zero, 0, IntPtr.Zero);
+            ret = FFmpeg.av_open_input_file(out pFormatContext, path, IntPtr.Zero, 0, IntPtr.Zero);
 
             if (ret < 0) {
                 Console.WriteLine("couldn't opne input file");
                 return false;
             }
 
-            ret = AVFormat.av_find_stream_info(pFormatContext);
+            ret = FFmpeg.av_find_stream_info(pFormatContext);
 
             if (ret < 0) {
                 Console.WriteLine("couldnt find stream informaion");
                 return false;
             }
 
-            formatContext = (AVFormat.AVFormatContext)
-                Marshal.PtrToStructure(pFormatContext, typeof(AVFormat.AVFormatContext));
+            formatContext = (FFmpeg.AVFormatContext)
+                Marshal.PtrToStructure(pFormatContext, typeof(FFmpeg.AVFormatContext));
 
             for (int i = 0; i < formatContext.nb_streams; ++i) {
-                AVFormat.AVStream stream = (AVFormat.AVStream)
-                       Marshal.PtrToStructure(formatContext.streams[i], typeof(AVFormat.AVStream));
+                FFmpeg.AVStream stream = (FFmpeg.AVStream)
+                       Marshal.PtrToStructure(formatContext.streams[i], typeof(FFmpeg.AVStream));
 
-                AVCodec.AVCodecContext codec = (AVCodec.AVCodecContext)
-                       Marshal.PtrToStructure(stream.codec, typeof(AVCodec.AVCodecContext));
+                FFmpeg.AVCodecContext codec = (FFmpeg.AVCodecContext)
+                       Marshal.PtrToStructure(stream.codec, typeof(FFmpeg.AVCodecContext));
 
-                if (codec.codec_type == AVCodec.CodecType.CODEC_TYPE_AUDIO &&
+                if (codec.codec_type == FFmpeg.CodecType.CODEC_TYPE_AUDIO &&
                                         audioStartIndex == -1) {
                     this.pAudioCodecContext = stream.codec;
                     this.pAudioStream = formatContext.streams[i];
@@ -95,13 +95,13 @@ namespace FFmpegExamples
                     this.audioStartIndex= i;
                     this.timebase = stream.time_base;
 
-                    pAudioCodec = AVCodec.avcodec_find_decoder(this.audioCodecContext.codec_id);
+                    pAudioCodec = FFmpeg.avcodec_find_decoder(this.audioCodecContext.codec_id);
                     if (pAudioCodec == IntPtr.Zero) {
                         Console.WriteLine("couldn't find codec");
                         return false;
                     }
 
-                    AVCodec.avcodec_open(stream.codec, pAudioCodec);
+                    FFmpeg.avcodec_open(stream.codec, pAudioCodec);
                 }
             }
 
@@ -133,15 +133,15 @@ namespace FFmpegExamples
             //Marshal.StructureToPtr(packet, pPacket, false);
           //  Marshal.PtrToStructure(
 
-            result = AVFormat.av_read_frame(pFormatContext, pPacket);
+            result = FFmpeg.av_read_frame(pFormatContext, pPacket);
             if (result < 0)
                 return false;           
             count++;
 
             int frameSize = 0;
             IntPtr pSamples = IntPtr.Zero;
-            AVFormat.AVPacket packet = (AVFormat.AVPacket)
-                                Marshal.PtrToStructure(pPacket, typeof(AVFormat.AVPacket));
+            FFmpeg.AVPacket packet = (FFmpeg.AVPacket)
+                                Marshal.PtrToStructure(pPacket, typeof(FFmpeg.AVPacket));
              Marshal.FreeHGlobal(pPacket);
             
              if (LivtUpdateEvent != null) {
@@ -159,7 +159,7 @@ namespace FFmpegExamples
 
             try {               
                 pSamples = Marshal.AllocHGlobal(AUDIO_FRAME_SIZE);
-                int size = AVCodec.avcodec_decode_audio(pAudioCodecContext, pSamples,
+                int size = FFmpeg.avcodec_decode_audio(pAudioCodecContext, pSamples,
                         out frameSize, packet.data, packet.size);
                 
                 //FFmpeg.av_free_packet(pPacket);                                      

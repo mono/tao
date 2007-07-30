@@ -35,7 +35,7 @@ namespace Tao.FFmpeg
     /// <summary>
     /// 
     /// </summary>
-    public static class AVCodec
+    public static partial class FFmpeg
     {
         #region Private Constants
         #region string AVCODEC_NATIVE_LIBRARY
@@ -272,7 +272,7 @@ namespace Tao.FFmpeg
         /// <param name="name"></param>
         /// <returns></returns>
         [DllImport(AVCODEC_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern AVUtil.PixelFormat avcodec_get_pix_fmt([MarshalAs(UnmanagedType.LPStr)]String name);
+        public static extern PixelFormat avcodec_get_pix_fmt([MarshalAs(UnmanagedType.LPStr)]String name);
 
         /// <summary>
         ///
@@ -280,7 +280,7 @@ namespace Tao.FFmpeg
         /// <param name="p"></param>
         /// <returns></returns>
         [DllImport(AVCODEC_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity, CLSCompliant(false)]
-        public static extern uint avcodec_pix_fmt_to_codec_tag(AVUtil.PixelFormat p);
+        public static extern uint avcodec_pix_fmt_to_codec_tag(PixelFormat p);
 
         /// <summary>
         ///
@@ -493,7 +493,7 @@ namespace Tao.FFmpeg
         /// <param name="fmt"></param>
         /// <returns></returns>
         [DllImport(AVCODEC_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public static extern AVUtil.PixelFormat avcodec_default_get_format(IntPtr pAVCodecContext, ref AVUtil.PixelFormat fmt);
+        public static extern PixelFormat avcodec_default_get_format(IntPtr pAVCodecContext, ref PixelFormat fmt);
 
         /// <summary>
         ///
@@ -2877,7 +2877,7 @@ stream (only used by libavformat) */
         /// <param name="pAVCodecContext"></param>
         /// <param name="pPixelFormat"></param>
         /// <returns></returns>
-        public delegate AVUtil.PixelFormat GetFormatCallback(IntPtr pAVCodecContext, IntPtr pPixelFormat);
+        public delegate PixelFormat GetFormatCallback(IntPtr pAVCodecContext, IntPtr pPixelFormat);
         /// <summary>
         /// 
         /// </summary>
@@ -2992,7 +2992,7 @@ stream (only used by libavformat) */
             /// <summary>
             /// /
             /// </summary>
-            public AVUtil.AVRational time_base;
+            public AVRational time_base;
 
             /* video only */
             /*
@@ -3030,7 +3030,7 @@ stream (only used by libavformat) */
             * - encoding: set by user.
             * - decoding: set by lavc.
             */
-            public AVUtil.PixelFormat pix_fmt;
+            public PixelFormat pix_fmt;
 
             /**
             * Frame rate emulation. If not zero lower layer (i.e. format handler)
@@ -3648,7 +3648,7 @@ stream (only used by libavformat) */
             * - encoding: set by user.
             * - decoding: set by lavc.
             */
-            public AVUtil.AVRational sample_aspect_ratio;
+            public AVRational sample_aspect_ratio;
 
             /**
             * the picture in the bitstream.
@@ -4475,7 +4475,7 @@ uint8_t * (*realloc)(struct AVCodecContext *s, uint8_t *buf, int buf_size);
         /// 
         /// </summary>
         [StructLayout(LayoutKind.Sequential)]
-        public struct AVCodecStruct
+        public struct AVCodec
         {
             /// <summary>
             /// 

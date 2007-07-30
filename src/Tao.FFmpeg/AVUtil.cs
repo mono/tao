@@ -35,7 +35,7 @@ namespace Tao.FFmpeg
     /// <summary>
     /// 
     /// </summary>
-    public static class AVUtil
+    public static partial class FFmpeg
     {
         #region Private Constants
         #region string AVUTIL_NATIVE_LIBRARY
@@ -47,18 +47,6 @@ namespace Tao.FFmpeg
         /// </remarks>
         private const string AVUTIL_NATIVE_LIBRARY = "avutil-49.dll";
         #endregion string AVUTIL_NATIVE_LIBRARY
-
-        #region CallingConvention CALLING_CONVENTION
-        /// <summary>
-        ///     Specifies the calling convention.
-        /// </summary>
-        /// <remarks>
-        ///     Specifies <see cref="CallingConvention.Cdecl" /> 
-        ///     for Windows and Linux.
-        /// </remarks>
-        private const CallingConvention CALLING_CONVENTION =
-            CallingConvention.Cdecl;
-        #endregion CallingConvention CALLING_CONVENTION
 
         #endregion Private Constants
         /// <summary>
