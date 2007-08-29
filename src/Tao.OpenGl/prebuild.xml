@@ -37,6 +37,10 @@
 	    <File>../Tao.Platform.Windows/Tao.Platform.Windows.snk</File>
 	    <File>../Tao.Platform.Windows/Tao.Platform.Windows.dll.config</File>
 	    <File>../Tao.Platform.Windows/TaoButton.jpg</File>
+	    <File>../Tao.Platform.X11/Tao.Platform.X11.License.txt</File>
+	    <File>../Tao.Platform.X11/Tao.Platform.X11.Readme.txt</File>
+	    <File>../Tao.Platform.X11/Tao.Platform.X11.snk</File>
+	    <File>../Tao.Platform.X11/Tao.Platform.X11.dll.config</File>
 	    <File>../Tao.OpenAl/Tao.OpenAl.License.txt</File>
             <File>../Tao.OpenAl/Tao.OpenAl.Readme.txt</File>
             <File>../Tao.OpenAl/Tao.OpenAl.snk</File>
@@ -207,6 +211,38 @@
 		    <OutputPath>bin/Release</OutputPath>
 		    <XmlDocFile>Tao.Platform.Windows.xml</XmlDocFile>
 	    	    <KeyFile>../Tao.Platform.Windows/Tao.Platform.Windows.snk</KeyFile>
+		    <AllowUnsafe>true</AllowUnsafe>
+		    <DebugInformation>false</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Reference name="System" />
+	    <Reference name="System.Drawing" />
+	    <Reference name="System.Windows.Forms" />
+	    <Reference name="Tao.OpenGl" localCopy="true"/>
+	    
+	    <Files>
+		<Match path="." pattern="*.cs" recurse="true"/>
+	    </Files>
+	</Project>
+		<Project name="Tao.Platform.X11" path="../Tao.Platform.X11" language="C#" type="Library" designerFolder="Properties">
+	    <Configuration name="Debug">
+		<Options>
+		    <CompilerDefines>DEBUG;TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>false</OptimizeCode>
+		    <OutputPath>bin/Debug</OutputPath>
+		    <XmlDocFile>Tao.Platform.X11.xml</XmlDocFile>
+	    	    <KeyFile>../Tao.Platform.X11/Tao.Platform.X11.snk</KeyFile>
+		    <AllowUnsafe>true</AllowUnsafe>
+		    <DebugInformation>true</DebugInformation>
+		</Options>
+	    </Configuration>
+	    <Configuration name="Release">
+		<Options>
+		    <CompilerDefines>TRACE;WIN32</CompilerDefines>
+		    <OptimizeCode>true</OptimizeCode>
+		    <OutputPath>bin/Release</OutputPath>
+		    <XmlDocFile>Tao.Platform.X11.xml</XmlDocFile>
+	    	    <KeyFile>../Tao.Platform.X11/Tao.Platform.X11.snk</KeyFile>
 		    <AllowUnsafe>true</AllowUnsafe>
 		    <DebugInformation>false</DebugInformation>
 		</Options>

@@ -1,0 +1,10 @@
+Tao.X11.Windows 1.0.0.0
+Copyright ©2003-2006 Tao Framework Team
+http://www.taoframework.com
+All rights reserved.
+
+Tao.Platform.X11 is a X11 API binding for .NET.
+
+
+Change Log:
+

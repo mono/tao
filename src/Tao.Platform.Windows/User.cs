@@ -198,6 +198,73 @@ namespace Tao.Platform.Windows {
 		/// </summary>
         public const int ENUM_CURRENT_SETTINGS = -1;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        [CLSCompliant(false)]
+        public enum SHOWWINDOW : uint
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            SW_HIDE = 0,
+            /// <summary>
+            /// 
+            /// </summary>
+            SW_SHOWNORMAL = 1,
+            /// <summary>
+            /// 
+            /// </summary>
+            SW_NORMAL = 1,
+            /// <summary>
+            /// 
+            /// </summary>
+            SW_SHOWMINIMIZED = 2,
+            /// <summary>
+            /// 
+            /// </summary>
+            SW_SHOWMAXIMIZED = 3,
+            /// <summary>
+            /// 
+            /// </summary>
+            SW_MAXIMIZE = 3,
+            /// <summary>
+            /// 
+            /// </summary>
+            SW_SHOWNOACTIVATE = 4,
+            /// <summary>
+            /// 
+            /// </summary>
+            SW_SHOW = 5,
+            /// <summary>
+            /// 
+            /// </summary>
+            SW_MINIMIZE = 6,
+            /// <summary>
+            /// 
+            /// </summary>
+            SW_SHOWMINNOACTIVE = 7,
+            /// <summary>
+            /// 
+            /// </summary>
+            SW_SHOWNA = 8,
+            /// <summary>
+            /// 
+            /// </summary>
+            SW_RESTORE = 9,
+            /// <summary>
+            /// 
+            /// </summary>
+            SW_SHOWDEFAULT = 10,
+            /// <summary>
+            /// 
+            /// </summary>
+            SW_FORCEMINIMIZE = 11,
+            /// <summary>
+            /// 
+            /// </summary>
+            SW_MAX = 11,
+        }
 
         #endregion Public Constants
 
@@ -988,5 +1055,48 @@ namespace Tao.Platform.Windows {
         [DllImport(USER_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern bool ReleaseDC(IntPtr windowHandle, IntPtr deviceContext);
         #endregion bool ReleaseDC(IntPtr windowHandle, IntPtr deviceContext)
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="hWndChild"></param>
+        /// <param name="hWndNewParent"></param>
+        /// <returns></returns>
+        [DllImport(USER_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="lpClassName"></param>
+        /// <param name="lpWindowName"></param>
+        /// <returns></returns>
+        [DllImport(USER_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION, SetLastError = true)]
+        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="hWnd"></param>
+        /// <param name="nCmdShow"></param>
+        /// <returns></returns>
+        [DllImport(USER_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION)]
+        public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="hWnd"></param>
+        /// <param name="hWndInsertAfter"></param>
+        /// <param name="X"></param>
+        /// <param name="Y"></param>
+        /// <param name="cx"></param>
+        /// <param name="cy"></param>
+        /// <param name="uFlags"></param>
+        /// <returns></returns>
+        [CLSCompliant(false)]
+        [DllImport(USER_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION)]
+        public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
+
     }
 }

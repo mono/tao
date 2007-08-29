@@ -1420,7 +1420,7 @@ namespace Tao.Platform.Windows {
         ///         The <b>wglUseFontBitmaps</b> function defines <i>count</i> display lists in
         ///         the current OpenGL rendering context.  Each display list has an identifying
         ///         number, starting at <i>listBase</i>.  Each display list consists of a single
-        ///         call to <see cref="Tao.OpenGl.Gl.glBitmap(int, int, float, float, float, float, object)" />.  The definition of bitmap
+        ///         call to <see cref="Tao.OpenGl.Gl.glBitmap(int, int, float, float, float, float, byte[])" />.  The definition of bitmap
         ///         <i>listBase + i</i> is taken from the glyph <i>first + i</i> of the font
         ///         currently selected in the device context specified by <i>deviceContext</i>.
         ///         If a glyph is not defined, then the function defines an empty display list
@@ -1440,7 +1440,7 @@ namespace Tao.Platform.Windows {
         ///     </para>
         ///     <para>
         ///         The function determines the parameters of each call to
-        ///         <see cref="Tao.OpenGl.Gl.glBitmap(int, int, float, float, float, float, object)" /> as follows:
+        ///         <see cref="Tao.OpenGl.Gl.glBitmap(int, int, float, float, float, float, ref byte)" /> as follows:
         ///     </para>
         ///     <para>
         ///         <list type="table">
@@ -1540,7 +1540,7 @@ namespace Tao.Platform.Windows {
         ///     </para>
         /// </remarks>
         /// /* seealso cref="Gdi.GetGlyphOutline" />*/
-        /// <seealso cref="Tao.OpenGl.Gl.glBitmap(int, int, float, float, float, float, object)" />
+        /// <seealso cref="Tao.OpenGl.Gl.glBitmap(int, int, float, float, float, float, ref byte)" />
         /// <seealso cref="Tao.OpenGl.Gl.glCallLists(int, int, object)" />
         /// <seealso cref="Tao.OpenGl.Gl.glListBase" />
         /// /* seealso cref="Gdi.GLYPHMETRICS" />*/

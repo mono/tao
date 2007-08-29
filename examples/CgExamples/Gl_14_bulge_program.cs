@@ -40,7 +40,7 @@ SOFTWARE.
 //-----------------------------------------------------------------------------
 /*  Ported from C to C# by Marek Wyborski for the Tao Framework.
     02/05/07
-*/ 
+*/
 //-----------------------------------------------------------------------------
 #endregion Porting Credits
 
@@ -61,21 +61,22 @@ namespace CgExamples
                             myCgFragmentProfile;
         static IntPtr myCgVertexProgram,
                             myCgFragmentProgram,
-                            myCgLightVertexProgram,
-                            myCgLightFragmentProgram;
-        static IntPtr myCgVertexParam_modelViewProj,
-                            myCgVertexParam_time,
-                            myCgVertexParam_frequency,
-                            myCgVertexParam_scaleFactor,
-                            myCgVertexParam_Kd,
-                            myCgVertexParam_shininess,
-                            myCgVertexParam_eyePosition,
-                            myCgVertexParam_lightPosition,
-                            myCgVertexParam_lightColor,
-                            myCgLightVertexParam_modelViewProj;
+                            myCgLightVertexProgram/*,
+                            myCgLightFragmentProgram*/
+                                                      ;
+        static IntPtr myCgVertexParam_modelViewProj = IntPtr.Zero;
+        static IntPtr myCgVertexParam_time = IntPtr.Zero;
+        static IntPtr myCgVertexParam_frequency = IntPtr.Zero;
+        static IntPtr myCgVertexParam_scaleFactor = IntPtr.Zero;
+        static IntPtr myCgVertexParam_Kd = IntPtr.Zero;
+        static IntPtr myCgVertexParam_shininess = IntPtr.Zero;
+        static IntPtr myCgVertexParam_eyePosition = IntPtr.Zero;
+        static IntPtr myCgVertexParam_lightPosition = IntPtr.Zero;
+        static IntPtr myCgVertexParam_lightColor = IntPtr.Zero;
+        static IntPtr myCgLightVertexParam_modelViewProj = IntPtr.Zero;
 
         static string myProgramName = "14_bulge",
-                            //  myVertexProgramFileName = "C6E1v_bulge.cg",
+            //  myVertexProgramFileName = "C6E1v_bulge.cg",
             /* Page 146 */      myVertexProgramName = "C6E1v_bulge";
 
         static bool animating = false;
