@@ -7333,7 +7333,7 @@ namespace Tao.Sdl
         /// <seealso cref="SDL_JoystickOpen"/>
         public static string SDL_JoystickName(int device_index)
         {
-            return Marshal.PtrToStringAnsi(__SDL_JoystickName(device_index));
+            return Marshal.PtrToStringAuto(__SDL_JoystickName(device_index));
         }
 
         [DllImport(SDL_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, EntryPoint = "SDL_JoystickName"),
