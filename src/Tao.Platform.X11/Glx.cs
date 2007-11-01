@@ -920,6 +920,7 @@ namespace Tao.Platform.X11
         /// <param name="eventBase"></param>
         /// <returns></returns>
         [CLSCompliant(false)]
+        [DllImport(LIBGL, CallingConvention = CALLING_CONVENTION, EntryPoint = "glXQueryExtension"), SuppressUnmanagedCodeSecurity]
 		public static unsafe extern bool glXQueryExtension( IntPtr dpy, int* errorBase, int* eventBase );
 
         /// <summary>
@@ -988,6 +989,7 @@ namespace Tao.Platform.X11
         /// <param name="minor"></param>
         /// <returns></returns>
         [CLSCompliant(false)]
+        [DllImport(LIBGL, CallingConvention = CALLING_CONVENTION, EntryPoint = "glXQueryVersion"), SuppressUnmanagedCodeSecurity]
 		public static unsafe extern bool glXQueryVersion( IntPtr dpy, int* major, int* minor );
 		//public static unsafe extern bool glXQueryVersion( IntPtr dpy, out int major, out int minor )
 		//{
@@ -1309,6 +1311,7 @@ namespace Tao.Platform.X11
         /// <param name="attribute"></param>
         /// <param name="value"></param>
         [CLSCompliant(false)]
+        [DllImport(LIBGL, CallingConvention = CALLING_CONVENTION, EntryPoint = "glXQueryDrawable"), SuppressUnmanagedCodeSecurity]
 		public static extern void glXQueryDrawable( IntPtr dpy, IntPtr draw, int attribute, uint[] value );
 
 		/// <summary>
@@ -1415,6 +1418,7 @@ namespace Tao.Platform.X11
         /// <param name="draw"></param>
         /// <param name="event_mask"></param>
         [CLSCompliant(false)]
+        [DllImport(LIBGL, CallingConvention = CALLING_CONVENTION, EntryPoint = "glXGetSelectedEvent"), SuppressUnmanagedCodeSecurity]
         public static unsafe extern void glXGetSelectedEvent( IntPtr dpy, IntPtr draw, ulong event_mask );
 
 		/* GLX 1.4 and later */
