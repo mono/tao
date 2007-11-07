@@ -1,13 +1,14 @@
-Tao.Ode 0.6.0.0
+Tao.Ode 0.8.0.0
 Copyright �2003-2006 Tao Framework Team
 http://www.taoframework.com
 All rights reserved.
 
-Tao.Ode is an ODE API binding for .NET, implementing ODE 0.6.
+Tao.Ode is an ODE API binding for .NET, implementing ODE 0.8.
 
 
 Change Log:
-
+0.8.0.0 - Nov 7, 2007:
+	Update to ODE 0.8.
 0.6.0.0 - July 25, 2006:
 	Update to ODE 0.6 complete.
 	The ODE 0.6 release consists of many bug fixes and
