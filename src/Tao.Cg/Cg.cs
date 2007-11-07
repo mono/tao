@@ -6314,8 +6314,13 @@ namespace Tao.Cg
 		/// <param name="sname"></param>
 		/// <returns></returns>
 		// CGDLL_API const char *cgGetString(CGenum sname);
-		[DllImport(CG_NATIVE_LIBRARY, CallingConvention=CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-		public static extern string cgGetString(int sname);
+		public static string cgGetString(int sname)
+        {
+            return Marshal.PtrToStringAnsi(_cgGetString(sname));
+        }
+
+        [DllImport(CG_NATIVE_LIBRARY, EntryPoint = "cgGetString", CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        private static extern IntPtr _cgGetString(int sname);
 		#endregion Misc Functions
 
 		#region Error Functions

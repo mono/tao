@@ -559,7 +559,7 @@ namespace Tao.FFmpeg
         /// <returns></returns>
         [DllImport(AVCODEC_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int avcodec_decode_audio(IntPtr pAVCodecContext,
-        IntPtr samples, out int frame_size_ptr,
+        IntPtr samples, [In, Out]ref int frame_size_ptr,
         IntPtr buf, int buf_size);
 
         /// <summary>
@@ -887,7 +887,7 @@ String name);
         /// </summary>
         public const int AVCODEC_MAX_AUDIO_FRAME_SIZE = 192000;
 
-          
+
         /// <summary>
         ///  Required number of additionally allocated bytes at the end of the input bitstream for decoding.
         /// this is mainly needed because some optimized bitstream readers read
@@ -1151,7 +1151,7 @@ of only at frame boundaries */
         /// </summary>
         public const int CODEC_CAP_DELAY = 0x0020;
 
-        
+
         /// <summary>
         /// * Codec can be fed a final frame with a smaller size.
         /// * This can be used to prevent truncation of the last audio samples.
@@ -1865,7 +1865,7 @@ of only at frame boundaries */
         /// 
         /// </summary>
         public const int FF_COMPRESSION_DEFAULT = -1;
-        
+
 
         /// <summary>
         /// 
@@ -2808,14 +2808,14 @@ stream (only used by libavformat) */
             * - encoding: set by user.
             * - decoding: set by lavc
             */
-            
+
             public int id;
             /**
             * width and height in 1/16 pel
             * - encoding: set by user.
             * - decoding: set by lavc
             */
-            
+
             public int width;
             /// <summary>
             /// 
@@ -2826,8 +2826,8 @@ stream (only used by libavformat) */
             * - encoding: set by user.
             * - decoding: set by lavc
             */
-            
-            
+
+
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 6)]
             public short[] position;// [3][2] = 3 x 2 = 6
         };
@@ -4492,7 +4492,7 @@ uint8_t * (*realloc)(struct AVCodecContext *s, uint8_t *buf, int buf_size);
             /// 
             /// </summary>
             public CodecID id;
-            
+
             /// <summary>
             /// 
             /// </summary>

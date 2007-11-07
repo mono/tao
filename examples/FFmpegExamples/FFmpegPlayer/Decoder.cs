@@ -11,7 +11,7 @@ namespace FFmpegExamples
 
     public class Decoder
     {
-       // public static string text;
+        // public static string text;
 
         private IntPtr pFormatContext;
         private FFmpeg.AVFormatContext formatContext;
@@ -65,14 +65,16 @@ namespace FFmpegExamples
             int ret;
             ret = FFmpeg.av_open_input_file(out pFormatContext, path, IntPtr.Zero, 0, IntPtr.Zero);
 
-            if (ret < 0) {
+            if (ret < 0)
+            {
                 Console.WriteLine("couldn't opne input file");
                 return false;
             }
 
             ret = FFmpeg.av_find_stream_info(pFormatContext);
 
-            if (ret < 0) {
+            if (ret < 0)
+            {
                 Console.WriteLine("couldnt find stream informaion");
                 return false;
             }
@@ -80,7 +82,8 @@ namespace FFmpegExamples
             formatContext = (FFmpeg.AVFormatContext)
                 Marshal.PtrToStructure(pFormatContext, typeof(FFmpeg.AVFormatContext));
 
-            for (int i = 0; i < formatContext.nb_streams; ++i) {
+            for (int i = 0; i < formatContext.nb_streams; ++i)
+            {
                 FFmpeg.AVStream stream = (FFmpeg.AVStream)
                        Marshal.PtrToStructure(formatContext.streams[i], typeof(FFmpeg.AVStream));
 
@@ -88,15 +91,17 @@ namespace FFmpegExamples
                        Marshal.PtrToStructure(stream.codec, typeof(FFmpeg.AVCodecContext));
 
                 if (codec.codec_type == FFmpeg.CodecType.CODEC_TYPE_AUDIO &&
-                                        audioStartIndex == -1) {
+                                        audioStartIndex == -1)
+                {
                     this.pAudioCodecContext = stream.codec;
                     this.pAudioStream = formatContext.streams[i];
                     this.audioCodecContext = codec;
-                    this.audioStartIndex= i;
+                    this.audioStartIndex = i;
                     this.timebase = stream.time_base;
 
                     pAudioCodec = FFmpeg.avcodec_find_decoder(this.audioCodecContext.codec_id);
-                    if (pAudioCodec == IntPtr.Zero) {
+                    if (pAudioCodec == IntPtr.Zero)
+                    {
                         Console.WriteLine("couldn't find codec");
                         return false;
                     }
@@ -105,17 +110,20 @@ namespace FFmpegExamples
                 }
             }
 
-            if (audioStartIndex == -1) {
+            if (audioStartIndex == -1)
+            {
                 Console.WriteLine("Couldn't find audio streamn");
                 return false;
             }
 
             audioSampleRate = audioCodecContext.sample_rate;
 
-            if (audioCodecContext.channels == 1) {
+            if (audioCodecContext.channels == 1)
+            {
                 format = Al.AL_FORMAT_MONO16;
             }
-            else {
+            else
+            {
                 format = Al.AL_FORMAT_STEREO16;
             }
 
@@ -124,54 +132,59 @@ namespace FFmpegExamples
 
         static int count = 0;
         public bool Stream()
-        {            
+        {
             int result;
 
-          //  FFmpeg.AVPacket packet = new FFmpeg.AVPacket();
+            //  FFmpeg.AVPacket packet = new FFmpeg.AVPacket();
             IntPtr pPacket = Marshal.AllocHGlobal(56);
 
             //Marshal.StructureToPtr(packet, pPacket, false);
-          //  Marshal.PtrToStructure(
+            //  Marshal.PtrToStructure(
 
             result = FFmpeg.av_read_frame(pFormatContext, pPacket);
             if (result < 0)
-                return false;           
+                return false;
             count++;
 
             int frameSize = 0;
             IntPtr pSamples = IntPtr.Zero;
             FFmpeg.AVPacket packet = (FFmpeg.AVPacket)
                                 Marshal.PtrToStructure(pPacket, typeof(FFmpeg.AVPacket));
-             Marshal.FreeHGlobal(pPacket);
-            
-             if (LivtUpdateEvent != null) {
-                 int cur = (int)(packet.dts * timebase.num / timebase.den);
-                 int total = (int)(formatContext.duration / TIMESTAMP_BASE);
-                 string time = String.Format("{0} out of {1} seconds", cur, total);
+            Marshal.FreeHGlobal(pPacket);
+
+            if (LivtUpdateEvent != null)
+            {
+                int cur = (int)(packet.dts * timebase.num / timebase.den);
+                int total = (int)(formatContext.duration / TIMESTAMP_BASE);
+                string time = String.Format("{0} out of {1} seconds", cur, total);
                 LivtUpdateEvent(time);
             }
 
-            if (packet.stream_index != this.audioStartIndex) {
+            if (packet.stream_index != this.audioStartIndex)
+            {
                 this.isAudioStream = false;
                 return true;
             }
             this.isAudioStream = true;
 
-            try {               
+            try
+            {
                 pSamples = Marshal.AllocHGlobal(AUDIO_FRAME_SIZE);
                 int size = FFmpeg.avcodec_decode_audio(pAudioCodecContext, pSamples,
-                        out frameSize, packet.data, packet.size);
-                
+                        ref frameSize, packet.data, packet.size);
+
                 //FFmpeg.av_free_packet(pPacket);                                      
 
                 this.sampleSize = frameSize;
                 Marshal.Copy(pSamples, samples, 0, AUDIO_FRAME_SIZE);
             }
-            catch (Exception e){
+            catch (Exception e)
+            {
                 Console.WriteLine(e.Message);
                 return false;
             }
-            finally {               
+            finally
+            {
                 Marshal.FreeHGlobal(pSamples);
             }
 
