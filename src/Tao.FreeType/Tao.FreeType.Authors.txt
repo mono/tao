@@ -1,7 +1,2 @@
-Terry L. Triplett - Current maintainer
-mail: Terry L. Triplett <c0d3g33k@users.sourceforge.net>
 
----------------------------------------------------------------------
-Randy Ridge - Original author of Tao Ode bindings
-cody (Sebastian Kotulla) - submitter of new expanded ODE bindings to the TAO project
 
