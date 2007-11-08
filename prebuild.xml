@@ -8,4 +8,5 @@
     <Process>src\Tao.Lua\prebuild.xml</Process>
     <Process>src\Tao.OpenGl\prebuild.xml</Process>
     <Process>src\Tao.FFmpeg\prebuild.xml</Process>
+    <Process>src\Tao.FreeType\prebuild.xml</Process>
 </Prebuild>
