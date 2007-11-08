@@ -1798,6 +1798,12 @@ namespace Tao.Ode
         public extern static dWorldID dWorldCreate();
 
         /// <summary>
+        /// 
+        /// </summary>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public extern static void dInitODE();
+
+        /// <summary>
         /// Destroy a world and everything in it.
         /// This includes all bodies, and all joints that are not part of a joint group.
         /// Joints that are part of a joint group will be deactivated, and can be destroyed by calling, for example,
@@ -6296,6 +6302,54 @@ namespace Tao.Ode
         #endregion Rotation Functions
 
         #endregion Public Externs
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="body"></param>
+        /// <param name="pos"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dBodyCopyPosition(dBodyID body, out dVector3 pos);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="body"></param>
+        /// <param name="X"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dBodyCopyPosition(dBodyID body, out dReal X);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="body"></param>
+        /// <param name="quat"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dBodyCopyQuaternion(dBodyID body, out dQuaternion quat);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="body"></param>
+        /// <param name="X"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dBodyCopyQuaternion(dBodyID body, out dReal X);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="body"></param>
+        /// <param name="R"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dBodyCopyRotation(dBodyID body, out dMatrix3 R);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="body"></param>
+        /// <param name="M00"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dBodyCopyRotation(dBodyID body, out dReal M00);
 
         // NOT IMPLEMENTED
         // This region contains functions in the ODE 0.8 source that are part of the
