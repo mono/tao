@@ -2182,7 +2182,7 @@ namespace Tao.FreeType
         /// <param name="aface">A handle to a new face object. If ‘face_index’ is greater than or equal to zero, it must be non-NULL. See note below</param>
         /// <returns>FreeType error code. 0 means success</returns>
         [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
-        public static extern int FT_Open_Face(IntPtr /*LibraryRec_*/ library, Open_Args args, int face_index, IntPtr /*IntPtr FaceRec*/ aface);
+        public static extern int FT_Open_Face(IntPtr /*LibraryRec_*/ library, FT_Open_Args args, int face_index, IntPtr /*IntPtr FaceRec*/ aface);
 
         /// <summary>
         /// This function calls FT_Attach_Stream to attach a file.
@@ -2200,7 +2200,7 @@ namespace Tao.FreeType
         /// <param name="parameters">A pointer to FT_Open_Args which must be filled by the caller</param>
         /// <returns>FreeType error code. 0 means success</returns>
         [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
-        public static extern int FT_Attach_Stream(IntPtr /*FaceRec*/ face, ref Open_Args parameters);
+        public static extern int FT_Attach_Stream(IntPtr /*FaceRec*/ face, ref FT_Open_Args parameters);
 
         /// <summary>
         /// Discard a given face object, as well as all of its child slots and sizes.
@@ -2266,7 +2266,7 @@ namespace Tao.FreeType
         /// <param name="matrix">A pointer to the transformation's 2x2 matrix. Use 0 for the identity matrix</param>
         /// <param name="delta">A pointer to the translation vector. Use 0 for the null vector</param>
         [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
-        public static extern void FT_Set_Transform(IntPtr /*FaceRec*/ face, ref Matrix matrix, ref Vector delta);
+        public static extern void FT_Set_Transform(IntPtr /*FaceRec*/ face, ref FT_Matrix matrix, ref FT_Vector delta);
 
         /// <summary>
         /// Convert a given glyph image to a bitmap. It does so by inspecting the glyph image format, finding the relevant renderer, and invoking it
@@ -2275,7 +2275,7 @@ namespace Tao.FreeType
         /// <param name="render_mode">This is the render mode used to render the glyph image into a bitmap. See FT_Render_Mode for a list of possible values</param>
         /// <returns>FreeType error code. 0 means success</returns>
         [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
-        public static extern int FT_Render_Glyph(ref GlyphSlotRec slot, Render_Mode render_mode);
+        public static extern int FT_Render_Glyph(ref FT_GlyphSlotRec slot, FT_Render_Mode render_mode);
 
         /// <summary>
         /// Return the kerning vector between two glyphs of a same face
@@ -2287,7 +2287,7 @@ namespace Tao.FreeType
         /// <param name="akerning">The kerning vector. This is either in font units or in pixels (26.6 format) for scalable formats, and in pixels for fixed-sizes formats</param>
         /// <returns>FreeType error code. 0 means success</returns>
         [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
-        public static extern int FT_Get_Kerning(IntPtr /*FaceRec*/ face, uint left_glyph, uint right_glyph, uint kern_mode, out Vector akerning);
+        public static extern int FT_Get_Kerning(IntPtr /*FaceRec*/ face, uint left_glyph, uint right_glyph, uint kern_mode, out FT_Vector akerning);
 
         /// <summary>
         /// Retrieve the ASCII name of a given glyph in a face. This only works for those faces where FT_HAS_GLYPH_NAMES(face) returns 1
@@ -2321,7 +2321,7 @@ namespace Tao.FreeType
         /// <param name="encoding">A handle to the selected encoding</param>
         /// <returns>FreeType error code. 0 means success</returns>
         [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
-        public static extern int FT_Select_Charmap(IntPtr /*FaceRec*/ face, Encoding encoding);
+        public static extern int FT_Select_Charmap(IntPtr /*FaceRec*/ face, FT_Encoding encoding);
 
         /// <summary>
         /// Select a given charmap for character code to glyph index mapping
@@ -2331,7 +2331,7 @@ namespace Tao.FreeType
         /// <param name="charmap">A handle to the selected charmap</param>
         /// <returns>FreeType error code. 0 means success</returns>
         [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
-        public static extern int FT_Set_Charmap(IntPtr /*FaceRec*/ face, ref CharMapRec charmap);
+        public static extern int FT_Set_Charmap(IntPtr /*FaceRec*/ face, ref FT_CharMapRec charmap);
 
         /// <summary>
         /// Retrieve index of a given charmap
@@ -2339,7 +2339,7 @@ namespace Tao.FreeType
         /// <param name="charmap">A handle to a charmap</param>
         /// <returns>The index into the array of character maps within the face to which ‘charmap’ belongs</returns>
         [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
-        public static extern int FT_Get_Charmap_Index(ref CharMapRec charmap);
+        public static extern int FT_Get_Charmap_Index(ref FT_CharMapRec charmap);
 
         /// <summary>
         /// Return the glyph index of a given character code. This function uses a charmap object to do the mapping
@@ -2407,7 +2407,7 @@ namespace Tao.FreeType
 
         /// <summary>
         /// A very simple function used to perform the computation ‘(a*0x10000)/b’ with maximal accuracy. Most of the time, this is used to divide a given value by a 16.16 fixed float factor
-        /// The optimization for FT_DivFix() is simple: If (a << 16) fits in 32 bits, then the division is computed directly. Otherwise, we use a specialized version of FT_MulDiv
+        /// The optimization for FT_DivFix() is simple: If (a &lt;&lt; 16) fits in 32 bits, then the division is computed directly. Otherwise, we use a specialized version of FT_MulDiv
         /// </summary>
         /// <param name="a">The first multiplier</param>
         /// <param name="b">The second multiplier. Use a 16.16 factor here whenever possible</param>
@@ -2419,7 +2419,7 @@ namespace Tao.FreeType
         /// A very simple function used to round a 16.16 fixed number
         /// </summary>
         /// <param name="a">The number to be rounded</param>
-        /// <returns>The result of ‘(a + 0x8000) & -0x10000’</returns>
+        /// <returns>The result of ‘(a + 0x8000) &amp; -0x10000’</returns>
         [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
         public static extern int FT_RoundFix(int a);
 
@@ -2427,7 +2427,7 @@ namespace Tao.FreeType
         /// A very simple function used to compute the ceiling function of a 16.16 fixed number
         /// </summary>
         /// <param name="a">The number for which the ceiling function is to be computed</param>
-        /// <returns>The result of ‘(a + 0x10000 - 1) & -0x10000’</returns>
+        /// <returns>The result of ‘(a + 0x10000 - 1) &amp;-0x10000’</returns>
         [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
         public static extern int FT_CeilFix(int a);
 
@@ -2435,7 +2435,7 @@ namespace Tao.FreeType
         /// A very simple function used to compute the floor function of a 16.16 fixed number
         /// </summary>
         /// <param name="a">The number for which the floor function is to be computed</param>
-        /// <returns>The result of ‘a & -0x10000’</returns>
+        /// <returns>The result of ‘a &amp; -0x10000’</returns>
         [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
         public static extern int FT_FloorFix(int a);
 
@@ -2446,7 +2446,7 @@ namespace Tao.FreeType
         /// <param name="vec">The target vector to transform</param>
         /// <param name="matrix">A pointer to the source 2x2 matrix</param>
         [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
-        public static extern void FT_Vector_Transform(ref Vector vec, ref Matrix matrix);
+        public static extern void FT_Vector_Transform(ref FT_Vector vec, ref FT_Matrix matrix);
 
 
     }
