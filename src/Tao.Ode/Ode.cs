@@ -41,6 +41,7 @@ namespace Tao.Ode
     using dGeomID = System.IntPtr;
     using dSpaceID = System.IntPtr;
     using dTriMeshDataID = System.IntPtr;
+    using dHeightfieldDataID = System.IntPtr;
 
     #endregion Aliases
 
@@ -1836,6 +1837,14 @@ namespace Tao.Ode
         [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public extern static void dWorldGetGravity(dWorldID world, ref dVector3 gravity);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="world"></param>
+        /// <param name="X"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dWorldGetGravity(dWorldID world, out dReal X);
+
         #endregion World gravity functions
         #region World CFM and ERP functions
         /// <summary>
@@ -1903,6 +1912,18 @@ namespace Tao.Ode
         /// <param name="force">A  dVector3 containing the resulting force vector</param>
         [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public extern static void dWorldImpulseToForce(dWorldID world, dReal stepsize, dReal ix, dReal iy, dReal iz, ref dVector3 force);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="world"></param>
+        /// <param name="stepsize"></param>
+        /// <param name="ix"></param>
+        /// <param name="iy"></param>
+        /// <param name="iz"></param>
+        /// <param name="forceX"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dWorldImpulseToForce(dWorldID world, dReal stepsize, dReal ix, dReal iy, dReal iz, out dReal forceX);
 
         #endregion World impulse to force conversion function
         #region World Stepping Functions
@@ -4086,6 +4107,100 @@ namespace Tao.Ode
         // <summary>TODO: Implement me</summary>
         // dJointSetLMotorParam(dJointID, int anum, int rel, dReal x, dReal y, dReal z);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="anum"></param>
+        /// <param name="rel"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dJointSetLMotorAxis(dJointID j, int anum, int rel, dReal x, dReal y, dReal z);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="num"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dJointSetLMotorNumAxes(dJointID j, int num);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="parameter"></param>
+        /// <param name="value"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dJointSetLMotorParam(dJointID j, int parameter, dReal value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="parameter"></param>
+        /// <param name="value"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void JointSetPlane2DAngleParam(dJointID j, int parameter, dReal value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="parameter"></param>
+        /// <param name="value"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dJointSetPlane2DXParam(dJointID j, int parameter, dReal value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="parameter"></param>
+        /// <param name="value"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dJointSetPlane2DYParam(dJointID j, int parameter, dReal value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dJointSetPRAnchor(dJointID j, dReal x, dReal y, dReal z);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dJointSetPRAxis1(dJointID j, dReal x, dReal y, dReal z);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dJointSetPRAxis2(dJointID j, dReal x, dReal y, dReal z);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="parameter"></param>
+        /// <param name="value"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dJointSetPRParam(dJointID j, int parameter, dReal value);
         // <summary>TODO: Implement me</summary>
         //int dJointGetLMotorNumAxes (dJointID);
 
@@ -4094,6 +4209,92 @@ namespace Tao.Ode
 
         // <summary>TODO: Implement me</summary>
         //dReal dJointGetLMotorParam (dJointID, int parameter);
+        //
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="anum"></param>
+        /// <param name="result"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dJointGetLMotorAxis(dJointID j, int anum, out dVector3 result);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern int dJointGetLMotorNumAxes(dJointID j);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern dReal dJointGetLMotorParam(dJointID j, int parameter);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="result"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dJointGetPRAnchor(dJointID j, out dVector3 result);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="result"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dJointGetPRAxis1(dJointID j, out dVector3 result);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="result"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dJointGetPRAxis2(dJointID j, out dVector3 result);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern dReal dJointGetPRParam(dJointID j, int parameter);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern dReal dJointGetPRPosition(dJointID j);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <param name="angle1"></param>
+        /// <param name="angle2"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dJointGetUniversalAngles(dJointID j, out dReal angle1, out dReal angle2);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="j"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern dReal dJointGetPRPositionRate(dJointID j);
+
 
         #endregion L-Motor Joint functions
 
@@ -4295,6 +4496,15 @@ namespace Tao.Ode
         /// <param name="b">id of mass b</param>
         [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public extern static void dMassAdd(ref dMass a, dMass b);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mass"></param>
+        /// <param name="density"></param>
+        /// <param name="g"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dMassSetTrimesh(out dMass mass, dReal density, dGeomID g);
         #endregion Mass functions
 
         #region Collision functions
@@ -4425,6 +4635,19 @@ namespace Tao.Ode
         [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public extern static void dGeomSetQuaternion(dGeomID geom, dQuaternion q);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <param name="w"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomSetQuaternion(dGeomID geom, ref dReal w);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <returns></returns>
         [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, EntryPoint = "dGeomGetPosition"), SuppressUnmanagedCodeSecurity]
         private extern unsafe static dReal* dGeomGetPosition_(dGeomID geom);
         /// <summary>
@@ -4454,6 +4677,241 @@ namespace Tao.Ode
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="pHeightData"></param>
+        /// <param name="bCopyHeightData"></param>
+        /// <param name="width"></param>
+        /// <param name="depth"></param>
+        /// <param name="widthSamples"></param>
+        /// <param name="depthSamples"></param>
+        /// <param name="scale"></param>
+        /// <param name="offset"></param>
+        /// <param name="thickness"></param>
+        /// <param name="bWrap"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomHeightfieldDataBuildByte(dHeightfieldDataID d, byte[] pHeightData, int bCopyHeightData,
+                dReal width, dReal depth, int widthSamples, int depthSamples,
+                dReal scale, dReal offset, dReal thickness, int bWrap);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="pHeightData"></param>
+        /// <param name="bCopyHeightData"></param>
+        /// <param name="width"></param>
+        /// <param name="depth"></param>
+        /// <param name="widthSamples"></param>
+        /// <param name="depthSamples"></param>
+        /// <param name="scale"></param>
+        /// <param name="offset"></param>
+        /// <param name="thickness"></param>
+        /// <param name="bWrap"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomHeightfieldDataBuildByte(dHeightfieldDataID d, IntPtr pHeightData, int bCopyHeightData,
+                dReal width, dReal depth, int widthSamples, int depthSamples,
+                dReal scale, dReal offset, dReal thickness, int bWrap);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="pUserData"></param>
+        /// <param name="pCallback"></param>
+        /// <param name="width"></param>
+        /// <param name="depth"></param>
+        /// <param name="widthSamples"></param>
+        /// <param name="depthSamples"></param>
+        /// <param name="scale"></param>
+        /// <param name="offset"></param>
+        /// <param name="thickness"></param>
+        /// <param name="bWrap"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomHeightfieldDataBuildCallback(dHeightfieldDataID d, IntPtr pUserData, dHeightfieldGetHeight pCallback,
+                dReal width, dReal depth, int widthSamples, int depthSamples,
+                dReal scale, dReal offset, dReal thickness, int bWrap);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="pHeightData"></param>
+        /// <param name="bCopyHeightData"></param>
+        /// <param name="width"></param>
+        /// <param name="depth"></param>
+        /// <param name="widthSamples"></param>
+        /// <param name="depthSamples"></param>
+        /// <param name="scale"></param>
+        /// <param name="offset"></param>
+        /// <param name="thickness"></param>
+        /// <param name="bWrap"></param>
+        [CLSCompliant(false)]
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomHeightfieldDataBuildShort(dHeightfieldDataID d, ushort[] pHeightData, int bCopyHeightData,
+                dReal width, dReal depth, int widthSamples, int depthSamples,
+                dReal scale, dReal offset, dReal thickness, int bWrap);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="pHeightData"></param>
+        /// <param name="bCopyHeightData"></param>
+        /// <param name="width"></param>
+        /// <param name="depth"></param>
+        /// <param name="widthSamples"></param>
+        /// <param name="depthSamples"></param>
+        /// <param name="scale"></param>
+        /// <param name="offset"></param>
+        /// <param name="thickness"></param>
+        /// <param name="bWrap"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomHeightfieldDataBuildShort(dHeightfieldDataID d, short[] pHeightData, int bCopyHeightData,
+                dReal width, dReal depth, int widthSamples, int depthSamples,
+                dReal scale, dReal offset, dReal thickness, int bWrap);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="pHeightData"></param>
+        /// <param name="bCopyHeightData"></param>
+        /// <param name="width"></param>
+        /// <param name="depth"></param>
+        /// <param name="widthSamples"></param>
+        /// <param name="depthSamples"></param>
+        /// <param name="scale"></param>
+        /// <param name="offset"></param>
+        /// <param name="thickness"></param>
+        /// <param name="bWrap"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomHeightfieldDataBuildShort(dHeightfieldDataID d, IntPtr pHeightData, int bCopyHeightData,
+                dReal width, dReal depth, int widthSamples, int depthSamples,
+                dReal scale, dReal offset, dReal thickness, int bWrap);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="pHeightData"></param>
+        /// <param name="bCopyHeightData"></param>
+        /// <param name="width"></param>
+        /// <param name="depth"></param>
+        /// <param name="widthSamples"></param>
+        /// <param name="depthSamples"></param>
+        /// <param name="scale"></param>
+        /// <param name="offset"></param>
+        /// <param name="thickness"></param>
+        /// <param name="bWrap"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomHeightfieldDataBuildSingle(dHeightfieldDataID d, float[] pHeightData, int bCopyHeightData,
+                dReal width, dReal depth, int widthSamples, int depthSamples,
+                dReal scale, dReal offset, dReal thickness, int bWrap);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="pHeightData"></param>
+        /// <param name="bCopyHeightData"></param>
+        /// <param name="width"></param>
+        /// <param name="depth"></param>
+        /// <param name="widthSamples"></param>
+        /// <param name="depthSamples"></param>
+        /// <param name="scale"></param>
+        /// <param name="offset"></param>
+        /// <param name="thickness"></param>
+        /// <param name="bWrap"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomHeightfieldDataBuildSingle(dHeightfieldDataID d, IntPtr pHeightData, int bCopyHeightData,
+                dReal width, dReal depth, int widthSamples, int depthSamples,
+                dReal scale, dReal offset, dReal thickness, int bWrap);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="pHeightData"></param>
+        /// <param name="bCopyHeightData"></param>
+        /// <param name="width"></param>
+        /// <param name="depth"></param>
+        /// <param name="widthSamples"></param>
+        /// <param name="depthSamples"></param>
+        /// <param name="scale"></param>
+        /// <param name="offset"></param>
+        /// <param name="thickness"></param>
+        /// <param name="bWrap"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomHeightfieldDataBuildDouble(dHeightfieldDataID d, double[] pHeightData, int bCopyHeightData,
+                dReal width, dReal depth, int widthSamples, int depthSamples,
+                dReal scale, dReal offset, dReal thickness, int bWrap);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="pHeightData"></param>
+        /// <param name="bCopyHeightData"></param>
+        /// <param name="width"></param>
+        /// <param name="depth"></param>
+        /// <param name="widthSamples"></param>
+        /// <param name="depthSamples"></param>
+        /// <param name="scale"></param>
+        /// <param name="offset"></param>
+        /// <param name="thickness"></param>
+        /// <param name="bWrap"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomHeightfieldDataBuildDouble(dHeightfieldDataID d, IntPtr pHeightData, int bCopyHeightData,
+                dReal width, dReal depth, int widthSamples, int depthSamples,
+                dReal scale, dReal offset, dReal thickness, int bWrap);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern dHeightfieldDataID dGeomHeightfieldDataCreate();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomHeightfieldDataDestroy(dHeightfieldDataID d);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="minHeight"></param>
+        /// <param name="maxHeight"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomHeightfieldDataSetBounds(dHeightfieldDataID d, dReal minHeight, dReal maxHeight);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="g"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern dHeightfieldDataID dGeomHeightfieldGetHeightfieldData(dGeomID g);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="d"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomHeightfieldSetHeightfieldData(dGeomID g, dHeightfieldDataID d);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <returns></returns>
         [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION, EntryPoint = "dGeomGetRotation"), SuppressUnmanagedCodeSecurity]
         private extern unsafe static dReal* dGeomGetRotation_(dGeomID geom);
         /// <summary>
@@ -4507,7 +4965,15 @@ namespace Tao.Ode
         /// <param name="geom">the geom to query</param>
         /// <param name="aabb">the returned bounding box</param>
         [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        public extern static void dGeomGetAABB(dGeomID geom, Aabb aabb);
+        public extern static void dGeomGetAABB(dGeomID geom, out Aabb aabb);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <param name="minX"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomGetAABB(dGeomID geom, out dReal minX);
 
         /// <summary>
         /// Determine if a geom is a space.
@@ -4729,6 +5195,14 @@ namespace Tao.Ode
         public extern static void dGeomSetOffsetQuaternion(dGeomID geom, dQuaternion Q);
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <param name="X"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomSetOffsetQuaternion(dGeomID geom, ref dReal X);
+
+        /// <summary>
         /// Set the offset position of a geom from its body.
         ///
         /// Sets the geom's positional offset to move it to the new world
@@ -4761,6 +5235,15 @@ namespace Tao.Ode
         public extern static void dGeomSetOffsetWorldRotation(dGeomID geom, dMatrix3 R);
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <param name="M00"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomSetOffsetWorldRotation(dGeomID geom, ref dReal M00);
+
+
+        /// <summary>
         /// Set the offset rotation of a geom from its body.
         ///
         /// Sets the geom's rotational offset to orient it to the new world
@@ -4774,6 +5257,14 @@ namespace Tao.Ode
         /// <param name="Q">the new rotation.</param>
         [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public extern static void dGeomSetOffsetWorldQuaternion(dGeomID geom, dQuaternion Q);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <param name="X"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomSetOffsetWorldQuaternion(dGeomID geom, ref dReal X);
 
         /// <summary>
         /// Clear any offset from the geom.
@@ -5039,6 +5530,32 @@ namespace Tao.Ode
         // TODO: Implement - Convex support is new in ODE and not yet documented or clearly stable
         // ODE_API dGeomID dCreateConvex (dSpaceID space, dReal *_planes, unsigned int _planecount, dReal *_points, unsigned int _pointcount,unsigned int *_polygons);
         // ODE_API void dGeomSetConvex (dGeomID g, dReal *_planes, unsigned int _count, dReal *_points, unsigned int _pointcount,unsigned int *_polygons);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <param name="planes"></param>
+        /// <param name="planeCount"></param>
+        /// <param name="points"></param>
+        /// <param name="pointCount"></param>
+        /// <param name="polygons"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomSetConvex(dGeomID geom, dReal[] planes, int planeCount, dReal[] points, int pointCount, int[] polygons);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="space"></param>
+        /// <param name="planes"></param>
+        /// <param name="planeCount"></param>
+        /// <param name="points"></param>
+        /// <param name="pointCount"></param>
+        /// <param name="polygons"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern dGeomID dCreateConvex(dSpaceID space, dReal[] planes, int planeCount, dReal[] points, int pointCount, int[] polygons);
         #endregion Convex class
 
         #region Box class
@@ -5074,6 +5591,83 @@ namespace Tao.Ode
         /// <param name="result">vector3 containing the side lengths</param>
         [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public extern static void dGeomBoxGetLengths(dGeomID box, ref dVector3 result);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <param name="x"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomBoxGetLengths(dGeomID geom, out dReal x);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <param name="pos"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomCopyOffsetPosition(dGeomID geom, ref dVector3 pos);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <param name="X"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomCopyOffsetPosition(dGeomID geom, ref dReal X);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <param name="R"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomCopyOffsetRotation(dGeomID geom, ref dMatrix3 R);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <param name="M00"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomCopyOffsetRotation(dGeomID geom, ref dReal M00);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <param name="pos"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomCopyPosition(dGeomID geom, out dVector3 pos);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <param name="X"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomCopyPosition(dGeomID geom, out dReal X);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <param name="R"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomCopyRotation(dGeomID geom, out dMatrix3 R);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <param name="M00"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomCopyRotation(dGeomID geom, out dReal M00);
+
 
         /// <summary>
         /// Return the depth of the point (x,y,z) in the given box.
@@ -5325,6 +5919,16 @@ namespace Tao.Ode
         public extern static void dGeomRayGet(dGeomID ray, ref dVector3 start, ref dVector3 dir);
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ray"></param>
+        /// <param name="startX"></param>
+        /// <param name="dirX"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomRayGet(dGeomID ray, ref dReal startX, ref dReal dirX);
+
+
+        /// <summary>
         /// Set ray flags that influence ray collision detection.
         ///
         /// These flags are currently only noticed by the trimesh collider, because they can make a major difference there.
@@ -5483,29 +6087,31 @@ namespace Tao.Ode
         public extern static int dGeomTransformGetInfo(dGeomID g);
         #endregion Geometry transform class
         #region User Custom Geom class
-        // <summary>
-        // Create a custom (user) geom class and register with ODE.
-        // Note ODE limits the number of custom geom classes that can be generated.
-        //
-        // NOTE also that this is untested and may need modification/clarification before
-        // being considered stable.
-        // </summary>
-        // <param name="customclass">the custom class object</param>
-        // <returns>a class number for the new custom geom class</returns>
-        //[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        //public extern static int dCreateGeomClass (dGeomClass customclass);
+        /// <summary>
+        /// Create a custom (user) geom class and register with ODE.
+        /// Note ODE limits the number of custom geom classes that can be generated.
+        ///
+        /// NOTE also that this is untested and may need modification/clarification before
+        /// being considered stable.
+        /// </summary>
+        /// <param name="customclass">the custom class object</param>
+        /// <returns>a class number for the new custom geom class</returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public extern static int dCreateGeomClass(dGeomClass customclass);
 
-        //		/// <summary>Return a class data for a custom user defined geom</summary>
-        //		[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        //		public extern static void * dGeomGetClassData (dGeomID);
 
-        // <summary>
-        // Create an instance of a custom user-defined geom class.
-        // </summary>
-        // <param name="classnum">the class number of the custom geom, generated by dCreateGeomClass</param>
-        // <returns>the id (handle) of the new geom instance</returns>
-        //[DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
-        //public extern static dGeomID dCreateGeom (int classnum);
+        /// <summary>Return a class data for a custom user defined geom</summary>
+        /// <param name="geom"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public extern static IntPtr dGeomGetClassData(dGeomID geom);
+
+        /// <summary>
+        /// Create an instance of a custom user-defined geom class.
+        /// </summary>
+        /// <param name="classnum">the class number of the custom geom, generated by dCreateGeomClass</param>
+        /// <returns>the id (handle) of the new geom instance</returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public extern static dGeomID dCreateGeom(int classnum);
 
         #endregion User Custom Geom class
         #region Utility Functions
@@ -5638,6 +6244,17 @@ namespace Tao.Ode
         /// <param name="Depth">depth of tree</param>
         [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public extern static dSpaceID dQuadTreeSpaceCreate(dSpaceID space, dVector3 Center, dVector3 Extents, int Depth);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="space"></param>
+        /// <param name="centerX"></param>
+        /// <param name="extentsX"></param>
+        /// <param name="depth"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern dSpaceID dQuadTreeSpaceCreate(dSpaceID space, ref dReal centerX, ref dReal extentsX, int depth);
 
         /// <summary>
         /// This destroys a space.
@@ -5827,6 +6444,39 @@ namespace Tao.Ode
         [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public extern static void dGeomTriMeshDataSet(dTriMeshDataID g, int data_id, ref IntPtr data);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="g"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomTriMeshDataUpdate(dTriMeshDataID g);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="g"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern dTriMeshDataID dGeomTriMeshGetData(dGeomID g);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <returns></returns>
+        [CLSCompliant(false)]
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public extern unsafe static dMatrix4* dGeomTriMeshGetLastTransformUnsafe(dGeomID geom);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <returns></returns>
+        public static dMatrix4 dGeomTriMeshGetLastTransform(dGeomID geom)
+        {
+            unsafe { return *(dGeomTriMeshGetLastTransformUnsafe(geom)); }
+        }
+
         #region Trimesh data filling functions
         // Note: this section of the ODE api seems a bit rougher than the rest
         // Not surprising since it is still in flux according to the docs.
@@ -5947,6 +6597,38 @@ namespace Tao.Ode
             dVector3[] Normals);
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="vertices"></param>
+        /// <param name="vertexStride"></param>
+        /// <param name="vertexCount"></param>
+        /// <param name="indices"></param>
+        /// <param name="indexCount"></param>
+        /// <param name="triStride"></param>
+        /// <param name="normals"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomTriMeshDataBuildDouble(dTriMeshDataID g,
+            IntPtr vertices, int vertexStride, int vertexCount,
+            IntPtr indices, int indexCount, int triStride,
+            IntPtr normals);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="vertices"></param>
+        /// <param name="vertexStride"></param>
+        /// <param name="vertexCount"></param>
+        /// <param name="indices"></param>
+        /// <param name="indexCount"></param>
+        /// <param name="triStride"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomTriMeshDataBuildDouble(dTriMeshDataID g,
+            IntPtr vertices, int vertexStride, int vertexCount,
+            IntPtr indices, int indexCount, int triStride);
+
+        /// <summary>
         /// Simple trimesh build function provided for convenience.
         ///
         /// Uses single/double precision vertices and normals depending on the
@@ -5964,6 +6646,21 @@ namespace Tao.Ode
         public extern static void dGeomTriMeshDataBuildSimple(dTriMeshDataID g,
             dVector3[] Vertices, int VertexCount,
             int[] Indices, int IndexCount);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="vertices"></param>
+        /// <param name="vertexStride"></param>
+        /// <param name="vertexCount"></param>
+        /// <param name="indices"></param>
+        /// <param name="indexCount"></param>
+        /// <param name="triStride"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomTriMeshDataBuildSingle(dTriMeshDataID g,
+            IntPtr vertices, int vertexStride, int vertexCount,
+            IntPtr indices, int indexCount, int triStride);
 
         /// <summary>
         /// Simple trimesh build function provided for convenience.
@@ -5986,6 +6683,23 @@ namespace Tao.Ode
             dVector3[] Vertices, int VertexCount,
             int[] Indices, int IndexCount,
             dVector3[] Normals);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="vertices"></param>
+        /// <param name="vertexStride"></param>
+        /// <param name="vertexCount"></param>
+        /// <param name="indices"></param>
+        /// <param name="indexCount"></param>
+        /// <param name="triStride"></param>
+        /// <param name="normals"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomTriMeshDataBuildSingle1(dTriMeshDataID g,
+            IntPtr vertices, int vertexStride, int vertexCount,
+            IntPtr indices, int indexCount, int triStride,
+            IntPtr normals);
         #endregion Trimesh data filling functions
         #region Trimesh callback functions
         /// <summary>
@@ -6124,12 +6838,44 @@ namespace Tao.Ode
         public extern static void dGeomTriMeshClearTCCache(dGeomID g);
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="g"></param>
+        /// <param name="data_id"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr dGeomTriMeshDataGet(dTriMeshDataID g, int data_id);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="g"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomTriMeshDataPreprocess(dTriMeshDataID g);
+
+        /// <summary>
         /// Returns the TriMeshDataID for the specified geom.
         /// </summary>
         /// <returns>A dTriMeshDataID</returns>
         /// <param name="g">A  dGeomID</param>
         [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public extern static dTriMeshDataID dGeomTriMeshGetTriMeshDataID(dGeomID g);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="last_trans"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomTriMeshSetLastTransform(dTriMeshDataID d, ref dMatrix4 last_trans);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <param name="M00"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dGeomTriMeshSetLastTransform(dTriMeshDataID d, ref dReal M00);
 
         /// <summary>
         /// Retrieves a triangle in object space. The v0, v1 and v2 arguments are optional.
@@ -6153,6 +6899,14 @@ namespace Tao.Ode
         /// <param name="Out">A  dVector3</param>
         [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public extern static void dGeomTriMeshGetPoint(dGeomID g, int Index, dReal u, dReal v, ref dVector3 Out);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="d"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public extern static int dGeomTriMeshGetTriangleCount(dTriMeshDataID d);
         #endregion TriMesh functions
 
         #region Rotation Functions
@@ -6351,6 +7105,100 @@ namespace Tao.Ode
         [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void dBodyCopyRotation(dBodyID body, out dReal M00);
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="o1"></param>
+        /// <param name="o2"></param>
+        /// <param name="aabb"></param>
+        /// <returns></returns>
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int dAABBTestFn(dGeomID o1, dGeomID o2, ref dReal aabb);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="o1"></param>
+        /// <param name="o2"></param>
+        /// <param name="flags"></param>
+        /// <param name="contact"></param>
+        /// <param name="skip"></param>
+        /// <returns></returns>
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate int dColliderFn(dGeomID o1, dGeomID o2, int flags, out dContactGeom contact, int skip);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="geom"></param>
+        /// <param name="aabb"></param>
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void dGetAABBFn(dGeomID geom, out dReal aabb);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate dColliderFn dGetColliderFnFn(int num);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="o"></param>
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate void dGeomDtorFn(dGeomID o);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="p_user_data"></param>
+        /// <param name="x"></param>
+        /// <param name="z"></param>
+        /// <returns></returns>
+        [UnmanagedFunctionPointer(CallingConvention.Cdecl)]
+        public delegate dReal dHeightfieldGetHeight(IntPtr p_user_data, int x, int z);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        [StructLayout(LayoutKind.Sequential)]
+        public struct dGeomClass
+        {
+            /// <summary>
+            /// 
+            /// </summary>
+            public int bytes;
+            /// <summary>
+            /// 
+            /// </summary>
+            public dGetColliderFnFn collider;
+            /// <summary>
+            /// 
+            /// </summary>
+            public dGetAABBFn aabb;
+            /// <summary>
+            /// 
+            /// </summary>
+            public dAABBTestFn aabb_test;
+            /// <summary>
+            /// 
+            /// </summary>
+            public dGeomDtorFn dtor;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="space"></param>
+        /// <param name="data"></param>
+        /// <param name="bPlaceable"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern IntPtr dCreateHeightfield(dSpaceID space, IntPtr data, int bPlaceable);
+
+
         // NOT IMPLEMENTED
         // This region contains functions in the ODE 0.8 source that are part of the
         // ODE public API (labeled ODE_API in the ODE source), but aren't implemented in
@@ -6373,7 +7221,23 @@ namespace Tao.Ode
         //
         // From ode's matrix.h
         // ODE_API void dSetZero (dReal *a, int n);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="n"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dSetZero(out dReal a, int n);
         // ODE_API void dSetValue (dReal *a, int n, dReal value);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="n"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dSetValue(out dReal a, int n);
         // ODE_API void dSetErrorHandler (dMessageFunction *fn);
         // ODE_API void dSetDebugHandler (dMessageFunction *fn);
         // ODE_API void dSetMessageHandler (dMessageFunction *fn);
@@ -6383,20 +7247,133 @@ namespace Tao.Ode
         // ODE_API void dError (int num, const char *msg, ...);
         // ODE_API void dDebug (int num, const char *msg, ...);
         // ODE_API void dMessage (int num, const char *msg, ...);
-        // ODE_API dReal dDot (const dReal *a, const dReal *b, int n);
+        //ODE_API dReal dDot (const dReal *a, const dReal *b, int n);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="X0"></param>
+        /// <param name="X1"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern dReal dDot(ref dReal X0, ref dReal X1, int n);
         // ODE_API void dMultiply0 (dReal *A, const dReal *B, const dReal *C, int p,int q,int r);
         // ODE_API void dMultiply1 (dReal *A, const dReal *B, const dReal *C, int p,int q,int r);
         // ODE_API void dMultiply2 (dReal *A, const dReal *B, const dReal *C, int p,int q,int r);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="world"></param>
+        /// <param name="group"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern dJointID dJointCreatePlane2D(dWorldID world, dJointGroupID group);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="world"></param>
+        /// <param name="group"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern dJointID dJointCreatePR(dWorldID world, dJointGroupID group);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="joint"></param>
+        /// <param name="torque"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dJointAddPRTorque(dJointID joint, dReal torque);
         // ODE_API int dFactorCholesky (dReal *A, int n);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="A00"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern int dFactorCholesky(ref dReal A00, int n);
         // ODE_API void dSolveCholesky (const dReal *L, dReal *b, int n);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="L"></param>
+        /// <param name="b"></param>
+        /// <param name="n"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dSolveCholesky(ref dReal L, out dReal b, int n);
         // ODE_API int dInvertPDMatrix (const dReal *A, dReal *Ainv, int n);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="A"></param>
+        /// <param name="Ainv"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern int dInvertPDMatrix(ref dReal A, out dReal Ainv, int n);
         // ODE_API int dIsPositiveDefinite (const dReal *A, int n);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="A"></param>
+        /// <param name="n"></param>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern int dIsPositiveDefinite(ref dReal A, int n);
         // ODE_API void dFactorLDLT (dReal *A, dReal *d, int n, int nskip);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="A"></param>
+        /// <param name="d"></param>
+        /// <param name="n"></param>
+        /// <param name="nskip"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dFactorLDLT(ref dReal A, out dReal d, int n, int nskip);
         // ODE_API void dSolveL1 (const dReal *L, dReal *b, int n, int nskip);
         // ODE_API void dSolveL1T (const dReal *L, dReal *b, int n, int nskip);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="L"></param>
+        /// <param name="b"></param>
+        /// <param name="n"></param>
+        /// <param name="nskip"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dSolveL1T(ref dReal L, out dReal b, int n, int nskip);
         // ODE_API void dVectorScale (dReal *a, const dReal *d, int n);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="d"></param>
+        /// <param name="n"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dVectorScale(out dReal a, ref dReal d, int n);
         // ODE_API void dSolveLDLT (const dReal *L, const dReal *d, dReal *b, int n, int nskip);
         // ODE_API void dLDLTAddTL (dReal *L, dReal *d, const dReal *a, int n, int nskip);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="L"></param>
+        /// <param name="d"></param>
+        /// <param name="a"></param>
+        /// <param name="n"></param>
+        /// <param name="nskip"></param>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern void dLDLTAddTL(ref dReal L, ref dReal d, ref dReal a, int n, int nskip);
         // ODE_API void dLDLTRemove (dReal **A, const int *p, dReal *L, dReal *d,
         //          int n1, int n2, int r, int nskip);
         // ODE_API void dRemoveRowCol (dReal *A, int n, int nskip, int r);
@@ -6419,6 +7396,13 @@ namespace Tao.Ode
         //ODE_API void dRandSetSeed (unsigned long s);
         //ODE_API int dRandInt (int n);
         //ODE_API dReal dRandReal(void);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        [DllImport(ODE_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
+        public static extern dReal dRandReal();
         //ODE_API void dPrintMatrix (const dReal *A, int n, int m, char *fmt = "%10.4f ",
         //           FILE *f=stdout);
         //ODE_API void dPrintMatrix (const dReal *A, int n, int m, char *fmt, FILE *f);
@@ -6454,7 +7438,5 @@ namespace Tao.Ode
 
         // already implemented as dWtoDQ
         // ODE_API void dDQfromW (dReal dq[4], const dVector3 w, const dQuaternion q);
-
-
     }
 }

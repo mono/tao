@@ -1,3 +1,5 @@
+David Hudson (jendave@yahoo.com) - Updated Tao.Ode to 0.8
+
 Terry L. Triplett - Current maintainer
 mail: Terry L. Triplett <c0d3g33k@users.sourceforge.net>
 

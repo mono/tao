@@ -1235,7 +1235,31 @@ namespace Tao.FreeType
     /// </summary>
     public class FT
     {
-        private const string FT_DLL = "freetype6.dll";
+        #region Private Constants
+        #region string FT_NATIVE_LIBRARY
+        /// <summary>
+        /// Specifies the FT native library used in the bindings
+        /// </summary>
+        /// <remarks>
+        /// The Windows dll is specified here universally - note that
+        /// under Mono the non-windows native library can be mapped using
+        /// the ".config" file mechanism.  Kudos to the Mono team for this
+        /// simple yet elegant solution.
+        /// </remarks>
+        private const string FT_NATIVE_LIBRARY = "freetype6.dll";
+        #endregion string FT_NATIVE_LIBRARY
+
+        #region CallingConvention CALLING_CONVENTION
+        /// <summary>
+        ///     Specifies the calling convention used for the binding.
+        /// </summary>
+        /// <remarks>
+        ///     Specifies <see cref="CallingConvention.Cdecl" />
+        ///     for the bindings.
+        /// </remarks>
+        private const CallingConvention CALLING_CONVENTION = CallingConvention.Cdecl;
+        #endregion CallingConvention CALLING_CONVENTION
+        #endregion Private Constants
         /// <summary>
         /// 
         /// </summary>
@@ -2125,7 +2149,7 @@ namespace Tao.FreeType
         /// </summary>
         /// <param name="alibrary">A handle to a new library object.</param>
         /// <returns>FreeType error code. 0 means success.</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_Init_FreeType(out IntPtr /*IntPtr LibraryRec_*/ alibrary);
 
         /// <summary>
@@ -2135,7 +2159,7 @@ namespace Tao.FreeType
         /// <param name="amajor">The major version number.</param>
         /// <param name="aminor">The minor version number</param>
         /// <param name="apatch">The patch version number</param>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void FT_Library_Version(IntPtr /*LibraryRec_*/ library, [In, Out] int[] amajor, [In, Out] int[] aminor, [In, Out] int[] apatch);
 
         /// <summary>
@@ -2143,7 +2167,7 @@ namespace Tao.FreeType
         /// </summary>
         /// <param name="library">A handle to the target library object</param>
         /// <returns>FreeType error code. 0 means success</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_Done_FreeType(IntPtr /*LibraryRec_*/ library);
 
         /// <summary>
@@ -2154,7 +2178,7 @@ namespace Tao.FreeType
         /// <param name="face_index">The index of the face within the font. The first face has index 0</param>
         /// <param name="aface"> A handle to a new face object. If ‘face_index’ is greater than or equal to zero, it must be non-NULL. See FT_Open_Face for more details.</param>
         /// <returns>FreeType error code. 0 means success.</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_New_Face(IntPtr /*LibraryRec_*/ library, string filepathname, int face_index, out IntPtr /*IntPtr FaceRec*/ aface);
 
         /// <summary>
@@ -2167,7 +2191,7 @@ namespace Tao.FreeType
         /// <param name="face_index">The index of the face within the font. The first face has index 0</param>
         /// <param name="aface">A handle to a new face object. If ‘face_index’ is greater than or equal to zero, it must be non-NULL. See FT_Open_Face for more details.</param>
         /// <returns>FreeType error code. 0 means success.</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_New_Memory_Face(IntPtr /*LibraryRec_*/ library, [In] byte[] file_base, int file_size, int face_index, IntPtr /*IntPtr FaceRec*/ aface);
 
         /// <summary>
@@ -2181,7 +2205,7 @@ namespace Tao.FreeType
         /// <param name="face_index">The index of the face within the font. The first face has index 0</param>
         /// <param name="aface">A handle to a new face object. If ‘face_index’ is greater than or equal to zero, it must be non-NULL. See note below</param>
         /// <returns>FreeType error code. 0 means success</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_Open_Face(IntPtr /*LibraryRec_*/ library, FT_Open_Args args, int face_index, IntPtr /*IntPtr FaceRec*/ aface);
 
         /// <summary>
@@ -2190,7 +2214,7 @@ namespace Tao.FreeType
         /// <param name="face">The target face object.</param>
         /// <param name="filepathname">The pathname</param>
         /// <returns>FreeType error code. 0 means success</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_Attach_File(IntPtr /*FaceRec*/ face, string filepathname);
 
         /// <summary>
@@ -2199,7 +2223,7 @@ namespace Tao.FreeType
         /// <param name="face">The target face object</param>
         /// <param name="parameters">A pointer to FT_Open_Args which must be filled by the caller</param>
         /// <returns>FreeType error code. 0 means success</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_Attach_Stream(IntPtr /*FaceRec*/ face, ref FT_Open_Args parameters);
 
         /// <summary>
@@ -2207,7 +2231,7 @@ namespace Tao.FreeType
         /// </summary>
         /// <param name="face">A handle to a target face object.</param>
         /// <returns>FreeType error code. 0 means success</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_Done_Face(IntPtr /*FaceRec*/ face);
 
         /// <summary>
@@ -2222,7 +2246,7 @@ namespace Tao.FreeType
         /// <param name="horz_resolution">The horizontal resolution in dpi</param>
         /// <param name="vert_resolution">The vertical resolution in dpi</param>
         /// <returns>FreeType error code. 0 means success</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_Set_Char_Size(IntPtr /*FaceRec*/ face, int char_width, int char_height, uint horz_resolution, uint vert_resolution);
 
         /// <summary>
@@ -2232,7 +2256,7 @@ namespace Tao.FreeType
         /// <param name="pixel_width">The nominal width, in pixels.</param>
         /// <param name="pixel_height">The nominal height, in pixels</param>
         /// <returns>FreeType error code. 0 means success</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_Set_Pixel_Sizes(IntPtr /*FaceRec*/ face, uint pixel_width, uint pixel_height);
 
         /// <summary>
@@ -2243,7 +2267,7 @@ namespace Tao.FreeType
         /// <param name="glyph_index">The index of the glyph in the font file. For CID-keyed fonts (either in PS or in CFF format) this argument specifies the CID value.</param>
         /// <param name="load_flags">A flag indicating what to load for this glyph. The FT_LOAD_XXX constants can be used to control the glyph loading process (e.g., whether the outline should be scaled, whether to load bitmaps or not, whether to hint the outline, etc).</param>
         /// <returns>FreeType error code. 0 means success.</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_Load_Glyph(IntPtr /*FaceRec*/ face, uint glyph_index, int load_flags);
 
         /// <summary>
@@ -2254,7 +2278,7 @@ namespace Tao.FreeType
         /// <param name="char_code">The glyph's character code, according to the current charmap used in the face</param>
         /// <param name="load_flags">A flag indicating what to load for this glyph. The FT_LOAD_XXX constants can be used to control the glyph loading process (e.g., whether the outline should be scaled, whether to load bitmaps or not, whether to hint the outline, etc).</param>
         /// <returns>FreeType error code. 0 means success</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_Load_Char(IntPtr /*FaceRec*/ face, uint char_code, int load_flags);
 
         /// <summary>
@@ -2265,7 +2289,7 @@ namespace Tao.FreeType
         /// <param name="face">A handle to the source face object</param>
         /// <param name="matrix">A pointer to the transformation's 2x2 matrix. Use 0 for the identity matrix</param>
         /// <param name="delta">A pointer to the translation vector. Use 0 for the null vector</param>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void FT_Set_Transform(IntPtr /*FaceRec*/ face, ref FT_Matrix matrix, ref FT_Vector delta);
 
         /// <summary>
@@ -2274,7 +2298,7 @@ namespace Tao.FreeType
         /// <param name="slot">A handle to the glyph slot containing the image to convert</param>
         /// <param name="render_mode">This is the render mode used to render the glyph image into a bitmap. See FT_Render_Mode for a list of possible values</param>
         /// <returns>FreeType error code. 0 means success</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_Render_Glyph(ref FT_GlyphSlotRec slot, FT_Render_Mode render_mode);
 
         /// <summary>
@@ -2286,7 +2310,7 @@ namespace Tao.FreeType
         /// <param name="kern_mode">See FT_Kerning_Mode for more information. Determines the scale and dimension of the returned kerning vector</param>
         /// <param name="akerning">The kerning vector. This is either in font units or in pixels (26.6 format) for scalable formats, and in pixels for fixed-sizes formats</param>
         /// <returns>FreeType error code. 0 means success</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_Get_Kerning(IntPtr /*FaceRec*/ face, uint left_glyph, uint right_glyph, uint kern_mode, out FT_Vector akerning);
 
         /// <summary>
@@ -2300,7 +2324,7 @@ namespace Tao.FreeType
         /// <param name="buffer">A pointer to a target buffer where the name is copied to</param>
         /// <param name="buffer_max">The maximal number of bytes available in the buffer</param>
         /// <returns>FreeType error code. 0 means success</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_Get_Glyph_Name(IntPtr /*FaceRec*/ face, uint glyph_index, IntPtr buffer, uint buffer_max);
 
         /// <summary>
@@ -2309,7 +2333,7 @@ namespace Tao.FreeType
         /// </summary>
         /// <param name="face">A handle to the source face object</param>
         /// <returns>A pointer to the face's Postscript name. NULL if unavailable</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern IntPtr /*sbyte*/ FT_Get_Postscript_Name(IntPtr /*FaceRec*/ face);
 
         /// <summary>
@@ -2320,7 +2344,7 @@ namespace Tao.FreeType
         /// <param name="face">A handle to the source face object</param>
         /// <param name="encoding">A handle to the selected encoding</param>
         /// <returns>FreeType error code. 0 means success</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_Select_Charmap(IntPtr /*FaceRec*/ face, FT_Encoding encoding);
 
         /// <summary>
@@ -2330,7 +2354,7 @@ namespace Tao.FreeType
         /// <param name="face">A handle to the source face object</param>
         /// <param name="charmap">A handle to the selected charmap</param>
         /// <returns>FreeType error code. 0 means success</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_Set_Charmap(IntPtr /*FaceRec*/ face, ref FT_CharMapRec charmap);
 
         /// <summary>
@@ -2338,7 +2362,7 @@ namespace Tao.FreeType
         /// </summary>
         /// <param name="charmap">A handle to a charmap</param>
         /// <returns>The index into the array of character maps within the face to which ‘charmap’ belongs</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_Get_Charmap_Index(ref FT_CharMapRec charmap);
 
         /// <summary>
@@ -2348,7 +2372,7 @@ namespace Tao.FreeType
         /// <param name="face">A handle to the source face object</param>
         /// <param name="charcode">The character code</param>
         /// <returns>The glyph index. 0 means ‘undefined character code’</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern uint FT_Get_Char_Index(IntPtr /*FaceRec*/ face, uint charcode);
 
         /// <summary>
@@ -2359,7 +2383,7 @@ namespace Tao.FreeType
         /// <param name="face">A handle to the source face object</param>
         /// <param name="agindex">Glyph index of first character code. 0 if charmap is empty</param>
         /// <returns>The charmap's first character code</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern uint FT_Get_First_Char(IntPtr /*FaceRec*/ face, [In, Out] uint[] agindex);
 
         /// <summary>
@@ -2371,7 +2395,7 @@ namespace Tao.FreeType
         /// <param name="char_code">The starting character code</param>
         /// <param name="agindex">Glyph index of first character code. 0 if charmap is empty</param>
         /// <returns>The charmap's next character code</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern uint FT_Get_Next_Char(IntPtr /*FaceRec*/ face, uint char_code, [In, Out] uint[] agindex);
 
         /// <summary>
@@ -2380,7 +2404,7 @@ namespace Tao.FreeType
         /// <param name="face">A handle to the source face object</param>
         /// <param name="glyph_name">The glyph name</param>
         /// <returns>The glyph index. 0 means ‘undefined character code’</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern uint FT_Get_Name_Index(IntPtr /*FaceRec*/ face, [In, Out] sbyte[] glyph_name);
 
         /// <summary>
@@ -2391,7 +2415,7 @@ namespace Tao.FreeType
         /// <param name="b">The second multiplier</param>
         /// <param name="c">The divisor</param>
         /// <returns>The result of ‘(a*b)/c’. This function never traps when trying to divide by zero; it simply returns ‘MaxInt’ or ‘MinInt’ depending on the signs of ‘a’ and ‘b’</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_MulDiv(int a, int b, int c);
 
         /// <summary>
@@ -2402,7 +2426,7 @@ namespace Tao.FreeType
         /// <param name="a">The first multiplier</param>
         /// <param name="b">The second multiplier. Use a 16.16 factor here whenever possible</param>
         /// <returns>The result of ‘(a*b)/0x10000’</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_MulFix(int a, int b);
 
         /// <summary>
@@ -2412,7 +2436,7 @@ namespace Tao.FreeType
         /// <param name="a">The first multiplier</param>
         /// <param name="b">The second multiplier. Use a 16.16 factor here whenever possible</param>
         /// <returns>The result of ‘(a*0x10000)/b’</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_DivFix(int a, int b);
 
         /// <summary>
@@ -2420,7 +2444,7 @@ namespace Tao.FreeType
         /// </summary>
         /// <param name="a">The number to be rounded</param>
         /// <returns>The result of ‘(a + 0x8000) &amp; -0x10000’</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_RoundFix(int a);
 
         /// <summary>
@@ -2428,7 +2452,7 @@ namespace Tao.FreeType
         /// </summary>
         /// <param name="a">The number for which the ceiling function is to be computed</param>
         /// <returns>The result of ‘(a + 0x10000 - 1) &amp;-0x10000’</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_CeilFix(int a);
 
         /// <summary>
@@ -2436,7 +2460,7 @@ namespace Tao.FreeType
         /// </summary>
         /// <param name="a">The number for which the floor function is to be computed</param>
         /// <returns>The result of ‘a &amp; -0x10000’</returns>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern int FT_FloorFix(int a);
 
         /// <summary>
@@ -2445,7 +2469,7 @@ namespace Tao.FreeType
         /// </summary>
         /// <param name="vec">The target vector to transform</param>
         /// <param name="matrix">A pointer to the source 2x2 matrix</param>
-        [DllImport(FT_DLL), SuppressUnmanagedCodeSecurity]
+        [DllImport(FT_NATIVE_LIBRARY, CallingConvention = CALLING_CONVENTION), SuppressUnmanagedCodeSecurity]
         public static extern void FT_Vector_Transform(ref FT_Vector vec, ref FT_Matrix matrix);
 
 
