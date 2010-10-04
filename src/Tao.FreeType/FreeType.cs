@@ -170,11 +170,11 @@ namespace Tao.FreeType
         /// <summary>
         /// 
         /// </summary>
-        public int x;
+        public IntPtr /*FT_Pos*/ x;
         /// <summary>
         /// 
         /// </summary>
-        public int y;
+        public IntPtr /*FT_Pos*/ y;
     }
 
     /// <summary>
@@ -186,19 +186,19 @@ namespace Tao.FreeType
         /// <summary>
         /// 
         /// </summary>
-        public int xMin;
+        public IntPtr /*FT_Pos*/xMin;
         /// <summary>
         /// 
         /// </summary>
-        public int yMin;
+        public IntPtr /*FT_Pos*/ yMin;
         /// <summary>
         /// 
         /// </summary>
-        public int xMax;
+        public IntPtr /*FT_Pos*/ xMax;
         /// <summary>
         /// 
         /// </summary>
-        public int yMax;
+        public IntPtr /*FT_Pos*/ yMax;
     }
 
     /// <summary>
@@ -530,35 +530,35 @@ namespace Tao.FreeType
         /// <summary>
         /// 
         /// </summary>
-        public int width;
+        public IntPtr width;
         /// <summary>
         /// 
         /// </summary>
-        public int height;
+        public IntPtr height;
         /// <summary>
         /// 
         /// </summary>
-        public int horiBearingX;
+        public IntPtr horiBearingX;
         /// <summary>
         /// 
         /// </summary>
-        public int horiBearingY;
+        public IntPtr horiBearingY;
         /// <summary>
         /// 
         /// </summary>
-        public int horiAdvance;
+        public IntPtr horiAdvance;
         /// <summary>
         /// 
         /// </summary>
-        public int vertBearingX;
+        public IntPtr vertBearingX;
         /// <summary>
         /// 
         /// </summary>
-        public int vertBearingY;
+        public IntPtr vertBearingY;
         /// <summary>
         /// 
         /// </summary>
-        public int vertAdvance;
+        public IntPtr vertAdvance;
     }
 
     /// <summary>
@@ -630,23 +630,23 @@ namespace Tao.FreeType
         /// <summary>
         /// 
         /// </summary>
-        public int num_faces;
+        public IntPtr /*FT_Long*/ num_faces;
         /// <summary>
         /// 
         /// </summary>
-        public int face_index;
+        public IntPtr /*FT_Long*/ face_index;
         /// <summary>
         /// /
         /// </summary>
-        public int face_flags;
+        public IntPtr /*FT_Long*/ face_flags;
         /// <summary>
         /// 
         /// </summary>
-        public int style_flags;
+        public IntPtr /*FT_Long*/ style_flags;
         /// <summary>
         /// 
         /// </summary>
-        public int num_glyphs;
+        public IntPtr /*FT_Long*/ num_glyphs;
         /// <summary>
         /// 
         /// </summary>
@@ -811,11 +811,11 @@ namespace Tao.FreeType
         /// <summary>
         /// 
         /// </summary>
-        public int linearHoriAdvance;
+        public IntPtr /*FT_Fixed*/ linearHoriAdvance;
         /// <summary>
         /// 
         /// </summary>
-        public int linearVertAdvance;
+        public IntPtr /*FT_Fixed*/ linearVertAdvance;
         /// <summary>
         /// 
         /// </summary>
